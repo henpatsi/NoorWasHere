@@ -1,0 +1,37 @@
+[gd_scene load_steps=14 format=3 uid="uid://b25ooshew3q2v"]
+
+[ext_resource type="Script" path="res://player/character_controller.gd" id="1_mlc4j"]
+[ext_resource type="AudioStream" uid="uid://brpy0oq2perul" path="res://player/footsteps/Concrete footstep 1.wav" id="2_jwcu0"]
+[ext_resource type="AudioStream" uid="uid://bpeqpaaaf327i" path="res://player/footsteps/Concrete footstep 2.wav" id="3_nygiy"]
+[ext_resource type="AudioStream" uid="uid://bh1bbwj8h13hl" path="res://player/footsteps/Concrete footstep 3.wav" id="4_hcqhq"]
+[ext_resource type="AudioStream" uid="uid://cwbow2m6k0sj2" path="res://player/footsteps/Concrete footstep 4.wav" id="5_v410j"]
+[ext_resource type="AudioStream" uid="uid://dn7dvyteu161k" path="res://player/footsteps/Concrete footstep 5.wav" id="6_4uoq0"]
+[ext_resource type="AudioStream" uid="uid://smop64i8dipc" path="res://player/footsteps/Concrete footstep 6.wav" id="7_pybik"]
+[ext_resource type="AudioStream" uid="uid://cjteew8k01rko" path="res://player/footsteps/Concrete footstep 7.wav" id="8_iq7hm"]
+[ext_resource type="AudioStream" uid="uid://cndffhdbogvvl" path="res://player/footsteps/Concrete footstep 8.wav" id="9_36wfv"]
+[ext_resource type="AudioStream" uid="uid://cacinnac6pw3l" path="res://player/footsteps/Concrete footstep 9.wav" id="10_w6k87"]
+[ext_resource type="AudioStream" uid="uid://ko8n21padphb" path="res://player/footsteps/Concrete footstep 10.wav" id="11_jghtd"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_3ceiv"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_8swph"]
+
+[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("footstep_audio_player")]
+script = ExtResource("1_mlc4j")
+footstep_audio_player = NodePath("FootstepAudioStreamPlayer")
+footstep_sound_effects = Array[AudioStream]([ExtResource("2_jwcu0"), ExtResource("3_nygiy"), ExtResource("4_hcqhq"), ExtResource("5_v410j"), ExtResource("6_4uoq0"), ExtResource("7_pybik"), ExtResource("8_iq7hm"), ExtResource("9_36wfv"), ExtResource("10_w6k87"), ExtResource("11_jghtd")])
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("CapsuleMesh_3ceiv")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_8swph")
+
+[node name="HeadNode" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.75, 0)
+
+[node name="Camera3D" type="Camera3D" parent="HeadNode"]
+
+[node name="FootstepAudioStreamPlayer" type="AudioStreamPlayer3D" parent="."]
