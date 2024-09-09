@@ -7,7 +7,6 @@ var mainMenuScene: PackedScene = load("res://menus/main_menu.tscn")
 @export var volume_value_label: Label
 @export var volume_slider: HSlider
 
-signal volume_changed
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -34,7 +33,6 @@ func _on_mouse_sensitivity_slider_value_changed(value: float) -> void:
 func _on_volume_slider_value_changed(value: float) -> void:
 	volume_value_label.text = str(round((value + 60) / 60 * 100))
 	GlobalSettings.volume_db = value
-	volume_changed.emit()
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), value)
 
 

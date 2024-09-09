@@ -65,7 +65,7 @@ func footstep(delta: float) -> void:
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
-		mouse_input = Vector2(event.relative.x, event.relative.y)
+		mouse_input = Vector2(event.relative.x, event.relative.y) * GlobalSettings.mouse_sensitivity_modifier
 
 func look(delta: float) -> void:
 	head_node.rotate_x(deg_to_rad(-mouse_input.y) * mouse_sensitivity * delta)

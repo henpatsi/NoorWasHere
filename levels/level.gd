@@ -17,3 +17,6 @@ func _input(event: InputEvent) -> void:
 		print("Pausing...")
 		var pauseMenuInstance = pauseMenu.instantiate()
 		add_child(pauseMenuInstance)
+
+	if event.is_action_pressed("mouse_left_click"):
+		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
