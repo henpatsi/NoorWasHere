@@ -7,11 +7,9 @@ var rng = RandomNumberGenerator.new()
 @export var max_move_speed: float = 5.0
 @export var jump_velocity: float = 4.5
 
-
 @onready var head_node: Node3D = $HeadNode
 @export var mouse_sensitivity: float = 10
 var mouse_input: Vector2
-
 
 var footstep_timer: float = 0.0
 @export var footstep_audio_player: AudioStreamPlayer3D
