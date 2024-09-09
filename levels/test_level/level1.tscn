@@ -1,14 +1,15 @@
-[gd_scene load_steps=19 format=3 uid="uid://c2234nu8xpvt0"]
+[gd_scene load_steps=20 format=3 uid="uid://c2234nu8xpvt0"]
 
-[ext_resource type="Script" path="res://levels/test_level/level.gd" id="1_1v4hd"]
+[ext_resource type="Script" path="res://levels/test_level/level1.gd" id="1_1v4hd"]
 [ext_resource type="Texture2D" uid="uid://c2ayxv7icdhpe" path="res://levels/test_level/textures/checkerboard.png" id="2_p7ure"]
 [ext_resource type="PackedScene" uid="uid://b25ooshew3q2v" path="res://player/player.tscn" id="3_g20sj"]
 [ext_resource type="Texture2D" uid="uid://ds3t06uf70r2f" path="res://levels/test_level/textures/alternative.png" id="3_s7unv"]
 [ext_resource type="Script" path="res://levels/test_level/portal_mesh.gd" id="5_tvk0s"]
+[ext_resource type="PackedScene" uid="uid://bfrftya3biwtr" path="res://levels/test_level/characters/regular_woman/regular_woman.tscn" id="6_8opoe"]
 [ext_resource type="Script" path="res://levels/test_level/portal_camera.gd" id="6_o5kxx"]
 [ext_resource type="PackedScene" uid="uid://1p2dvutw6qii" path="res://levels/test_level/objects/crate/pt_crate.tscn" id="7_5mpxo"]
-[ext_resource type="PackedScene" uid="uid://cdybubulkmiro" path="res://levels/test_level/characters/regular_woman/Ch13_nonPBR.fbx" id="7_c6lq4"]
-[ext_resource type="PackedScene" uid="uid://bvxo5ykg32dal" path="res://levels/test_level/characters/zombie_woman/Zombiegirl W Kurniawan.fbx" id="7_wy01h"]
+[ext_resource type="PackedScene" uid="uid://cxf7f3irmpl24" path="res://levels/test_level/objects/crate/crate_interactable.tscn" id="8_5rts8"]
+[ext_resource type="PackedScene" uid="uid://drhfl7suayntw" path="res://levels/test_level/characters/zombie_woman/zombie_woman.tscn" id="9_mk8wn"]
 [ext_resource type="PackedScene" uid="uid://1mab64euaux2" path="res://levels/test_level/objects/crate/pt_crate_seperated.tscn" id="10_wu7as"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_wi2ob"]
@@ -79,11 +80,14 @@ use_collision = true
 size = Vector3(100, 2, 100)
 material = SubResource("StandardMaterial3D_7gkht")
 
-[node name="BeforeWoman" parent="BeforeWorld" instance=ExtResource("7_c6lq4")]
+[node name="ReqularWoman" parent="BeforeWorld" instance=ExtResource("6_8opoe")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -10)
 
 [node name="PT_Crate" parent="BeforeWorld" instance=ExtResource("7_5mpxo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0.5, -7)
+
+[node name="CrateInteractable" parent="BeforeWorld" instance=ExtResource("8_5rts8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.74777, 0.5, -7.634)
 
 [node name="AfterWorld" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 200, 0, 0)
@@ -94,7 +98,7 @@ use_collision = true
 size = Vector3(100, 2, 100)
 material = SubResource("StandardMaterial3D_vgnp6")
 
-[node name="AfterWoman" parent="AfterWorld" instance=ExtResource("7_wy01h")]
+[node name="ZombieWoman" parent="AfterWorld" instance=ExtResource("9_mk8wn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -10)
 
 [node name="PT_Crate_Seperated" parent="AfterWorld" instance=ExtResource("10_wu7as")]

@@ -16,6 +16,10 @@ var footstep_timer: float = 0.0
 @export var footstep_duration: float = 0.5
 @export var footstep_sound_effects: Array[AudioStream]
 
+@export var ray_cast: RayCast3D
+@export var ray_distance: float = 3.0
+var ray_collision_object: Object
+
 
 func _ready() -> void:
 	pass
@@ -26,6 +30,8 @@ func _physics_process(delta: float) -> void:
 	air(delta)
 	move(delta)
 	look(delta)
+
+	raycast()
 
 	move_and_slide()
 
@@ -61,10 +67,6 @@ func footstep(delta: float) -> void:
 
 # LOOK
 
-func _input(event: InputEvent) -> void:
-	if event is InputEventMouseMotion:
-		mouse_input = Vector2(event.relative.x, event.relative.y) * GlobalSettings.mouse_sensitivity_modifier
-
 func look(delta: float) -> void:
 	head_node.rotate_x(deg_to_rad(-mouse_input.y) * mouse_sensitivity * delta)
 	head_node.rotation.x = clampf(head_node.rotation.x, deg_to_rad(-90), deg_to_rad(90))
@@ -82,3 +84,23 @@ func air(delta: float) -> void:
 	# Handle jump.
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = jump_velocity
+
+
+# INTERACT
+
+func raycast() -> void:
+	ray_cast.target_position = Vector3.FORWARD * ray_distance
+	ray_collision_object = ray_cast.get_collider()
+	if ray_collision_object:
+		print(ray_collision_object)
+
+
+# INPUT
+
+func _input(event: InputEvent) -> void:
+	if event is InputEventMouseMotion:
+		mouse_input = Vector2(event.relative.x, event.relative.y) * GlobalSettings.mouse_sensitivity_modifier
+	
+	if event.is_action_pressed("interact"):
+		if ray_collision_object.is_in_group("Interactable"):
+			ray_collision_object.interact()

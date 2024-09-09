@@ -1,6 +1,7 @@
-[gd_scene load_steps=12 format=3 uid="uid://1mab64euaux2"]
+[gd_scene load_steps=13 format=3 uid="uid://cxf7f3irmpl24"]
 
-[ext_resource type="PackedScene" uid="uid://delmuwkn0w1ae" path="res://levels/test_level/objects/crate/PT_Crate_Seperated.fbx" id="1_kh03y"]
+[ext_resource type="PackedScene" uid="uid://delmuwkn0w1ae" path="res://levels/test_level/objects/crate/PT_Crate_Seperated.fbx" id="1_6fvdo"]
+[ext_resource type="Script" path="res://levels/test_level/objects/crate/crate_interactable.gd" id="2_ac48j"]
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_020kw"]
 points = PackedVector3Array(-0.5, -0.0781249, -0.5, -0.5, -0.0781249, 0.5, -0.5, 0.046875, -0.5, 0.5, -0.0781249, -0.5, -0.5, 0.046875, 0.5, 0.5, -0.0781249, 0.5, 0.5, 0.046875, -0.5, 0.5, 0.046875, 0.5)
@@ -32,15 +33,16 @@ points = PackedVector3Array(-0.0625, -0.375, -0.0625, -0.0625, -0.375, 0.0625, -
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_1bkan"]
 points = PackedVector3Array(-0.0625, -0.375, -0.0625, -0.0625, -0.375, 0.0625, -0.0625, 0.374927, -0.0625, 0.0624878, -0.375, -0.0625, 0.0625, -0.375, 0.0624878, -0.0625, 0.374927, 0.0625, 0.0624878, 0.375, -0.0625, 0.0624878, 0.374927, 0.0624878)
 
-[node name="PT_Crate_Seperated" instance=ExtResource("1_kh03y")]
+[node name="CrateInteractable" instance=ExtResource("1_6fvdo")]
 
 [node name="PT_Crate_Seperated" parent="." index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
 [node name="Lid_Top_PT" parent="PT_Crate_Seperated" index="0"]
-transform = Transform3D(0.635903, 0.771769, 0, -0.771769, 0.635903, 0, 0, 0, 1, 0.886319, -0.0645817, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.453125, 0)
 
-[node name="StaticBody3D" type="StaticBody3D" parent="PT_Crate_Seperated/Lid_Top_PT" index="0"]
+[node name="StaticBody3D" type="StaticBody3D" parent="PT_Crate_Seperated/Lid_Top_PT" index="0" groups=["Interactable"]]
+script = ExtResource("2_ac48j")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PT_Crate_Seperated/Lid_Top_PT/StaticBody3D" index="0"]
 shape = SubResource("ConvexPolygonShape3D_020kw")
