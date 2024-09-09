@@ -1,0 +1,103 @@
+[gd_scene load_steps=19 format=3 uid="uid://c2234nu8xpvt0"]
+
+[ext_resource type="Script" path="res://levels/test_level/level.gd" id="1_1v4hd"]
+[ext_resource type="Texture2D" uid="uid://c2ayxv7icdhpe" path="res://levels/test_level/textures/checkerboard.png" id="2_p7ure"]
+[ext_resource type="PackedScene" uid="uid://b25ooshew3q2v" path="res://player/player.tscn" id="3_g20sj"]
+[ext_resource type="Texture2D" uid="uid://ds3t06uf70r2f" path="res://levels/test_level/textures/alternative.png" id="3_s7unv"]
+[ext_resource type="Script" path="res://levels/test_level/portal_mesh.gd" id="5_tvk0s"]
+[ext_resource type="Script" path="res://levels/test_level/portal_camera.gd" id="6_o5kxx"]
+[ext_resource type="PackedScene" uid="uid://1p2dvutw6qii" path="res://levels/test_level/objects/crate/pt_crate.tscn" id="7_5mpxo"]
+[ext_resource type="PackedScene" uid="uid://cdybubulkmiro" path="res://levels/test_level/characters/regular_woman/Ch13_nonPBR.fbx" id="7_c6lq4"]
+[ext_resource type="PackedScene" uid="uid://bvxo5ykg32dal" path="res://levels/test_level/characters/zombie_woman/Zombiegirl W Kurniawan.fbx" id="7_wy01h"]
+[ext_resource type="PackedScene" uid="uid://1mab64euaux2" path="res://levels/test_level/objects/crate/pt_crate_seperated.tscn" id="10_wu7as"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_wi2ob"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_olqo2"]
+sky_material = SubResource("ProceduralSkyMaterial_wi2ob")
+
+[sub_resource type="Environment" id="Environment_5oly5"]
+background_mode = 2
+sky = SubResource("Sky_olqo2")
+tonemap_mode = 2
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_li7kw"]
+viewport_path = NodePath("Portal/SubViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_isucw"]
+resource_local_to_scene = true
+albedo_texture = SubResource("ViewportTexture_li7kw")
+emission_energy_multiplier = 3.25
+
+[sub_resource type="QuadMesh" id="QuadMesh_2eclo"]
+resource_local_to_scene = true
+material = SubResource("StandardMaterial3D_isucw")
+size = Vector2(0.2, 0.2)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7gkht"]
+albedo_texture = ExtResource("2_p7ure")
+uv1_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vgnp6"]
+albedo_texture = ExtResource("3_s7unv")
+uv1_triplanar = true
+
+[node name="Level" type="Node3D"]
+script = ExtResource("1_1v4hd")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_5oly5")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
+shadow_enabled = true
+
+[node name="Player" parent="." instance=ExtResource("3_g20sj")]
+
+[node name="Portal" type="Node" parent="."]
+
+[node name="OtherWorldMesh" type="MeshInstance3D" parent="Portal" node_paths=PackedStringArray("playerPortalPosition")]
+mesh = SubResource("QuadMesh_2eclo")
+skeleton = NodePath("../SubViewport")
+script = ExtResource("5_tvk0s")
+playerPortalPosition = NodePath("../../Player/HeadNode/PortalPosition")
+
+[node name="SubViewport" type="SubViewport" parent="Portal"]
+
+[node name="PortalCamera" type="Camera3D" parent="Portal/SubViewport" node_paths=PackedStringArray("playerHead")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 200, 0, 0)
+script = ExtResource("6_o5kxx")
+playerHead = NodePath("../../../Player/HeadNode")
+
+[node name="BeforeWorld" type="Node3D" parent="."]
+
+[node name="Floor" type="CSGBox3D" parent="BeforeWorld"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+use_collision = true
+size = Vector3(100, 2, 100)
+material = SubResource("StandardMaterial3D_7gkht")
+
+[node name="BeforeWoman" parent="BeforeWorld" instance=ExtResource("7_c6lq4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -10)
+
+[node name="PT_Crate" parent="BeforeWorld" instance=ExtResource("7_5mpxo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0.5, -7)
+
+[node name="AfterWorld" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 200, 0, 0)
+
+[node name="Floor2" type="CSGBox3D" parent="AfterWorld"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+use_collision = true
+size = Vector3(100, 2, 100)
+material = SubResource("StandardMaterial3D_vgnp6")
+
+[node name="AfterWoman" parent="AfterWorld" instance=ExtResource("7_wy01h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -10)
+
+[node name="PT_Crate_Seperated" parent="AfterWorld" instance=ExtResource("10_wu7as")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0.5, -7)
+
+[editable path="Player"]
