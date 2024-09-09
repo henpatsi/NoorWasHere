@@ -91,8 +91,6 @@ func air(delta: float) -> void:
 func raycast() -> void:
 	ray_cast.target_position = Vector3.FORWARD * ray_distance
 	ray_collision_object = ray_cast.get_collider()
-	if ray_collision_object:
-		print(ray_collision_object)
 
 
 # INPUT
@@ -102,5 +100,5 @@ func _input(event: InputEvent) -> void:
 		mouse_input = Vector2(event.relative.x, event.relative.y) * GlobalSettings.mouse_sensitivity_modifier
 	
 	if event.is_action_pressed("interact"):
-		if ray_collision_object.is_in_group("Interactable"):
+		if ray_collision_object and ray_collision_object.is_in_group("Interactable"):
 			ray_collision_object.interact()
