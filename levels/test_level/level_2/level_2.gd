@@ -2,8 +2,7 @@ extends Node3D
 
 @export var pauseMenu: PackedScene = preload("res://menus/pause_menu.tscn")
 
-@onready var player: CharacterBody3D = $Player
-@onready var portal_camera: Camera3D = $Portal/SubViewport/PortalCamera
+@onready var picture: MeshInstance3D = $Portal/Picture
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -26,5 +25,7 @@ func _input(event: InputEvent) -> void:
 
 	if event.is_action_pressed("swap_places"):
 		print("Swapping places")
-		portal_camera.swap_places()
+		picture.swap_places()
 		
+	if event.is_action_pressed("inspect_picture"):
+		picture.inspecting = !picture.inspecting

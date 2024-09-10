@@ -38,7 +38,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.75, 0)
 
 [node name="RayCast3D" type="RayCast3D" parent="HeadNode/Camera3D"]
 
-[node name="PortalPosition" type="Node3D" parent="HeadNode"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, -0.1, -0.5)
+[node name="PicturePositionDown" type="Node3D" parent="HeadNode"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.4, -0.5)
+
+[node name="PicturePositionUp" type="Node3D" parent="HeadNode"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.5)
 
 [node name="FootstepAudioStreamPlayer" type="AudioStreamPlayer3D" parent="."]
