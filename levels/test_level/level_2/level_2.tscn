@@ -1,0 +1,156 @@
+[gd_scene load_steps=19 format=3 uid="uid://dc7gb28v1f2mg"]
+
+[ext_resource type="Script" path="res://levels/test_level/level_2/level_2.gd" id="1_4gdoe"]
+[ext_resource type="PackedScene" uid="uid://b25ooshew3q2v" path="res://player/player.tscn" id="2_ery4q"]
+[ext_resource type="Script" path="res://levels/test_level/level_2/portal_mesh_2.gd" id="3_3w0bo"]
+[ext_resource type="Script" path="res://levels/test_level/level_2/portal_camera_2.gd" id="4_p3hrs"]
+[ext_resource type="Texture2D" uid="uid://c2ayxv7icdhpe" path="res://levels/test_level/textures/checkerboard.png" id="5_qjndn"]
+[ext_resource type="Texture2D" uid="uid://ds3t06uf70r2f" path="res://levels/test_level/textures/alternative.png" id="9_0wusc"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_wi2ob"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_olqo2"]
+sky_material = SubResource("ProceduralSkyMaterial_wi2ob")
+
+[sub_resource type="Environment" id="Environment_5oly5"]
+background_mode = 2
+sky = SubResource("Sky_olqo2")
+tonemap_mode = 2
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_li7kw"]
+viewport_path = NodePath("Portal/SubViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_isucw"]
+resource_local_to_scene = true
+albedo_texture = SubResource("ViewportTexture_li7kw")
+emission_energy_multiplier = 3.25
+
+[sub_resource type="QuadMesh" id="QuadMesh_2eclo"]
+resource_local_to_scene = true
+material = SubResource("StandardMaterial3D_isucw")
+size = Vector2(0.2, 0.2)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7gkht"]
+albedo_texture = ExtResource("5_qjndn")
+uv1_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gb20o"]
+albedo_color = Color(0.912985, 0.414904, 0.327808, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mb7k7"]
+albedo_color = Color(0.971994, 0.653016, 0.340998, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vgnp6"]
+albedo_texture = ExtResource("9_0wusc")
+uv1_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_aewat"]
+albedo_color = Color(0.941176, 0, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rx4yq"]
+albedo_color = Color(0.270241, 0.124656, 0.00972022, 1)
+
+[node name="Level" type="Node3D"]
+script = ExtResource("1_4gdoe")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_5oly5")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
+shadow_enabled = true
+
+[node name="Player" parent="." instance=ExtResource("2_ery4q")]
+
+[node name="Portal" type="Node" parent="."]
+
+[node name="OtherWorldMesh" type="MeshInstance3D" parent="Portal" node_paths=PackedStringArray("playerPortalPosition")]
+mesh = SubResource("QuadMesh_2eclo")
+skeleton = NodePath("../SubViewport")
+script = ExtResource("3_3w0bo")
+playerPortalPosition = NodePath("../../Player/HeadNode/PortalPosition")
+
+[node name="SubViewport" type="SubViewport" parent="Portal"]
+
+[node name="PortalCamera" type="Camera3D" parent="Portal/SubViewport" node_paths=PackedStringArray("originalObjects", "replacementObjects")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 200, 1.7, 0)
+script = ExtResource("4_p3hrs")
+originalObjects = NodePath("../../../BeforeWorld/OriginalObjects")
+replacementObjects = NodePath("../../../AfterWorld/ReplacementObjects")
+
+[node name="BeforeWorld" type="Node3D" parent="."]
+
+[node name="Floor" type="CSGBox3D" parent="BeforeWorld"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+use_collision = true
+size = Vector3(100, 2, 100)
+material = SubResource("StandardMaterial3D_7gkht")
+
+[node name="Wall2" type="CSGBox3D" parent="BeforeWorld"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 4.47986, 2, -15.4358)
+use_collision = true
+size = Vector3(10, 4, 1)
+material = SubResource("StandardMaterial3D_gb20o")
+
+[node name="Wall4" type="CSGBox3D" parent="BeforeWorld"]
+transform = Transform3D(0.999796, 0, -0.0201921, 0, 1, 0, 0.0201921, 0, 0.999796, -0.0384645, 2, -20.529)
+use_collision = true
+size = Vector3(10, 4, 1)
+material = SubResource("StandardMaterial3D_gb20o")
+
+[node name="Wall3" type="CSGBox3D" parent="BeforeWorld"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -4.39754, 2, -15.4358)
+use_collision = true
+size = Vector3(10, 4, 1)
+material = SubResource("StandardMaterial3D_gb20o")
+
+[node name="OriginalObjects" type="Node3D" parent="BeforeWorld"]
+
+[node name="Wall" type="CSGBox3D" parent="BeforeWorld/OriginalObjects"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -10)
+use_collision = true
+size = Vector3(10, 4, 1)
+material = SubResource("StandardMaterial3D_gb20o")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="BeforeWorld/OriginalObjects/Wall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.412496, 0)
+operation = 2
+size = Vector3(2, 3, 1)
+
+[node name="Door" type="CSGBox3D" parent="BeforeWorld/OriginalObjects"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.59414, -10)
+use_collision = true
+size = Vector3(1.97, 2.97, 0.5)
+material = SubResource("StandardMaterial3D_mb7k7")
+
+[node name="AfterWorld" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 200, 0, 0)
+
+[node name="Floor2" type="CSGBox3D" parent="AfterWorld"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+use_collision = true
+size = Vector3(100, 2, 100)
+material = SubResource("StandardMaterial3D_vgnp6")
+
+[node name="ReplacementObjects" type="Node3D" parent="AfterWorld"]
+
+[node name="Wall" type="CSGBox3D" parent="AfterWorld/ReplacementObjects"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -10)
+use_collision = true
+size = Vector3(10, 4, 1)
+material = SubResource("StandardMaterial3D_aewat")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="AfterWorld/ReplacementObjects/Wall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.412496, 0)
+operation = 2
+size = Vector3(2, 3, 1)
+
+[node name="Door" type="CSGBox3D" parent="AfterWorld/ReplacementObjects"]
+transform = Transform3D(0.516459, 0, -0.856312, 0, 1, 0, 0.856312, 0, 0.516459, -0.325958, 1.59414, -9.04705)
+use_collision = true
+size = Vector3(1.97, 2.97, 0.5)
+material = SubResource("StandardMaterial3D_rx4yq")
+
+[editable path="Player"]
