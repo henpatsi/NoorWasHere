@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" path="res://levels/test_level/level_2/level_2.gd" id="1_4gdoe"]
 [ext_resource type="PackedScene" uid="uid://b25ooshew3q2v" path="res://player/player.tscn" id="2_ery4q"]
-[ext_resource type="Script" path="res://levels/test_level/level_2/portal_mesh_2.gd" id="3_3w0bo"]
-[ext_resource type="Script" path="res://levels/test_level/level_2/portal_camera_2.gd" id="4_p3hrs"]
+[ext_resource type="Script" path="res://levels/test_level/level_2/picture.gd" id="3_3w0bo"]
+[ext_resource type="Script" path="res://levels/test_level/level_2/picture_handler.gd" id="3_r0p8w"]
 [ext_resource type="Texture2D" uid="uid://c2ayxv7icdhpe" path="res://levels/test_level/textures/checkerboard.png" id="5_qjndn"]
 [ext_resource type="Texture2D" uid="uid://ds3t06uf70r2f" path="res://levels/test_level/textures/alternative.png" id="9_0wusc"]
 
@@ -20,7 +20,7 @@ sky = SubResource("Sky_olqo2")
 tonemap_mode = 2
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_li7kw"]
-viewport_path = NodePath("Portal/SubViewport")
+viewport_path = NodePath("Pictures/1/SubViewport")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_isucw"]
 resource_local_to_scene = true
@@ -70,20 +70,23 @@ shadow_enabled = true
 
 [node name="Player" parent="." instance=ExtResource("2_ery4q")]
 
-[node name="Portal" type="Node" parent="."]
+[node name="Pictures" type="Node" parent="." node_paths=PackedStringArray("pictures")]
+script = ExtResource("3_r0p8w")
+pictures = [NodePath("1/Picture")]
 
-[node name="Picture" type="MeshInstance3D" parent="Portal"]
+[node name="1" type="Node" parent="Pictures"]
+
+[node name="Picture" type="MeshInstance3D" parent="Pictures/1" node_paths=PackedStringArray("original_objects", "replacement_objects")]
 mesh = SubResource("QuadMesh_2eclo")
 skeleton = NodePath("../SubViewport")
 script = ExtResource("3_3w0bo")
+original_objects = NodePath("../../../BeforeWorld/OriginalObjects1")
+replacement_objects = NodePath("../../../AfterWorld/ReplacementObjects1")
 
-[node name="SubViewport" type="SubViewport" parent="Portal"]
+[node name="SubViewport" type="SubViewport" parent="Pictures/1"]
 
-[node name="PortalCamera" type="Camera3D" parent="Portal/SubViewport" node_paths=PackedStringArray("originalObjects", "replacementObjects")]
+[node name="PortalCamera" type="Camera3D" parent="Pictures/1/SubViewport"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 200, 1.7, -4.69758)
-script = ExtResource("4_p3hrs")
-originalObjects = NodePath("../../../BeforeWorld/OriginalObjects")
-replacementObjects = NodePath("../../../AfterWorld/ReplacementObjects")
 
 [node name="BeforeWorld" type="Node3D" parent="."]
 
@@ -116,26 +119,26 @@ use_collision = true
 size = Vector3(10.9324, 4.07324, 1.15576)
 material = SubResource("StandardMaterial3D_gb20o")
 
-[node name="OriginalObjects" type="Node3D" parent="BeforeWorld"]
+[node name="OriginalObjects1" type="Node3D" parent="BeforeWorld"]
 
-[node name="Wall" type="CSGBox3D" parent="BeforeWorld/OriginalObjects"]
+[node name="Wall" type="CSGBox3D" parent="BeforeWorld/OriginalObjects1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -10)
 use_collision = true
 size = Vector3(7.5, 4, 1)
 material = SubResource("StandardMaterial3D_gb20o")
 
-[node name="CSGBox3D2" type="CSGBox3D" parent="BeforeWorld/OriginalObjects/Wall"]
+[node name="CSGBox3D2" type="CSGBox3D" parent="BeforeWorld/OriginalObjects1/Wall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.412496, 0)
 operation = 2
 size = Vector3(2, 3, 1)
 
-[node name="Door" type="CSGBox3D" parent="BeforeWorld/OriginalObjects"]
+[node name="Door" type="CSGBox3D" parent="BeforeWorld/OriginalObjects1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.59414, -10)
 use_collision = true
 size = Vector3(1.97, 2.97, 0.5)
 material = SubResource("StandardMaterial3D_mb7k7")
 
-[node name="Floor" type="CSGBox3D" parent="BeforeWorld/OriginalObjects"]
+[node name="Floor" type="CSGBox3D" parent="BeforeWorld/OriginalObjects1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0933533, -0.33323, -8.07701)
 size = Vector3(7.5, 0.866, 3.324)
 material = SubResource("StandardMaterial3D_fbmlc")
@@ -149,26 +152,26 @@ use_collision = true
 size = Vector3(100, 2, 100)
 material = SubResource("StandardMaterial3D_vgnp6")
 
-[node name="ReplacementObjects" type="Node3D" parent="AfterWorld"]
+[node name="ReplacementObjects1" type="Node3D" parent="AfterWorld"]
 
-[node name="Wall" type="CSGBox3D" parent="AfterWorld/ReplacementObjects"]
+[node name="Wall" type="CSGBox3D" parent="AfterWorld/ReplacementObjects1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -10)
 use_collision = true
 size = Vector3(7.5, 4, 1)
 material = SubResource("StandardMaterial3D_aewat")
 
-[node name="CSGBox3D2" type="CSGBox3D" parent="AfterWorld/ReplacementObjects/Wall"]
+[node name="CSGBox3D2" type="CSGBox3D" parent="AfterWorld/ReplacementObjects1/Wall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.412496, 0)
 operation = 2
 size = Vector3(2, 3, 1)
 
-[node name="Door" type="CSGBox3D" parent="AfterWorld/ReplacementObjects"]
+[node name="Door" type="CSGBox3D" parent="AfterWorld/ReplacementObjects1"]
 transform = Transform3D(0.516459, 0, -0.856312, 0, 1, 0, 0.856312, 0, 0.516459, -0.325958, 1.59414, -9.04705)
 use_collision = true
 size = Vector3(1.97, 2.97, 0.5)
 material = SubResource("StandardMaterial3D_rx4yq")
 
-[node name="Floor" type="CSGBox3D" parent="AfterWorld/ReplacementObjects"]
+[node name="Floor" type="CSGBox3D" parent="AfterWorld/ReplacementObjects1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0933533, -0.33323, -8.07701)
 size = Vector3(7.5, 0.866, 3.324)
 material = SubResource("StandardMaterial3D_yleyx")

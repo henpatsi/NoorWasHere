@@ -1,12 +1,11 @@
 extends MeshInstance3D
 
-@onready var portal_camera: Camera3D = $"../SubViewport/PortalCamera"
-@onready var picture_position_up: Node3D = $"../../Player/HeadNode/PicturePositionUp"
-@onready var picture_position_down: Node3D = $"../../Player/HeadNode/PicturePositionDown"
+@onready var picture_position_down: Node3D = $"../../../Player/HeadNode/PicturePositionDown"
+@onready var picture_position_up: Node3D = $"../../../Player/HeadNode/PicturePositionUp"
 
-@onready var player: CharacterBody3D = $"../../Player"
+@export var original_objects: Node3D
+@export var replacement_objects: Node3D
 
-var following: bool = true
 var inspecting: bool = false
 
 # Called when the node enters the scene tree for the first time.
@@ -15,9 +14,6 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
-	if not following:
-		return
-	
 	if not inspecting:
 		global_position = picture_position_down.global_position
 	else:
@@ -25,5 +21,6 @@ func _process(_delta: float) -> void:
 	global_rotation = picture_position_down.global_rotation
 	
 func swap_places() -> void:
-	portal_camera.swap_places()
-	queue_free()
+	var temppos: Vector3 = replacement_objects.global_position
+	replacement_objects.global_position = original_objects.global_position
+	original_objects.global_position = temppos
