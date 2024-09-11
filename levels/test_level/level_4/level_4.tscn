@@ -48,6 +48,15 @@ uv1_triplanar = true
 [node name="Level" type="Node3D"]
 script = ExtResource("1_nq8eo")
 
+[node name="BlackBars" type="ColorRect" parent="."]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_5oly5")
 
@@ -86,7 +95,7 @@ size = Vector2i(1280, 720)
 transform = Transform3D(0.928486, 0, 0.371368, 0, 1, 0, -0.371368, 0, 0.928486, 202.745, 1.75, -6.101)
 cull_mask = 1048063
 
-[node name="BlackBars" type="ColorRect" parent="."]
+[node name="BlackBars2" type="ColorRect" parent="."]
 visible = false
 anchors_preset = 15
 anchor_right = 1.0

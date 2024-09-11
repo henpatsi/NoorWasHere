@@ -4,6 +4,7 @@ extends TextureRect
 @onready var player_camera: Camera3D = $"../../../Player/HeadNode/Camera3D"
 
 @onready var black_bars: ColorRect = $"../../../BlackBars"
+@onready var black_bars2: ColorRect = $"../../../BlackBars2"
 
 @export var camera: Camera3D
 @onready var camera_picture_position: Vector3 = camera.global_position
@@ -27,13 +28,14 @@ func _process(_delta: float) -> void:
 func toggle_inspecting() -> void:
 	inspecting = not inspecting
 	var tween = create_tween()
-	if inspecting:
+	if inside_picture:
+		exit_picture()
+	elif inspecting:
 		tween.tween_property(self, "position:y", 180, 1)
 	else:
 		tween.tween_property(self, "position:y", 570, 1)
 
-	if inside_picture:
-		exit_picture()
+	
 
 func enter_picture() -> void:
 	if not inspecting:
@@ -43,10 +45,8 @@ func enter_picture() -> void:
 		print("Already inside picture")
 		return
 
+	black_bars2.show()
 	black_bars.show()
-
-	position = Vector2.ZERO
-	scale = Vector2.ONE
 
 	player.global_position = camera.global_position
 	player.position.y = 0
@@ -55,22 +55,34 @@ func enter_picture() -> void:
 	inside_picture = true
 	
 	await get_tree().create_timer(0.3).timeout
-	black_bars.hide()
+	black_bars2.hide()
+	await get_tree().create_timer(0.3).timeout
+	
+	var zoomTween = create_tween().set_parallel()
+	zoomTween.tween_property(self, "position:y", 0, 1)
+	zoomTween.tween_property(self, "position:x", 0, 1)
+	zoomTween.tween_property(self, "scale:x", 1, 1)
+	zoomTween.tween_property(self, "scale:y", 1, 1)
 
 
 func exit_picture() -> void:
 	inside_picture = false
 
-	black_bars.show()
+	black_bars2.show()
+	black_bars.hide()
 
 	player.global_position -= world.global_position
 	player.position.y = 0
-	
-	position = Vector2(320, 570)
-	scale = Vector2(0.5, 0.5)
 
 	camera.global_position = camera_picture_position
 	camera.global_rotation = camera_picture_rotation
 	
+	scale = Vector2(0.5, 0.5)
+	position = Vector2(320, 180)
+	
 	await get_tree().create_timer(0.3).timeout
-	black_bars.hide()
+	black_bars2.hide()
+	await get_tree().create_timer(0.3).timeout
+
+	var tween = create_tween()
+	tween.tween_property(self, "position:y", 570, 1)
