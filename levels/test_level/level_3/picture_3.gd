@@ -34,19 +34,32 @@ func check_player_position() -> void:
 	if not inspecting or inside_picture:
 		return
 
-	if (printTimer > 1):
-		printTimer = 0
-		print(player.position)
-		print(camera.position - world_offset)
-		print(player.rotation)
-		print(camera.rotation)
-	
 	var campos = camera.position
 	campos.y = 0
+	
+	var playerpos = player.position + (player.transform.basis * Vector3.FORWARD * 3)
 
-	if player.position.distance_to(campos - world_offset) > 1:
+	var printing = false
+	if (printTimer > 1):
+		printing = true
+		printTimer = 0
+	
+	if printing:
+		print(playerpos)
+		print(campos - world_offset)
+		print(player_camera.global_rotation)
+		print(camera.rotation)
+
+	if printing:
+		print("pos distance:")
+		print(playerpos.distance_to(campos - world_offset))
+	if playerpos.distance_to(campos - world_offset) > 0.5:
 		return
-	if player.rotation.distance_to(camera_picture_rotation) > 0.5:
+
+	if printing:
+		print("rot distance:")
+		print(player_camera.global_rotation.distance_to(camera_picture_rotation))
+	if player_camera.global_rotation.distance_to(camera_picture_rotation) > 0.2:
 		return
 	
 	enter_picture()
