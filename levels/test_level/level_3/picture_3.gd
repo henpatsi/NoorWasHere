@@ -13,6 +13,9 @@ extends TextureRect
 
 var inspecting: bool = false
 var inside_picture: bool = false
+var camera_follow: bool = false
+
+var printTimer = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -21,10 +24,32 @@ func _ready() -> void:
 	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta: float) -> void:
-	if inside_picture:
+func _process(delta: float) -> void:
+	printTimer += delta
+	if camera_follow:
 		camera.global_position = player_camera.global_position
 		camera.global_rotation = player_camera.global_rotation
+
+func check_player_position() -> void:
+	if not inspecting or inside_picture:
+		return
+
+	if (printTimer > 1):
+		printTimer = 0
+		print(player.position)
+		print(camera.position - world_offset)
+		print(player.rotation)
+		print(camera.rotation)
+	
+	var campos = camera.position
+	campos.y = 0
+
+	if player.position.distance_to(campos - world_offset) > 1:
+		return
+	if player.rotation.distance_to(camera_picture_rotation) > 0.5:
+		return
+	
+	enter_picture()
 
 func toggle_inspecting() -> void:
 	inspecting = not inspecting
@@ -44,6 +69,8 @@ func enter_picture() -> void:
 	if inside_picture:
 		print("Already inside picture")
 		return
+	
+	inside_picture = true
 
 	var fadeTween = create_tween()
 	fadeTween.tween_property(black_bars, "modulate:a", 1, 1)
@@ -62,11 +89,11 @@ func after_fade_in() -> void:
 	player.position.y = 0
 	player.global_rotation = camera.global_rotation
 
-	inside_picture = true
-
+	camera_follow = true
 
 func exit_picture() -> void:
 	inside_picture = false
+	camera_follow = false
 
 	player.global_position -= world_offset
 	player.position.y = 0
