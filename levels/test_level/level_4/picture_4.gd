@@ -6,6 +6,8 @@ extends TextureRect
 @onready var black_bars: ColorRect = $"../../../BlackBars"
 @onready var black_bars2: ColorRect = $"../../../BlackBars2"
 
+@onready var shutter_audio_player: AudioStreamPlayer3D = $"../../../ShutterAudioPlayer"
+
 @export var camera: Camera3D
 @onready var camera_picture_position: Vector3 = camera.global_position
 @onready var camera_picture_rotation: Vector3 = camera.global_rotation
@@ -45,6 +47,8 @@ func enter_picture() -> void:
 		print("Already inside picture")
 		return
 
+	shutter_audio_player.play()
+
 	black_bars2.show()
 	black_bars.show()
 
@@ -67,6 +71,8 @@ func enter_picture() -> void:
 
 func exit_picture() -> void:
 	inside_picture = false
+
+	shutter_audio_player.play()
 
 	black_bars2.show()
 	black_bars.hide()
