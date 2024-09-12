@@ -26,6 +26,7 @@ var footstep_timer: float = 0.0
 
 var ray_collision_object: Object
 
+@onready var inventory: Node = $Inventory
 
 func _ready() -> void:
 	pass
@@ -107,4 +108,5 @@ func _input(event: InputEvent) -> void:
 	
 	if event.is_action_pressed("interact"):
 		if ray_collision_object and ray_collision_object.is_in_group("Interactable"):
-			ray_collision_object.interact()
+			ray_collision_object.interact(inventory)
+			

@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://bdueg8p13eu2h"]
+[gd_scene load_steps=29 format=3 uid="uid://bdueg8p13eu2h"]
 
 [ext_resource type="Script" path="res://levels/test_level/test_level.gd" id="1_w7dby"]
 [ext_resource type="PackedScene" uid="uid://b25ooshew3q2v" path="res://player/player.tscn" id="2_vuwob"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://bn5ukqljga2qo" path="res://levels/test_level/tigger_area.tscn" id="7_s5srr"]
 [ext_resource type="AudioStream" uid="uid://0nfha6ugksag" path="res://assets/audio/sfx/digital_cam_shutter.ogg" id="8_qmnsn"]
 [ext_resource type="Script" path="res://levels/test_level/interactable_picture.gd" id="11_a2ymx"]
+[ext_resource type="Script" path="res://levels/test_level/interactable_pickup.gd" id="12_egrpg"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_wi2ob"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -247,6 +248,7 @@ use_collision = true
 size = Vector3(1.97, 2.97, 0.5)
 material = SubResource("StandardMaterial3D_mb7k7")
 script = ExtResource("6_th4pq")
+key_name = "door_key"
 interaction_animations = Array[String](["open", "close"])
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Present/Hinge/Door"]
@@ -386,5 +388,10 @@ spot_range = 10.0
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="World1"]
 attenuation_model = 3
 panning_strength = 0.0
+
+[node name="DoorKey" type="CSGBox3D" parent="World1" groups=["Interactable"]]
+use_collision = true
+script = ExtResource("12_egrpg")
+item_name = "door_key"
 
 [editable path="Player"]

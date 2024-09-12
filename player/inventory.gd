@@ -1,7 +1,6 @@
-extends CSGBox3D
+extends Node
 
-@export var picture_handler: Node
-@export var picture: TextureRect
+@export var items: Array[String]
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -12,9 +11,13 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
-func interact(player_inventory: Node) -> void:
-	print("Interacted with " + name)
-	
-	picture_handler.add_picture(picture)
 
-	queue_free()
+func add_item(item: String) -> void:
+	items.append(item)
+
+
+func contains_item(query: String) -> bool:
+	for item in items:
+		if item == query:
+			return true
+	return false

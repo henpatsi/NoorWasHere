@@ -1,5 +1,7 @@
 extends CSGBox3D
 
+## Name of the key needed to unlock, if blank, already unlocked.
+@export var key_name: String
 @export var interaction_animations: Array[String]
 var animation_index: int = 0
 
@@ -16,11 +18,15 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	pass
 
-func interact() -> void:
+func interact(player_inventory: Node) -> void:
 	print("Interacted with " + name) 
 
 	if busy:
 		print("Interactable busy")
+		return
+	
+	if key_name and not player_inventory.contains_item(key_name):
+		print("Locked")
 		return
 
 	busy = true
