@@ -1,4 +1,4 @@
-extends CSGBox3D
+extends Node3D
 
 @export var item_name: String
 
@@ -11,9 +11,9 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
-func interact(player_inventory: Node) -> void:
+func interact(player: CharacterBody3D) -> void:
 	print("Interacted with " + name)
 	
-	player_inventory.add_item(item_name)
+	player.inventory.add_item(item_name)
 
 	queue_free()

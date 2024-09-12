@@ -1,4 +1,4 @@
-extends CSGBox3D
+extends Node3D
 
 @export var picture_handler: Node
 @export var picture: TextureRect
@@ -12,7 +12,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
-func interact(player_inventory: Node) -> void:
+func interact(player: CharacterBody3D) -> void:
 	print("Interacted with " + name)
 	
 	picture_handler.add_picture(picture)

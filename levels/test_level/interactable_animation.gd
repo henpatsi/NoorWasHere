@@ -1,4 +1,4 @@
-extends CSGBox3D
+extends Node3D
 
 ## Name of the key needed to unlock, if blank, already unlocked.
 @export var key_name: String
@@ -18,14 +18,14 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	pass
 
-func interact(player_inventory: Node) -> void:
+func interact(player: CharacterBody3D) -> void:
 	print("Interacted with " + name) 
 
 	if busy:
 		print("Interactable busy")
 		return
 	
-	if key_name and not player_inventory.contains_item(key_name):
+	if key_name and not player.inventory.contains_item(key_name):
 		print("Locked")
 		return
 

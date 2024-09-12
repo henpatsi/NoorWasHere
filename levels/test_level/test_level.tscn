@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://bdueg8p13eu2h"]
+[gd_scene load_steps=30 format=3 uid="uid://bdueg8p13eu2h"]
 
 [ext_resource type="Script" path="res://levels/test_level/test_level.gd" id="1_w7dby"]
 [ext_resource type="PackedScene" uid="uid://b25ooshew3q2v" path="res://player/player.tscn" id="2_vuwob"]
@@ -12,6 +12,7 @@
 [ext_resource type="AudioStream" uid="uid://0nfha6ugksag" path="res://assets/audio/sfx/digital_cam_shutter.ogg" id="8_qmnsn"]
 [ext_resource type="Script" path="res://levels/test_level/interactable_picture.gd" id="11_a2ymx"]
 [ext_resource type="Script" path="res://levels/test_level/interactable_pickup.gd" id="12_egrpg"]
+[ext_resource type="Script" path="res://levels/test_level/interactable_inspect.gd" id="13_torvp"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_wi2ob"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -393,5 +394,10 @@ panning_strength = 0.0
 use_collision = true
 script = ExtResource("12_egrpg")
 item_name = "door_key"
+
+[node name="SomeSheet" type="CSGBox3D" parent="World1" groups=["Interactable"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.81526, 0, -4.23377)
+use_collision = true
+script = ExtResource("13_torvp")
 
 [editable path="Player"]
