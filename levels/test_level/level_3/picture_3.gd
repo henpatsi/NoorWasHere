@@ -2,6 +2,7 @@ extends TextureRect
 
 @onready var player: CharacterBody3D = $"../../../Player"
 @onready var player_camera: Camera3D = $"../../../Player/HeadNode/Camera3D"
+@onready var camera_match_position: Node3D = $"../../../Player/HeadNode/CameraMatchPosition"
 
 @onready var black_bars: ColorRect = $"../../../BlackBars"
 
@@ -34,26 +35,21 @@ func check_player_position() -> void:
 	if not inspecting or inside_picture:
 		return
 
-	var campos = camera.position
-	campos.y = 0
-	
-	var playerpos = player.position + (player.transform.basis * Vector3.FORWARD * 3)
-
 	var printing = false
 	if (printTimer > 1):
 		printing = true
 		printTimer = 0
 	
 	if printing:
-		print(playerpos)
-		print(campos - world_offset)
+		print(camera_match_position.global_position)
+		print(camera.position - world_offset)
 		print(player_camera.global_rotation)
 		print(camera.rotation)
 
 	if printing:
 		print("pos distance:")
-		print(playerpos.distance_to(campos - world_offset))
-	if playerpos.distance_to(campos - world_offset) > 0.5:
+		print(camera_match_position.global_position.distance_to(camera.position - world_offset))
+	if camera_match_position.global_position.distance_to(camera.position - world_offset) > 0.5:
 		return
 
 	if printing:

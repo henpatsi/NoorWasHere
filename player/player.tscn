@@ -44,5 +44,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.4, -0.5)
 [node name="PicturePositionUp" type="Node3D" parent="HeadNode"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.5)
 
+[node name="CameraMatchPosition" type="Node3D" parent="HeadNode"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3)
+
 [node name="FootstepAudioStreamPlayer" type="AudioStreamPlayer3D" parent="."]
 volume_db = -8.0
