@@ -32,10 +32,17 @@ func _input(event: InputEvent) -> void:
 		print("Swapping to previous picture")
 		set_active_picture(picture_index - 1)
 
+func add_picture(picture: TextureRect) -> void:
+	pictures.append(picture)
+	set_active_picture(pictures.size() - 1)
+	current_picture.toggle_inspecting()
 
 func set_active_picture(index: int) -> void:
 	if current_picture.up_position:
 		print("Put down picture to swap")
+		return
+	if pictures.size() == 1:
+		print("No pictures to swap to")
 		return
 
 	if index == pictures.size():

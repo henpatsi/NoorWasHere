@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://bdueg8p13eu2h"]
+[gd_scene load_steps=28 format=3 uid="uid://bdueg8p13eu2h"]
 
 [ext_resource type="Script" path="res://levels/test_level/test_level.gd" id="1_w7dby"]
 [ext_resource type="PackedScene" uid="uid://b25ooshew3q2v" path="res://player/player.tscn" id="2_vuwob"]
@@ -7,9 +7,10 @@
 [ext_resource type="AudioStream" uid="uid://pl1sjspdft3k" path="res://assets/audio/music/LOOP_Blasting Through the Sky.wav" id="5_1awya"]
 [ext_resource type="Texture2D" uid="uid://c2ayxv7icdhpe" path="res://assets/textures/checkerboard.png" id="5_qojej"]
 [ext_resource type="Texture2D" uid="uid://ds3t06uf70r2f" path="res://assets/textures/alternative.png" id="6_esmn3"]
-[ext_resource type="Script" path="res://levels/test_level/animation_interactable.gd" id="6_th4pq"]
+[ext_resource type="Script" path="res://levels/test_level/interactable_animation.gd" id="6_th4pq"]
 [ext_resource type="PackedScene" uid="uid://bn5ukqljga2qo" path="res://levels/test_level/tigger_area.tscn" id="7_s5srr"]
 [ext_resource type="AudioStream" uid="uid://0nfha6ugksag" path="res://assets/audio/sfx/digital_cam_shutter.ogg" id="8_qmnsn"]
+[ext_resource type="Script" path="res://levels/test_level/interactable_picture.gd" id="11_a2ymx"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_wi2ob"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -120,7 +121,7 @@ shadow_enabled = true
 
 [node name="Pictures" type="Node" parent="." node_paths=PackedStringArray("pictures")]
 script = ExtResource("3_clp3p")
-pictures = [NodePath("1/Picture"), NodePath("2/Picture")]
+pictures = [NodePath("1/Picture")]
 
 [node name="BlackBars" type="ColorRect" parent="Pictures"]
 anchors_preset = 15
@@ -253,6 +254,13 @@ active = false
 libraries = {
 "": SubResource("AnimationLibrary_6b27m")
 }
+
+[node name="InteractableImage" type="CSGBox3D" parent="Present" node_paths=PackedStringArray("picture_handler", "picture") groups=["Interactable"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.64004, 0, -11.5492)
+use_collision = true
+script = ExtResource("11_a2ymx")
+picture_handler = NodePath("../../Pictures")
+picture = NodePath("../../Pictures/2/Picture")
 
 [node name="World1" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 200, 0, 0)
