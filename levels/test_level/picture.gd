@@ -24,6 +24,9 @@ extends TextureRect
 ## The height of the top of the picture when not being inspected.
 @export var picture_lower_y: int = 570
 
+@export_group("Scene changes")
+@export var nodes_to_show: Array[Node]
+
 var active_picture: bool = false
 var target_position: Vector2
 var up_position: bool = false
@@ -42,6 +45,17 @@ func _ready() -> void:
 	tween.tween_property(black_bars, "modulate:a", 0, 0.1) 
 
 	target_position = Vector2(size.x / 4, picture_lower_y)
+
+func set_active(state: bool) -> void:
+	active_picture = state
+
+	if active_picture:
+		for node in nodes_to_show:
+			node.show()
+
+	if not active_picture:
+		for node in nodes_to_show:
+			node.hide()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

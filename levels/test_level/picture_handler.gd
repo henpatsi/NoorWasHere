@@ -9,7 +9,7 @@ func _ready() -> void:
 	printerr("Picture handler array is empty.")
 
 	current_picture = pictures[picture_index]
-	current_picture.active_picture = true
+	current_picture.set_active(true)
 	current_picture.show()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -42,11 +42,11 @@ func set_active_picture(index: int) -> void:
 	if index == -1:
 		index = pictures.size() - 1
 	
-	current_picture.active_picture = false
+	current_picture.set_active(false)
 	current_picture.hide()
 
 	current_picture = pictures[index]
-	current_picture.active_picture = true
+	current_picture.set_active(true)
 	current_picture.show()
 
 	picture_index = index

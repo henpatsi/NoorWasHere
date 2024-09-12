@@ -27,6 +27,7 @@ window/size/viewport_height=720
 [global_group]
 
 Interactable="An object that the player can use the interact function on"
+Player=""
 
 [input]
 
