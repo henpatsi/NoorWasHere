@@ -6,7 +6,8 @@ var current_picture: TextureRect
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	printerr("Picture handler array is empty.")
+	if pictures.size() == 0:
+		printerr("Picture handler array is empty.")
 
 	current_picture = pictures[picture_index]
 	current_picture.set_active(true)

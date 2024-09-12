@@ -194,7 +194,6 @@ func exit_picture() -> void:
 
 	if ambientASP and ambientAS:
 		ambientASP.stop()
-		ambientASP.volume_db = 0
 
 	camera.global_position = camera_picture_position
 	camera.global_rotation = camera_picture_rotation
