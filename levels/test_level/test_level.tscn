@@ -399,5 +399,6 @@ item_name = "door_key"
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.81526, 0, -4.23377)
 use_collision = true
 script = ExtResource("13_torvp")
+rotation_on_inspect = Vector3(45, 45, 45)
 
 [editable path="Player"]

@@ -9,10 +9,10 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	pass
 
-func interact(player: CharacterBody3D) -> void:
+func interact(_player: CharacterBody3D) -> void:
 	print("Interacted with " + name)
 	
 	picture_handler.add_picture(picture)
