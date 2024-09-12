@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://pl1sjspdft3k"
+path="res://.godot/imported/LOOP_Blasting Through the Sky.wav-6e723231d8eb054ad0bb2e45839a4e50.sample"
+
+[deps]
+
+source_file="res://assets/audio/music/LOOP_Blasting Through the Sky.wav"
+dest_files=["res://.godot/imported/LOOP_Blasting Through the Sky.wav-6e723231d8eb054ad0bb2e45839a4e50.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

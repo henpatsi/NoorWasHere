@@ -1,14 +1,15 @@
-[gd_scene load_steps=26 format=3 uid="uid://bdueg8p13eu2h"]
+[gd_scene load_steps=27 format=3 uid="uid://bdueg8p13eu2h"]
 
 [ext_resource type="Script" path="res://levels/test_level/test_level.gd" id="1_w7dby"]
 [ext_resource type="PackedScene" uid="uid://b25ooshew3q2v" path="res://player/player.tscn" id="2_vuwob"]
 [ext_resource type="Script" path="res://levels/test_level/picture_handler.gd" id="3_clp3p"]
 [ext_resource type="Script" path="res://levels/test_level/picture.gd" id="4_cunav"]
-[ext_resource type="Texture2D" uid="uid://c2ayxv7icdhpe" path="res://levels/test_level/textures/checkerboard.png" id="5_qojej"]
-[ext_resource type="Texture2D" uid="uid://ds3t06uf70r2f" path="res://levels/test_level/textures/alternative.png" id="6_esmn3"]
+[ext_resource type="AudioStream" uid="uid://pl1sjspdft3k" path="res://assets/audio/music/LOOP_Blasting Through the Sky.wav" id="5_1awya"]
+[ext_resource type="Texture2D" uid="uid://c2ayxv7icdhpe" path="res://assets/textures/checkerboard.png" id="5_qojej"]
+[ext_resource type="Texture2D" uid="uid://ds3t06uf70r2f" path="res://assets/textures/alternative.png" id="6_esmn3"]
 [ext_resource type="Script" path="res://levels/test_level/animation_interactable.gd" id="6_th4pq"]
 [ext_resource type="PackedScene" uid="uid://bn5ukqljga2qo" path="res://levels/test_level/tigger_area.tscn" id="7_s5srr"]
-[ext_resource type="AudioStream" uid="uid://0nfha6ugksag" path="res://levels/test_level/audio/digital_cam_shutter.ogg" id="8_qmnsn"]
+[ext_resource type="AudioStream" uid="uid://0nfha6ugksag" path="res://assets/audio/sfx/digital_cam_shutter.ogg" id="8_qmnsn"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_wi2ob"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -131,7 +132,7 @@ color = Color(0, 0, 0, 0)
 
 [node name="1" type="Node" parent="Pictures"]
 
-[node name="Picture" type="TextureRect" parent="Pictures/1" node_paths=PackedStringArray("camera", "world_root", "nodes_to_show")]
+[node name="Picture" type="TextureRect" parent="Pictures/1" node_paths=PackedStringArray("camera", "world_root", "nodes_to_show", "ambientASP")]
 visible = false
 anchors_preset = 15
 anchor_right = 1.0
@@ -148,6 +149,8 @@ script = ExtResource("4_cunav")
 camera = NodePath("../SubViewport/PortalCamera")
 world_root = NodePath("../../../World1")
 nodes_to_show = [NodePath("../../../World1/House/Wall5/CSGBox3D6"), NodePath("../../../World1/House/Wall5/CSGBox3D7"), NodePath("../../../World1/House/Wall5/CSGBox3D8"), NodePath("../../../World1/Lights/SpotLight3D")]
+ambientASP = NodePath("../../../World1/AudioStreamPlayer3D")
+ambientAS = ExtResource("5_1awya")
 
 [node name="SubViewport" type="SubViewport" parent="Pictures/1"]
 size = Vector2i(1280, 720)
@@ -371,5 +374,9 @@ transform = Transform3D(1, 0, 0, 0, -0.623634, 0.781716, 0, -0.781716, -0.623634
 visible = false
 light_energy = 5.0
 spot_range = 10.0
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="World1"]
+attenuation_model = 3
+panning_strength = 0.0
 
 [editable path="Player"]

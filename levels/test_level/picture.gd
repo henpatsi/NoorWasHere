@@ -25,7 +25,16 @@ extends TextureRect
 @export var picture_lower_y: int = 570
 
 @export_group("Scene changes")
+## Nodes that will be shown when picture is active and hidden when inactive
 @export var nodes_to_show: Array[Node]
+## Audio stream player to play audio when scene is entered
+@export var ambientASP: AudioStreamPlayer3D
+## Audio stream that is played when scene is entered
+@export var ambientAS: AudioStream
+## Volume db that the fade in starts from
+@export var starting_volume: float = -20
+## Time it takes music to fade in from silent to the original value
+@export var volume_fade_in_time: float = 3
 
 var active_picture: bool = false
 var target_position: Vector2
@@ -33,6 +42,8 @@ var up_position: bool = false
 var inspecting: bool = false
 var inside_picture: bool = false
 var busy: bool = false
+
+var audioTween: Tween
 
 @onready var camera_picture_position: Vector3 = camera.global_position
 @onready var camera_picture_rotation: Vector3 = camera.global_rotation
@@ -137,6 +148,14 @@ func enter_picture() -> void:
 	zoomTween.tween_property(self, "scale:y", 1, 1)
 
 	await get_tree().create_timer(1).timeout
+	
+	if ambientASP and ambientAS:
+		ambientASP.volume_db = starting_volume
+		ambientASP.stream = ambientAS
+		ambientASP.play()
+		audioTween = create_tween()
+		audioTween.set_ease(Tween.EASE_OUT)
+		audioTween.tween_property(ambientASP, "volume_db", 0, volume_fade_in_time)
 
 	player.global_position = camera.global_position
 	player.position.y = 0
@@ -163,8 +182,19 @@ func exit_picture() -> void:
 	zoomTween.tween_property(self, "position:x", 320, 1)
 	zoomTween.tween_property(self, "scale:x", 0.5, 1)
 	zoomTween.tween_property(self, "scale:y", 0.5, 1)
+	
+	if ambientASP and ambientAS:
+		if audioTween:
+			audioTween.kill()
+		audioTween = create_tween()
+		audioTween.set_ease(Tween.EASE_IN)
+		audioTween.tween_property(ambientASP, "volume_db", -60, 1)
 
 	await get_tree().create_timer(1).timeout
+
+	if ambientASP and ambientAS:
+		ambientASP.stop()
+		ambientASP.volume_db = 0
 
 	camera.global_position = camera_picture_position
 	camera.global_rotation = camera_picture_rotation
