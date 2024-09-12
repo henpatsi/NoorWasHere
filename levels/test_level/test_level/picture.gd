@@ -23,9 +23,9 @@ extends TextureRect
 @export var match_rotation_distance: float = 10
 ## The height of the top of the picture when not being inspected.
 @export var picture_lower_y: int = 570
-var target_position: Vector2
 
 var active_picture: bool = false
+var target_position: Vector2
 var up_position: bool = false
 var inspecting: bool = false
 var inside_picture: bool = false
@@ -54,7 +54,7 @@ func _process(delta: float) -> void:
 	else:
 		outside_picture_process(delta)
 
-func inside_picture_process(delta: float) -> void:
+func inside_picture_process(_delta: float) -> void:
 	camera.global_position = player_camera.global_position
 	camera.global_rotation = player_camera.global_rotation
 	if not inspecting:
@@ -89,11 +89,11 @@ func check_player_position() -> void:
 		return
 	if player_camera.global_rotation.distance_to(camera_picture_rotation) > deg_to_rad(match_rotation_distance):
 		return
-	
+
 	enter_picture()
 
 
-func toggle_inspecting() -> void:
+func toggle_inspecting(force_down: bool = false) -> void:
 	if busy:
 		print("Picture busy")
 		return
@@ -122,9 +122,7 @@ func enter_picture() -> void:
 	zoomTween.tween_property(self, "scale:x", 1, 1)
 	zoomTween.tween_property(self, "scale:y", 1, 1)
 
-	print("Waiting")
 	await get_tree().create_timer(1).timeout
-	print("Wait done")
 
 	player.global_position = camera.global_position
 	player.position.y = 0
@@ -133,6 +131,7 @@ func enter_picture() -> void:
 	player.process_mode = Node.PROCESS_MODE_PAUSABLE
 
 	busy = false
+
 
 func exit_picture() -> void:
 	busy = true
