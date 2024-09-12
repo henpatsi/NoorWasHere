@@ -42,4 +42,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.75, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3)
 
 [node name="FootstepAudioStreamPlayer" type="AudioStreamPlayer3D" parent="."]
-volume_db = -8.0
+volume_db = -20.0

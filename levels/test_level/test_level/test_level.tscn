@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://bdueg8p13eu2h"]
+[gd_scene load_steps=24 format=3 uid="uid://bdueg8p13eu2h"]
 
 [ext_resource type="Script" path="res://levels/test_level/test_level/test_level.gd" id="1_w7dby"]
 [ext_resource type="PackedScene" uid="uid://b25ooshew3q2v" path="res://player/player.tscn" id="2_vuwob"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://levels/test_level/test_level/picture.gd" id="4_cunav"]
 [ext_resource type="Texture2D" uid="uid://c2ayxv7icdhpe" path="res://levels/test_level/textures/checkerboard.png" id="5_qojej"]
 [ext_resource type="Texture2D" uid="uid://ds3t06uf70r2f" path="res://levels/test_level/textures/alternative.png" id="6_esmn3"]
+[ext_resource type="Script" path="res://levels/test_level/test_level/animation_interactable.gd" id="6_th4pq"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_wi2ob"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -37,6 +38,60 @@ albedo_color = Color(0.912985, 0.414904, 0.327808, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mb7k7"]
 albedo_color = Color(0.971994, 0.653016, 0.340998, 1)
+
+[sub_resource type="Animation" id="Animation_02o2x"]
+resource_name = "open"
+step = 1.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, -1.5708, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_lf7br"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, -1.5708, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_3d7m3"]
+resource_name = "close"
+step = 1.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, -1.5708, 0), Vector3(0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6b27m"]
+_data = {
+"RESET": SubResource("Animation_lf7br"),
+"close": SubResource("Animation_3d7m3"),
+"open": SubResource("Animation_02o2x")
+}
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yleyx"]
 albedo_color = Color(0.067273, 0.302493, 0.149043, 1)
@@ -179,11 +234,22 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0912576, 2.26465, 0)
 [node name="CSGBox3D4" type="CSGBox3D" parent="Present/Wall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.06179, 2.26465, 0)
 
-[node name="Door" type="CSGBox3D" parent="Present"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.59414, -10)
+[node name="Hinge" type="Node3D" parent="Present"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.986761, 1.594, -10)
+
+[node name="Door" type="CSGBox3D" parent="Present/Hinge" groups=["Interactable"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.986761, 0, 0)
 use_collision = true
 size = Vector3(1.97, 2.97, 0.5)
 material = SubResource("StandardMaterial3D_mb7k7")
+script = ExtResource("6_th4pq")
+interaction_animations = Array[String](["open", "close"])
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Present/Hinge/Door"]
+active = false
+libraries = {
+"": SubResource("AnimationLibrary_6b27m")
+}
 
 [node name="World1" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 200, 0, 0)

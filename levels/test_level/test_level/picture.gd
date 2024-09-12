@@ -93,7 +93,7 @@ func check_player_position() -> void:
 	enter_picture()
 
 
-func toggle_inspecting(force_down: bool = false) -> void:
+func toggle_inspecting() -> void:
 	if busy:
 		print("Picture busy")
 		return
