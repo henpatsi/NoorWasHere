@@ -1,6 +1,6 @@
 [gd_scene load_steps=35 format=3 uid="uid://bdueg8p13eu2h"]
 
-[ext_resource type="Script" path="res://levels/test_level/test_level.gd" id="1_w7dby"]
+[ext_resource type="Script" path="res://levels/test_level/level.gd" id="1_w7dby"]
 [ext_resource type="PackedScene" uid="uid://b25ooshew3q2v" path="res://player/player.tscn" id="2_vuwob"]
 [ext_resource type="Script" path="res://levels/test_level/picture_handler.gd" id="3_clp3p"]
 [ext_resource type="Script" path="res://levels/test_level/picture.gd" id="4_cunav"]
