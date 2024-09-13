@@ -4,22 +4,30 @@ extends CharacterBody3D
 var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
 var rng = RandomNumberGenerator.new()
 
+@export_category("Movement")
 @export var max_move_speed: float = 5.0
 @export var jump_velocity: float = 4.5
+@export var mouse_sensitivity: float = 10
 
 @onready var head_node: Node3D = $HeadNode
-@export var mouse_sensitivity: float = 10
 var mouse_input: Vector2
 
-var footstep_timer: float = 0.0
+@export_category("Audio")
 @export var footstep_audio_player: AudioStreamPlayer3D
 @export var footstep_duration: float = 0.5
 @export var footstep_sound_effects: Array[AudioStream]
+@export var dialogue_audio_player: AudioStreamPlayer3D
 
+var footstep_timer: float = 0.0
+
+@export_category("Raycast")
 @export var ray_cast: RayCast3D
 @export var ray_distance: float = 3.0
+
 var ray_collision_object: Object
 
+@onready var inventory: Node = $Inventory
+@onready var inspect_position: Node3D = $HeadNode/InspectPosition
 
 func _ready() -> void:
 	pass
@@ -101,4 +109,5 @@ func _input(event: InputEvent) -> void:
 	
 	if event.is_action_pressed("interact"):
 		if ray_collision_object and ray_collision_object.is_in_group("Interactable"):
-			ray_collision_object.interact()
+			ray_collision_object.interact(self)
+			

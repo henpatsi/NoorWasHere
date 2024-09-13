@@ -1,6 +1,6 @@
 extends Control
 
-@export var startScene: PackedScene = preload("res://levels/test_level/test_level/test_level.tscn")
+@export var startScene: PackedScene = preload("res://levels/test_level/test_level.tscn")
 var settingsScene: PackedScene = preload("res://menus/settings_menu.tscn")
 
 # Called when the node enters the scene tree for the first time.
