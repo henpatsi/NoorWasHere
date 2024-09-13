@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://bdueg8p13eu2h"]
+[gd_scene load_steps=25 format=3 uid="uid://bdueg8p13eu2h"]
 
 [ext_resource type="Script" path="res://levels/test_level/test_level/test_level.gd" id="1_w7dby"]
 [ext_resource type="PackedScene" uid="uid://b25ooshew3q2v" path="res://player/player.tscn" id="2_vuwob"]
@@ -23,8 +23,11 @@ tonemap_mode = 2
 [sub_resource type="ViewportTexture" id="ViewportTexture_j5ps0"]
 viewport_path = NodePath("Pictures/1/SubViewport")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_4p7wk"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_wlqbj"]
 viewport_path = NodePath("Pictures/2/SubViewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_6kf5t"]
+viewport_path = NodePath("Pictures/3/SubViewport")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7gkht"]
 albedo_texture = ExtResource("5_qojej")
@@ -38,22 +41,6 @@ albedo_color = Color(0.912985, 0.414904, 0.327808, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mb7k7"]
 albedo_color = Color(0.971994, 0.653016, 0.340998, 1)
-
-[sub_resource type="Animation" id="Animation_02o2x"]
-resource_name = "open"
-step = 1.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("..:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(0, 0, 0), Vector3(0, -1.5708, 0)]
-}
 
 [sub_resource type="Animation" id="Animation_lf7br"]
 length = 0.001
@@ -84,6 +71,22 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector3(0, -1.5708, 0), Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_02o2x"]
+resource_name = "open"
+step = 1.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, -1.5708, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_6b27m"]
@@ -117,7 +120,7 @@ shadow_enabled = true
 
 [node name="Pictures" type="Node" parent="." node_paths=PackedStringArray("pictures")]
 script = ExtResource("3_clp3p")
-pictures = [NodePath("1/Picture"), NodePath("2/Picture")]
+pictures = [NodePath("1/Picture"), NodePath("2/Picture"), NodePath("3/Picture")]
 
 [node name="BlackBars" type="ColorRect" parent="Pictures"]
 anchors_preset = 15
@@ -169,7 +172,7 @@ offset_bottom = 570.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.5, 0.5)
-texture = SubResource("ViewportTexture_4p7wk")
+texture = SubResource("ViewportTexture_wlqbj")
 script = ExtResource("4_cunav")
 camera = NodePath("../SubViewport/PortalCamera")
 world_root = NodePath("../../../World1")
@@ -181,6 +184,34 @@ size = Vector2i(1280, 720)
 
 [node name="PortalCamera" type="Camera3D" parent="Pictures/2/SubViewport"]
 transform = Transform3D(-0.984929, 0, 0.172961, 0, 1, 0, -0.172961, 0, -0.984929, 200.993, 1.75, -14.479)
+cull_mask = 1048063
+
+[node name="3" type="Node" parent="Pictures"]
+
+[node name="Picture" type="TextureRect" parent="Pictures/3" node_paths=PackedStringArray("camera", "world_root")]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 320.0
+offset_top = 570.0
+offset_right = 320.0
+offset_bottom = 570.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+texture = SubResource("ViewportTexture_6kf5t")
+script = ExtResource("4_cunav")
+camera = NodePath("../SubViewport/PortalCamera")
+world_root = NodePath("../../../World1")
+
+[node name="Timer" type="Timer" parent="Pictures/3/Picture"]
+
+[node name="SubViewport" type="SubViewport" parent="Pictures/3"]
+size = Vector2i(1280, 720)
+
+[node name="PortalCamera" type="Camera3D" parent="Pictures/3/SubViewport"]
+transform = Transform3D(0.766493, 0, -0.642253, 0, 1, 0, 0.642253, 0, 0.766493, 192.243, 1.75, -3.979)
 cull_mask = 1048063
 
 [node name="Present" type="Node3D" parent="."]
