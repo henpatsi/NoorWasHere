@@ -1,5 +1,10 @@
 extends Node
 
+@export_category("Settings")
+@export var inspect_speed: float = 10
+@export var picture_lower_y: int = 570
+
+@export_category("Pictures")
 @export var pictures: Array[TextureRect]
 var picture_index: int = 0
 var current_picture: TextureRect
@@ -10,7 +15,7 @@ func _ready() -> void:
 		printerr("Picture handler array is empty.")
 
 	current_picture = pictures[picture_index]
-	current_picture.set_active(true)
+	current_picture.set_active(true, self)
 	current_picture.show()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -50,11 +55,11 @@ func set_active_picture(index: int) -> void:
 	if index == -1:
 		index = pictures.size() - 1
 	
-	current_picture.set_active(false)
+	current_picture.set_active(false, self)
 	current_picture.hide()
 
 	current_picture = pictures[index]
-	current_picture.set_active(true)
+	current_picture.set_active(true, self)
 	current_picture.show()
 
 	picture_index = index

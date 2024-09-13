@@ -14,15 +14,15 @@ extends TextureRect
 
 @export_group("Settings")
 ## The time (s) it takes for the picture to move to/from the inspect position.
-@export var inspect_speed: float = 10
+
 ## For lining up the picture and the real scene.
 ## The maxumim distance the player can be from the actual position.
 @export var match_position_distance: float = 0.5
 ## For lining up the picture and the real scene.
 ## The maxumim rotation the player can be from the actual rotation.
 @export var match_rotation_distance: float = 10
+
 ## The height of the top of the picture when not being inspected.
-@export var picture_lower_y: int = 570
 
 @export_group("Scene changes")
 ## Nodes that will be shown when picture is active and hidden when inactive
@@ -35,6 +35,9 @@ extends TextureRect
 @export var starting_volume: float = -20
 ## Time it takes music to fade in from silent to the original value
 @export var volume_fade_in_time: float = 3
+
+var inspect_speed: float
+var picture_lower_y: int
 
 var active_picture: bool = false
 var target_position: Vector2
@@ -55,10 +58,13 @@ func _ready() -> void:
 	var tween = create_tween() #TODO check why this is needed, does not fade to black without a at 255 at start
 	tween.tween_property(black_bars, "modulate:a", 0, 0.1) 
 
-	target_position = Vector2(size.x / 4, picture_lower_y)
-
-func set_active(state: bool) -> void:
+func set_active(state: bool, picture_handler: Node) -> void:
 	active_picture = state
+	
+	inspect_speed = picture_handler.inspect_speed
+	picture_lower_y = picture_handler.picture_lower_y
+
+	target_position = Vector2(size.x / 4, picture_lower_y)
 
 	if active_picture:
 		for node in nodes_to_show:
