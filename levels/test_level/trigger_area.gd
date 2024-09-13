@@ -1,17 +1,14 @@
 extends Area3D
 
-class SubtitledAudioClip:
-	var audioClip: AudioStream
-	var subtitle: String
-
 @export_category("Settings")
 @export var one_shot: bool = false
 
 @export_category("Audio")
 @export var audio_stream_player: AudioStreamPlayer3D
 @export var subtitle_label: Label
-@export var audio_clips: Array[SubtitledAudioClip]
-@export var override_playing: bool = false
+@export var audio_clips: Array[AudioStream]
+@export var subtitles: Array[String]
+# @export var override_playing: bool = false
 var audio_index = -1
 
 # @export_category("Activate")
@@ -61,10 +58,11 @@ func handle_audio_clip() -> void:
 		active = false
 		return
 	
-	audio_stream_player.stream = audio_clips[audio_index].audioClip
+	audio_stream_player.stream = audio_clips[audio_index]
 	audio_stream_player.play()
 
-	# TODO subtitles
+	if subtitle_label:
+		subtitle_label.text = subtitles[audio_index]
 
 # func activate_trigger() -> void:
 # 	for node in nodes_to_activate:

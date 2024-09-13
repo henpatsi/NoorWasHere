@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://bdueg8p13eu2h"]
+[gd_scene load_steps=35 format=3 uid="uid://bdueg8p13eu2h"]
 
 [ext_resource type="Script" path="res://levels/test_level/test_level.gd" id="1_w7dby"]
 [ext_resource type="PackedScene" uid="uid://b25ooshew3q2v" path="res://player/player.tscn" id="2_vuwob"]
@@ -9,10 +9,14 @@
 [ext_resource type="Texture2D" uid="uid://ds3t06uf70r2f" path="res://assets/textures/alternative.png" id="6_esmn3"]
 [ext_resource type="Script" path="res://levels/test_level/interactable_animation.gd" id="6_th4pq"]
 [ext_resource type="PackedScene" uid="uid://bn5ukqljga2qo" path="res://levels/test_level/tigger_area.tscn" id="7_s5srr"]
-[ext_resource type="AudioStream" uid="uid://0nfha6ugksag" path="res://assets/audio/sfx/digital_cam_shutter.ogg" id="8_qmnsn"]
+[ext_resource type="AudioStream" uid="uid://cbk1vpcg1680u" path="res://assets/audio/sfx/Bet 1.wav" id="10_qje1r"]
 [ext_resource type="Script" path="res://levels/test_level/interactable_picture.gd" id="11_a2ymx"]
+[ext_resource type="AudioStream" uid="uid://c34hm7edixlvf" path="res://assets/audio/sfx/Bet 2.wav" id="11_brdbc"]
 [ext_resource type="Script" path="res://levels/test_level/interactable_pickup.gd" id="12_egrpg"]
+[ext_resource type="AudioStream" uid="uid://ckt6w8xcguxim" path="res://assets/audio/sfx/Bet 3.wav" id="12_npxd0"]
+[ext_resource type="AudioStream" uid="uid://bmfohafrnvm20" path="res://assets/audio/sfx/Bet 4.wav" id="13_lh1ia"]
 [ext_resource type="Script" path="res://levels/test_level/interactable_inspect.gd" id="13_torvp"]
+[ext_resource type="AudioStream" uid="uid://dhkkccyjc665r" path="res://assets/audio/sfx/Bet 5.wav" id="14_cylkq"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_wi2ob"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -31,6 +35,9 @@ viewport_path = NodePath("Pictures/1/SubViewport")
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_s8fkg"]
 viewport_path = NodePath("Pictures/2/SubViewport")
+
+[sub_resource type="LabelSettings" id="LabelSettings_0ddnn"]
+font_size = 32
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7gkht"]
 albedo_texture = ExtResource("5_qojej")
@@ -189,6 +196,30 @@ size = Vector2i(1280, 720)
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 200, 1.75, -12.8452)
 cull_mask = 1048063
 
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SubtitleLabel" type="Label" parent="UI"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -120.0
+offset_right = 20.0
+offset_bottom = -97.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Subtitle"
+label_settings = SubResource("LabelSettings_0ddnn")
+
 [node name="Present" type="Node3D" parent="."]
 
 [node name="Floor" type="CSGBox3D" parent="Present"]
@@ -268,10 +299,11 @@ picture = NodePath("../../Pictures/2/Picture")
 [node name="World1" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 200, 0, 0)
 
-[node name="TiggerArea" parent="World1" node_paths=PackedStringArray("audio_stream_player") instance=ExtResource("7_s5srr")]
+[node name="TiggerArea" parent="World1" node_paths=PackedStringArray("audio_stream_player", "subtitle_label") instance=ExtResource("7_s5srr")]
 audio_stream_player = NodePath("../../Player/PlayerDialogueASP")
-audio_stream = ExtResource("8_qmnsn")
-override_playing = true
+subtitle_label = NodePath("../../UI/SubtitleLabel")
+audio_clips = Array[AudioStream]([ExtResource("10_qje1r"), ExtResource("11_brdbc"), ExtResource("12_npxd0"), ExtResource("13_lh1ia"), ExtResource("14_cylkq")])
+subtitles = Array[String](["Bet", "Bet?", "Bet!", "Bet..", "bet :("])
 
 [node name="Floor" type="CSGBox3D" parent="World1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.431732, -0.33323, -8.07701)
