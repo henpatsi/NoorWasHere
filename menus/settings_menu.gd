@@ -6,8 +6,12 @@ var mainMenuScene: PackedScene = load("res://menus/main_menu.tscn")
 @export var mouse_sensitivity_slider: HSlider
 @export var volume_value_label: Label
 @export var volume_slider: HSlider
+
 @export var crosshair_opacity_value_label: Label
 @export var crosshair_opacity_slider: HSlider
+@export var crosshair_size_value_label: Label
+@export var crosshair_size_slider: HSlider
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -19,8 +23,11 @@ func set_starting_values():
 	mouse_sensitivity_slider.value = GlobalSettings.mouse_sensitivity_modifier
 	volume_value_label.text = str(round((GlobalSettings.volume_db + 60) / 60 * 100))
 	volume_slider.value = GlobalSettings.volume_db
+	
 	crosshair_opacity_value_label.text = str(round(GlobalSettings.crosshair_opacity * 100))
 	crosshair_opacity_slider.value = GlobalSettings.crosshair_opacity
+	crosshair_size_value_label.text = str(GlobalSettings.crosshair_size)
+	crosshair_size_slider.value = GlobalSettings.crosshair_size
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
@@ -41,6 +48,11 @@ func _on_volume_slider_value_changed(value: float) -> void:
 func _on_crosshair_opacity_slider_value_changed(value: float) -> void:
 	crosshair_opacity_value_label.text = str(round(value * 100))
 	GlobalSettings.crosshair_opacity = value
+
+
+func _on_crosshair_size_slider_value_changed(value: float) -> void:
+	crosshair_size_value_label.text = str(value)
+	GlobalSettings.crosshair_size = value
 
 
 func _on_back_button_pressed() -> void:

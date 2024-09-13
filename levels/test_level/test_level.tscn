@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=3 uid="uid://bdueg8p13eu2h"]
+[gd_scene load_steps=52 format=3 uid="uid://bdueg8p13eu2h"]
 
 [ext_resource type="Script" path="res://levels/test_level/level.gd" id="1_w7dby"]
 [ext_resource type="PackedScene" uid="uid://b25ooshew3q2v" path="res://player/player.tscn" id="2_vuwob"]
@@ -44,6 +44,10 @@ viewport_path = NodePath("Pictures/3/SubViewport")
 
 [sub_resource type="LabelSettings" id="LabelSettings_0ddnn"]
 font_size = 32
+
+[sub_resource type="LabelSettings" id="LabelSettings_0bi03"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_c3kdg"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7gkht"]
 albedo_texture = ExtResource("5_qojej")
@@ -282,6 +286,7 @@ offset_left = 50.0
 offset_top = 50.0
 offset_right = 154.0
 offset_bottom = 73.0
+label_settings = SubResource("LabelSettings_0bi03")
 
 [node name="InteractResponseLabel" type="Label" parent="UI"]
 layout_mode = 1
@@ -289,6 +294,7 @@ offset_left = 50.0
 offset_top = 100.0
 offset_right = 154.0
 offset_bottom = 123.0
+label_settings = SubResource("LabelSettings_c3kdg")
 script = ExtResource("6_ht84m")
 
 [node name="Crosshair" type="ColorRect" parent="UI"]

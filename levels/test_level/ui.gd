@@ -17,3 +17,9 @@ func _process(_delta: float) -> void:
 
 func update() -> void:
 	crosshair.color.a = GlobalSettings.crosshair_opacity
+	crosshair.size.x = GlobalSettings.crosshair_size
+	crosshair.size.y = GlobalSettings.crosshair_size
+	
+	subtitle_label.label_settings.font_size = GlobalSettings.text_size
+	interact_label.label_settings.font_size = GlobalSettings.text_size / 2
+	interact_response_label.label_settings.font_size = GlobalSettings.text_size / 2

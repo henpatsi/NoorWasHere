@@ -15,6 +15,8 @@ var picture_requirements: Array[String]
 
 var enabled: bool = true
 
+@onready var crosshair: ColorRect = $"../UI/Crosshair"
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	if pictures.size() == 0:
@@ -37,6 +39,11 @@ func _input(event: InputEvent) -> void:
 			print("No picture to inspect")
 			return
 		current_picture.toggle_inspecting()
+
+		if current_picture.up_position:
+			crosshair.hide()
+		else:
+			crosshair.show()
 
 	if event.is_action_pressed("next_picture"):
 		print("Swapping to next picture")
