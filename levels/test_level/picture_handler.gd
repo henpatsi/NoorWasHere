@@ -61,10 +61,8 @@ func set_active_picture(index: int) -> void:
 		index = pictures.size() - 1
 	
 	current_picture.set_active(false, self)
-	current_picture.hide()
 
 	current_picture = pictures[index]
 	current_picture.set_active(true, self)
-	current_picture.show()
 
 	picture_index = index

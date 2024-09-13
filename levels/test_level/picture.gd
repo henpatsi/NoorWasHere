@@ -55,12 +55,17 @@ var audioTween: Tween
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	for node in nodes_to_show:
+		node.hide()
+		set_child_collider_states(node, true)
+
 	var tween = create_tween() #TODO check why this is needed, does not fade to black without a at 255 at start
 	tween.tween_property(black_bars, "modulate:a", 0, 0.1) 
 
 func set_active(state: bool, picture_handler: Node) -> void:
 	active_picture = state
 	
+	# TODO fix this weird way to set these
 	inspect_speed = picture_handler.inspect_speed
 	picture_lower_y = picture_handler.picture_lower_y
 
@@ -69,11 +74,21 @@ func set_active(state: bool, picture_handler: Node) -> void:
 	if active_picture:
 		for node in nodes_to_show:
 			node.show()
+			set_child_collider_states(node, false)
+		show()
 
 	if not active_picture:
 		for node in nodes_to_show:
 			node.hide()
+			set_child_collider_states(node, true)
+		hide()
 
+
+func set_child_collider_states(node: Node, state: bool) -> void:
+	for child in node.get_children():
+		set_child_collider_states(child, state)
+	if node is CollisionShape3D:
+		node.disabled = state
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
