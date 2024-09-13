@@ -67,7 +67,8 @@ func handle_audio_clip() -> void:
 	audio_index += 1
 	if audio_index >= audio_clips.size():
 		active = false
-		subtitle_label.text = ""
+		if subtitle_label:
+			subtitle_label.text = ""
 		return
 	
 	audio_stream_player.stream = audio_clips[audio_index]

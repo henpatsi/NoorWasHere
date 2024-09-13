@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://c2ayxv7icdhpe" path="res://assets/textures/checkerboard.png" id="5_qojej"]
 [ext_resource type="Texture2D" uid="uid://ds3t06uf70r2f" path="res://assets/textures/alternative.png" id="6_esmn3"]
 [ext_resource type="Script" path="res://levels/test_level/interactable_animation.gd" id="6_th4pq"]
-[ext_resource type="PackedScene" uid="uid://bn5ukqljga2qo" path="res://levels/test_level/tigger_area.tscn" id="7_s5srr"]
+[ext_resource type="PackedScene" uid="uid://bn5ukqljga2qo" path="res://levels/test_level/trigger_area.tscn" id="7_s5srr"]
 [ext_resource type="AudioStream" uid="uid://0nfha6ugksag" path="res://assets/audio/sfx/digital_cam_shutter.ogg" id="10_410fn"]
 [ext_resource type="AudioStream" uid="uid://cbk1vpcg1680u" path="res://assets/audio/sfx/Bet 1.wav" id="10_qje1r"]
 [ext_resource type="AudioStream" uid="uid://b70i7jhejfjjy" path="res://assets/audio/sfx/kauniit_ja_rohkeat.mp3" id="10_tjxl8"]
@@ -324,41 +324,43 @@ mesh = SubResource("PlaneMesh_664dv")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Present/InteractableImage"]
 shape = SubResource("BoxShape3D_ow063")
 
-[node name="TiggerArea" parent="Present" node_paths=PackedStringArray("audio_stream_player", "start_monitoring_list") instance=ExtResource("7_s5srr")]
+[node name="TriggerArea" parent="Present" node_paths=PackedStringArray("audio_stream_player", "start_monitoring_list") instance=ExtResource("7_s5srr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.242933, 1.57257, -13.889)
+monitoring = false
 one_shot = true
 audio_stream_player = NodePath("AudioStreamPlayer3D")
 audio_clips = Array[AudioStream]([ExtResource("10_tjxl8")])
-start_monitoring_list = [NodePath("../TiggerArea2")]
+start_monitoring_list = [NodePath("../TriggerArea2")]
 
-[node name="CollisionShape3D" parent="Present/TiggerArea" index="0"]
+[node name="CollisionShape3D" parent="Present/TriggerArea" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.34684, -9.53674e-07, 7.21537)
 shape = SubResource("BoxShape3D_puq7t")
 
-[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Present/TiggerArea"]
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Present/TriggerArea"]
 
-[node name="TiggerArea2" parent="Present" node_paths=PackedStringArray("audio_stream_player") instance=ExtResource("7_s5srr")]
+[node name="TriggerArea2" parent="Present" node_paths=PackedStringArray("audio_stream_player") instance=ExtResource("7_s5srr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.242933, 1.57257, -13.889)
 monitoring = false
 one_shot = true
 audio_stream_player = NodePath("AudioStreamPlayer3D")
 audio_clips = Array[AudioStream]([ExtResource("10_410fn")])
 
-[node name="CollisionShape3D" parent="Present/TiggerArea2" index="0"]
+[node name="CollisionShape3D" parent="Present/TriggerArea2" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.28152, -0.393555, 5.71005)
 
-[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Present/TiggerArea2"]
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Present/TriggerArea2"]
 
 [node name="World1" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 200, 0, 0)
 
-[node name="TiggerArea" parent="World1" node_paths=PackedStringArray("audio_stream_player", "subtitle_label") instance=ExtResource("7_s5srr")]
+[node name="TriggerArea" parent="World1" node_paths=PackedStringArray("audio_stream_player", "subtitle_label", "start_monitoring_list") instance=ExtResource("7_s5srr")]
 one_shot = true
 prevent_teleport = true
 audio_stream_player = NodePath("../../Player/PlayerDialogueASP")
 subtitle_label = NodePath("../../UI/SubtitleLabel")
 audio_clips = Array[AudioStream]([ExtResource("10_qje1r"), ExtResource("11_brdbc"), ExtResource("12_npxd0"), ExtResource("13_lh1ia"), ExtResource("14_cylkq")])
 subtitles = Array[String](["Bet", "Bet?", "Bet!", "Bet..", "bet :("])
+start_monitoring_list = [NodePath("../../Present/TriggerArea")]
 
 [node name="Floor" type="CSGBox3D" parent="World1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.431732, -0.33323, -8.07701)
@@ -497,5 +499,5 @@ shape = SubResource("BoxShape3D_6kt4m")
 mesh = SubResource("BoxMesh_6d24d")
 
 [editable path="Player"]
-[editable path="Present/TiggerArea"]
-[editable path="Present/TiggerArea2"]
+[editable path="Present/TriggerArea"]
+[editable path="Present/TriggerArea2"]
