@@ -11,6 +11,8 @@ extends Node
 var picture_index: int = 0
 var current_picture: TextureRect
 
+var picture_requirements: Array[String]
+
 var enabled: bool = true
 
 # Called when the node enters the scene tree for the first time.
@@ -19,7 +21,7 @@ func _ready() -> void:
 		printerr("Picture handler array is empty.")
 
 	current_picture = pictures[picture_index]
-	current_picture.set_active(true, self)
+	current_picture.set_active(true)
 	current_picture.show()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -62,9 +64,9 @@ func set_active_picture(index: int) -> void:
 	if index == -1:
 		index = pictures.size() - 1
 	
-	current_picture.set_active(false, self)
+	current_picture.set_active(false)
 
 	current_picture = pictures[index]
-	current_picture.set_active(true, self)
+	current_picture.set_active(true)
 
 	picture_index = index

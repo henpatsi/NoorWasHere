@@ -250,7 +250,7 @@ requirements = Array[String](["tv_on_table"])
 size = Vector2i(1280, 720)
 
 [node name="PortalCamera" type="Camera3D" parent="Pictures/3/SubViewport"]
-transform = Transform3D(0.837671, 0, -0.546175, 0, 1, 0, 0.546175, 0, 0.837671, 193.581, 1.75, -6.24358)
+transform = Transform3D(0.837671, 0, -0.546175, 0, 1, 0, 0.546175, 0, 0.837671, 194.491, 1.75, -2.28243)
 cull_mask = 1048063
 
 [node name="UI" type="Control" parent="."]

@@ -2,6 +2,7 @@ extends TextureRect
 
 @onready var player: CharacterBody3D = $"../../../Player"
 @onready var head_node: Node3D = $"../../../Player/HeadNode"
+@onready var picture_handler: Node = $"../.."
 
 @export_group("References")
 ## The camera that is rendered on the sub viewport.
@@ -16,6 +17,9 @@ extends TextureRect
 ## For lining up the picture and the real scene.
 ## The maxumim rotation the player can be from the actual rotation.
 @export var match_rotation_distance: float = 10
+## A list of requirements that need to be met for this picture to work.
+## Example: front_door_closed, tv_on_table, living_room_complete
+@export var requirements: Array[String]
 
 @export_group("Scene changes")
 ## Nodes that will be shown when picture is active and hidden when inactive
@@ -51,15 +55,14 @@ func _ready() -> void:
 	for node in nodes_to_show:
 		node.hide()
 		set_child_collider_states(node, true)
-
-func set_active(state: bool, picture_handler: Node) -> void:
-	active_picture = state
 	
-	# TODO fix this weird way to set these
 	inspect_speed = picture_handler.inspect_speed
 	picture_lower_y = picture_handler.picture_lower_y
-
+	
 	target_position = Vector2(size.x / 2, picture_lower_y)
+
+func set_active(state: bool) -> void:
+	active_picture = state
 
 	if active_picture:
 		for node in nodes_to_show:
@@ -105,40 +108,19 @@ func outside_picture_process(delta: float) -> void:
 			inspecting = true
 
 	if inspecting:
-		check_player_position(delta)
+		check_player_position()
 
 
-func check_player_position(delta) -> void:
-	# printTimer += delta
-	# if (printTimer > 1):
-	# 	printTimer = 0
-	# 	print(player_camera.global_position)
-	# 	print(camera.position - world_root.position)
-	# 	print(player_camera.global_rotation)
-	# 	print(camera.rotation)
-	# 	print("pos distance:")
-	# 	print(player_camera.global_position.distance_to(camera.position - world_root.position))
-	# 	print("rot distance:")
-	# 	print(player_camera.global_rotation.distance_to(camera_picture_rotation))
+func check_player_position() -> void:
 
-	var camera_pos = camera.position - world_root.position
-	camera_pos.y = 0
-	
-	if player.global_position.distance_to(camera_pos) > match_position_distance:
+	if head_node.global_position.distance_to(camera.position - world_root.position) > match_position_distance:
 		return
 	if head_node.global_rotation.distance_to(camera_picture_rotation) > deg_to_rad(match_rotation_distance):
 		return
 
-	busy = true
-	player.process_mode = Node.PROCESS_MODE_DISABLED
-
-	var moveTween = create_tween().set_parallel()
-	moveTween.tween_property(player, "global_position:x", camera_pos.x, 0.5)
-	moveTween.tween_property(player, "global_position:z", camera_pos.z, 0.5)
-	moveTween.tween_property(player, "rotation:y", camera.rotation.y, 0.5)
-	moveTween.tween_property(head_node, "rotation:x", camera.rotation.x, 0.5)
-	
-	await get_tree().create_timer(0.5).timeout
+	for requirement in requirements:
+		if requirement not in picture_handler.picture_requirements:
+			return
 
 	enter_picture()
 
@@ -162,6 +144,16 @@ func enter_picture() -> void:
 
 	inside_picture = true
 	player.process_mode = Node.PROCESS_MODE_DISABLED
+
+	var camera_pos = camera.position - world_root.position
+	camera_pos.y = 0
+	var moveTween = create_tween().set_parallel()
+	moveTween.tween_property(player, "global_position:x", camera_pos.x, 0.5)
+	moveTween.tween_property(player, "global_position:z", camera_pos.z, 0.5)
+	moveTween.tween_property(player, "rotation:y", camera.rotation.y, 0.5)
+	moveTween.tween_property(head_node, "rotation:x", camera.rotation.x, 0.5)
+	
+	await get_tree().create_timer(0.5).timeout
 
 	var zoomTween = create_tween().set_parallel()
 	zoomTween.tween_property(self, "position:y", 0, 1)

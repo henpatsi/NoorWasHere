@@ -3,6 +3,9 @@ extends Node3D
 @export var rotation_on_carry: Vector3
 @export var interact_response_label: Label
 
+@export var picture_handler: Node
+@export var set_requirement: String
+
 var carrying: bool = false
 var dropoff_area: Area3D
 
@@ -41,6 +44,7 @@ func release() -> void:
 	position = Vector3.ZERO
 	carrying = false
 
+	picture_handler.picture_requirements.append(set_requirement)
 
 func set_dropoff(area: Area3D) -> void:
 	dropoff_area = area
