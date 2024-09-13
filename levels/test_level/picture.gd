@@ -212,8 +212,8 @@ func exit_picture() -> void:
 	var zoomTween = create_tween().set_parallel()
 	zoomTween.tween_property(self, "position:y", 570, 1)
 	zoomTween.tween_property(self, "position:x", 320, 1)
-	zoomTween.tween_property(self, "scale:x", 0.5, 1)
-	zoomTween.tween_property(self, "scale:y", 0.5, 1)
+	zoomTween.tween_property(self, "size:x", 640, 1)
+	zoomTween.tween_property(self, "size:y", 360, 1)
 	
 	if ambientASP and ambientAS:
 		if audioTween:
