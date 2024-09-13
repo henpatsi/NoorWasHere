@@ -1,6 +1,7 @@
 extends Node3D
 
 @export var item_name: String
+@export var interact_response_label: Label
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -15,5 +16,8 @@ func interact(player: CharacterBody3D) -> void:
 	print("Interacted with " + name)
 	
 	player.inventory.add_item(item_name)
+	
+	if interact_response_label:
+		interact_response_label.change_text("Picked up " + item_name)
 
 	queue_free()

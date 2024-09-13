@@ -1,11 +1,7 @@
 extends TextureRect
 
 @onready var player: CharacterBody3D = $"../../../Player"
-@onready var player_camera: Camera3D = $"../../../Player/HeadNode/Camera3D"
 @onready var head_node: Node3D = $"../../../Player/HeadNode"
-# @onready var camera_match_position: Node3D = $"../../../Player/HeadNode/CameraMatchPosition"
-
-@onready var black_bars: ColorRect = $"../../BlackBars"
 
 @export_group("References")
 ## The camera that is rendered on the sub viewport.
@@ -56,9 +52,6 @@ func _ready() -> void:
 		node.hide()
 		set_child_collider_states(node, true)
 
-	var tween = create_tween() #TODO check why this is needed, does not fade to black without a at 255 at start
-	tween.tween_property(black_bars, "modulate:a", 0, 0.1) 
-
 func set_active(state: bool, picture_handler: Node) -> void:
 	active_picture = state
 	
@@ -98,8 +91,8 @@ func _process(delta: float) -> void:
 		outside_picture_process(delta)
 
 func inside_picture_process(_delta: float) -> void:
-	camera.global_position = player_camera.global_position
-	camera.global_rotation = player_camera.global_rotation
+	camera.global_position = head_node.global_position
+	camera.global_rotation = head_node.global_rotation
 	if not inspecting:
 		exit_picture()
 
@@ -133,7 +126,7 @@ func check_player_position(delta) -> void:
 	
 	if player.global_position.distance_to(camera_pos) > match_position_distance:
 		return
-	if player_camera.global_rotation.distance_to(camera_picture_rotation) > deg_to_rad(match_rotation_distance):
+	if head_node.global_rotation.distance_to(camera_picture_rotation) > deg_to_rad(match_rotation_distance):
 		return
 
 	busy = true
@@ -170,9 +163,6 @@ func enter_picture() -> void:
 	inside_picture = true
 	player.process_mode = Node.PROCESS_MODE_DISABLED
 
-	var fadeTween = create_tween()
-	fadeTween.tween_property(black_bars, "modulate:a", 1, 1)
-	
 	var zoomTween = create_tween().set_parallel()
 	zoomTween.tween_property(self, "position:y", 0, 1)
 	zoomTween.tween_property(self, "position:x", 0, 1)
@@ -206,9 +196,6 @@ func exit_picture() -> void:
 	player.global_position -= world_root.position
 	player.position.y = 0
 
-	var fadeTween = create_tween()
-	fadeTween.tween_property(black_bars, "modulate:a", 0, 1)
-	
 	var zoomTween = create_tween().set_parallel()
 	zoomTween.tween_property(self, "position:y", 570, 1)
 	zoomTween.tween_property(self, "position:x", 320, 1)
