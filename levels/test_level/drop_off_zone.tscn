@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://c2i8ngtjel6as"]
+
+[ext_resource type="Script" path="res://levels/test_level/drop_off_zone.gd" id="1_oeh61"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_p10xi"]
+
+[node name="DropOffZone" type="Area3D" groups=["DropZone"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.27129, 1.13238, -8.42915)
+script = ExtResource("1_oeh61")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_p10xi")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
