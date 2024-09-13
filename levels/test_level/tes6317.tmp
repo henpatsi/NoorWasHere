@@ -327,8 +327,10 @@ shape = SubResource("BoxShape3D_ow063")
 [node name="TiggerArea" parent="Present" node_paths=PackedStringArray("audio_stream_player", "start_monitoring_list") instance=ExtResource("7_s5srr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.242933, 1.57257, -13.889)
 one_shot = true
+prevent_teleport = null
 audio_stream_player = NodePath("AudioStreamPlayer3D")
 audio_clips = Array[AudioStream]([ExtResource("10_tjxl8")])
+subtitles = null
 start_monitoring_list = [NodePath("../TiggerArea2")]
 
 [node name="CollisionShape3D" parent="Present/TiggerArea" index="0"]
@@ -341,8 +343,10 @@ shape = SubResource("BoxShape3D_puq7t")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.242933, 1.57257, -13.889)
 monitoring = false
 one_shot = true
+prevent_teleport = null
 audio_stream_player = NodePath("AudioStreamPlayer3D")
 audio_clips = Array[AudioStream]([ExtResource("10_410fn")])
+subtitles = null
 
 [node name="CollisionShape3D" parent="Present/TiggerArea2" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.28152, -0.393555, 5.71005)

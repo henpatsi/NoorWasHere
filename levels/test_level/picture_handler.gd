@@ -9,6 +9,8 @@ extends Node
 var picture_index: int = 0
 var current_picture: TextureRect
 
+var enabled: bool = true
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	if pictures.size() == 0:
@@ -23,6 +25,9 @@ func _process(_delta: float) -> void:
 	pass
 
 func _input(event: InputEvent) -> void:
+	if not enabled:
+		return
+	
 	if event.is_action_pressed("inspect_picture"):
 		if !current_picture:
 			print("No picture to inspect")
