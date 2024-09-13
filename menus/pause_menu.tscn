@@ -11,7 +11,7 @@ gradient = SubResource("Gradient_jj1we")
 [sub_resource type="LabelSettings" id="LabelSettings_k6f3y"]
 font_size = 36
 
-[node name="Menu" type="Control" node_paths=PackedStringArray("mouse_sensitivity_value_label", "mouse_sensitivity_slider", "volume_value_label", "volume_slider")]
+[node name="Menu" type="Control" node_paths=PackedStringArray("mouse_sensitivity_value_label", "mouse_sensitivity_slider", "volume_value_label", "volume_slider", "crosshair_opacity_value_label", "crosshair_opacity_slider")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -23,6 +23,8 @@ mouse_sensitivity_value_label = NodePath("VBoxContainer/MouseSensitivityContaine
 mouse_sensitivity_slider = NodePath("VBoxContainer/MouseSensitivityContainer/MouseSensitivitySlider")
 volume_value_label = NodePath("VBoxContainer/VolumeContainer/HBoxContainer/VolumeLabel")
 volume_slider = NodePath("VBoxContainer/VolumeContainer/VolumeSlider")
+crosshair_opacity_value_label = NodePath("VBoxContainer/CrosshairOpacityContainer/HBoxContainer/CrosshairOpacityLabel")
+crosshair_opacity_slider = NodePath("VBoxContainer/CrosshairOpacityContainer/CrosshairOpacitySlider")
 
 [node name="Background" type="TextureRect" parent="."]
 layout_mode = 1
@@ -97,6 +99,26 @@ layout_mode = 2
 min_value = -60.0
 max_value = 0.0
 
+[node name="CrosshairOpacityContainer" type="VBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/CrosshairOpacityContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="VBoxContainer/CrosshairOpacityContainer/HBoxContainer"]
+layout_mode = 2
+text = "Crosshair Opacity:"
+
+[node name="CrosshairOpacityLabel" type="Label" parent="VBoxContainer/CrosshairOpacityContainer/HBoxContainer"]
+layout_mode = 2
+text = "80"
+
+[node name="CrosshairOpacitySlider" type="HSlider" parent="VBoxContainer/CrosshairOpacityContainer"]
+layout_mode = 2
+max_value = 1.0
+step = 0.1
+
 [node name="MainMenuButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 text = "Main Menu"
@@ -107,5 +129,6 @@ text = "Continue"
 
 [connection signal="value_changed" from="VBoxContainer/MouseSensitivityContainer/MouseSensitivitySlider" to="." method="_on_mouse_sensitivity_slider_value_changed"]
 [connection signal="value_changed" from="VBoxContainer/VolumeContainer/VolumeSlider" to="." method="_on_volume_slider_value_changed"]
+[connection signal="value_changed" from="VBoxContainer/CrosshairOpacityContainer/CrosshairOpacitySlider" to="." method="_on_crosshair_opacity_slider_value_changed"]
 [connection signal="pressed" from="VBoxContainer/MainMenuButton" to="." method="_on_main_menu_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/ContinueButton" to="." method="_on_continue_button_pressed"]
