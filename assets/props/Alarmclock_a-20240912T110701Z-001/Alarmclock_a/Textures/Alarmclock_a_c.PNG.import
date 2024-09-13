@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c5t6dhalkb8bo"
-path.s3tc="res://.godot/imported/Alarmclock_a_r.PNG-995ad5a33d0233444f3a253d056c4d52.s3tc.ctex"
+uid="uid://chbgrjuwiddkx"
+path.s3tc="res://.godot/imported/Alarmclock_a_c.PNG-8c620ad19d0d8726e758a691e0f4d823.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/props/alarmclock_a/Alarmclock_a/Textures/Alarmclock_a_r.PNG"
-dest_files=["res://.godot/imported/Alarmclock_a_r.PNG-995ad5a33d0233444f3a253d056c4d52.s3tc.ctex"]
+source_file="res://assets/props/Alarmclock_a-20240912T110701Z-001/Alarmclock_a/Textures/Alarmclock_a_c.PNG"
+dest_files=["res://.godot/imported/Alarmclock_a_c.PNG-8c620ad19d0d8726e758a691e0f4d823.s3tc.ctex"]
 
 [params]
 
