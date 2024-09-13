@@ -190,7 +190,7 @@ ambientAS = ExtResource("5_1awya")
 size = Vector2i(1280, 720)
 
 [node name="PortalCamera" type="Camera3D" parent="Pictures/1/SubViewport"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 203.011, 1.75, -2.54431)
+transform = Transform3D(0.83748, 0, 0.546467, 0, 1, 0, -0.546467, 0, 0.83748, 204.136, 1.75, -4.26299)
 cull_mask = 1048063
 
 [node name="2" type="Node" parent="Pictures"]

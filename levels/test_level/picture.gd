@@ -116,17 +116,17 @@ func outside_picture_process(delta: float) -> void:
 
 
 func check_player_position(delta) -> void:
-	#printTimer += delta
-	#if (printTimer > 1):
-		#printTimer = 0
-		#print(player_camera.global_position)
-		#print(camera.position - world_root.position)
-		#print(player_camera.global_rotation)
-		#print(camera.rotation)
-		#print("pos distance:")
-		#print(player_camera.global_position.distance_to(camera.position - world_root.position))
-		#print("rot distance:")
-		#print(player_camera.global_rotation.distance_to(camera_picture_rotation))
+	printTimer += delta
+	if (printTimer > 1):
+		printTimer = 0
+		print(player_camera.global_position)
+		print(camera.position - world_root.position)
+		print(player_camera.global_rotation)
+		print(camera.rotation)
+		print("pos distance:")
+		print(player_camera.global_position.distance_to(camera.position - world_root.position))
+		print("rot distance:")
+		print(player_camera.global_rotation.distance_to(camera_picture_rotation))
 
 	var camera_pos = camera.position - world_root.position
 	camera_pos.y = 0
@@ -161,7 +161,7 @@ func toggle_inspecting() -> void:
 		target_position.y = picture_lower_y
 		inspecting = false
 	else:
-		target_position.y = size.y / 4
+		target_position.y = size.y / 2
 
 
 func enter_picture() -> void:
