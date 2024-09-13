@@ -1,7 +1,9 @@
 extends Node
 
 @export_category("Settings")
+## The time (s) it takes for the picture to move to/from the inspect position.
 @export var inspect_speed: float = 10
+## The height of the top of the picture when not being inspected.
 @export var picture_lower_y: int = 570
 
 @export_category("Pictures")
