@@ -23,7 +23,6 @@ var footstep_timer: float = 0.0
 @export_category("Raycast")
 @export var ray_cast: RayCast3D
 @export var ray_distance: float = 3.0
-@export var interact_label: Label
 
 var ray_collision_object: Object
 
@@ -101,11 +100,6 @@ func raycast() -> void:
 	ray_cast.target_position = Vector3.FORWARD * ray_distance
 	ray_collision_object = ray_cast.get_collider()
 
-	if ray_collision_object and ray_collision_object.is_in_group("Interactable"):
-		if interact_label:
-			interact_label.text = "Interact with " + ray_collision_object.name
-	elif interact_label:
-		interact_label.text = ""
 
 # INPUT
 

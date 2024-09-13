@@ -28,7 +28,6 @@ window/size/viewport_height=720
 
 Interactable="An object that the player can use the interact function on"
 Player=""
-DropZone=""
 
 [input]
 
