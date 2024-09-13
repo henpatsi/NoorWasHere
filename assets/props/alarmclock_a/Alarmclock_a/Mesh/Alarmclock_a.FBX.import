@@ -1,0 +1,44 @@
+[remap]
+
+importer="scene"
+importer_version=1
+type="PackedScene"
+uid="uid://dno7a1n6a52es"
+path="res://.godot/imported/Alarmclock_a.FBX-5d1ff646b22346c83e841ffd6b30e5ec.scn"
+
+[deps]
+
+source_file="res://assets/props/alarmclock_a/Alarmclock_a/Mesh/Alarmclock_a.FBX"
+dest_files=["res://.godot/imported/Alarmclock_a.FBX-5d1ff646b22346c83e841ffd6b30e5ec.scn"]
+
+[params]
+
+nodes/root_type=""
+nodes/root_name=""
+nodes/apply_root_scale=true
+nodes/root_scale=1.0
+nodes/import_as_skeleton_bones=false
+meshes/ensure_tangents=true
+meshes/generate_lods=true
+meshes/create_shadow_meshes=true
+meshes/light_baking=1
+meshes/lightmap_texel_size=0.2
+meshes/force_disable_compression=false
+skins/use_named_skins=true
+animation/import=true
+animation/fps=30
+animation/trimming=true
+animation/remove_immutable_tracks=true
+animation/import_rest_as_RESET=false
+import_script/path=""
+_subresources={
+"materials": {
+"Alarmclock_a_Mat": {
+"use_external/enabled": true,
+"use_external/path": "res://assets/props/Alarmclock_a-20240912T110701Z-001/Alarmclock_a/Mesh/Alarmclock_a_Mat.tres"
+}
+}
+}
+fbx/importer=0
+fbx/allow_geometry_helper_nodes=false
+fbx/embedded_image_handling=1

@@ -419,12 +419,15 @@ spot_range = 10.0
 
 [node name="CSGBox3D6" type="CSGBox3D" parent="World1/ShowOn1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.83305, 0.78758, -19.08)
+use_collision = true
 
 [node name="CSGBox3D7" type="CSGBox3D" parent="World1/ShowOn1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.83305, 1.78731, -19.08)
+use_collision = true
 
 [node name="CSGBox3D8" type="CSGBox3D" parent="World1/ShowOn1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.83305, 2.84037, -19.08)
+use_collision = true
 
 [node name="ShowOn2" type="Node3D" parent="World1"]
 visible = false
