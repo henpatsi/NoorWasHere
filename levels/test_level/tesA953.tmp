@@ -1,0 +1,621 @@
+[gd_scene load_steps=53 format=3 uid="uid://bdueg8p13eu2h"]
+
+[ext_resource type="Script" path="res://levels/test_level/level.gd" id="1_w7dby"]
+[ext_resource type="PackedScene" uid="uid://b25ooshew3q2v" path="res://player/player.tscn" id="2_vuwob"]
+[ext_resource type="Script" path="res://levels/test_level/picture_handler.gd" id="3_clp3p"]
+[ext_resource type="Script" path="res://levels/test_level/picture.gd" id="4_cunav"]
+[ext_resource type="AudioStream" uid="uid://pl1sjspdft3k" path="res://assets/audio/music/LOOP_Blasting Through the Sky.wav" id="5_1awya"]
+[ext_resource type="Texture2D" uid="uid://c2ayxv7icdhpe" path="res://assets/textures/checkerboard.png" id="5_qojej"]
+[ext_resource type="Script" path="res://levels/test_level/ui.gd" id="6_81dt7"]
+[ext_resource type="Texture2D" uid="uid://ds3t06uf70r2f" path="res://assets/textures/alternative.png" id="6_esmn3"]
+[ext_resource type="Script" path="res://levels/test_level/dynamic_label.gd" id="6_ht84m"]
+[ext_resource type="Script" path="res://levels/test_level/interactable_animation.gd" id="6_th4pq"]
+[ext_resource type="PackedScene" uid="uid://bn5ukqljga2qo" path="res://levels/test_level/trigger_area.tscn" id="7_s5srr"]
+[ext_resource type="AudioStream" uid="uid://0nfha6ugksag" path="res://assets/audio/sfx/digital_cam_shutter.ogg" id="10_410fn"]
+[ext_resource type="AudioStream" uid="uid://cbk1vpcg1680u" path="res://assets/audio/sfx/Bet 1.wav" id="10_qje1r"]
+[ext_resource type="AudioStream" uid="uid://b70i7jhejfjjy" path="res://assets/audio/sfx/kauniit_ja_rohkeat.mp3" id="10_tjxl8"]
+[ext_resource type="Script" path="res://levels/test_level/interactable_picture.gd" id="11_a2ymx"]
+[ext_resource type="AudioStream" uid="uid://c34hm7edixlvf" path="res://assets/audio/sfx/Bet 2.wav" id="11_brdbc"]
+[ext_resource type="Script" path="res://levels/test_level/interactable_pickup.gd" id="12_egrpg"]
+[ext_resource type="AudioStream" uid="uid://ckt6w8xcguxim" path="res://assets/audio/sfx/Bet 3.wav" id="12_npxd0"]
+[ext_resource type="AudioStream" uid="uid://bmfohafrnvm20" path="res://assets/audio/sfx/Bet 4.wav" id="13_lh1ia"]
+[ext_resource type="Script" path="res://levels/test_level/interactable_inspect.gd" id="13_torvp"]
+[ext_resource type="Script" path="res://levels/test_level/interactable_carry.gd" id="13_yx34h"]
+[ext_resource type="AudioStream" uid="uid://dhkkccyjc665r" path="res://assets/audio/sfx/Bet 5.wav" id="14_cylkq"]
+[ext_resource type="PackedScene" uid="uid://c2i8ngtjel6as" path="res://levels/test_level/drop_off_zone.tscn" id="14_kh7gq"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_wi2ob"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_4bocq"]
+sky_material = SubResource("ProceduralSkyMaterial_wi2ob")
+
+[sub_resource type="Environment" id="Environment_5oly5"]
+background_mode = 2
+sky = SubResource("Sky_4bocq")
+tonemap_mode = 2
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_le726"]
+viewport_path = NodePath("Pictures/1/SubViewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_gcqqq"]
+viewport_path = NodePath("Pictures/2/SubViewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_s8fkg"]
+viewport_path = NodePath("Pictures/3/SubViewport")
+
+[sub_resource type="LabelSettings" id="LabelSettings_0ddnn"]
+font_size = 32
+
+[sub_resource type="LabelSettings" id="LabelSettings_0bi03"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_c3kdg"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7gkht"]
+albedo_texture = ExtResource("5_qojej")
+uv1_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fbmlc"]
+albedo_color = Color(0.808049, 0.723459, 0.285667, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gb20o"]
+albedo_color = Color(0.912985, 0.414904, 0.327808, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mb7k7"]
+albedo_color = Color(0.971994, 0.653016, 0.340998, 1)
+
+[sub_resource type="Animation" id="Animation_lf7br"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, -1.5708, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_3d7m3"]
+resource_name = "close"
+step = 1.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, -1.5708, 0), Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_02o2x"]
+resource_name = "open"
+step = 1.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, -1.5708, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6b27m"]
+_data = {
+"RESET": SubResource("Animation_lf7br"),
+"close": SubResource("Animation_3d7m3"),
+"open": SubResource("Animation_02o2x")
+}
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_pqxpx"]
+viewport_path = NodePath("Pictures/2/SubViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k1nk0"]
+resource_local_to_scene = true
+albedo_texture = SubResource("ViewportTexture_pqxpx")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_664dv"]
+resource_local_to_scene = true
+material = SubResource("StandardMaterial3D_k1nk0")
+size = Vector2(0.8, 0.45)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ow063"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_puq7t"]
+size = Vector3(6.7406, 1.78711, 4.87232)
+
+[sub_resource type="BoxMesh" id="BoxMesh_gyiyv"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_shw10"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yleyx"]
+albedo_color = Color(0.067273, 0.302493, 0.149043, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k3384"]
+albedo_color = Color(0.277017, 0.359995, 0.851506, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vgnp6"]
+albedo_texture = ExtResource("6_esmn3")
+uv1_triplanar = true
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6kt4m"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_6d24d"]
+
+[node name="Level" type="Node3D"]
+script = ExtResource("1_w7dby")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_5oly5")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
+shadow_enabled = true
+
+[node name="Player" parent="." node_paths=PackedStringArray("interact_label") instance=ExtResource("2_vuwob")]
+interact_label = NodePath("../UI/InteractLabel")
+
+[node name="Pictures" type="Node" parent="." node_paths=PackedStringArray("pictures")]
+script = ExtResource("3_clp3p")
+pictures = [NodePath("1/Picture"), NodePath("3/Picture")]
+
+[node name="1" type="Node" parent="Pictures"]
+
+[node name="Picture" type="TextureRect" parent="Pictures/1" node_paths=PackedStringArray("camera", "world_root", "nodes_to_show", "ambientASP")]
+clip_contents = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 320.0
+offset_top = 570.0
+offset_right = -320.0
+offset_bottom = 210.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("ViewportTexture_le726")
+expand_mode = 1
+stretch_mode = 3
+script = ExtResource("4_cunav")
+camera = NodePath("../SubViewport/PortalCamera")
+world_root = NodePath("../../../World1")
+nodes_to_show = [NodePath("../../../World1/ShowOn1")]
+ambientASP = NodePath("../../../World1/AudioStreamPlayer3D")
+ambientAS = ExtResource("5_1awya")
+
+[node name="SubViewport" type="SubViewport" parent="Pictures/1"]
+size = Vector2i(1280, 720)
+
+[node name="PortalCamera" type="Camera3D" parent="Pictures/1/SubViewport"]
+transform = Transform3D(0.83748, 0, 0.546467, 0, 1, 0, -0.546467, 0, 0.83748, 204.136, 1.75, -4.26299)
+cull_mask = 1048063
+
+[node name="2" type="Node" parent="Pictures"]
+
+[node name="Picture" type="TextureRect" parent="Pictures/2" node_paths=PackedStringArray("camera", "world_root", "nodes_to_show")]
+visible = false
+clip_contents = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 320.0
+offset_top = 570.0
+offset_right = -320.0
+offset_bottom = 210.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("ViewportTexture_gcqqq")
+expand_mode = 1
+stretch_mode = 3
+script = ExtResource("4_cunav")
+camera = NodePath("../SubViewport/PortalCamera")
+world_root = NodePath("../../../World1")
+nodes_to_show = [NodePath("../../../World1/ShowOn2")]
+
+[node name="SubViewport" type="SubViewport" parent="Pictures/2"]
+size = Vector2i(1280, 720)
+
+[node name="PortalCamera" type="Camera3D" parent="Pictures/2/SubViewport"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 200, 1.75, -12.8452)
+cull_mask = 1048063
+
+[node name="3" type="Node" parent="Pictures"]
+
+[node name="Picture" type="TextureRect" parent="Pictures/3" node_paths=PackedStringArray("camera", "world_root")]
+visible = false
+clip_contents = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 320.0
+offset_top = 570.0
+offset_right = -320.0
+offset_bottom = 210.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("ViewportTexture_s8fkg")
+expand_mode = 1
+stretch_mode = 3
+script = ExtResource("4_cunav")
+camera = NodePath("../SubViewport/PortalCamera")
+world_root = NodePath("../../../World1")
+requirements = Array[String](["tv_on_table"])
+
+[node name="SubViewport" type="SubViewport" parent="Pictures/3"]
+size = Vector2i(1280, 720)
+
+[node name="PortalCamera" type="Camera3D" parent="Pictures/3/SubViewport"]
+transform = Transform3D(0.837671, 0, -0.546175, 0, 1, 0, 0.546175, 0, 0.837671, 193.581, 1.75, -6.24358)
+cull_mask = 1048063
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("6_81dt7")
+
+[node name="SubtitleLabel" type="Label" parent="UI"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -120.0
+offset_right = 20.0
+offset_bottom = -97.0
+grow_horizontal = 2
+grow_vertical = 0
+label_settings = SubResource("LabelSettings_0ddnn")
+
+[node name="InteractLabel" type="Label" parent="UI"]
+layout_mode = 1
+offset_left = 50.0
+offset_top = 50.0
+offset_right = 154.0
+offset_bottom = 73.0
+label_settings = SubResource("LabelSettings_0bi03")
+
+[node name="InteractResponseLabel" type="Label" parent="UI"]
+layout_mode = 1
+offset_left = 50.0
+offset_top = 100.0
+offset_right = 154.0
+offset_bottom = 123.0
+label_settings = SubResource("LabelSettings_c3kdg")
+script = ExtResource("6_ht84m")
+
+[node name="Crosshair" type="ColorRect" parent="UI"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -5.0
+offset_top = -5.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.392157)
+
+[node name="Present" type="Node3D" parent="."]
+
+[node name="Floor" type="CSGBox3D" parent="Present"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+use_collision = true
+size = Vector3(100, 2, 100)
+material = SubResource("StandardMaterial3D_7gkht")
+
+[node name="Floor2" type="CSGBox3D" parent="Present"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.032, -0.333, -4.825)
+size = Vector3(61.21, 0.86, 60.788)
+material = SubResource("StandardMaterial3D_fbmlc")
+
+[node name="Wall2" type="CSGBox3D" parent="Present"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 4.35998, 2, -14.9737)
+use_collision = true
+size = Vector3(10.9242, 4, 1.23975)
+material = SubResource("StandardMaterial3D_gb20o")
+
+[node name="Wall4" type="CSGBox3D" parent="Present"]
+transform = Transform3D(0.999796, 0, -0.0201921, 0, 1, 0, 0.0201921, 0, 0.999796, -0.0384645, 2, -20.529)
+use_collision = true
+size = Vector3(10, 4, 1)
+material = SubResource("StandardMaterial3D_gb20o")
+
+[node name="Wall3" type="CSGBox3D" parent="Present"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -4.31966, 1.96338, -14.9696)
+use_collision = true
+size = Vector3(10.9324, 4.07324, 1.15576)
+material = SubResource("StandardMaterial3D_gb20o")
+
+[node name="Wall" type="CSGBox3D" parent="Present"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -10)
+use_collision = true
+size = Vector3(10, 4, 1)
+material = SubResource("StandardMaterial3D_gb20o")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Present/Wall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.412496, 0)
+operation = 2
+size = Vector3(2, 3, 1)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Present/Wall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.95003, 2.26465, 0)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="Present/Wall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0912576, 2.26465, 0)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="Present/Wall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.06179, 2.26465, 0)
+
+[node name="Hinge" type="Node3D" parent="Present"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.986761, 1.594, -10)
+
+[node name="Door" type="CSGBox3D" parent="Present/Hinge" node_paths=PackedStringArray("interact_response_label") groups=["Interactable"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.986761, 0, 0)
+use_collision = true
+size = Vector3(1.97, 2.97, 0.5)
+material = SubResource("StandardMaterial3D_mb7k7")
+script = ExtResource("6_th4pq")
+key_name = "door_key"
+interaction_animations = Array[String](["open", "close"])
+interact_response_label = NodePath("../../../UI/InteractResponseLabel")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Present/Hinge/Door"]
+active = false
+libraries = {
+"": SubResource("AnimationLibrary_6b27m")
+}
+
+[node name="InteractableImage" type="StaticBody3D" parent="Present" node_paths=PackedStringArray("picture_handler", "picture") groups=["Interactable"]]
+transform = Transform3D(-0.887839, 0, 0.460153, 0, 1, 0, -0.460153, 0, -0.887839, -2.9395, 0.134951, -11.0908)
+script = ExtResource("11_a2ymx")
+picture_handler = NodePath("../../Pictures")
+picture = NodePath("../../Pictures/2/Picture")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Present/InteractableImage"]
+mesh = SubResource("PlaneMesh_664dv")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Present/InteractableImage"]
+shape = SubResource("BoxShape3D_ow063")
+
+[node name="TriggerArea" parent="Present" node_paths=PackedStringArray("audio_stream_player", "start_monitoring_list") instance=ExtResource("7_s5srr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.242933, 1.57257, -13.889)
+monitoring = false
+one_shot = true
+audio_stream_player = NodePath("AudioStreamPlayer3D")
+audio_clips = Array[AudioStream]([ExtResource("10_tjxl8")])
+start_monitoring_list = [NodePath("../TriggerArea2")]
+
+[node name="CollisionShape3D" parent="Present/TriggerArea" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.34684, -9.53674e-07, 7.21537)
+shape = SubResource("BoxShape3D_puq7t")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Present/TriggerArea"]
+
+[node name="TriggerArea2" parent="Present" node_paths=PackedStringArray("audio_stream_player") instance=ExtResource("7_s5srr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.242933, 1.57257, -13.889)
+monitoring = false
+one_shot = true
+audio_stream_player = NodePath("AudioStreamPlayer3D")
+audio_clips = Array[AudioStream]([ExtResource("10_410fn")])
+
+[node name="CollisionShape3D" parent="Present/TriggerArea2" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.28152, -0.393555, 5.71005)
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Present/TriggerArea2"]
+
+[node name="TV" type="RigidBody3D" parent="Present" node_paths=PackedStringArray("interact_response_label", "picture_handler") groups=["Interactable"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.79978, 1.88685, -0.941067)
+axis_lock_linear_x = true
+axis_lock_linear_y = true
+axis_lock_linear_z = true
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
+gravity_scale = 0.0
+script = ExtResource("13_yx34h")
+interact_response_label = NodePath("../../UI/InteractResponseLabel")
+picture_handler = NodePath("../../Pictures")
+set_requirement = "tv_on_table"
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Present/TV"]
+mesh = SubResource("BoxMesh_gyiyv")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Present/TV"]
+shape = SubResource("BoxShape3D_shw10")
+
+[node name="DropOffZone" parent="Present" instance=ExtResource("14_kh7gq")]
+
+[node name="World1" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 200, 0, 0)
+
+[node name="TriggerArea" parent="World1" node_paths=PackedStringArray("audio_stream_player", "subtitle_label", "start_monitoring_list") instance=ExtResource("7_s5srr")]
+one_shot = true
+prevent_teleport = true
+audio_stream_player = NodePath("../../Player/PlayerDialogueASP")
+subtitle_label = NodePath("../../UI/SubtitleLabel")
+audio_clips = Array[AudioStream]([ExtResource("10_qje1r"), ExtResource("11_brdbc"), ExtResource("12_npxd0"), ExtResource("13_lh1ia"), ExtResource("14_cylkq")])
+subtitles = Array[String](["Bet", "Bet?", "Bet!", "Bet..", "bet :("])
+start_monitoring_list = [NodePath("../../Present/TriggerArea")]
+
+[node name="Floor" type="CSGBox3D" parent="World1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.432, -0.5, -8.077)
+size = Vector3(30, 1, 30)
+material = SubResource("StandardMaterial3D_yleyx")
+
+[node name="House" type="Node3D" parent="World1"]
+
+[node name="Wall2" type="CSGBox3D" parent="World1/House"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 4.35998, 2, -14.9737)
+use_collision = true
+size = Vector3(10.9242, 4, 1.23975)
+material = SubResource("StandardMaterial3D_k3384")
+
+[node name="Wall4" type="CSGBox3D" parent="World1/House"]
+transform = Transform3D(0.999796, 0, -0.0201921, 0, 1, 0, 0.0201921, 0, 0.999796, -0.0384645, 2, -20.529)
+use_collision = true
+size = Vector3(10, 4, 1)
+material = SubResource("StandardMaterial3D_k3384")
+
+[node name="Wall3" type="CSGBox3D" parent="World1/House"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -4.31966, 1.96338, -14.9696)
+use_collision = true
+size = Vector3(10.9324, 4.07324, 1.15576)
+material = SubResource("StandardMaterial3D_k3384")
+
+[node name="Wall5" type="CSGBox3D" parent="World1/House"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -10)
+use_collision = true
+size = Vector3(10, 4, 1)
+material = SubResource("StandardMaterial3D_k3384")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="World1/House/Wall5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.412496, 0)
+operation = 2
+size = Vector3(2, 3, 1)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="World1/House/Wall5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.95003, 2.26465, 0)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="World1/House/Wall5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0912576, 2.26465, 0)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="World1/House/Wall5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.06179, 2.26465, 0)
+
+[node name="Door" type="CSGBox3D" parent="World1/House"]
+transform = Transform3D(0.662267, 0, -0.749268, 0, 1, 0, 0.749268, 0, 0.662267, -0.136063, 1.59414, -8.68383)
+use_collision = true
+size = Vector3(1.97, 2.97, 0.5)
+material = SubResource("StandardMaterial3D_mb7k7")
+
+[node name="Borders" type="Node3D" parent="World1"]
+
+[node name="Floor2" type="CSGBox3D" parent="World1/Borders"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.02782, 0)
+use_collision = true
+size = Vector3(100, 2, 100)
+material = SubResource("StandardMaterial3D_vgnp6")
+
+[node name="Floor7" type="CSGBox3D" parent="World1/Borders"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.274658, 26.8399, -8.22581)
+use_collision = true
+size = Vector3(31.2319, 2, 31.9983)
+material = SubResource("StandardMaterial3D_vgnp6")
+
+[node name="Floor3" type="CSGBox3D" parent="World1/Borders"]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -10.5057, 15.4597, -6.7594)
+use_collision = true
+size = Vector3(34.2407, 2, 36.303)
+material = SubResource("StandardMaterial3D_vgnp6")
+
+[node name="Floor4" type="CSGBox3D" parent="World1/Borders"]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 9.43494, 15.4434, -7.8934)
+use_collision = true
+size = Vector3(34.208, 2, 36.5053)
+material = SubResource("StandardMaterial3D_vgnp6")
+
+[node name="Floor5" type="CSGBox3D" parent="World1/Borders"]
+transform = Transform3D(1.91069e-15, 4.37114e-08, 1, 1, -4.37114e-08, 0, 4.37114e-08, 1, -4.37114e-08, 0.830612, 15.9399, -22.7562)
+use_collision = true
+size = Vector3(35.2012, 2, 35.4424)
+material = SubResource("StandardMaterial3D_vgnp6")
+
+[node name="Floor6" type="CSGBox3D" parent="World1/Borders"]
+transform = Transform3D(1.91069e-15, 4.37114e-08, 1, 1, -4.37114e-08, 0, 4.37114e-08, 1, -4.37114e-08, 0.0355072, 15.8547, 6.27882)
+use_collision = true
+size = Vector3(35.0308, 2, 30.7805)
+material = SubResource("StandardMaterial3D_vgnp6")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="World1"]
+attenuation_model = 3
+panning_strength = 0.0
+
+[node name="DoorKey" type="CSGBox3D" parent="World1" node_paths=PackedStringArray("interact_response_label") groups=["Interactable"]]
+use_collision = true
+script = ExtResource("12_egrpg")
+item_name = "door_key"
+interact_response_label = NodePath("../../UI/InteractResponseLabel")
+
+[node name="SomeSheet" type="CSGBox3D" parent="World1" groups=["Interactable"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.81526, 0, -4.23377)
+use_collision = true
+script = ExtResource("13_torvp")
+rotation_on_inspect = Vector3(45, 45, 45)
+
+[node name="ShowOn1" type="Node3D" parent="World1"]
+visible = false
+
+[node name="SpotLight3D" type="SpotLight3D" parent="World1/ShowOn1"]
+transform = Transform3D(1, 0, 0, 0, -0.623634, 0.781716, 0, -0.781716, -0.623634, 0, 3.36175, -12.2701)
+light_energy = 5.0
+spot_range = 10.0
+
+[node name="StaticBody3D3" type="StaticBody3D" parent="World1/ShowOn1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.98325, 0.824376, -19.2801)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World1/ShowOn1/StaticBody3D3"]
+shape = SubResource("BoxShape3D_6kt4m")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="World1/ShowOn1/StaticBody3D3"]
+mesh = SubResource("BoxMesh_6d24d")
+
+[node name="StaticBody3D4" type="StaticBody3D" parent="World1/ShowOn1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.98325, 1.87418, -19.2801)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World1/ShowOn1/StaticBody3D4"]
+shape = SubResource("BoxShape3D_6kt4m")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="World1/ShowOn1/StaticBody3D4"]
+mesh = SubResource("BoxMesh_6d24d")
+
+[node name="StaticBody3D5" type="StaticBody3D" parent="World1/ShowOn1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.98325, 2.74307, -19.2801)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World1/ShowOn1/StaticBody3D5"]
+shape = SubResource("BoxShape3D_6kt4m")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="World1/ShowOn1/StaticBody3D5"]
+mesh = SubResource("BoxMesh_6d24d")
+
+[node name="ShowOn2" type="Node3D" parent="World1"]
+visible = false
+
+[node name="StaticBody3D" type="StaticBody3D" parent="World1/ShowOn2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0607452, 0.824376, -19.2801)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World1/ShowOn2/StaticBody3D"]
+shape = SubResource("BoxShape3D_6kt4m")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="World1/ShowOn2/StaticBody3D"]
+mesh = SubResource("BoxMesh_6d24d")
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="World1/ShowOn2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.403, 0.824376, -19.2801)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World1/ShowOn2/StaticBody3D2"]
+shape = SubResource("BoxShape3D_6kt4m")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="World1/ShowOn2/StaticBody3D2"]
+mesh = SubResource("BoxMesh_6d24d")
+
+[editable path="Player"]
+[editable path="Present/TriggerArea"]
+[editable path="Present/TriggerArea2"]

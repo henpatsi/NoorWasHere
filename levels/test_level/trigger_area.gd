@@ -40,7 +40,7 @@ func _process(_delta: float) -> void:
 	
 	if not active and one_shot:
 		if prevent_teleport:
-			picture_manager.enabled = true
+			picture_manager.input_enabled = true
 		activate_trigger()
 		queue_free()
 
@@ -53,7 +53,7 @@ func _on_body_entered(body: Node3D) -> void:
 		return
 
 	if prevent_teleport:
-		picture_manager.enabled = false
+		picture_manager.input_enabled = false
 	
 	print("Area triggered")
 	active = true
