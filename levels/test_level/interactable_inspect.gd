@@ -19,6 +19,8 @@ var audio_played: bool = false
 @export var nodes_to_show: Array[Node]
 ## Nodes that will be hidden once the animation has played
 @export var nodes_to_hide: Array[Node]
+## Area3D nodes that should start monitoring
+@export var start_monitoring_list: Array[Area3D]
 ## Waits until all audio clips have been played until making the listed changes
 @export var wait_for_audio: bool = false
 
@@ -98,7 +100,8 @@ func apply_scene_changes() -> void:
 		if is_instance_valid(node):
 			node.hide()
 			set_child_collider_states(node, true)
-
+	for area in start_monitoring_list:
+		area.monitoring = true
 
 func set_child_collider_states(node: Node, disabled_state: bool) -> void:
 	for child in node.get_children():
