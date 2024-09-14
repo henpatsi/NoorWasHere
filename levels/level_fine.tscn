@@ -1,7 +1,8 @@
-[gd_scene load_steps=36 format=3 uid="uid://baq3osaidwfaf"]
+[gd_scene load_steps=109 format=3 uid="uid://baq3osaidwfaf"]
 
 [ext_resource type="Script" path="res://levels/scripts/level.gd" id="1_mw3wp"]
 [ext_resource type="Material" uid="uid://dve3xrg044f4h" path="res://assets/materials/M_housetemp.tres" id="2_db8bv"]
+[ext_resource type="Environment" uid="uid://dobqonwml2e5x" path="res://assets/WorldEnvironments/Env_Present.tres" id="2_ekst6"]
 [ext_resource type="PackedScene" uid="uid://ck05y3vr2y8c3" path="res://assets/characters/Noor_RefNoRig.fbx" id="3_5o0ur"]
 [ext_resource type="PackedScene" uid="uid://c5dkjmjdmby0q" path="res://assets/props/door_a/door_a.tscn" id="3_k0uy4"]
 [ext_resource type="Script" path="res://levels/scripts/picture_handler.gd" id="3_m4duy"]
@@ -12,21 +13,67 @@
 [ext_resource type="Script" path="res://levels/scripts/dynamic_label.gd" id="7_rnv2q"]
 [ext_resource type="PackedScene" uid="uid://dtrj4a2rd7r80" path="res://assets/props/INTERACTEABLE/closet/closet.tscn" id="12_4m6ha"]
 [ext_resource type="PackedScene" uid="uid://cogjse1d7bpe1" path="res://assets/props/INTERACTEABLE/TV_a/tv.tscn" id="12_4tqrl"]
+[ext_resource type="PackedScene" uid="uid://bn5ukqljga2qo" path="res://levels/scripts/trigger_area.tscn" id="13_3syry"]
+[ext_resource type="AudioStream" uid="uid://5cmdiux0k4xq" path="res://assets/audio/VO/00_01.mp3" id="14_pyrie"]
 [ext_resource type="PackedScene" uid="uid://daempkcx2ef7j" path="res://assets/props/INTERACTEABLE/lightswitch/light_switch.tscn" id="14_wds17"]
+[ext_resource type="AudioStream" uid="uid://dj22rfgydlxpn" path="res://assets/audio/VO/00_02.mp3" id="15_ckhxf"]
 [ext_resource type="Script" path="res://levels/scripts/interactable_picture.gd" id="15_gx5iv"]
+[ext_resource type="AudioStream" uid="uid://hsf8e2qstbkh" path="res://assets/audio/VO/00_03.mp3" id="16_fg61r"]
 [ext_resource type="PackedScene" uid="uid://dw8pdqr1nnbrr" path="res://assets/props/INTERACTEABLE/memory capsule/memory_capsule.tscn" id="16_p4a51"]
-
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_rbuat"]
-sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
-ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
-
-[sub_resource type="Sky" id="Sky_olqo2"]
-sky_material = SubResource("ProceduralSkyMaterial_rbuat")
-
-[sub_resource type="Environment" id="Environment_vcqcf"]
-background_mode = 2
-sky = SubResource("Sky_olqo2")
-tonemap_mode = 2
+[ext_resource type="AudioStream" uid="uid://b42duhxkeedb5" path="res://assets/audio/VO/02_E01.mp3" id="18_4l7tl"]
+[ext_resource type="AudioStream" uid="uid://c54iabrj4b7av" path="res://assets/audio/VO/02_E02.mp3" id="19_7juhc"]
+[ext_resource type="AudioStream" uid="uid://br61yc5ncoop0" path="res://assets/audio/VO/01_01.mp3" id="20_kk0q6"]
+[ext_resource type="AudioStream" uid="uid://cairm5lejtgio" path="res://assets/audio/VO/02_E03.mp3" id="20_m6i7j"]
+[ext_resource type="AudioStream" uid="uid://cl56wsvfgy86r" path="res://assets/audio/VO/03_E01.mp3" id="21_euod3"]
+[ext_resource type="AudioStream" uid="uid://12g4kwna4ag3" path="res://assets/audio/VO/01_02.mp3" id="21_ivobu"]
+[ext_resource type="AudioStream" uid="uid://jto8ycgydca1" path="res://assets/audio/VO/03_E02.mp3" id="22_6cax2"]
+[ext_resource type="AudioStream" uid="uid://0yd2n0iqw3yf" path="res://assets/audio/VO/01_E01.mp3" id="22_xpd7j"]
+[ext_resource type="AudioStream" uid="uid://5i1sr1ydi775" path="res://assets/audio/VO/02_01.mp3" id="23_aiq0e"]
+[ext_resource type="AudioStream" uid="uid://35of1pk4oj5j" path="res://assets/audio/VO/04_04.mp3" id="23_wh8hk"]
+[ext_resource type="AudioStream" uid="uid://bjmik12i52vih" path="res://assets/audio/VO/04_05.mp3" id="24_o7msp"]
+[ext_resource type="AudioStream" uid="uid://bmvsjvaqq2fr4" path="res://assets/audio/VO/02_02.mp3" id="24_olbt4"]
+[ext_resource type="AudioStream" uid="uid://drvjocimkh46q" path="res://assets/audio/VO/07_E01.mp3" id="25_echwm"]
+[ext_resource type="AudioStream" uid="uid://bepnij3aeco4x" path="res://assets/audio/VO/02_03.mp3" id="25_jmoj7"]
+[ext_resource type="AudioStream" uid="uid://c7nghwlcfmvc6" path="res://assets/audio/VO/02_04.mp3" id="26_1xfi3"]
+[ext_resource type="AudioStream" uid="uid://dytp28n3e6avg" path="res://assets/audio/VO/07_E02.mp3" id="26_hp5c5"]
+[ext_resource type="AudioStream" uid="uid://y5di5xugha71" path="res://assets/audio/VO/08_E01.mp3" id="27_100q3"]
+[ext_resource type="AudioStream" uid="uid://dmswqevoug0bm" path="res://assets/audio/VO/08_E02.mp3" id="28_pgrea"]
+[ext_resource type="AudioStream" uid="uid://buugs51ij4otd" path="res://assets/audio/VO/09_E01.mp3" id="29_sdx77"]
+[ext_resource type="AudioStream" uid="uid://dcgr63rs7osdw" path="res://assets/audio/VO/09_E02.mp3" id="30_ogixp"]
+[ext_resource type="AudioStream" uid="uid://cnmypyjxbiltn" path="res://assets/audio/VO/03_01.mp3" id="40_g4e4l"]
+[ext_resource type="AudioStream" uid="uid://04j43qydnc03" path="res://assets/audio/VO/03_02.mp3" id="41_msuu6"]
+[ext_resource type="AudioStream" uid="uid://cxrmbwqc7131w" path="res://assets/audio/VO/03_03.mp3" id="42_f8tbi"]
+[ext_resource type="AudioStream" uid="uid://dfpndli8u545s" path="res://assets/audio/VO/03_04.mp3" id="43_28fg0"]
+[ext_resource type="AudioStream" uid="uid://bc3sp21onssft" path="res://assets/audio/VO/04_01.mp3" id="44_knvqs"]
+[ext_resource type="AudioStream" uid="uid://me416phyi7sn" path="res://assets/audio/VO/04_02.mp3" id="45_r8jb1"]
+[ext_resource type="AudioStream" uid="uid://bj0nqivtr8k0f" path="res://assets/audio/VO/04_03.mp3" id="46_56kxj"]
+[ext_resource type="AudioStream" uid="uid://ntgyksx2a581" path="res://assets/audio/VO/05_01.mp3" id="47_jywj2"]
+[ext_resource type="AudioStream" uid="uid://drq17f6atj1hj" path="res://assets/audio/VO/05_02.mp3" id="48_yeant"]
+[ext_resource type="AudioStream" uid="uid://b55bhl0n4t8uj" path="res://assets/audio/VO/05_03.mp3" id="49_2t2lm"]
+[ext_resource type="AudioStream" uid="uid://chmixllxaoe2c" path="res://assets/audio/VO/05_04.mp3" id="50_jdu6d"]
+[ext_resource type="AudioStream" uid="uid://ckskdd6myi6x" path="res://assets/audio/VO/05_05.mp3" id="51_tknhm"]
+[ext_resource type="AudioStream" uid="uid://cgjyjexgqbvye" path="res://assets/audio/VO/06_01.mp3" id="52_rxp76"]
+[ext_resource type="AudioStream" uid="uid://bo0enskg5jrbo" path="res://assets/audio/VO/06_02.mp3" id="53_g02uq"]
+[ext_resource type="AudioStream" uid="uid://d1122adtjxr7e" path="res://assets/audio/VO/06_03.mp3" id="54_np5r5"]
+[ext_resource type="AudioStream" uid="uid://cxllkmdnl5130" path="res://assets/audio/VO/07_01.mp3" id="55_8s325"]
+[ext_resource type="AudioStream" uid="uid://c8e6udjdd7v4" path="res://assets/audio/VO/07_02.mp3" id="56_go77q"]
+[ext_resource type="AudioStream" uid="uid://bi140njm6vx6r" path="res://assets/audio/VO/07_03.mp3" id="57_cqb3l"]
+[ext_resource type="AudioStream" uid="uid://cr1fnsw6fttm7" path="res://assets/audio/VO/07_04.mp3" id="58_jlmrq"]
+[ext_resource type="AudioStream" uid="uid://2ep0xmg6d4h" path="res://assets/audio/VO/08_01.mp3" id="59_84f20"]
+[ext_resource type="AudioStream" uid="uid://c1fvu7jguibfl" path="res://assets/audio/VO/08_02.mp3" id="60_hwrqk"]
+[ext_resource type="AudioStream" uid="uid://co08irc6f8obg" path="res://assets/audio/VO/08_03.mp3" id="61_1a7ia"]
+[ext_resource type="AudioStream" uid="uid://ci48om2itbcgo" path="res://assets/audio/VO/09_01.mp3" id="62_yjt8u"]
+[ext_resource type="AudioStream" uid="uid://cs68esjrq2uv5" path="res://assets/audio/VO/09_02.mp3" id="63_5sokp"]
+[ext_resource type="AudioStream" uid="uid://cap2ildok3po3" path="res://assets/audio/VO/09_03.mp3" id="64_shpt0"]
+[ext_resource type="AudioStream" uid="uid://knwc0m0qw3co" path="res://assets/audio/VO/09_04.mp3" id="65_07hd3"]
+[ext_resource type="AudioStream" uid="uid://dvw7uvkhep6ty" path="res://assets/audio/VO/09_05.mp3" id="66_om61f"]
+[ext_resource type="AudioStream" uid="uid://bby6jtdqkbq5q" path="res://assets/audio/VO/09_06.mp3" id="67_5asig"]
+[ext_resource type="AudioStream" uid="uid://b0l2t087qeqgm" path="res://assets/audio/VO/09_07.mp3" id="68_h1m04"]
+[ext_resource type="AudioStream" uid="uid://b42y4r8qyiepg" path="res://assets/audio/VO/09_08.mp3" id="69_onjno"]
+[ext_resource type="AudioStream" uid="uid://dgtorspwshkk" path="res://assets/audio/VO/09_09.mp3" id="70_ius5l"]
+[ext_resource type="AudioStream" uid="uid://c2fyw3jf87ki" path="res://assets/audio/VO/09_10.mp3" id="71_5jn50"]
+[ext_resource type="AudioStream" uid="uid://io5wkb5ug8oa" path="res://assets/audio/VO/09_11.mp3" id="72_hnith"]
+[ext_resource type="AudioStream" uid="uid://bpy3casctyy3e" path="res://assets/audio/VO/09_12.mp3" id="73_gptx8"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_ipxyn"]
 viewport_path = NodePath("Pictures/0_Frontyard/SubViewport")
@@ -68,6 +115,30 @@ font_size = 32
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_08k2r"]
 albedo_color = Color(0.341962, 0.398952, 0.358896, 1)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_v5m3i"]
+size = Vector3(28, 4.5, 11.25)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fhnvu"]
+size = Vector3(7.8681, 3.75, 4.13672)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7p0vo"]
+size = Vector3(7.8681, 3.75, 4.13672)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_p64gx"]
+size = Vector3(6.5, 3.75, 5.75)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5vjpe"]
+size = Vector3(10.75, 10, 11.25)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_oelwy"]
+size = Vector3(10.75, 10, 11.25)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_rr6vd"]
+size = Vector3(33.5, 10, 4.25)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fkkgo"]
+size = Vector3(68.25, 10, 66.75)
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gonmx"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_01b1r"]
@@ -76,20 +147,49 @@ size = Vector2(0.48, 0.27)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_vc26v"]
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_l4lcx"]
+size = Vector3(9.25, 4.5, 11.25)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_hb8ce"]
+size = Vector3(10, 4.5, 11.25)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jpnon"]
+size = Vector3(6, 4.5, 7.25)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_22xje"]
+size = Vector3(6, 4.5, 7.25)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_g0svj"]
+size = Vector3(6, 4.5, 7.25)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_045hb"]
+size = Vector3(9.25, 4.5, 7.25)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_nf0s8"]
+size = Vector3(9.25, 4.5, 7.25)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_dppsw"]
+size = Vector3(9.25, 4.5, 7.25)
+
+[sub_resource type="Curve3D" id="Curve3D_vcldf"]
+
 [node name="Level" type="Node3D"]
 script = ExtResource("1_mw3wp")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_vcqcf")
+environment = ExtResource("2_ekst6")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
 shadow_enabled = true
 
 [node name="Player" parent="." node_paths=PackedStringArray("interact_label") instance=ExtResource("4_aw37m")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 18)
+transform = Transform3D(0.965926, 0, -0.258819, 0, 1, 0, 0.258819, 0, 0.965926, -1, 0, 24.75)
 max_move_speed = 3.5
 interact_label = NodePath("../UI/InteractLabel")
+
+[node name="FootstepASP" parent="Player" index="3"]
+volume_db = -45.0
 
 [node name="Pictures" type="Node" parent="." node_paths=PackedStringArray("pictures")]
 script = ExtResource("3_m4duy")
@@ -1112,6 +1212,142 @@ transform = Transform3D(-0.940678, -0.337738, 0.0325252, -0.339301, 0.936274, -0
 [node name="LightSwitch" parent="Present/LevelObjects/INTERACTABLES" instance=ExtResource("14_wds17")]
 transform = Transform3D(2.98023e-08, 0, 1, 0, 1, 0, -1, 0, 2.98023e-08, 2.46362, 5.83048, -2.31098)
 
+[node name="TriggerVolumes" type="Node3D" parent="Present"]
+
+[node name="V00_FrontDoor" parent="Present/TriggerVolumes" node_paths=PackedStringArray("audio_stream_player", "subtitle_label", "start_monitoring_list") instance=ExtResource("13_3syry")]
+process_mode = 1
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.97926, 1.57257, 23.8411)
+one_shot = true
+prevent_teleport = true
+audio_one_shot = true
+audio_stream_player = NodePath("../../../Player/PlayerDialogueASP")
+subtitle_label = NodePath("../../../UI/SubtitleLabel")
+audio_clips = Array[AudioStream]([ExtResource("14_pyrie"), ExtResource("15_ckhxf"), ExtResource("16_fg61r")])
+subtitles = Array[String](["a", "b", "c"])
+start_monitoring_list = [NodePath("../../../Past/TriggerVolumes/V01_Backyard")]
+
+[node name="CollisionShape3D" parent="Present/TriggerVolumes/V00_FrontDoor" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.25, 0.125, -6.625)
+shape = SubResource("BoxShape3D_v5m3i")
+
+[node name="V01E_EnterHouse" parent="Present/TriggerVolumes" node_paths=PackedStringArray("audio_stream_player", "subtitle_label", "start_monitoring_list") instance=ExtResource("13_3syry")]
+process_mode = 1
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.97926, 1.57257, 4.34115)
+monitoring = false
+one_shot = true
+prevent_teleport = true
+audio_one_shot = true
+audio_stream_player = NodePath("../../../Player/PlayerDialogueASP")
+subtitle_label = NodePath("../../../UI/SubtitleLabel")
+audio_clips = Array[AudioStream]([ExtResource("22_xpd7j")])
+subtitles = Array[String](["a"])
+start_monitoring_list = [NodePath("../../../Past/TriggerVolumes/V02_Office")]
+
+[node name="CollisionShape3D" parent="Present/TriggerVolumes/V01E_EnterHouse" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.00644, -0.19323, -7.19336)
+shape = SubResource("BoxShape3D_fhnvu")
+
+[node name="V02E_Office" parent="Present/TriggerVolumes" node_paths=PackedStringArray("audio_stream_player", "subtitle_label", "start_monitoring_list") instance=ExtResource("13_3syry")]
+process_mode = 1
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.97926, 1.57257, 4.34115)
+monitoring = false
+one_shot = true
+prevent_teleport = true
+audio_one_shot = true
+audio_stream_player = NodePath("../../../Player/PlayerDialogueASP")
+subtitle_label = NodePath("../../../UI/SubtitleLabel")
+audio_clips = Array[AudioStream]([ExtResource("18_4l7tl"), ExtResource("19_7juhc"), ExtResource("20_m6i7j")])
+subtitles = Array[String](["a", "b", "c"])
+start_monitoring_list = [NodePath("../../../Past/TriggerVolumes/V03_LivingRoom")]
+
+[node name="CollisionShape3D" parent="Present/TriggerVolumes/V02E_Office" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.256439, -0.19323, -1.19336)
+shape = SubResource("BoxShape3D_7p0vo")
+
+[node name="V03E_LivingRoom" parent="Present/TriggerVolumes" node_paths=PackedStringArray("audio_stream_player", "subtitle_label", "start_monitoring_list") instance=ExtResource("13_3syry")]
+process_mode = 1
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.97926, 6.07257, 3.84115)
+monitoring = false
+one_shot = true
+prevent_teleport = true
+audio_one_shot = true
+audio_stream_player = NodePath("../../../Player/PlayerDialogueASP")
+subtitle_label = NodePath("../../../UI/SubtitleLabel")
+audio_clips = Array[AudioStream]([ExtResource("21_euod3"), ExtResource("22_6cax2")])
+subtitles = Array[String](["a", "b"])
+start_monitoring_list = [NodePath("../../../Past/TriggerVolumes/V04_Hallway")]
+
+[node name="CollisionShape3D" parent="Present/TriggerVolumes/V03E_LivingRoom" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.440491, -0.44323, -2)
+shape = SubResource("BoxShape3D_p64gx")
+
+[node name="V04E_Hallway" parent="Present/TriggerVolumes" node_paths=PackedStringArray("audio_stream_player", "subtitle_label", "start_monitoring_list") instance=ExtResource("13_3syry")]
+process_mode = 1
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.97926, 6.07257, 1.09115)
+monitoring = false
+one_shot = true
+prevent_teleport = true
+audio_one_shot = true
+audio_stream_player = NodePath("../../../Player/PlayerDialogueASP")
+subtitle_label = NodePath("../../../UI/SubtitleLabel")
+audio_clips = Array[AudioStream]([ExtResource("23_wh8hk"), ExtResource("24_o7msp")])
+subtitles = Array[String](["a", "b"])
+start_monitoring_list = [NodePath("../../../Past/TriggerVolumes/V05_TV")]
+
+[node name="CollisionShape3D" parent="Present/TriggerVolumes/V04E_Hallway" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.56549, -2.31823, 1.5)
+shape = SubResource("BoxShape3D_5vjpe")
+
+[node name="V07E_NoorRoom" parent="Present/TriggerVolumes" node_paths=PackedStringArray("audio_stream_player", "subtitle_label", "start_monitoring_list") instance=ExtResource("13_3syry")]
+process_mode = 1
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.97926, 6.07257, 1.09115)
+monitoring = false
+one_shot = true
+prevent_teleport = true
+audio_one_shot = true
+audio_stream_player = NodePath("../../../Player/PlayerDialogueASP")
+subtitle_label = NodePath("../../../UI/SubtitleLabel")
+audio_clips = Array[AudioStream]([ExtResource("25_echwm"), ExtResource("26_hp5c5")])
+subtitles = Array[String](["a", "b"])
+start_monitoring_list = [NodePath("../../../Past/TriggerVolumes/V08_FrontDoor")]
+
+[node name="CollisionShape3D" parent="Present/TriggerVolumes/V07E_NoorRoom" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.81549, -2.31823, -1.25)
+shape = SubResource("BoxShape3D_oelwy")
+
+[node name="V08E_FrontDoor" parent="Present/TriggerVolumes" node_paths=PackedStringArray("audio_stream_player", "subtitle_label", "start_monitoring_list") instance=ExtResource("13_3syry")]
+process_mode = 1
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.97926, 6.07257, 10.0911)
+monitoring = false
+one_shot = true
+prevent_teleport = true
+audio_one_shot = true
+audio_stream_player = NodePath("../../../Player/PlayerDialogueASP")
+subtitle_label = NodePath("../../../UI/SubtitleLabel")
+audio_clips = Array[AudioStream]([ExtResource("27_100q3"), ExtResource("28_pgrea")])
+subtitles = Array[String](["a", "b"])
+start_monitoring_list = [NodePath("../../../Past/TriggerVolumes/V09_Forest")]
+
+[node name="CollisionShape3D" parent="Present/TriggerVolumes/V08E_FrontDoor" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.94049, -5.81823, 2)
+shape = SubResource("BoxShape3D_rr6vd")
+
+[node name="V09E_Forest" parent="Present/TriggerVolumes" node_paths=PackedStringArray("audio_stream_player", "subtitle_label") instance=ExtResource("13_3syry")]
+process_mode = 1
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.97926, 6.07257, 10.0911)
+monitoring = false
+one_shot = true
+prevent_teleport = true
+audio_one_shot = true
+audio_stream_player = NodePath("../../../Player/PlayerDialogueASP")
+subtitle_label = NodePath("../../../UI/SubtitleLabel")
+audio_clips = Array[AudioStream]([ExtResource("29_sdx77"), ExtResource("30_ogixp")])
+subtitles = Array[String](["a", "b"])
+
+[node name="CollisionShape3D" parent="Present/TriggerVolumes/V09E_Forest" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.0655, -5.81823, -39.25)
+shape = SubResource("BoxShape3D_fkkgo")
+
 [node name="Past" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 600, 0, 0)
 
@@ -1856,5 +2092,187 @@ shape = SubResource("BoxShape3D_vc26v")
 [node name="memory capsule" parent="Past/INTERACTABLES" instance=ExtResource("16_p4a51")]
 transform = Transform3D(0.965926, 0, 0.258819, 0, 1, 0, -0.258819, 0, 0.965926, -2.25, 5.253, -3)
 
+[node name="memory capsule2" parent="Past/INTERACTABLES" instance=ExtResource("16_p4a51")]
+transform = Transform3D(0.00115186, 0, -0.999999, 0, 1, 0, 0.999999, 0, 0.00115186, 7.09283, 0.169346, -20.7897)
+
+[node name="TriggerVolumes" type="Node3D" parent="Past"]
+
+[node name="V01_Backyard" parent="Past/TriggerVolumes" node_paths=PackedStringArray("audio_stream_player", "subtitle_label", "start_monitoring_list") instance=ExtResource("13_3syry")]
+process_mode = 1
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.77075, 1.57257, -11.1589)
+monitoring = false
+one_shot = true
+prevent_teleport = true
+activate_delay = 1.0
+audio_one_shot = true
+audio_stream_player = NodePath("../../../Player/PlayerDialogueASP")
+subtitle_label = NodePath("../../../UI/SubtitleLabel")
+audio_clips = Array[AudioStream]([ExtResource("20_kk0q6"), ExtResource("21_ivobu")])
+subtitles = Array[String](["a", "b"])
+start_monitoring_list = [NodePath("../../../Present/TriggerVolumes/V01E_EnterHouse")]
+
+[node name="CollisionShape3D" parent="Past/TriggerVolumes/V01_Backyard" index="0"]
+shape = SubResource("BoxShape3D_l4lcx")
+
+[node name="V02_Office" parent="Past/TriggerVolumes" node_paths=PackedStringArray("audio_stream_player", "subtitle_label", "start_monitoring_list") instance=ExtResource("13_3syry")]
+process_mode = 1
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.47925, 2.07257, 3.09115)
+monitoring = false
+one_shot = true
+prevent_teleport = true
+activate_delay = 0.5
+audio_one_shot = true
+audio_stream_player = NodePath("../../../Player/PlayerDialogueASP")
+subtitle_label = NodePath("../../../UI/SubtitleLabel")
+audio_clips = Array[AudioStream]([ExtResource("23_aiq0e"), ExtResource("24_olbt4"), ExtResource("25_jmoj7"), ExtResource("26_1xfi3")])
+subtitles = Array[String](["a", "b", "c", "d"])
+start_monitoring_list = [NodePath("../../../Present/TriggerVolumes/V02E_Office")]
+
+[node name="CollisionShape3D" parent="Past/TriggerVolumes/V02_Office" index="0"]
+shape = SubResource("BoxShape3D_hb8ce")
+
+[node name="V03_LivingRoom" parent="Past/TriggerVolumes" node_paths=PackedStringArray("audio_stream_player", "subtitle_label", "start_monitoring_list") instance=ExtResource("13_3syry")]
+process_mode = 1
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.72925, 1.57257, -2.65885)
+monitoring = false
+one_shot = true
+prevent_teleport = true
+activate_delay = 0.5
+audio_one_shot = true
+audio_stream_player = NodePath("../../../Player/PlayerDialogueASP")
+subtitle_label = NodePath("../../../UI/SubtitleLabel")
+audio_clips = Array[AudioStream]([ExtResource("40_g4e4l"), ExtResource("41_msuu6"), ExtResource("42_f8tbi"), ExtResource("43_28fg0")])
+subtitles = Array[String](["a", "b", "c", "d"])
+start_monitoring_list = [NodePath("../../../Present/TriggerVolumes/V03E_LivingRoom")]
+
+[node name="CollisionShape3D" parent="Past/TriggerVolumes/V03_LivingRoom" index="0"]
+shape = SubResource("BoxShape3D_jpnon")
+
+[node name="V04_Hallway" parent="Past/TriggerVolumes" node_paths=PackedStringArray("audio_stream_player", "subtitle_label") instance=ExtResource("13_3syry")]
+process_mode = 1
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.97925, 5.82257, -1.65885)
+monitoring = false
+one_shot = true
+prevent_teleport = true
+activate_delay = 0.5
+audio_one_shot = true
+audio_stream_player = NodePath("../../../Player/PlayerDialogueASP")
+subtitle_label = NodePath("../../../UI/SubtitleLabel")
+audio_clips = Array[AudioStream]([ExtResource("44_knvqs"), ExtResource("45_r8jb1"), ExtResource("46_56kxj")])
+subtitles = Array[String](["a", "b", "c"])
+
+[node name="CollisionShape3D" parent="Past/TriggerVolumes/V04_Hallway" index="0"]
+shape = SubResource("BoxShape3D_22xje")
+
+[node name="V05_TV" parent="Past/TriggerVolumes" node_paths=PackedStringArray("audio_stream_player", "subtitle_label", "start_monitoring_list") instance=ExtResource("13_3syry")]
+process_mode = 1
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.72925, 5.82257, 1.34115)
+monitoring = false
+one_shot = true
+prevent_teleport = true
+activate_delay = 0.5
+audio_one_shot = true
+audio_stream_player = NodePath("../../../Player/PlayerDialogueASP")
+subtitle_label = NodePath("../../../UI/SubtitleLabel")
+audio_clips = Array[AudioStream]([ExtResource("47_jywj2"), ExtResource("48_yeant"), ExtResource("49_2t2lm"), ExtResource("50_jdu6d"), ExtResource("51_tknhm")])
+subtitles = Array[String](["a", "b", "c", "d", "e"])
+start_monitoring_list = [NodePath("../V06_Room")]
+
+[node name="CollisionShape3D" parent="Past/TriggerVolumes/V05_TV" index="0"]
+shape = SubResource("BoxShape3D_g0svj")
+
+[node name="V06_Room" parent="Past/TriggerVolumes" node_paths=PackedStringArray("audio_stream_player", "subtitle_label") instance=ExtResource("13_3syry")]
+process_mode = 1
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.47925, 5.82257, -2.90885)
+monitoring = false
+one_shot = true
+prevent_teleport = true
+activate_delay = 0.5
+audio_one_shot = true
+audio_stream_player = NodePath("../../../Player/PlayerDialogueASP")
+subtitle_label = NodePath("../../../UI/SubtitleLabel")
+audio_clips = Array[AudioStream]([ExtResource("52_rxp76"), ExtResource("53_g02uq"), ExtResource("54_np5r5")])
+subtitles = Array[String](["a", "b", "cd"])
+
+[node name="CollisionShape3D" parent="Past/TriggerVolumes/V06_Room" index="0"]
+shape = SubResource("BoxShape3D_045hb")
+
+[node name="V07_Room" parent="Past/TriggerVolumes" node_paths=PackedStringArray("audio_stream_player", "subtitle_label", "start_monitoring_list") instance=ExtResource("13_3syry")]
+process_mode = 1
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.729248, 5.82257, -2.40885)
+monitoring = false
+one_shot = true
+prevent_teleport = true
+activate_delay = 0.5
+audio_one_shot = true
+audio_stream_player = NodePath("../../../Player/PlayerDialogueASP")
+subtitle_label = NodePath("../../../UI/SubtitleLabel")
+audio_clips = Array[AudioStream]([ExtResource("55_8s325"), ExtResource("56_go77q"), ExtResource("57_cqb3l"), ExtResource("58_jlmrq")])
+subtitles = Array[String](["a", "b", "c", "d"])
+start_monitoring_list = [NodePath("../../../Present/TriggerVolumes/V07E_NoorRoom")]
+
+[node name="CollisionShape3D" parent="Past/TriggerVolumes/V07_Room" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.25, 0, 0)
+shape = SubResource("BoxShape3D_nf0s8")
+
+[node name="V08_FrontDoor" parent="Past/TriggerVolumes" node_paths=PackedStringArray("audio_stream_player", "subtitle_label", "start_monitoring_list") instance=ExtResource("13_3syry")]
+process_mode = 1
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.97925, 2.07257, 4.09115)
+monitoring = false
+one_shot = true
+prevent_teleport = true
+activate_delay = 0.5
+audio_one_shot = true
+audio_stream_player = NodePath("../../../Player/PlayerDialogueASP")
+subtitle_label = NodePath("../../../UI/SubtitleLabel")
+audio_clips = Array[AudioStream]([ExtResource("59_84f20"), ExtResource("60_hwrqk"), ExtResource("61_1a7ia")])
+subtitles = Array[String](["a", "b", "c"])
+start_monitoring_list = [NodePath("../../../Present/TriggerVolumes/V08E_FrontDoor")]
+
+[node name="CollisionShape3D" parent="Past/TriggerVolumes/V08_FrontDoor" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.25, 0, 0)
+shape = SubResource("BoxShape3D_dppsw")
+
+[node name="V09_Forest" parent="Past/TriggerVolumes" node_paths=PackedStringArray("audio_stream_player", "subtitle_label", "start_monitoring_list") instance=ExtResource("13_3syry")]
+process_mode = 1
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.47925, 1.82257, -11.4089)
+monitoring = false
+one_shot = true
+prevent_teleport = true
+activate_delay = 0.5
+audio_one_shot = true
+audio_stream_player = NodePath("../../../Player/PlayerDialogueASP")
+subtitle_label = NodePath("../../../UI/SubtitleLabel")
+audio_clips = Array[AudioStream]([ExtResource("62_yjt8u"), ExtResource("63_5sokp"), ExtResource("64_shpt0"), ExtResource("65_07hd3"), ExtResource("66_om61f"), ExtResource("67_5asig"), ExtResource("68_h1m04"), ExtResource("69_onjno"), ExtResource("70_ius5l"), ExtResource("71_5jn50"), ExtResource("72_hnith"), ExtResource("73_gptx8")])
+subtitles = Array[String](["a", "b", "c", "d", "e", "f", "g", "h", "j", "j", "j", "j"])
+start_monitoring_list = [NodePath("../../../Present/TriggerVolumes/V09E_Forest")]
+
+[node name="CollisionShape3D" parent="Past/TriggerVolumes/V09_Forest" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.25, 0, 0)
+shape = SubResource("BoxShape3D_dppsw")
+
+[node name="EndingCameraPath" type="Path3D" parent="Past"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 1.5, -14.5)
+curve = SubResource("Curve3D_vcldf")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Past/EndingCameraPath"]
+
 [editable path="Player"]
+[editable path="Present/TriggerVolumes/V00_FrontDoor"]
+[editable path="Present/TriggerVolumes/V01E_EnterHouse"]
+[editable path="Present/TriggerVolumes/V02E_Office"]
+[editable path="Present/TriggerVolumes/V03E_LivingRoom"]
+[editable path="Present/TriggerVolumes/V04E_Hallway"]
+[editable path="Present/TriggerVolumes/V07E_NoorRoom"]
+[editable path="Present/TriggerVolumes/V08E_FrontDoor"]
+[editable path="Present/TriggerVolumes/V09E_Forest"]
 [editable path="Past/INTERACTABLES/closet"]
+[editable path="Past/TriggerVolumes/V01_Backyard"]
+[editable path="Past/TriggerVolumes/V02_Office"]
+[editable path="Past/TriggerVolumes/V03_LivingRoom"]
+[editable path="Past/TriggerVolumes/V04_Hallway"]
+[editable path="Past/TriggerVolumes/V05_TV"]
+[editable path="Past/TriggerVolumes/V06_Room"]
+[editable path="Past/TriggerVolumes/V07_Room"]
+[editable path="Past/TriggerVolumes/V08_FrontDoor"]
+[editable path="Past/TriggerVolumes/V09_Forest"]

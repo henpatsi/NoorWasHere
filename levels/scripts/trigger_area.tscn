@@ -3,8 +3,9 @@
 [ext_resource type="Script" path="res://levels/scripts/trigger_area.gd" id="1_6rro5"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_nrc7u"]
+size = Vector3(19.25, 4.75, 1)
 
-[node name="TiggerArea" type="Area3D"]
+[node name="TriggerArea" type="Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0207367, 1.57257, -11.0861)
 script = ExtResource("1_6rro5")
 
