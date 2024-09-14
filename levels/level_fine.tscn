@@ -81,7 +81,7 @@ interact_label = NodePath("../UI/InteractLabel")
 
 [node name="Pictures" type="Node" parent="." node_paths=PackedStringArray("pictures")]
 script = ExtResource("3_m4duy")
-pictures = [NodePath("0_Frontyard/Picture")]
+pictures = [NodePath("0_Frontyard/Picture"), NodePath("1_Backyard/Picture")]
 
 [node name="0_Frontyard" type="Node" parent="Pictures"]
 
@@ -116,7 +116,7 @@ cull_mask = 1048063
 
 [node name="1_Backyard" type="Node" parent="Pictures"]
 
-[node name="Picture" type="TextureRect" parent="Pictures/1_Backyard" node_paths=PackedStringArray("camera", "world_root", "nodes_to_show")]
+[node name="Picture" type="TextureRect" parent="Pictures/1_Backyard" node_paths=PackedStringArray("camera", "world_root", "nodes_to_show", "nodes_to_hide")]
 visible = false
 clip_contents = true
 anchors_preset = 15
@@ -134,7 +134,8 @@ stretch_mode = 3
 script = ExtResource("4_xvv2v")
 camera = NodePath("../SubViewport/PortalCamera")
 world_root = NodePath("../../../Past")
-nodes_to_show = [null]
+nodes_to_show = [NodePath("../../../Past/LevelObjects/House/Level1/Doors/Door_Backyard_Open")]
+nodes_to_hide = [NodePath("../../../Past/LevelObjects/House/Level1/Doors/Door_Backyard")]
 
 [node name="SubViewport" type="SubViewport" parent="Pictures/1_Backyard"]
 size = Vector2i(1280, 720)
@@ -1448,6 +1449,10 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.3560
 
 [node name="Door_Backyard" parent="Past/LevelObjects/House/Level1/Doors" instance=ExtResource("3_k0uy4")]
 transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 0.106071, 0.5, -5.42769)
+
+[node name="Door_Backyard_Open" parent="Past/LevelObjects/House/Level1/Doors" instance=ExtResource("3_k0uy4")]
+transform = Transform3D(-0.887397, 0, -0.461006, 0, 1, 0, 0.461006, 0, -0.887397, 0.106079, 0.5, -5.42769)
+visible = false
 
 [node name="Level2" type="Node3D" parent="Past/LevelObjects/House"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.5, 3.75, 0)

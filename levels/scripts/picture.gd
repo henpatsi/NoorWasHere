@@ -20,6 +20,8 @@ extends TextureRect
 @export_group("Scene changes")
 ## Nodes that will be shown when picture is active and hidden when inactive
 @export var nodes_to_show: Array[Node]
+## Nodes that will be hidden when picture is active and shown when inactive
+@export var nodes_to_hide: Array[Node]
 ## Audio stream player to play audio when scene is entered
 @export var ambientASP: AudioStreamPlayer3D
 ## Audio stream that is played when scene is entered
@@ -66,6 +68,10 @@ func set_active(state: bool) -> void:
 			if is_instance_valid(node):
 				node.show()
 				set_child_collider_states(node, false)
+		for node in nodes_to_hide:
+			if is_instance_valid(node):
+				node.hide()
+				set_child_collider_states(node, true)
 		show()
 
 	if not active_picture:
@@ -73,6 +79,10 @@ func set_active(state: bool) -> void:
 			if is_instance_valid(node):
 				node.hide()
 				set_child_collider_states(node, true)
+		for node in nodes_to_hide:
+			if is_instance_valid(node):
+				node.show()
+				set_child_collider_states(node, false)
 		hide()
 
 
