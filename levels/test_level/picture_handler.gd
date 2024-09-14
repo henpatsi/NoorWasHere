@@ -9,6 +9,7 @@ extends Node
 @export var align_lerp_strength: float = 2
 
 @export_category("Pictures")
+## Array of pictures that can be selected
 @export var pictures: Array[TextureRect]
 var picture_index: int = 0
 var current_picture: TextureRect
@@ -94,6 +95,9 @@ func _input(event: InputEvent) -> void:
 			return
 		if not aligned:
 			print ("Not aligned to picture")
+			return
+		if not current_picture.requirements_met(picture_requirements):
+			print ("Not all requirements for entering met")
 			return
 		if inside_picture:
 			print ("Already inside picture")
