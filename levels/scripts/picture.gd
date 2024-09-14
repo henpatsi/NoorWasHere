@@ -126,8 +126,7 @@ func enter_picture(player: CharacterBody3D, head_node: Node3D, picture_handler: 
 	picture_handler.input_enabled = false
 	player.process_mode = Node.PROCESS_MODE_DISABLED
 
-	var camera_pos = camera.position - world_root.position
-	camera_pos.y = 0
+	var camera_pos = get_local_camera_pos()
 	var moveTween = create_tween().set_parallel()
 	moveTween.tween_property(player, "global_position:x", camera_pos.x, move_tween_time)
 	moveTween.tween_property(player, "global_position:z", camera_pos.z, move_tween_time)
@@ -153,7 +152,7 @@ func enter_picture(player: CharacterBody3D, head_node: Node3D, picture_handler: 
 		audioTween.tween_property(ambientASP, "volume_db", 0, volume_fade_in_time)
 
 	player.global_position = camera.global_position
-	player.position.y = 0
+	player.position.y -= head_node.position.y
 	player.global_rotation = camera.global_rotation
 
 	player.process_mode = Node.PROCESS_MODE_PAUSABLE
