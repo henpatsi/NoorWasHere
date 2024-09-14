@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://baq3osaidwfaf"]
+[gd_scene load_steps=24 format=3 uid="uid://baq3osaidwfaf"]
 
 [ext_resource type="Script" path="res://levels/test_level/level.gd" id="1_mw3wp"]
 [ext_resource type="Material" uid="uid://dve3xrg044f4h" path="res://assets/materials/M_housetemp.tres" id="2_db8bv"]
@@ -11,6 +11,9 @@
 [ext_resource type="PackedScene" uid="uid://d22ogqllffeom" path="res://levels/camera_ref.tscn" id="6_ksg6d"]
 [ext_resource type="Script" path="res://levels/test_level/ui.gd" id="6_vry8q"]
 [ext_resource type="Script" path="res://levels/test_level/dynamic_label.gd" id="7_rnv2q"]
+[ext_resource type="PackedScene" uid="uid://dtrj4a2rd7r80" path="res://assets/props/INTERACTEABLE/closet/closet.tscn" id="12_4m6ha"]
+[ext_resource type="PackedScene" uid="uid://cogjse1d7bpe1" path="res://assets/props/INTERACTEABLE/TV_a/tv.tscn" id="12_4tqrl"]
+[ext_resource type="PackedScene" uid="uid://daempkcx2ef7j" path="res://assets/props/INTERACTEABLE/lightswitch/light_switch.tscn" id="14_wds17"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_rbuat"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -816,12 +819,6 @@ material_override = ExtResource("2_db8bv")
 use_collision = true
 size = Vector3(2, 0.5, 1.25)
 
-[node name="CSGBox3D32" type="CSGBox3D" parent="Present/LevelObjects/House/Level2/Walls"]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -9.14025, 1.625, -2.75621)
-material_override = ExtResource("2_db8bv")
-use_collision = true
-size = Vector3(1.5, 1.25, 0.75)
-
 [node name="CSGBox3D51" type="CSGBox3D" parent="Present/LevelObjects/House/Level2/Walls"]
 transform = Transform3D(-1, 0, 8.74226e-08, 0, 1, 0, -8.74226e-08, 0, -1, -19.8903, 0.875, -0.63121)
 material_override = ExtResource("2_db8bv")
@@ -929,12 +926,6 @@ transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -9.265
 material_override = ExtResource("2_db8bv")
 use_collision = true
 size = Vector3(1, 3, 0.5)
-
-[node name="CSGBox3D47" type="CSGBox3D" parent="Present/LevelObjects/House/Level2/Walls"]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -9.64025, 1.875, 5.99379)
-material_override = ExtResource("2_db8bv")
-use_collision = true
-size = Vector3(1.25, 2.75, 1)
 
 [node name="CSGBox3D53" type="CSGBox3D" parent="Present/LevelObjects/House/Level2/Walls"]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -11.6403, 2, 2.24379)
@@ -1083,6 +1074,17 @@ transform = Transform3D(0.965926, 0, 0.258819, 0, 1, 0, -0.258819, 0, 0.965926, 
 material_override = SubResource("StandardMaterial3D_08k2r")
 use_collision = true
 size = Vector3(25.25, 12.75, 75.25)
+
+[node name="INTERACTABLES" type="Node3D" parent="Present/LevelObjects"]
+
+[node name="closet" parent="Present/LevelObjects/INTERACTABLES" instance=ExtResource("12_4m6ha")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 8.7492, 4.11726, 6.04004)
+
+[node name="TV" parent="Present/LevelObjects/INTERACTABLES" instance=ExtResource("12_4tqrl")]
+transform = Transform3D(-0.940678, -0.337738, 0.0325252, -0.339301, 0.936274, -0.0909153, 0.000253081, -0.0965579, -0.995327, 8.93476, 4.75, 6.06002)
+
+[node name="LightSwitch" parent="Present/LevelObjects/INTERACTABLES" instance=ExtResource("14_wds17")]
+transform = Transform3D(2.98023e-08, 0, 1, 0, 1, 0, -1, 0, 2.98023e-08, 2.46362, 5.83048, -2.31098)
 
 [node name="Past" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 600, 0, 0)
@@ -1422,7 +1424,7 @@ size = Vector3(0.5, 3.75, 0.5)
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.356071, 0.5, 9.93767)
 
 [node name="Door_Backyard" parent="Past/LevelObjects/House/Level1/Doors" instance=ExtResource("3_k0uy4")]
-transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 0.106071, 0.5, -5.42769)
+transform = Transform3D(-0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, -0.866025, 0.157288, 0.5, -5.42769)
 
 [node name="Level2" type="Node3D" parent="Past/LevelObjects/House"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.5, 3.75, 0)
@@ -1478,12 +1480,6 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -9.390
 material_override = ExtResource("2_db8bv")
 use_collision = true
 size = Vector3(2, 0.5, 1.25)
-
-[node name="CSGBox3D32" type="CSGBox3D" parent="Past/LevelObjects/House/Level2/Walls"]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -9.14025, 1.625, -2.75621)
-material_override = ExtResource("2_db8bv")
-use_collision = true
-size = Vector3(1.5, 1.25, 0.75)
 
 [node name="CSGBox3D51" type="CSGBox3D" parent="Past/LevelObjects/House/Level2/Walls"]
 transform = Transform3D(-1, 0, 8.74226e-08, 0, 1, 0, -8.74226e-08, 0, -1, -19.8903, 0.875, -0.63121)
@@ -1593,12 +1589,6 @@ material_override = ExtResource("2_db8bv")
 use_collision = true
 size = Vector3(1, 3, 0.5)
 
-[node name="CSGBox3D47" type="CSGBox3D" parent="Past/LevelObjects/House/Level2/Walls"]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -9.64025, 1.875, 5.99379)
-material_override = ExtResource("2_db8bv")
-use_collision = true
-size = Vector3(1.25, 2.75, 1)
-
 [node name="CSGBox3D53" type="CSGBox3D" parent="Past/LevelObjects/House/Level2/Walls"]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -11.6403, 2, 2.24379)
 material_override = ExtResource("2_db8bv")
@@ -1669,7 +1659,7 @@ size = Vector3(1.5, 3, 0.25)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.5, 0, 5.75)
 
 [node name="Door_Noor" parent="Past/LevelObjects/House/Level2/Doors" instance=ExtResource("3_k0uy4")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.143929, 0.5, -8.38692)
+transform = Transform3D(-0.876895, 0, 0.480683, 0, 1, 0, -0.480683, 0, -0.876895, -0.143921, 0.5, -8.38692)
 
 [node name="Roof" type="Node3D" parent="Past/LevelObjects/House"]
 
@@ -1809,4 +1799,22 @@ size = Vector3(25.25, 12.75, 75.25)
 [node name="Noor_RefNoRig2" parent="Past/Characters" instance=ExtResource("3_5o0ur")]
 transform = Transform3D(1.15, 0, 0, 0, 1.15, 0, 0, 0, 1.15, 0.5, 0.5, 11.75)
 
+[node name="INTERACTABLES" type="Node3D" parent="Past"]
+
+[node name="closet" parent="Past/INTERACTABLES" instance=ExtResource("12_4m6ha")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 8.7492, 4.11726, 6.04004)
+
+[node name="closet_door_left" parent="Past/INTERACTABLES/closet/closet" index="0"]
+transform = Transform3D(0.923652, -1.09315e-15, 0.383231, 0.383231, -4.37114e-08, -0.923652, 1.67516e-08, 1, -4.03741e-08, 0.0576935, -0.03356, 0.00932729)
+
+[node name="TV" parent="Past/INTERACTABLES" instance=ExtResource("12_4tqrl")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 8.99542, 4.75, -2.83798)
+
+[node name="LightSwitch" parent="Past/INTERACTABLES" instance=ExtResource("14_wds17")]
+transform = Transform3D(2.98023e-08, 0, 1, 0, 1, 0, -1, 0, 2.98023e-08, 2.46362, 5.83048, -2.31098)
+
+[node name="ShedCloset" parent="Past/INTERACTABLES" instance=ExtResource("12_4m6ha")]
+transform = Transform3D(0.899647, 0, -0.0251922, 0, 0.9, 0, 0.0251922, 0, 0.899647, 7.07532, -0.107088, -20.6855)
+
 [editable path="Player"]
+[editable path="Past/INTERACTABLES/closet"]

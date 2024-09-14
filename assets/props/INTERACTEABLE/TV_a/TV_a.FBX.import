@@ -1,0 +1,44 @@
+[remap]
+
+importer="scene"
+importer_version=1
+type="PackedScene"
+uid="uid://dad0tpgv5ryg8"
+path="res://.godot/imported/TV_a.FBX-5d7dcfd85bcfb5b060000cd9bcfe6315.scn"
+
+[deps]
+
+source_file="res://assets/props/INTERACTEABLE/TV_a/TV_a.FBX"
+dest_files=["res://.godot/imported/TV_a.FBX-5d7dcfd85bcfb5b060000cd9bcfe6315.scn"]
+
+[params]
+
+nodes/root_type=""
+nodes/root_name=""
+nodes/apply_root_scale=true
+nodes/root_scale=1.0
+nodes/import_as_skeleton_bones=false
+meshes/ensure_tangents=true
+meshes/generate_lods=true
+meshes/create_shadow_meshes=true
+meshes/light_baking=1
+meshes/lightmap_texel_size=0.2
+meshes/force_disable_compression=false
+skins/use_named_skins=true
+animation/import=true
+animation/fps=30
+animation/trimming=true
+animation/remove_immutable_tracks=true
+animation/import_rest_as_RESET=false
+import_script/path=""
+_subresources={
+"materials": {
+"TV_A_Mat": {
+"use_external/enabled": true,
+"use_external/path": "res://assets/props/INTERACTEABLE/TV_a/TV_A_Mat.tres"
+}
+}
+}
+fbx/importer=0
+fbx/allow_geometry_helper_nodes=false
+fbx/embedded_image_handling=1
