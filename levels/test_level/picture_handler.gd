@@ -29,6 +29,7 @@ var input_enabled: bool = true
 
 @onready var crosshair: ColorRect = $"../UI/Crosshair"
 @onready var interact_label: Label = $"../UI/InteractLabel"
+@onready var interact_response_label: Label = $"../UI/InteractResponseLabel"
 
 @onready var player: CharacterBody3D = $"../Player"
 @onready var head_node: Node3D = $"../Player/HeadNode"
@@ -101,7 +102,7 @@ func _input(event: InputEvent) -> void:
 			print ("Not aligned to picture")
 			return
 		if not current_picture.requirements_met(picture_requirements_met):
-			print ("Not all requirements for entering met")
+			interact_response_label.change_text("Something is missing")
 			return
 		if inside_picture:
 			print ("Already inside picture")

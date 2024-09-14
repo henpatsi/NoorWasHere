@@ -44,7 +44,7 @@ func release() -> void:
 	position = Vector3.ZERO
 	carrying = false
 
-	picture_handler.picture_requirements.append(set_requirement)
+	picture_handler.picture_requirements_met.append(set_requirement)
 
 func set_dropoff(area: Area3D) -> void:
 	dropoff_area = area
