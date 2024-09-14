@@ -125,7 +125,8 @@ func toggle_inspect() -> void:
 
 func add_picture(picture: TextureRect) -> void:
 	pictures.append(picture)
-	set_active_picture(pictures.size() - 1)
+	if not inside_picture:
+		set_active_picture(pictures.size() - 1)
 
 
 func set_active_picture(index: int) -> void:

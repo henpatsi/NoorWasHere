@@ -102,7 +102,7 @@ func set_child_collider_states(node: Node, disabled_state: bool) -> void:
 
 func get_local_camera_pos() -> Vector3:
 	var camera_pos = camera.position - world_root.position
-	camera_pos.y = 0
+	camera_pos.y -= 1.75
 	return camera_pos
 
 
@@ -168,7 +168,6 @@ func exit_picture(player: CharacterBody3D, picture_handler: Node) -> void:
 	inside_picture = false
 
 	player.global_position -= world_root.position
-	player.position.y = 0
 
 	var zoomTween = create_tween().set_parallel()
 	zoomTween.tween_property(self, "position:y", 570, picture_resize_time)
