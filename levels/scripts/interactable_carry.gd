@@ -2,6 +2,7 @@ extends Node3D
 
 @export_category("Settings")
 @export var rotation_on_carry: Vector3
+@export var interact_label: Label
 @export var interact_response_label: Label
 
 @export var picture_handler: Node
@@ -24,7 +25,7 @@ func interact(player: CharacterBody3D) -> void:
 	if not carrying:
 		get_parent().remove_child(self)
 		player.inspect_position.add_child(self)
-		position = Vector3.ZERO
+		position = Vector3(0, -0.5, 0)
 		rotation = Vector3(deg_to_rad(rotation_on_carry.x),
 						deg_to_rad(rotation_on_carry.y),
 						deg_to_rad(rotation_on_carry.z))
@@ -43,9 +44,11 @@ func release() -> void:
 	get_parent().remove_child(self)
 	new_parent.add_child(self)
 	position = Vector3.ZERO
+	rotation = Vector3.ZERO
 	carrying = false
 
 	picture_handler.picture_requirements_met.append(set_requirement)
 
 func set_dropoff(area: Area3D) -> void:
 	dropoff_area = area
+	interact_response_label.change_text("Release here")

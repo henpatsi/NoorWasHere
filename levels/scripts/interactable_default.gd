@@ -55,10 +55,12 @@ func interact(player: CharacterBody3D) -> void:
 
 func play_audio_clips() -> void:
 	if not audio_stream_player or audio_clips.size() == 0:
-		picture_manager.set_input_state(true)
+		if prevent_teleport:
+			picture_manager.set_input_state(true)
 		return
 	if audio_one_shot and audio_played:
-		picture_manager.set_input_state(true)
+		if prevent_teleport:
+			picture_manager.set_input_state(true)
 		return
 	audio_played = true
 	while audio_index < audio_clips.size():
@@ -75,7 +77,8 @@ func play_audio_clips() -> void:
 	if wait_for_audio:
 		apply_scene_changes()
 		
-	picture_manager.set_input_state(true)
+	if prevent_teleport:
+		picture_manager.set_input_state(true)
 
 
 func apply_scene_changes() -> void:

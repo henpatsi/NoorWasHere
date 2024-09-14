@@ -65,6 +65,7 @@ func outside_picture_process(delta: float) -> void:
 		aligned = false
 
 
+# TODO maybe make this an array of bools, so that all that block have to unblock
 func set_input_state(state: bool) -> void:
 	input_enabled = state
 	if not input_enabled and not inside_picture and up_position:
@@ -132,6 +133,7 @@ func add_picture(picture: TextureRect) -> void:
 func set_active_picture(index: int) -> void:
 	if inside_picture:
 		print("Cannot swap picture inside picture")
+		return
 	if pictures.size() == 1:
 		print("No pictures to swap to")
 		return
