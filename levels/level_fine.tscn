@@ -1,12 +1,12 @@
-[gd_scene load_steps=24 format=3 uid="uid://baq3osaidwfaf"]
+[gd_scene load_steps=29 format=3 uid="uid://baq3osaidwfaf"]
 
-[ext_resource type="Script" path="res://levels/test_level/level.gd" id="1_mw3wp"]
+[ext_resource type="Script" path="res://levels/scripts/level.gd" id="1_mw3wp"]
 [ext_resource type="Material" uid="uid://dve3xrg044f4h" path="res://assets/materials/M_housetemp.tres" id="2_db8bv"]
 [ext_resource type="PackedScene" uid="uid://ck05y3vr2y8c3" path="res://assets/characters/Noor_RefNoRig.fbx" id="3_5o0ur"]
-[ext_resource type="PackedScene" uid="uid://c5dkjmjdmby0q" path="res://assets/props/door_a/door_a.tscn" id="3_k0uy4"]
-[ext_resource type="Script" path="res://levels/test_level/picture_handler.gd" id="3_m4duy"]
+[ext_resource type="PackedScene" path="res://assets/props/door_a/door_a.tscn" id="3_k0uy4"]
+[ext_resource type="Script" path="res://levels/scripts/picture_handler.gd" id="3_m4duy"]
 [ext_resource type="PackedScene" uid="uid://b25ooshew3q2v" path="res://player/player.tscn" id="4_aw37m"]
-[ext_resource type="Script" path="res://levels/test_level/picture.gd" id="4_xvv2v"]
+[ext_resource type="Script" path="res://levels/scripts/picture.gd" id="4_xvv2v"]
 [ext_resource type="AudioStream" uid="uid://pl1sjspdft3k" path="res://assets/audio/music/LOOP_Blasting Through the Sky.wav" id="5_nvfs4"]
 [ext_resource type="PackedScene" uid="uid://d22ogqllffeom" path="res://levels/camera_ref.tscn" id="6_ksg6d"]
 [ext_resource type="Script" path="res://levels/test_level/ui.gd" id="6_vry8q"]
@@ -28,10 +28,34 @@ sky = SubResource("Sky_olqo2")
 tonemap_mode = 2
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_ipxyn"]
-viewport_path = NodePath("Pictures/1/SubViewport")
+viewport_path = NodePath("Pictures/0_Frontyard/SubViewport")
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_b06rl"]
-viewport_path = NodePath("Pictures/3/SubViewport")
+viewport_path = NodePath("Pictures/1_Backyard/SubViewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_x3p8b"]
+viewport_path = NodePath("Pictures/2_Office/SubViewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_vj58s"]
+viewport_path = NodePath("Pictures/3_LivingRoom/SubViewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_g8io3"]
+viewport_path = NodePath("Pictures/4_HallwayUpstairs/SubViewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_6n2fv"]
+viewport_path = NodePath("Pictures/5_TV/SubViewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_7arkj"]
+viewport_path = NodePath("Pictures/6_7_NoorRoomNight/SubViewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_cqmwq"]
+viewport_path = NodePath("Pictures/8_FrontDoor/SubViewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_x1qt1"]
+viewport_path = NodePath("Pictures/9_Forest/SubViewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_8x1ut"]
+viewport_path = NodePath("Pictures/10_Shed/SubViewport")
 
 [sub_resource type="LabelSettings" id="LabelSettings_certn"]
 font_size = 32
@@ -53,13 +77,14 @@ environment = SubResource("Environment_vcqcf")
 transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
 shadow_enabled = true
 
-[node name="Player" parent="." instance=ExtResource("4_aw37m")]
+[node name="Player" parent="." node_paths=PackedStringArray("interact_label") instance=ExtResource("4_aw37m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 18)
 max_move_speed = 3.5
+interact_label = NodePath("../UI/InteractLabel")
 
 [node name="Pictures" type="Node" parent="." node_paths=PackedStringArray("pictures")]
 script = ExtResource("3_m4duy")
-pictures = [NodePath("0_Frontyard/Picture"), NodePath("2_Office/Picture")]
+pictures = [NodePath("0_Frontyard/Picture")]
 
 [node name="0_Frontyard" type="Node" parent="Pictures"]
 
@@ -137,7 +162,7 @@ offset_right = -320.0
 offset_bottom = 210.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = SubResource("ViewportTexture_b06rl")
+texture = SubResource("ViewportTexture_x3p8b")
 expand_mode = 1
 stretch_mode = 3
 script = ExtResource("4_xvv2v")
@@ -168,7 +193,7 @@ offset_right = -320.0
 offset_bottom = 210.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = SubResource("ViewportTexture_b06rl")
+texture = SubResource("ViewportTexture_vj58s")
 expand_mode = 1
 stretch_mode = 3
 script = ExtResource("4_xvv2v")
@@ -199,7 +224,7 @@ offset_right = -320.0
 offset_bottom = 210.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = SubResource("ViewportTexture_b06rl")
+texture = SubResource("ViewportTexture_g8io3")
 expand_mode = 1
 stretch_mode = 3
 script = ExtResource("4_xvv2v")
@@ -230,7 +255,7 @@ offset_right = -320.0
 offset_bottom = 210.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = SubResource("ViewportTexture_b06rl")
+texture = SubResource("ViewportTexture_6n2fv")
 expand_mode = 1
 stretch_mode = 3
 script = ExtResource("4_xvv2v")
@@ -261,7 +286,7 @@ offset_right = -320.0
 offset_bottom = 210.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = SubResource("ViewportTexture_b06rl")
+texture = SubResource("ViewportTexture_7arkj")
 expand_mode = 1
 stretch_mode = 3
 script = ExtResource("4_xvv2v")
@@ -292,7 +317,7 @@ offset_right = -320.0
 offset_bottom = 210.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = SubResource("ViewportTexture_b06rl")
+texture = SubResource("ViewportTexture_cqmwq")
 expand_mode = 1
 stretch_mode = 3
 script = ExtResource("4_xvv2v")
@@ -323,7 +348,7 @@ offset_right = -320.0
 offset_bottom = 210.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = SubResource("ViewportTexture_b06rl")
+texture = SubResource("ViewportTexture_x1qt1")
 expand_mode = 1
 stretch_mode = 3
 script = ExtResource("4_xvv2v")
@@ -354,7 +379,7 @@ offset_right = -320.0
 offset_bottom = 210.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = SubResource("ViewportTexture_b06rl")
+texture = SubResource("ViewportTexture_8x1ut")
 expand_mode = 1
 stretch_mode = 3
 script = ExtResource("4_xvv2v")

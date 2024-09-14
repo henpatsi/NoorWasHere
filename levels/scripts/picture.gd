@@ -63,20 +63,23 @@ func set_active(state: bool) -> void:
 
 	if active_picture:
 		for node in nodes_to_show:
-			node.show()
-			set_child_collider_states(node, false)
+			if is_instance_valid(node):
+				node.show()
+				set_child_collider_states(node, false)
 		show()
 
 	if not active_picture:
 		for node in nodes_to_show:
-			node.hide()
-			set_child_collider_states(node, true)
+			if is_instance_valid(node):
+				node.hide()
+				set_child_collider_states(node, true)
 		hide()
 
 
 func set_child_collider_states(node: Node, disabled_state: bool) -> void:
 	for child in node.get_children():
-		set_child_collider_states(child, disabled_state)
+		if is_instance_valid(child):
+			set_child_collider_states(child, disabled_state)
 	if node is CollisionShape3D:
 		node.disabled = disabled_state
 

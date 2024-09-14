@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://c2i8ngtjel6as"]
 
-[ext_resource type="Script" path="res://levels/test_level/drop_off_zone.gd" id="1_oeh61"]
+[ext_resource type="Script" path="res://levels/scripts/drop_off_zone.gd" id="1_oeh61"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_p10xi"]
 
