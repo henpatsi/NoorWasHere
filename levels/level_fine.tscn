@@ -2437,6 +2437,9 @@ script = ExtResource("38_f4eva")
 one_shot = true
 start_monitoring_list = [NodePath("../../TriggerVolumes/V07_Room")]
 
+[node name="CollisionShape3D" parent="Past/INTERACTABLES/LightSwitch_interactable" index="1"]
+disabled = true
+
 [node name="ShedCloset" parent="Past/INTERACTABLES" instance=ExtResource("12_4m6ha")]
 transform = Transform3D(0.899647, 0, -0.0251922, 0, 0.9, 0, 0.0251922, 0, 0.899647, 7.07532, -0.107088, -20.6855)
 
@@ -2484,6 +2487,9 @@ nodes_to_show = [NodePath("../LightSwitch_interactable")]
 nodes_to_hide = [NodePath("../LightSwitch")]
 wait_for_audio = true
 
+[node name="CollisionShape3D" parent="Past/INTERACTABLES/memory capsule_interactable" index="1"]
+disabled = true
+
 [node name="memory capsule2" parent="Past/INTERACTABLES" instance=ExtResource("16_p4a51")]
 transform = Transform3D(0.00115186, 0, -0.999999, 0, 1, 0, 0.999999, 0, 0.00115186, 7.09283, 0.169346, -20.7897)
 
@@ -2515,6 +2521,7 @@ skeleton = NodePath("../../../../../..")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Past/INTERACTABLES/Pictures/FrontDoorPicture"]
 shape = SubResource("BoxShape3D_vc26v")
+disabled = true
 
 [node name="ShedPicture" type="StaticBody3D" parent="Past/INTERACTABLES/Pictures" node_paths=PackedStringArray("picture_handler", "picture") groups=["Interactable"]]
 transform = Transform3D(0.948335, 0, 0.317272, 0, 1, 0, -0.317272, 0, 0.948335, -27.7238, 0.0258856, -33.1338)
@@ -2713,7 +2720,9 @@ curve = SubResource("Curve3D_vcldf")
 [editable path="Present/TriggerVolumes/V09E_Forest"]
 [editable path="Present/TriggerVolumes/V10E_Shed"]
 [editable path="Past/INTERACTABLES/closet"]
+[editable path="Past/INTERACTABLES/LightSwitch_interactable"]
 [editable path="Past/INTERACTABLES/ShedCloset"]
+[editable path="Past/INTERACTABLES/memory capsule_interactable"]
 [editable path="Past/TriggerVolumes/V01_Backyard"]
 [editable path="Past/TriggerVolumes/V02_Office"]
 [editable path="Past/TriggerVolumes/V03_LivingRoom"]
