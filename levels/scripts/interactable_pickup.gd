@@ -3,6 +3,7 @@ extends Node3D
 @export_category("Settings")
 @export var item_name: String
 @export var interact_response_label: Label
+@export var prevent_teleport: bool = false
 
 @export_category("Audio")
 @export var audio_one_shot: bool = false
@@ -24,9 +25,14 @@ var audio_played: bool = false
 ## Waits until all audio clips have been played until making the listed changes
 @export var wait_for_audio: bool = false
 
+var picture_manager: Node
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	# TODO fix this hacky crap
+	for child in get_tree().root.get_child(1).get_children():
+		if child.name == "Pictures":
+			picture_manager = child
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -35,6 +41,9 @@ func _process(_delta: float) -> void:
 
 func interact(player: CharacterBody3D) -> void:
 	print("Interacted with " + name)
+	
+	if prevent_teleport:
+		picture_manager.input_enabled = false
 	
 	player.inventory.add_item(item_name)
 	
@@ -50,19 +59,27 @@ func interact(player: CharacterBody3D) -> void:
 
 func play_audio_clips() -> void:
 	if not audio_stream_player or audio_clips.size() == 0:
+		picture_manager.input_enabled = true
 		return
 	if audio_one_shot and audio_played:
+		picture_manager.input_enabled = true
 		return
 	audio_played = true
 	while audio_index < audio_clips.size():
 		audio_stream_player.stream = audio_clips[audio_index]
 		audio_stream_player.play()
+		if subtitle_label:
+			subtitle_label.text = subtitles[audio_index]
 		await get_tree().create_timer(audio_clips[audio_index].get_length()).timeout
 		audio_index += 1
 	audio_index = 0
+	if subtitle_label:
+		subtitle_label.text = ""
 	
 	if wait_for_audio:
 		apply_scene_changes()
+		
+	picture_manager.input_enabled = true
 
 func apply_scene_changes() -> void:
 	for node in nodes_to_show:

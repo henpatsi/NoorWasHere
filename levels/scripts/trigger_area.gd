@@ -20,7 +20,7 @@ var audio_played: bool = false
 ## Waits until all audio clips have been played until making the listed changes
 @export var wait_for_audio: bool = false
 
-@onready var picture_manager: Node
+var picture_manager: Node
 
 var active: bool = false
 
@@ -84,7 +84,7 @@ func play_audio_clips() -> void:
 	
 	if wait_for_audio:
 		apply_scene_changes()
-
+	
 	picture_manager.input_enabled = true
 	active = false
 
