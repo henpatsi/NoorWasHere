@@ -81,3 +81,5 @@ shape = SubResource("BoxShape3D_4r478")
 [node name="CollisionShape3D3" type="CollisionShape3D" parent="."]
 transform = Transform3D(-5.68248e-07, -5.68243e-07, 13, -13, 2.48387e-14, -5.68248e-07, 0, -13, -5.68243e-07, 0.0568542, 3.02479, 0.0262885)
 shape = SubResource("BoxShape3D_0f53p")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]

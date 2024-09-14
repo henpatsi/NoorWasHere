@@ -6,15 +6,18 @@ extends Node3D
 @onready var world_environment: WorldEnvironment = $WorldEnvironment
 @onready var directional_light_3d: DirectionalLight3D = $DirectionalLight3D
 
+@export var picture_screenshots: Array[TextureRect]
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-	world_environment.environment = env_past
-	directional_light_3d.light_energy = 0
 	
-	await get_tree().create_timer(1.0).timeout
-	world_environment.environment = env_present
-	directional_light_3d.light_energy = 1
+	set_past_environment()
+	for screenshot in picture_screenshots:
+		screenshot.take_screenshot()
+		await get_tree().create_timer(0.1).timeout
+	set_present_environment()
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
@@ -29,3 +32,14 @@ func _input(event: InputEvent) -> void:
 
 	if event.is_action_pressed("mouse_left_click"):
 		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+
+
+func set_past_environment() -> void:
+	print("Setting environment to past")
+	world_environment.environment = env_past
+	directional_light_3d.light_energy = 0
+	
+func set_present_environment() -> void:
+	print("Setting environment to present")
+	world_environment.environment = env_present
+	directional_light_3d.light_energy = 1

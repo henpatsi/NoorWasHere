@@ -40,7 +40,9 @@ func _ready() -> void:
 	if pictures.size() == 0:
 		printerr("Picture handler array is empty.")
 
+	# Wait to allow screenshot to be taken, which was conflicting with this
 	current_picture = pictures[0]
+	await get_tree().create_timer(1).timeout
 	current_picture.set_active(true)
 
 
@@ -112,8 +114,10 @@ func toggle_inspect() -> void:
 	if inside_picture:
 		current_picture.exit_picture(player, self)
 		inside_picture = false
+		up_position = false
+	else:
+		up_position = not up_position
 
-	up_position = not up_position
 	if not up_position:
 		picture_target_position.y = picture_lower_y
 		inspecting = false
