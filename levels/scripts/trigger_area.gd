@@ -55,7 +55,7 @@ func _on_body_entered(body: Node3D) -> void:
 	triggered = true
 
 	if one_shot:
-		monitoring = false
+		set_deferred("monitoring", false)
 
 	if prevent_teleport:
 		picture_manager.set_input_state(false)

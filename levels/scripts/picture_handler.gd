@@ -68,6 +68,7 @@ func outside_picture_process(delta: float) -> void:
 # TODO maybe make this an array of bools, so that all that block have to unblock
 func set_input_state(state: bool) -> void:
 	input_enabled = state
+	print("Picture input set to: " + str(state))
 	if not input_enabled and not inside_picture and up_position:
 		toggle_inspect()
 
