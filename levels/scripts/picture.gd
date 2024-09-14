@@ -22,6 +22,8 @@ extends TextureRect
 @export var nodes_to_show: Array[Node]
 ## Nodes that will be hidden when picture is active and shown when inactive
 @export var nodes_to_hide: Array[Node]
+## Area3D nodes that should start monitoring
+@export var start_monitoring_list: Array[Area3D]
 ## Audio stream player to play audio when scene is entered
 @export var ambientASP: AudioStreamPlayer3D
 ## Audio stream that is played when scene is entered
@@ -72,6 +74,8 @@ func set_active(state: bool) -> void:
 			if is_instance_valid(node):
 				node.hide()
 				set_child_collider_states(node, true)
+		for area in start_monitoring_list:
+			area.monitoring = true
 		show()
 
 	if not active_picture:
@@ -83,6 +87,8 @@ func set_active(state: bool) -> void:
 			if is_instance_valid(node):
 				node.show()
 				set_child_collider_states(node, false)
+		for area in start_monitoring_list:
+			area.monitoring = false
 		hide()
 
 

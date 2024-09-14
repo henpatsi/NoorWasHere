@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://baq3osaidwfaf"]
+[gd_scene load_steps=35 format=3 uid="uid://baq3osaidwfaf"]
 
 [ext_resource type="Script" path="res://levels/scripts/level.gd" id="1_mw3wp"]
 [ext_resource type="Material" uid="uid://dve3xrg044f4h" path="res://assets/materials/M_housetemp.tres" id="2_db8bv"]
@@ -8,12 +8,13 @@
 [ext_resource type="PackedScene" uid="uid://b25ooshew3q2v" path="res://player/player.tscn" id="4_aw37m"]
 [ext_resource type="Script" path="res://levels/scripts/picture.gd" id="4_xvv2v"]
 [ext_resource type="AudioStream" uid="uid://pl1sjspdft3k" path="res://assets/audio/music/LOOP_Blasting Through the Sky.wav" id="5_nvfs4"]
-[ext_resource type="PackedScene" uid="uid://d22ogqllffeom" path="res://levels/camera_ref.tscn" id="6_ksg6d"]
-[ext_resource type="Script" path="res://levels/test_level/ui.gd" id="6_vry8q"]
-[ext_resource type="Script" path="res://levels/test_level/dynamic_label.gd" id="7_rnv2q"]
+[ext_resource type="PackedScene" path="res://levels/camera_ref.tscn" id="6_ksg6d"]
+[ext_resource type="Script" path="res://levels/scripts/ui.gd" id="6_vry8q"]
+[ext_resource type="Script" path="res://levels/scripts/dynamic_label.gd" id="7_rnv2q"]
 [ext_resource type="PackedScene" uid="uid://dtrj4a2rd7r80" path="res://assets/props/INTERACTEABLE/closet/closet.tscn" id="12_4m6ha"]
 [ext_resource type="PackedScene" uid="uid://cogjse1d7bpe1" path="res://assets/props/INTERACTEABLE/TV_a/tv.tscn" id="12_4tqrl"]
 [ext_resource type="PackedScene" uid="uid://daempkcx2ef7j" path="res://assets/props/INTERACTEABLE/lightswitch/light_switch.tscn" id="14_wds17"]
+[ext_resource type="Script" path="res://levels/scripts/interactable_picture.gd" id="15_gx5iv"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_rbuat"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -67,6 +68,11 @@ font_size = 32
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_08k2r"]
 albedo_color = Color(0.341962, 0.398952, 0.358896, 1)
 
+[sub_resource type="PlaneMesh" id="PlaneMesh_01b1r"]
+size = Vector2(0.48, 0.27)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vc26v"]
+
 [node name="Level" type="Node3D"]
 script = ExtResource("1_mw3wp")
 
@@ -84,11 +90,11 @@ interact_label = NodePath("../UI/InteractLabel")
 
 [node name="Pictures" type="Node" parent="." node_paths=PackedStringArray("pictures")]
 script = ExtResource("3_m4duy")
-pictures = [NodePath("0_Frontyard/Picture"), NodePath("1_Backyard/Picture")]
+pictures = [NodePath("0_Frontyard/FrontyardPicture"), NodePath("1_Backyard/BackyardPicture"), NodePath("2_Office/OfficePicture"), NodePath("5_TV/TVPicture"), NodePath("4_HallwayUpstairs/HallwayUpstairPicture"), NodePath("6_7_NoorRoomNight/NoorRoomNightPicture")]
 
 [node name="0_Frontyard" type="Node" parent="Pictures"]
 
-[node name="Picture" type="TextureRect" parent="Pictures/0_Frontyard" node_paths=PackedStringArray("camera", "world_root", "nodes_to_show")]
+[node name="FrontyardPicture" type="TextureRect" parent="Pictures/0_Frontyard" node_paths=PackedStringArray("camera", "world_root", "nodes_to_show")]
 clip_contents = true
 anchors_preset = 15
 anchor_right = 1.0
@@ -119,7 +125,7 @@ cull_mask = 1048063
 
 [node name="1_Backyard" type="Node" parent="Pictures"]
 
-[node name="Picture" type="TextureRect" parent="Pictures/1_Backyard" node_paths=PackedStringArray("camera", "world_root", "nodes_to_show", "nodes_to_hide")]
+[node name="BackyardPicture" type="TextureRect" parent="Pictures/1_Backyard" node_paths=PackedStringArray("camera", "world_root", "nodes_to_show", "nodes_to_hide")]
 visible = false
 clip_contents = true
 anchors_preset = 15
@@ -151,7 +157,7 @@ cull_mask = 1048063
 
 [node name="2_Office" type="Node" parent="Pictures"]
 
-[node name="Picture" type="TextureRect" parent="Pictures/2_Office" node_paths=PackedStringArray("camera", "world_root")]
+[node name="OfficePicture" type="TextureRect" parent="Pictures/2_Office" node_paths=PackedStringArray("camera", "world_root")]
 visible = false
 clip_contents = true
 anchors_preset = 15
@@ -169,7 +175,6 @@ stretch_mode = 3
 script = ExtResource("4_xvv2v")
 camera = NodePath("../SubViewport/PortalCamera")
 world_root = NodePath("../../../Past")
-requirements = Array[String](["tv_on_table"])
 
 [node name="SubViewport" type="SubViewport" parent="Pictures/2_Office"]
 size = Vector2i(1280, 720)
@@ -182,7 +187,7 @@ cull_mask = 1048063
 
 [node name="3_LivingRoom" type="Node" parent="Pictures"]
 
-[node name="Picture" type="TextureRect" parent="Pictures/3_LivingRoom" node_paths=PackedStringArray("camera", "world_root")]
+[node name="LivingRoomPicture" type="TextureRect" parent="Pictures/3_LivingRoom" node_paths=PackedStringArray("camera", "world_root")]
 visible = false
 clip_contents = true
 anchors_preset = 15
@@ -200,7 +205,6 @@ stretch_mode = 3
 script = ExtResource("4_xvv2v")
 camera = NodePath("../SubViewport/PortalCamera")
 world_root = NodePath("../../../Past")
-requirements = Array[String](["tv_on_table"])
 
 [node name="SubViewport" type="SubViewport" parent="Pictures/3_LivingRoom"]
 size = Vector2i(1280, 720)
@@ -213,7 +217,7 @@ cull_mask = 1048063
 
 [node name="4_HallwayUpstairs" type="Node" parent="Pictures"]
 
-[node name="Picture" type="TextureRect" parent="Pictures/4_HallwayUpstairs" node_paths=PackedStringArray("camera", "world_root")]
+[node name="HallwayUpstairPicture" type="TextureRect" parent="Pictures/4_HallwayUpstairs" node_paths=PackedStringArray("camera", "world_root")]
 visible = false
 clip_contents = true
 anchors_preset = 15
@@ -231,7 +235,6 @@ stretch_mode = 3
 script = ExtResource("4_xvv2v")
 camera = NodePath("../SubViewport/PortalCamera")
 world_root = NodePath("../../../Past")
-requirements = Array[String](["tv_on_table"])
 
 [node name="SubViewport" type="SubViewport" parent="Pictures/4_HallwayUpstairs"]
 size = Vector2i(1280, 720)
@@ -244,7 +247,7 @@ cull_mask = 1048063
 
 [node name="5_TV" type="Node" parent="Pictures"]
 
-[node name="Picture" type="TextureRect" parent="Pictures/5_TV" node_paths=PackedStringArray("camera", "world_root")]
+[node name="TVPicture" type="TextureRect" parent="Pictures/5_TV" node_paths=PackedStringArray("camera", "world_root")]
 visible = false
 clip_contents = true
 anchors_preset = 15
@@ -275,7 +278,7 @@ cull_mask = 1048063
 
 [node name="6_7_NoorRoomNight" type="Node" parent="Pictures"]
 
-[node name="Picture" type="TextureRect" parent="Pictures/6_7_NoorRoomNight" node_paths=PackedStringArray("camera", "world_root")]
+[node name="NoorRoomNightPicture" type="TextureRect" parent="Pictures/6_7_NoorRoomNight" node_paths=PackedStringArray("camera", "world_root")]
 visible = false
 clip_contents = true
 anchors_preset = 15
@@ -293,7 +296,6 @@ stretch_mode = 3
 script = ExtResource("4_xvv2v")
 camera = NodePath("../SubViewport/PortalCamera")
 world_root = NodePath("../../../Past")
-requirements = Array[String](["tv_on_table"])
 
 [node name="SubViewport" type="SubViewport" parent="Pictures/6_7_NoorRoomNight"]
 size = Vector2i(1280, 720)
@@ -306,7 +308,7 @@ cull_mask = 1048063
 
 [node name="8_FrontDoor" type="Node" parent="Pictures"]
 
-[node name="Picture" type="TextureRect" parent="Pictures/8_FrontDoor" node_paths=PackedStringArray("camera", "world_root")]
+[node name="FrontDoorPicture" type="TextureRect" parent="Pictures/8_FrontDoor" node_paths=PackedStringArray("camera", "world_root")]
 visible = false
 clip_contents = true
 anchors_preset = 15
@@ -324,7 +326,6 @@ stretch_mode = 3
 script = ExtResource("4_xvv2v")
 camera = NodePath("../SubViewport/PortalCamera")
 world_root = NodePath("../../../Past")
-requirements = Array[String](["tv_on_table"])
 
 [node name="SubViewport" type="SubViewport" parent="Pictures/8_FrontDoor"]
 size = Vector2i(1280, 720)
@@ -337,7 +338,7 @@ cull_mask = 1048063
 
 [node name="9_Forest" type="Node" parent="Pictures"]
 
-[node name="Picture" type="TextureRect" parent="Pictures/9_Forest" node_paths=PackedStringArray("camera", "world_root")]
+[node name="ForestPicture" type="TextureRect" parent="Pictures/9_Forest" node_paths=PackedStringArray("camera", "world_root")]
 visible = false
 clip_contents = true
 anchors_preset = 15
@@ -355,7 +356,6 @@ stretch_mode = 3
 script = ExtResource("4_xvv2v")
 camera = NodePath("../SubViewport/PortalCamera")
 world_root = NodePath("../../../Past")
-requirements = Array[String](["tv_on_table"])
 
 [node name="SubViewport" type="SubViewport" parent="Pictures/9_Forest"]
 size = Vector2i(1280, 720)
@@ -368,7 +368,7 @@ cull_mask = 1048063
 
 [node name="10_Shed" type="Node" parent="Pictures"]
 
-[node name="Picture" type="TextureRect" parent="Pictures/10_Shed" node_paths=PackedStringArray("camera", "world_root")]
+[node name="ShedPicture" type="TextureRect" parent="Pictures/10_Shed" node_paths=PackedStringArray("camera", "world_root")]
 visible = false
 clip_contents = true
 anchors_preset = 15
@@ -386,7 +386,6 @@ stretch_mode = 3
 script = ExtResource("4_xvv2v")
 camera = NodePath("../SubViewport/PortalCamera")
 world_root = NodePath("../../../Past")
-requirements = Array[String](["tv_on_table"])
 
 [node name="SubViewport" type="SubViewport" parent="Pictures/10_Shed"]
 size = Vector2i(1280, 720)
@@ -1450,10 +1449,10 @@ size = Vector3(0.5, 3.75, 0.5)
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.356071, 0.5, 9.93767)
 
 [node name="Door_Backyard" parent="Past/LevelObjects/House/Level1/Doors" instance=ExtResource("3_k0uy4")]
-transform = Transform3D(-0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, -0.866025, 0.157288, 0.5, -5.42769)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.157288, 0.5, -5.42769)
 
 [node name="Door_Backyard_Open" parent="Past/LevelObjects/House/Level1/Doors" instance=ExtResource("3_k0uy4")]
-transform = Transform3D(-0.887397, 0, -0.461006, 0, 1, 0, 0.461006, 0, -0.887397, 0.106079, 0.5, -5.42769)
+transform = Transform3D(-0.994356, 0, -0.106091, 0, 1, 0, 0.106091, 0, -0.994356, 0.106079, 0.5, -5.42769)
 visible = false
 
 [node name="Level2" type="Node3D" parent="Past/LevelObjects/House"]
@@ -1845,6 +1844,20 @@ transform = Transform3D(2.98023e-08, 0, 1, 0, 1, 0, -1, 0, 2.98023e-08, 2.46362,
 
 [node name="ShedCloset" parent="Past/INTERACTABLES" instance=ExtResource("12_4m6ha")]
 transform = Transform3D(0.899647, 0, -0.0251922, 0, 0.9, 0, 0.0251922, 0, 0.899647, 7.07532, -0.107088, -20.6855)
+
+[node name="Pictures" type="Node3D" parent="Past/INTERACTABLES"]
+
+[node name="ForestPicture" type="StaticBody3D" parent="Past/INTERACTABLES/Pictures"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.703491, 1.49466, -2.3747)
+script = ExtResource("15_gx5iv")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Past/INTERACTABLES/Pictures/ForestPicture"]
+transform = Transform3D(0.923317, 0, 0.384037, 0, 1, 0, -0.384037, 0, 0.923317, 0.344238, -0.233864, -0.34744)
+mesh = SubResource("PlaneMesh_01b1r")
+skeleton = NodePath("../../../../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Past/INTERACTABLES/Pictures/ForestPicture"]
+shape = SubResource("BoxShape3D_vc26v")
 
 [editable path="Player"]
 [editable path="Past/INTERACTABLES/closet"]
