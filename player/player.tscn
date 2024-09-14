@@ -16,6 +16,7 @@
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_3ceiv"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_8swph"]
+radius = 0.4
 
 [node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("footstep_audio_player", "dialogue_audio_player", "ray_cast") groups=["Player"]]
 script = ExtResource("1_mlc4j")

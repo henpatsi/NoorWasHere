@@ -102,7 +102,7 @@ func set_child_collider_states(node: Node, disabled_state: bool) -> void:
 
 func get_local_camera_pos() -> Vector3:
 	var camera_pos = camera.position - world_root.position
-	camera_pos.y = 0
+	camera_pos.y -= 1.75
 	return camera_pos
 
 
@@ -126,8 +126,7 @@ func enter_picture(player: CharacterBody3D, head_node: Node3D, picture_handler: 
 	picture_handler.input_enabled = false
 	player.process_mode = Node.PROCESS_MODE_DISABLED
 
-	var camera_pos = camera.position - world_root.position
-	camera_pos.y = 0
+	var camera_pos = get_local_camera_pos()
 	var moveTween = create_tween().set_parallel()
 	moveTween.tween_property(player, "global_position:x", camera_pos.x, move_tween_time)
 	moveTween.tween_property(player, "global_position:z", camera_pos.z, move_tween_time)
@@ -153,7 +152,7 @@ func enter_picture(player: CharacterBody3D, head_node: Node3D, picture_handler: 
 		audioTween.tween_property(ambientASP, "volume_db", 0, volume_fade_in_time)
 
 	player.global_position = camera.global_position
-	player.position.y = 0
+	player.position.y -= head_node.position.y
 	player.global_rotation = camera.global_rotation
 
 	player.process_mode = Node.PROCESS_MODE_PAUSABLE
@@ -168,7 +167,6 @@ func exit_picture(player: CharacterBody3D, picture_handler: Node) -> void:
 	inside_picture = false
 
 	player.global_position -= world_root.position
-	player.position.y = 0
 
 	var zoomTween = create_tween().set_parallel()
 	zoomTween.tween_property(self, "position:y", 570, picture_resize_time)

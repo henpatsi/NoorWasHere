@@ -4,13 +4,14 @@
 [ext_resource type="Material" uid="uid://dve3xrg044f4h" path="res://assets/materials/M_housetemp.tres" id="2_db8bv"]
 [ext_resource type="Environment" uid="uid://dobqonwml2e5x" path="res://assets/WorldEnvironments/Env_Present.tres" id="2_ekst6"]
 [ext_resource type="PackedScene" uid="uid://ck05y3vr2y8c3" path="res://assets/characters/Noor_RefNoRig.fbx" id="3_5o0ur"]
-[ext_resource type="PackedScene" uid="uid://c5dkjmjdmby0q" path="res://assets/props/door_a/door_a.tscn" id="3_k0uy4"]
+[ext_resource type="PackedScene" path="res://assets/props/door_a/door_a.tscn" id="3_k0uy4"]
 [ext_resource type="Script" path="res://levels/scripts/picture_handler.gd" id="3_m4duy"]
 [ext_resource type="PackedScene" uid="uid://b25ooshew3q2v" path="res://player/player.tscn" id="4_aw37m"]
 [ext_resource type="Script" path="res://levels/scripts/picture.gd" id="4_xvv2v"]
-[ext_resource type="PackedScene" uid="uid://d22ogqllffeom" path="res://levels/camera_ref.tscn" id="6_ksg6d"]
+[ext_resource type="PackedScene" path="res://levels/camera_ref.tscn" id="6_ksg6d"]
 [ext_resource type="Script" path="res://levels/scripts/ui.gd" id="6_vry8q"]
 [ext_resource type="Script" path="res://levels/scripts/dynamic_label.gd" id="7_rnv2q"]
+[ext_resource type="PackedScene" uid="uid://c466iifg5vfql" path="res://assets/props/INTERACTEABLE/closet/closet_door_left.tscn" id="11_0yc1f"]
 [ext_resource type="PackedScene" uid="uid://dtrj4a2rd7r80" path="res://assets/props/INTERACTEABLE/closet/closet.tscn" id="12_4m6ha"]
 [ext_resource type="PackedScene" uid="uid://cogjse1d7bpe1" path="res://assets/props/INTERACTEABLE/TV_a/tv.tscn" id="12_4tqrl"]
 [ext_resource type="PackedScene" uid="uid://bn5ukqljga2qo" path="res://levels/scripts/trigger_area.tscn" id="13_3syry"]
@@ -107,10 +108,16 @@ viewport_path = NodePath("Pictures/10_Shed/SubViewport")
 
 [sub_resource type="LabelSettings" id="LabelSettings_certn"]
 font_size = 32
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_ag0sf"]
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_36gwu"]
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_08k2r"]
 albedo_color = Color(0.341962, 0.398952, 0.358896, 1)
@@ -140,9 +147,16 @@ size = Vector3(33.5, 10, 4.25)
 size = Vector3(68.25, 10, 66.75)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gonmx"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_35tsd"]
+viewport_path = NodePath("Pictures/9_Forest/SubViewport")
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_01b1r"]
-material = SubResource("StandardMaterial3D_gonmx")
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u38jg"]
+resource_local_to_scene = true
+albedo_texture = SubResource("ViewportTexture_35tsd")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_lodhw"]
+resource_local_to_scene = true
+material = SubResource("StandardMaterial3D_u38jg")
 size = Vector2(0.48, 0.27)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_vc26v"]
@@ -172,6 +186,17 @@ size = Vector3(9.25, 4.5, 7.25)
 size = Vector3(9.25, 4.5, 7.25)
 
 [sub_resource type="Curve3D" id="Curve3D_vcldf"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_2q7yh"]
+viewport_path = NodePath("Pictures/3_LivingRoom/SubViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gxkcw"]
+resource_local_to_scene = true
+albedo_texture = SubResource("ViewportTexture_2q7yh")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_01b1r"]
+resource_local_to_scene = true
+material = SubResource("StandardMaterial3D_gxkcw")
+size = Vector2(0.48, 0.27)
 
 [node name="Level" type="Node3D"]
 script = ExtResource("1_mw3wp")
@@ -341,7 +366,7 @@ world_root = NodePath("../../../Past")
 size = Vector2i(1280, 720)
 
 [node name="PortalCamera" type="Camera3D" parent="Pictures/4_HallwayUpstairs/SubViewport"]
-transform = Transform3D(-0.978527, 0, -0.206119, 0, 1, 0, 0.206119, 0, -0.978527, 605.875, 5.98234, -1.625)
+transform = Transform3D(-0.978527, 0, -0.206119, 0, 1, 0, 0.206119, 0, -0.978527, 606.63, 5.98234, -1.10868)
 cull_mask = 1048063
 
 [node name="ColorRect" parent="Pictures/4_HallwayUpstairs/SubViewport/PortalCamera" instance=ExtResource("6_ksg6d")]
@@ -372,7 +397,7 @@ requirements = Array[String](["tv_on_table"])
 size = Vector2i(1280, 720)
 
 [node name="PortalCamera" type="Camera3D" parent="Pictures/5_TV/SubViewport"]
-transform = Transform3D(0.667833, 0.0324664, -0.743603, 0, 0.999048, 0.0436194, 0.744312, -0.0291304, 0.667197, 603.875, 5.98234, 1.875)
+transform = Transform3D(0.667833, 0.0324664, -0.743603, 0, 0.999048, 0.0436194, 0.744312, -0.0291304, 0.667197, 603.875, 5.983, 1.875)
 cull_mask = 1048063
 
 [node name="ColorRect" parent="Pictures/5_TV/SubViewport/PortalCamera" instance=ExtResource("6_ksg6d")]
@@ -1206,6 +1231,14 @@ size = Vector3(25.25, 12.75, 75.25)
 [node name="closet" parent="Present/LevelObjects/INTERACTABLES" instance=ExtResource("12_4m6ha")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 8.7492, 4.11726, 6.04004)
 
+[node name="closet_door_left_open" parent="Present/LevelObjects/INTERACTABLES/closet/closet" index="1" instance=ExtResource("11_0yc1f")]
+transform = Transform3D(-0.390731, 6.07908e-08, 0.920504, 0.920504, -4.02365e-08, 0.390731, 6.07907e-08, 1, -4.02365e-08, 0.0576923, -0.03356, 0.00932729)
+visible = false
+
+[node name="closet_door_right_open" parent="Present/LevelObjects/INTERACTABLES/closet/closet" index="3" instance=ExtResource("11_0yc1f")]
+transform = Transform3D(0.173648, 5.13018e-08, -0.984807, 0.984807, 4.30473e-08, 0.173648, -5.13018e-08, 1, 4.30473e-08, -0.0569425, -0.0378285, 0.00932729)
+visible = false
+
 [node name="TV" parent="Present/LevelObjects/INTERACTABLES" instance=ExtResource("12_4tqrl")]
 transform = Transform3D(-0.940678, -0.337738, 0.0325252, -0.339301, 0.936274, -0.0909153, 0.000253081, -0.0965579, -0.995327, 8.93476, 4.75, 6.06002)
 
@@ -1347,6 +1380,20 @@ subtitles = Array[String](["a", "b"])
 [node name="CollisionShape3D" parent="Present/TriggerVolumes/V09E_Forest" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.0655, -5.81823, -39.25)
 shape = SubResource("BoxShape3D_fkkgo")
+[node name="Pictures" type="Node3D" parent="Present/LevelObjects/INTERACTABLES"]
+
+[node name="ForestPicture" type="StaticBody3D" parent="Present/LevelObjects/INTERACTABLES/Pictures" node_paths=PackedStringArray("picture_handler", "picture") groups=["Interactable"]]
+transform = Transform3D(0.948335, 0, 0.317272, 0, 1, 0, -0.317272, 0, 0.948335, -0.354065, 1.27327, -2.79793)
+script = ExtResource("15_gx5iv")
+picture_handler = NodePath("../../../../../Pictures")
+picture = NodePath("../../../../../Pictures/9_Forest/ForestPicture")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Present/LevelObjects/INTERACTABLES/Pictures/ForestPicture"]
+mesh = SubResource("PlaneMesh_lodhw")
+skeleton = NodePath("../../../../../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Present/LevelObjects/INTERACTABLES/Pictures/ForestPicture"]
+shape = SubResource("BoxShape3D_vc26v")
 
 [node name="Past" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 600, 0, 0)
@@ -2076,19 +2123,6 @@ transform = Transform3D(2.98023e-08, 0, 1, 0, 1, 0, -1, 0, 2.98023e-08, 2.46362,
 [node name="ShedCloset" parent="Past/INTERACTABLES" instance=ExtResource("12_4m6ha")]
 transform = Transform3D(0.899647, 0, -0.0251922, 0, 0.9, 0, 0.0251922, 0, 0.899647, 7.07532, -0.107088, -20.6855)
 
-[node name="Pictures" type="Node3D" parent="Past/INTERACTABLES"]
-
-[node name="ForestPicture" type="StaticBody3D" parent="Past/INTERACTABLES/Pictures"]
-transform = Transform3D(0.948335, 0, 0.317272, 0, 1, 0, -0.317272, 0, 0.948335, -0.354065, 1.27327, -2.79793)
-script = ExtResource("15_gx5iv")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Past/INTERACTABLES/Pictures/ForestPicture"]
-mesh = SubResource("PlaneMesh_01b1r")
-skeleton = NodePath("../../../../..")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Past/INTERACTABLES/Pictures/ForestPicture"]
-shape = SubResource("BoxShape3D_vc26v")
-
 [node name="memory capsule" parent="Past/INTERACTABLES" instance=ExtResource("16_p4a51")]
 transform = Transform3D(0.965926, 0, 0.258819, 0, 1, 0, -0.258819, 0, 0.965926, -2.25, 5.253, -3)
 
@@ -2266,6 +2300,23 @@ curve = SubResource("Curve3D_vcldf")
 [editable path="Present/TriggerVolumes/V07E_NoorRoom"]
 [editable path="Present/TriggerVolumes/V08E_FrontDoor"]
 [editable path="Present/TriggerVolumes/V09E_Forest"]
+[node name="Pictures" type="Node3D" parent="Past/INTERACTABLES"]
+
+[node name="LivingRoomPicture" type="StaticBody3D" parent="Past/INTERACTABLES/Pictures" node_paths=PackedStringArray("picture_handler", "picture") groups=["Interactable"]]
+transform = Transform3D(0.948335, 0, 0.317272, 0, 1, 0, -0.317272, 0, 0.948335, -0.83844, 1.51477, 1.39724)
+script = ExtResource("15_gx5iv")
+picture_handler = NodePath("../../../../Pictures")
+picture = NodePath("../../../../Pictures/3_LivingRoom/LivingRoomPicture")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Past/INTERACTABLES/Pictures/LivingRoomPicture"]
+mesh = SubResource("PlaneMesh_01b1r")
+skeleton = NodePath("../../../../../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Past/INTERACTABLES/Pictures/LivingRoomPicture"]
+shape = SubResource("BoxShape3D_vc26v")
+
+[editable path="Player"]
+[editable path="Present/LevelObjects/INTERACTABLES/closet"]
 [editable path="Past/INTERACTABLES/closet"]
 [editable path="Past/TriggerVolumes/V01_Backyard"]
 [editable path="Past/TriggerVolumes/V02_Office"]
