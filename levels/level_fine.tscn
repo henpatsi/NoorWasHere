@@ -1,4 +1,4 @@
-[gd_scene load_steps=139 format=3 uid="uid://baq3osaidwfaf"]
+[gd_scene load_steps=145 format=3 uid="uid://baq3osaidwfaf"]
 
 [ext_resource type="Script" path="res://levels/scripts/level.gd" id="1_mw3wp"]
 [ext_resource type="Material" uid="uid://dve3xrg044f4h" path="res://assets/materials/M_housetemp.tres" id="2_db8bv"]
@@ -45,8 +45,10 @@
 [ext_resource type="AudioStream" uid="uid://dcgr63rs7osdw" path="res://assets/audio/VO/09_E02.mp3" id="30_ogixp"]
 [ext_resource type="Script" path="res://levels/scripts/interactable_animation.gd" id="35_lctib"]
 [ext_resource type="Script" path="res://levels/scripts/interactable_default.gd" id="38_f4eva"]
+[ext_resource type="AudioStream" uid="uid://dyw2nbfelyt5a" path="res://assets/audio/VO/10_01.mp3" id="39_r5dow"]
 [ext_resource type="AudioStream" uid="uid://cnmypyjxbiltn" path="res://assets/audio/VO/03_01.mp3" id="40_g4e4l"]
 [ext_resource type="Script" path="res://levels/scripts/interactable_inspect.gd" id="40_n7i1m"]
+[ext_resource type="AudioStream" uid="uid://csdeduuvsta0s" path="res://assets/audio/VO/10_02.mp3" id="40_tvghy"]
 [ext_resource type="AudioStream" uid="uid://04j43qydnc03" path="res://assets/audio/VO/03_02.mp3" id="41_msuu6"]
 [ext_resource type="AudioStream" uid="uid://cdi34vnm152fy" path="res://assets/audio/VO/06_I01.mp3" id="41_qtpf1"]
 [ext_resource type="AudioStream" uid="uid://cxrmbwqc7131w" path="res://assets/audio/VO/03_03.mp3" id="42_f8tbi"]
@@ -280,6 +282,69 @@ _data = {
 "open_right_closet": SubResource("Animation_tishg")
 }
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_72t1y"]
+size = Vector3(1.3468, 3.46198, 1.42325)
+
+[sub_resource type="Animation" id="Animation_vepiy"]
+resource_name = "open_doors"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../closet/closet_door_left:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(1.42253, 1.5708, 1.5708), Vector3(-0.261799, 1.5708, 1.5708)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../closet/closet_door_right:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-1.46653, 1.5708, -1.5708), Vector3(0, 1.5708, -1.5708)]
+}
+
+[sub_resource type="Animation" id="Animation_na34f"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../closet/closet_door_right:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-1.46653, 1.5708, -1.5708)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../closet/closet_door_left:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1.42253, 1.5708, 1.5708)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_a7axc"]
+_data = {
+"RESET": SubResource("Animation_na34f"),
+"open_doors": SubResource("Animation_vepiy")
+}
+
 [sub_resource type="ViewportTexture" id="ViewportTexture_2q7yh"]
 viewport_path = NodePath("Pictures/3_LivingRoom/SubViewport")
 
@@ -305,7 +370,7 @@ material = SubResource("StandardMaterial3D_imv2r")
 size = Vector2(0.48, 0.27)
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_p5cuu"]
-viewport_path = NodePath("Pictures/10_Shed/SubViewport")
+viewport_path = NodePath("Pictures/8_FrontDoor/SubViewport")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lj4xd"]
 resource_local_to_scene = true
@@ -2344,6 +2409,31 @@ start_monitoring_list = [NodePath("../../TriggerVolumes/V07_Room")]
 [node name="ShedCloset" parent="Past/INTERACTABLES" instance=ExtResource("12_4m6ha")]
 transform = Transform3D(0.899647, 0, -0.0251922, 0, 0.9, 0, 0.0251922, 0, 0.899647, 7.07532, -0.107088, -20.6855)
 
+[node name="closet_door_left" parent="Past/INTERACTABLES/ShedCloset/closet" index="0"]
+transform = Transform3D(0.989028, 3.09532e-09, 0.147723, 0.147723, -4.16771e-08, -0.989028, 3.09532e-09, 1, -4.16771e-08, 0.0576923, -0.03356, 0.00932729)
+
+[node name="closet_door_right" parent="Past/INTERACTABLES/ShedCloset/closet" index="1"]
+transform = Transform3D(-0.994569, -2.35221e-09, -0.104077, 0.104077, -4.50784e-08, -0.994569, 2.35221e-09, 1, -4.50784e-08, -0.0569425, -0.0378286, 0.00932729)
+
+[node name="InteractableCollider" type="StaticBody3D" parent="Past/INTERACTABLES/ShedCloset" node_paths=PackedStringArray("audio_stream_player", "subtitle_label") groups=["Interactable"]]
+script = ExtResource("35_lctib")
+interaction_animations = Array[String](["open_doors"])
+one_shot = true
+prevent_teleport = true
+audio_stream_player = NodePath("../../../../Player/PlayerDialogueASP")
+subtitle_label = NodePath("../../../../UI/SubtitleLabel")
+audio_clips = Array[AudioStream]([ExtResource("39_r5dow"), ExtResource("40_tvghy")])
+subtitles = Array[String](["a", "b"])
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Past/INTERACTABLES/ShedCloset/InteractableCollider"]
+transform = Transform3D(1, 0, 3.72529e-07, 0, 1, 0, -3.72529e-07, 0, 1, 0.0187378, 1.23099, 0.211632)
+shape = SubResource("BoxShape3D_72t1y")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Past/INTERACTABLES/ShedCloset/InteractableCollider"]
+libraries = {
+"": SubResource("AnimationLibrary_a7axc")
+}
+
 [node name="memory capsule" parent="Past/INTERACTABLES" instance=ExtResource("16_p4a51")]
 transform = Transform3D(0.965926, 0, 0.258819, 0, 1, 0, -0.258819, 0, 0.965926, -2.25, 5.253, -3)
 
@@ -2589,6 +2679,7 @@ curve = SubResource("Curve3D_vcldf")
 [editable path="Present/TriggerVolumes/V08E_FrontDoor"]
 [editable path="Present/TriggerVolumes/V09E_Forest"]
 [editable path="Past/INTERACTABLES/closet"]
+[editable path="Past/INTERACTABLES/ShedCloset"]
 [editable path="Past/TriggerVolumes/V01_Backyard"]
 [editable path="Past/TriggerVolumes/V02_Office"]
 [editable path="Past/TriggerVolumes/V03_LivingRoom"]
