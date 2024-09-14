@@ -1,20 +1,21 @@
-[gd_scene load_steps=35 format=3 uid="uid://baq3osaidwfaf"]
+[gd_scene load_steps=36 format=3 uid="uid://baq3osaidwfaf"]
 
 [ext_resource type="Script" path="res://levels/scripts/level.gd" id="1_mw3wp"]
 [ext_resource type="Material" uid="uid://dve3xrg044f4h" path="res://assets/materials/M_housetemp.tres" id="2_db8bv"]
 [ext_resource type="PackedScene" uid="uid://ck05y3vr2y8c3" path="res://assets/characters/Noor_RefNoRig.fbx" id="3_5o0ur"]
-[ext_resource type="PackedScene" path="res://assets/props/door_a/door_a.tscn" id="3_k0uy4"]
+[ext_resource type="PackedScene" uid="uid://c5dkjmjdmby0q" path="res://assets/props/door_a/door_a.tscn" id="3_k0uy4"]
 [ext_resource type="Script" path="res://levels/scripts/picture_handler.gd" id="3_m4duy"]
 [ext_resource type="PackedScene" uid="uid://b25ooshew3q2v" path="res://player/player.tscn" id="4_aw37m"]
 [ext_resource type="Script" path="res://levels/scripts/picture.gd" id="4_xvv2v"]
 [ext_resource type="AudioStream" uid="uid://pl1sjspdft3k" path="res://assets/audio/music/LOOP_Blasting Through the Sky.wav" id="5_nvfs4"]
-[ext_resource type="PackedScene" path="res://levels/camera_ref.tscn" id="6_ksg6d"]
+[ext_resource type="PackedScene" uid="uid://d22ogqllffeom" path="res://levels/camera_ref.tscn" id="6_ksg6d"]
 [ext_resource type="Script" path="res://levels/scripts/ui.gd" id="6_vry8q"]
 [ext_resource type="Script" path="res://levels/scripts/dynamic_label.gd" id="7_rnv2q"]
 [ext_resource type="PackedScene" uid="uid://dtrj4a2rd7r80" path="res://assets/props/INTERACTEABLE/closet/closet.tscn" id="12_4m6ha"]
 [ext_resource type="PackedScene" uid="uid://cogjse1d7bpe1" path="res://assets/props/INTERACTEABLE/TV_a/tv.tscn" id="12_4tqrl"]
 [ext_resource type="PackedScene" uid="uid://daempkcx2ef7j" path="res://assets/props/INTERACTEABLE/lightswitch/light_switch.tscn" id="14_wds17"]
 [ext_resource type="Script" path="res://levels/scripts/interactable_picture.gd" id="15_gx5iv"]
+[ext_resource type="PackedScene" uid="uid://dw8pdqr1nnbrr" path="res://assets/props/INTERACTEABLE/memory capsule/memory_capsule.tscn" id="16_p4a51"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_rbuat"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -1458,12 +1459,6 @@ visible = false
 [node name="Level2" type="Node3D" parent="Past/LevelObjects/House"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.5, 3.75, 0)
 
-[node name="MemoryCapsule" type="CSGBox3D" parent="Past/LevelObjects/House/Level2"]
-transform = Transform3D(-0.258819, 0, -0.965926, 0, 1, 0, 0.965926, 0, -0.258819, -20.8221, 1.625, -3.22987)
-material_override = ExtResource("2_db8bv")
-use_collision = true
-size = Vector3(0.5, 0.25, 0.352417)
-
 [node name="Floor" type="Node3D" parent="Past/LevelObjects/House/Level2"]
 
 [node name="Floor3" type="CSGBox3D" parent="Past/LevelObjects/House/Level2/Floor"]
@@ -1858,6 +1853,9 @@ skeleton = NodePath("../../../../..")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Past/INTERACTABLES/Pictures/ForestPicture"]
 shape = SubResource("BoxShape3D_vc26v")
+
+[node name="memory capsule" parent="Past/INTERACTABLES" instance=ExtResource("16_p4a51")]
+transform = Transform3D(0.965926, 0, 0.258819, 0, 1, 0, -0.258819, 0, 0.965926, -2.25, 5.253, -3)
 
 [editable path="Player"]
 [editable path="Past/INTERACTABLES/closet"]
