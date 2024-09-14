@@ -4,6 +4,9 @@ extends TextureRect
 @export var picture: TextureRect
 
 func _ready():
+	pass
+
+func take_screenshot() -> void:
 	for node in picture.nodes_to_show:
 		if is_instance_valid(node):
 			node.show()
@@ -16,7 +19,7 @@ func _ready():
 	texture = screenshot
 	
 	# Wait to allow screenshot to be taken before hiding
-	await get_tree().create_timer(0.5).timeout
+	await get_tree().create_timer(0.1).timeout
 	
 	for node in picture.nodes_to_show:
 		if is_instance_valid(node):

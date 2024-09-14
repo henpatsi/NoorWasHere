@@ -1,4 +1,4 @@
-[gd_scene load_steps=158 format=3 uid="uid://baq3osaidwfaf"]
+[gd_scene load_steps=159 format=3 uid="uid://baq3osaidwfaf"]
 
 [ext_resource type="Script" path="res://levels/scripts/level.gd" id="1_mw3wp"]
 [ext_resource type="Material" uid="uid://dve3xrg044f4h" path="res://assets/materials/M_housetemp.tres" id="2_db8bv"]
@@ -75,6 +75,7 @@
 [ext_resource type="AudioStream" uid="uid://drq17f6atj1hj" path="res://assets/audio/VO/05_02.mp3" id="48_yeant"]
 [ext_resource type="AudioStream" uid="uid://b55bhl0n4t8uj" path="res://assets/audio/VO/05_03.mp3" id="49_2t2lm"]
 [ext_resource type="AudioStream" uid="uid://chmixllxaoe2c" path="res://assets/audio/VO/05_04.mp3" id="50_jdu6d"]
+[ext_resource type="AudioStream" uid="uid://0nfha6ugksag" path="res://assets/audio/sfx/digital_cam_shutter.ogg" id="50_kxcw6"]
 [ext_resource type="AudioStream" uid="uid://ckskdd6myi6x" path="res://assets/audio/VO/05_05.mp3" id="51_tknhm"]
 [ext_resource type="AudioStream" uid="uid://cgjyjexgqbvye" path="res://assets/audio/VO/06_01.mp3" id="52_rxp76"]
 [ext_resource type="AudioStream" uid="uid://bo0enskg5jrbo" path="res://assets/audio/VO/06_02.mp3" id="53_g02uq"]
@@ -422,8 +423,9 @@ size = Vector3(9.25, 2.81152, 7.25)
 
 [sub_resource type="Curve3D" id="Curve3D_vcldf"]
 
-[node name="Level" type="Node3D"]
+[node name="Level" type="Node3D" node_paths=PackedStringArray("picture_screenshots")]
 script = ExtResource("1_mw3wp")
+picture_screenshots = [NodePath("Pictures/0_Frontyard/SubViewport/TextureRect"), NodePath("Pictures/1_Backyard/SubViewport/TextureRect"), NodePath("Pictures/2_Office/SubViewport/TextureRect"), NodePath("Pictures/3_LivingRoom/SubViewport/TextureRect"), NodePath("Pictures/4_HallwayUpstairs/SubViewport/TextureRect"), NodePath("Pictures/5_TV/SubViewport/TextureRect"), NodePath("Pictures/6_7_NoorRoomNight/SubViewport/TextureRect"), NodePath("Pictures/8_FrontDoor/SubViewport/TextureRect"), NodePath("Pictures/9_Forest/SubViewport/TextureRect"), NodePath("Pictures/10_Shed/SubViewport/TextureRect")]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = ExtResource("2_ekst6")
@@ -2515,11 +2517,13 @@ size = Vector3(25.25, 12.75, 75.25)
 [node name="closet" parent="Past/INTERACTABLES" instance=ExtResource("12_4m6ha")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 8.7492, 4.11726, 6.04004)
 
-[node name="closet_door_left" parent="Past/INTERACTABLES/closet/closet" index="0" node_paths=PackedStringArray("nodes_to_show", "nodes_to_hide") groups=["Interactable"]]
+[node name="closet_door_left" parent="Past/INTERACTABLES/closet/closet" index="0" node_paths=PackedStringArray("audio_stream_player", "nodes_to_show", "nodes_to_hide") groups=["Interactable"]]
 transform = Transform3D(0.92365, 2.76383e-07, 0.383235, 0.383235, -1.38731e-06, -0.92365, 2.76383e-07, 1, -1.38731e-06, 0.0576935, -0.03356, 0.00932729)
 script = ExtResource("35_lctib")
 interaction_animations = Array[String](["open_left_closet"])
 one_shot = true
+audio_stream_player = NodePath("../../AudioStreamPlayer3D")
+audio_clips = Array[AudioStream]([ExtResource("50_kxcw6")])
 nodes_to_show = [NodePath("../../../../../Present/LevelObjects/INTERACTABLES/closet/closet/closet_door_left_open")]
 nodes_to_hide = [NodePath("../../../../../Present/LevelObjects/INTERACTABLES/closet/closet/closet_door_left")]
 
@@ -2528,11 +2532,13 @@ libraries = {
 "": SubResource("AnimationLibrary_em4an")
 }
 
-[node name="closet_door_right" parent="Past/INTERACTABLES/closet/closet" index="1" node_paths=PackedStringArray("nodes_to_show", "nodes_to_hide") groups=["Interactable"]]
+[node name="closet_door_right" parent="Past/INTERACTABLES/closet/closet" index="1" node_paths=PackedStringArray("audio_stream_player", "nodes_to_show", "nodes_to_hide") groups=["Interactable"]]
 transform = Transform3D(-0.994569, 1.96594e-08, -0.104078, 0.104078, 3.7676e-07, -0.994569, -1.96594e-08, 1, 3.7676e-07, -0.0569425, -0.0378286, 0.00932729)
 script = ExtResource("35_lctib")
 interaction_animations = Array[String](["open_right_closet"])
 one_shot = true
+audio_stream_player = NodePath("../../AudioStreamPlayer3D")
+audio_clips = Array[AudioStream]([ExtResource("50_kxcw6")])
 nodes_to_show = [NodePath("../../../../../Present/LevelObjects/INTERACTABLES/closet/closet/closet_door_right_open")]
 nodes_to_hide = [NodePath("../../../../../Present/LevelObjects/INTERACTABLES/closet/closet/closet_door_right")]
 
@@ -2826,6 +2832,7 @@ visible = false
 
 [node name="SpotLight3D" type="SpotLight3D" parent="Past/PictureSpecificObjects/Frontyard"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1.93441, 16.2304)
+light_energy = 4.0
 spot_range = 10.0
 
 [node name="Backyard" type="Node3D" parent="Past/PictureSpecificObjects"]

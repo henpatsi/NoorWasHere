@@ -40,7 +40,9 @@ func _ready() -> void:
 	if pictures.size() == 0:
 		printerr("Picture handler array is empty.")
 
+	# Wait to allow screenshot to be taken, which was conflicting with this
 	current_picture = pictures[0]
+	await get_tree().create_timer(1).timeout
 	current_picture.set_active(true)
 
 

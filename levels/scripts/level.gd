@@ -6,12 +6,16 @@ extends Node3D
 @onready var world_environment: WorldEnvironment = $WorldEnvironment
 @onready var directional_light_3d: DirectionalLight3D = $DirectionalLight3D
 
+@export var picture_screenshots: Array[TextureRect]
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	
 	set_past_environment()
-	await get_tree().create_timer(1).timeout
+	for screenshot in picture_screenshots:
+		screenshot.take_screenshot()
+		await get_tree().create_timer(0.1).timeout
 	set_present_environment()
 
 
