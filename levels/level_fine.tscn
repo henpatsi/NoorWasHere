@@ -447,7 +447,7 @@ pictures = [NodePath("0_Frontyard/FrontyardPicture"), NodePath("1_Backyard/Backy
 
 [node name="0_Frontyard" type="Node" parent="Pictures"]
 
-[node name="FrontyardPicture" type="TextureRect" parent="Pictures/0_Frontyard" node_paths=PackedStringArray("camera", "world_root")]
+[node name="FrontyardPicture" type="TextureRect" parent="Pictures/0_Frontyard" node_paths=PackedStringArray("camera", "world_root", "nodes_to_show")]
 clip_contents = true
 anchors_preset = 15
 anchor_right = 1.0
@@ -464,6 +464,7 @@ stretch_mode = 3
 script = ExtResource("4_xvv2v")
 camera = NodePath("../SubViewport/PortalCamera")
 world_root = NodePath("../../../Past")
+nodes_to_show = [NodePath("../../../Past/PictureSpecificObjects/Frontyard")]
 
 [node name="SubViewport" type="SubViewport" parent="Pictures/0_Frontyard"]
 size = Vector2i(1280, 720)
@@ -505,7 +506,7 @@ stretch_mode = 3
 script = ExtResource("4_xvv2v")
 camera = NodePath("../SubViewport/PortalCamera")
 world_root = NodePath("../../../Past")
-nodes_to_show = [NodePath("../../../Past/LevelObjects/House/Level1/Doors/Door_Backyard_Open"), NodePath("../../../Past/ImageLights/Backyard/SpotLight3D")]
+nodes_to_show = [NodePath("../../../Past/LevelObjects/House/Level1/Doors/Door_Backyard_Open"), NodePath("../../../Past/PictureSpecificObjects/Backyard")]
 nodes_to_hide = [NodePath("../../../Past/LevelObjects/House/Level1/Doors/Door_Backyard")]
 
 [node name="SubViewport" type="SubViewport" parent="Pictures/1_Backyard"]
@@ -530,7 +531,7 @@ picture = NodePath("../../BackyardPicture")
 
 [node name="2_Office" type="Node" parent="Pictures"]
 
-[node name="OfficePicture" type="TextureRect" parent="Pictures/2_Office" node_paths=PackedStringArray("camera", "world_root")]
+[node name="OfficePicture" type="TextureRect" parent="Pictures/2_Office" node_paths=PackedStringArray("camera", "world_root", "nodes_to_show")]
 visible = false
 clip_contents = true
 anchors_preset = 15
@@ -548,6 +549,7 @@ stretch_mode = 3
 script = ExtResource("4_xvv2v")
 camera = NodePath("../SubViewport/PortalCamera")
 world_root = NodePath("../../../Past")
+nodes_to_show = [NodePath("../../../Past/PictureSpecificObjects/Office")]
 
 [node name="SubViewport" type="SubViewport" parent="Pictures/2_Office"]
 size = Vector2i(1280, 720)
@@ -571,7 +573,7 @@ picture = NodePath("../../OfficePicture")
 
 [node name="3_LivingRoom" type="Node" parent="Pictures"]
 
-[node name="LivingRoomPicture" type="TextureRect" parent="Pictures/3_LivingRoom" node_paths=PackedStringArray("camera", "world_root")]
+[node name="LivingRoomPicture" type="TextureRect" parent="Pictures/3_LivingRoom" node_paths=PackedStringArray("camera", "world_root", "nodes_to_show")]
 visible = false
 clip_contents = true
 anchors_preset = 15
@@ -589,6 +591,7 @@ stretch_mode = 3
 script = ExtResource("4_xvv2v")
 camera = NodePath("../SubViewport/PortalCamera")
 world_root = NodePath("../../../Past")
+nodes_to_show = [NodePath("../../../Past/PictureSpecificObjects/LivingRoom")]
 
 [node name="SubViewport" type="SubViewport" parent="Pictures/3_LivingRoom"]
 size = Vector2i(1280, 720)
@@ -612,7 +615,7 @@ picture = NodePath("../../LivingRoomPicture")
 
 [node name="4_HallwayUpstairs" type="Node" parent="Pictures"]
 
-[node name="HallwayUpstairPicture" type="TextureRect" parent="Pictures/4_HallwayUpstairs" node_paths=PackedStringArray("camera", "world_root")]
+[node name="HallwayUpstairPicture" type="TextureRect" parent="Pictures/4_HallwayUpstairs" node_paths=PackedStringArray("camera", "world_root", "nodes_to_show")]
 visible = false
 clip_contents = true
 anchors_preset = 15
@@ -630,6 +633,7 @@ stretch_mode = 3
 script = ExtResource("4_xvv2v")
 camera = NodePath("../SubViewport/PortalCamera")
 world_root = NodePath("../../../Past")
+nodes_to_show = [NodePath("../../../Past/PictureSpecificObjects/HallwayUpstairs")]
 
 [node name="SubViewport" type="SubViewport" parent="Pictures/4_HallwayUpstairs"]
 size = Vector2i(1280, 720)
@@ -653,7 +657,7 @@ picture = NodePath("../../HallwayUpstairPicture")
 
 [node name="5_TV" type="Node" parent="Pictures"]
 
-[node name="TVPicture" type="TextureRect" parent="Pictures/5_TV" node_paths=PackedStringArray("camera", "world_root")]
+[node name="TVPicture" type="TextureRect" parent="Pictures/5_TV" node_paths=PackedStringArray("camera", "world_root", "nodes_to_show")]
 visible = false
 clip_contents = true
 anchors_preset = 15
@@ -672,6 +676,7 @@ script = ExtResource("4_xvv2v")
 camera = NodePath("../SubViewport/PortalCamera")
 world_root = NodePath("../../../Past")
 requirements = Array[String](["tv_on_table"])
+nodes_to_show = [NodePath("../../../Past/PictureSpecificObjects/TV")]
 
 [node name="SubViewport" type="SubViewport" parent="Pictures/5_TV"]
 size = Vector2i(1280, 720)
@@ -695,7 +700,7 @@ picture = NodePath("../../TVPicture")
 
 [node name="6_7_NoorRoomNight" type="Node" parent="Pictures"]
 
-[node name="NoorRoomNightPicture" type="TextureRect" parent="Pictures/6_7_NoorRoomNight" node_paths=PackedStringArray("camera", "world_root")]
+[node name="NoorRoomNightPicture" type="TextureRect" parent="Pictures/6_7_NoorRoomNight" node_paths=PackedStringArray("camera", "world_root", "nodes_to_show")]
 visible = false
 clip_contents = true
 anchors_preset = 15
@@ -713,6 +718,7 @@ stretch_mode = 3
 script = ExtResource("4_xvv2v")
 camera = NodePath("../SubViewport/PortalCamera")
 world_root = NodePath("../../../Past")
+nodes_to_show = [NodePath("../../../Past/PictureSpecificObjects/NoorRoomNight")]
 
 [node name="SubViewport" type="SubViewport" parent="Pictures/6_7_NoorRoomNight"]
 size = Vector2i(1280, 720)
@@ -754,7 +760,7 @@ stretch_mode = 3
 script = ExtResource("4_xvv2v")
 camera = NodePath("../SubViewport/PortalCamera")
 world_root = NodePath("../../../Past")
-nodes_to_show = [NodePath("../../../Past/LevelObjects/House/Level1/Doors/Door_Front_Open")]
+nodes_to_show = [NodePath("../../../Past/LevelObjects/House/Level1/Doors/Door_Front_Open"), NodePath("../../../Past/PictureSpecificObjects/FrontDoor")]
 nodes_to_hide = [NodePath("../../../Past/LevelObjects/House/Level1/Doors/Door_Front")]
 
 [node name="SubViewport" type="SubViewport" parent="Pictures/8_FrontDoor"]
@@ -779,7 +785,7 @@ picture = NodePath("../../FrontDoorPicture")
 
 [node name="9_Forest" type="Node" parent="Pictures"]
 
-[node name="ForestPicture" type="TextureRect" parent="Pictures/9_Forest" node_paths=PackedStringArray("camera", "world_root")]
+[node name="ForestPicture" type="TextureRect" parent="Pictures/9_Forest" node_paths=PackedStringArray("camera", "world_root", "nodes_to_show")]
 visible = false
 clip_contents = true
 anchors_preset = 15
@@ -797,6 +803,7 @@ stretch_mode = 3
 script = ExtResource("4_xvv2v")
 camera = NodePath("../SubViewport/PortalCamera")
 world_root = NodePath("../../../Past")
+nodes_to_show = [NodePath("../../../Past/PictureSpecificObjects/Forest")]
 
 [node name="SubViewport" type="SubViewport" parent="Pictures/9_Forest"]
 size = Vector2i(1280, 720)
@@ -820,7 +827,7 @@ picture = NodePath("../../ForestPicture")
 
 [node name="10_Shed" type="Node" parent="Pictures"]
 
-[node name="ShedPicture" type="TextureRect" parent="Pictures/10_Shed" node_paths=PackedStringArray("camera", "world_root")]
+[node name="ShedPicture" type="TextureRect" parent="Pictures/10_Shed" node_paths=PackedStringArray("camera", "world_root", "nodes_to_show")]
 visible = false
 clip_contents = true
 anchors_preset = 15
@@ -838,6 +845,7 @@ stretch_mode = 3
 script = ExtResource("4_xvv2v")
 camera = NodePath("../SubViewport/PortalCamera")
 world_root = NodePath("../../../Past")
+nodes_to_show = [NodePath("../../../Past/PictureSpecificObjects/Shed")]
 
 [node name="SubViewport" type="SubViewport" parent="Pictures/10_Shed"]
 size = Vector2i(1280, 720)
@@ -2811,13 +2819,72 @@ wait_for_audio = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.25, 0, 0)
 shape = SubResource("BoxShape3D_dppsw")
 
-[node name="ImageLights" type="Node3D" parent="Past"]
+[node name="PictureSpecificObjects" type="Node3D" parent="Past"]
 
-[node name="Backyard" type="Node3D" parent="Past/ImageLights"]
+[node name="Frontyard" type="Node3D" parent="Past/PictureSpecificObjects"]
+visible = false
 
-[node name="SpotLight3D" type="SpotLight3D" parent="Past/ImageLights/Backyard"]
+[node name="SpotLight3D" type="SpotLight3D" parent="Past/PictureSpecificObjects/Frontyard"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1.93441, 16.2304)
+spot_range = 10.0
+
+[node name="Backyard" type="Node3D" parent="Past/PictureSpecificObjects"]
+visible = false
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Past/PictureSpecificObjects/Backyard"]
 transform = Transform3D(1, 0, 0, 0, -0.980278, 0.197623, 0, -0.197623, -0.980278, 0, 3.65732, -6.98049)
 spot_angle = 89.99
+
+[node name="Office" type="Node3D" parent="Past/PictureSpecificObjects"]
+visible = false
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Past/PictureSpecificObjects/Office"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.812256, 3.50871, 3.51382)
+omni_range = 10.0
+
+[node name="LivingRoom" type="Node3D" parent="Past/PictureSpecificObjects"]
+visible = false
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Past/PictureSpecificObjects/LivingRoom"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.41339, 0, 0)
+
+[node name="HallwayUpstairs" type="Node3D" parent="Past/PictureSpecificObjects"]
+visible = false
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Past/PictureSpecificObjects/HallwayUpstairs"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.3161, 4.90586, 5.88019)
+
+[node name="TV" type="Node3D" parent="Past/PictureSpecificObjects"]
+visible = false
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Past/PictureSpecificObjects/TV"]
+transform = Transform3D(-3.96668e-08, 0.420117, -0.90747, 1.83639e-08, 0.90747, 0.420117, 1, -8.88178e-16, -4.37114e-08, 6.17896, 6.61654, -2.36173)
+
+[node name="NoorRoomNight" type="Node3D" parent="Past/PictureSpecificObjects"]
+visible = false
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Past/PictureSpecificObjects/NoorRoomNight"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 4.3168, -2.33709)
+
+[node name="FrontDoor" type="Node3D" parent="Past/PictureSpecificObjects"]
+visible = false
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Past/PictureSpecificObjects/FrontDoor"]
+transform = Transform3D(1, 0, 0, 0, -0.924593, 0.380957, 0, -0.380957, -0.924593, 0.905212, 2.83527, 7.01408)
+
+[node name="Forest" type="Node3D" parent="Past/PictureSpecificObjects"]
+visible = false
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Past/PictureSpecificObjects/Forest"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.2627, 0, -35.3705)
+omni_range = 20.0
+
+[node name="Shed" type="Node3D" parent="Past/PictureSpecificObjects"]
+visible = false
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Past/PictureSpecificObjects/Shed"]
+transform = Transform3D(1, 0, 0, 0, 0.0532249, 0.998583, 0, -0.998583, 0.0532249, 7.5166, 9.81368, -8.68095)
+spot_range = 15.0
 
 [node name="EndingCameraPath" type="Path3D" parent="Past"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 1.5, -14.5)
