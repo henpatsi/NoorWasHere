@@ -7,7 +7,6 @@
 [ext_resource type="Script" path="res://levels/scripts/picture_handler.gd" id="3_m4duy"]
 [ext_resource type="PackedScene" uid="uid://b25ooshew3q2v" path="res://player/player.tscn" id="4_aw37m"]
 [ext_resource type="Script" path="res://levels/scripts/picture.gd" id="4_xvv2v"]
-[ext_resource type="AudioStream" uid="uid://pl1sjspdft3k" path="res://assets/audio/music/LOOP_Blasting Through the Sky.wav" id="5_nvfs4"]
 [ext_resource type="PackedScene" path="res://levels/camera_ref.tscn" id="6_ksg6d"]
 [ext_resource type="Script" path="res://levels/scripts/ui.gd" id="6_vry8q"]
 [ext_resource type="Script" path="res://levels/scripts/dynamic_label.gd" id="7_rnv2q"]
@@ -68,7 +67,10 @@ font_size = 32
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_08k2r"]
 albedo_color = Color(0.341962, 0.398952, 0.358896, 1)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gonmx"]
+
 [sub_resource type="PlaneMesh" id="PlaneMesh_01b1r"]
+material = SubResource("StandardMaterial3D_gonmx")
 size = Vector2(0.48, 0.27)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_vc26v"]
@@ -94,7 +96,7 @@ pictures = [NodePath("0_Frontyard/FrontyardPicture"), NodePath("1_Backyard/Backy
 
 [node name="0_Frontyard" type="Node" parent="Pictures"]
 
-[node name="FrontyardPicture" type="TextureRect" parent="Pictures/0_Frontyard" node_paths=PackedStringArray("camera", "world_root", "nodes_to_show")]
+[node name="FrontyardPicture" type="TextureRect" parent="Pictures/0_Frontyard" node_paths=PackedStringArray("camera", "world_root")]
 clip_contents = true
 anchors_preset = 15
 anchor_right = 1.0
@@ -111,8 +113,6 @@ stretch_mode = 3
 script = ExtResource("4_xvv2v")
 camera = NodePath("../SubViewport/PortalCamera")
 world_root = NodePath("../../../Past")
-nodes_to_show = [null]
-ambientAS = ExtResource("5_nvfs4")
 
 [node name="SubViewport" type="SubViewport" parent="Pictures/0_Frontyard"]
 size = Vector2i(1280, 720)
@@ -1848,11 +1848,10 @@ transform = Transform3D(0.899647, 0, -0.0251922, 0, 0.9, 0, 0.0251922, 0, 0.8996
 [node name="Pictures" type="Node3D" parent="Past/INTERACTABLES"]
 
 [node name="ForestPicture" type="StaticBody3D" parent="Past/INTERACTABLES/Pictures"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.703491, 1.49466, -2.3747)
+transform = Transform3D(0.948335, 0, 0.317272, 0, 1, 0, -0.317272, 0, 0.948335, -0.354065, 1.27327, -2.79793)
 script = ExtResource("15_gx5iv")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Past/INTERACTABLES/Pictures/ForestPicture"]
-transform = Transform3D(0.923317, 0, 0.384037, 0, 1, 0, -0.384037, 0, 0.923317, 0.344238, -0.233864, -0.34744)
 mesh = SubResource("PlaneMesh_01b1r")
 skeleton = NodePath("../../../../..")
 
