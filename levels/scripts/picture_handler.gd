@@ -112,8 +112,10 @@ func toggle_inspect() -> void:
 	if inside_picture:
 		current_picture.exit_picture(player, self)
 		inside_picture = false
+		up_position = false
+	else:
+		up_position = not up_position
 
-	up_position = not up_position
 	if not up_position:
 		picture_target_position.y = picture_lower_y
 		inspecting = false

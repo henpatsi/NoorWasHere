@@ -155,8 +155,8 @@ func enter_picture(player: CharacterBody3D, head_node: Node3D, picture_handler: 
 	player.position.y -= head_node.position.y
 	player.global_rotation = camera.global_rotation
 
+	get_tree().root.get_child(1).set_past_environment()
 	hide()
-	
 
 	player.process_mode = Node.PROCESS_MODE_PAUSABLE
 
@@ -168,6 +168,7 @@ func enter_picture(player: CharacterBody3D, head_node: Node3D, picture_handler: 
 func exit_picture(player: CharacterBody3D, picture_handler: Node) -> void:
 	inside_picture = false
 	show()
+	get_tree().root.get_child(1).set_present_environment()
 
 	player.global_position -= world_root.position
 
