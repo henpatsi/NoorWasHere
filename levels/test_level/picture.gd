@@ -49,6 +49,14 @@ var printTimer = 0
 func _ready() -> void:
 	set_active(false)
 
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	if not inside_picture:
+		return
+
+	camera.global_position = camera_follow_node.global_position
+	camera.global_rotation = camera_follow_node.global_rotation
+
 
 func set_active(state: bool) -> void:
 	active_picture = state
@@ -77,14 +85,6 @@ func get_local_camera_pos() -> Vector3:
 	var camera_pos = camera.position - world_root.position
 	camera_pos.y = 0
 	return camera_pos
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	if not inside_picture:
-		return
-
-	camera.global_position = camera_follow_node.global_position
-	camera.global_rotation = camera_follow_node.global_rotation
 
 
 func player_in_correct_position(head_node: Node3D) -> bool:
@@ -142,6 +142,7 @@ func enter_picture(player: CharacterBody3D, head_node: Node3D, picture_handler: 
 	camera_follow_node = head_node
 	inside_picture = true
 	picture_handler.input_enabled = true
+
 
 func exit_picture(player: CharacterBody3D, picture_handler: Node) -> void:
 	picture_handler.input_enabled = false

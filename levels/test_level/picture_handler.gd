@@ -14,7 +14,7 @@ extends Node
 var picture_index: int = 0
 var current_picture: TextureRect
 
-var picture_requirements: Array[String]
+var picture_requirements_met: Array[String]
 
 var picture_target_position: Vector2 = Vector2(320, 570)
 var up_position: bool = false
@@ -60,6 +60,8 @@ func outside_picture_process(delta: float) -> void:
 		head_node.rotation.x = lerpf(head_node.rotation.x, current_picture.camera.rotation.x, align_lerp_strength * delta)
 		aligned = true
 		interact_label.text = "Enter picture"
+	else:
+		aligned = false
 
 
 func _input(event: InputEvent) -> void:
@@ -76,9 +78,11 @@ func _input(event: InputEvent) -> void:
 			picture_target_position.y = picture_lower_y
 			inspecting = false
 			crosshair.show()
+			player.interact_enabled = true
 		else:
 			picture_target_position.y = current_picture.size.y / 2
 			crosshair.hide()
+			player.interact_enabled = false
 
 	if event.is_action_pressed("next_picture"):
 		print("Swapping to next picture")
@@ -96,7 +100,7 @@ func _input(event: InputEvent) -> void:
 		if not aligned:
 			print ("Not aligned to picture")
 			return
-		if not current_picture.requirements_met(picture_requirements):
+		if not current_picture.requirements_met(picture_requirements_met):
 			print ("Not all requirements for entering met")
 			return
 		if inside_picture:
@@ -105,6 +109,7 @@ func _input(event: InputEvent) -> void:
 		current_picture.enter_picture(player, head_node, self)
 		inside_picture = true
 		crosshair.show()
+		player.interact_enabled = true
 
 
 func add_picture(picture: TextureRect) -> void:

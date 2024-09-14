@@ -24,6 +24,7 @@ var footstep_timer: float = 0.0
 @export var ray_cast: RayCast3D
 @export var ray_distance: float = 3.0
 @export var interact_label: Label
+var interact_enabled: bool = true
 
 var ray_collision_object: Object
 
@@ -102,7 +103,7 @@ func raycast() -> void:
 	ray_collision_object = ray_cast.get_collider()
 
 	if ray_collision_object and ray_collision_object.is_in_group("Interactable"):
-		if interact_label:
+		if interact_label and interact_enabled:
 			interact_label.text = "Interact with " + ray_collision_object.name
 	elif interact_label:
 		interact_label.text = ""
@@ -113,7 +114,7 @@ func _input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
 		mouse_input = Vector2(event.relative.x, event.relative.y) * GlobalSettings.mouse_sensitivity_modifier
 	
-	if event.is_action_pressed("interact"):
+	if event.is_action_pressed("interact") and interact_enabled:
 		if ray_collision_object and ray_collision_object.is_in_group("Interactable"):
 			ray_collision_object.interact(self)
 			
