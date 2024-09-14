@@ -156,6 +156,9 @@ func enter_picture(player: CharacterBody3D, head_node: Node3D, picture_handler: 
 	player.position.y = 0
 	player.global_rotation = camera.global_rotation
 
+	hide()
+	
+
 	player.process_mode = Node.PROCESS_MODE_PAUSABLE
 
 	camera_follow_node = head_node
@@ -166,6 +169,7 @@ func enter_picture(player: CharacterBody3D, head_node: Node3D, picture_handler: 
 func exit_picture(player: CharacterBody3D, picture_handler: Node) -> void:
 	picture_handler.input_enabled = false
 	inside_picture = false
+	show()
 
 	player.global_position -= world_root.position
 	player.position.y = 0
