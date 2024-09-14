@@ -25,7 +25,6 @@ var player_target_position: Vector3
 var player_target_rotation: Vector3
 
 var input_enabled: bool = true
-var busy: bool = false
 
 @onready var crosshair: ColorRect = $"../UI/Crosshair"
 @onready var interact_label: Label = $"../UI/InteractLabel"
@@ -75,12 +74,10 @@ func _input(event: InputEvent) -> void:
 		if not up_position:
 			picture_target_position.y = picture_lower_y
 			inspecting = false
+			crosshair.show()
 		else:
 			picture_target_position.y = current_picture.size.y / 2
-			if up_position:
-				crosshair.hide()
-			else:
-				crosshair.show()
+			crosshair.hide()
 
 	if event.is_action_pressed("next_picture"):
 		print("Swapping to next picture")
@@ -103,7 +100,7 @@ func _input(event: InputEvent) -> void:
 			return
 		current_picture.enter_picture(player, head_node, self)
 		inside_picture = true
-		busy = true
+		crosshair.show()
 
 
 func add_picture(picture: TextureRect) -> void:
