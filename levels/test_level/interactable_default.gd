@@ -1,8 +1,7 @@
 extends Node3D
 
 @export_category("Settings")
-@export var item_name: String
-@export var interact_response_label: Label
+@export var one_shot: bool = false
 
 @export_category("Audio")
 @export var audio_one_shot: bool = false
@@ -30,22 +29,19 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta: float) -> void:
+func _process(delta: float) -> void:
 	pass
 
+
 func interact(player: CharacterBody3D) -> void:
-	print("Interacted with " + name)
-	
-	player.inventory.add_item(item_name)
-	
-	if interact_response_label:
-		interact_response_label.change_text("Picked up " + item_name)
-	
+	print("Interacted with " + name) 
+
+	if one_shot:
+		remove_from_group("Interactable")
+
 	play_audio_clips()
 	if not wait_for_audio:
 		apply_scene_changes()
-
-	queue_free()
 
 
 func play_audio_clips() -> void:
@@ -64,6 +60,7 @@ func play_audio_clips() -> void:
 	if wait_for_audio:
 		apply_scene_changes()
 
+
 func apply_scene_changes() -> void:
 	for node in nodes_to_show:
 		if is_instance_valid(node):
@@ -75,6 +72,7 @@ func apply_scene_changes() -> void:
 			set_child_collider_states(node, true)
 	for area in start_monitoring_list:
 		area.monitoring = true
+
 
 func set_child_collider_states(node: Node, disabled_state: bool) -> void:
 	for child in node.get_children():

@@ -1,5 +1,6 @@
 extends Node3D
 
+@export_category("Settings")
 @export var rotation_on_carry: Vector3
 @export var interact_response_label: Label
 
