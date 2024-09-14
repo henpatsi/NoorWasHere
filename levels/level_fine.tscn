@@ -74,9 +74,10 @@ environment = SubResource("Environment_vcqcf")
 transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
 shadow_enabled = true
 
-[node name="Player" parent="." instance=ExtResource("4_aw37m")]
+[node name="Player" parent="." node_paths=PackedStringArray("interact_label") instance=ExtResource("4_aw37m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 18)
 max_move_speed = 3.5
+interact_label = NodePath("../UI/InteractLabel")
 
 [node name="Pictures" type="Node" parent="." node_paths=PackedStringArray("pictures")]
 script = ExtResource("3_m4duy")
