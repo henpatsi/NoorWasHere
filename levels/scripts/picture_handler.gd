@@ -65,6 +65,12 @@ func outside_picture_process(delta: float) -> void:
 		aligned = false
 
 
+func set_input_state(state: bool) -> void:
+	input_enabled = state
+	if not input_enabled and not inside_picture and up_position:
+		toggle_inspect()
+
+
 func _input(event: InputEvent) -> void:
 	if not input_enabled:
 		return

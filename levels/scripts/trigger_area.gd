@@ -48,7 +48,7 @@ func _on_body_entered(body: Node3D) -> void:
 	active = true
 
 	if prevent_teleport:
-		picture_manager.input_enabled = false
+		picture_manager.set_input_state(false)
 
 	if activate_delay > 0:
 		await get_tree().create_timer(activate_delay).timeout
@@ -63,11 +63,11 @@ func _on_body_entered(body: Node3D) -> void:
 
 func play_audio_clips() -> void:
 	if not audio_stream_player or audio_clips.size() == 0:
-		picture_manager.input_enabled = true
+		picture_manager.set_input_state(true)
 		active = false
 		return
 	if audio_one_shot and audio_played:
-		picture_manager.input_enabled = true
+		picture_manager.set_input_state(true)
 		active = false
 		return
 	audio_played = true
@@ -85,7 +85,7 @@ func play_audio_clips() -> void:
 	if wait_for_audio:
 		apply_scene_changes()
 	
-	picture_manager.input_enabled = true
+	picture_manager.set_input_state(true)
 	active = false
 
 
