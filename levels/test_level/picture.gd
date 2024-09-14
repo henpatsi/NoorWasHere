@@ -50,7 +50,7 @@ func _ready() -> void:
 	set_active(false)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if not inside_picture:
 		return
 
@@ -74,11 +74,11 @@ func set_active(state: bool) -> void:
 		hide()
 
 
-func set_child_collider_states(node: Node, state: bool) -> void:
+func set_child_collider_states(node: Node, disabled_state: bool) -> void:
 	for child in node.get_children():
-		set_child_collider_states(child, state)
+		set_child_collider_states(child, disabled_state)
 	if node is CollisionShape3D:
-		node.disabled = state
+		node.disabled = disabled_state
 
 
 func get_local_camera_pos() -> Vector3:
