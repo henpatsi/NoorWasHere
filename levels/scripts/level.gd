@@ -11,7 +11,7 @@ func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	
 	set_past_environment()
-	await get_tree().create_timer(1.0).timeout
+	await get_tree().create_timer(1).timeout
 	set_present_environment()
 
 
