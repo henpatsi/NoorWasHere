@@ -68,7 +68,7 @@ func _input(event: InputEvent) -> void:
 	
 	if event.is_action_pressed("inspect_picture"):
 		if inside_picture:
-			current_picture.exit_picture(player)
+			current_picture.exit_picture(player, self)
 			inside_picture = false
 
 		up_position = not up_position
@@ -101,7 +101,7 @@ func _input(event: InputEvent) -> void:
 		if inside_picture:
 			print ("Already inside picture")
 			return
-		current_picture.enter_picture(player, head_node)
+		current_picture.enter_picture(player, head_node, self)
 		inside_picture = true
 		busy = true
 

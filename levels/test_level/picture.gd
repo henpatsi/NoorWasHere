@@ -103,7 +103,8 @@ func requirements_met(met_requirements: Array[String]) -> bool:
 	return true
 
 
-func enter_picture(player: CharacterBody3D, head_node: Node3D) -> void:
+func enter_picture(player: CharacterBody3D, head_node: Node3D, picture_handler: Node) -> void:
+	picture_handler.input_enabled = false
 	player.process_mode = Node.PROCESS_MODE_DISABLED
 
 	var camera_pos = camera.position - world_root.position
@@ -140,8 +141,10 @@ func enter_picture(player: CharacterBody3D, head_node: Node3D) -> void:
 
 	camera_follow_node = head_node
 	inside_picture = true
+	picture_handler.input_enabled = true
 
-func exit_picture(player: CharacterBody3D) -> void:
+func exit_picture(player: CharacterBody3D, picture_handler: Node) -> void:
+	picture_handler.input_enabled = false
 	inside_picture = false
 
 	player.global_position -= world_root.position
@@ -167,3 +170,5 @@ func exit_picture(player: CharacterBody3D) -> void:
 
 	camera.global_position = camera_picture_position
 	camera.global_rotation = camera_picture_rotation
+	
+	picture_handler.input_enabled = true
