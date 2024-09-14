@@ -474,13 +474,21 @@ shape = SubResource("BoxShape3D_shw10")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 200, 0, 0)
 
 [node name="TriggerArea" parent="World1" node_paths=PackedStringArray("audio_stream_player", "subtitle_label", "start_monitoring_list") instance=ExtResource("7_s5srr")]
-one_shot = true
 prevent_teleport = true
+activate_delay = 2.0
 audio_stream_player = NodePath("../../Player/PlayerDialogueASP")
 subtitle_label = NodePath("../../UI/SubtitleLabel")
 audio_clips = Array[AudioStream]([ExtResource("10_qje1r"), ExtResource("11_brdbc"), ExtResource("12_npxd0"), ExtResource("13_lh1ia"), ExtResource("14_cylkq")])
 subtitles = Array[String](["Bet", "Bet?", "Bet!", "Bet..", "bet :("])
-start_monitoring_list = [NodePath("../../Present/TriggerArea")]
+start_monitoring_list = [NodePath("../../Present/TriggerArea"), NodePath("../TriggerArea2")]
+
+[node name="TriggerArea2" parent="World1" node_paths=PackedStringArray("audio_stream_player") instance=ExtResource("7_s5srr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.18001, 1.57257, -16.8478)
+monitoring = false
+one_shot = true
+audio_one_shot = true
+audio_stream_player = NodePath("../../Player/PlayerDialogueASP")
+audio_clips = Array[AudioStream]([ExtResource("10_410fn")])
 
 [node name="Floor" type="CSGBox3D" parent="World1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.432, -0.5, -8.077)
@@ -587,6 +595,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.81526, 0, -4.23377)
 use_collision = true
 script = ExtResource("13_torvp")
 rotation_on_inspect = Vector3(45, 45, 45)
+prevent_teleport = true
 audio_stream_player = NodePath("AudioStreamPlayer3D")
 audio_clips = Array[AudioStream]([ExtResource("10_410fn"), ExtResource("14_cylkq"), ExtResource("10_410fn")])
 nodes_to_show = [NodePath("../DoorKey")]
@@ -669,6 +678,8 @@ light_energy = 5.0
 
 [node name="TiggerArea" parent="World1/LightSwitch" node_paths=PackedStringArray("audio_stream_player") instance=ExtResource("7_s5srr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.844177, -1.97126, -2.94856)
+visible = false
+monitoring = false
 one_shot = true
 audio_stream_player = NodePath("../AudioStreamPlayer3D")
 audio_clips = Array[AudioStream]([ExtResource("10_tjxl8")])
