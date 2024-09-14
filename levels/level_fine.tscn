@@ -1,0 +1,1812 @@
+[gd_scene load_steps=21 format=3 uid="uid://baq3osaidwfaf"]
+
+[ext_resource type="Script" path="res://levels/test_level/level.gd" id="1_mw3wp"]
+[ext_resource type="Material" uid="uid://dve3xrg044f4h" path="res://assets/materials/M_housetemp.tres" id="2_db8bv"]
+[ext_resource type="PackedScene" uid="uid://ck05y3vr2y8c3" path="res://assets/characters/Noor_RefNoRig.fbx" id="3_5o0ur"]
+[ext_resource type="PackedScene" uid="uid://c5dkjmjdmby0q" path="res://assets/props/door_a/door_a.tscn" id="3_k0uy4"]
+[ext_resource type="Script" path="res://levels/test_level/picture_handler.gd" id="3_m4duy"]
+[ext_resource type="PackedScene" uid="uid://b25ooshew3q2v" path="res://player/player.tscn" id="4_aw37m"]
+[ext_resource type="Script" path="res://levels/test_level/picture.gd" id="4_xvv2v"]
+[ext_resource type="AudioStream" uid="uid://pl1sjspdft3k" path="res://assets/audio/music/LOOP_Blasting Through the Sky.wav" id="5_nvfs4"]
+[ext_resource type="PackedScene" uid="uid://d22ogqllffeom" path="res://levels/camera_ref.tscn" id="6_ksg6d"]
+[ext_resource type="Script" path="res://levels/test_level/ui.gd" id="6_vry8q"]
+[ext_resource type="Script" path="res://levels/test_level/dynamic_label.gd" id="7_rnv2q"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_rbuat"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_olqo2"]
+sky_material = SubResource("ProceduralSkyMaterial_rbuat")
+
+[sub_resource type="Environment" id="Environment_vcqcf"]
+background_mode = 2
+sky = SubResource("Sky_olqo2")
+tonemap_mode = 2
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_ipxyn"]
+viewport_path = NodePath("Pictures/1/SubViewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_b06rl"]
+viewport_path = NodePath("Pictures/3/SubViewport")
+
+[sub_resource type="LabelSettings" id="LabelSettings_certn"]
+font_size = 32
+
+[sub_resource type="LabelSettings" id="LabelSettings_ag0sf"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_36gwu"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_08k2r"]
+albedo_color = Color(0.341962, 0.398952, 0.358896, 1)
+
+[node name="Level" type="Node3D"]
+script = ExtResource("1_mw3wp")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_vcqcf")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
+shadow_enabled = true
+
+[node name="Player" parent="." instance=ExtResource("4_aw37m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 18)
+max_move_speed = 3.5
+
+[node name="Pictures" type="Node" parent="." node_paths=PackedStringArray("pictures")]
+script = ExtResource("3_m4duy")
+pictures = [NodePath("0_Frontyard/Picture"), NodePath("2_Office/Picture")]
+
+[node name="0_Frontyard" type="Node" parent="Pictures"]
+
+[node name="Picture" type="TextureRect" parent="Pictures/0_Frontyard" node_paths=PackedStringArray("camera", "world_root", "nodes_to_show")]
+clip_contents = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 320.0
+offset_top = 570.0
+offset_right = -320.0
+offset_bottom = 210.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("ViewportTexture_ipxyn")
+expand_mode = 1
+stretch_mode = 3
+script = ExtResource("4_xvv2v")
+camera = NodePath("../SubViewport/PortalCamera")
+world_root = NodePath("../../../Past")
+nodes_to_show = [null]
+ambientAS = ExtResource("5_nvfs4")
+
+[node name="SubViewport" type="SubViewport" parent="Pictures/0_Frontyard"]
+size = Vector2i(1280, 720)
+
+[node name="PortalCamera" type="Camera3D" parent="Pictures/0_Frontyard/SubViewport"]
+transform = Transform3D(0.99798, 0, -0.0635223, 0, 1, 0, 0.0635223, 0, 0.99798, 601.386, 1.75, 21.237)
+cull_mask = 1048063
+
+[node name="ColorRect" parent="Pictures/0_Frontyard/SubViewport/PortalCamera" instance=ExtResource("6_ksg6d")]
+
+[node name="1_Backyard" type="Node" parent="Pictures"]
+
+[node name="Picture" type="TextureRect" parent="Pictures/1_Backyard" node_paths=PackedStringArray("camera", "world_root", "nodes_to_show")]
+visible = false
+clip_contents = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 320.0
+offset_top = 570.0
+offset_right = -320.0
+offset_bottom = 210.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("ViewportTexture_b06rl")
+expand_mode = 1
+stretch_mode = 3
+script = ExtResource("4_xvv2v")
+camera = NodePath("../SubViewport/PortalCamera")
+world_root = NodePath("../../../Past")
+nodes_to_show = [null]
+
+[node name="SubViewport" type="SubViewport" parent="Pictures/1_Backyard"]
+size = Vector2i(1280, 720)
+
+[node name="PortalCamera" type="Camera3D" parent="Pictures/1_Backyard/SubViewport"]
+transform = Transform3D(-1, 0, 8.9407e-08, 0, 1, 0, -8.9407e-08, 0, -1, 598.25, 1.75, -11.8452)
+cull_mask = 1048063
+
+[node name="ColorRect" parent="Pictures/1_Backyard/SubViewport/PortalCamera" instance=ExtResource("6_ksg6d")]
+
+[node name="2_Office" type="Node" parent="Pictures"]
+
+[node name="Picture" type="TextureRect" parent="Pictures/2_Office" node_paths=PackedStringArray("camera", "world_root")]
+visible = false
+clip_contents = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 320.0
+offset_top = 570.0
+offset_right = -320.0
+offset_bottom = 210.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("ViewportTexture_b06rl")
+expand_mode = 1
+stretch_mode = 3
+script = ExtResource("4_xvv2v")
+camera = NodePath("../SubViewport/PortalCamera")
+world_root = NodePath("../../../Past")
+requirements = Array[String](["tv_on_table"])
+
+[node name="SubViewport" type="SubViewport" parent="Pictures/2_Office"]
+size = Vector2i(1280, 720)
+
+[node name="PortalCamera" type="Camera3D" parent="Pictures/2_Office/SubViewport"]
+transform = Transform3D(0.310759, 0, 0.950489, 0, 1, 0, -0.950489, 0, 0.310759, 603.331, 2.23234, 4.256)
+cull_mask = 1048063
+
+[node name="ColorRect" parent="Pictures/2_Office/SubViewport/PortalCamera" instance=ExtResource("6_ksg6d")]
+
+[node name="3_LivingRoom" type="Node" parent="Pictures"]
+
+[node name="Picture" type="TextureRect" parent="Pictures/3_LivingRoom" node_paths=PackedStringArray("camera", "world_root")]
+visible = false
+clip_contents = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 320.0
+offset_top = 570.0
+offset_right = -320.0
+offset_bottom = 210.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("ViewportTexture_b06rl")
+expand_mode = 1
+stretch_mode = 3
+script = ExtResource("4_xvv2v")
+camera = NodePath("../SubViewport/PortalCamera")
+world_root = NodePath("../../../Past")
+requirements = Array[String](["tv_on_table"])
+
+[node name="SubViewport" type="SubViewport" parent="Pictures/3_LivingRoom"]
+size = Vector2i(1280, 720)
+
+[node name="PortalCamera" type="Camera3D" parent="Pictures/3_LivingRoom/SubViewport"]
+transform = Transform3D(-0.891837, 0, -0.452357, 0, 1, 0, 0.452357, 0, -0.891837, 602.581, 2.232, -2.994)
+cull_mask = 1048063
+
+[node name="ColorRect" parent="Pictures/3_LivingRoom/SubViewport/PortalCamera" instance=ExtResource("6_ksg6d")]
+
+[node name="4_HallwayUpstairs" type="Node" parent="Pictures"]
+
+[node name="Picture" type="TextureRect" parent="Pictures/4_HallwayUpstairs" node_paths=PackedStringArray("camera", "world_root")]
+visible = false
+clip_contents = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 320.0
+offset_top = 570.0
+offset_right = -320.0
+offset_bottom = 210.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("ViewportTexture_b06rl")
+expand_mode = 1
+stretch_mode = 3
+script = ExtResource("4_xvv2v")
+camera = NodePath("../SubViewport/PortalCamera")
+world_root = NodePath("../../../Past")
+requirements = Array[String](["tv_on_table"])
+
+[node name="SubViewport" type="SubViewport" parent="Pictures/4_HallwayUpstairs"]
+size = Vector2i(1280, 720)
+
+[node name="PortalCamera" type="Camera3D" parent="Pictures/4_HallwayUpstairs/SubViewport"]
+transform = Transform3D(-0.978527, 0, -0.206119, 0, 1, 0, 0.206119, 0, -0.978527, 605.875, 5.98234, -1.625)
+cull_mask = 1048063
+
+[node name="ColorRect" parent="Pictures/4_HallwayUpstairs/SubViewport/PortalCamera" instance=ExtResource("6_ksg6d")]
+
+[node name="5_TV" type="Node" parent="Pictures"]
+
+[node name="Picture" type="TextureRect" parent="Pictures/5_TV" node_paths=PackedStringArray("camera", "world_root")]
+visible = false
+clip_contents = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 320.0
+offset_top = 570.0
+offset_right = -320.0
+offset_bottom = 210.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("ViewportTexture_b06rl")
+expand_mode = 1
+stretch_mode = 3
+script = ExtResource("4_xvv2v")
+camera = NodePath("../SubViewport/PortalCamera")
+world_root = NodePath("../../../Past")
+requirements = Array[String](["tv_on_table"])
+
+[node name="SubViewport" type="SubViewport" parent="Pictures/5_TV"]
+size = Vector2i(1280, 720)
+
+[node name="PortalCamera" type="Camera3D" parent="Pictures/5_TV/SubViewport"]
+transform = Transform3D(0.667833, 0.0324664, -0.743603, 0, 0.999048, 0.0436194, 0.744312, -0.0291304, 0.667197, 603.875, 5.98234, 1.875)
+cull_mask = 1048063
+
+[node name="ColorRect" parent="Pictures/5_TV/SubViewport/PortalCamera" instance=ExtResource("6_ksg6d")]
+
+[node name="6_7_NoorRoomNight" type="Node" parent="Pictures"]
+
+[node name="Picture" type="TextureRect" parent="Pictures/6_7_NoorRoomNight" node_paths=PackedStringArray("camera", "world_root")]
+visible = false
+clip_contents = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 320.0
+offset_top = 570.0
+offset_right = -320.0
+offset_bottom = 210.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("ViewportTexture_b06rl")
+expand_mode = 1
+stretch_mode = 3
+script = ExtResource("4_xvv2v")
+camera = NodePath("../SubViewport/PortalCamera")
+world_root = NodePath("../../../Past")
+requirements = Array[String](["tv_on_table"])
+
+[node name="SubViewport" type="SubViewport" parent="Pictures/6_7_NoorRoomNight"]
+size = Vector2i(1280, 720)
+
+[node name="PortalCamera" type="Camera3D" parent="Pictures/6_7_NoorRoomNight/SubViewport"]
+transform = Transform3D(-0.452435, -0.154859, 0.878249, 0, 0.984808, 0.173648, -0.891798, 0.0785645, -0.445561, 601.875, 5.98234, -3.125)
+cull_mask = 1048063
+
+[node name="ColorRect" parent="Pictures/6_7_NoorRoomNight/SubViewport/PortalCamera" instance=ExtResource("6_ksg6d")]
+
+[node name="8_FrontDoor" type="Node" parent="Pictures"]
+
+[node name="Picture" type="TextureRect" parent="Pictures/8_FrontDoor" node_paths=PackedStringArray("camera", "world_root")]
+visible = false
+clip_contents = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 320.0
+offset_top = 570.0
+offset_right = -320.0
+offset_bottom = 210.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("ViewportTexture_b06rl")
+expand_mode = 1
+stretch_mode = 3
+script = ExtResource("4_xvv2v")
+camera = NodePath("../SubViewport/PortalCamera")
+world_root = NodePath("../../../Past")
+requirements = Array[String](["tv_on_table"])
+
+[node name="SubViewport" type="SubViewport" parent="Pictures/8_FrontDoor"]
+size = Vector2i(1280, 720)
+
+[node name="PortalCamera" type="Camera3D" parent="Pictures/8_FrontDoor/SubViewport"]
+transform = Transform3D(-0.837671, 0, 0.546175, 0, 1, 0, -0.546175, 0, -0.837671, 603.581, 2.232, 3.506)
+cull_mask = 1048063
+
+[node name="ColorRect" parent="Pictures/8_FrontDoor/SubViewport/PortalCamera" instance=ExtResource("6_ksg6d")]
+
+[node name="9_Forest" type="Node" parent="Pictures"]
+
+[node name="Picture" type="TextureRect" parent="Pictures/9_Forest" node_paths=PackedStringArray("camera", "world_root")]
+visible = false
+clip_contents = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 320.0
+offset_top = 570.0
+offset_right = -320.0
+offset_bottom = 210.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("ViewportTexture_b06rl")
+expand_mode = 1
+stretch_mode = 3
+script = ExtResource("4_xvv2v")
+camera = NodePath("../SubViewport/PortalCamera")
+world_root = NodePath("../../../Past")
+requirements = Array[String](["tv_on_table"])
+
+[node name="SubViewport" type="SubViewport" parent="Pictures/9_Forest"]
+size = Vector2i(1280, 720)
+
+[node name="PortalCamera" type="Camera3D" parent="Pictures/9_Forest/SubViewport"]
+transform = Transform3D(0.74437, 0, 0.667768, 0, 1, 0, -0.667768, 0, 0.74437, 606.081, 1.75, -10.9936)
+cull_mask = 1048063
+
+[node name="ColorRect" parent="Pictures/9_Forest/SubViewport/PortalCamera" instance=ExtResource("6_ksg6d")]
+
+[node name="10_Shed" type="Node" parent="Pictures"]
+
+[node name="Picture" type="TextureRect" parent="Pictures/10_Shed" node_paths=PackedStringArray("camera", "world_root")]
+visible = false
+clip_contents = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 320.0
+offset_top = 570.0
+offset_right = -320.0
+offset_bottom = 210.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("ViewportTexture_b06rl")
+expand_mode = 1
+stretch_mode = 3
+script = ExtResource("4_xvv2v")
+camera = NodePath("../SubViewport/PortalCamera")
+world_root = NodePath("../../../Past")
+requirements = Array[String](["tv_on_table"])
+
+[node name="SubViewport" type="SubViewport" parent="Pictures/10_Shed"]
+size = Vector2i(1280, 720)
+
+[node name="PortalCamera" type="Camera3D" parent="Pictures/10_Shed/SubViewport"]
+transform = Transform3D(-0.546175, 0, -0.837671, 0, 1, 0, 0.837671, 0, -0.546175, 578.081, 1.75, -31.9936)
+cull_mask = 1048063
+
+[node name="ColorRect" parent="Pictures/10_Shed/SubViewport/PortalCamera" instance=ExtResource("6_ksg6d")]
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("6_vry8q")
+
+[node name="SubtitleLabel" type="Label" parent="UI"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -120.0
+offset_right = 20.0
+offset_bottom = -97.0
+grow_horizontal = 2
+grow_vertical = 0
+label_settings = SubResource("LabelSettings_certn")
+
+[node name="InteractLabel" type="Label" parent="UI"]
+layout_mode = 1
+offset_left = 50.0
+offset_top = 50.0
+offset_right = 154.0
+offset_bottom = 73.0
+label_settings = SubResource("LabelSettings_ag0sf")
+
+[node name="InteractResponseLabel" type="Label" parent="UI"]
+layout_mode = 1
+offset_left = 50.0
+offset_top = 100.0
+offset_right = 154.0
+offset_bottom = 123.0
+label_settings = SubResource("LabelSettings_36gwu")
+script = ExtResource("7_rnv2q")
+
+[node name="Crosshair" type="ColorRect" parent="UI"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -5.0
+offset_top = -5.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.392157)
+
+[node name="Present" type="Node3D" parent="."]
+
+[node name="LevelObjects" type="Node3D" parent="Present"]
+
+[node name="EnvFloor" type="CSGBox3D" parent="Present/LevelObjects"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+material_override = SubResource("StandardMaterial3D_08k2r")
+use_collision = true
+size = Vector3(100, 1, 100)
+
+[node name="Car" type="CSGBox3D" parent="Present/LevelObjects"]
+transform = Transform3D(0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866025, 1.71498, 1, 30.2958)
+material_override = ExtResource("2_db8bv")
+use_collision = true
+size = Vector3(3.25, 2, 6.25)
+
+[node name="House" type="Node3D" parent="Present/LevelObjects"]
+
+[node name="Level1" type="Node3D" parent="Present/LevelObjects/House"]
+
+[node name="Floors" type="Node3D" parent="Present/LevelObjects/House/Level1"]
+
+[node name="Floor" type="CSGBox3D" parent="Present/LevelObjects/House/Level1/Floors"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.375, 0.107338, 0.75)
+material_override = ExtResource("2_db8bv")
+use_collision = true
+size = Vector3(13.75, 0.75, 12.5)
+
+[node name="Floor3" type="CSGBox3D" parent="Present/LevelObjects/House/Level1/Floors"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0.107338, -6.375)
+material_override = ExtResource("2_db8bv")
+use_collision = true
+size = Vector3(6, 0.75, 1.75)
+
+[node name="Floor2" type="CSGBox3D" parent="Present/LevelObjects/House/Level1/Floors"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.107338, 9.5)
+material_override = ExtResource("2_db8bv")
+use_collision = true
+size = Vector3(6, 0.75, 5)
+
+[node name="Stairs" type="CSGPolygon3D" parent="Present/LevelObjects/House/Level1/Floors"]
+transform = Transform3D(-4.37114e-08, 0, 2.5704, 0, 0.5, 0, -1, 0, -1.12356e-07, 1.93855, 0, 13)
+use_collision = true
+polygon = PackedVector2Array(0, 0, 1, 1, 1, 1, 1, 0)
+
+[node name="Stairs2" type="CSGPolygon3D" parent="Present/LevelObjects/House/Level1/Floors"]
+transform = Transform3D(-4.37114e-08, 0, -5.99413, 0, 0.5, 0, 1, 0, -2.62012e-07, -3.49742, -0.0250001, -8.24313)
+use_collision = true
+polygon = PackedVector2Array(0, 0, 1, 1, 1, 1, 1, 0)
+
+[node name="Floor4" type="CSGBox3D" parent="Present/LevelObjects/House/Level1/Floors"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.375, 4.60734, -6)
+material_override = ExtResource("2_db8bv")
+use_collision = true
+size = Vector3(6.25, 0.75, 1)
+
+[node name="Stairs3" type="CSGPolygon3D" parent="Present/LevelObjects/House/Level1/Floors"]
+transform = Transform3D(-4.37114e-08, 0, -6.21944, 0, 0.5, 0, 1, 0, -2.7186e-07, -3.49742, 4.475, -7.49313)
+use_collision = true
+polygon = PackedVector2Array(0, 0, 1, 1, 1, 1, 1, 0)
+
+[node name="Stairs5" type="CSGPolygon3D" parent="Present/LevelObjects/House/Level1/Floors"]
+transform = Transform3D(2.14108, 0, -7.50215e-08, 0, 1.74691, 0, 1.87179e-07, 0, 1.07632, 2.5, 0.5, 6.48105)
+use_collision = true
+polygon = PackedVector2Array(0, 0, 1, 1, 1, 1, 1, 0)
+
+[node name="Stairs6" type="CSGPolygon3D" parent="Present/LevelObjects/House/Level1/Floors"]
+transform = Transform3D(9.81478e-08, 0, 1.07632, 0, 1.99694, 0, -2.24536, 0, 2.7974e-08, 5.75, 2.25, 5.48105)
+use_collision = true
+polygon = PackedVector2Array(0, 0, 1, 1, 1, 1, 1, 0)
+
+[node name="Walls" type="Node3D" parent="Present/LevelObjects/House/Level1"]
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Present/LevelObjects/House/Level1/Walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 2, 9.75)
+material_override = ExtResource("2_db8bv")
+use_collision = true
+size = Vector3(2, 3, 0.5)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="Present/LevelObjects/House/Level1/Walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.625, 2, 6.75)
+material_override = ExtResource("2_db8bv")
+use_collision = true
+size = Vector3(7.25, 3, 0.5)
+
+[node name="CSGBox3D11" type="CSGBox3D" parent="Present/LevelObjects/House/Level1/Walls"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 6, 2, 5)
+material_override = ExtResource("2_db8bv")
+use_collision = true
+size = Vector3(3, 3, 0.5)
+
+[node name="CSGBox3D14" type="CSGBox3D" parent="Present/LevelObjects/House/Level1/Walls"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 5.19824, 1.375, 4.875)
+material_override = ExtResource("2_db8bv")
+use_collision = true
+size = Vector3(3.25, 1.75, 1.10352)
+
+[node name="CSGBox3D12" type="CSGBox3D" parent="Present/LevelObjects/House/Level1/Walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.00146, 2, 3)
+material_override = ExtResource("2_db8bv")
+use_collision = true
+size = Vector3(2.75, 3, 0.5)
+
+[node name="CSGBox3D29" type="CSGBox3D" parent="Present/LevelObjects/House/Level1/Walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.25146, 2, 3)
+material_override = ExtResource("2_db8bv")
+use_collision = true
+size = Vector3(1.25, 3, 0.5)
+
+[node name="CSGBox3D15" type="CSGBox3D" parent="Present/LevelObjects/House/Level1/Walls"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 6, 2, -0.125)
+material_override = ExtResource("2_db8bv")
+use_collision = true
+size = Vector3(3.25, 3, 0.5)
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="Present/LevelObjects/House/Level1/Walls"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -2.26525, 2, 7.99379)
+material_override = ExtResource("2_db8bv")
+use_collision = true
+size = Vector3(3, 3, 0.5)
+
+[node name="CSGBox3D33" type="CSGBox3D" parent="Present/LevelObjects/House/Level1/Walls"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -1.51525, 1.875, 7.49379)
+material_override = ExtResource("2_db8bv")
+use_collision = true
+size = Vector3(0.5, 2.75, 0.5)
+
+[node name="CSGBox3D34" type="CSGBox3D" parent="Present/LevelObjects/House/Level1/Walls"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -1.39025, 1.25, 8.61879)
+material_override = ExtResource("2_db8bv")
+use_collision = true
+size = Vector3(1.25, 1.5, 0.75)
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="Present/LevelObjects/House/Level1/Walls"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 3.23475, 2, 7.99379)
+material_override = ExtResource("2_db8bv")
+use_collision = true
+size = Vector3(3, 3, 0.5)
+
+[node name="CSGBox3D9" type="CSGBox3D" parent="Present/LevelObjects/House/Level1/Walls"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 9.98475, 2, 0.743788)
+material_override = ExtResource("2_db8bv")
+use_collision = true
+size = Vector3(11.5, 3, 0.5)
+
+[node name="CSGBox3D17" type="CSGBox3D" parent="Present/LevelObjects/House/Level1/Walls"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 9.23475, 1.125, -1.38121)
+material_override = ExtResource("2_db8bv")
+use_collision = true
+size = Vector3(3.25, 1.25, 1)
+
+[node name="CSGBox3D22" type="CSGBox3D" parent="Present/LevelObjects/House/Level1/Walls"]
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, -2.39025, 1, -2.17667)
+material_override = ExtResource("2_db8bv")
+use_collision = true
+size = Vector3(3, 1, 1.25)
+
+[node name="CSGBox3D25" type="CSGBox3D" parent="Present/LevelObjects/House/Level1/Walls"]
+transform = Transform3D(1, 0, -1.74846e-07, 0, 1, 0, 1.74846e-07, 0, 1, -0.890254, 1.125, -0.165457)
+material_override = ExtResource("2_db8bv")
+use_collision = true
+size = Vector3(1.25, 1.25, 0.75)
+
+[node name="CSGBox3D43" type="CSGBox3D" parent="Present/LevelObjects/House/Level1/Walls"]
+transform = Transform3D(-2.38419e-07, 0, -1, 0, 1, 0, 1, 0, -2.38419e-07, -1.76525, 1, 1.20954)
+material_override = ExtResource("2_db8bv")
+use_collision = true
+size = Vector3(1, 1, 2.5)
+
+[node name="CSGBox3D47" type="CSGBox3D" parent="Present/LevelObjects/House/Level1/Walls"]
+transform = Transform3D(-2.38419e-07, 0, -1, 0, 1, 0, 1, 0, -2.38419e-07, -0.0152538, 1.25, 1.08454)
+material_override = ExtResource("2_db8bv")
+use_collision = true
+size = Vector3(0.75, 1.5, 1)
+
+[node name="CSGBox3D46" type="CSGBox3D" parent="Present/LevelObjects/House/Level1/Walls"]
+transform = Transform3D(-2.38419e-07, 0, -1, 0, 1, 0, 1, 0, -2.38419e-07, -1.89025, 2, 0.959543)
+material_override = ExtResource("2_db8bv")
+use_collision = true
+size = Vector3(0.5, 1, 1.25)
+
+[node name="CSGBox3D44" type="CSGBox3D" parent="Present/LevelObjects/House/Level1/Walls"]
+transform = Transform3D(-2.38419e-07, 0, -1, 0, 1, 0, 1, 0, -2.38419e-07, -2.26525, 1.375, 2.45954)
+material_override = ExtResource("2_db8bv")
+use_collision = true
+size = Vector3(1, 1.75, 1)
+
+[node name="CSGBox3D45" type="CSGBox3D" parent="Present/LevelObjects/House/Level1/Walls"]
+transform = Transform3D(0.258819, 0, -0.965926, 0, 1, 0, 0.965926, 0, 0.258819, -1.14025, 1.125, 3.45954)
+material_override = ExtResource("2_db8bv")
+use_collision = true
+size = Vector3(0.75, 1.25, 1)
+
+[node name="CSGBox3D30" type="CSGBox3D" parent="Present/LevelObjects/House/Level1/Walls"]
+transform = Transform3D(1, 0, -1.74846e-07, 0, 1, 0, 1.74846e-07, 0, 1, -0.640254, 0.875, -2.16546)
+material_override = ExtResource("2_db8bv")
+use_collision = true
+size = Vector3(1.25, 0.75, 1.75)
+
+[node name="CSGBox3D26" type="CSGBox3D" parent="Present/LevelObjects/House/Level1/Walls"]
+transform = Transform3D(1, 0, -2.8213e-07, 0, 1, 0, 2.8213e-07, 0, 1, 1.08954, 1, -2.17667)
+material_override = ExtResource("2_db8bv")
+use_collision = true
+size = Vector3(1, 1, 2.25)
+
+[node name="CSGBox3D23" type="CSGBox3D" parent="Present/LevelObjects/House/Level1/Walls"]
+transform = Transform3D(8.9407e-08, 0, 1.92, 0, 1, 0, -1, 0, 1.19209e-07, 3.73475, 1, -0.24621)
+material_override = ExtResource("2_db8bv")
+use_collision = true
+size = Vector3(2.5, 1, 0.75)
+
+[node name="CSGBox3D20" type="CSGBox3D" parent="Present/LevelObjects/House/Level1/Walls"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 9.23475, 1.75, 1.11879)
+material_override = ExtResource("2_db8bv")
+use_collision = true
+size = Vector3(1.25, 2.5, 1)
+
+[node name="CSGBox3D35" type="CSGBox3D" parent="Present/LevelObjects/House/Level1/Walls"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 9.23475, 2, -4.00621)
+material_override = ExtResource("2_db8bv")
+use_collision = true
+size = Vector3(1.5, 3, 1)
+
+[node name="CSGBox3D36" type="CSGBox3D" parent="Present/LevelObjects/House/Level1/Walls"]
+transform = Transform3D(1, 0, -1.06581e-14, 0, 1, 0, 1.06581e-14, 0, 1, 4.3389, 1, -4.45314)
+material_override = ExtResource("2_db8bv")
+use_collision = true
+size = Vector3(2.25, 1, 1)
+
+[node name="CSGBox3D38" type="CSGBox3D" parent="Present/LevelObjects/House/Level1/Walls"]
+transform = Transform3D(1, 0, -1.06581e-14, 0, 1, 0, 1.06581e-14, 0, 1, 4.28748, 0.875, -3.41378)
+material_override = ExtResource("2_db8bv")
+use_collision = true
+size = Vector3(0.75, 0.75, 0.5)
+
+[node name="CSGBox3D37" type="CSGBox3D" parent="Present/LevelObjects/House/Level1/Walls"]
+transform = Transform3D(1, 0, -1.06581e-14, 0, 1, 0, 1.06581e-14, 0, 1, 4.3389, 2, -4.70314)
+material_override = ExtResource("2_db8bv")
+use_collision = true
+size = Vector3(2.25, 1, 0.5)
+
+[node name="CSGBox3D18" type="CSGBox3D" parent="Present/LevelObjects/House/Level1/Walls"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 9.23475, 3, -1.38121)
+material_override = ExtResource("2_db8bv")
+use_collision = true
+size = Vector3(3.25, 1, 1)
+
+[node name="CSGBox3D19" type="CSGBox3D" parent="Present/LevelObjects/House/Level1/Walls"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 6.73475, 1.125, -0.131212)
+material_override = ExtResource("2_db8bv")
+use_collision = true
+size = Vector3(2.75, 1.25, 1)
+
+[node name="CSGBox3D24" type="CSGBox3D" parent="Present/LevelObjects/House/Level1/Walls"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 6.73475, 3, -0.131212)
+material_override = ExtResource("2_db8bv")
+use_collision = true
+size = Vector3(2.75, 1, 1)
+
+[node name="CSGBox3D10" type="CSGBox3D" parent="Present/LevelObjects/House/Level1/Walls"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -3.26525, 2, 0.993788)
+material_override = ExtResource("2_db8bv")
+use_collision = true
+size = Vector3(12, 3, 0.5)
+
+[node name="CSGBox3D13" type="CSGBox3D" parent="Present/LevelObjects/House/Level1/Walls"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.609746, 2, 1.61879)
+material_override = ExtResource("2_db8bv")
+use_collision = true
+size = Vector3(2.75, 3, 0.25)
+
+[node name="CSGBox3D16" type="CSGBox3D" parent="Present/LevelObjects/House/Level1/Walls"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.609746, 2, 5.61879)
+material_override = ExtResource("2_db8bv")
+use_collision = true
+size = Vector3(2.75, 3, 0.25)
+
+[node name="CSGBox3D39" type="CSGBox3D" parent="Present/LevelObjects/House/Level1/Walls"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -1.26525, 2, 6.74379)
+material_override = ExtResource("2_db8bv")
+use_collision = true
+size = Vector3(0.5, 3, 3.5)
+
+[node name="CSGBox3D21" type="CSGBox3D" parent="Present/LevelObjects/House/Level1/Walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.26525, 2, 0.36879)
+material_override = ExtResource("2_db8bv")
+use_collision = true
+size = Vector3(3.5, 3, 0.25)
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="Present/LevelObjects/House/Level1/Walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.25, 2, -5.25)
+material_override = ExtResource("2_db8bv")
+use_collision = true
+size = Vector3(10, 3, 0.5)
+
+[node name="CSGBox3D40" type="CSGBox3D" parent="Present/LevelObjects/House/Level1/Walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 3.375, -5.25)
+material_override = ExtResource("2_db8bv")
+use_collision = true
+size = Vector3(1.5, 0.25, 0.5)
+
+[node name="CSGBox3D41" type="CSGBox3D" parent="Present/LevelObjects/House/Level1/Walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.875, 3.375, 9.75)
+material_override = ExtResource("2_db8bv")
+use_collision = true
+size = Vector3(1.25, 0.25, 0.5)
+
+[node name="CSGBox3D42" type="CSGBox3D" parent="Present/LevelObjects/House/Level1/Walls"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.375, 3.375, 3.75)
+material_override = ExtResource("2_db8bv")
+use_collision = true
+size = Vector3(1.75, 0.25, 0.5)
+
+[node name="CSGBox3D27" type="CSGBox3D" parent="Present/LevelObjects/House/Level1/Walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.25, 2, -5.25)
+material_override = ExtResource("2_db8bv")
+use_collision = true
+size = Vector3(2.5, 3, 0.5)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="Present/LevelObjects/House/Level1/Walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.125, 2, 9.75)
+material_override = ExtResource("2_db8bv")
+use_collision = true
+size = Vector3(2.75, 3, 0.5)
+
+[node name="CSGBox3D31" type="CSGBox3D" parent="Present/LevelObjects/House/Level1/Walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 2.375, 11.5)
+material_override = ExtResource("2_db8bv")
+use_collision = true
+size = Vector3(0.5, 3.75, 0.5)
+
+[node name="CSGBox3D32" type="CSGBox3D" parent="Present/LevelObjects/House/Level1/Walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 2.375, 11.5)
+material_override = ExtResource("2_db8bv")
+use_collision = true
+size = Vector3(0.5, 3.75, 0.5)
+
+[node name="Doors" type="Node3D" parent="Present/LevelObjects/House/Level1"]
+
+[node name="Door_Front" parent="Present/LevelObjects/House/Level1/Doors" instance=ExtResource("3_k0uy4")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.356071, 0.5, 9.93767)
+
+[node name="Door_Backyard" parent="Present/LevelObjects/House/Level1/Doors" instance=ExtResource("3_k0uy4")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 0.106071, 0.5, -5.42769)
+
+[node name="Level2" type="Node3D" parent="Present/LevelObjects/House"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.5, 3.75, 0)
+
+[node name="Floor" type="Node3D" parent="Present/LevelObjects/House/Level2"]
+
+[node name="Floor3" type="CSGBox3D" parent="Present/LevelObjects/House/Level2/Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.125, 0.107338, -1.125)
+material_override = ExtResource("2_db8bv")
+use_collision = true
+size = Vector3(13.75, 0.75, 8.75)
+
+[node name="Floor4" type="CSGBox3D" parent="Present/LevelObjects/House/Level2/Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.5, 0.107338, 5.125)
+material_override = ExtResource("2_db8bv")
+use_collision = true
+size = Vector3(4.5, 0.75, 3.75)
+
+[node name="Floor10" type="CSGBox3D" parent="Present/LevelObjects/House/Level2/Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.125, 0.107338, 6.75)
+material_override = ExtResource("2_db8bv")
+use_collision = true
+size = Vector3(2.75, 0.75, 0.5)
+
+[node name="Floor6" type="CSGBox3D" parent="Present/LevelObjects/House/Level2/Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18, 0.107338, 8.25)
+material_override = ExtResource("2_db8bv")
+use_collision = true
+size = Vector3(6, 0.75, 3.5)
+
+[node name="Floor7" type="CSGBox3D" parent="Present/LevelObjects/House/Level2/Floor"]
+transform = Transform3D(1, 0, 0, 0, 0.965926, -0.258819, 0, 0.258819, 0.965926, -18, 1.19543, 9.30431)
+material_override = ExtResource("2_db8bv")
+use_collision = true
+size = Vector3(6, 0.5, 5.25)
+
+[node name="Floor5" type="CSGBox3D" parent="Present/LevelObjects/House/Level2/Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.75, 0.107338, 5.125)
+material_override = ExtResource("2_db8bv")
+use_collision = true
+size = Vector3(6.5, 0.75, 3.75)
+
+[node name="Walls" type="Node3D" parent="Present/LevelObjects/House/Level2"]
+
+[node name="CSGBox3D31" type="CSGBox3D" parent="Present/LevelObjects/House/Level2/Walls"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -9.39025, 0.75, -2.75621)
+material_override = ExtResource("2_db8bv")
+use_collision = true
+size = Vector3(2, 0.5, 1.25)
+
+[node name="CSGBox3D32" type="CSGBox3D" parent="Present/LevelObjects/House/Level2/Walls"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -9.14025, 1.625, -2.75621)
+material_override = ExtResource("2_db8bv")
+use_collision = true
+size = Vector3(1.5, 1.25, 0.75)
+
+[node name="CSGBox3D51" type="CSGBox3D" parent="Present/LevelObjects/House/Level2/Walls"]
+transform = Transform3D(-1, 0, 8.74226e-08, 0, 1, 0, -8.74226e-08, 0, -1, -19.8903, 0.875, -0.63121)
+material_override = ExtResource("2_db8bv")
+use_collision = true
+size = Vector3(2.75, 0.75, 1.25)
+
+[node name="CSGBox3D56" type="CSGBox3D" parent="Present/LevelObjects/House/Level2/Walls"]
+transform = Transform3D(-1.03316e-07, 0, -1, 0, 1, 0, 1, 0, -1.03316e-07, -20.8903, 1, -3.75621)
+material_override = ExtResource("2_db8bv")
+use_collision = true
+size = Vector3(2.25, 1, 1)
+
+[node name="CSGBox3D63" type="CSGBox3D" parent="Present/LevelObjects/House/Level2/Walls"]
+transform = Transform3D(-1.03316e-07, 0, -1, 0, 1, 0, 1, 0, -1.03316e-07, -21.3903, 2.625, -4.00621)
+material_override = ExtResource("2_db8bv")
+use_collision = true
+size = Vector3(2.25, 0.75, 0.5)
+
+[node name="CSGBox3D65" type="CSGBox3D" parent="Present/LevelObjects/House/Level2/Walls"]
+transform = Transform3D(1, 0, -5.96046e-08, 0, 1, 0, 5.96046e-08, 0, 1, -19.1403, 2.25, 0.24329)
+material_override = ExtResource("2_db8bv")
+use_collision = true
+size = Vector3(2.25, 1.5, 0.001)
+
+[node name="CSGBox3D64" type="CSGBox3D" parent="Present/LevelObjects/House/Level2/Walls"]
+transform = Transform3D(-1, 0, 1.47027e-07, 0, 1, 0, -1.47027e-07, 0, -1, -20.6403, 2.625, -4.75621)
+material_override = ExtResource("2_db8bv")
+use_collision = true
+size = Vector3(2.25, 0.75, 0.5)
+
+[node name="CSGBox3D60" type="CSGBox3D" parent="Present/LevelObjects/House/Level2/Walls"]
+transform = Transform3D(-1.03316e-07, 0, -1, 0, 1, 0, 1, 0, -1.03316e-07, -19.8903, 1, -4.50621)
+material_override = ExtResource("2_db8bv")
+use_collision = true
+size = Vector3(0.75, 1, 1)
+
+[node name="CSGBox3D61" type="CSGBox3D" parent="Present/LevelObjects/House/Level2/Walls"]
+transform = Transform3D(-0.5, 0, -0.866025, 0, 1, 0, 0.866025, 0, -0.5, -19.5153, 1.25, -3.25621)
+material_override = ExtResource("2_db8bv")
+use_collision = true
+size = Vector3(0.75, 1.5, 0.75)
+
+[node name="CSGBox3D57" type="CSGBox3D" parent="Present/LevelObjects/House/Level2/Walls"]
+transform = Transform3D(-1, 0, 8.74226e-08, 0, 1, 0, -8.74226e-08, 0, -1, -17.2653, 1.75, -4.63121)
+material_override = ExtResource("2_db8bv")
+use_collision = true
+size = Vector3(1, 2.5, 0.75)
+
+[node name="CSGBox3D58" type="CSGBox3D" parent="Present/LevelObjects/House/Level2/Walls"]
+transform = Transform3D(-1, 0, 8.74226e-08, 0, 1, 0, -8.74226e-08, 0, -1, -17.0153, 1.25, -0.13121)
+material_override = ExtResource("2_db8bv")
+use_collision = true
+size = Vector3(1.5, 1.5, 0.75)
+
+[node name="CSGBox3D59" type="CSGBox3D" parent="Present/LevelObjects/House/Level2/Walls"]
+transform = Transform3D(-1, 0, 8.74226e-08, 0, 1, 0, -8.74226e-08, 0, -1, -20.8903, 1, -1.88121)
+material_override = ExtResource("2_db8bv")
+use_collision = true
+size = Vector3(0.75, 1, 0.75)
+
+[node name="CSGBox3D52" type="CSGBox3D" parent="Present/LevelObjects/House/Level2/Walls"]
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, -17.8903, 0.875, 4.49379)
+material_override = ExtResource("2_db8bv")
+use_collision = true
+size = Vector3(3, 0.75, 1.75)
+
+[node name="CSGBox3D44" type="CSGBox3D" parent="Present/LevelObjects/House/Level2/Walls"]
+transform = Transform3D(1, 0, -1.74846e-07, 0, 1, 0, 1.74846e-07, 0, 1, -9.26525, 1.25, -4.50621)
+material_override = ExtResource("2_db8bv")
+use_collision = true
+size = Vector3(1, 1.5, 1)
+
+[node name="CSGBox3D42" type="CSGBox3D" parent="Present/LevelObjects/House/Level2/Walls"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -15.7653, 2, 4.74379)
+material_override = ExtResource("2_db8bv")
+use_collision = true
+size = Vector3(3.5, 3, 0.5)
+
+[node name="CSGBox3D49" type="CSGBox3D" parent="Present/LevelObjects/House/Level2/Walls"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -15.7653, 2, -0.881212)
+material_override = ExtResource("2_db8bv")
+use_collision = true
+size = Vector3(3.25, 3, 0.5)
+
+[node name="CSGBox3D50" type="CSGBox3D" parent="Present/LevelObjects/House/Level2/Walls"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -15.7653, 2, -4.38121)
+material_override = ExtResource("2_db8bv")
+use_collision = true
+size = Vector3(1.25, 3, 0.5)
+
+[node name="CSGBox3D46" type="CSGBox3D" parent="Present/LevelObjects/House/Level2/Walls"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -12.5153, 2, 4.24379)
+material_override = ExtResource("2_db8bv")
+use_collision = true
+size = Vector3(4.5, 3, 0.5)
+
+[node name="CSGBox3D43" type="CSGBox3D" parent="Present/LevelObjects/House/Level2/Walls"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -18.7653, 2, 0.493788)
+material_override = ExtResource("2_db8bv")
+use_collision = true
+size = Vector3(5.5, 3, 0.5)
+
+[node name="CSGBox3D45" type="CSGBox3D" parent="Present/LevelObjects/House/Level2/Walls"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -9.26525, 2, 1.99379)
+material_override = ExtResource("2_db8bv")
+use_collision = true
+size = Vector3(1, 3, 0.5)
+
+[node name="CSGBox3D47" type="CSGBox3D" parent="Present/LevelObjects/House/Level2/Walls"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -9.64025, 1.875, 5.99379)
+material_override = ExtResource("2_db8bv")
+use_collision = true
+size = Vector3(1.25, 2.75, 1)
+
+[node name="CSGBox3D53" type="CSGBox3D" parent="Present/LevelObjects/House/Level2/Walls"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -11.6403, 2, 2.24379)
+material_override = ExtResource("2_db8bv")
+use_collision = true
+size = Vector3(1.25, 3, 0.5)
+
+[node name="CSGBox3D30" type="CSGBox3D" parent="Present/LevelObjects/House/Level2/Walls"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -15.1403, 2, 6.74379)
+material_override = ExtResource("2_db8bv")
+use_collision = true
+size = Vector3(13.75, 3, 0.5)
+
+[node name="CSGBox3D33" type="CSGBox3D" parent="Present/LevelObjects/House/Level2/Walls"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -15.1403, 2, -5.25621)
+material_override = ExtResource("2_db8bv")
+use_collision = true
+size = Vector3(13.75, 3, 0.5)
+
+[node name="CSGBox3D29" type="CSGBox3D" parent="Present/LevelObjects/House/Level2/Walls"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -21.7653, 2, 0.743788)
+material_override = ExtResource("2_db8bv")
+use_collision = true
+size = Vector3(11.5, 3, 0.5)
+
+[node name="CSGBox3D41" type="CSGBox3D" parent="Present/LevelObjects/House/Level2/Walls"]
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, -13.0153, 1, -2.63121)
+material_override = ExtResource("2_db8bv")
+use_collision = true
+size = Vector3(2.75, 1, 1)
+
+[node name="CSGBox3D55" type="CSGBox3D" parent="Present/LevelObjects/House/Level2/Walls"]
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, -11.2653, 0.875, -2.88121)
+material_override = ExtResource("2_db8bv")
+use_collision = true
+size = Vector3(1.25, 0.75, 1)
+
+[node name="CSGBox3D54" type="CSGBox3D" parent="Present/LevelObjects/House/Level2/Walls"]
+transform = Transform3D(1, 0, -1.74846e-07, 0, 1, 0, 1.74846e-07, 0, 1, -9.26525, 1.5, -0.756212)
+material_override = ExtResource("2_db8bv")
+use_collision = true
+size = Vector3(1, 2, 1)
+
+[node name="CSGBox3D14" type="CSGBox3D" parent="Present/LevelObjects/House/Level2/Walls"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -8.51525, 2, 0.743788)
+material_override = ExtResource("2_db8bv")
+use_collision = true
+size = Vector3(11.5, 3, 0.5)
+
+[node name="CSGBox3D39" type="CSGBox3D" parent="Present/LevelObjects/House/Level2/Walls"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -14.6697, 1.00824, 3.12124)
+material_override = ExtResource("2_db8bv")
+use_collision = true
+size = Vector3(1.73279, 1.01648, 0.25)
+
+[node name="CSGBox3D48" type="CSGBox3D" parent="Present/LevelObjects/House/Level2/Walls"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -15.7653, 2, 2.61879)
+material_override = ExtResource("2_db8bv")
+use_collision = true
+size = Vector3(0.75, 3, 0.5)
+
+[node name="CSGBox3D62" type="CSGBox3D" parent="Present/LevelObjects/House/Level2/Walls"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -15.8903, 2, 1.49379)
+material_override = ExtResource("2_db8bv")
+use_collision = true
+size = Vector3(1.5, 3, 0.25)
+
+[node name="Doors" type="Node3D" parent="Present/LevelObjects/House/Level2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.5, 0, 5.75)
+
+[node name="Door_Noor" parent="Present/LevelObjects/House/Level2/Doors" instance=ExtResource("3_k0uy4")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.143929, 0.5, -8.38692)
+
+[node name="Roof" type="Node3D" parent="Present/LevelObjects/House"]
+
+[node name="Floor8" type="CSGBox3D" parent="Present/LevelObjects/House/Roof"]
+transform = Transform3D(-3.78552e-08, -0.707107, -0.707107, -2.18557e-08, 0.707107, -0.707107, 1, -1.13133e-08, -4.2222e-08, -1.31066, 9.51433, 0.74574)
+material_override = ExtResource("2_db8bv")
+use_collision = true
+size = Vector3(13.25, 0.75, 6.25)
+
+[node name="Floor9" type="CSGBox3D" parent="Present/LevelObjects/House/Roof"]
+transform = Transform3D(1.25278e-07, 0.707107, 0.707107, -2.18557e-08, 0.707107, -0.707107, -1, 7.31306e-08, 1.04039e-07, 2.68934, 9.51433, 0.74574)
+material_override = ExtResource("2_db8bv")
+use_collision = true
+size = Vector3(13.25, 0.75, 6.25)
+
+[node name="Floor11" type="CSGBox3D" parent="Present/LevelObjects/House/Roof"]
+transform = Transform3D(1, -1.04039e-07, -1.34948e-07, 2.26267e-08, 0.866025, -0.5, 1.68888e-07, 0.5, 0.866025, 7.43934, 9.32683, 3.95448)
+material_override = ExtResource("2_db8bv")
+use_collision = true
+size = Vector3(6.25, 0.75, 7.5)
+
+[node name="Floor10" type="CSGBox3D" parent="Present/LevelObjects/House/Roof"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, 7.60734, 0.75)
+material_override = ExtResource("2_db8bv")
+use_collision = true
+size = Vector3(13.5, 0.75, 12.5)
+
+[node name="Floor12" type="CSGBox3D" parent="Present/LevelObjects/House/Roof"]
+transform = Transform3D(-1, 6.03278e-08, 5.92375e-08, 2.26267e-08, 0.866025, -0.5, -8.1465e-08, -0.5, -0.866025, 7.43934, 9.32683, -2.6795)
+material_override = ExtResource("2_db8bv")
+use_collision = true
+size = Vector3(6.25, 0.75, 7.5)
+
+[node name="Forest" type="Node3D" parent="Present/LevelObjects"]
+
+[node name="Forest3" type="CSGBox3D" parent="Present/LevelObjects/Forest"]
+transform = Transform3D(-0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, -0.866025, -2.558, 7.5, -52.75)
+material_override = SubResource("StandardMaterial3D_08k2r")
+use_collision = true
+size = Vector3(25.25, 15, 50)
+
+[node name="Forest4" type="CSGBox3D" parent="Present/LevelObjects/Forest"]
+transform = Transform3D(-0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, -0.707107, 41.8678, 6.375, -12.125)
+material_override = SubResource("StandardMaterial3D_08k2r")
+use_collision = true
+size = Vector3(25.25, 12.75, 77.5)
+
+[node name="Forest7" type="CSGBox3D" parent="Present/LevelObjects/Forest"]
+transform = Transform3D(-1, 0, -2.38419e-07, 0, 1, 0, 2.38419e-07, 0, -1, -46.9228, 6.375, -30.25)
+material_override = SubResource("StandardMaterial3D_08k2r")
+use_collision = true
+size = Vector3(25.25, 12.75, 41)
+
+[node name="Forest8" type="CSGBox3D" parent="Present/LevelObjects/Forest"]
+transform = Transform3D(-0.5, 0, 0.866026, 0, 1, 0, -0.866026, 0, -0.5, -34.6728, 6.375, -54)
+material_override = SubResource("StandardMaterial3D_08k2r")
+use_collision = true
+size = Vector3(25.25, 12.75, 41)
+
+[node name="Forest5" type="CSGBox3D" parent="Present/LevelObjects/Forest"]
+transform = Transform3D(-0.965926, 0, 0.258819, 0, 1, 0, -0.258819, 0, -0.965926, 29.5162, 3.625, 14.0841)
+material_override = SubResource("StandardMaterial3D_08k2r")
+use_collision = true
+size = Vector3(25.25, 12.75, 68.25)
+
+[node name="Forest6" type="CSGBox3D" parent="Present/LevelObjects/Forest"]
+transform = Transform3D(-0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, -0.866025, 19.5516, 6.25, 34.2463)
+material_override = SubResource("StandardMaterial3D_08k2r")
+use_collision = true
+size = Vector3(25.25, 18, 33.75)
+
+[node name="Forest" type="CSGBox3D" parent="Present/LevelObjects/Forest"]
+transform = Transform3D(0.965926, 0, 0.258819, 0, 1, 0, -0.258819, 0, 0.965926, -23.1721, 6.375, 11.9533)
+material_override = SubResource("StandardMaterial3D_08k2r")
+use_collision = true
+size = Vector3(25.25, 12.75, 75.25)
+
+[node name="Past" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 600, 0, 0)
+
+[node name="LevelObjects" type="Node3D" parent="Past"]
+
+[node name="EnvFloor" type="CSGBox3D" parent="Past/LevelObjects"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+material_override = SubResource("StandardMaterial3D_08k2r")
+use_collision = true
+size = Vector3(100, 1, 100)
+
+[node name="House" type="Node3D" parent="Past/LevelObjects"]
+
+[node name="Level1" type="Node3D" parent="Past/LevelObjects/House"]
+
+[node name="Floors" type="Node3D" parent="Past/LevelObjects/House/Level1"]
+
+[node name="Floor" type="CSGBox3D" parent="Past/LevelObjects/House/Level1/Floors"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.375, 0.107338, 0.75)
+material_override = ExtResource("2_db8bv")
+use_collision = true
+size = Vector3(13.75, 0.75, 12.5)
+
+[node name="Floor3" type="CSGBox3D" parent="Past/LevelObjects/House/Level1/Floors"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0.107338, -6.375)
+material_override = ExtResource("2_db8bv")
+use_collision = true
+size = Vector3(6, 0.75, 1.75)
+
+[node name="Floor2" type="CSGBox3D" parent="Past/LevelObjects/House/Level1/Floors"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.107338, 9.5)
+material_override = ExtResource("2_db8bv")
+use_collision = true
+size = Vector3(6, 0.75, 5)
+
+[node name="Stairs" type="CSGPolygon3D" parent="Past/LevelObjects/House/Level1/Floors"]
+transform = Transform3D(-4.37114e-08, 0, 2.5704, 0, 0.5, 0, -1, 0, -1.12356e-07, 1.93855, 0, 13)
+use_collision = true
+polygon = PackedVector2Array(0, 0, 1, 1, 1, 1, 1, 0)
+
+[node name="Stairs2" type="CSGPolygon3D" parent="Past/LevelObjects/House/Level1/Floors"]
+transform = Transform3D(-4.37114e-08, 0, -5.99413, 0, 0.5, 0, 1, 0, -2.62012e-07, -3.49742, -0.0250001, -8.24313)
+use_collision = true
+polygon = PackedVector2Array(0, 0, 1, 1, 1, 1, 1, 0)
+
+[node name="Floor4" type="CSGBox3D" parent="Past/LevelObjects/House/Level1/Floors"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.375, 4.60734, -6)
+material_override = ExtResource("2_db8bv")
+use_collision = true
+size = Vector3(6.25, 0.75, 1)
+
+[node name="Stairs3" type="CSGPolygon3D" parent="Past/LevelObjects/House/Level1/Floors"]
+transform = Transform3D(-4.37114e-08, 0, -6.21944, 0, 0.5, 0, 1, 0, -2.7186e-07, -3.49742, 4.475, -7.49313)
+use_collision = true
+polygon = PackedVector2Array(0, 0, 1, 1, 1, 1, 1, 0)
+
+[node name="Stairs5" type="CSGPolygon3D" parent="Past/LevelObjects/House/Level1/Floors"]
+transform = Transform3D(2.14108, 0, -7.50215e-08, 0, 1.74691, 0, 1.87179e-07, 0, 1.07632, 2.5, 0.5, 6.48105)
+use_collision = true
+polygon = PackedVector2Array(0, 0, 1, 1, 1, 1, 1, 0)
+
+[node name="Stairs6" type="CSGPolygon3D" parent="Past/LevelObjects/House/Level1/Floors"]
+transform = Transform3D(9.81478e-08, 0, 1.07632, 0, 1.99694, 0, -2.24536, 0, 2.7974e-08, 5.75, 2.25, 5.48105)
+use_collision = true
+polygon = PackedVector2Array(0, 0, 1, 1, 1, 1, 1, 0)
+
+[node name="Walls" type="Node3D" parent="Past/LevelObjects/House/Level1"]
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Past/LevelObjects/House/Level1/Walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 2, 9.75)
+material_override = ExtResource("2_db8bv")
+use_collision = true
+size = Vector3(2, 3, 0.5)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="Past/LevelObjects/House/Level1/Walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.625, 2, 6.75)
+material_override = ExtResource("2_db8bv")
+use_collision = true
+size = Vector3(7.25, 3, 0.5)
+
+[node name="CSGBox3D11" type="CSGBox3D" parent="Past/LevelObjects/House/Level1/Walls"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 6, 2, 5)
+material_override = ExtResource("2_db8bv")
+use_collision = true
+size = Vector3(3, 3, 0.5)
+
+[node name="CSGBox3D14" type="CSGBox3D" parent="Past/LevelObjects/House/Level1/Walls"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 5.19824, 1.375, 4.875)
+material_override = ExtResource("2_db8bv")
+use_collision = true
+size = Vector3(3.25, 1.75, 1.10352)
+
+[node name="CSGBox3D12" type="CSGBox3D" parent="Past/LevelObjects/House/Level1/Walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.00146, 2, 3)
+material_override = ExtResource("2_db8bv")
+use_collision = true
+size = Vector3(2.75, 3, 0.5)
+
+[node name="CSGBox3D29" type="CSGBox3D" parent="Past/LevelObjects/House/Level1/Walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.25146, 2, 3)
+material_override = ExtResource("2_db8bv")
+use_collision = true
+size = Vector3(1.25, 3, 0.5)
+
+[node name="CSGBox3D15" type="CSGBox3D" parent="Past/LevelObjects/House/Level1/Walls"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 6, 2, -0.125)
+material_override = ExtResource("2_db8bv")
+use_collision = true
+size = Vector3(3.25, 3, 0.5)
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="Past/LevelObjects/House/Level1/Walls"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -2.26525, 2, 7.99379)
+material_override = ExtResource("2_db8bv")
+use_collision = true
+size = Vector3(3, 3, 0.5)
+
+[node name="CSGBox3D33" type="CSGBox3D" parent="Past/LevelObjects/House/Level1/Walls"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -1.51525, 1.875, 7.49379)
+material_override = ExtResource("2_db8bv")
+use_collision = true
+size = Vector3(0.5, 2.75, 0.5)
+
+[node name="CSGBox3D34" type="CSGBox3D" parent="Past/LevelObjects/House/Level1/Walls"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -1.39025, 1.25, 8.61879)
+material_override = ExtResource("2_db8bv")
+use_collision = true
+size = Vector3(1.25, 1.5, 0.75)
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="Past/LevelObjects/House/Level1/Walls"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 3.23475, 2, 7.99379)
+material_override = ExtResource("2_db8bv")
+use_collision = true
+size = Vector3(3, 3, 0.5)
+
+[node name="CSGBox3D9" type="CSGBox3D" parent="Past/LevelObjects/House/Level1/Walls"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 9.98475, 2, 0.743788)
+material_override = ExtResource("2_db8bv")
+use_collision = true
+size = Vector3(11.5, 3, 0.5)
+
+[node name="CSGBox3D17" type="CSGBox3D" parent="Past/LevelObjects/House/Level1/Walls"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 9.23475, 1.125, -1.38121)
+material_override = ExtResource("2_db8bv")
+use_collision = true
+size = Vector3(3.25, 1.25, 1)
+
+[node name="CSGBox3D22" type="CSGBox3D" parent="Past/LevelObjects/House/Level1/Walls"]
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, -2.39025, 1, -2.17667)
+material_override = ExtResource("2_db8bv")
+use_collision = true
+size = Vector3(3, 1, 1.25)
+
+[node name="CSGBox3D25" type="CSGBox3D" parent="Past/LevelObjects/House/Level1/Walls"]
+transform = Transform3D(1, 0, -1.74846e-07, 0, 1, 0, 1.74846e-07, 0, 1, -0.890254, 1.125, -0.165457)
+material_override = ExtResource("2_db8bv")
+use_collision = true
+size = Vector3(1.25, 1.25, 0.75)
+
+[node name="CSGBox3D43" type="CSGBox3D" parent="Past/LevelObjects/House/Level1/Walls"]
+transform = Transform3D(-2.38419e-07, 0, -1, 0, 1, 0, 1, 0, -2.38419e-07, -1.76525, 1, 1.20954)
+material_override = ExtResource("2_db8bv")
+use_collision = true
+size = Vector3(1, 1, 2.5)
+
+[node name="CSGBox3D47" type="CSGBox3D" parent="Past/LevelObjects/House/Level1/Walls"]
+transform = Transform3D(-2.38419e-07, 0, -1, 0, 1, 0, 1, 0, -2.38419e-07, -0.0152538, 1.25, 1.08454)
+material_override = ExtResource("2_db8bv")
+use_collision = true
+size = Vector3(0.75, 1.5, 1)
+
+[node name="CSGBox3D46" type="CSGBox3D" parent="Past/LevelObjects/House/Level1/Walls"]
+transform = Transform3D(-2.38419e-07, 0, -1, 0, 1, 0, 1, 0, -2.38419e-07, -1.89025, 2, 0.959543)
+material_override = ExtResource("2_db8bv")
+use_collision = true
+size = Vector3(0.5, 1, 1.25)
+
+[node name="CSGBox3D44" type="CSGBox3D" parent="Past/LevelObjects/House/Level1/Walls"]
+transform = Transform3D(-2.38419e-07, 0, -1, 0, 1, 0, 1, 0, -2.38419e-07, -2.26525, 1.375, 2.45954)
+material_override = ExtResource("2_db8bv")
+use_collision = true
+size = Vector3(1, 1.75, 1)
+
+[node name="CSGBox3D45" type="CSGBox3D" parent="Past/LevelObjects/House/Level1/Walls"]
+transform = Transform3D(0.258819, 0, -0.965926, 0, 1, 0, 0.965926, 0, 0.258819, -1.14025, 1.125, 3.45954)
+material_override = ExtResource("2_db8bv")
+use_collision = true
+size = Vector3(0.75, 1.25, 1)
+
+[node name="CSGBox3D30" type="CSGBox3D" parent="Past/LevelObjects/House/Level1/Walls"]
+transform = Transform3D(1, 0, -1.74846e-07, 0, 1, 0, 1.74846e-07, 0, 1, -0.640254, 0.875, -2.16546)
+material_override = ExtResource("2_db8bv")
+use_collision = true
+size = Vector3(1.25, 0.75, 1.75)
+
+[node name="CSGBox3D26" type="CSGBox3D" parent="Past/LevelObjects/House/Level1/Walls"]
+transform = Transform3D(1, 0, -2.8213e-07, 0, 1, 0, 2.8213e-07, 0, 1, 1.08954, 1, -2.17667)
+material_override = ExtResource("2_db8bv")
+use_collision = true
+size = Vector3(1, 1, 2.25)
+
+[node name="CSGBox3D23" type="CSGBox3D" parent="Past/LevelObjects/House/Level1/Walls"]
+transform = Transform3D(8.9407e-08, 0, 1.92, 0, 1, 0, -1, 0, 1.19209e-07, 3.73475, 1, -0.24621)
+material_override = ExtResource("2_db8bv")
+use_collision = true
+size = Vector3(2.5, 1, 0.75)
+
+[node name="CSGBox3D20" type="CSGBox3D" parent="Past/LevelObjects/House/Level1/Walls"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 9.23475, 1.75, 1.11879)
+material_override = ExtResource("2_db8bv")
+use_collision = true
+size = Vector3(1.25, 2.5, 1)
+
+[node name="CSGBox3D35" type="CSGBox3D" parent="Past/LevelObjects/House/Level1/Walls"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 9.23475, 2, -4.00621)
+material_override = ExtResource("2_db8bv")
+use_collision = true
+size = Vector3(1.5, 3, 1)
+
+[node name="CSGBox3D36" type="CSGBox3D" parent="Past/LevelObjects/House/Level1/Walls"]
+transform = Transform3D(1, 0, -1.06581e-14, 0, 1, 0, 1.06581e-14, 0, 1, 4.3389, 1, -4.45314)
+material_override = ExtResource("2_db8bv")
+use_collision = true
+size = Vector3(2.25, 1, 1)
+
+[node name="CSGBox3D38" type="CSGBox3D" parent="Past/LevelObjects/House/Level1/Walls"]
+transform = Transform3D(1, 0, -1.06581e-14, 0, 1, 0, 1.06581e-14, 0, 1, 4.28748, 0.875, -3.41378)
+material_override = ExtResource("2_db8bv")
+use_collision = true
+size = Vector3(0.75, 0.75, 0.5)
+
+[node name="CSGBox3D37" type="CSGBox3D" parent="Past/LevelObjects/House/Level1/Walls"]
+transform = Transform3D(1, 0, -1.06581e-14, 0, 1, 0, 1.06581e-14, 0, 1, 4.3389, 2, -4.70314)
+material_override = ExtResource("2_db8bv")
+use_collision = true
+size = Vector3(2.25, 1, 0.5)
+
+[node name="CSGBox3D18" type="CSGBox3D" parent="Past/LevelObjects/House/Level1/Walls"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 9.23475, 3, -1.38121)
+material_override = ExtResource("2_db8bv")
+use_collision = true
+size = Vector3(3.25, 1, 1)
+
+[node name="CSGBox3D19" type="CSGBox3D" parent="Past/LevelObjects/House/Level1/Walls"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 6.73475, 1.125, -0.131212)
+material_override = ExtResource("2_db8bv")
+use_collision = true
+size = Vector3(2.75, 1.25, 1)
+
+[node name="CSGBox3D24" type="CSGBox3D" parent="Past/LevelObjects/House/Level1/Walls"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 6.73475, 3, -0.131212)
+material_override = ExtResource("2_db8bv")
+use_collision = true
+size = Vector3(2.75, 1, 1)
+
+[node name="CSGBox3D10" type="CSGBox3D" parent="Past/LevelObjects/House/Level1/Walls"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -3.26525, 2, 0.993788)
+material_override = ExtResource("2_db8bv")
+use_collision = true
+size = Vector3(12, 3, 0.5)
+
+[node name="CSGBox3D13" type="CSGBox3D" parent="Past/LevelObjects/House/Level1/Walls"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.609746, 2, 1.61879)
+material_override = ExtResource("2_db8bv")
+use_collision = true
+size = Vector3(2.75, 3, 0.25)
+
+[node name="CSGBox3D16" type="CSGBox3D" parent="Past/LevelObjects/House/Level1/Walls"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.609746, 2, 5.61879)
+material_override = ExtResource("2_db8bv")
+use_collision = true
+size = Vector3(2.75, 3, 0.25)
+
+[node name="CSGBox3D39" type="CSGBox3D" parent="Past/LevelObjects/House/Level1/Walls"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -1.26525, 2, 6.74379)
+material_override = ExtResource("2_db8bv")
+use_collision = true
+size = Vector3(0.5, 3, 3.5)
+
+[node name="CSGBox3D21" type="CSGBox3D" parent="Past/LevelObjects/House/Level1/Walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.26525, 2, 0.36879)
+material_override = ExtResource("2_db8bv")
+use_collision = true
+size = Vector3(3.5, 3, 0.25)
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="Past/LevelObjects/House/Level1/Walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.25, 2, -5.25)
+material_override = ExtResource("2_db8bv")
+use_collision = true
+size = Vector3(10, 3, 0.5)
+
+[node name="CSGBox3D40" type="CSGBox3D" parent="Past/LevelObjects/House/Level1/Walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 3.375, -5.25)
+material_override = ExtResource("2_db8bv")
+use_collision = true
+size = Vector3(1.5, 0.25, 0.5)
+
+[node name="CSGBox3D41" type="CSGBox3D" parent="Past/LevelObjects/House/Level1/Walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.875, 3.375, 9.75)
+material_override = ExtResource("2_db8bv")
+use_collision = true
+size = Vector3(1.25, 0.25, 0.5)
+
+[node name="CSGBox3D42" type="CSGBox3D" parent="Past/LevelObjects/House/Level1/Walls"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.375, 3.375, 3.75)
+material_override = ExtResource("2_db8bv")
+use_collision = true
+size = Vector3(1.75, 0.25, 0.5)
+
+[node name="CSGBox3D27" type="CSGBox3D" parent="Past/LevelObjects/House/Level1/Walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.25, 2, -5.25)
+material_override = ExtResource("2_db8bv")
+use_collision = true
+size = Vector3(2.5, 3, 0.5)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="Past/LevelObjects/House/Level1/Walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.125, 2, 9.75)
+material_override = ExtResource("2_db8bv")
+use_collision = true
+size = Vector3(2.75, 3, 0.5)
+
+[node name="CSGBox3D31" type="CSGBox3D" parent="Past/LevelObjects/House/Level1/Walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 2.375, 11.5)
+material_override = ExtResource("2_db8bv")
+use_collision = true
+size = Vector3(0.5, 3.75, 0.5)
+
+[node name="CSGBox3D32" type="CSGBox3D" parent="Past/LevelObjects/House/Level1/Walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 2.375, 11.5)
+material_override = ExtResource("2_db8bv")
+use_collision = true
+size = Vector3(0.5, 3.75, 0.5)
+
+[node name="Doors" type="Node3D" parent="Past/LevelObjects/House/Level1"]
+
+[node name="Door_Front" parent="Past/LevelObjects/House/Level1/Doors" instance=ExtResource("3_k0uy4")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.356071, 0.5, 9.93767)
+
+[node name="Door_Backyard" parent="Past/LevelObjects/House/Level1/Doors" instance=ExtResource("3_k0uy4")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 0.106071, 0.5, -5.42769)
+
+[node name="Level2" type="Node3D" parent="Past/LevelObjects/House"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.5, 3.75, 0)
+
+[node name="MemoryCapsule" type="CSGBox3D" parent="Past/LevelObjects/House/Level2"]
+transform = Transform3D(-0.258819, 0, -0.965926, 0, 1, 0, 0.965926, 0, -0.258819, -20.8221, 1.625, -3.22987)
+material_override = ExtResource("2_db8bv")
+use_collision = true
+size = Vector3(0.5, 0.25, 0.352417)
+
+[node name="Floor" type="Node3D" parent="Past/LevelObjects/House/Level2"]
+
+[node name="Floor3" type="CSGBox3D" parent="Past/LevelObjects/House/Level2/Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.125, 0.107338, -1.125)
+material_override = ExtResource("2_db8bv")
+use_collision = true
+size = Vector3(13.75, 0.75, 8.75)
+
+[node name="Floor4" type="CSGBox3D" parent="Past/LevelObjects/House/Level2/Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.5, 0.107338, 5.125)
+material_override = ExtResource("2_db8bv")
+use_collision = true
+size = Vector3(4.5, 0.75, 3.75)
+
+[node name="Floor10" type="CSGBox3D" parent="Past/LevelObjects/House/Level2/Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.125, 0.107338, 6.75)
+material_override = ExtResource("2_db8bv")
+use_collision = true
+size = Vector3(2.75, 0.75, 0.5)
+
+[node name="Floor6" type="CSGBox3D" parent="Past/LevelObjects/House/Level2/Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18, 0.107338, 8.25)
+material_override = ExtResource("2_db8bv")
+use_collision = true
+size = Vector3(6, 0.75, 3.5)
+
+[node name="Floor7" type="CSGBox3D" parent="Past/LevelObjects/House/Level2/Floor"]
+transform = Transform3D(1, 0, 0, 0, 0.965926, -0.258819, 0, 0.258819, 0.965926, -18, 1.19543, 9.30431)
+material_override = ExtResource("2_db8bv")
+use_collision = true
+size = Vector3(6, 0.5, 5.25)
+
+[node name="Floor5" type="CSGBox3D" parent="Past/LevelObjects/House/Level2/Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.75, 0.107338, 5.125)
+material_override = ExtResource("2_db8bv")
+use_collision = true
+size = Vector3(6.5, 0.75, 3.75)
+
+[node name="Walls" type="Node3D" parent="Past/LevelObjects/House/Level2"]
+
+[node name="CSGBox3D31" type="CSGBox3D" parent="Past/LevelObjects/House/Level2/Walls"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -9.39025, 0.75, -2.75621)
+material_override = ExtResource("2_db8bv")
+use_collision = true
+size = Vector3(2, 0.5, 1.25)
+
+[node name="CSGBox3D32" type="CSGBox3D" parent="Past/LevelObjects/House/Level2/Walls"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -9.14025, 1.625, -2.75621)
+material_override = ExtResource("2_db8bv")
+use_collision = true
+size = Vector3(1.5, 1.25, 0.75)
+
+[node name="CSGBox3D51" type="CSGBox3D" parent="Past/LevelObjects/House/Level2/Walls"]
+transform = Transform3D(-1, 0, 8.74226e-08, 0, 1, 0, -8.74226e-08, 0, -1, -19.8903, 0.875, -0.63121)
+material_override = ExtResource("2_db8bv")
+use_collision = true
+size = Vector3(2.75, 0.75, 1.25)
+
+[node name="CSGBox3D56" type="CSGBox3D" parent="Past/LevelObjects/House/Level2/Walls"]
+transform = Transform3D(-1.03316e-07, 0, -1, 0, 1, 0, 1, 0, -1.03316e-07, -20.8903, 1, -3.75621)
+material_override = ExtResource("2_db8bv")
+use_collision = true
+size = Vector3(2.25, 1, 1)
+
+[node name="CSGBox3D63" type="CSGBox3D" parent="Past/LevelObjects/House/Level2/Walls"]
+transform = Transform3D(-1.03316e-07, 0, -1, 0, 1, 0, 1, 0, -1.03316e-07, -21.3903, 2.625, -4.00621)
+material_override = ExtResource("2_db8bv")
+use_collision = true
+size = Vector3(2.25, 0.75, 0.5)
+
+[node name="CSGBox3D65" type="CSGBox3D" parent="Past/LevelObjects/House/Level2/Walls"]
+transform = Transform3D(1, 0, -5.96046e-08, 0, 1, 0, 5.96046e-08, 0, 1, -19.1403, 2.25, 0.24329)
+material_override = ExtResource("2_db8bv")
+use_collision = true
+size = Vector3(2.25, 1.5, 0.001)
+
+[node name="CSGBox3D64" type="CSGBox3D" parent="Past/LevelObjects/House/Level2/Walls"]
+transform = Transform3D(-1, 0, 1.47027e-07, 0, 1, 0, -1.47027e-07, 0, -1, -20.6403, 2.625, -4.75621)
+material_override = ExtResource("2_db8bv")
+use_collision = true
+size = Vector3(2.25, 0.75, 0.5)
+
+[node name="CSGBox3D60" type="CSGBox3D" parent="Past/LevelObjects/House/Level2/Walls"]
+transform = Transform3D(-1.03316e-07, 0, -1, 0, 1, 0, 1, 0, -1.03316e-07, -19.8903, 1, -4.50621)
+material_override = ExtResource("2_db8bv")
+use_collision = true
+size = Vector3(0.75, 1, 1)
+
+[node name="CSGBox3D61" type="CSGBox3D" parent="Past/LevelObjects/House/Level2/Walls"]
+transform = Transform3D(-0.5, 0, -0.866025, 0, 1, 0, 0.866025, 0, -0.5, -19.5153, 1.25, -3.25621)
+material_override = ExtResource("2_db8bv")
+use_collision = true
+size = Vector3(0.75, 1.5, 0.75)
+
+[node name="CSGBox3D57" type="CSGBox3D" parent="Past/LevelObjects/House/Level2/Walls"]
+transform = Transform3D(-1, 0, 8.74226e-08, 0, 1, 0, -8.74226e-08, 0, -1, -17.2653, 1.75, -4.63121)
+material_override = ExtResource("2_db8bv")
+use_collision = true
+size = Vector3(1, 2.5, 0.75)
+
+[node name="CSGBox3D58" type="CSGBox3D" parent="Past/LevelObjects/House/Level2/Walls"]
+transform = Transform3D(-1, 0, 8.74226e-08, 0, 1, 0, -8.74226e-08, 0, -1, -17.0153, 1.25, -0.13121)
+material_override = ExtResource("2_db8bv")
+use_collision = true
+size = Vector3(1.5, 1.5, 0.75)
+
+[node name="CSGBox3D59" type="CSGBox3D" parent="Past/LevelObjects/House/Level2/Walls"]
+transform = Transform3D(-1, 0, 8.74226e-08, 0, 1, 0, -8.74226e-08, 0, -1, -20.8903, 1, -1.88121)
+material_override = ExtResource("2_db8bv")
+use_collision = true
+size = Vector3(0.75, 1, 0.75)
+
+[node name="CSGBox3D52" type="CSGBox3D" parent="Past/LevelObjects/House/Level2/Walls"]
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, -17.8903, 0.875, 4.49379)
+material_override = ExtResource("2_db8bv")
+use_collision = true
+size = Vector3(3, 0.75, 1.75)
+
+[node name="CSGBox3D44" type="CSGBox3D" parent="Past/LevelObjects/House/Level2/Walls"]
+transform = Transform3D(1, 0, -1.74846e-07, 0, 1, 0, 1.74846e-07, 0, 1, -9.26525, 1.25, -4.50621)
+material_override = ExtResource("2_db8bv")
+use_collision = true
+size = Vector3(1, 1.5, 1)
+
+[node name="CSGBox3D42" type="CSGBox3D" parent="Past/LevelObjects/House/Level2/Walls"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -15.7653, 2, 4.74379)
+material_override = ExtResource("2_db8bv")
+use_collision = true
+size = Vector3(3.5, 3, 0.5)
+
+[node name="CSGBox3D49" type="CSGBox3D" parent="Past/LevelObjects/House/Level2/Walls"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -15.7653, 2, -0.881212)
+material_override = ExtResource("2_db8bv")
+use_collision = true
+size = Vector3(3.25, 3, 0.5)
+
+[node name="CSGBox3D50" type="CSGBox3D" parent="Past/LevelObjects/House/Level2/Walls"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -15.7653, 2, -4.38121)
+material_override = ExtResource("2_db8bv")
+use_collision = true
+size = Vector3(1.25, 3, 0.5)
+
+[node name="CSGBox3D46" type="CSGBox3D" parent="Past/LevelObjects/House/Level2/Walls"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -12.5153, 2, 4.24379)
+material_override = ExtResource("2_db8bv")
+use_collision = true
+size = Vector3(4.5, 3, 0.5)
+
+[node name="CSGBox3D43" type="CSGBox3D" parent="Past/LevelObjects/House/Level2/Walls"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -18.7653, 2, 0.493788)
+material_override = ExtResource("2_db8bv")
+use_collision = true
+size = Vector3(5.5, 3, 0.5)
+
+[node name="CSGBox3D45" type="CSGBox3D" parent="Past/LevelObjects/House/Level2/Walls"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -9.26525, 2, 1.99379)
+material_override = ExtResource("2_db8bv")
+use_collision = true
+size = Vector3(1, 3, 0.5)
+
+[node name="CSGBox3D47" type="CSGBox3D" parent="Past/LevelObjects/House/Level2/Walls"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -9.64025, 1.875, 5.99379)
+material_override = ExtResource("2_db8bv")
+use_collision = true
+size = Vector3(1.25, 2.75, 1)
+
+[node name="CSGBox3D53" type="CSGBox3D" parent="Past/LevelObjects/House/Level2/Walls"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -11.6403, 2, 2.24379)
+material_override = ExtResource("2_db8bv")
+use_collision = true
+size = Vector3(1.25, 3, 0.5)
+
+[node name="CSGBox3D30" type="CSGBox3D" parent="Past/LevelObjects/House/Level2/Walls"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -15.1403, 2, 6.74379)
+material_override = ExtResource("2_db8bv")
+use_collision = true
+size = Vector3(13.75, 3, 0.5)
+
+[node name="CSGBox3D33" type="CSGBox3D" parent="Past/LevelObjects/House/Level2/Walls"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -15.1403, 2, -5.25621)
+material_override = ExtResource("2_db8bv")
+use_collision = true
+size = Vector3(13.75, 3, 0.5)
+
+[node name="CSGBox3D29" type="CSGBox3D" parent="Past/LevelObjects/House/Level2/Walls"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -21.7653, 2, 0.743788)
+material_override = ExtResource("2_db8bv")
+use_collision = true
+size = Vector3(11.5, 3, 0.5)
+
+[node name="CSGBox3D41" type="CSGBox3D" parent="Past/LevelObjects/House/Level2/Walls"]
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, -13.0153, 1, -2.63121)
+material_override = ExtResource("2_db8bv")
+use_collision = true
+size = Vector3(2.75, 1, 1)
+
+[node name="CSGBox3D55" type="CSGBox3D" parent="Past/LevelObjects/House/Level2/Walls"]
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, -11.2653, 0.875, -2.88121)
+material_override = ExtResource("2_db8bv")
+use_collision = true
+size = Vector3(1.25, 0.75, 1)
+
+[node name="CSGBox3D54" type="CSGBox3D" parent="Past/LevelObjects/House/Level2/Walls"]
+transform = Transform3D(1, 0, -1.74846e-07, 0, 1, 0, 1.74846e-07, 0, 1, -9.26525, 1.5, -0.756212)
+material_override = ExtResource("2_db8bv")
+use_collision = true
+size = Vector3(1, 2, 1)
+
+[node name="CSGBox3D14" type="CSGBox3D" parent="Past/LevelObjects/House/Level2/Walls"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -8.51525, 2, 0.743788)
+material_override = ExtResource("2_db8bv")
+use_collision = true
+size = Vector3(11.5, 3, 0.5)
+
+[node name="CSGBox3D39" type="CSGBox3D" parent="Past/LevelObjects/House/Level2/Walls"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -14.6697, 1.00824, 3.12124)
+material_override = ExtResource("2_db8bv")
+use_collision = true
+size = Vector3(1.73279, 1.01648, 0.25)
+
+[node name="CSGBox3D48" type="CSGBox3D" parent="Past/LevelObjects/House/Level2/Walls"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -15.7653, 2, 2.61879)
+material_override = ExtResource("2_db8bv")
+use_collision = true
+size = Vector3(0.75, 3, 0.5)
+
+[node name="CSGBox3D62" type="CSGBox3D" parent="Past/LevelObjects/House/Level2/Walls"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -15.8903, 2, 1.49379)
+material_override = ExtResource("2_db8bv")
+use_collision = true
+size = Vector3(1.5, 3, 0.25)
+
+[node name="Doors" type="Node3D" parent="Past/LevelObjects/House/Level2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.5, 0, 5.75)
+
+[node name="Door_Noor" parent="Past/LevelObjects/House/Level2/Doors" instance=ExtResource("3_k0uy4")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.143929, 0.5, -8.38692)
+
+[node name="Roof" type="Node3D" parent="Past/LevelObjects/House"]
+
+[node name="Floor8" type="CSGBox3D" parent="Past/LevelObjects/House/Roof"]
+transform = Transform3D(-3.78552e-08, -0.707107, -0.707107, -2.18557e-08, 0.707107, -0.707107, 1, -1.13133e-08, -4.2222e-08, -1.31066, 9.51433, 0.74574)
+material_override = ExtResource("2_db8bv")
+use_collision = true
+size = Vector3(13.25, 0.75, 6.25)
+
+[node name="Floor9" type="CSGBox3D" parent="Past/LevelObjects/House/Roof"]
+transform = Transform3D(1.25278e-07, 0.707107, 0.707107, -2.18557e-08, 0.707107, -0.707107, -1, 7.31306e-08, 1.04039e-07, 2.68934, 9.51433, 0.74574)
+material_override = ExtResource("2_db8bv")
+use_collision = true
+size = Vector3(13.25, 0.75, 6.25)
+
+[node name="Floor11" type="CSGBox3D" parent="Past/LevelObjects/House/Roof"]
+transform = Transform3D(1, -1.04039e-07, -1.34948e-07, 2.26267e-08, 0.866025, -0.5, 1.68888e-07, 0.5, 0.866025, 7.43934, 9.32683, 3.95448)
+material_override = ExtResource("2_db8bv")
+use_collision = true
+size = Vector3(6.25, 0.75, 7.5)
+
+[node name="Floor10" type="CSGBox3D" parent="Past/LevelObjects/House/Roof"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, 7.60734, 0.75)
+material_override = ExtResource("2_db8bv")
+use_collision = true
+size = Vector3(13.5, 0.75, 12.5)
+
+[node name="Floor12" type="CSGBox3D" parent="Past/LevelObjects/House/Roof"]
+transform = Transform3D(-1, 6.03278e-08, 5.92375e-08, 2.26267e-08, 0.866025, -0.5, -8.1465e-08, -0.5, -0.866025, 7.43934, 9.32683, -2.6795)
+material_override = ExtResource("2_db8bv")
+use_collision = true
+size = Vector3(6.25, 0.75, 7.5)
+
+[node name="Shed" type="Node3D" parent="Past/LevelObjects"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, -0.110494, 0)
+
+[node name="Shed" type="CSGBox3D" parent="Past/LevelObjects/Shed"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 3.85975, 1.75, -18.2562)
+material_override = ExtResource("2_db8bv")
+use_collision = true
+size = Vector3(6.5, 3, 0.25)
+
+[node name="Shed7" type="CSGBox3D" parent="Past/LevelObjects/Shed"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 5.98475, 3.25, -18.2562)
+material_override = ExtResource("2_db8bv")
+use_collision = true
+size = Vector3(6.5, 0.5, 4.5)
+
+[node name="Shed8" type="CSGBox3D" parent="Past/LevelObjects/Shed"]
+transform = Transform3D(-3.09086e-08, -0.707107, -0.707107, -3.09086e-08, 0.707107, -0.707107, 1, 0, -4.37114e-08, 4.74992, 4.33839, -18.3812)
+material_override = ExtResource("2_db8bv")
+use_collision = true
+size = Vector3(6.75, 0.25, 4)
+
+[node name="Shed9" type="CSGBox3D" parent="Past/LevelObjects/Shed"]
+transform = Transform3D(-5.65141e-08, 0.707107, 0.707107, -3.09086e-08, 0.707107, -0.707107, -1, -6.18172e-08, -1.81058e-08, 7.36603, 4.26516, -18.2562)
+material_override = ExtResource("2_db8bv")
+use_collision = true
+size = Vector3(7, 0.25, 3.5)
+
+[node name="Shed5" type="CSGBox3D" parent="Past/LevelObjects/Shed"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 4.73475, 1.75, -15.1312)
+material_override = ExtResource("2_db8bv")
+use_collision = true
+size = Vector3(0.25, 3, 1.5)
+
+[node name="Shed6" type="CSGBox3D" parent="Past/LevelObjects/Shed"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 7.35975, 1.75, -15.1312)
+material_override = ExtResource("2_db8bv")
+use_collision = true
+size = Vector3(0.25, 3, 1.25)
+
+[node name="Shed4" type="CSGBox3D" parent="Past/LevelObjects/Shed"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 5.98475, 1.75, -21.3812)
+material_override = ExtResource("2_db8bv")
+use_collision = true
+size = Vector3(0.25, 3, 4)
+
+[node name="Shed3" type="CSGBox3D" parent="Past/LevelObjects/Shed"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 5.98475, 0, -18.2562)
+material_override = ExtResource("2_db8bv")
+use_collision = true
+size = Vector3(6.5, 0.5, 4.5)
+
+[node name="Shed2" type="CSGBox3D" parent="Past/LevelObjects/Shed"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 8.10975, 1.75, -18.2562)
+material_override = ExtResource("2_db8bv")
+use_collision = true
+size = Vector3(6.5, 3, 0.25)
+
+[node name="Forest" type="Node3D" parent="Past/LevelObjects"]
+
+[node name="Forest3" type="CSGBox3D" parent="Past/LevelObjects/Forest"]
+transform = Transform3D(-0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, -0.866025, -2.558, 7.5, -52.75)
+material_override = SubResource("StandardMaterial3D_08k2r")
+use_collision = true
+size = Vector3(25.25, 15, 50)
+
+[node name="Forest4" type="CSGBox3D" parent="Past/LevelObjects/Forest"]
+transform = Transform3D(-0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, -0.707107, 41.8678, 6.375, -12.125)
+material_override = SubResource("StandardMaterial3D_08k2r")
+use_collision = true
+size = Vector3(25.25, 12.75, 77.5)
+
+[node name="Forest7" type="CSGBox3D" parent="Past/LevelObjects/Forest"]
+transform = Transform3D(-1, 0, -2.38419e-07, 0, 1, 0, 2.38419e-07, 0, -1, -46.9228, 6.375, -30.25)
+material_override = SubResource("StandardMaterial3D_08k2r")
+use_collision = true
+size = Vector3(25.25, 12.75, 41)
+
+[node name="Forest8" type="CSGBox3D" parent="Past/LevelObjects/Forest"]
+transform = Transform3D(-0.5, 0, 0.866026, 0, 1, 0, -0.866026, 0, -0.5, -34.6728, 6.375, -54)
+material_override = SubResource("StandardMaterial3D_08k2r")
+use_collision = true
+size = Vector3(25.25, 12.75, 41)
+
+[node name="Forest5" type="CSGBox3D" parent="Past/LevelObjects/Forest"]
+transform = Transform3D(-0.965926, 0, 0.258819, 0, 1, 0, -0.258819, 0, -0.965926, 29.5162, 3.625, 14.0841)
+material_override = SubResource("StandardMaterial3D_08k2r")
+use_collision = true
+size = Vector3(25.25, 12.75, 68.25)
+
+[node name="Forest6" type="CSGBox3D" parent="Past/LevelObjects/Forest"]
+transform = Transform3D(-0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, -0.866025, 19.5516, 6.25, 34.2463)
+material_override = SubResource("StandardMaterial3D_08k2r")
+use_collision = true
+size = Vector3(25.25, 18, 33.75)
+
+[node name="Forest" type="CSGBox3D" parent="Past/LevelObjects/Forest"]
+transform = Transform3D(0.965926, 0, 0.258819, 0, 1, 0, -0.258819, 0, 0.965926, -23.1721, 6.375, 11.9533)
+material_override = SubResource("StandardMaterial3D_08k2r")
+use_collision = true
+size = Vector3(25.25, 12.75, 75.25)
+
+[node name="Characters" type="Node3D" parent="Past"]
+
+[node name="Noor_RefNoRig2" parent="Past/Characters" instance=ExtResource("3_5o0ur")]
+transform = Transform3D(1.15, 0, 0, 0, 1.15, 0, 0, 0, 1.15, 0.5, 0.5, 11.75)
+
+[editable path="Player"]
