@@ -1,4 +1,4 @@
-[gd_scene load_steps=136 format=3 uid="uid://baq3osaidwfaf"]
+[gd_scene load_steps=139 format=3 uid="uid://baq3osaidwfaf"]
 
 [ext_resource type="Script" path="res://levels/scripts/level.gd" id="1_mw3wp"]
 [ext_resource type="Material" uid="uid://dve3xrg044f4h" path="res://assets/materials/M_housetemp.tres" id="2_db8bv"]
@@ -8,7 +8,7 @@
 [ext_resource type="Script" path="res://levels/scripts/picture_handler.gd" id="3_m4duy"]
 [ext_resource type="PackedScene" uid="uid://b25ooshew3q2v" path="res://player/player.tscn" id="4_aw37m"]
 [ext_resource type="Script" path="res://levels/scripts/picture.gd" id="4_xvv2v"]
-[ext_resource type="PackedScene" path="res://levels/camera_ref.tscn" id="6_ksg6d"]
+[ext_resource type="PackedScene" uid="uid://d22ogqllffeom" path="res://levels/camera_ref.tscn" id="6_ksg6d"]
 [ext_resource type="Script" path="res://levels/scripts/ui.gd" id="6_vry8q"]
 [ext_resource type="Script" path="res://levels/scripts/dynamic_label.gd" id="7_rnv2q"]
 [ext_resource type="PackedScene" uid="uid://c466iifg5vfql" path="res://assets/props/INTERACTEABLE/closet/closet_door_left.tscn" id="11_0yc1f"]
@@ -172,21 +172,6 @@ size = Vector3(33.5, 10, 4.25)
 [sub_resource type="BoxShape3D" id="BoxShape3D_fkkgo"]
 size = Vector3(68.25, 10, 66.75)
 
-[sub_resource type="Animation" id="Animation_um6ae"]
-resource_name = "open_nook_door"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(0, 2.64016, 0), Vector3(0, 1.20428, 0)]
-}
-
 [sub_resource type="Animation" id="Animation_7sq4h"]
 length = 0.001
 tracks/0/type = "value"
@@ -202,14 +187,8 @@ tracks/0/keys = {
 "values": [Vector3(0, 2.64016, 0)]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_5rxgu"]
-_data = {
-"RESET": SubResource("Animation_7sq4h"),
-"open_nook_door": SubResource("Animation_um6ae")
-}
-
-[sub_resource type="Animation" id="Animation_cf6p4"]
-resource_name = "open_left_closet"
+[sub_resource type="Animation" id="Animation_um6ae"]
+resource_name = "open_nook_door"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -220,7 +199,13 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector3(1.1775, 1.5708, 1.5708), Vector3(-0.401426, 1.5708, 1.5708)]
+"values": [Vector3(0, 2.64016, 0), Vector3(0, 1.20428, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5rxgu"]
+_data = {
+"RESET": SubResource("Animation_7sq4h"),
+"open_nook_door": SubResource("Animation_um6ae")
 }
 
 [sub_resource type="Animation" id="Animation_k7ovl"]
@@ -238,14 +223,8 @@ tracks/0/keys = {
 "values": [Vector3(1.1775, 1.5708, 1.5708)]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_em4an"]
-_data = {
-"RESET": SubResource("Animation_k7ovl"),
-"open_left_closet": SubResource("Animation_cf6p4")
-}
-
-[sub_resource type="Animation" id="Animation_tishg"]
-resource_name = "open_right_closet"
+[sub_resource type="Animation" id="Animation_cf6p4"]
+resource_name = "open_left_closet"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -256,7 +235,13 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector3(-1.46653, 1.5708, -1.5708), Vector3(0.174533, 1.5708, -1.5708)]
+"values": [Vector3(1.1775, 1.5708, 1.5708), Vector3(-0.401426, 1.5708, 1.5708)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_em4an"]
+_data = {
+"RESET": SubResource("Animation_k7ovl"),
+"open_left_closet": SubResource("Animation_cf6p4")
 }
 
 [sub_resource type="Animation" id="Animation_7e7py"]
@@ -272,6 +257,21 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector3(-1.46653, 1.5708, -1.5708)]
+}
+
+[sub_resource type="Animation" id="Animation_tishg"]
+resource_name = "open_right_closet"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-1.46653, 1.5708, -1.5708), Vector3(0.174533, 1.5708, -1.5708)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_tageq"]
@@ -302,6 +302,18 @@ albedo_texture = SubResource("ViewportTexture_mbhtw")
 [sub_resource type="PlaneMesh" id="PlaneMesh_3cyo4"]
 resource_local_to_scene = true
 material = SubResource("StandardMaterial3D_imv2r")
+size = Vector2(0.48, 0.27)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_p5cuu"]
+viewport_path = NodePath("Pictures/10_Shed/SubViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lj4xd"]
+resource_local_to_scene = true
+albedo_texture = SubResource("ViewportTexture_p5cuu")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_burpu"]
+resource_local_to_scene = true
+material = SubResource("StandardMaterial3D_lj4xd")
 size = Vector2(0.48, 0.27)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_l4lcx"]
@@ -2135,7 +2147,7 @@ size = Vector3(1.5, 3, 0.25)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.5, 0, 5.75)
 
 [node name="Door_Noor" parent="Past/LevelObjects/House/Level2/Doors" node_paths=PackedStringArray("nodes_to_show", "nodes_to_hide") groups=["Interactable"] instance=ExtResource("3_k0uy4")]
-transform = Transform3D(-0.876895, 0, 0.480683, 0, 1, 0, -0.480683, 0, -0.876895, -0.143921, 0.5, -8.38692)
+transform = Transform3D(-0.876895, 0, 0.480682, 0, 1, 0, -0.480682, 0, -0.876895, -0.143921, 0.5, -8.38692)
 script = ExtResource("35_lctib")
 interaction_animations = Array[String](["open_nook_door"])
 one_shot = true
@@ -2291,7 +2303,7 @@ transform = Transform3D(1.15, 0, 0, 0, 1.15, 0, 0, 0, 1.15, 0.5, 0.5, 11.75)
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 8.7492, 4.11726, 6.04004)
 
 [node name="closet_door_left" parent="Past/INTERACTABLES/closet/closet" index="0" node_paths=PackedStringArray("nodes_to_show", "nodes_to_hide") groups=["Interactable"]]
-transform = Transform3D(0.923652, 1.24386e-08, 0.383231, 0.383231, -6.24363e-08, -0.923652, 1.24386e-08, 1, -6.24363e-08, 0.0576935, -0.03356, 0.00932729)
+transform = Transform3D(0.92365, 2.76383e-07, 0.383235, 0.383235, -1.38731e-06, -0.92365, 2.76383e-07, 1, -1.38731e-06, 0.0576935, -0.03356, 0.00932729)
 script = ExtResource("35_lctib")
 interaction_animations = Array[String](["open_left_closet"])
 one_shot = true
@@ -2304,7 +2316,7 @@ libraries = {
 }
 
 [node name="closet_door_right" parent="Past/INTERACTABLES/closet/closet" index="1" node_paths=PackedStringArray("nodes_to_show", "nodes_to_hide") groups=["Interactable"]]
-transform = Transform3D(-0.994569, -2.35221e-09, -0.104077, 0.104077, -4.50784e-08, -0.994569, 2.35221e-09, 1, -4.50784e-08, -0.0569425, -0.0378286, 0.00932729)
+transform = Transform3D(-0.994569, 1.96594e-08, -0.104078, 0.104078, 3.7676e-07, -0.994569, -1.96594e-08, 1, 3.7676e-07, -0.0569425, -0.0378286, 0.00932729)
 script = ExtResource("35_lctib")
 interaction_animations = Array[String](["open_right_closet"])
 one_shot = true
@@ -2379,6 +2391,19 @@ mesh = SubResource("PlaneMesh_3cyo4")
 skeleton = NodePath("../../../../../..")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Past/INTERACTABLES/Pictures/FrontDoorPicture"]
+shape = SubResource("BoxShape3D_vc26v")
+
+[node name="ShedPicture" type="StaticBody3D" parent="Past/INTERACTABLES/Pictures" node_paths=PackedStringArray("picture_handler", "picture") groups=["Interactable"]]
+transform = Transform3D(0.948335, 0, 0.317272, 0, 1, 0, -0.317272, 0, 0.948335, -27.7238, 0.0258856, -33.1338)
+script = ExtResource("15_gx5iv")
+picture_handler = NodePath("../../../../Pictures")
+picture = NodePath("../../../../Pictures/10_Shed/ShedPicture")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Past/INTERACTABLES/Pictures/ShedPicture"]
+mesh = SubResource("PlaneMesh_burpu")
+skeleton = NodePath("../../../../../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Past/INTERACTABLES/Pictures/ShedPicture"]
 shape = SubResource("BoxShape3D_vc26v")
 
 [node name="TriggerVolumes" type="Node3D" parent="Past"]
