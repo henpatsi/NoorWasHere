@@ -424,8 +424,8 @@ shape = SubResource("BoxShape3D_ow063")
 
 [node name="TriggerArea" parent="Present" node_paths=PackedStringArray("audio_stream_player", "start_monitoring_list") instance=ExtResource("7_s5srr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.242933, 1.57257, -13.889)
-monitoring = false
 one_shot = true
+audio_one_shot = true
 audio_stream_player = NodePath("AudioStreamPlayer3D")
 audio_clips = Array[AudioStream]([ExtResource("10_tjxl8")])
 start_monitoring_list = [NodePath("../TriggerArea2")]
