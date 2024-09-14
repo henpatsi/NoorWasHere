@@ -2,13 +2,18 @@
 
 [ext_resource type="Script" path="res://levels/scripts/level.gd" id="1_mw3wp"]
 [ext_resource type="Material" uid="uid://dve3xrg044f4h" path="res://assets/materials/M_housetemp.tres" id="2_db8bv"]
+<<<<<<< Updated upstream
 [ext_resource type="PackedScene" uid="uid://ck05y3vr2y8c3" path="res://assets/characters/Noor_RefNoRig.fbx" id="3_5o0ur"]
+=======
+[ext_resource type="Environment" uid="uid://dobqonwml2e5x" path="res://assets/WorldEnvironments/Env_Present.tres" id="2_ekst6"]
+>>>>>>> Stashed changes
 [ext_resource type="PackedScene" uid="uid://c5dkjmjdmby0q" path="res://assets/props/door_a/door_a.tscn" id="3_k0uy4"]
 [ext_resource type="Script" path="res://levels/scripts/picture_handler.gd" id="3_m4duy"]
 [ext_resource type="PackedScene" uid="uid://b25ooshew3q2v" path="res://player/player.tscn" id="4_aw37m"]
 [ext_resource type="Script" path="res://levels/scripts/picture.gd" id="4_xvv2v"]
 [ext_resource type="PackedScene" uid="uid://d22ogqllffeom" path="res://levels/camera_ref.tscn" id="6_ksg6d"]
 [ext_resource type="Script" path="res://levels/scripts/ui.gd" id="6_vry8q"]
+[ext_resource type="Script" path="res://levels/scripts/screenshot.gd" id="7_etppf"]
 [ext_resource type="Script" path="res://levels/scripts/dynamic_label.gd" id="7_rnv2q"]
 [ext_resource type="PackedScene" uid="uid://dtrj4a2rd7r80" path="res://assets/props/INTERACTEABLE/closet/closet.tscn" id="12_4m6ha"]
 [ext_resource type="PackedScene" uid="uid://cogjse1d7bpe1" path="res://assets/props/INTERACTEABLE/TV_a/tv.tscn" id="12_4tqrl"]
@@ -84,6 +89,7 @@ environment = SubResource("Environment_vcqcf")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
+light_color = Color(1, 0.756863, 0.588235, 1)
 shadow_enabled = true
 
 [node name="Player" parent="." node_paths=PackedStringArray("interact_label") instance=ExtResource("4_aw37m")]
@@ -123,6 +129,16 @@ transform = Transform3D(0.99798, 0, -0.0635223, 0, 1, 0, 0.0635223, 0, 0.99798, 
 cull_mask = 1048063
 
 [node name="ColorRect" parent="Pictures/0_Frontyard/SubViewport/PortalCamera" instance=ExtResource("6_ksg6d")]
+visible = false
+
+[node name="TextureRect" type="TextureRect" parent="Pictures/0_Frontyard/SubViewport" node_paths=PackedStringArray("sub_viewport")]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("7_etppf")
+sub_viewport = NodePath("..")
 
 [node name="1_Backyard" type="Node" parent="Pictures"]
 
@@ -1819,9 +1835,6 @@ use_collision = true
 size = Vector3(25.25, 12.75, 75.25)
 
 [node name="Characters" type="Node3D" parent="Past"]
-
-[node name="Noor_RefNoRig2" parent="Past/Characters" instance=ExtResource("3_5o0ur")]
-transform = Transform3D(1.15, 0, 0, 0, 1.15, 0, 0, 0, 1.15, 0.5, 0.5, 11.75)
 
 [node name="INTERACTABLES" type="Node3D" parent="Past"]
 

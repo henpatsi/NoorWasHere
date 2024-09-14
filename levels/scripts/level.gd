@@ -1,11 +1,20 @@
 extends Node3D
 
 @export var pauseMenu: PackedScene = preload("res://menus/pause_menu.tscn")
+@export var env_past := preload("res://assets/WorldEnvironments/Env_Past.tres")
+@export var env_present := preload("res://assets/WorldEnvironments/Env_Present.tres")
+@onready var world_environment: WorldEnvironment = $WorldEnvironment
+@onready var directional_light_3d: DirectionalLight3D = $DirectionalLight3D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-
+	world_environment.environment = env_past
+	directional_light_3d.light_energy = 0
+	
+	await get_tree().create_timer(1.0).timeout
+	world_environment.environment = env_present
+	directional_light_3d.light_energy = 1
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
