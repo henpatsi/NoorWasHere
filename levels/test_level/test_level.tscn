@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=3 uid="uid://bdueg8p13eu2h"]
+[gd_scene load_steps=53 format=3 uid="uid://bdueg8p13eu2h"]
 
 [ext_resource type="Script" path="res://levels/test_level/level.gd" id="1_w7dby"]
 [ext_resource type="PackedScene" uid="uid://b25ooshew3q2v" path="res://player/player.tscn" id="2_vuwob"]
@@ -38,6 +38,9 @@ tonemap_mode = 2
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_le726"]
 viewport_path = NodePath("Pictures/1/SubViewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_gcqqq"]
+viewport_path = NodePath("Pictures/2/SubViewport")
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_s8fkg"]
 viewport_path = NodePath("Pictures/3/SubViewport")
@@ -212,7 +215,7 @@ offset_right = -320.0
 offset_bottom = 210.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = SubResource("ViewportTexture_s8fkg")
+texture = SubResource("ViewportTexture_gcqqq")
 expand_mode = 1
 stretch_mode = 3
 script = ExtResource("4_cunav")

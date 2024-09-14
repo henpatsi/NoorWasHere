@@ -8,7 +8,8 @@ var mainMenuScene: PackedScene = load("res://menus/main_menu.tscn")
 @export var volume_value_label: Label
 @export var volume_slider: HSlider
 
-@export var text_size_text_edit: TextEdit
+@export var text_size_value_label: Label
+@export var text_size_slider: HSlider
 
 @export var crosshair_opacity_value_label: Label
 @export var crosshair_opacity_slider: HSlider
@@ -28,7 +29,8 @@ func set_starting_values():
 	volume_value_label.text = str(round((GlobalSettings.volume_db + 60) / 60 * 100))
 	volume_slider.value = GlobalSettings.volume_db
 	
-	text_size_text_edit.text = str(GlobalSettings.text_size)
+	text_size_value_label.text = str(GlobalSettings.text_size)
+	text_size_slider.value = GlobalSettings.text_size
 	
 	crosshair_opacity_value_label.text = str(round(GlobalSettings.crosshair_opacity * 100))
 	crosshair_opacity_slider.value = GlobalSettings.crosshair_opacity
@@ -51,8 +53,9 @@ func _on_volume_slider_value_changed(value: float) -> void:
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), value)
 
 
-func _on_text_size_text_edit_text_changed() -> void:
-	GlobalSettings.text_size = float(text_size_text_edit.text)
+func _on_text_size_slider_value_changed(value: float) -> void:
+	text_size_value_label.text = str(value)
+	GlobalSettings.text_size = int(value)
 
 
 func _on_crosshair_opacity_slider_value_changed(value: float) -> void:
