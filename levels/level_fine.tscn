@@ -7,7 +7,7 @@
 [ext_resource type="Script" path="res://levels/scripts/picture_handler.gd" id="3_m4duy"]
 [ext_resource type="PackedScene" uid="uid://b25ooshew3q2v" path="res://player/player.tscn" id="4_aw37m"]
 [ext_resource type="Script" path="res://levels/scripts/picture.gd" id="4_xvv2v"]
-[ext_resource type="PackedScene" uid="uid://d22ogqllffeom" path="res://levels/camera_ref.tscn" id="6_ksg6d"]
+[ext_resource type="PackedScene" path="res://levels/camera_ref.tscn" id="6_ksg6d"]
 [ext_resource type="Script" path="res://levels/scripts/ui.gd" id="6_vry8q"]
 [ext_resource type="Script" path="res://levels/scripts/screenshot.gd" id="7_etppf"]
 [ext_resource type="Script" path="res://levels/scripts/dynamic_label.gd" id="7_rnv2q"]
@@ -464,6 +464,14 @@ shadow_color = Color(0, 0, 0, 0.313726)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_08k2r"]
 albedo_color = Color(0.341962, 0.398952, 0.358896, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_w73lf"]
+size = Vector3(2.76678, 3.63855, 1.06177)
+
+[sub_resource type="BoxMesh" id="BoxMesh_6lea5"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ibyln"]
+size = Vector3(1.65393, 3.73828, 1.02539)
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_35tsd"]
 viewport_path = NodePath("Pictures/9_Forest/SubViewport")
@@ -1643,7 +1651,7 @@ size = Vector3(6, 4.5, 7.25)
 size = Vector3(6, 4.5, 7.25)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_045hb"]
-size = Vector3(4.70679, 4.5, 7.25)
+size = Vector3(4.98969, 4.5, 7.25)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_nf0s8"]
 size = Vector3(9.25, 4.5, 7.25)
@@ -1679,7 +1687,7 @@ size = Vector3(6.90625, 4.36621, 0.223633)
 size = Vector3(3.73755, 2.74072, 0.236206)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_r1ek6"]
-size = Vector3(5.45917, 2.74072, 0.236206)
+size = Vector3(5.45917, 2.74072, 0.954233)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_sqyef"]
 size = Vector3(0.128784, 3.04449, 4.01611)
@@ -1703,7 +1711,7 @@ size = Vector3(0.386719, 7.3186, 27.2921)
 
 [node name="Level" type="Node3D" node_paths=PackedStringArray("picture_screenshots")]
 script = ExtResource("1_mw3wp")
-picture_screenshots = [NodePath("Pictures/0_Frontyard/SubViewport/TextureRect"), NodePath("Pictures/1_Backyard/SubViewport/TextureRect"), NodePath("Pictures/2_Office/SubViewport/TextureRect"), NodePath("Pictures/3_LivingRoom/SubViewport/TextureRect"), NodePath("Pictures/4_HallwayUpstairs/SubViewport/TextureRect"), NodePath("Pictures/5_TV/SubViewport/TextureRect"), NodePath("Pictures/6_7_NoorRoomNight/SubViewport/TextureRect"), NodePath("Pictures/8_FrontDoor/SubViewport/TextureRect"), NodePath("Pictures/9_Forest/SubViewport/TextureRect"), NodePath("Pictures/10_Shed/SubViewport/TextureRect")]
+picture_screenshots = [NodePath("Pictures/0_Frontyard/SubViewport/FrontyardRect"), NodePath("Pictures/1_Backyard/SubViewport/BackyardRect"), NodePath("Pictures/2_Office/SubViewport/OfficeRect"), NodePath("Pictures/3_LivingRoom/SubViewport/LivingRoomRect"), NodePath("Pictures/4_HallwayUpstairs/SubViewport/HallwayUpstairsRect"), NodePath("Pictures/5_TV/SubViewport/TVRect"), NodePath("Pictures/6_7_NoorRoomNight/SubViewport/NoorRoomRect"), NodePath("Pictures/8_FrontDoor/SubViewport/FrontDoorRect"), NodePath("Pictures/9_Forest/SubViewport/ForestRect"), NodePath("Pictures/10_Shed/SubViewport/ShedRect")]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = ExtResource("2_mbfvw")
@@ -1745,6 +1753,8 @@ stretch_mode = 3
 script = ExtResource("4_xvv2v")
 camera = NodePath("../SubViewport/PortalCamera")
 world_root = NodePath("../../../Past")
+match_position_distance = 2.0
+match_rotation_distance = 10.0
 nodes_to_show = [NodePath("../../../Past/PictureSpecificObjects/Frontyard")]
 ambientASP = NodePath("../../../Past/Sounds/AmbientPhoto1")
 
@@ -1758,7 +1768,7 @@ cull_mask = 1048063
 [node name="ColorRect" parent="Pictures/0_Frontyard/SubViewport/PortalCamera" instance=ExtResource("6_ksg6d")]
 visible = false
 
-[node name="TextureRect" type="TextureRect" parent="Pictures/0_Frontyard/SubViewport" node_paths=PackedStringArray("sub_viewport", "picture")]
+[node name="FrontyardRect" type="TextureRect" parent="Pictures/0_Frontyard/SubViewport" node_paths=PackedStringArray("sub_viewport", "picture")]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -1788,6 +1798,8 @@ stretch_mode = 3
 script = ExtResource("4_xvv2v")
 camera = NodePath("../SubViewport/PortalCamera")
 world_root = NodePath("../../../Past")
+match_position_distance = 2.0
+match_rotation_distance = 10.0
 nodes_to_show = [NodePath("../../../Past/LevelObjects/House/Level1/Doors/Door_Backyard_Open"), NodePath("../../../Past/PictureSpecificObjects/Backyard")]
 nodes_to_hide = [NodePath("../../../Past/LevelObjects/House/Level1/Doors/Door_Backyard")]
 
@@ -1801,7 +1813,7 @@ cull_mask = 1048063
 [node name="ColorRect" parent="Pictures/1_Backyard/SubViewport/PortalCamera" instance=ExtResource("6_ksg6d")]
 visible = false
 
-[node name="TextureRect" type="TextureRect" parent="Pictures/1_Backyard/SubViewport" node_paths=PackedStringArray("sub_viewport", "picture")]
+[node name="BackyardRect" type="TextureRect" parent="Pictures/1_Backyard/SubViewport" node_paths=PackedStringArray("sub_viewport", "picture")]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -1831,6 +1843,8 @@ stretch_mode = 3
 script = ExtResource("4_xvv2v")
 camera = NodePath("../SubViewport/PortalCamera")
 world_root = NodePath("../../../Past")
+match_position_distance = 2.0
+match_rotation_distance = 10.0
 nodes_to_show = [NodePath("../../../Past/PictureSpecificObjects/Office")]
 
 [node name="SubViewport" type="SubViewport" parent="Pictures/2_Office"]
@@ -1843,7 +1857,7 @@ cull_mask = 1048063
 [node name="ColorRect" parent="Pictures/2_Office/SubViewport/PortalCamera" instance=ExtResource("6_ksg6d")]
 visible = false
 
-[node name="TextureRect" type="TextureRect" parent="Pictures/2_Office/SubViewport" node_paths=PackedStringArray("sub_viewport", "picture")]
+[node name="OfficeRect" type="TextureRect" parent="Pictures/2_Office/SubViewport" node_paths=PackedStringArray("sub_viewport", "picture")]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -1873,6 +1887,8 @@ stretch_mode = 3
 script = ExtResource("4_xvv2v")
 camera = NodePath("../SubViewport/PortalCamera")
 world_root = NodePath("../../../Past")
+match_position_distance = 2.0
+match_rotation_distance = 10.0
 nodes_to_show = [NodePath("../../../Past/PictureSpecificObjects/LivingRoom")]
 
 [node name="SubViewport" type="SubViewport" parent="Pictures/3_LivingRoom"]
@@ -1885,7 +1901,7 @@ cull_mask = 1048063
 [node name="ColorRect" parent="Pictures/3_LivingRoom/SubViewport/PortalCamera" instance=ExtResource("6_ksg6d")]
 visible = false
 
-[node name="TextureRect" type="TextureRect" parent="Pictures/3_LivingRoom/SubViewport" node_paths=PackedStringArray("sub_viewport", "picture")]
+[node name="LivingRoomRect" type="TextureRect" parent="Pictures/3_LivingRoom/SubViewport" node_paths=PackedStringArray("sub_viewport", "picture")]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -1915,6 +1931,8 @@ stretch_mode = 3
 script = ExtResource("4_xvv2v")
 camera = NodePath("../SubViewport/PortalCamera")
 world_root = NodePath("../../../Past")
+match_position_distance = 2.0
+match_rotation_distance = 10.0
 nodes_to_show = [NodePath("../../../Past/PictureSpecificObjects/HallwayUpstairs")]
 
 [node name="SubViewport" type="SubViewport" parent="Pictures/4_HallwayUpstairs"]
@@ -1927,7 +1945,7 @@ cull_mask = 1048063
 [node name="ColorRect" parent="Pictures/4_HallwayUpstairs/SubViewport/PortalCamera" instance=ExtResource("6_ksg6d")]
 visible = false
 
-[node name="TextureRect" type="TextureRect" parent="Pictures/4_HallwayUpstairs/SubViewport" node_paths=PackedStringArray("sub_viewport", "picture")]
+[node name="HallwayUpstairsRect" type="TextureRect" parent="Pictures/4_HallwayUpstairs/SubViewport" node_paths=PackedStringArray("sub_viewport", "picture")]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -1957,6 +1975,8 @@ stretch_mode = 3
 script = ExtResource("4_xvv2v")
 camera = NodePath("../SubViewport/PortalCamera")
 world_root = NodePath("../../../Past")
+match_position_distance = 2.0
+match_rotation_distance = 10.0
 requirements = Array[String](["tv_on_table"])
 nodes_to_show = [NodePath("../../../Past/PictureSpecificObjects/TV")]
 
@@ -1970,7 +1990,7 @@ cull_mask = 1048063
 [node name="ColorRect" parent="Pictures/5_TV/SubViewport/PortalCamera" instance=ExtResource("6_ksg6d")]
 visible = false
 
-[node name="TextureRect" type="TextureRect" parent="Pictures/5_TV/SubViewport" node_paths=PackedStringArray("sub_viewport", "picture")]
+[node name="TVRect" type="TextureRect" parent="Pictures/5_TV/SubViewport" node_paths=PackedStringArray("sub_viewport", "picture")]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -2000,6 +2020,8 @@ stretch_mode = 3
 script = ExtResource("4_xvv2v")
 camera = NodePath("../SubViewport/PortalCamera")
 world_root = NodePath("../../../Past")
+match_position_distance = 2.0
+match_rotation_distance = 10.0
 nodes_to_show = [NodePath("../../../Past/PictureSpecificObjects/NoorRoomNight")]
 
 [node name="SubViewport" type="SubViewport" parent="Pictures/6_7_NoorRoomNight"]
@@ -2012,7 +2034,7 @@ cull_mask = 1048063
 [node name="ColorRect" parent="Pictures/6_7_NoorRoomNight/SubViewport/PortalCamera" instance=ExtResource("6_ksg6d")]
 visible = false
 
-[node name="TextureRect" type="TextureRect" parent="Pictures/6_7_NoorRoomNight/SubViewport" node_paths=PackedStringArray("sub_viewport", "picture")]
+[node name="NoorRoomRect" type="TextureRect" parent="Pictures/6_7_NoorRoomNight/SubViewport" node_paths=PackedStringArray("sub_viewport", "picture")]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -2042,6 +2064,8 @@ stretch_mode = 3
 script = ExtResource("4_xvv2v")
 camera = NodePath("../SubViewport/PortalCamera")
 world_root = NodePath("../../../Past")
+match_position_distance = 2.0
+match_rotation_distance = 10.0
 nodes_to_show = [NodePath("../../../Past/LevelObjects/House/Level1/Doors/Door_Front_Open"), NodePath("../../../Past/PictureSpecificObjects/FrontDoor")]
 nodes_to_hide = [NodePath("../../../Past/LevelObjects/House/Level1/Doors/Door_Front")]
 
@@ -2055,7 +2079,7 @@ cull_mask = 1048063
 [node name="ColorRect" parent="Pictures/8_FrontDoor/SubViewport/PortalCamera" instance=ExtResource("6_ksg6d")]
 visible = false
 
-[node name="TextureRect" type="TextureRect" parent="Pictures/8_FrontDoor/SubViewport" node_paths=PackedStringArray("sub_viewport", "picture")]
+[node name="FrontDoorRect" type="TextureRect" parent="Pictures/8_FrontDoor/SubViewport" node_paths=PackedStringArray("sub_viewport", "picture")]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -2085,6 +2109,8 @@ stretch_mode = 3
 script = ExtResource("4_xvv2v")
 camera = NodePath("../SubViewport/PortalCamera")
 world_root = NodePath("../../../Past")
+match_position_distance = 2.0
+match_rotation_distance = 10.0
 nodes_to_show = [NodePath("../../../Past/PictureSpecificObjects/Forest")]
 
 [node name="SubViewport" type="SubViewport" parent="Pictures/9_Forest"]
@@ -2097,7 +2123,7 @@ cull_mask = 1048063
 [node name="ColorRect" parent="Pictures/9_Forest/SubViewport/PortalCamera" instance=ExtResource("6_ksg6d")]
 visible = false
 
-[node name="TextureRect" type="TextureRect" parent="Pictures/9_Forest/SubViewport" node_paths=PackedStringArray("sub_viewport", "picture")]
+[node name="ForestRect" type="TextureRect" parent="Pictures/9_Forest/SubViewport" node_paths=PackedStringArray("sub_viewport", "picture")]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -2127,6 +2153,8 @@ stretch_mode = 3
 script = ExtResource("4_xvv2v")
 camera = NodePath("../SubViewport/PortalCamera")
 world_root = NodePath("../../../Past")
+match_position_distance = 2.0
+match_rotation_distance = 10.0
 nodes_to_show = [NodePath("../../../Past/PictureSpecificObjects/Shed")]
 
 [node name="SubViewport" type="SubViewport" parent="Pictures/10_Shed"]
@@ -2139,7 +2167,7 @@ cull_mask = 1048063
 [node name="ColorRect" parent="Pictures/10_Shed/SubViewport/PortalCamera" instance=ExtResource("6_ksg6d")]
 visible = false
 
-[node name="TextureRect" type="TextureRect" parent="Pictures/10_Shed/SubViewport" node_paths=PackedStringArray("sub_viewport", "picture")]
+[node name="ShedRect" type="TextureRect" parent="Pictures/10_Shed/SubViewport" node_paths=PackedStringArray("sub_viewport", "picture")]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -2157,6 +2185,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("6_vry8q")
+subtitle_ratio = 0.75
 
 [node name="Crosshair" type="ColorRect" parent="UI"]
 layout_mode = 1
@@ -2200,7 +2229,7 @@ grow_vertical = 2
 script = ExtResource("10_7ofpm")
 player = NodePath("../../Player")
 picture_handler = NodePath("../../Pictures")
-picture_screenshots = [NodePath("../../Pictures/0_Frontyard/SubViewport/TextureRect"), NodePath("../../Pictures/1_Backyard/SubViewport/TextureRect"), NodePath("../../Pictures/2_Office/SubViewport/TextureRect"), NodePath("../../Pictures/3_LivingRoom/SubViewport/TextureRect"), NodePath("../../Pictures/4_HallwayUpstairs/SubViewport/TextureRect"), NodePath("../../Pictures/5_TV/SubViewport/TextureRect"), NodePath("../../Pictures/6_7_NoorRoomNight/SubViewport/TextureRect"), NodePath("../../Pictures/8_FrontDoor/SubViewport/TextureRect"), NodePath("../../Pictures/9_Forest/SubViewport/TextureRect"), NodePath("../../Pictures/10_Shed/SubViewport/TextureRect")]
+picture_screenshots = [NodePath("../../Pictures/0_Frontyard/SubViewport/FrontyardRect"), NodePath("../../Pictures/1_Backyard/SubViewport/BackyardRect"), NodePath("../../Pictures/2_Office/SubViewport/OfficeRect"), NodePath("../../Pictures/3_LivingRoom/SubViewport/LivingRoomRect"), NodePath("../../Pictures/4_HallwayUpstairs/SubViewport/HallwayUpstairsRect"), NodePath("../../Pictures/5_TV/SubViewport/TVRect"), NodePath("../../Pictures/6_7_NoorRoomNight/SubViewport/NoorRoomRect"), NodePath("../../Pictures/8_FrontDoor/SubViewport/FrontDoorRect"), NodePath("../../Pictures/9_Forest/SubViewport/ForestRect"), NodePath("../../Pictures/10_Shed/SubViewport/ShedRect")]
 show_times = Array[float]([5.0, 5.0, 5.0, 5.0, 5.0, 5.0, 5.0, 5.0, 5.0, 5.0])
 player_dialogues_ASP = NodePath("../../Player/PlayerDialogueASP")
 level = NodePath("../..")
@@ -2628,6 +2657,35 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.3560
 [node name="Door_Backyard" parent="Present/LevelObjects/House/Level1/Doors" instance=ExtResource("3_k0uy4")]
 transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 0.106071, 0.5, -5.42769)
 
+[node name="StairsBlockers" type="Node3D" parent="Present/LevelObjects/House/Level1"]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Present/LevelObjects/House/Level1/StairsBlockers"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.57479, 1.04981, 5.90893)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Present/LevelObjects/House/Level1/StairsBlockers/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.231171, 1.31927, -0.0308838)
+shape = SubResource("BoxShape3D_w73lf")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Present/LevelObjects/House/Level1/StairsBlockers"]
+transform = Transform3D(0.760991, 0.430004, -0.101289, -0.432882, 0.766083, 0, 0.0881842, 0.0498293, 0.874077, 4.02793, 1.94765, 5.96545)
+mesh = SubResource("BoxMesh_6lea5")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="Present/LevelObjects/House/Level1/StairsBlockers"]
+transform = Transform3D(0.540342, 0.305325, -0.0719201, -0.298305, 0.455868, -0.305881, -0.0970035, 0.298875, 0.540027, 3.65241, 2.07644, 5.96545)
+mesh = SubResource("BoxMesh_6lea5")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Present/LevelObjects/House/Level1/StairsBlockers"]
+transform = Transform3D(0.935865, 0.1536, 0.317117, 0.0742678, 0.793779, -0.603654, -0.344442, 0.588491, 0.731463, 4.90972, 2.40933, 6.1127)
+mesh = SubResource("BoxMesh_6lea5")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="Present/LevelObjects/House/Level1/StairsBlockers"]
+transform = Transform3D(0.463927, 0.277992, 0.422624, 0.050976, 0.544835, -0.414337, -0.503281, 0.311439, 0.34761, 4.31025, 2.52783, 6.00939)
+mesh = SubResource("BoxMesh_6lea5")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Present/LevelObjects/House/Level1/StairsBlockers"]
+transform = Transform3D(-0.176571, -0.287205, 0.941454, 0.198891, -0.947163, -0.251644, 0.963984, 0.142814, 0.224364, 3.55764, 1.29409, 6.10174)
+mesh = SubResource("BoxMesh_6lea5")
+
 [node name="Level2" type="Node3D" parent="Present/LevelObjects/House"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.5, 3.75, 0)
 
@@ -2903,6 +2961,9 @@ transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.143
 transform = Transform3D(0.358368, 0, 0.93358, 0, 1, 0, -0.93358, 0, 0.358368, -0.143929, 0.5, -8.38692)
 visible = false
 
+[node name="CollisionShape3D" parent="Present/LevelObjects/House/Level2/Doors/Door_Noor_open" index="1"]
+disabled = true
+
 [node name="Roof" type="Node3D" parent="Present/LevelObjects/House"]
 
 [node name="Floor8" type="CSGBox3D" parent="Present/LevelObjects/House/Roof"]
@@ -3006,9 +3067,19 @@ transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 8.7492
 transform = Transform3D(-0.390731, 6.07908e-08, 0.920504, 0.920504, -4.02365e-08, 0.390731, 6.07907e-08, 1, -4.02365e-08, 0.0576923, -0.03356, 0.00932729)
 visible = false
 
+[node name="CollisionShape3D" parent="Present/LevelObjects/INTERACTABLES/closet/closet/closet_door_left_open" index="1"]
+disabled = true
+
 [node name="closet_door_right_open" parent="Present/LevelObjects/INTERACTABLES/closet/closet" index="3" instance=ExtResource("11_0yc1f")]
 transform = Transform3D(0.173648, 5.13018e-08, -0.984807, 0.984807, 4.30473e-08, 0.173648, -5.13018e-08, 1, 4.30473e-08, -0.0569425, -0.0378285, 0.00932729)
 visible = false
+
+[node name="CollisionShape3D" parent="Present/LevelObjects/INTERACTABLES/closet/closet/closet_door_right_open" index="1"]
+disabled = true
+
+[node name="TVBlocker" type="CollisionShape3D" parent="Present/LevelObjects/INTERACTABLES/closet"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.015213, 1.36914, 0.223512)
+shape = SubResource("BoxShape3D_ibyln")
 
 [node name="TV" parent="Present/LevelObjects/INTERACTABLES" node_paths=PackedStringArray("interact_label", "interact_response_label", "picture_handler") groups=["Interactable"] instance=ExtResource("12_4tqrl")]
 transform = Transform3D(-0.940678, -0.337738, 0.0325252, -0.339301, 0.936274, -0.0909153, 0.000253081, -0.0965579, -0.995327, 8.93476, 4.75, 6.06002)
@@ -3030,7 +3101,7 @@ transform = Transform3D(2.98023e-08, 0, 1, 0, 1, 0, -1, 0, 2.98023e-08, 2.46362,
 [node name="Pictures" type="Node3D" parent="Present/LevelObjects/INTERACTABLES"]
 
 [node name="ForestPicture" type="StaticBody3D" parent="Present/LevelObjects/INTERACTABLES/Pictures" node_paths=PackedStringArray("picture_handler", "picture") groups=["Interactable"]]
-transform = Transform3D(0.948335, 0, 0.317272, 0, 1, 0, -0.317272, 0, 0.948335, -0.354065, 1.27327, -2.79793)
+transform = Transform3D(0.948335, 0, 0.317272, 0, 1, 0, -0.317272, 0, 0.948335, 3.30865, 1.5069, -1.19439)
 script = ExtResource("15_gx5iv")
 picture_handler = NodePath("../../../../../Pictures")
 picture = NodePath("../../../../../Pictures/9_Forest/ForestPicture")
@@ -3730,12 +3801,18 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.3560
 transform = Transform3D(0.937659, 0, -0.347558, 0, 1, 0, 0.347558, 0, 0.937659, 0.356079, 0.5, 9.93767)
 visible = false
 
+[node name="CollisionShape3D" parent="Past/LevelObjects/House/Level1/Doors/Door_Front_Open" index="1"]
+disabled = true
+
 [node name="Door_Backyard" parent="Past/LevelObjects/House/Level1/Doors" instance=ExtResource("3_k0uy4")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.157288, 0.5, -5.42769)
 
 [node name="Door_Backyard_Open" parent="Past/LevelObjects/House/Level1/Doors" instance=ExtResource("3_k0uy4")]
 transform = Transform3D(-0.994356, 0, -0.106091, 0, 1, 0, 0.106091, 0, -0.994356, 0.106079, 0.5, -5.42769)
 visible = false
+
+[node name="CollisionShape3D" parent="Past/LevelObjects/House/Level1/Doors/Door_Backyard_Open" index="1"]
+disabled = true
 
 [node name="Level2" type="Node3D" parent="Past/LevelObjects/House"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.5, 3.75, 0)
@@ -4130,7 +4207,7 @@ one_shot = true
 audio_stream_player = NodePath("../../AudioStreamPlayer3D")
 audio_clips = Array[AudioStream]([ExtResource("50_kxcw6")])
 nodes_to_show = [NodePath("../../../../../Present/LevelObjects/INTERACTABLES/closet/closet/closet_door_left_open")]
-nodes_to_hide = [NodePath("../../../../../Present/LevelObjects/INTERACTABLES/closet/closet/closet_door_left")]
+nodes_to_hide = [NodePath("../../../../../Present/LevelObjects/INTERACTABLES/closet/closet/closet_door_left"), NodePath("../../../../../Present/LevelObjects/INTERACTABLES/closet/TVBlocker")]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Past/INTERACTABLES/closet/closet/closet_door_left" index="2"]
 libraries = {
@@ -4145,7 +4222,7 @@ one_shot = true
 audio_stream_player = NodePath("../../AudioStreamPlayer3D")
 audio_clips = Array[AudioStream]([ExtResource("50_kxcw6")])
 nodes_to_show = [NodePath("../../../../../Present/LevelObjects/INTERACTABLES/closet/closet/closet_door_right_open")]
-nodes_to_hide = [NodePath("../../../../../Present/LevelObjects/INTERACTABLES/closet/closet/closet_door_right")]
+nodes_to_hide = [NodePath("../../../../../Present/LevelObjects/INTERACTABLES/closet/closet/closet_door_right"), NodePath("../../../../../Present/LevelObjects/INTERACTABLES/closet/TVBlocker")]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Past/INTERACTABLES/closet/closet/closet_door_right" index="2"]
 libraries = {
@@ -4158,11 +4235,13 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 8.9954
 [node name="LightSwitch" parent="Past/INTERACTABLES" instance=ExtResource("14_wds17")]
 transform = Transform3D(2.98023e-08, 0, 1, 0, 1, 0, -1, 0, 2.98023e-08, 2.46362, 5.83048, -2.31098)
 
-[node name="LightSwitch_interactable" parent="Past/INTERACTABLES" node_paths=PackedStringArray("start_monitoring_list") groups=["Interactable"] instance=ExtResource("14_wds17")]
+[node name="LightSwitch_interactable" parent="Past/INTERACTABLES" node_paths=PackedStringArray("nodes_to_show", "nodes_to_hide", "start_monitoring_list") groups=["Interactable"] instance=ExtResource("14_wds17")]
 transform = Transform3D(2.98023e-08, 0, 1, 0, 1, 0, -1, 0, 2.98023e-08, 2.46362, 5.83048, -2.31098)
 visible = false
 script = ExtResource("38_f4eva")
 one_shot = true
+nodes_to_show = [NodePath("../../PictureSpecificObjects/NoorRoomDay")]
+nodes_to_hide = [NodePath("../../PictureSpecificObjects/NoorRoomNight")]
 start_monitoring_list = [NodePath("../../TriggerVolumes/V07_Room")]
 
 [node name="CollisionShape3D" parent="Past/INTERACTABLES/LightSwitch_interactable" index="1"]
@@ -4205,13 +4284,15 @@ transform = Transform3D(0.965926, 0, 0.258819, 0, 1, 0, -0.258819, 0, 0.965926, 
 transform = Transform3D(0.965926, 0, 0.258819, 0, 1, 0, -0.258819, 0, 0.965926, -2.25, 5.253, -3)
 visible = false
 script = ExtResource("40_n7i1m")
+maximum_distance_from_origin = 10.0
+rotation_on_inspect = Vector3(0, 90, 0)
 prevent_teleport = true
 audio_one_shot = true
 audio_stream_player = NodePath("../../../Player/PlayerDialogueASP")
 subtitle_label = NodePath("../../../UI/SubtitleLabel")
 audio_clips = Array[AudioStream]([ExtResource("41_qtpf1"), ExtResource("42_sl044"), ExtResource("43_d4nwb"), ExtResource("44_dw56j")])
 subtitles = Array[String](["a", "b", "c", "d"])
-nodes_to_show = [NodePath("../LightSwitch_interactable")]
+nodes_to_show = [NodePath("../LightSwitch_interactable"), NodePath("../../PictureSpecificObjects/NoorRoomNight/LightSwitchSpotlight")]
 nodes_to_hide = [NodePath("../LightSwitch")]
 wait_for_audio = true
 
@@ -4237,7 +4318,7 @@ skeleton = NodePath("../../../../../..")
 shape = SubResource("BoxShape3D_vc26v")
 
 [node name="FrontDoorPicture" type="StaticBody3D" parent="Past/INTERACTABLES/Pictures" node_paths=PackedStringArray("picture_handler", "picture") groups=["Interactable"]]
-transform = Transform3D(0.948335, 0, 0.317272, 0, 1, 0, -0.317272, 0, 0.948335, -0.407227, 5.00333, -0.763613)
+transform = Transform3D(0.948335, 0, 0.317272, 0, 1, 0, -0.317272, 0, 0.948335, -0.758972, 5.00333, -0.809086)
 visible = false
 script = ExtResource("15_gx5iv")
 picture_handler = NodePath("../../../../Pictures")
@@ -4364,12 +4445,12 @@ audio_stream_player = NodePath("../../../Player/PlayerDialogueASP")
 subtitle_label = NodePath("../../../UI/SubtitleLabel")
 audio_clips = Array[AudioStream]([ExtResource("52_rxp76"), ExtResource("53_g02uq"), ExtResource("54_np5r5")])
 subtitles = Array[String](["a", "b", "cd"])
-nodes_to_show = [NodePath("../../INTERACTABLES/memory capsule_interactable")]
+nodes_to_show = [NodePath("../../INTERACTABLES/memory capsule_interactable"), NodePath("../../PictureSpecificObjects/NoorRoomNight/TimeCapsuleSpotlight")]
 nodes_to_hide = [NodePath("../../INTERACTABLES/memory capsule")]
 wait_for_audio = true
 
 [node name="CollisionShape3D" parent="Past/TriggerVolumes/V06_Room" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.27161, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.13019, 0, 0)
 shape = SubResource("BoxShape3D_045hb")
 
 [node name="V07_Room" parent="Past/TriggerVolumes" node_paths=PackedStringArray("audio_stream_player", "subtitle_label", "nodes_to_show", "start_monitoring_list") instance=ExtResource("13_3syry")]
@@ -7125,7 +7206,7 @@ transform = Transform3D(0.796372, 0, 0.604808, 0, 1, 0, -0.604808, 0, 0.796372, 
 shape = SubResource("BoxShape3D_u0y61")
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="Past/PictureSpecificObjects/TV/StaticBody3D"]
-transform = Transform3D(0.203556, 0, -0.979063, 0, 1, 0, 0.979063, 0, 0.203556, -5.16156, 0.870361, -1.92397)
+transform = Transform3D(0.00383946, 0, -0.999992, 0, 1, 0, 0.999992, 0, 0.00383946, -4.05396, 0.870361, -2.07707)
 shape = SubResource("BoxShape3D_r1ek6")
 
 [node name="Noor_05" parent="Past/PictureSpecificObjects/TV" instance=ExtResource("100_pxmqp")]
@@ -8608,17 +8689,45 @@ bones/403/rotation = Quaternion(3.86499e-08, 1.16415e-08, 3.25963e-09, 1)
 bones/408/position = Vector3(56.9994, -27.4233, -29.0958)
 bones/408/rotation = Quaternion(-0.0621233, -0.074052, 0.454045, 0.88572)
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Past/PictureSpecificObjects/NoorRoomNight"]
+[node name="NightStaticBody3D" type="StaticBody3D" parent="Past/PictureSpecificObjects/NoorRoomNight"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.20844, 4.82809, -2.07524)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Past/PictureSpecificObjects/NoorRoomNight/StaticBody3D"]
-transform = Transform3D(0.974652, 0, 0.223726, 0, 1, 0, -0.223726, 0, 0.974652, 2.28412, 0.889984, -1.50806)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Past/PictureSpecificObjects/NoorRoomNight/NightStaticBody3D"]
+transform = Transform3D(0.990418, 0, 0.138101, 0, 1, 0, -0.138101, 0, 0.990418, 1.8338, 0.889984, -1.50806)
 shape = SubResource("BoxShape3D_sqyef")
+disabled = true
 
-[node name="Noor_07" parent="Past/PictureSpecificObjects/NoorRoomNight" instance=ExtResource("100_pxmqp")]
+[node name="TimeCapsuleSpotlight" type="SpotLight3D" parent="Past/PictureSpecificObjects/NoorRoomNight"]
+transform = Transform3D(0.997143, -3.30177e-09, 0.0755356, -0.0755356, -4.35865e-08, 0.997143, 0, -1, -4.37114e-08, -2.25592, 6.84167, -3.07596)
+visible = false
+spot_angle = 20.0
+
+[node name="LightSwitchSpotlight" type="SpotLight3D" parent="Past/PictureSpecificObjects/NoorRoomNight"]
+transform = Transform3D(0.892468, 1.97187e-08, -0.451111, 0.451111, -3.9011e-08, 0.892468, 0, -1, -4.37114e-08, 2.10974, 6.65171, -2.29466)
+visible = false
+spot_angle = 10.0
+
+[node name="NoorRoomDay" type="Node3D" parent="Past/PictureSpecificObjects"]
+visible = false
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="Past/PictureSpecificObjects/NoorRoomDay"]
+transform = Transform3D(-0.0414675, 0.334547, 0.941466, 0.999031, -3.72349e-09, 0.044003, 0.0147211, 0.942379, -0.334223, 3.68683, 6.03813, -4.1001)
+light_color = Color(1, 0.972549, 0.862745, 1)
+shadow_enabled = true
+spot_range = 7.746
+
+[node name="DayStaticBody3D" type="StaticBody3D" parent="Past/PictureSpecificObjects/NoorRoomDay"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.20844, 4.82809, -2.07524)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Past/PictureSpecificObjects/NoorRoomDay/DayStaticBody3D"]
+transform = Transform3D(0.974652, 0, 0.223726, 0, 1, 0, -0.223726, 0, 0.974652, 1.35999, 0.889984, -1.50806)
+shape = SubResource("BoxShape3D_sqyef")
+disabled = true
+
+[node name="Noor_07" parent="Past/PictureSpecificObjects/NoorRoomDay" instance=ExtResource("100_pxmqp")]
 transform = Transform3D(-0.647887, -0.0950157, 0.945365, -0.0861122, 1.1454, 0.0561051, -0.946217, -0.0391807, -0.652409, 0.150391, 4.24088, -3.05192)
 
-[node name="Skeleton3D" parent="Past/PictureSpecificObjects/NoorRoomNight/Noor_07/rig_001" index="0"]
+[node name="Skeleton3D" parent="Past/PictureSpecificObjects/NoorRoomDay/Noor_07/rig_001" index="0"]
 bones/1/position = Vector3(-0.602138, 3.96645, 62.6772)
 bones/1/rotation = Quaternion(0.774565, 0.00122223, -0.00111818, 0.632492)
 bones/2/rotation = Quaternion(-0.084619, 0.0010873, 0.013163, 0.996326)
@@ -9572,6 +9681,14 @@ bones/403/rotation = Quaternion(0, 0, 0, 1)
 bones/405/position = Vector3(4.3047e-11, 1.67638e-10, -6.89179e-10)
 bones/408/position = Vector3(0.0069962, -0.00358452, 0.00540097)
 bones/408/rotation = Quaternion(0.0658247, -0.0583926, 0.139758, 0.986268)
+[node name="PhotoSpotlight" type="SpotLight3D" parent="Past/PictureSpecificObjects/NoorRoomDay"]
+transform = Transform3D(0.99889, -2.05909e-09, 0.0471064, -0.0471064, -4.36629e-08, 0.99889, 0, -1, -4.37114e-08, -0.682556, 5.79852, -0.887459)
+visible = false
+spot_range = 1.0
+spot_angle = 15.0
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Past/PictureSpecificObjects/NoorRoomDay"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.26396, -2.43939)
 
 [node name="FrontDoor" type="Node3D" parent="Past/PictureSpecificObjects"]
 visible = false
@@ -12015,6 +12132,9 @@ bones/405/position = Vector3(0, -8.56817e-10, -3.07336e-10)
 bones/406/rotation = Quaternion(0.817435, -0.13503, -0.000146203, 0.55997)
 bones/408/position = Vector3(0.00420177, -0.00655796, 0.00507626)
 bones/408/rotation = Quaternion(0.0484166, -0.0404222, -0.106875, 0.99227)
+[node name="CapsuleSpotlight" type="SpotLight3D" parent="Past/PictureSpecificObjects/Shed"]
+transform = Transform3D(1, 0, 0, 0, 0.802672, 0.596421, 0, -0.596421, 0.802672, 7.04956, 2.10254, -18.8825)
+spot_range = 3.0
 
 [node name="EndingCameraPath" type="Path3D" parent="Past"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 1.5, -14.5)
@@ -12036,7 +12156,10 @@ panning_strength = 0.0
 [connection signal="body_entered" from="Present/TriggerVolumes/EndSequenceTrigger" to="Present/TriggerVolumes/EndSequenceTrigger" method="_on_body_entered"]
 
 [editable path="Player"]
+[editable path="Present/LevelObjects/House/Level2/Doors/Door_Noor_open"]
 [editable path="Present/LevelObjects/INTERACTABLES/closet"]
+[editable path="Present/LevelObjects/INTERACTABLES/closet/closet/closet_door_left_open"]
+[editable path="Present/LevelObjects/INTERACTABLES/closet/closet/closet_door_right_open"]
 [editable path="Present/LevelObjects/INTERACTABLES/TVStand/DropOffZone"]
 [editable path="Present/TriggerVolumes/V00_FrontDoor"]
 [editable path="Present/TriggerVolumes/V01E_EnterHouse"]
@@ -12047,6 +12170,9 @@ panning_strength = 0.0
 [editable path="Present/TriggerVolumes/V08E_FrontDoor"]
 [editable path="Present/TriggerVolumes/V09E_Forest"]
 [editable path="Present/TriggerVolumes/V10E_Shed"]
+[editable path="Past/LevelObjects/House/Level1/Doors/Door_Front_Open"]
+[editable path="Past/LevelObjects/House/Level1/Doors/Door_Backyard_Open"]
+[editable path="Past/LevelObjects/House/Level2/Doors/Door_Noor"]
 [editable path="Past/INTERACTABLES/closet"]
 [editable path="Past/INTERACTABLES/LightSwitch_interactable"]
 [editable path="Past/INTERACTABLES/ShedCloset"]
@@ -12072,6 +12198,7 @@ panning_strength = 0.0
 [editable path="Past/PictureSpecificObjects/NoorRoomNight/Noor_06"]
 [editable path="Past/PictureSpecificObjects/NoorRoomNight/Noor_07"]
 [editable path="Past/PictureSpecificObjects/NoorRoomNight/Mother_06"]
+[editable path="Past/PictureSpecificObjects/NoorRoomDay/Noor_07"]
 [editable path="Past/PictureSpecificObjects/FrontDoor/Noor_08"]
 [editable path="Past/PictureSpecificObjects/FrontDoor/Mother_08"]
 [editable path="Past/PictureSpecificObjects/Forest/Noor_09"]
