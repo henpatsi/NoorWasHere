@@ -1,7 +1,6 @@
 [gd_scene load_steps=14 format=4 uid="uid://cvitkiqndcb4v"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_4dyq5"]
-load_path = "res://.godot/imported/toyota_2.png-957e18c9a0b8d273dafa1345f0b6d5a0.s3tc.ctex"
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_727at"]
 resource_name = "Default Material"
@@ -12,7 +11,6 @@ emission_enabled = true
 uv1_offset = Vector3(0, -1, 0)
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_w8tka"]
-load_path = "res://.godot/imported/toyota_1.png-7b6ab2fcf654ddaa3acfd7ba846d03ce.s3tc.ctex"
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qkbiq"]
 resource_name = "Mat.2"
@@ -108,7 +106,6 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_gt50f")
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_mjc8a"]
-load_path = "res://.godot/imported/wheel.jpeg-fbbe6518da47920f0dc19f90c77ee6ba.s3tc.ctex"
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1jm6f"]
 albedo_texture = SubResource("CompressedTexture2D_mjc8a")

@@ -1,0 +1,108 @@
+[remap]
+
+importer="scene"
+importer_version=1
+type="PackedScene"
+uid="uid://d4jr4aj8ef765"
+path="res://.godot/imported/Mother_FBX.fbx-2b235585eec3199e96fe82073b44f36d.scn"
+
+[deps]
+
+source_file="res://assets/characters/mother/Mother_FBX.fbx"
+dest_files=["res://.godot/imported/Mother_FBX.fbx-2b235585eec3199e96fe82073b44f36d.scn"]
+
+[params]
+
+nodes/root_type=""
+nodes/root_name=""
+nodes/apply_root_scale=true
+nodes/root_scale=1.0
+nodes/import_as_skeleton_bones=false
+meshes/ensure_tangents=true
+meshes/generate_lods=false
+meshes/create_shadow_meshes=true
+meshes/light_baking=1
+meshes/lightmap_texel_size=0.2
+meshes/force_disable_compression=false
+skins/use_named_skins=true
+animation/import=true
+animation/fps=30
+animation/trimming=true
+animation/remove_immutable_tracks=true
+animation/import_rest_as_RESET=false
+import_script/path=""
+_subresources={
+"materials": {
+"Material.032": {
+"use_external/enabled": true,
+"use_external/path": "res://assets/characters/mother/Material.032.tres"
+},
+"Material.033": {
+"use_external/enabled": true,
+"use_external/path": "res://assets/characters/mother/Material.033.tres"
+},
+"Material.034": {
+"use_external/enabled": true,
+"use_external/path": "res://assets/characters/mother/Material.034.tres"
+},
+"m_arms": {
+"use_external/enabled": true,
+"use_external/path": "res://assets/characters/mother/m_arms.tres"
+},
+"m_ears": {
+"use_external/enabled": true,
+"use_external/path": "res://assets/characters/mother/m_ears.tres"
+},
+"m_eyes_cornea": {
+"use_external/enabled": true,
+"use_external/path": "res://assets/characters/mother/m_eyes_cornea.tres"
+},
+"m_eyes_pupils": {
+"use_external/enabled": true,
+"use_external/path": "res://assets/characters/mother/m_eyes_pupils.tres"
+},
+"m_eyesocket": {
+"use_external/enabled": true,
+"use_external/path": "res://assets/characters/mother/m_eyesocket.tres"
+},
+"m_face": {
+"use_external/enabled": true,
+"use_external/path": "res://assets/characters/mother/m_face.tres"
+},
+"m_fingernails": {
+"use_external/enabled": true,
+"use_external/path": "res://assets/characters/mother/m_fingernails.tres"
+},
+"m_legs": {
+"use_external/enabled": true,
+"use_external/path": "res://assets/characters/mother/m_legs.tres"
+},
+"m_sandals": {
+"use_external/enabled": true,
+"use_external/path": "res://assets/characters/mother/m_sandals.tres"
+},
+"m_toenails": {
+"use_external/enabled": true,
+"use_external/path": "res://assets/characters/mother/m_toenails.tres"
+},
+"m_torso": {
+"use_external/enabled": true,
+"use_external/path": "res://assets/characters/mother/m_torso.tres"
+},
+"mother_hair": {
+"use_external/enabled": true,
+"use_external/path": "res://assets/characters/mother/mother_hair.tres"
+},
+"mother_pants": {
+"use_external/enabled": true,
+"use_external/path": "res://assets/characters/mother/mother_pants.tres"
+},
+"mother_top": {
+"use_external/enabled": true,
+"use_external/path": "res://assets/characters/mother/mother_top.tres"
+}
+}
+}
+fbx/importer=0
+fbx/allow_geometry_helper_nodes=false
+fbx/embedded_image_handling=1
