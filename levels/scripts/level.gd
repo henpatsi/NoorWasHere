@@ -7,19 +7,23 @@ extends Node3D
 @onready var directional_light_3d: DirectionalLight3D = $DirectionalLight3D
 
 @export var picture_screenshots: Array[TextureRect]
+@export var black_screen: ColorRect
 
 var paused: bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	black_screen.show()
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-	
+
 	set_past_environment()
 	for screenshot in picture_screenshots:
 		screenshot.take_screenshot()
-		await get_tree().create_timer(0.1).timeout
+		await get_tree().create_timer(0.2).timeout
 	set_present_environment()
 
+	await get_tree().create_timer(0.1).timeout
+	black_screen.hide()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:

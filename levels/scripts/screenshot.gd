@@ -14,6 +14,8 @@ func take_screenshot() -> void:
 		if is_instance_valid(node):
 			node.hide()
 
+	await get_tree().create_timer(0.1).timeout
+
 	sub_viewport.render_target_update_mode = SubViewport.UPDATE_ONCE
 	var screenshot = sub_viewport.get_texture()
 	texture = screenshot
