@@ -101,9 +101,6 @@ func air(delta: float) -> void:
 func raycast() -> void:
 	ray_cast.target_position = Vector3.FORWARD * ray_distance
 	ray_collision_object = ray_cast.get_collider()
-	
-	if ray_collision_object:
-		print(ray_collision_object.name)
 
 	if ray_collision_object and ray_collision_object.is_in_group("Interactable"):
 		if interact_label and interact_enabled:
