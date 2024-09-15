@@ -1,4 +1,4 @@
-[gd_scene load_steps=501 format=4 uid="uid://baq3osaidwfaf"]
+[gd_scene load_steps=505 format=4 uid="uid://baq3osaidwfaf"]
 
 [ext_resource type="Script" path="res://levels/scripts/level.gd" id="1_mw3wp"]
 [ext_resource type="Material" uid="uid://dve3xrg044f4h" path="res://assets/materials/M_housetemp.tres" id="2_db8bv"]
@@ -18,6 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://dtrj4a2rd7r80" path="res://assets/props/INTERACTEABLE/closet/closet.tscn" id="12_4m6ha"]
 [ext_resource type="PackedScene" uid="uid://cogjse1d7bpe1" path="res://assets/props/INTERACTEABLE/TV_a/tv.tscn" id="12_4tqrl"]
 [ext_resource type="PackedScene" uid="uid://bn5ukqljga2qo" path="res://levels/scripts/trigger_area.tscn" id="13_3syry"]
+[ext_resource type="Theme" uid="uid://cbquq6hkpipum" path="res://assets/fonts/Helvetica-Font/helvetica.tres" id="14_5ojdj"]
 [ext_resource type="AudioStream" uid="uid://5cmdiux0k4xq" path="res://assets/audio/VO/00_01.mp3" id="14_pyrie"]
 [ext_resource type="Script" path="res://levels/scripts/interactable_carry.gd" id="14_trd0m"]
 [ext_resource type="PackedScene" uid="uid://daempkcx2ef7j" path="res://assets/props/INTERACTEABLE/lightswitch/light_switch.tscn" id="14_wds17"]
@@ -417,6 +418,7 @@
 [ext_resource type="PackedScene" uid="uid://brtrvnfelp3ux" path="res://assets/props/car/sketchfab_scene.tscn" id="402_y4a1w"]
 [ext_resource type="AudioStream" uid="uid://dpwrykcp0viaf" path="res://assets/audio/sfx/roomtone/Ambient noise/Ambient_noise1.ogg" id="404_qmrnh"]
 [ext_resource type="PackedScene" uid="uid://paat7hmvkfo8" path="res://assets/characters/mother/mother_fbx.tscn" id="408_ojblb"]
+[ext_resource type="PackedScene" uid="uid://c5d7tcijs5p06" path="res://assets/characters/agathe/agathe_final_01.tscn" id="417_2f2gg"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_ipxyn"]
 viewport_path = NodePath("Pictures/0_Frontyard/SubViewport")
@@ -461,7 +463,7 @@ shadow_size = 2
 shadow_color = Color(0, 0, 0, 0.313726)
 
 [sub_resource type="LabelSettings" id="LabelSettings_116ps"]
-font_size = 128
+font_size = 32
 
 [sub_resource type="LabelSettings" id="LabelSettings_certn"]
 font = ExtResource("9_wxn3y")
@@ -1688,6 +1690,8 @@ size = Vector3(6.38232, 3.01855, 0.348755)
 [sub_resource type="BoxShape3D" id="BoxShape3D_qrxg6"]
 size = Vector3(4.36212, 3.01855, 0.348755)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jbyi0"]
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_5vdn0"]
 size = Vector3(0.29834, 2.93018, 4.16656)
 
@@ -1745,7 +1749,7 @@ shadow_enabled = true
 
 [node name="Player" parent="." node_paths=PackedStringArray("interact_label") instance=ExtResource("4_aw37m")]
 transform = Transform3D(0.965926, 0, -0.258819, 0, 1, 0, 0.258819, 0, 0.965926, -1, 0, 24.75)
-max_move_speed = 10.0
+max_move_speed = 3.75
 interact_label = NodePath("../UI/InteractLabel")
 
 [node name="FootstepASP" parent="Player" index="3"]
@@ -2281,8 +2285,8 @@ grow_vertical = 2
 script = ExtResource("10_7ofpm")
 player = NodePath("../../Player")
 picture_handler = NodePath("../../Pictures")
-picture_screenshots = [NodePath("../../Pictures/0_Frontyard/SubViewport/FrontyardRect"), NodePath("../../Pictures/1_Backyard/SubViewport/BackyardRect"), NodePath("../../Pictures/2_Office/SubViewport/OfficeRect"), NodePath("../../Pictures/3_LivingRoom/SubViewport/LivingRoomRect"), NodePath("../../Pictures/4_HallwayUpstairs/SubViewport/HallwayUpstairsRect"), NodePath("../../Pictures/5_TV/SubViewport/TVRect"), NodePath("../../Pictures/6_7_NoorRoomNight/SubViewport/NoorRoomRect"), NodePath("../../Pictures/8_FrontDoor/SubViewport/FrontDoorRect"), NodePath("../../Pictures/9_Forest/SubViewport/ForestRect"), NodePath("../../Pictures/10_Shed/SubViewport/ShedRect")]
-show_times = Array[float]([5.0, 5.0, 5.0, 5.0, 5.0, 5.0, 5.0, 5.0, 5.0, 5.0])
+picture_screenshots = [NodePath("../../Pictures/1_Backyard/SubViewport/BackyardRect"), NodePath("../../Pictures/10_Shed/SubViewport/ShedRect"), NodePath("../../Pictures/8_FrontDoor/SubViewport/FrontDoorRect"), NodePath("../../Pictures/6_7_NoorRoomNight/SubViewport/NoorRoomRect"), NodePath("../../Pictures/5_TV/SubViewport/TVRect"), NodePath("../../Pictures/4_HallwayUpstairs/SubViewport/HallwayUpstairsRect"), NodePath("../../Pictures/3_LivingRoom/SubViewport/LivingRoomRect"), NodePath("../../Pictures/2_Office/SubViewport/OfficeRect"), NodePath("../../Pictures/9_Forest/SubViewport/ForestRect"), NodePath("../../Pictures/0_Frontyard/SubViewport/FrontyardRect")]
+show_times = Array[float]([4.2, 3.0, 3.5, 4.0, 4.0, 4.0, 4.0, 4.0, 4.0, 6.0])
 player_dialogues_ASP = NodePath("../../Player/PlayerDialogueASP")
 level = NodePath("../..")
 
@@ -2297,7 +2301,6 @@ grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
 [node name="Label" type="Label" parent="UI/EndSequence"]
-visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -2310,8 +2313,11 @@ offset_right = 92.5
 offset_bottom = 87.5
 grow_horizontal = 2
 grow_vertical = 2
-text = "Fin"
+theme = ExtResource("14_5ojdj")
+text = "created by Sana, Anton, Henri, Jamie, Dennis & Marcus"
 label_settings = SubResource("LabelSettings_116ps")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="SubtitleLabel" type="Label" parent="UI"]
 layout_mode = 1
@@ -3705,10 +3711,16 @@ use_collision = true
 size = Vector3(0.5, 1, 1.25)
 
 [node name="CSGBox3D45" type="CSGBox3D" parent="Past/LevelObjects/House/Level1/Walls"]
-transform = Transform3D(0.258819, 0, -0.965926, 0, 1, 0, 0.965926, 0, 0.258819, -1.14025, 1.125, 3.45954)
+transform = Transform3D(0.795558, 0, -0.605877, 0, 1, 0, 0.605877, 0, 0.795558, -0.960388, 0.822449, 3.30997)
 material_override = ExtResource("2_db8bv")
 use_collision = true
-size = Vector3(0.75, 1.25, 1)
+size = Vector3(0.59082, 0.644897, 0.607666)
+
+[node name="CSGBox3D48" type="CSGBox3D" parent="Past/LevelObjects/House/Level1/Walls"]
+transform = Transform3D(-0.731235, 0, -0.682126, 0, 1, 0, 0.682126, 0, -0.731235, -2.01465, 0.809814, 2.54549)
+material_override = ExtResource("2_db8bv")
+use_collision = true
+size = Vector3(0.75, 0.619629, 1)
 
 [node name="CSGBox3D30" type="CSGBox3D" parent="Past/LevelObjects/House/Level1/Walls"]
 transform = Transform3D(1, 0, -1.74846e-07, 0, 1, 0, 1.74846e-07, 0, 1, -0.640254, 0.875, -2.16546)
@@ -3727,6 +3739,24 @@ transform = Transform3D(8.9407e-08, 0, 1.92, 0, 1, 0, -1, 0, 1.19209e-07, 3.7347
 material_override = ExtResource("2_db8bv")
 use_collision = true
 size = Vector3(2.5, 0.874146, 0.75)
+
+[node name="CSGBox3D28" type="CSGBox3D" parent="Past/LevelObjects/House/Level1/Walls"]
+transform = Transform3D(8.9407e-08, 0, 1.92, 0, 1, 0, -1, 0, 1.19209e-07, 4.86731, 0.753266, -0.0450381)
+material_override = ExtResource("2_db8bv")
+use_collision = true
+size = Vector3(0.708984, 0.506531, 0.338257)
+
+[node name="CSGBox3D44" type="CSGBox3D" parent="Past/LevelObjects/House/Level1/Walls"]
+transform = Transform3D(0.999773, 0, 0.040913, 0, 1, 0, -0.0213088, 0, 1.91956, 3.89655, 0.772202, 1.32238)
+material_override = ExtResource("2_db8bv")
+use_collision = true
+size = Vector3(0.708984, 0.544403, 0.338257)
+
+[node name="CSGBox3D49" type="CSGBox3D" parent="Past/LevelObjects/House/Level1/Walls"]
+transform = Transform3D(0.999773, 0, 0.040913, 0, 1, 0, -0.0213088, 0, 1.91956, 2.64044, 0.772202, 0.0678777)
+material_override = ExtResource("2_db8bv")
+use_collision = true
+size = Vector3(0.481201, 0.544403, 0.338257)
 
 [node name="CSGBox3D20" type="CSGBox3D" parent="Past/LevelObjects/House/Level1/Walls"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 9.23475, 1.75, 1.11879)
@@ -4370,7 +4400,7 @@ audio_stream_player = NodePath("../../../Player/PlayerDialogueASP")
 subtitle_label = NodePath("../../../UI/SubtitleLabel")
 audio_clips = Array[AudioStream]([ExtResource("41_qtpf1"), ExtResource("42_sl044"), ExtResource("43_d4nwb"), ExtResource("44_dw56j")])
 subtitles = Array[String](["Wait- that’s the box, the memory capsule!", "It was for a class- we had to write a letter.", "If I remember correctly, we were supposed to present it in class,", "and then, optionally, bury it somewhere for our future selves."])
-nodes_to_show = [NodePath("../LightSwitch_interactable"), NodePath("../../PictureSpecificObjects/NoorRoomNight/LightSwitchSpotlight")]
+nodes_to_show = [null, NodePath("../../PictureSpecificObjects/NoorRoomNight/LightSwitchSpotlight")]
 nodes_to_hide = [NodePath("../LightSwitch")]
 wait_for_audio = true
 
@@ -4542,7 +4572,7 @@ audio_stream_player = NodePath("../../../Player/PlayerDialogueASP")
 subtitle_label = NodePath("../../../UI/SubtitleLabel")
 audio_clips = Array[AudioStream]([ExtResource("52_rxp76"), ExtResource("53_g02uq"), ExtResource("54_np5r5")])
 subtitles = Array[String](["So instead of sleeping, I’d be on my DS.", "Whenever my mom walked in I’d unfortunately always get caught-", "since muffled underneath my head, the game’s music would continue playing.So instead of sleeping, I’d be on my DS."])
-nodes_to_show = [NodePath("../../INTERACTABLES/memory capsule_interactable"), NodePath("../../PictureSpecificObjects/NoorRoomNight/TimeCapsuleSpotlight")]
+nodes_to_show = [null, NodePath("../../PictureSpecificObjects/NoorRoomNight/TimeCapsuleSpotlight")]
 nodes_to_hide = [NodePath("../../INTERACTABLES/memory capsule")]
 wait_for_audio = true
 
@@ -4562,7 +4592,6 @@ audio_stream_player = NodePath("../../../Player/PlayerDialogueASP")
 subtitle_label = NodePath("../../../UI/SubtitleLabel")
 audio_clips = Array[AudioStream]([ExtResource("55_8s325"), ExtResource("56_go77q"), ExtResource("57_cqb3l"), ExtResource("58_jlmrq")])
 subtitles = Array[String](["And this was me- rehearsing for the presentation! I was reading and rewriting it over and over again.", "It wasn’t because I was nervous- I was one of those weird kids who loved presenting. ", "It didn’t matter if it was about my hopes and dreams or Napoleon, ", "I'd be the first to raise my hand."])
-nodes_to_show = [NodePath("../../INTERACTABLES/Pictures/FrontDoorPicture")]
 start_monitoring_list = [NodePath("../../../Present/TriggerVolumes/V07E_NoorRoom")]
 wait_for_audio = true
 
@@ -5198,6 +5227,16 @@ bones/406/rotation = Quaternion(0.94239, -0.101177, 0.0340393, 0.317027)
 bones/408/position = Vector3(-14.3261, -5.78549, 21.306)
 bones/408/rotation = Quaternion(-0.745228, -0.0145114, -0.0771921, 0.662168)
 
+[node name="CSGBox3D" type="CSGBox3D" parent="Past/PictureSpecificObjects/Backyard"]
+transform = Transform3D(-0.333511, 0, 0.942746, 0, 1, 0, -0.942746, 0, -0.333511, 0.603271, 0.47189, -6.98304)
+material_override = SubResource("StandardMaterial3D_jbyi0")
+size = Vector3(0.361816, 0.043457, 0.491089)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Past/PictureSpecificObjects/Backyard"]
+transform = Transform3D(-0.00856736, -0.99967, 0.0242176, 0.651306, 0.0127984, 0.758707, -0.758767, 0.0222732, 0.650981, 0.754639, 0.771016, -7.12352)
+material_override = SubResource("StandardMaterial3D_jbyi0")
+size = Vector3(0.00720215, 0.00915527, 0.233826)
+
 [node name="Office" type="Node3D" parent="Past/PictureSpecificObjects"]
 visible = false
 
@@ -5205,7 +5244,7 @@ visible = false
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.38495, 2.1728, 1.84398)
 light_color = Color(0.901961, 1, 1, 1)
 shadow_enabled = true
-omni_range = 1.223
+omni_range = 2.047
 
 [node name="OmniLight3D3" type="OmniLight3D" parent="Past/PictureSpecificObjects/Office"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.746704, 3.1377, 5.22937)
@@ -5226,7 +5265,7 @@ transform = Transform3D(-0.425732, 0, -0.904851, 0, 1, 0, 0.904851, 0, -0.425732
 shape = SubResource("BoxShape3D_jpnbt")
 
 [node name="Noor_02" parent="Past/PictureSpecificObjects/Office" instance=ExtResource("100_pxmqp")]
-transform = Transform3D(-0.553903, 0.163084, 0.994533, 0.0752758, 1.13837, -0.144745, -1.005, -0.00461801, -0.558976, -1.4754, 0.703564, 2.19526)
+transform = Transform3D(-0.702718, 0.160406, 0.896079, 0.0752758, 1.13837, -0.144745, -0.907205, -0.0297932, -0.70611, -1.4754, 0.703564, 2.19526)
 
 [node name="Skeleton3D" parent="Past/PictureSpecificObjects/Office/Noor_02/rig_001" index="0"]
 bones/1/position = Vector3(-1.76605, 41.7765, 38.8258)
@@ -5728,6 +5767,9 @@ bones/403/rotation = Quaternion(3.53903e-08, 7.45058e-09, 1.00583e-07, 1)
 bones/406/rotation = Quaternion(0.94239, -0.101177, 0.0340393, 0.317027)
 bones/408/position = Vector3(-14.3261, 17.4389, 21.306)
 bones/408/rotation = Quaternion(-0.745228, -0.0145114, -0.0771921, 0.662168)
+
+[node name="Agathe_Final01" parent="Past/PictureSpecificObjects/Office" instance=ExtResource("417_2f2gg")]
+transform = Transform3D(-0.516217, 0, -0.611163, 0, 0.8, 0, 0.611163, 0, -0.516217, -1.30579, 0.458678, 3.11985)
 
 [node name="LivingRoom" type="Node3D" parent="Past/PictureSpecificObjects"]
 visible = false
@@ -6286,6 +6328,64 @@ transform = Transform3D(0.258819, 0, -0.965926, 0, 1, 0, 0.965926, 0, 0.258819, 
 [node name="Skeleton3D" parent="Past/PictureSpecificObjects/LivingRoom/Mother_03/Mother" index="0"]
 bones/115/position = Vector3(0.000175682, 0.00109628, 0.000251014)
 bones/115/rotation = Quaternion(-0.182943, -0.117671, -0.789172, 0.574363)
+
+[node name="Agathe_Final01" parent="Past/PictureSpecificObjects/LivingRoom" instance=ExtResource("417_2f2gg")]
+transform = Transform3D(0.0152948, 0, 0.699833, 0, 0.7, 0, -0.699833, 0, 0.0152948, 3.16309, 0.399825, -0.00492102)
+
+[node name="Skeleton3D" parent="Past/PictureSpecificObjects/LivingRoom/Agathe_Final01/Armature" index="0"]
+bones/0/position = Vector3(0.000262706, 0.00755512, 0.0109035)
+bones/0/rotation = Quaternion(0.625578, 0.0260911, -0.028672, 0.779198)
+bones/1/rotation = Quaternion(0.129078, 0.0209625, 0.00697855, 0.991388)
+bones/2/rotation = Quaternion(0.0555186, 0.00821253, 0.00336258, 0.998418)
+bones/3/rotation = Quaternion(0.0555076, 0.00839335, 0.00331848, 0.998417)
+bones/4/rotation = Quaternion(0.0513155, -0.0191996, 0.0524573, 0.997119)
+bones/5/rotation = Quaternion(-0.0624815, -0.194161, -0.0462836, 0.977883)
+bones/7/rotation = Quaternion(-0.575809, -0.422151, 0.555411, -0.426323)
+bones/8/rotation = Quaternion(0.492733, 0.0997832, 0.134166, 0.853966)
+bones/9/rotation = Quaternion(0.0788504, -0.367554, 0.629335, 0.680165)
+bones/10/rotation = Quaternion(0.169402, 0.427885, -0.0695535, 0.885087)
+bones/11/rotation = Quaternion(0.111624, 0.0517843, 0.241644, 0.962531)
+bones/12/rotation = Quaternion(0.0766435, -0.0058144, -0.0803563, 0.993798)
+bones/13/rotation = Quaternion(-0.0585901, -0.0912239, -0.133686, 0.985075)
+bones/15/rotation = Quaternion(0.128781, -0.00550726, 0.0548546, 0.990139)
+bones/16/rotation = Quaternion(0.332104, 0.00116217, -0.0299532, 0.942766)
+bones/17/rotation = Quaternion(0.0100385, -1.69938e-05, 0.00154214, 0.999948)
+bones/19/rotation = Quaternion(0.0483942, -0.00278304, -0.0116073, 0.998757)
+bones/20/rotation = Quaternion(0.324798, 0.00106608, -0.0278131, 0.945374)
+bones/21/rotation = Quaternion(-0.0862581, 0.00013932, 0.00694348, 0.996249)
+bones/23/rotation = Quaternion(0.0815398, -0.00550595, -0.087476, 0.992809)
+bones/24/rotation = Quaternion(0.17726, 0.000476098, -0.0150591, 0.984049)
+bones/25/rotation = Quaternion(-0.0065211, -0.000281776, 0.00693481, 0.999955)
+bones/27/rotation = Quaternion(0.0243322, 0.000578221, -0.177834, 0.98376)
+bones/28/rotation = Quaternion(0.196127, 0.00317938, 0.023464, 0.980293)
+bones/29/rotation = Quaternion(0.0357599, 3.01243e-06, -0.00145261, 0.999359)
+bones/31/rotation = Quaternion(0.595796, -0.412036, 0.496397, 0.478375)
+bones/32/rotation = Quaternion(0.226228, 0.440718, -0.418677, 0.761116)
+bones/33/rotation = Quaternion(-0.105674, -0.0043759, -0.283157, 0.953224)
+bones/34/rotation = Quaternion(-0.180649, 0.116132, 0.152107, 0.96475)
+bones/35/rotation = Quaternion(0.177767, -0.0252739, -0.195181, 0.964191)
+bones/36/rotation = Quaternion(0.119327, -0.0388824, 0.318184, 0.939685)
+bones/37/rotation = Quaternion(0.0626458, 0.0802814, 0.493508, 0.86376)
+bones/39/rotation = Quaternion(0.0402978, -0.00115778, 0.0315213, 0.99869)
+bones/40/rotation = Quaternion(0.0692349, -7.99866e-05, 0.00436454, 0.997591)
+bones/41/rotation = Quaternion(-0.0840397, -0.000156402, -0.00522706, 0.996449)
+bones/43/rotation = Quaternion(0.666087, 0.0161462, 0.087427, 0.740556)
+bones/44/rotation = Quaternion(0.838369, -0.00243064, 0.0846129, 0.538491)
+bones/45/rotation = Quaternion(0.822277, -0.00056742, 0.0836788, 0.562901)
+bones/47/rotation = Quaternion(0.685855, 0.0798755, 0.0854632, 0.718275)
+bones/48/rotation = Quaternion(0.802387, -0.00335652, 0.0749756, 0.592066)
+bones/49/rotation = Quaternion(0.795985, -0.000562758, 0.0761431, 0.600508)
+bones/51/rotation = Quaternion(0.697837, 0.133335, 0.0747772, 0.699753)
+bones/52/rotation = Quaternion(0.791748, -0.00238893, 0.0731887, 0.606442)
+bones/53/rotation = Quaternion(0.82652, 0.00705142, 0.0846095, 0.556467)
+bones/55/rotation = Quaternion(0.0168209, 0.893248, 0.448615, -0.0238501)
+bones/56/rotation = Quaternion(-0.929284, 0.0909276, 0.0475966, 0.354821)
+bones/57/rotation = Quaternion(0.411899, -0.0716312, 0.00838358, 0.908371)
+bones/58/rotation = Quaternion(0.323602, -0.0130117, 0.00253228, 0.9461)
+bones/60/rotation = Quaternion(-0.00583191, 0.511518, 0.858929, 0.0235798)
+bones/61/rotation = Quaternion(-0.790432, -0.0347452, 0.00263322, 0.611558)
+bones/62/rotation = Quaternion(0.575143, 0.0934027, 0.0277184, 0.812231)
+bones/63/rotation = Quaternion(0.28926, 0.00868333, -0.00282823, 0.957207)
 
 [node name="HallwayUpstairs" type="Node3D" parent="Past/PictureSpecificObjects"]
 visible = false
@@ -7267,6 +7367,14 @@ bones/403/rotation = Quaternion(0, 0, 0, 1)
 bones/405/position = Vector3(1.63475e-10, -2.79397e-10, -3.91155e-10)
 bones/408/position = Vector3(0.00616905, -0.00365488, 0.00439994)
 bones/408/rotation = Quaternion(0.0828449, 0.0102829, 0.122747, 0.988921)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Past/PictureSpecificObjects/HallwayUpstairs"]
+transform = Transform3D(0.795195, 0.581354, -0.172313, 0.0963087, 0.159476, 0.982493, 0.598656, -0.797869, 0.0708255, 4.33923, 5.7656, 3.04644)
+size = Vector3(0.0248108, 0.309814, 0.0206909)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Past/PictureSpecificObjects/HallwayUpstairs"]
+transform = Transform3D(0.795195, 0.581354, -0.172313, 0.0963087, 0.159476, 0.982493, 0.598656, -0.797869, 0.0708255, 4.39642, 5.75813, 2.97267)
+size = Vector3(0.0705338, 0.127991, 0.0655212)
 
 [node name="TV" type="Node3D" parent="Past/PictureSpecificObjects"]
 visible = false
@@ -9753,7 +9861,13 @@ spot_range = 1.0
 spot_angle = 15.0
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Past/PictureSpecificObjects/NoorRoomDay"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.26396, -2.43939)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 7.26396, -2.43939)
+shadow_enabled = true
+shadow_opacity = 0.85
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Past/PictureSpecificObjects/NoorRoomDay"]
+transform = Transform3D(0.359545, -0.428961, -0.828686, 0.12496, 0.902208, -0.412802, 0.924723, 0.0448686, 0.377987, 0.299744, 5.46546, -3.23494)
+size = Vector3(0.214661, 0.00393677, 0.339966)
 
 [node name="FrontDoor" type="Node3D" parent="Past/PictureSpecificObjects"]
 visible = false
@@ -11706,6 +11820,7 @@ bones/408/position = Vector3(0.00409159, -0.00500152, 0.00417215)
 bones/408/rotation = Quaternion(0.0307497, 0.0818857, 0.056881, 0.994542)
 
 [node name="Shed" type="Node3D" parent="Past/PictureSpecificObjects"]
+visible = false
 
 [node name="SpotLight3D2" type="SpotLight3D" parent="Past/PictureSpecificObjects/Shed"]
 transform = Transform3D(0.788558, -0.343623, 0.509999, 3.41647e-08, 0.829321, 0.558773, -0.61496, -0.440625, 0.653968, 10.2206, 7.18083, -11.7647)
@@ -12226,6 +12341,7 @@ panning_strength = 0.0
 [editable path="Past/PictureSpecificObjects/Office/Noor_02"]
 [editable path="Past/PictureSpecificObjects/LivingRoom/Noor_03"]
 [editable path="Past/PictureSpecificObjects/LivingRoom/Mother_03"]
+[editable path="Past/PictureSpecificObjects/LivingRoom/Agathe_Final01"]
 [editable path="Past/PictureSpecificObjects/HallwayUpstairs/Noor_04"]
 [editable path="Past/PictureSpecificObjects/HallwayUpstairs/Mother_04"]
 [editable path="Past/PictureSpecificObjects/TV/Noor_05"]

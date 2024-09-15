@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://dvjrbpgqbrlok"]
+
+[ext_resource type="Texture2D" uid="uid://b5he5u37ckrht" path="res://assets/characters/Noor_Poses_c_noor_short.png" id="1_ql1ij"]
+
+[resource]
+resource_name = "noor_short.001"
+transparency = 4
+cull_mode = 2
+albedo_texture = ExtResource("1_ql1ij")
