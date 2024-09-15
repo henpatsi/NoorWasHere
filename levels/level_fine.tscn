@@ -1,4 +1,4 @@
-[gd_scene load_steps=496 format=3 uid="uid://baq3osaidwfaf"]
+[gd_scene load_steps=501 format=4 uid="uid://baq3osaidwfaf"]
 
 [ext_resource type="Script" path="res://levels/scripts/level.gd" id="1_mw3wp"]
 [ext_resource type="Material" uid="uid://dve3xrg044f4h" path="res://assets/materials/M_housetemp.tres" id="2_db8bv"]
@@ -410,7 +410,9 @@
 [ext_resource type="AudioStream" uid="uid://b72q3xj1r0td5" path="res://assets/audio/sfx/roomtone/Ambient noise/fire.ogg" id="351_ofa72"]
 [ext_resource type="AudioStream" uid="uid://v5y0r4dixf50" path="res://assets/audio/sfx/door/Dooropen.wav" id="356_k7uul"]
 [ext_resource type="AudioStream" uid="uid://big0o0i8xo7e4" path="res://assets/audio/sfx/Misc/cabinet/Cabinet_open.wav" id="356_s4k60"]
+[ext_resource type="AudioStream" uid="uid://m3xgq65pqjwl" path="res://assets/audio/sfx/Misc/light switch/Light_On.wav" id="364_4clln"]
 [ext_resource type="AudioStream" uid="uid://bng35hsyj2wbf" path="res://assets/audio/sfx/Misc/Pick up photo/Photo_Pickup2.wav" id="368_sv3tw"]
+[ext_resource type="Material" uid="uid://cfo4jukrqtp5k" path="res://assets/props/INTERACTEABLE/memory capsule/box_bake.tres" id="373_niv5h"]
 [ext_resource type="PackedScene" uid="uid://brtrvnfelp3ux" path="res://assets/props/car/sketchfab_scene.tscn" id="402_y4a1w"]
 [ext_resource type="AudioStream" uid="uid://dpwrykcp0viaf" path="res://assets/audio/sfx/roomtone/Ambient noise/Ambient_noise1.ogg" id="404_qmrnh"]
 [ext_resource type="PackedScene" uid="uid://paat7hmvkfo8" path="res://assets/characters/mother/mother_fbx.tscn" id="408_ojblb"]
@@ -1580,6 +1582,41 @@ _data = {
 "RESET": SubResource("Animation_na34f"),
 "open_doors": SubResource("Animation_vepiy")
 }
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_47rkm"]
+_surfaces = [{
+"aabb": AABB(-0.000720772, -0.00142224, -1.07341e-05, 0.00144154, 0.00284448, 0.000951053),
+"format": 34359742465,
+"index_count": 84,
+"index_data": PackedByteArray("AAABAAIAAgADAAAABAAFAAYABgAHAAQACAAJAAQABAAHAAgACQAKAAUABQAEAAkACgALAAYABgAFAAoACwAIAAcABwAGAAsAAwALAAoACgAMAAMADAAKAAkACQANAAwAAgAIAAsACwADAAIADQAJAAgACAACAA0ADgAAAAMAAwAMAA4ADwAOAAwADAANAA8AAQAPAA0ADQACAAEAAQAAAA4ADgAPAAEA"),
+"name": "box_bake",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 16,
+"vertex_data": PackedByteArray("egQ8uq7zuTrAf3Y6egQ8uq7zubrAf3Y6KfI8uoVqurp8oTY6KfI8uoVqujp8oTY64+I3OuPit7pmFjS34+I3OuPitzpmFjS34+I3uuPitzpmFjS34+I3uuPit7pmFjS34+I3uuPit7p8oTY64+I3OuPit7p8oTY64+I3OuPitzp8oTY64+I3uuPitzp8oTY6KfI8OoVqujp8oTY6KfI8OoVqurp8oTY6egQ8Oq7zuTrAf3Y6egQ8Oq7zubrAf3Y6")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_vq02a"]
+resource_name = "Cube_013"
+_surfaces = [{
+"aabb": AABB(-0.000720772, -0.00142224, -1.07341e-05, 0.00144154, 0.00284448, 0.000951053),
+"attribute_data": PackedByteArray("dZkpPyw21j5TmSk/HX9pP7u+Hj9+p2k/3r4eP17l1T5cNCk+67JVP1Y0KT56bLE+1ZbRPnpssT7altE+6rJVP92W0T7fNXU/XjQpPuE1dT9cNCk+67JVP9qW0T7qslU/9qEsPeuyVT//oSw9fmyxPlY0KT56bLE+XDQpPuuyVT9SNCk+JM1kPtWW0T4gzWQ+1ZbRPnpssT5WNCk+emyxPmJOCD94bLE+Y04IP+iyVT/altE+6rJVP9WW0T56bLE+FHEpP/qAwD4uTSo/yMi+PonLaD8Ayb4+ladpPxqBwD7HWXQ/jOXVPuA1dT++ndc+4DV1P1rLaD+jWXQ/lKdpP7u+Hj9+p2k/ouIdP2XLaD+i4h0/1J3XPt6+Hj9e5dU+bqdpP8hZdD9Ty2g/4TV1P/hMKj/ENXU/7HApP7dZdD8vf2k/TjbWPnWZKT8sNtY+FHEpP/qAwD6Vp2k/GoHAPg1/aT8uf2k/L39pP0421j7HWXQ/jOXVPqNZdD+Up2k/U5kpPx1/aT8Nf2k/Ln9pP26naT/IWXQ/7HApP7dZdD9TmSk/HX9pP3WZKT8sNtY+L39pP0421j4Nf2k/Ln9pPw=="),
+"format": 34359742487,
+"index_count": 84,
+"index_data": PackedByteArray("AAABAAIAAgADAAAABAAFAAYABgAHAAQACAAJAAoACgALAAgADAANAA4ADgAPAAwAEAARABIAEgATABAAFAAVABYAFgAXABQAGAAZABoAGgAbABgAHAAdAB4AHgAfABwAIAAhACIAIgAjACAAJAAlACYAJgAnACQAKAApACoAKgArACgALAAtAC4ALgAvACwAMAAxADIAMgAzADAANAA1ADYANgA3ADQA"),
+"material": ExtResource("373_niv5h"),
+"name": "box_bake",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 56,
+"vertex_data": PackedByteArray("egQ8uq7zuTrAf3Y6egQ8uq7zubrAf3Y6KfI8uoVqurp8oTY6KfI8uoVqujp8oTY64+I3OuPit7pmFjS34+I3OuPitzpmFjS34+I3uuPitzpmFjS34+I3uuPit7pmFjS34+I3uuPit7p8oTY64+I3OuPit7p8oTY64+I3OuPit7pmFjS34+I3uuPit7pmFjS34+I3OuPit7p8oTY64+I3OuPitzp8oTY64+I3OuPitzpmFjS34+I3OuPit7pmFjS34+I3OuPitzp8oTY64+I3uuPitzp8oTY64+I3uuPitzpmFjS34+I3OuPitzpmFjS34+I3uuPitzp8oTY64+I3uuPit7p8oTY64+I3uuPit7pmFjS34+I3uuPitzpmFjS3KfI8uoVqujp8oTY64+I3uuPitzp8oTY64+I3OuPitzp8oTY6KfI8OoVqujp8oTY6KfI8OoVqujp8oTY64+I3OuPitzp8oTY64+I3OuPit7p8oTY6KfI8OoVqurp8oTY6KfI8uoVqurp8oTY64+I3uuPit7p8oTY64+I3uuPitzp8oTY6KfI8uoVqujp8oTY6KfI8OoVqurp8oTY64+I3OuPit7p8oTY64+I3uuPit7p8oTY6KfI8uoVqurp8oTY6egQ8Oq7zuTrAf3Y6egQ8uq7zuTrAf3Y6KfI8uoVqujp8oTY6KfI8OoVqujp8oTY6egQ8Oq7zubrAf3Y6egQ8Oq7zuTrAf3Y6KfI8OoVqujp8oTY6KfI8OoVqurp8oTY6egQ8uq7zubrAf3Y6egQ8Oq7zubrAf3Y6KfI8OoVqurp8oTY6KfI8uoVqurp8oTY6egQ8uq7zubrAf3Y6egQ8uq7zuTrAf3Y6egQ8Oq7zuTrAf3Y6egQ8Oq7zubrAf3Y61QH/f9WB/7/VAf9/1YH/v9UB/3/Vgf+/1QH/f9WB/7//////AAD/v/////8AAP+//////wAA/7//////AAD/v/9/AAAAAP+//38AAAAA/7//fwAAAAD/v/9/AAAAAP+/////f/7/AID///9//v8AgP///3/+/wCA////f///////f///AAD/v/9///8AAP+//3///wAA/7//f///AAD/vwAA/3//f/+/AAD/f/9//78AAP9//3//vwAA/3//f/+///////7//7///////v//v//////+//+///////7//7////7/AAD/v////v8AAP+////+/xMA9b////7/EwD1vwAA/v8AAP+/AAD+/wAA/78AAP7/EwD1vwAA/v8UAPW///////7//7///////v//v//////+//+///////7//7//fyn+////v/9/Kf7///+//38p/v///7//fyn+////vyn+/3/+/xT/Kf7/f/7/FP8p/v9//v8U/yn+/3/+/xT//3/VAf7//7//f9UB/v//v/9/1QH+//+//3/VAf7//7//f/9//v//v/9//3/+//+//3//f/7//7//f/9//v//vw==")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_47rkm")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bhcac"]
+size = Vector3(0.21814, 0.135986, 0.415283)
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_2q7yh"]
 viewport_path = NodePath("Pictures/3_LivingRoom/SubViewport")
@@ -3120,7 +3157,7 @@ transform = Transform3D(2.98023e-08, 0, 1, 0, 1, 0, -1, 0, 2.98023e-08, 2.46362,
 
 [node name="Pictures" type="Node3D" parent="Present/LevelObjects/INTERACTABLES"]
 
-[node name="ForestPicture" type="StaticBody3D" parent="Present/LevelObjects/INTERACTABLES/Pictures" node_paths=PackedStringArray("picture_handler", "picture", "audio_stream_player") groups=["Interactable"]]
+[node name="forest picture" type="StaticBody3D" parent="Present/LevelObjects/INTERACTABLES/Pictures" node_paths=PackedStringArray("picture_handler", "picture", "audio_stream_player") groups=["Interactable"]]
 transform = Transform3D(0.948335, 0, 0.317272, 0, 1, 0, -0.317272, 0, 0.948335, 3.30865, 1.5069, -1.19439)
 script = ExtResource("15_gx5iv")
 picture_handler = NodePath("../../../../../Pictures")
@@ -3128,14 +3165,14 @@ picture = NodePath("../../../../../Pictures/9_Forest/ForestPicture")
 audio_stream_player = NodePath("AudioStreamPlayer3D")
 audio_clips = Array[AudioStream]([ExtResource("20_un5sy")])
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Present/LevelObjects/INTERACTABLES/Pictures/ForestPicture"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Present/LevelObjects/INTERACTABLES/Pictures/forest picture"]
 mesh = SubResource("PlaneMesh_lodhw")
 skeleton = NodePath("../../../../../..")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Present/LevelObjects/INTERACTABLES/Pictures/ForestPicture"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Present/LevelObjects/INTERACTABLES/Pictures/forest picture"]
 shape = SubResource("BoxShape3D_vc26v")
 
-[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Present/LevelObjects/INTERACTABLES/Pictures/ForestPicture"]
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Present/LevelObjects/INTERACTABLES/Pictures/forest picture"]
 
 [node name="TVStand" type="CSGBox3D" parent="Present/LevelObjects/INTERACTABLES"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 9.10975, 4.5, -2.75621)
@@ -4271,17 +4308,21 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 8.9954
 [node name="LightSwitch" parent="Past/INTERACTABLES" instance=ExtResource("14_wds17")]
 transform = Transform3D(2.98023e-08, 0, 1, 0, 1, 0, -1, 0, 2.98023e-08, 2.46362, 5.83048, -2.31098)
 
-[node name="light switch" parent="Past/INTERACTABLES" node_paths=PackedStringArray("nodes_to_show", "nodes_to_hide", "start_monitoring_list") groups=["Interactable"] instance=ExtResource("14_wds17")]
+[node name="light switch" parent="Past/INTERACTABLES" node_paths=PackedStringArray("audio_stream_player", "nodes_to_show", "nodes_to_hide", "start_monitoring_list") groups=["Interactable"] instance=ExtResource("14_wds17")]
 transform = Transform3D(2.98023e-08, 0, 1, 0, 1, 0, -1, 0, 2.98023e-08, 2.46362, 5.83048, -2.31098)
 visible = false
 script = ExtResource("38_f4eva")
 one_shot = true
+audio_stream_player = NodePath("AudioStreamPlayer3D")
+audio_clips = Array[AudioStream]([ExtResource("364_4clln")])
 nodes_to_show = [NodePath("../../PictureSpecificObjects/NoorRoomDay"), NodePath("../Pictures/front door picture")]
 nodes_to_hide = [NodePath("../../PictureSpecificObjects/NoorRoomNight")]
 start_monitoring_list = [NodePath("../../TriggerVolumes/V07_Room")]
 
 [node name="CollisionShape3D" parent="Past/INTERACTABLES/light switch" index="1"]
 disabled = true
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Past/INTERACTABLES/light switch"]
 
 [node name="ShedCloset" parent="Past/INTERACTABLES" instance=ExtResource("12_4m6ha")]
 transform = Transform3D(0.899647, 0, -0.0251922, 0, 0.9, 0, 0.0251922, 0, 0.899647, 7.07532, -0.107088, -20.6855)
@@ -4316,7 +4357,7 @@ libraries = {
 [node name="memory capsule nonint" parent="Past/INTERACTABLES" instance=ExtResource("16_p4a51")]
 transform = Transform3D(0.965926, 0, 0.258819, 0, 1, 0, -0.258819, 0, 0.965926, -2.25, 5.253, -3)
 
-[node name="memory capsule" parent="Past/INTERACTABLES" node_paths=PackedStringArray("audio_stream_player", "subtitle_label", "nodes_to_show", "nodes_to_hide") groups=["Interactable"] instance=ExtResource("16_p4a51")]
+[node name="memory capsule" type="StaticBody3D" parent="Past/INTERACTABLES" node_paths=PackedStringArray("audio_stream_player", "subtitle_label", "nodes_to_show", "nodes_to_hide") groups=["Interactable"]]
 transform = Transform3D(0.965926, 0, 0.258819, 0, 1, 0, -0.258819, 0, 0.965926, -2.25, 5.253, -3)
 visible = false
 script = ExtResource("40_n7i1m")
@@ -4332,7 +4373,14 @@ nodes_to_show = [NodePath("../light switch"), NodePath("../../PictureSpecificObj
 nodes_to_hide = [NodePath("../LightSwitch")]
 wait_for_audio = true
 
-[node name="CollisionShape3D" parent="Past/INTERACTABLES/memory capsule" index="1"]
+[node name="box_bake" type="MeshInstance3D" parent="Past/INTERACTABLES/memory capsule"]
+transform = Transform3D(200, 0, 0, 0, -8.74228e-06, 200, 0, -200, -8.74228e-06, 0, 0, 0)
+mesh = SubResource("ArrayMesh_vq02a")
+skeleton = NodePath("")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Past/INTERACTABLES/memory capsule"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00128174, 0.0645752, -0.000854492)
+shape = SubResource("BoxShape3D_bhcac")
 disabled = true
 
 [node name="memory capsule2" parent="Past/INTERACTABLES" instance=ExtResource("16_p4a51")]
@@ -12162,7 +12210,6 @@ panning_strength = 0.0
 [editable path="Past/INTERACTABLES/closet"]
 [editable path="Past/INTERACTABLES/light switch"]
 [editable path="Past/INTERACTABLES/ShedCloset"]
-[editable path="Past/INTERACTABLES/memory capsule"]
 [editable path="Past/TriggerVolumes/V01_Backyard"]
 [editable path="Past/TriggerVolumes/V02_Office"]
 [editable path="Past/TriggerVolumes/V03_LivingRoom"]
