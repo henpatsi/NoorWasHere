@@ -7,7 +7,7 @@
 [ext_resource type="Script" path="res://levels/scripts/picture_handler.gd" id="3_m4duy"]
 [ext_resource type="PackedScene" uid="uid://b25ooshew3q2v" path="res://player/player.tscn" id="4_aw37m"]
 [ext_resource type="Script" path="res://levels/scripts/picture.gd" id="4_xvv2v"]
-[ext_resource type="PackedScene" uid="uid://d22ogqllffeom" path="res://levels/camera_ref.tscn" id="6_ksg6d"]
+[ext_resource type="PackedScene" path="res://levels/camera_ref.tscn" id="6_ksg6d"]
 [ext_resource type="Script" path="res://levels/scripts/ui.gd" id="6_vry8q"]
 [ext_resource type="Script" path="res://levels/scripts/screenshot.gd" id="7_etppf"]
 [ext_resource type="Script" path="res://levels/scripts/dynamic_label.gd" id="7_rnv2q"]
@@ -2941,6 +2941,9 @@ transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.143
 transform = Transform3D(0.358368, 0, 0.93358, 0, 1, 0, -0.93358, 0, 0.358368, -0.143929, 0.5, -8.38692)
 visible = false
 
+[node name="CollisionShape3D" parent="Present/LevelObjects/House/Level2/Doors/Door_Noor_open" index="1"]
+disabled = true
+
 [node name="Roof" type="Node3D" parent="Present/LevelObjects/House"]
 
 [node name="Floor8" type="CSGBox3D" parent="Present/LevelObjects/House/Roof"]
@@ -3044,9 +3047,15 @@ transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 8.7492
 transform = Transform3D(-0.390731, 6.07908e-08, 0.920504, 0.920504, -4.02365e-08, 0.390731, 6.07907e-08, 1, -4.02365e-08, 0.0576923, -0.03356, 0.00932729)
 visible = false
 
+[node name="CollisionShape3D" parent="Present/LevelObjects/INTERACTABLES/closet/closet/closet_door_left_open" index="1"]
+disabled = true
+
 [node name="closet_door_right_open" parent="Present/LevelObjects/INTERACTABLES/closet/closet" index="3" instance=ExtResource("11_0yc1f")]
 transform = Transform3D(0.173648, 5.13018e-08, -0.984807, 0.984807, 4.30473e-08, 0.173648, -5.13018e-08, 1, 4.30473e-08, -0.0569425, -0.0378285, 0.00932729)
 visible = false
+
+[node name="CollisionShape3D" parent="Present/LevelObjects/INTERACTABLES/closet/closet/closet_door_right_open" index="1"]
+disabled = true
 
 [node name="TV" parent="Present/LevelObjects/INTERACTABLES" node_paths=PackedStringArray("interact_label", "interact_response_label", "picture_handler") groups=["Interactable"] instance=ExtResource("12_4tqrl")]
 transform = Transform3D(-0.940678, -0.337738, 0.0325252, -0.339301, 0.936274, -0.0909153, 0.000253081, -0.0965579, -0.995327, 8.93476, 4.75, 6.06002)
@@ -3068,7 +3077,7 @@ transform = Transform3D(2.98023e-08, 0, 1, 0, 1, 0, -1, 0, 2.98023e-08, 2.46362,
 [node name="Pictures" type="Node3D" parent="Present/LevelObjects/INTERACTABLES"]
 
 [node name="ForestPicture" type="StaticBody3D" parent="Present/LevelObjects/INTERACTABLES/Pictures" node_paths=PackedStringArray("picture_handler", "picture") groups=["Interactable"]]
-transform = Transform3D(0.948335, 0, 0.317272, 0, 1, 0, -0.317272, 0, 0.948335, -0.354065, 1.27327, -2.79793)
+transform = Transform3D(0.948335, 0, 0.317272, 0, 1, 0, -0.317272, 0, 0.948335, 3.30865, 1.5069, -1.19439)
 script = ExtResource("15_gx5iv")
 picture_handler = NodePath("../../../../../Pictures")
 picture = NodePath("../../../../../Pictures/9_Forest/ForestPicture")
@@ -3768,12 +3777,18 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.3560
 transform = Transform3D(0.937659, 0, -0.347558, 0, 1, 0, 0.347558, 0, 0.937659, 0.356079, 0.5, 9.93767)
 visible = false
 
+[node name="CollisionShape3D" parent="Past/LevelObjects/House/Level1/Doors/Door_Front_Open" index="1"]
+disabled = true
+
 [node name="Door_Backyard" parent="Past/LevelObjects/House/Level1/Doors" instance=ExtResource("3_k0uy4")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.157288, 0.5, -5.42769)
 
 [node name="Door_Backyard_Open" parent="Past/LevelObjects/House/Level1/Doors" instance=ExtResource("3_k0uy4")]
 transform = Transform3D(-0.994356, 0, -0.106091, 0, 1, 0, 0.106091, 0, -0.994356, 0.106079, 0.5, -5.42769)
 visible = false
+
+[node name="CollisionShape3D" parent="Past/LevelObjects/House/Level1/Doors/Door_Backyard_Open" index="1"]
+disabled = true
 
 [node name="Level2" type="Node3D" parent="Past/LevelObjects/House"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.5, 3.75, 0)
@@ -9436,7 +9451,10 @@ panning_strength = 0.0
 [connection signal="body_entered" from="Present/TriggerVolumes/EndSequenceTrigger" to="Present/TriggerVolumes/EndSequenceTrigger" method="_on_body_entered"]
 
 [editable path="Player"]
+[editable path="Present/LevelObjects/House/Level2/Doors/Door_Noor_open"]
 [editable path="Present/LevelObjects/INTERACTABLES/closet"]
+[editable path="Present/LevelObjects/INTERACTABLES/closet/closet/closet_door_left_open"]
+[editable path="Present/LevelObjects/INTERACTABLES/closet/closet/closet_door_right_open"]
 [editable path="Present/LevelObjects/INTERACTABLES/TVStand/DropOffZone"]
 [editable path="Present/TriggerVolumes/V00_FrontDoor"]
 [editable path="Present/TriggerVolumes/V01E_EnterHouse"]
@@ -9447,6 +9465,8 @@ panning_strength = 0.0
 [editable path="Present/TriggerVolumes/V08E_FrontDoor"]
 [editable path="Present/TriggerVolumes/V09E_Forest"]
 [editable path="Present/TriggerVolumes/V10E_Shed"]
+[editable path="Past/LevelObjects/House/Level1/Doors/Door_Front_Open"]
+[editable path="Past/LevelObjects/House/Level1/Doors/Door_Backyard_Open"]
 [editable path="Past/LevelObjects/House/Level2/Doors/Door_Noor"]
 [editable path="Past/INTERACTABLES/closet"]
 [editable path="Past/INTERACTABLES/LightSwitch_interactable"]
