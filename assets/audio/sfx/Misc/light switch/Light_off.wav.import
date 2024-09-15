@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dypk14a4ksjab"
+path="res://.godot/imported/Light_off.wav-67a46e1b8e1f273c489bb146babc7226.sample"
+
+[deps]
+
+source_file="res://assets/audio/sfx/Misc/light switch/Light_off.wav"
+dest_files=["res://.godot/imported/Light_off.wav-67a46e1b8e1f273c489bb146babc7226.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

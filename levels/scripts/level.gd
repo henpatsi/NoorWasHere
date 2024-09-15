@@ -42,4 +42,4 @@ func set_past_environment() -> void:
 func set_present_environment() -> void:
 	print("Setting environment to present")
 	world_environment.environment = env_present
-	directional_light_3d.light_energy = 1
+	directional_light_3d.light_energy = 0.075

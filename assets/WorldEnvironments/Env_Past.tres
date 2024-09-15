@@ -9,8 +9,25 @@ energy_multiplier = 0.7
 sky_material = SubResource("ProceduralSkyMaterial_wwax2")
 
 [resource]
-background_mode = 2
-background_energy_multiplier = 0.68
+background_mode = 1
+background_color = Color(0.963192, 0.956571, 0.978653, 1)
+background_energy_multiplier = 1.53
 sky = SubResource("Sky_vi5s3")
+ambient_light_source = 1
 ambient_light_sky_contribution = 0.0
 ambient_light_energy = 0.0
+glow_enabled = true
+glow_intensity = 0.49
+glow_strength = 0.94
+glow_bloom = 0.33
+glow_blend_mode = 1
+glow_hdr_threshold = 0.0
+glow_hdr_scale = 1.72
+fog_enabled = true
+fog_mode = 1
+fog_light_color = Color(0, 0, 0, 1)
+fog_light_energy = 1.17
+fog_density = 1.0
+fog_height = -2.9
+fog_height_density = 0.2036
+fog_depth_curve = 0.574354

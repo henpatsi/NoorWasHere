@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://cgxf17m0esl6s"
+path="res://.godot/imported/roomtone_house_photo.ogg-e3688c49d59d2e0634bb0eda309bd58e.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/audio/sfx/roomtone/House (not abandoned)/roomtone_house_photo.ogg"
+dest_files=["res://.godot/imported/roomtone_house_photo.ogg-e3688c49d59d2e0634bb0eda309bd58e.oggvorbisstr"]
+
+[params]
+
+loop=true
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4

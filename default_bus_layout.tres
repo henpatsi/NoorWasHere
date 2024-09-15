@@ -1,0 +1,20 @@
+[gd_resource type="AudioBusLayout" load_steps=2 format=3 uid="uid://lealqxa7v32h"]
+
+[sub_resource type="AudioEffectEQ10" id="AudioEffectEQ10_808ve"]
+resource_name = "EQ10"
+band_db/500_hz = -0.7
+band_db/1000_hz = -7.1
+band_db/2000_hz = -16.2
+band_db/4000_hz = -22.6
+band_db/8000_hz = -31.7
+band_db/16000_hz = -45.4
+
+[resource]
+bus/1/name = &"Highpass"
+bus/1/solo = false
+bus/1/mute = false
+bus/1/bypass_fx = false
+bus/1/volume_db = 0.0
+bus/1/send = &"Master"
+bus/1/effect/0/effect = SubResource("AudioEffectEQ10_808ve")
+bus/1/effect/0/enabled = true
