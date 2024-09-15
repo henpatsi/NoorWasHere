@@ -1,4 +1,4 @@
-[gd_scene load_steps=495 format=3 uid="uid://baq3osaidwfaf"]
+[gd_scene load_steps=496 format=3 uid="uid://baq3osaidwfaf"]
 
 [ext_resource type="Script" path="res://levels/scripts/level.gd" id="1_mw3wp"]
 [ext_resource type="Material" uid="uid://dve3xrg044f4h" path="res://assets/materials/M_housetemp.tres" id="2_db8bv"]
@@ -11,6 +11,7 @@
 [ext_resource type="Script" path="res://levels/scripts/ui.gd" id="6_vry8q"]
 [ext_resource type="Script" path="res://levels/scripts/screenshot.gd" id="7_etppf"]
 [ext_resource type="Script" path="res://levels/scripts/dynamic_label.gd" id="7_rnv2q"]
+[ext_resource type="AudioStream" uid="uid://p1vcrogcvlt8" path="res://assets/audio/sfx/roomtone/Ambient noise/Ambient_noise2.ogg" id="9_golp1"]
 [ext_resource type="FontFile" uid="uid://bi3g7vfa5cdww" path="res://assets/fonts/Helvetica-Font/Helvetica.ttf" id="9_wxn3y"]
 [ext_resource type="Script" path="res://levels/scripts/end_sequence.gd" id="10_7ofpm"]
 [ext_resource type="PackedScene" uid="uid://c466iifg5vfql" path="res://assets/props/INTERACTEABLE/closet/closet_door_left.tscn" id="11_0yc1f"]
@@ -1739,6 +1740,10 @@ match_position_distance = 2.0
 match_rotation_distance = 10.0
 nodes_to_show = [NodePath("../../../Past/PictureSpecificObjects/Frontyard")]
 ambientASP = NodePath("../../../Past/Sounds/AmbientPhoto1")
+ambientAS = ExtResource("404_qmrnh")
+starting_volume = 50.0
+ending_volume = 60.0
+volume_fade_in_time = 1.0
 
 [node name="SubViewport" type="SubViewport" parent="Pictures/0_Frontyard"]
 size = Vector2i(1280, 720)
@@ -1762,7 +1767,7 @@ picture = NodePath("../../FrontyardPicture")
 
 [node name="1_Backyard" type="Node" parent="Pictures"]
 
-[node name="BackyardPicture" type="TextureRect" parent="Pictures/1_Backyard" node_paths=PackedStringArray("camera", "world_root", "nodes_to_show", "nodes_to_hide")]
+[node name="BackyardPicture" type="TextureRect" parent="Pictures/1_Backyard" node_paths=PackedStringArray("camera", "world_root", "nodes_to_show", "nodes_to_hide", "ambientASP")]
 visible = false
 clip_contents = true
 anchors_preset = 15
@@ -1784,6 +1789,11 @@ match_position_distance = 2.0
 match_rotation_distance = 10.0
 nodes_to_show = [NodePath("../../../Past/LevelObjects/House/Level1/Doors/Door_Backyard_Open"), NodePath("../../../Past/PictureSpecificObjects/Backyard")]
 nodes_to_hide = [NodePath("../../../Past/LevelObjects/House/Level1/Doors/Door_Backyard")]
+ambientASP = NodePath("../../../Past/Sounds/AmbientPhoto1")
+ambientAS = ExtResource("404_qmrnh")
+starting_volume = 50.0
+ending_volume = 60.0
+volume_fade_in_time = 1.0
 
 [node name="SubViewport" type="SubViewport" parent="Pictures/1_Backyard"]
 size = Vector2i(1280, 720)
@@ -1807,7 +1817,7 @@ picture = NodePath("../../BackyardPicture")
 
 [node name="2_Office" type="Node" parent="Pictures"]
 
-[node name="OfficePicture" type="TextureRect" parent="Pictures/2_Office" node_paths=PackedStringArray("camera", "world_root", "nodes_to_show")]
+[node name="OfficePicture" type="TextureRect" parent="Pictures/2_Office" node_paths=PackedStringArray("camera", "world_root", "nodes_to_show", "ambientASP")]
 visible = false
 clip_contents = true
 anchors_preset = 15
@@ -1828,6 +1838,11 @@ world_root = NodePath("../../../Past")
 match_position_distance = 2.0
 match_rotation_distance = 10.0
 nodes_to_show = [NodePath("../../../Past/PictureSpecificObjects/Office")]
+ambientASP = NodePath("../../../Past/Sounds/AmbientPhoto1")
+ambientAS = ExtResource("404_qmrnh")
+starting_volume = 50.0
+ending_volume = 60.0
+volume_fade_in_time = 1.0
 
 [node name="SubViewport" type="SubViewport" parent="Pictures/2_Office"]
 size = Vector2i(1280, 720)
@@ -1851,7 +1866,7 @@ picture = NodePath("../../OfficePicture")
 
 [node name="3_LivingRoom" type="Node" parent="Pictures"]
 
-[node name="LivingRoomPicture" type="TextureRect" parent="Pictures/3_LivingRoom" node_paths=PackedStringArray("camera", "world_root", "nodes_to_show")]
+[node name="LivingRoomPicture" type="TextureRect" parent="Pictures/3_LivingRoom" node_paths=PackedStringArray("camera", "world_root", "nodes_to_show", "ambientASP")]
 visible = false
 clip_contents = true
 anchors_preset = 15
@@ -1872,6 +1887,8 @@ world_root = NodePath("../../../Past")
 match_position_distance = 2.0
 match_rotation_distance = 10.0
 nodes_to_show = [NodePath("../../../Past/PictureSpecificObjects/LivingRoom")]
+ambientASP = NodePath("../../../Past/Sounds/AmbientPhoto1")
+ambientAS = ExtResource("404_qmrnh")
 
 [node name="SubViewport" type="SubViewport" parent="Pictures/3_LivingRoom"]
 size = Vector2i(1280, 720)
@@ -1895,7 +1912,7 @@ picture = NodePath("../../LivingRoomPicture")
 
 [node name="4_HallwayUpstairs" type="Node" parent="Pictures"]
 
-[node name="HallwayUpstairPicture" type="TextureRect" parent="Pictures/4_HallwayUpstairs" node_paths=PackedStringArray("camera", "world_root", "nodes_to_show")]
+[node name="HallwayUpstairPicture" type="TextureRect" parent="Pictures/4_HallwayUpstairs" node_paths=PackedStringArray("camera", "world_root", "nodes_to_show", "ambientASP")]
 visible = false
 clip_contents = true
 anchors_preset = 15
@@ -1916,6 +1933,8 @@ world_root = NodePath("../../../Past")
 match_position_distance = 2.0
 match_rotation_distance = 10.0
 nodes_to_show = [NodePath("../../../Past/PictureSpecificObjects/HallwayUpstairs")]
+ambientASP = NodePath("../../../Past/Sounds/AmbientPhoto1")
+ambientAS = ExtResource("404_qmrnh")
 
 [node name="SubViewport" type="SubViewport" parent="Pictures/4_HallwayUpstairs"]
 size = Vector2i(1280, 720)
@@ -1939,7 +1958,7 @@ picture = NodePath("../../HallwayUpstairPicture")
 
 [node name="5_TV" type="Node" parent="Pictures"]
 
-[node name="TVPicture" type="TextureRect" parent="Pictures/5_TV" node_paths=PackedStringArray("camera", "world_root", "nodes_to_show")]
+[node name="TVPicture" type="TextureRect" parent="Pictures/5_TV" node_paths=PackedStringArray("camera", "world_root", "nodes_to_show", "ambientASP")]
 visible = false
 clip_contents = true
 anchors_preset = 15
@@ -1961,6 +1980,8 @@ match_position_distance = 2.0
 match_rotation_distance = 10.0
 requirements = Array[String](["tv_on_table"])
 nodes_to_show = [NodePath("../../../Past/PictureSpecificObjects/TV")]
+ambientASP = NodePath("../../../Past/Sounds/AmbientPhoto1")
+ambientAS = ExtResource("404_qmrnh")
 
 [node name="SubViewport" type="SubViewport" parent="Pictures/5_TV"]
 size = Vector2i(1280, 720)
@@ -1984,7 +2005,7 @@ picture = NodePath("../../TVPicture")
 
 [node name="6_7_NoorRoomNight" type="Node" parent="Pictures"]
 
-[node name="NoorRoomNightPicture" type="TextureRect" parent="Pictures/6_7_NoorRoomNight" node_paths=PackedStringArray("camera", "world_root", "nodes_to_show")]
+[node name="NoorRoomNightPicture" type="TextureRect" parent="Pictures/6_7_NoorRoomNight" node_paths=PackedStringArray("camera", "world_root", "nodes_to_show", "ambientASP")]
 visible = false
 clip_contents = true
 anchors_preset = 15
@@ -2005,6 +2026,8 @@ world_root = NodePath("../../../Past")
 match_position_distance = 2.0
 match_rotation_distance = 10.0
 nodes_to_show = [NodePath("../../../Past/PictureSpecificObjects/NoorRoomNight")]
+ambientASP = NodePath("../../../Past/Sounds/AmbientPhoto1")
+ambientAS = ExtResource("9_golp1")
 
 [node name="SubViewport" type="SubViewport" parent="Pictures/6_7_NoorRoomNight"]
 size = Vector2i(1280, 720)
@@ -2028,7 +2051,7 @@ picture = NodePath("../../NoorRoomNightPicture")
 
 [node name="8_FrontDoor" type="Node" parent="Pictures"]
 
-[node name="FrontDoorPicture" type="TextureRect" parent="Pictures/8_FrontDoor" node_paths=PackedStringArray("camera", "world_root", "nodes_to_show", "nodes_to_hide")]
+[node name="FrontDoorPicture" type="TextureRect" parent="Pictures/8_FrontDoor" node_paths=PackedStringArray("camera", "world_root", "nodes_to_show", "nodes_to_hide", "ambientASP")]
 visible = false
 clip_contents = true
 anchors_preset = 15
@@ -2050,6 +2073,8 @@ match_position_distance = 2.0
 match_rotation_distance = 10.0
 nodes_to_show = [NodePath("../../../Past/LevelObjects/House/Level1/Doors/Door_Front_Open"), NodePath("../../../Past/PictureSpecificObjects/FrontDoor")]
 nodes_to_hide = [NodePath("../../../Past/LevelObjects/House/Level1/Doors/Door_Front")]
+ambientASP = NodePath("../../../Past/Sounds/AmbientPhoto1")
+ambientAS = ExtResource("9_golp1")
 
 [node name="SubViewport" type="SubViewport" parent="Pictures/8_FrontDoor"]
 size = Vector2i(1280, 720)
@@ -2073,7 +2098,7 @@ picture = NodePath("../../FrontDoorPicture")
 
 [node name="9_Forest" type="Node" parent="Pictures"]
 
-[node name="ForestPicture" type="TextureRect" parent="Pictures/9_Forest" node_paths=PackedStringArray("camera", "world_root", "nodes_to_show")]
+[node name="ForestPicture" type="TextureRect" parent="Pictures/9_Forest" node_paths=PackedStringArray("camera", "world_root", "nodes_to_show", "ambientASP")]
 visible = false
 clip_contents = true
 anchors_preset = 15
@@ -2094,6 +2119,8 @@ world_root = NodePath("../../../Past")
 match_position_distance = 2.0
 match_rotation_distance = 10.0
 nodes_to_show = [NodePath("../../../Past/PictureSpecificObjects/Forest")]
+ambientASP = NodePath("../../../Past/Sounds/AmbientPhoto1")
+ambientAS = ExtResource("9_golp1")
 
 [node name="SubViewport" type="SubViewport" parent="Pictures/9_Forest"]
 size = Vector2i(1280, 720)
@@ -2117,7 +2144,7 @@ picture = NodePath("../../ForestPicture")
 
 [node name="10_Shed" type="Node" parent="Pictures"]
 
-[node name="ShedPicture" type="TextureRect" parent="Pictures/10_Shed" node_paths=PackedStringArray("camera", "world_root", "nodes_to_show")]
+[node name="ShedPicture" type="TextureRect" parent="Pictures/10_Shed" node_paths=PackedStringArray("camera", "world_root", "nodes_to_show", "ambientASP")]
 visible = false
 clip_contents = true
 anchors_preset = 15
@@ -2138,6 +2165,8 @@ world_root = NodePath("../../../Past")
 match_position_distance = 2.0
 match_rotation_distance = 10.0
 nodes_to_show = [NodePath("../../../Past/PictureSpecificObjects/Shed")]
+ambientASP = NodePath("../../../Past/Sounds/AmbientPhoto1")
+ambientAS = ExtResource("9_golp1")
 
 [node name="SubViewport" type="SubViewport" parent="Pictures/10_Shed"]
 size = Vector2i(1280, 720)
@@ -4134,7 +4163,7 @@ use_collision = true
 size = Vector3(0.25, 3, 4)
 
 [node name="Shed3" type="CSGBox3D" parent="Past/LevelObjects/Shed"]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 5.98475, 0, -18.2562)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 5.98474, 0, -18.2562)
 material_override = ExtResource("2_db8bv")
 use_collision = true
 size = Vector3(6.5, 0.5, 4.5)
@@ -4144,6 +4173,10 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 8.1097
 material_override = ExtResource("2_db8bv")
 use_collision = true
 size = Vector3(6.5, 3, 0.25)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Past/LevelObjects/Shed"]
+transform = Transform3D(1, 0, 0, 0, 0.909243, -0.416265, 0, 0.416265, 0.909243, 6.10327, -0.420336, -14.7632)
+size = Vector3(1.23541, 1, 1)
 
 [node name="Forest" type="Node3D" parent="Past/LevelObjects"]
 
@@ -12099,12 +12132,8 @@ curve = SubResource("Curve3D_vcldf")
 [node name="Sounds" type="Node3D" parent="Past"]
 
 [node name="AmbientPhoto1" type="AudioStreamPlayer3D" parent="Past/Sounds"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, -2, 13.25)
-stream = ExtResource("404_qmrnh")
-volume_db = -5.0
-unit_size = 100.0
-autoplay = true
-max_distance = 150.0
+attenuation_model = 3
+max_distance = 300.0
 panning_strength = 0.0
 
 [connection signal="body_entered" from="Present/TriggerVolumes/EndSequenceTrigger" to="Present/TriggerVolumes/EndSequenceTrigger" method="_on_body_entered"]
