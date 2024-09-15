@@ -30,6 +30,7 @@ extends TextureRect
 @export var ambientAS: AudioStream
 ## Volume db that the fade in starts from
 @export var starting_volume: float = -20
+@export var ending_volume: float = 20
 ## Time it takes music to fade in from silent to the original value
 @export var volume_fade_in_time: float = 3
 ## Time it takes to perfectly position player
@@ -149,7 +150,7 @@ func enter_picture(player: CharacterBody3D, head_node: Node3D, picture_handler: 
 		ambientASP.play()
 		audioTween = create_tween()
 		audioTween.set_ease(Tween.EASE_OUT)
-		audioTween.tween_property(ambientASP, "volume_db", 0, volume_fade_in_time)
+		audioTween.tween_property(ambientASP, "volume_db", ending_volume, volume_fade_in_time)
 
 	player.global_position = camera.global_position
 	player.position.y -= head_node.position.y

@@ -34,6 +34,9 @@ var input_enabled: bool = true
 @onready var player: CharacterBody3D = $"../Player"
 @onready var head_node: Node3D = $"../Player/HeadNode"
 
+@onready var transition_player: AudioStreamPlayer3D = $"../Player/TransitionPlayer"
+var transition_in_audio_clip: AudioStream = load("res://assets/audio/sfx/Misc/Transition/Photo_transition1.wav")
+var transition_out_audio_clip: AudioStream = load("res://assets/audio/sfx/Misc/Transition/Photo_transition2.wav")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -104,6 +107,11 @@ func _input(event: InputEvent) -> void:
 		if inside_picture:
 			print ("Already inside picture")
 			return
+			
+		if transition_player and transition_in_audio_clip:
+			transition_player.stream = transition_in_audio_clip
+			transition_player.play()
+
 		current_picture.enter_picture(player, head_node, self)
 		inside_picture = true
 		crosshair.show()
@@ -112,6 +120,10 @@ func _input(event: InputEvent) -> void:
 
 func toggle_inspect() -> void:
 	if inside_picture:
+		if transition_player and transition_out_audio_clip:
+			transition_player.stream = transition_out_audio_clip
+			transition_player.play()
+
 		current_picture.exit_picture(player, self)
 		inside_picture = false
 		up_position = false
