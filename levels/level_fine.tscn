@@ -79,7 +79,6 @@
 [ext_resource type="Texture2D" uid="uid://dledfbcpfdcgn" path="res://assets/vfx/128/smoke_128_0.png" id="49_lcnc1"]
 [ext_resource type="Script" path="res://levels/scripts/end_sequence_trigger.gd" id="50_imxim"]
 [ext_resource type="AudioStream" uid="uid://chmixllxaoe2c" path="res://assets/audio/VO/05_04.mp3" id="50_jdu6d"]
-[ext_resource type="AudioStream" uid="uid://0nfha6ugksag" path="res://assets/audio/sfx/digital_cam_shutter.ogg" id="50_kxcw6"]
 [ext_resource type="Texture2D" uid="uid://d3v535tjmli5r" path="res://assets/vfx/128/smoke_128_1.png" id="50_nrj6a"]
 [ext_resource type="AudioStream" uid="uid://ckskdd6myi6x" path="res://assets/audio/VO/05_05.mp3" id="51_tknhm"]
 [ext_resource type="Texture2D" uid="uid://cxh10nqto8wg5" path="res://assets/vfx/128/smoke_128_2.png" id="51_wex8m"]
@@ -405,6 +404,7 @@
 [ext_resource type="Texture2D" uid="uid://dt6fi3paymqfj" path="res://assets/vfx/128/smoke_128_299.png" id="348_6exb0"]
 [ext_resource type="AudioStream" uid="uid://bsstebl4bk5v3" path="res://assets/audio/sfx/roomtone/Yard present/Yard_ambience_dark.ogg" id="350_vbnq2"]
 [ext_resource type="AudioStream" uid="uid://b72q3xj1r0td5" path="res://assets/audio/sfx/roomtone/Ambient noise/fire.ogg" id="351_ofa72"]
+[ext_resource type="AudioStream" uid="uid://v5y0r4dixf50" path="res://assets/audio/sfx/door/Dooropen.wav" id="356_k7uul"]
 [ext_resource type="PackedScene" uid="uid://brtrvnfelp3ux" path="res://assets/props/car/sketchfab_scene.tscn" id="402_y4a1w"]
 [ext_resource type="AudioStream" uid="uid://dpwrykcp0viaf" path="res://assets/audio/sfx/roomtone/Ambient noise/Ambient_noise1.ogg" id="404_qmrnh"]
 [ext_resource type="PackedScene" uid="uid://paat7hmvkfo8" path="res://assets/characters/mother/mother_fbx.tscn" id="408_ojblb"]
@@ -1544,22 +1544,10 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("../closet/closet_door_right:rotation")
+tracks/0/path = NodePath("../closet/closet_door_left:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(-1.46653, 1.5708, -1.5708)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("../closet/closet_door_left:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
@@ -1579,18 +1567,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector3(1.42253, 1.5708, 1.5708), Vector3(-0.261799, 1.5708, 1.5708)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("../closet/closet_door_right:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(-1.46653, 1.5708, -1.5708), Vector3(0, 1.5708, -1.5708)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_a7axc"]
@@ -4206,7 +4182,7 @@ script = ExtResource("35_lctib")
 interaction_animations = Array[String](["open_left_closet"])
 one_shot = true
 audio_stream_player = NodePath("../../AudioStreamPlayer3D")
-audio_clips = Array[AudioStream]([ExtResource("50_kxcw6")])
+audio_clips = Array[AudioStream]([ExtResource("356_k7uul")])
 nodes_to_show = [NodePath("../../../../../Present/LevelObjects/INTERACTABLES/closet/closet/closet_door_left_open")]
 nodes_to_hide = [NodePath("../../../../../Present/LevelObjects/INTERACTABLES/closet/closet/closet_door_left"), NodePath("../../../../../Present/LevelObjects/INTERACTABLES/closet/TVBlocker")]
 
@@ -4221,7 +4197,7 @@ script = ExtResource("35_lctib")
 interaction_animations = Array[String](["open_right_closet"])
 one_shot = true
 audio_stream_player = NodePath("../../AudioStreamPlayer3D")
-audio_clips = Array[AudioStream]([ExtResource("50_kxcw6")])
+audio_clips = Array[AudioStream]([ExtResource("356_k7uul")])
 nodes_to_show = [NodePath("../../../../../Present/LevelObjects/INTERACTABLES/closet/closet/closet_door_right_open")]
 nodes_to_hide = [NodePath("../../../../../Present/LevelObjects/INTERACTABLES/closet/closet/closet_door_right"), NodePath("../../../../../Present/LevelObjects/INTERACTABLES/closet/TVBlocker")]
 
@@ -4229,6 +4205,9 @@ nodes_to_hide = [NodePath("../../../../../Present/LevelObjects/INTERACTABLES/clo
 libraries = {
 "": SubResource("AnimationLibrary_tageq")
 }
+
+[node name="AudioStreamPlayer3D" parent="Past/INTERACTABLES/closet" index="5"]
+volume_db = 20.0
 
 [node name="TV" parent="Past/INTERACTABLES" instance=ExtResource("12_4tqrl")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 8.99542, 4.75, -2.83798)
