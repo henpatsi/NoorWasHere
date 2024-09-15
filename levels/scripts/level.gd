@@ -15,12 +15,13 @@ var paused: bool = false
 func _ready() -> void:
 	black_screen.show()
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-	
+
 	set_past_environment()
 	for screenshot in picture_screenshots:
 		screenshot.take_screenshot()
-		await get_tree().create_timer(0.1).timeout
+		await get_tree().create_timer(0.2).timeout
 	set_present_environment()
+
 	await get_tree().create_timer(0.1).timeout
 	black_screen.hide()
 
