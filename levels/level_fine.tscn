@@ -1,4 +1,4 @@
-[gd_scene load_steps=502 format=4 uid="uid://baq3osaidwfaf"]
+[gd_scene load_steps=505 format=4 uid="uid://baq3osaidwfaf"]
 
 [ext_resource type="Script" path="res://levels/scripts/level.gd" id="1_mw3wp"]
 [ext_resource type="Material" uid="uid://dve3xrg044f4h" path="res://assets/materials/M_housetemp.tres" id="2_db8bv"]
@@ -7,7 +7,7 @@
 [ext_resource type="Script" path="res://levels/scripts/picture_handler.gd" id="3_m4duy"]
 [ext_resource type="PackedScene" uid="uid://b25ooshew3q2v" path="res://player/player.tscn" id="4_aw37m"]
 [ext_resource type="Script" path="res://levels/scripts/picture.gd" id="4_xvv2v"]
-[ext_resource type="PackedScene" path="res://levels/camera_ref.tscn" id="6_ksg6d"]
+[ext_resource type="PackedScene" uid="uid://d22ogqllffeom" path="res://levels/camera_ref.tscn" id="6_ksg6d"]
 [ext_resource type="Script" path="res://levels/scripts/ui.gd" id="6_vry8q"]
 [ext_resource type="Script" path="res://levels/scripts/screenshot.gd" id="7_etppf"]
 [ext_resource type="Script" path="res://levels/scripts/dynamic_label.gd" id="7_rnv2q"]
@@ -2301,6 +2301,7 @@ grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
 [node name="Label" type="Label" parent="UI/EndSequence"]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -4640,7 +4641,6 @@ shape = SubResource("BoxShape3D_dppsw")
 [node name="PictureSpecificObjects" type="Node3D" parent="Past"]
 
 [node name="Frontyard" type="Node3D" parent="Past/PictureSpecificObjects"]
-visible = false
 
 [node name="SpotLight3D" type="SpotLight3D" parent="Past/PictureSpecificObjects/Frontyard"]
 transform = Transform3D(0.626976, 0.322596, 0.709106, -0.772068, 0.378791, 0.510321, -0.103975, -0.867438, 0.486559, 7.25775, 4.73689, 16.242)
@@ -4675,6 +4675,10 @@ shape = SubResource("BoxShape3D_ggcrj")
 
 [node name="Noor_00" parent="Past/PictureSpecificObjects/Frontyard" instance=ExtResource("100_pxmqp")]
 transform = Transform3D(1.13452, 0, 0.188043, 0, 1.15, 0, -0.188043, 0, 1.13452, 0.810852, 0.531102, 10.7047)
+
+[node name="Body_004" parent="Past/PictureSpecificObjects/Frontyard/Noor_00/rig_001/Skeleton3D" index="1"]
+surface_material_override/2 = null
+surface_material_override/8 = null
 
 [node name="Backyard" type="Node3D" parent="Past/PictureSpecificObjects"]
 visible = false
@@ -5227,6 +5231,10 @@ bones/406/rotation = Quaternion(0.94239, -0.101177, 0.0340393, 0.317027)
 bones/408/position = Vector3(-14.3261, -5.78549, 21.306)
 bones/408/rotation = Quaternion(-0.745228, -0.0145114, -0.0771921, 0.662168)
 
+[node name="Body_004" parent="Past/PictureSpecificObjects/Backyard/Noor_01/rig_001/Skeleton3D" index="1"]
+surface_material_override/2 = null
+surface_material_override/8 = null
+
 [node name="CSGBox3D" type="CSGBox3D" parent="Past/PictureSpecificObjects/Backyard"]
 transform = Transform3D(-0.333511, 0, 0.942746, 0, 1, 0, -0.942746, 0, -0.333511, 0.603271, 0.47189, -6.98304)
 material_override = SubResource("StandardMaterial3D_jbyi0")
@@ -5767,6 +5775,10 @@ bones/403/rotation = Quaternion(3.53903e-08, 7.45058e-09, 1.00583e-07, 1)
 bones/406/rotation = Quaternion(0.94239, -0.101177, 0.0340393, 0.317027)
 bones/408/position = Vector3(-14.3261, 17.4389, 21.306)
 bones/408/rotation = Quaternion(-0.745228, -0.0145114, -0.0771921, 0.662168)
+
+[node name="Body_004" parent="Past/PictureSpecificObjects/Office/Noor_02/rig_001/Skeleton3D" index="1"]
+surface_material_override/2 = null
+surface_material_override/8 = null
 
 [node name="Agathe_Final01" parent="Past/PictureSpecificObjects/Office" instance=ExtResource("417_2f2gg")]
 transform = Transform3D(-0.516217, 0, -0.611163, 0, 0.8, 0, 0.611163, 0, -0.516217, -1.30579, 0.458678, 3.11985)
@@ -6321,6 +6333,10 @@ bones/403/rotation = Quaternion(4.65661e-10, 1.5134e-09, 4.09636e-08, 1)
 bones/406/rotation = Quaternion(0.94239, -0.101177, 0.0340393, 0.317027)
 bones/408/position = Vector3(-11.7256, 5.09163, 13.1637)
 bones/408/rotation = Quaternion(-0.673625, -0.00659906, -0.0598017, 0.736621)
+
+[node name="Body_004" parent="Past/PictureSpecificObjects/LivingRoom/Noor_03/rig_001/Skeleton3D" index="1"]
+surface_material_override/2 = null
+surface_material_override/8 = null
 
 [node name="Mother_03" parent="Past/PictureSpecificObjects/LivingRoom" instance=ExtResource("408_ojblb")]
 transform = Transform3D(0.258819, 0, -0.965926, 0, 1, 0, 0.965926, 0, 0.258819, 4.11743, 0.334085, 0)
@@ -6931,6 +6947,10 @@ bones/401/rotation = Quaternion(1.45519e-08, -2.04891e-08, 0, 1)
 bones/403/rotation = Quaternion(-2.22353e-08, 1.11759e-08, 9.77889e-09, 1)
 bones/408/position = Vector3(-1.04512, -11.2664, 22.4304)
 bones/408/rotation = Quaternion(-0.795693, 0.0351915, 0.0334658, 0.603751)
+
+[node name="Body_004" parent="Past/PictureSpecificObjects/HallwayUpstairs/Noor_04/rig_001/Skeleton3D" index="1"]
+surface_material_override/2 = null
+surface_material_override/8 = null
 
 [node name="Mother_04" parent="Past/PictureSpecificObjects/HallwayUpstairs" instance=ExtResource("408_ojblb")]
 transform = Transform3D(-0.989651, 0, 0.143493, 0, 1, 0, -0.143493, 0, -0.989651, 5.12744, 3.98033, 3.46804)
@@ -7916,6 +7936,10 @@ bones/403/rotation = Quaternion(0, 0, 2.98023e-08, 1)
 bones/408/position = Vector3(-13.3258, 35.3181, 57.1382)
 bones/408/rotation = Quaternion(-0.705919, 0.0472712, -0.088198, 0.701189)
 
+[node name="Body_004" parent="Past/PictureSpecificObjects/TV/Noor_05/rig_001/Skeleton3D" index="1"]
+surface_material_override/2 = null
+surface_material_override/8 = null
+
 [node name="Mother_05" parent="Past/PictureSpecificObjects/TV" instance=ExtResource("408_ojblb")]
 transform = Transform3D(-0.11407, 0, 0.993473, 0, 1, 0, -0.993473, 0, -0.11407, 6.2962, 4.11613, -2.57719)
 
@@ -8869,6 +8893,10 @@ bones/401/rotation = Quaternion(-6.98492e-09, -6.66134e-16, 0, 1)
 bones/403/rotation = Quaternion(3.86499e-08, 1.16415e-08, 3.25963e-09, 1)
 bones/408/position = Vector3(56.9994, -27.4233, -29.0958)
 bones/408/rotation = Quaternion(-0.0621233, -0.074052, 0.454045, 0.88572)
+
+[node name="Body_004" parent="Past/PictureSpecificObjects/NoorRoomNight/Noor_06/rig_001/Skeleton3D" index="1"]
+surface_material_override/2 = null
+surface_material_override/8 = null
 
 [node name="NightStaticBody3D" type="StaticBody3D" parent="Past/PictureSpecificObjects/NoorRoomNight"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.20844, 4.82809, -2.07524)
@@ -9854,6 +9882,10 @@ bones/406/rotation = Quaternion(0.899909, -0.104408, 0.022235, 0.422809)
 bones/408/position = Vector3(-2.88239, 32.7466, 56.8079)
 bones/408/rotation = Quaternion(-0.703806, 0.00132382, -0.000995949, 0.710391)
 
+[node name="Body_004" parent="Past/PictureSpecificObjects/NoorRoomDay/Noor_07/rig_001/Skeleton3D" index="1"]
+surface_material_override/2 = null
+surface_material_override/8 = null
+
 [node name="PhotoSpotlight" type="SpotLight3D" parent="Past/PictureSpecificObjects/NoorRoomDay"]
 transform = Transform3D(0.99889, -2.05909e-09, 0.0471064, -0.0471064, -4.36629e-08, 0.99889, 0, -1, -4.37114e-08, -0.682556, 5.79852, -0.887459)
 visible = false
@@ -10422,6 +10454,10 @@ bones/403/rotation = Quaternion(0.372735, 0.0106095, -0.0264002, 0.927502)
 bones/406/rotation = Quaternion(0.753591, -0.134772, -0.00776925, 0.643333)
 bones/408/position = Vector3(35.8065, 19.3697, 18.2561)
 bones/408/rotation = Quaternion(-0.6648, 0.183649, 0.284193, 0.665995)
+
+[node name="Body_004" parent="Past/PictureSpecificObjects/FrontDoor/Noor_08/rig_001/Skeleton3D" index="1"]
+surface_material_override/2 = null
+surface_material_override/8 = null
 
 [node name="Mother_08" parent="Past/PictureSpecificObjects/FrontDoor" instance=ExtResource("408_ojblb")]
 transform = Transform3D(-0.855832, 0, -0.225338, 0, 0.885, 0, 0.225338, 0, -0.855832, 0.266907, 0.439153, 8.99294)
@@ -11378,6 +11414,10 @@ bones/401/rotation = Quaternion(-3.72529e-09, -1.49012e-08, -2.42144e-08, 1)
 bones/403/rotation = Quaternion(1.86265e-08, 1.49012e-08, 1.77636e-15, 1)
 bones/408/position = Vector3(1.1149, -34.9972, 51.6356)
 bones/408/rotation = Quaternion(-0.528081, 0.108097, -0.00470076, 0.842273)
+
+[node name="Body_004" parent="Past/PictureSpecificObjects/Forest/Noor_09/rig_001/Skeleton3D" index="1"]
+surface_material_override/2 = null
+surface_material_override/8 = null
 
 [node name="Mother_09" parent="Past/PictureSpecificObjects/Forest" instance=ExtResource("408_ojblb")]
 transform = Transform3D(0.275839, 0, 0.961204, 0, 1, 0, -0.961204, 0, 0.275839, -15.2101, 0.00713265, -30.8771)
