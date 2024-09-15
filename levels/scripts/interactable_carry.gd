@@ -29,7 +29,7 @@ func interact(player: CharacterBody3D) -> void:
 	if not carrying:
 		get_parent().remove_child(self)
 		player.inspect_position.add_child(self)
-		position = Vector3(0, -0.5, 0)
+		position = Vector3(0, -0.5, -0.5)
 		rotation = Vector3(deg_to_rad(rotation_on_carry.x),
 						deg_to_rad(rotation_on_carry.y),
 						deg_to_rad(rotation_on_carry.z))

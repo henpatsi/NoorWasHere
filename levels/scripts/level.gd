@@ -17,6 +17,7 @@ func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
 	set_past_environment()
+	var i: int = 0
 	for screenshot in picture_screenshots:
 		screenshot.take_screenshot()
 		await get_tree().create_timer(0.2).timeout
