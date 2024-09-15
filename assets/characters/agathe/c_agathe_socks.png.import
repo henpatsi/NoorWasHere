@@ -15,7 +15,7 @@ dest_files=["res://.godot/imported/c_agathe_socks.png-6df9b1f874eb0dd4f4783e0a1a
 
 [params]
 
-compress/mode=0
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1

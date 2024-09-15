@@ -15,7 +15,7 @@ dest_files=["res://.godot/imported/c_agathe_short.png-262c66f4c84502bd62a0699a19
 
 [params]
 
-compress/mode=0
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1

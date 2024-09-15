@@ -3,10 +3,9 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dtuu2crvn7vie"
-path.s3tc="res://.godot/imported/Noor_Poses_noor_torso.png-e00c4eb54f1f7a9d52057920f0ba8938.s3tc.ctex"
+path="res://.godot/imported/Noor_Poses_noor_torso.png-e00c4eb54f1f7a9d52057920f0ba8938.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 generator_parameters={
 "md5": "deda8367c4f7958d59d73ae25c1a2320"
@@ -15,11 +14,11 @@ generator_parameters={
 [deps]
 
 source_file="res://assets/characters/Noor_Poses_noor_torso.png"
-dest_files=["res://.godot/imported/Noor_Poses_noor_torso.png-e00c4eb54f1f7a9d52057920f0ba8938.s3tc.ctex"]
+dest_files=["res://.godot/imported/Noor_Poses_noor_torso.png-e00c4eb54f1f7a9d52057920f0ba8938.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1

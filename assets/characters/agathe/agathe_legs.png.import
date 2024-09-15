@@ -15,7 +15,7 @@ dest_files=["res://.godot/imported/agathe_legs.png-1ea506b1ada353516a6d6c9fd1bfd
 
 [params]
 
-compress/mode=0
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1

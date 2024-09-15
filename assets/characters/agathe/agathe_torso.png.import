@@ -15,7 +15,7 @@ dest_files=["res://.godot/imported/agathe_torso.png-c37f51d13e7444622b8d731c5268
 
 [params]
 
-compress/mode=0
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1

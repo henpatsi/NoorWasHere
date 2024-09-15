@@ -3,10 +3,9 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://1amq5o4tv8cw"
-path.s3tc="res://.godot/imported/Mother_FBX_1.png-c8712e82a233a98b70f1e17b4fbbbc2c.s3tc.ctex"
+path="res://.godot/imported/Mother_FBX_1.png-c8712e82a233a98b70f1e17b4fbbbc2c.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 generator_parameters={
 "md5": "9ba0cbb042848dcca0d4206ce097aab9"
@@ -15,11 +14,11 @@ generator_parameters={
 [deps]
 
 source_file="res://assets/characters/mother/Mother_FBX_1.png"
-dest_files=["res://.godot/imported/Mother_FBX_1.png-c8712e82a233a98b70f1e17b4fbbbc2c.s3tc.ctex"]
+dest_files=["res://.godot/imported/Mother_FBX_1.png-c8712e82a233a98b70f1e17b4fbbbc2c.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
