@@ -1,4 +1,4 @@
-[gd_scene load_steps=482 format=3 uid="uid://baq3osaidwfaf"]
+[gd_scene load_steps=488 format=3 uid="uid://baq3osaidwfaf"]
 
 [ext_resource type="Script" path="res://levels/scripts/level.gd" id="1_mw3wp"]
 [ext_resource type="Material" uid="uid://dve3xrg044f4h" path="res://assets/materials/M_housetemp.tres" id="2_db8bv"]
@@ -438,13 +438,6 @@ viewport_path = NodePath("Pictures/9_Forest/SubViewport")
 [sub_resource type="ViewportTexture" id="ViewportTexture_8x1ut"]
 viewport_path = NodePath("Pictures/10_Shed/SubViewport")
 
-[sub_resource type="LabelSettings" id="LabelSettings_certn"]
-font = ExtResource("9_wxn3y")
-font_size = 32
-outline_color = Color(0, 0, 0, 1)
-shadow_size = 3
-shadow_color = Color(0, 0, 0, 0.313726)
-
 [sub_resource type="LabelSettings" id="LabelSettings_ag0sf"]
 font = ExtResource("9_wxn3y")
 outline_color = Color(0, 0, 0, 1)
@@ -461,12 +454,20 @@ shadow_color = Color(0, 0, 0, 0.313726)
 font_size = 128
 
 [sub_resource type="LabelSettings" id="LabelSettings_certn"]
+font = ExtResource("9_wxn3y")
 font_size = 32
 outline_size = 5
 outline_color = Color(0, 0, 0, 1)
+shadow_size = 3
+shadow_color = Color(0, 0, 0, 0.313726)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_08k2r"]
 albedo_color = Color(0.341962, 0.398952, 0.358896, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_w73lf"]
+size = Vector3(2.76678, 3.63855, 1.06177)
+
+[sub_resource type="BoxMesh" id="BoxMesh_6lea5"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_35tsd"]
 viewport_path = NodePath("Pictures/9_Forest/SubViewport")
@@ -1646,7 +1647,7 @@ size = Vector3(6, 4.5, 7.25)
 size = Vector3(6, 4.5, 7.25)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_045hb"]
-size = Vector3(4.70679, 4.5, 7.25)
+size = Vector3(4.98969, 4.5, 7.25)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_nf0s8"]
 size = Vector3(9.25, 4.5, 7.25)
@@ -1682,7 +1683,7 @@ size = Vector3(6.90625, 4.36621, 0.223633)
 size = Vector3(3.73755, 2.74072, 0.236206)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_r1ek6"]
-size = Vector3(5.45917, 2.74072, 0.236206)
+size = Vector3(5.45917, 2.74072, 0.954233)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_sqyef"]
 size = Vector3(0.128784, 3.04449, 4.01611)
@@ -2045,6 +2046,7 @@ stretch_mode = 3
 script = ExtResource("4_xvv2v")
 camera = NodePath("../SubViewport/PortalCamera")
 world_root = NodePath("../../../Past")
+match_rotation_distance = 10.0
 nodes_to_show = [NodePath("../../../Past/LevelObjects/House/Level1/Doors/Door_Front_Open"), NodePath("../../../Past/PictureSpecificObjects/FrontDoor")]
 nodes_to_hide = [NodePath("../../../Past/LevelObjects/House/Level1/Doors/Door_Front")]
 
@@ -2088,6 +2090,8 @@ stretch_mode = 3
 script = ExtResource("4_xvv2v")
 camera = NodePath("../SubViewport/PortalCamera")
 world_root = NodePath("../../../Past")
+match_position_distance = 1.5
+match_rotation_distance = 7.0
 nodes_to_show = [NodePath("../../../Past/PictureSpecificObjects/Forest")]
 
 [node name="SubViewport" type="SubViewport" parent="Pictures/9_Forest"]
@@ -2130,6 +2134,8 @@ stretch_mode = 3
 script = ExtResource("4_xvv2v")
 camera = NodePath("../SubViewport/PortalCamera")
 world_root = NodePath("../../../Past")
+match_position_distance = 2.0
+match_rotation_distance = 10.0
 nodes_to_show = [NodePath("../../../Past/PictureSpecificObjects/Shed")]
 
 [node name="SubViewport" type="SubViewport" parent="Pictures/10_Shed"]
@@ -2630,6 +2636,35 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.3560
 
 [node name="Door_Backyard" parent="Present/LevelObjects/House/Level1/Doors" instance=ExtResource("3_k0uy4")]
 transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 0.106071, 0.5, -5.42769)
+
+[node name="StairsBlockers" type="Node3D" parent="Present/LevelObjects/House/Level1"]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Present/LevelObjects/House/Level1/StairsBlockers"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.57479, 1.04981, 5.90893)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Present/LevelObjects/House/Level1/StairsBlockers/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.231171, 1.31927, -0.0308838)
+shape = SubResource("BoxShape3D_w73lf")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Present/LevelObjects/House/Level1/StairsBlockers"]
+transform = Transform3D(0.760991, 0.430004, -0.101289, -0.432882, 0.766083, 0, 0.0881842, 0.0498293, 0.874077, 4.02793, 1.94765, 5.96545)
+mesh = SubResource("BoxMesh_6lea5")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="Present/LevelObjects/House/Level1/StairsBlockers"]
+transform = Transform3D(0.540342, 0.305325, -0.0719201, -0.298305, 0.455868, -0.305881, -0.0970035, 0.298875, 0.540027, 3.65241, 2.07644, 5.96545)
+mesh = SubResource("BoxMesh_6lea5")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Present/LevelObjects/House/Level1/StairsBlockers"]
+transform = Transform3D(0.935865, 0.1536, 0.317117, 0.0742678, 0.793779, -0.603654, -0.344442, 0.588491, 0.731463, 4.90972, 2.40933, 6.1127)
+mesh = SubResource("BoxMesh_6lea5")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="Present/LevelObjects/House/Level1/StairsBlockers"]
+transform = Transform3D(0.463927, 0.277992, 0.422624, 0.050976, 0.544835, -0.414337, -0.503281, 0.311439, 0.34761, 4.31025, 2.52783, 6.00939)
+mesh = SubResource("BoxMesh_6lea5")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Present/LevelObjects/House/Level1/StairsBlockers"]
+transform = Transform3D(-0.176571, -0.287205, 0.941454, 0.198891, -0.947163, -0.251644, 0.963984, 0.142814, 0.224364, 3.55764, 1.29409, 6.10174)
+mesh = SubResource("BoxMesh_6lea5")
 
 [node name="Level2" type="Node3D" parent="Present/LevelObjects/House"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.5, 3.75, 0)
@@ -3219,6 +3254,15 @@ start_monitoring_list = [NodePath("../EndSequenceTrigger")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.2964, -0.000420094, -18.4313)
 shape = SubResource("BoxShape3D_uiutq")
 
+[node name="EndSequenceTrigger" type="Area3D" parent="Present/TriggerVolumes" node_paths=PackedStringArray("end_sequence")]
+monitoring = false
+script = ExtResource("50_imxim")
+end_sequence = NodePath("../../../UI/EndSequence")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Present/TriggerVolumes/EndSequenceTrigger"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8.00023, 0)
+shape = SubResource("BoxShape3D_dk8or")
+
 [node name="Lights" type="Node3D" parent="Present"]
 
 [node name="SpotLight3D" type="SpotLight3D" parent="Present/Lights"]
@@ -3388,14 +3432,6 @@ bus = &"Highpass"
 
 [node name="car" parent="Present" instance=ExtResource("402_y4a1w")]
 transform = Transform3D(-0.965926, 0, 0.258819, 0, 1, 0, -0.258819, 0, -0.965926, -1, 0, 31.25)
-[node name="EndSequenceTrigger" type="Area3D" parent="Present/TriggerVolumes" node_paths=PackedStringArray("end_sequence")]
-monitoring = false
-script = ExtResource("50_imxim")
-end_sequence = NodePath("../../../UI/EndSequence")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Present/TriggerVolumes/EndSequenceTrigger"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8.00023, 0)
-shape = SubResource("BoxShape3D_dk8or")
 
 [node name="Past" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 600, 0, 0)
@@ -4154,11 +4190,13 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 8.9954
 [node name="LightSwitch" parent="Past/INTERACTABLES" instance=ExtResource("14_wds17")]
 transform = Transform3D(2.98023e-08, 0, 1, 0, 1, 0, -1, 0, 2.98023e-08, 2.46362, 5.83048, -2.31098)
 
-[node name="LightSwitch_interactable" parent="Past/INTERACTABLES" node_paths=PackedStringArray("start_monitoring_list") groups=["Interactable"] instance=ExtResource("14_wds17")]
+[node name="LightSwitch_interactable" parent="Past/INTERACTABLES" node_paths=PackedStringArray("nodes_to_show", "nodes_to_hide", "start_monitoring_list") groups=["Interactable"] instance=ExtResource("14_wds17")]
 transform = Transform3D(2.98023e-08, 0, 1, 0, 1, 0, -1, 0, 2.98023e-08, 2.46362, 5.83048, -2.31098)
 visible = false
 script = ExtResource("38_f4eva")
 one_shot = true
+nodes_to_show = [NodePath("../../PictureSpecificObjects/NoorRoomDay")]
+nodes_to_hide = [NodePath("../../PictureSpecificObjects/NoorRoomNight")]
 start_monitoring_list = [NodePath("../../TriggerVolumes/V07_Room")]
 
 [node name="CollisionShape3D" parent="Past/INTERACTABLES/LightSwitch_interactable" index="1"]
@@ -4201,13 +4239,15 @@ transform = Transform3D(0.965926, 0, 0.258819, 0, 1, 0, -0.258819, 0, 0.965926, 
 transform = Transform3D(0.965926, 0, 0.258819, 0, 1, 0, -0.258819, 0, 0.965926, -2.25, 5.253, -3)
 visible = false
 script = ExtResource("40_n7i1m")
+maximum_distance_from_origin = 10.0
+rotation_on_inspect = Vector3(0, 90, 0)
 prevent_teleport = true
 audio_one_shot = true
 audio_stream_player = NodePath("../../../Player/PlayerDialogueASP")
 subtitle_label = NodePath("../../../UI/SubtitleLabel")
 audio_clips = Array[AudioStream]([ExtResource("41_qtpf1"), ExtResource("42_sl044"), ExtResource("43_d4nwb"), ExtResource("44_dw56j")])
 subtitles = Array[String](["a", "b", "c", "d"])
-nodes_to_show = [NodePath("../LightSwitch_interactable")]
+nodes_to_show = [NodePath("../LightSwitch_interactable"), NodePath("../../PictureSpecificObjects/NoorRoomNight/LightSwitchSpotlight")]
 nodes_to_hide = [NodePath("../LightSwitch")]
 wait_for_audio = true
 
@@ -4233,7 +4273,7 @@ skeleton = NodePath("../../../../../..")
 shape = SubResource("BoxShape3D_vc26v")
 
 [node name="FrontDoorPicture" type="StaticBody3D" parent="Past/INTERACTABLES/Pictures" node_paths=PackedStringArray("picture_handler", "picture") groups=["Interactable"]]
-transform = Transform3D(0.948335, 0, 0.317272, 0, 1, 0, -0.317272, 0, 0.948335, -0.407227, 5.00333, -0.763613)
+transform = Transform3D(0.948335, 0, 0.317272, 0, 1, 0, -0.317272, 0, 0.948335, -0.758972, 5.00333, -0.809086)
 visible = false
 script = ExtResource("15_gx5iv")
 picture_handler = NodePath("../../../../Pictures")
@@ -4360,12 +4400,12 @@ audio_stream_player = NodePath("../../../Player/PlayerDialogueASP")
 subtitle_label = NodePath("../../../UI/SubtitleLabel")
 audio_clips = Array[AudioStream]([ExtResource("52_rxp76"), ExtResource("53_g02uq"), ExtResource("54_np5r5")])
 subtitles = Array[String](["a", "b", "cd"])
-nodes_to_show = [NodePath("../../INTERACTABLES/memory capsule_interactable")]
+nodes_to_show = [NodePath("../../INTERACTABLES/memory capsule_interactable"), NodePath("../../PictureSpecificObjects/NoorRoomNight/TimeCapsuleSpotlight")]
 nodes_to_hide = [NodePath("../../INTERACTABLES/memory capsule")]
 wait_for_audio = true
 
 [node name="CollisionShape3D" parent="Past/TriggerVolumes/V06_Room" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.27161, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.13019, 0, 0)
 shape = SubResource("BoxShape3D_045hb")
 
 [node name="V07_Room" parent="Past/TriggerVolumes" node_paths=PackedStringArray("audio_stream_player", "subtitle_label", "nodes_to_show", "start_monitoring_list") instance=ExtResource("13_3syry")]
@@ -6644,7 +6684,6 @@ bones/408/position = Vector3(-1.04512, -11.2664, 22.4304)
 bones/408/rotation = Quaternion(-0.795693, 0.0351915, 0.0334658, 0.603751)
 
 [node name="TV" type="Node3D" parent="Past/PictureSpecificObjects"]
-visible = false
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Past/PictureSpecificObjects/TV"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.52191, 5.36756, -2.88827)
@@ -6665,7 +6704,7 @@ transform = Transform3D(0.796372, 0, 0.604808, 0, 1, 0, -0.604808, 0, 0.796372, 
 shape = SubResource("BoxShape3D_u0y61")
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="Past/PictureSpecificObjects/TV/StaticBody3D"]
-transform = Transform3D(0.203556, 0, -0.979063, 0, 1, 0, 0.979063, 0, 0.203556, -5.16156, 0.870361, -1.92397)
+transform = Transform3D(0.00383946, 0, -0.999992, 0, 1, 0, 0.999992, 0, 0.00383946, -4.05396, 0.870361, -2.07707)
 shape = SubResource("BoxShape3D_r1ek6")
 
 [node name="Noor_05" parent="Past/PictureSpecificObjects/TV" instance=ExtResource("100_pxmqp")]
@@ -7724,10 +7763,36 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.20844, 4.82809, -2.07524)
 transform = Transform3D(0.974652, 0, 0.223726, 0, 1, 0, -0.223726, 0, 0.974652, 2.28412, 0.889984, -1.50806)
 shape = SubResource("BoxShape3D_sqyef")
 
-[node name="Noor_07" parent="Past/PictureSpecificObjects/NoorRoomNight" instance=ExtResource("100_pxmqp")]
+[node name="TimeCapsuleSpotlight" type="SpotLight3D" parent="Past/PictureSpecificObjects/NoorRoomNight"]
+transform = Transform3D(0.997143, -3.30177e-09, 0.0755356, -0.0755356, -4.35865e-08, 0.997143, 0, -1, -4.37114e-08, -2.25592, 6.84167, -3.07596)
+visible = false
+spot_angle = 20.0
+
+[node name="LightSwitchSpotlight" type="SpotLight3D" parent="Past/PictureSpecificObjects/NoorRoomNight"]
+transform = Transform3D(0.892468, 1.97187e-08, -0.451111, 0.451111, -3.9011e-08, 0.892468, 0, -1, -4.37114e-08, 2.10974, 6.65171, -2.29466)
+visible = false
+spot_angle = 10.0
+
+[node name="NoorRoomDay" type="Node3D" parent="Past/PictureSpecificObjects"]
+visible = false
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="Past/PictureSpecificObjects/NoorRoomDay"]
+transform = Transform3D(-0.0414675, 0.334547, 0.941466, 0.999031, -3.72349e-09, 0.044003, 0.0147211, 0.942379, -0.334223, 3.68683, 6.03813, -4.1001)
+light_color = Color(1, 0.972549, 0.862745, 1)
+shadow_enabled = true
+spot_range = 7.746
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Past/PictureSpecificObjects/NoorRoomDay"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.20844, 4.82809, -2.07524)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Past/PictureSpecificObjects/NoorRoomDay/StaticBody3D"]
+transform = Transform3D(0.974652, 0, 0.223726, 0, 1, 0, -0.223726, 0, 0.974652, 2.28412, 0.889984, -1.50806)
+shape = SubResource("BoxShape3D_sqyef")
+
+[node name="Noor_07" parent="Past/PictureSpecificObjects/NoorRoomDay" instance=ExtResource("100_pxmqp")]
 transform = Transform3D(-0.647887, -0.0950157, 0.945365, -0.0861122, 1.1454, 0.0561051, -0.946217, -0.0391807, -0.652409, 0.150391, 4.24088, -3.05192)
 
-[node name="Skeleton3D" parent="Past/PictureSpecificObjects/NoorRoomNight/Noor_07/rig_001" index="0"]
+[node name="Skeleton3D" parent="Past/PictureSpecificObjects/NoorRoomDay/Noor_07/rig_001" index="0"]
 bones/1/position = Vector3(-0.602138, 3.96645, 62.6772)
 bones/1/rotation = Quaternion(0.774565, 0.00122223, -0.00111818, 0.632492)
 bones/2/rotation = Quaternion(-0.084619, 0.0010873, 0.013163, 0.996326)
@@ -8237,6 +8302,15 @@ bones/403/rotation = Quaternion(0.114459, 1.94221e-11, -2.83982e-09, 0.993428)
 bones/406/rotation = Quaternion(0.899909, -0.104408, 0.022235, 0.422809)
 bones/408/position = Vector3(-2.88239, 32.7466, 56.8079)
 bones/408/rotation = Quaternion(-0.703806, 0.00132382, -0.000995949, 0.710391)
+
+[node name="PhotoSpotlight" type="SpotLight3D" parent="Past/PictureSpecificObjects/NoorRoomDay"]
+transform = Transform3D(0.99889, -2.05909e-09, 0.0471064, -0.0471064, -4.36629e-08, 0.99889, 0, -1, -4.37114e-08, -0.682556, 5.79852, -0.887459)
+visible = false
+spot_range = 1.0
+spot_angle = 15.0
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Past/PictureSpecificObjects/NoorRoomDay"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.26396, -2.43939)
 
 [node name="FrontDoor" type="Node3D" parent="Past/PictureSpecificObjects"]
 visible = false
@@ -9338,6 +9412,10 @@ shape = SubResource("BoxShape3D_vx414")
 transform = Transform3D(-0.983414, 0, 0.181377, 0, 1, 0, -0.181377, 0, -0.983414, 23.1282, 3.1593, 4.31334)
 shape = SubResource("BoxShape3D_knsa1")
 
+[node name="CapsuleSpotlight" type="SpotLight3D" parent="Past/PictureSpecificObjects/Shed"]
+transform = Transform3D(1, 0, 0, 0, 0.802672, 0.596421, 0, -0.596421, 0.802672, 7.04956, 2.10254, -18.8825)
+spot_range = 3.0
+
 [node name="EndingCameraPath" type="Path3D" parent="Past"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 1.5, -14.5)
 curve = SubResource("Curve3D_vcldf")
@@ -9354,6 +9432,7 @@ unit_size = 100.0
 autoplay = true
 max_distance = 150.0
 panning_strength = 0.0
+
 [connection signal="body_entered" from="Present/TriggerVolumes/EndSequenceTrigger" to="Present/TriggerVolumes/EndSequenceTrigger" method="_on_body_entered"]
 
 [editable path="Player"]
@@ -9368,6 +9447,7 @@ panning_strength = 0.0
 [editable path="Present/TriggerVolumes/V08E_FrontDoor"]
 [editable path="Present/TriggerVolumes/V09E_Forest"]
 [editable path="Present/TriggerVolumes/V10E_Shed"]
+[editable path="Past/LevelObjects/House/Level2/Doors/Door_Noor"]
 [editable path="Past/INTERACTABLES/closet"]
 [editable path="Past/INTERACTABLES/LightSwitch_interactable"]
 [editable path="Past/INTERACTABLES/ShedCloset"]
@@ -9388,6 +9468,6 @@ panning_strength = 0.0
 [editable path="Past/PictureSpecificObjects/HallwayUpstairs/Noor_04"]
 [editable path="Past/PictureSpecificObjects/TV/Noor_05"]
 [editable path="Past/PictureSpecificObjects/NoorRoomNight/Noor_06"]
-[editable path="Past/PictureSpecificObjects/NoorRoomNight/Noor_07"]
+[editable path="Past/PictureSpecificObjects/NoorRoomDay/Noor_07"]
 [editable path="Past/PictureSpecificObjects/FrontDoor/Noor_08"]
 [editable path="Past/PictureSpecificObjects/Forest/Noor_09"]
