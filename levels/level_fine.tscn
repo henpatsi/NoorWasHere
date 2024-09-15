@@ -7,7 +7,7 @@
 [ext_resource type="Script" path="res://levels/scripts/picture_handler.gd" id="3_m4duy"]
 [ext_resource type="PackedScene" uid="uid://b25ooshew3q2v" path="res://player/player.tscn" id="4_aw37m"]
 [ext_resource type="Script" path="res://levels/scripts/picture.gd" id="4_xvv2v"]
-[ext_resource type="PackedScene" path="res://levels/camera_ref.tscn" id="6_ksg6d"]
+[ext_resource type="PackedScene" uid="uid://d22ogqllffeom" path="res://levels/camera_ref.tscn" id="6_ksg6d"]
 [ext_resource type="Script" path="res://levels/scripts/ui.gd" id="6_vry8q"]
 [ext_resource type="Script" path="res://levels/scripts/screenshot.gd" id="7_etppf"]
 [ext_resource type="Script" path="res://levels/scripts/dynamic_label.gd" id="7_rnv2q"]
@@ -54,6 +54,7 @@
 [ext_resource type="AudioStream" uid="uid://c73xua12gwtgx" path="res://assets/audio/VO/10_E02.mp3" id="37_01ytv"]
 [ext_resource type="AudioStream" uid="uid://gtdv2ea1x3dv" path="res://assets/audio/VO/10_E03.mp3" id="38_7rqkt"]
 [ext_resource type="Script" path="res://levels/scripts/interactable_default.gd" id="38_f4eva"]
+[ext_resource type="AudioStream" uid="uid://djux8yihykopn" path="res://assets/audio/VO/09_E03.mp3" id="39_5d7wx"]
 [ext_resource type="AudioStream" uid="uid://db0smnwi0384m" path="res://assets/audio/VO/10_E04.mp3" id="39_iqhku"]
 [ext_resource type="AudioStream" uid="uid://dyw2nbfelyt5a" path="res://assets/audio/VO/10_01.mp3" id="39_r5dow"]
 [ext_resource type="AudioStream" uid="uid://cnmypyjxbiltn" path="res://assets/audio/VO/03_01.mp3" id="40_g4e4l"]
@@ -3198,7 +3199,7 @@ audio_one_shot = true
 audio_stream_player = NodePath("../../../Player/PlayerDialogueASP")
 subtitle_label = NodePath("../../../UI/SubtitleLabel")
 audio_clips = Array[AudioStream]([ExtResource("14_pyrie"), ExtResource("15_ckhxf"), ExtResource("16_fg61r")])
-subtitles = Array[String](["a", "b", "c"])
+subtitles = Array[String](["When I was around seven, I made myself one of those time capsules for when I turned 28 years old.", "Perhaps I found it funny to avoid a multiple of ten, or maybe I was manifesting to make it past the 27 club.", "As per usual, I’ve left things to the last minute- today, it’s my 28th birthday."])
 start_monitoring_list = [NodePath("../../../Past/TriggerVolumes/V01_Backyard")]
 wait_for_audio = true
 
@@ -3216,7 +3217,7 @@ audio_one_shot = true
 audio_stream_player = NodePath("../../../Player/PlayerDialogueASP")
 subtitle_label = NodePath("../../../UI/SubtitleLabel")
 audio_clips = Array[AudioStream]([ExtResource("22_xpd7j")])
-subtitles = Array[String](["a"])
+subtitles = Array[String](["It’s weird being back."])
 start_monitoring_list = [NodePath("../../../Past/TriggerVolumes/V02_Office")]
 wait_for_audio = true
 
@@ -3234,7 +3235,7 @@ audio_one_shot = true
 audio_stream_player = NodePath("../../../Player/PlayerDialogueASP")
 subtitle_label = NodePath("../../../UI/SubtitleLabel")
 audio_clips = Array[AudioStream]([ExtResource("18_4l7tl"), ExtResource("19_7juhc"), ExtResource("20_m6i7j")])
-subtitles = Array[String](["a", "b", "c"])
+subtitles = Array[String](["Seeing this, I can almost feel it,", "the excitement rippling through my body. I was full of that as a kid.", "I miss that."])
 start_monitoring_list = [NodePath("../../../Past/TriggerVolumes/V03_LivingRoom")]
 wait_for_audio = true
 
@@ -3252,7 +3253,7 @@ audio_one_shot = true
 audio_stream_player = NodePath("../../../Player/PlayerDialogueASP")
 subtitle_label = NodePath("../../../UI/SubtitleLabel")
 audio_clips = Array[AudioStream]([ExtResource("21_euod3"), ExtResource("22_6cax2")])
-subtitles = Array[String](["a", "b"])
+subtitles = Array[String](["The last time I saw Agathe was when she asked me if I was going to her wedding.", " I don’t even remember what my excuse was."])
 start_monitoring_list = [NodePath("../../../Past/TriggerVolumes/V04_Hallway")]
 wait_for_audio = true
 
@@ -3270,7 +3271,7 @@ audio_one_shot = true
 audio_stream_player = NodePath("../../../Player/PlayerDialogueASP")
 subtitle_label = NodePath("../../../UI/SubtitleLabel")
 audio_clips = Array[AudioStream]([ExtResource("23_wh8hk"), ExtResource("24_o7msp")])
-subtitles = Array[String](["a", "b"])
+subtitles = Array[String](["Or at least until I heard the panic in her voice.", "I’d come out, crying, pleading with her not to be mad at me- or to brush my hair."])
 start_monitoring_list = [NodePath("../../../Past/TriggerVolumes/V05_TV")]
 wait_for_audio = true
 
@@ -3288,7 +3289,7 @@ audio_one_shot = true
 audio_stream_player = NodePath("../../../Player/PlayerDialogueASP")
 subtitle_label = NodePath("../../../UI/SubtitleLabel")
 audio_clips = Array[AudioStream]([ExtResource("25_echwm"), ExtResource("26_hp5c5")])
-subtitles = Array[String](["a", "b"])
+subtitles = Array[String](["Nowadays, I don’t really tell people much of anything.", "Coming here, I somehow forgot to tell everyone about it."])
 start_monitoring_list = [NodePath("../../../Past/TriggerVolumes/V08_FrontDoor")]
 wait_for_audio = true
 
@@ -3306,7 +3307,7 @@ audio_one_shot = true
 audio_stream_player = NodePath("../../../Player/PlayerDialogueASP")
 subtitle_label = NodePath("../../../UI/SubtitleLabel")
 audio_clips = Array[AudioStream]([ExtResource("27_100q3"), ExtResource("28_pgrea")])
-subtitles = Array[String](["a", "b"])
+subtitles = Array[String](["That night, she let me sleep beside her.", "She promised me first thing in the morning we’d dig the capsule in the ground, together."])
 start_monitoring_list = [NodePath("../../../Past/TriggerVolumes/V09_Forest")]
 wait_for_audio = true
 
@@ -3323,8 +3324,8 @@ prevent_teleport = true
 audio_one_shot = true
 audio_stream_player = NodePath("../../../Player/PlayerDialogueASP")
 subtitle_label = NodePath("../../../UI/SubtitleLabel")
-audio_clips = Array[AudioStream]([ExtResource("29_sdx77"), ExtResource("30_ogixp")])
-subtitles = Array[String](["a", "b"])
+audio_clips = Array[AudioStream]([ExtResource("29_sdx77"), ExtResource("30_ogixp"), ExtResource("39_5d7wx")])
+subtitles = Array[String](["I guess I’m here because more than the fear of losing these walls,", "or even the time capsule itself- what I’m scared of losing most", "is my way back home again."])
 wait_for_audio = true
 
 [node name="CollisionShape3D" parent="Present/TriggerVolumes/V09E_Forest" index="0"]
@@ -3341,7 +3342,7 @@ audio_one_shot = true
 audio_stream_player = NodePath("../../../Player/PlayerDialogueASP")
 subtitle_label = NodePath("../../../UI/SubtitleLabel")
 audio_clips = Array[AudioStream]([ExtResource("36_pdvj5"), ExtResource("37_01ytv"), ExtResource("38_7rqkt"), ExtResource("39_iqhku"), ExtResource("40_mc14i"), ExtResource("41_5w28t"), ExtResource("42_k5p3d"), ExtResource("43_8wwvs"), ExtResource("44_r1ygl"), ExtResource("45_phsqj"), ExtResource("46_vf2tg"), ExtResource("47_xx2ld")])
-subtitles = Array[String](["this", "is", "the", "end", "i", "hope", "you", "had", "fun", "see", "you", "later"])
+subtitles = Array[String](["Oh, right- I saw her. But I didn’t understand why she’d do that.", "I took it as a sign, that the world was conspiring against me", "stopping me from communicating with my future self.", "So I took it. I brought it inside.", "And I read it that night- maybe twenty times.", "And again the day after, another fifty times.", "I read it- over and over again.", "I read it until I didn’t need to look at it anymore,", "so that no one could take it from me.", "So that- when I was 28 years old, and the capsule was long gone,", "That if I looked back,", "I would hear her again."])
 start_monitoring_list = [NodePath("../EndSequenceTrigger")]
 
 [node name="CollisionShape3D" parent="Present/TriggerVolumes/V10E_Shed" index="0"]
@@ -4341,7 +4342,7 @@ prevent_teleport = true
 audio_stream_player = NodePath("../../../../Player/PlayerDialogueASP")
 subtitle_label = NodePath("../../../../UI/SubtitleLabel")
 audio_clips = Array[AudioStream]([ExtResource("39_r5dow"), ExtResource("40_tvghy")])
-subtitles = Array[String](["a", "b"])
+subtitles = Array[String](["She put it away? I mean, maybe she thought it would get rained on", "or destroyed- but I don’t remember this."])
 start_monitoring_list = [NodePath("../../../../Present/TriggerVolumes/V10E_Shed")]
 wait_for_audio = true
 
@@ -4368,8 +4369,8 @@ audio_one_shot = true
 audio_stream_player = NodePath("../../../Player/PlayerDialogueASP")
 subtitle_label = NodePath("../../../UI/SubtitleLabel")
 audio_clips = Array[AudioStream]([ExtResource("41_qtpf1"), ExtResource("42_sl044"), ExtResource("43_d4nwb"), ExtResource("44_dw56j")])
-subtitles = Array[String](["a", "b", "c", "d"])
-nodes_to_show = [NodePath("../light switch"), NodePath("../../PictureSpecificObjects/NoorRoomNight/LightSwitchSpotlight")]
+subtitles = Array[String](["Wait- that’s the box, the memory capsule!", "It was for a class- we had to write a letter.", "If I remember correctly, we were supposed to present it in class,", "and then, optionally, bury it somewhere for our future selves."])
+nodes_to_show = [NodePath("../LightSwitch_interactable"), NodePath("../../PictureSpecificObjects/NoorRoomNight/LightSwitchSpotlight")]
 nodes_to_hide = [NodePath("../LightSwitch")]
 wait_for_audio = true
 
@@ -4454,7 +4455,7 @@ audio_one_shot = true
 audio_stream_player = NodePath("../../../Player/PlayerDialogueASP")
 subtitle_label = NodePath("../../../UI/SubtitleLabel")
 audio_clips = Array[AudioStream]([ExtResource("20_kk0q6"), ExtResource("21_ivobu")])
-subtitles = Array[String](["a", "b"])
+subtitles = Array[String](["Spongebob was my idol. My mom kept a box of my drawings filled with him.", "I’d do Bikini Bottom meets Star Wars. Calling it terrifying is an understatement."])
 start_monitoring_list = [NodePath("../../../Present/TriggerVolumes/V01E_EnterHouse")]
 
 [node name="CollisionShape3D" parent="Past/TriggerVolumes/V01_Backyard" index="0"]
@@ -4471,7 +4472,7 @@ audio_one_shot = true
 audio_stream_player = NodePath("../../../Player/PlayerDialogueASP")
 subtitle_label = NodePath("../../../UI/SubtitleLabel")
 audio_clips = Array[AudioStream]([ExtResource("23_aiq0e"), ExtResource("24_olbt4"), ExtResource("25_jmoj7"), ExtResource("26_1xfi3")])
-subtitles = Array[String](["a", "b", "c", "d"])
+subtitles = Array[String](["I went to my cousin’s and watched him play the Bioshock demo, both of us in complete silence.", "I spent the entire weekend reading the lore- I was obsessed!", "Next time Agathe came over, I told her all about it and she fell in love with it too.", "That’s when I knew she was my best friend."])
 start_monitoring_list = [NodePath("../../../Present/TriggerVolumes/V02E_Office")]
 
 [node name="CollisionShape3D" parent="Past/TriggerVolumes/V02_Office" index="0"]
@@ -4488,7 +4489,7 @@ audio_one_shot = true
 audio_stream_player = NodePath("../../../Player/PlayerDialogueASP")
 subtitle_label = NodePath("../../../UI/SubtitleLabel")
 audio_clips = Array[AudioStream]([ExtResource("40_g4e4l"), ExtResource("41_msuu6"), ExtResource("42_f8tbi"), ExtResource("43_28fg0")])
-subtitles = Array[String](["a", "b", "c", "d"])
+subtitles = Array[String](["Agathe drove me crazy. I had this huge crush on Marty Mcfly, I made her promise not to tell anyone.", "Of course, over dinner with my mom, she announces it, loud and clear.", "My mom says ‘That’s why you’re always asking to watch Back To The Future’.", "I died."])
 start_monitoring_list = [NodePath("../../../Present/TriggerVolumes/V03E_LivingRoom")]
 
 [node name="CollisionShape3D" parent="Past/TriggerVolumes/V03_LivingRoom" index="0"]
@@ -4505,7 +4506,7 @@ audio_one_shot = true
 audio_stream_player = NodePath("../../../Player/PlayerDialogueASP")
 subtitle_label = NodePath("../../../UI/SubtitleLabel")
 audio_clips = Array[AudioStream]([ExtResource("44_knvqs"), ExtResource("45_r8jb1"), ExtResource("46_56kxj")])
-subtitles = Array[String](["a", "b", "c"])
+subtitles = Array[String](["Whenever my mom brushed my hair- fuck, it hurt! ", "I‘d run away and find the first closet to hide in.", "I kinda enjoyed that, having her think I’d gone missing, calling out my name. "])
 start_monitoring_list = [NodePath("../../../Present/TriggerVolumes/V04E_Hallway")]
 
 [node name="CollisionShape3D" parent="Past/TriggerVolumes/V04_Hallway" index="0"]
@@ -4522,7 +4523,7 @@ audio_one_shot = true
 audio_stream_player = NodePath("../../../Player/PlayerDialogueASP")
 subtitle_label = NodePath("../../../UI/SubtitleLabel")
 audio_clips = Array[AudioStream]([ExtResource("47_jywj2"), ExtResource("48_yeant"), ExtResource("49_2t2lm"), ExtResource("50_jdu6d"), ExtResource("51_tknhm")])
-subtitles = Array[String](["a", "b", "c", "d", "e"])
+subtitles = Array[String](["I was surprised I never got caught.", "I probably saw most David Lynch films by the age of nine-", "I think that explains a lot.", "One night, she watched that 2012 movie.", "At night I was paralyzed, knowing we only had three years left before the end of the world."])
 start_monitoring_list = [NodePath("../V06_Room")]
 wait_for_audio = true
 
@@ -4540,9 +4541,9 @@ audio_one_shot = true
 audio_stream_player = NodePath("../../../Player/PlayerDialogueASP")
 subtitle_label = NodePath("../../../UI/SubtitleLabel")
 audio_clips = Array[AudioStream]([ExtResource("52_rxp76"), ExtResource("53_g02uq"), ExtResource("54_np5r5")])
-subtitles = Array[String](["a", "b", "cd"])
-nodes_to_show = [NodePath("../../INTERACTABLES/memory capsule"), NodePath("../../PictureSpecificObjects/NoorRoomNight/TimeCapsuleSpotlight")]
-nodes_to_hide = [NodePath("../../INTERACTABLES/memory capsule nonint")]
+subtitles = Array[String](["So instead of sleeping, I’d be on my DS.", "Whenever my mom walked in I’d unfortunately always get caught-", "since muffled underneath my head, the game’s music would continue playing.So instead of sleeping, I’d be on my DS."])
+nodes_to_show = [NodePath("../../INTERACTABLES/memory capsule_interactable"), NodePath("../../PictureSpecificObjects/NoorRoomNight/TimeCapsuleSpotlight")]
+nodes_to_hide = [NodePath("../../INTERACTABLES/memory capsule")]
 wait_for_audio = true
 
 [node name="CollisionShape3D" parent="Past/TriggerVolumes/V06_Room" index="0"]
@@ -4560,7 +4561,8 @@ audio_one_shot = true
 audio_stream_player = NodePath("../../../Player/PlayerDialogueASP")
 subtitle_label = NodePath("../../../UI/SubtitleLabel")
 audio_clips = Array[AudioStream]([ExtResource("55_8s325"), ExtResource("56_go77q"), ExtResource("57_cqb3l"), ExtResource("58_jlmrq")])
-subtitles = Array[String](["a", "b", "c", "d"])
+subtitles = Array[String](["And this was me- rehearsing for the presentation! I was reading and rewriting it over and over again.", "It wasn’t because I was nervous- I was one of those weird kids who loved presenting. ", "It didn’t matter if it was about my hopes and dreams or Napoleon, ", "I'd be the first to raise my hand."])
+nodes_to_show = [NodePath("../../INTERACTABLES/Pictures/FrontDoorPicture")]
 start_monitoring_list = [NodePath("../../../Present/TriggerVolumes/V07E_NoorRoom")]
 wait_for_audio = true
 
@@ -4579,7 +4581,7 @@ audio_one_shot = true
 audio_stream_player = NodePath("../../../Player/PlayerDialogueASP")
 subtitle_label = NodePath("../../../UI/SubtitleLabel")
 audio_clips = Array[AudioStream]([ExtResource("59_84f20"), ExtResource("60_hwrqk"), ExtResource("61_1a7ia")])
-subtitles = Array[String](["a", "b", "c"])
+subtitles = Array[String](["The day of my presentation, I had to skip school to go to the embassy with my mom.", "I broke down, crying, screaming,", "tried hiding in the closet- she had to drag me out of the house. "])
 start_monitoring_list = [NodePath("../../../Present/TriggerVolumes/V08E_FrontDoor")]
 wait_for_audio = true
 
@@ -4598,7 +4600,7 @@ audio_one_shot = true
 audio_stream_player = NodePath("../../../Player/PlayerDialogueASP")
 subtitle_label = NodePath("../../../UI/SubtitleLabel")
 audio_clips = Array[AudioStream]([ExtResource("62_yjt8u"), ExtResource("63_5sokp"), ExtResource("64_shpt0"), ExtResource("65_07hd3"), ExtResource("66_om61f"), ExtResource("67_5asig"), ExtResource("68_h1m04"), ExtResource("69_onjno"), ExtResource("70_ius5l"), ExtResource("71_5jn50"), ExtResource("72_hnith"), ExtResource("73_gptx8")])
-subtitles = Array[String](["a", "b", "c", "d", "e", "f", "g", "h", "j", "j", "j", "j"])
+subtitles = Array[String](["It’s hard to say exactly when it started.", "If it was when Agathe stopped me with an embarrassed smile in the metro,", "saying, “You know, there’s other people in here.”", "Or that disgusted look on Claire’s face", "when I mentioned playing World of Warcraft over the weekend.", "Or maybe when I was around ten years old,", "and my teacher called me a bitch in front of the whole class.", "It’s hard to say when I started hiding what I loved most, to dull myself down.", "For the past twenty years, everyday I’ve taken one little step away from myself.", "And whoever this is, standing here in these shoes, ", "feeling the weight of this body against the ground-", "I’m not so sure."])
 start_monitoring_list = [NodePath("../../../Present/TriggerVolumes/V09E_Forest")]
 wait_for_audio = true
 
