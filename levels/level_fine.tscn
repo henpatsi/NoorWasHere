@@ -1713,6 +1713,9 @@ interact_label = NodePath("../UI/InteractLabel")
 [node name="FootstepASP" parent="Player" index="3"]
 volume_db = -45.0
 
+[node name="TransitionPlayer" type="AudioStreamPlayer3D" parent="Player"]
+process_mode = 3
+
 [node name="Pictures" type="Node" parent="." node_paths=PackedStringArray("pictures")]
 script = ExtResource("3_m4duy")
 pictures = [NodePath("0_Frontyard/FrontyardPicture"), NodePath("1_Backyard/BackyardPicture"), NodePath("2_Office/OfficePicture"), NodePath("5_TV/TVPicture"), NodePath("4_HallwayUpstairs/HallwayUpstairPicture"), NodePath("6_7_NoorRoomNight/NoorRoomNightPicture")]
@@ -4268,16 +4271,16 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 8.9954
 [node name="LightSwitch" parent="Past/INTERACTABLES" instance=ExtResource("14_wds17")]
 transform = Transform3D(2.98023e-08, 0, 1, 0, 1, 0, -1, 0, 2.98023e-08, 2.46362, 5.83048, -2.31098)
 
-[node name="LightSwitch_interactable" parent="Past/INTERACTABLES" node_paths=PackedStringArray("nodes_to_show", "nodes_to_hide", "start_monitoring_list") groups=["Interactable"] instance=ExtResource("14_wds17")]
+[node name="light switch" parent="Past/INTERACTABLES" node_paths=PackedStringArray("nodes_to_show", "nodes_to_hide", "start_monitoring_list") groups=["Interactable"] instance=ExtResource("14_wds17")]
 transform = Transform3D(2.98023e-08, 0, 1, 0, 1, 0, -1, 0, 2.98023e-08, 2.46362, 5.83048, -2.31098)
 visible = false
 script = ExtResource("38_f4eva")
 one_shot = true
-nodes_to_show = [NodePath("../../PictureSpecificObjects/NoorRoomDay"), NodePath("../Pictures/FrontDoorPicture")]
+nodes_to_show = [NodePath("../../PictureSpecificObjects/NoorRoomDay"), NodePath("../Pictures/front door picture")]
 nodes_to_hide = [NodePath("../../PictureSpecificObjects/NoorRoomNight")]
 start_monitoring_list = [NodePath("../../TriggerVolumes/V07_Room")]
 
-[node name="CollisionShape3D" parent="Past/INTERACTABLES/LightSwitch_interactable" index="1"]
+[node name="CollisionShape3D" parent="Past/INTERACTABLES/light switch" index="1"]
 disabled = true
 
 [node name="ShedCloset" parent="Past/INTERACTABLES" instance=ExtResource("12_4m6ha")]
@@ -4289,7 +4292,7 @@ transform = Transform3D(0.989028, 3.9716e-08, 0.147724, 0.147724, -5.34758e-07, 
 [node name="closet_door_right" parent="Past/INTERACTABLES/ShedCloset/closet" index="1"]
 transform = Transform3D(-0.994569, 1.96594e-08, -0.104078, 0.104078, 3.7676e-07, -0.994569, -1.96594e-08, 1, 3.7676e-07, -0.0569425, -0.0378286, 0.00932729)
 
-[node name="InteractableCollider" type="StaticBody3D" parent="Past/INTERACTABLES/ShedCloset" node_paths=PackedStringArray("audio_stream_player", "subtitle_label", "start_monitoring_list") groups=["Interactable"]]
+[node name="shed closet" type="StaticBody3D" parent="Past/INTERACTABLES/ShedCloset" node_paths=PackedStringArray("audio_stream_player", "subtitle_label", "start_monitoring_list") groups=["Interactable"]]
 script = ExtResource("35_lctib")
 interaction_animations = Array[String](["open_doors"])
 one_shot = true
@@ -4301,19 +4304,19 @@ subtitles = Array[String](["a", "b"])
 start_monitoring_list = [NodePath("../../../../Present/TriggerVolumes/V10E_Shed")]
 wait_for_audio = true
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Past/INTERACTABLES/ShedCloset/InteractableCollider"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Past/INTERACTABLES/ShedCloset/shed closet"]
 transform = Transform3D(1, 0, 3.72529e-07, 0, 1, 0, -3.72529e-07, 0, 1, 0.0187378, 1.23099, 0.211632)
 shape = SubResource("BoxShape3D_72t1y")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Past/INTERACTABLES/ShedCloset/InteractableCollider"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Past/INTERACTABLES/ShedCloset/shed closet"]
 libraries = {
 "": SubResource("AnimationLibrary_a7axc")
 }
 
-[node name="memory capsule" parent="Past/INTERACTABLES" instance=ExtResource("16_p4a51")]
+[node name="memory capsule nonint" parent="Past/INTERACTABLES" instance=ExtResource("16_p4a51")]
 transform = Transform3D(0.965926, 0, 0.258819, 0, 1, 0, -0.258819, 0, 0.965926, -2.25, 5.253, -3)
 
-[node name="memory capsule_interactable" parent="Past/INTERACTABLES" node_paths=PackedStringArray("audio_stream_player", "subtitle_label", "nodes_to_show", "nodes_to_hide") groups=["Interactable"] instance=ExtResource("16_p4a51")]
+[node name="memory capsule" parent="Past/INTERACTABLES" node_paths=PackedStringArray("audio_stream_player", "subtitle_label", "nodes_to_show", "nodes_to_hide") groups=["Interactable"] instance=ExtResource("16_p4a51")]
 transform = Transform3D(0.965926, 0, 0.258819, 0, 1, 0, -0.258819, 0, 0.965926, -2.25, 5.253, -3)
 visible = false
 script = ExtResource("40_n7i1m")
@@ -4325,11 +4328,11 @@ audio_stream_player = NodePath("../../../Player/PlayerDialogueASP")
 subtitle_label = NodePath("../../../UI/SubtitleLabel")
 audio_clips = Array[AudioStream]([ExtResource("41_qtpf1"), ExtResource("42_sl044"), ExtResource("43_d4nwb"), ExtResource("44_dw56j")])
 subtitles = Array[String](["a", "b", "c", "d"])
-nodes_to_show = [NodePath("../LightSwitch_interactable"), NodePath("../../PictureSpecificObjects/NoorRoomNight/LightSwitchSpotlight")]
+nodes_to_show = [NodePath("../light switch"), NodePath("../../PictureSpecificObjects/NoorRoomNight/LightSwitchSpotlight")]
 nodes_to_hide = [NodePath("../LightSwitch")]
 wait_for_audio = true
 
-[node name="CollisionShape3D" parent="Past/INTERACTABLES/memory capsule_interactable" index="1"]
+[node name="CollisionShape3D" parent="Past/INTERACTABLES/memory capsule" index="1"]
 disabled = true
 
 [node name="memory capsule2" parent="Past/INTERACTABLES" instance=ExtResource("16_p4a51")]
@@ -4337,7 +4340,7 @@ transform = Transform3D(0.00115186, 0, -0.999999, 0, 1, 0, 0.999999, 0, 0.001151
 
 [node name="Pictures" type="Node3D" parent="Past/INTERACTABLES"]
 
-[node name="LivingRoomPicture" type="StaticBody3D" parent="Past/INTERACTABLES/Pictures" node_paths=PackedStringArray("picture_handler", "picture", "audio_stream_player") groups=["Interactable"]]
+[node name="living room picture" type="StaticBody3D" parent="Past/INTERACTABLES/Pictures" node_paths=PackedStringArray("picture_handler", "picture", "audio_stream_player") groups=["Interactable"]]
 transform = Transform3D(0.948335, 0, 0.317272, 0, 1, 0, -0.317272, 0, 0.948335, -0.83844, 1.51477, 1.39724)
 script = ExtResource("15_gx5iv")
 picture_handler = NodePath("../../../../Pictures")
@@ -4345,16 +4348,16 @@ picture = NodePath("../../../../Pictures/3_LivingRoom/LivingRoomPicture")
 audio_stream_player = NodePath("AudioStreamPlayer3D")
 audio_clips = Array[AudioStream]([ExtResource("368_sv3tw")])
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Past/INTERACTABLES/Pictures/LivingRoomPicture"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Past/INTERACTABLES/Pictures/living room picture"]
 mesh = SubResource("PlaneMesh_01b1r")
 skeleton = NodePath("../../../../../..")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Past/INTERACTABLES/Pictures/LivingRoomPicture"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Past/INTERACTABLES/Pictures/living room picture"]
 shape = SubResource("BoxShape3D_vc26v")
 
-[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Past/INTERACTABLES/Pictures/LivingRoomPicture"]
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Past/INTERACTABLES/Pictures/living room picture"]
 
-[node name="FrontDoorPicture" type="StaticBody3D" parent="Past/INTERACTABLES/Pictures" node_paths=PackedStringArray("picture_handler", "picture", "audio_stream_player") groups=["Interactable"]]
+[node name="front door picture" type="StaticBody3D" parent="Past/INTERACTABLES/Pictures" node_paths=PackedStringArray("picture_handler", "picture", "audio_stream_player") groups=["Interactable"]]
 transform = Transform3D(0.948335, 0, 0.317272, 0, 1, 0, -0.317272, 0, 0.948335, -0.758972, 5.00333, -0.809086)
 visible = false
 script = ExtResource("15_gx5iv")
@@ -4363,17 +4366,17 @@ picture = NodePath("../../../../Pictures/8_FrontDoor/FrontDoorPicture")
 audio_stream_player = NodePath("AudioStreamPlayer3D")
 audio_clips = Array[AudioStream]([ExtResource("368_sv3tw")])
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Past/INTERACTABLES/Pictures/FrontDoorPicture"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Past/INTERACTABLES/Pictures/front door picture"]
 mesh = SubResource("PlaneMesh_3cyo4")
 skeleton = NodePath("../../../../../..")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Past/INTERACTABLES/Pictures/FrontDoorPicture"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Past/INTERACTABLES/Pictures/front door picture"]
 shape = SubResource("BoxShape3D_vc26v")
 disabled = true
 
-[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Past/INTERACTABLES/Pictures/FrontDoorPicture"]
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Past/INTERACTABLES/Pictures/front door picture"]
 
-[node name="ShedPicture" type="StaticBody3D" parent="Past/INTERACTABLES/Pictures" node_paths=PackedStringArray("picture_handler", "picture", "audio_stream_player") groups=["Interactable"]]
+[node name="shed picture" type="StaticBody3D" parent="Past/INTERACTABLES/Pictures" node_paths=PackedStringArray("picture_handler", "picture", "audio_stream_player") groups=["Interactable"]]
 transform = Transform3D(0.948335, 0, 0.317272, 0, 1, 0, -0.317272, 0, 0.948335, -27.7238, 0.0258856, -33.1338)
 script = ExtResource("15_gx5iv")
 picture_handler = NodePath("../../../../Pictures")
@@ -4381,14 +4384,14 @@ picture = NodePath("../../../../Pictures/10_Shed/ShedPicture")
 audio_stream_player = NodePath("AudioStreamPlayer3D")
 audio_clips = Array[AudioStream]([ExtResource("368_sv3tw")])
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Past/INTERACTABLES/Pictures/ShedPicture"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Past/INTERACTABLES/Pictures/shed picture"]
 mesh = SubResource("PlaneMesh_burpu")
 skeleton = NodePath("../../../../../..")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Past/INTERACTABLES/Pictures/ShedPicture"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Past/INTERACTABLES/Pictures/shed picture"]
 shape = SubResource("BoxShape3D_vc26v")
 
-[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Past/INTERACTABLES/Pictures/ShedPicture"]
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Past/INTERACTABLES/Pictures/shed picture"]
 
 [node name="TriggerVolumes" type="Node3D" parent="Past"]
 
@@ -4490,8 +4493,8 @@ audio_stream_player = NodePath("../../../Player/PlayerDialogueASP")
 subtitle_label = NodePath("../../../UI/SubtitleLabel")
 audio_clips = Array[AudioStream]([ExtResource("52_rxp76"), ExtResource("53_g02uq"), ExtResource("54_np5r5")])
 subtitles = Array[String](["a", "b", "cd"])
-nodes_to_show = [NodePath("../../INTERACTABLES/memory capsule_interactable"), NodePath("../../PictureSpecificObjects/NoorRoomNight/TimeCapsuleSpotlight")]
-nodes_to_hide = [NodePath("../../INTERACTABLES/memory capsule")]
+nodes_to_show = [NodePath("../../INTERACTABLES/memory capsule"), NodePath("../../PictureSpecificObjects/NoorRoomNight/TimeCapsuleSpotlight")]
+nodes_to_hide = [NodePath("../../INTERACTABLES/memory capsule nonint")]
 wait_for_audio = true
 
 [node name="CollisionShape3D" parent="Past/TriggerVolumes/V06_Room" index="0"]
@@ -12157,9 +12160,9 @@ panning_strength = 0.0
 [editable path="Past/LevelObjects/House/Level1/Doors/Door_Backyard_Open"]
 [editable path="Past/LevelObjects/House/Level2/Doors/Door_Noor"]
 [editable path="Past/INTERACTABLES/closet"]
-[editable path="Past/INTERACTABLES/LightSwitch_interactable"]
+[editable path="Past/INTERACTABLES/light switch"]
 [editable path="Past/INTERACTABLES/ShedCloset"]
-[editable path="Past/INTERACTABLES/memory capsule_interactable"]
+[editable path="Past/INTERACTABLES/memory capsule"]
 [editable path="Past/TriggerVolumes/V01_Backyard"]
 [editable path="Past/TriggerVolumes/V02_Office"]
 [editable path="Past/TriggerVolumes/V03_LivingRoom"]
