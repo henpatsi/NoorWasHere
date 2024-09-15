@@ -1,0 +1,7 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://bpqi2kjl8542t"]
+
+[resource]
+resource_name = "n_eyes_cornea.001"
+cull_mode = 2
+albedo_color = Color(1, 1, 1, 0.995)
+roughness = 0.0

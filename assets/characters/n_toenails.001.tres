@@ -1,0 +1,6 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://dqgv8rcb1q50i"]
+
+[resource]
+resource_name = "n_toenails.001"
+cull_mode = 2
+roughness = 0.0
