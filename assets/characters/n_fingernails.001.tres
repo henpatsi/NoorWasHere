@@ -1,0 +1,6 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://boo8vuuajj2se"]
+
+[resource]
+resource_name = "n_fingernails.001"
+cull_mode = 2
+roughness = 0.0

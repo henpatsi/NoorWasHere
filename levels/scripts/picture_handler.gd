@@ -34,13 +34,18 @@ var input_enabled: bool = true
 @onready var player: CharacterBody3D = $"../Player"
 @onready var head_node: Node3D = $"../Player/HeadNode"
 
+@onready var transition_player: AudioStreamPlayer3D = $"../Player/TransitionPlayer"
+var transition_in_audio_clip: AudioStream = load("res://assets/audio/sfx/Misc/Transition/Photo_transition1.wav")
+var transition_out_audio_clip: AudioStream = load("res://assets/audio/sfx/Misc/Transition/Photo_transition2.wav")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	if pictures.size() == 0:
 		printerr("Picture handler array is empty.")
 
+	# Wait to allow screenshot to be taken, which was conflicting with this
 	current_picture = pictures[0]
+	await get_tree().create_timer(1).timeout
 	current_picture.set_active(true)
 
 
@@ -65,25 +70,20 @@ func outside_picture_process(delta: float) -> void:
 		aligned = false
 
 
+# TODO maybe make this an array of bools, so that all that block have to unblock
+func set_input_state(state: bool) -> void:
+	input_enabled = state
+	print("Picture input set to: " + str(state))
+	if not input_enabled and not inside_picture and up_position:
+		toggle_inspect()
+
+
 func _input(event: InputEvent) -> void:
 	if not input_enabled:
 		return
 	
 	if event.is_action_pressed("inspect_picture"):
-		if inside_picture:
-			current_picture.exit_picture(player, self)
-			inside_picture = false
-
-		up_position = not up_position
-		if not up_position:
-			picture_target_position.y = picture_lower_y
-			inspecting = false
-			crosshair.show()
-			player.interact_enabled = true
-		else:
-			picture_target_position.y = current_picture.size.y / 2
-			crosshair.hide()
-			player.interact_enabled = false
+		toggle_inspect()
 
 	if event.is_action_pressed("next_picture"):
 		print("Swapping to next picture")
@@ -107,20 +107,49 @@ func _input(event: InputEvent) -> void:
 		if inside_picture:
 			print ("Already inside picture")
 			return
+			
+		if transition_player and transition_in_audio_clip:
+			transition_player.stream = transition_in_audio_clip
+			transition_player.play()
+
 		current_picture.enter_picture(player, head_node, self)
 		inside_picture = true
 		crosshair.show()
 		player.interact_enabled = true
 
 
+func toggle_inspect() -> void:
+	if inside_picture:
+		if transition_player and transition_out_audio_clip:
+			transition_player.stream = transition_out_audio_clip
+			transition_player.play()
+
+		current_picture.exit_picture(player, self)
+		inside_picture = false
+		up_position = false
+	else:
+		up_position = not up_position
+
+	if not up_position:
+		picture_target_position.y = picture_lower_y
+		inspecting = false
+		crosshair.show()
+		player.interact_enabled = true
+	else:
+		picture_target_position.y = current_picture.size.y / 2
+		crosshair.hide()
+		player.interact_enabled = false
+
+
 func add_picture(picture: TextureRect) -> void:
 	pictures.append(picture)
-	set_active_picture(pictures.size() - 1)
+	if not inside_picture:
+		set_active_picture(pictures.size() - 1)
 
 
 func set_active_picture(index: int) -> void:
-	if up_position:
-		print("Put down picture to swap")
+	if inside_picture:
+		print("Cannot swap picture inside picture")
 		return
 	if pictures.size() == 1:
 		print("No pictures to swap to")
@@ -137,3 +166,8 @@ func set_active_picture(index: int) -> void:
 	current_picture.set_active(true)
 
 	picture_index = index
+
+	if up_position:
+		current_picture.position = Vector2(320, current_picture.size.y / 2)
+	else:
+		current_picture.position = Vector2(320, picture_lower_y)

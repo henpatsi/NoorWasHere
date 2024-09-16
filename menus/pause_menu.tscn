@@ -1,14 +1,17 @@
-[gd_scene load_steps=5 format=3 uid="uid://cjcnbtrywlx0s"]
+[gd_scene load_steps=7 format=3 uid="uid://cjcnbtrywlx0s"]
 
 [ext_resource type="Script" path="res://menus/pause_menu.gd" id="1_bgqgg"]
+[ext_resource type="FontFile" uid="uid://bi3g7vfa5cdww" path="res://assets/fonts/Helvetica-Font/Helvetica.ttf" id="2_irqoq"]
+[ext_resource type="Theme" uid="uid://cbquq6hkpipum" path="res://assets/fonts/Helvetica-Font/helvetica.tres" id="3_b11jq"]
 
 [sub_resource type="Gradient" id="Gradient_jj1we"]
-colors = PackedColorArray(0.176471, 0.176471, 0.176471, 0.392157, 0.176471, 0.176471, 0.176471, 0.392157)
+colors = PackedColorArray(0, 0, 0, 0.392157, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_ysq67"]
 gradient = SubResource("Gradient_jj1we")
 
 [sub_resource type="LabelSettings" id="LabelSettings_k6f3y"]
+font = ExtResource("2_irqoq")
 font_size = 36
 
 [node name="Menu" type="Control" node_paths=PackedStringArray("mouse_sensitivity_value_label", "mouse_sensitivity_slider", "volume_value_label", "volume_slider", "text_size_value_label", "text_size_slider", "crosshair_opacity_value_label", "crosshair_opacity_slider", "crosshair_size_value_label", "crosshair_size_slider")]
@@ -52,7 +55,7 @@ offset_right = 69.5
 offset_bottom = 66.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 10
+theme_override_constants/separation = 14
 alignment = 1
 
 [node name="Label" type="Label" parent="VBoxContainer"]
@@ -63,6 +66,7 @@ horizontal_alignment = 1
 
 [node name="MouseSensitivityContainer" type="VBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
+theme = ExtResource("3_b11jq")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/MouseSensitivityContainer"]
 layout_mode = 2
@@ -74,6 +78,7 @@ text = "Mouse Sensitivity:"
 
 [node name="MouseSensitivityLabel" type="Label" parent="VBoxContainer/MouseSensitivityContainer/HBoxContainer"]
 layout_mode = 2
+theme = ExtResource("3_b11jq")
 text = "1.0"
 
 [node name="MouseSensitivitySlider" type="HSlider" parent="VBoxContainer/MouseSensitivityContainer"]
@@ -92,10 +97,12 @@ alignment = 1
 
 [node name="Label" type="Label" parent="VBoxContainer/VolumeContainer/HBoxContainer"]
 layout_mode = 2
+theme = ExtResource("3_b11jq")
 text = "Volume:"
 
 [node name="VolumeLabel" type="Label" parent="VBoxContainer/VolumeContainer/HBoxContainer"]
 layout_mode = 2
+theme = ExtResource("3_b11jq")
 text = "80"
 
 [node name="VolumeSlider" type="HSlider" parent="VBoxContainer/VolumeContainer"]
@@ -112,10 +119,12 @@ alignment = 1
 
 [node name="Label" type="Label" parent="VBoxContainer/TextSizeContainer/HBoxContainer"]
 layout_mode = 2
+theme = ExtResource("3_b11jq")
 text = "Text Size:"
 
 [node name="TextSizeLabel" type="Label" parent="VBoxContainer/TextSizeContainer/HBoxContainer"]
 layout_mode = 2
+theme = ExtResource("3_b11jq")
 text = "80"
 
 [node name="TextSizeSlider" type="HSlider" parent="VBoxContainer/TextSizeContainer"]
@@ -134,10 +143,12 @@ alignment = 1
 
 [node name="Label" type="Label" parent="VBoxContainer/CrosshairOpacityContainer/HBoxContainer"]
 layout_mode = 2
+theme = ExtResource("3_b11jq")
 text = "Crosshair Opacity:"
 
 [node name="CrosshairOpacityLabel" type="Label" parent="VBoxContainer/CrosshairOpacityContainer/HBoxContainer"]
 layout_mode = 2
+theme = ExtResource("3_b11jq")
 text = "80"
 
 [node name="CrosshairOpacitySlider" type="HSlider" parent="VBoxContainer/CrosshairOpacityContainer"]
@@ -154,10 +165,12 @@ alignment = 1
 
 [node name="Label" type="Label" parent="VBoxContainer/CrosshairSizeContainer/HBoxContainer"]
 layout_mode = 2
+theme = ExtResource("3_b11jq")
 text = "Crosshair Size:"
 
 [node name="CrosshairSizeLabel" type="Label" parent="VBoxContainer/CrosshairSizeContainer/HBoxContainer"]
 layout_mode = 2
+theme = ExtResource("3_b11jq")
 text = "80"
 
 [node name="CrosshairSizeSlider" type="HSlider" parent="VBoxContainer/CrosshairSizeContainer"]
@@ -166,10 +179,12 @@ max_value = 20.0
 
 [node name="MainMenuButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
+theme = ExtResource("3_b11jq")
 text = "Main Menu"
 
 [node name="ContinueButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
+theme = ExtResource("3_b11jq")
 text = "Continue"
 
 [connection signal="value_changed" from="VBoxContainer/MouseSensitivityContainer/MouseSensitivitySlider" to="." method="_on_mouse_sensitivity_slider_value_changed"]

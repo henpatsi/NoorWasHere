@@ -30,6 +30,7 @@ extends TextureRect
 @export var ambientAS: AudioStream
 ## Volume db that the fade in starts from
 @export var starting_volume: float = -20
+@export var ending_volume: float = 20
 ## Time it takes music to fade in from silent to the original value
 @export var volume_fade_in_time: float = 3
 ## Time it takes to perfectly position player
@@ -102,7 +103,7 @@ func set_child_collider_states(node: Node, disabled_state: bool) -> void:
 
 func get_local_camera_pos() -> Vector3:
 	var camera_pos = camera.position - world_root.position
-	camera_pos.y = 0
+	camera_pos.y -= 1.75
 	return camera_pos
 
 
@@ -123,11 +124,10 @@ func requirements_met(met_requirements: Array[String]) -> bool:
 
 
 func enter_picture(player: CharacterBody3D, head_node: Node3D, picture_handler: Node) -> void:
-	picture_handler.input_enabled = false
+	picture_handler.set_input_state(false)
 	player.process_mode = Node.PROCESS_MODE_DISABLED
 
-	var camera_pos = camera.position - world_root.position
-	camera_pos.y = 0
+	var camera_pos = get_local_camera_pos()
 	var moveTween = create_tween().set_parallel()
 	moveTween.tween_property(player, "global_position:x", camera_pos.x, move_tween_time)
 	moveTween.tween_property(player, "global_position:z", camera_pos.z, move_tween_time)
@@ -150,25 +150,28 @@ func enter_picture(player: CharacterBody3D, head_node: Node3D, picture_handler: 
 		ambientASP.play()
 		audioTween = create_tween()
 		audioTween.set_ease(Tween.EASE_OUT)
-		audioTween.tween_property(ambientASP, "volume_db", 0, volume_fade_in_time)
+		audioTween.tween_property(ambientASP, "volume_db", ending_volume, volume_fade_in_time)
 
 	player.global_position = camera.global_position
-	player.position.y = 0
+	player.position.y -= head_node.position.y
 	player.global_rotation = camera.global_rotation
+
+	get_tree().root.get_child(1).set_past_environment()
+	hide()
 
 	player.process_mode = Node.PROCESS_MODE_PAUSABLE
 
 	camera_follow_node = head_node
 	inside_picture = true
-	picture_handler.input_enabled = true
+	picture_handler.set_input_state(true)
 
 
 func exit_picture(player: CharacterBody3D, picture_handler: Node) -> void:
-	picture_handler.input_enabled = false
 	inside_picture = false
+	show()
+	get_tree().root.get_child(1).set_present_environment()
 
 	player.global_position -= world_root.position
-	player.position.y = 0
 
 	var zoomTween = create_tween().set_parallel()
 	zoomTween.tween_property(self, "position:y", 570, picture_resize_time)
@@ -190,5 +193,3 @@ func exit_picture(player: CharacterBody3D, picture_handler: Node) -> void:
 
 	camera.global_position = camera_picture_position
 	camera.global_rotation = camera_picture_rotation
-	
-	picture_handler.input_enabled = true

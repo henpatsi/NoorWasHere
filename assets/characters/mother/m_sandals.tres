@@ -1,0 +1,11 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://cwwvhlcfy0xr3"]
+
+[ext_resource type="Texture2D" uid="uid://yxe3o72mg7mc" path="res://assets/characters/mother/Mother_FBX_9.png" id="1_a8lj4"]
+
+[resource]
+resource_name = "m_sandals"
+vertex_color_use_as_albedo = true
+albedo_color = Color(1, 1, 1, 1)
+albedo_texture = ExtResource("1_a8lj4")
+emission_enabled = true
+emission_energy_multiplier = 0.0

@@ -1,8 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://exnttmhfkaqg"]
+[gd_scene load_steps=8 format=3 uid="uid://exnttmhfkaqg"]
 
 [ext_resource type="PackedScene" uid="uid://b25ooshew3q2v" path="res://player/player.tscn" id="1_qyilg"]
 [ext_resource type="Script" path="res://levels/scripts/level.gd" id="1_sryye"]
-[ext_resource type="PackedScene" uid="uid://ck05y3vr2y8c3" path="res://assets/characters/Noor_RefNoRig.fbx" id="2_0jtrv"]
 [ext_resource type="Material" uid="uid://dve3xrg044f4h" path="res://assets/materials/M_housetemp.tres" id="2_rkvtw"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_rbuat"]
@@ -734,15 +733,6 @@ use_collision = true
 size = Vector3(25.25, 12.75, 75.25)
 
 [node name="Characters" type="Node3D" parent="."]
-
-[node name="Noor_RefNoRig" parent="Characters" instance=ExtResource("2_0jtrv")]
-transform = Transform3D(1.15, 0, 0, 0, 1.15, 0, 0, 0, 1.15, 2.75, 0.5, -0.75)
-
-[node name="Noor_RefNoRig3" parent="Characters" instance=ExtResource("2_0jtrv")]
-transform = Transform3D(-1.15, 0, -1.00536e-07, 0, 1.15, 0, 1.00536e-07, 0, -1.15, 3.75, 0, -8.25)
-
-[node name="Noor_RefNoRig2" parent="Characters" instance=ExtResource("2_0jtrv")]
-transform = Transform3D(1.15, 0, 0, 0, 1.15, 0, 0, 0, 1.15, 1.5, 0.5, 10.25)
 
 [node name="Player" parent="." instance=ExtResource("1_qyilg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 18)

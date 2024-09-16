@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://besm2hjms60tr"]
+
+[ext_resource type="Texture2D" uid="uid://dj1rrn40sq1da" path="res://assets/characters/Noor_Poses_noor_eyes.png" id="1_hwov2"]
+
+[resource]
+resource_name = "n_eyes_pupils.001"
+cull_mode = 2
+albedo_color = Color(1, 1, 1, 0.995)
+albedo_texture = ExtResource("1_hwov2")
+roughness = 0.0

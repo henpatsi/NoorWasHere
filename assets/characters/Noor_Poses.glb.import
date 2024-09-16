@@ -1,0 +1,111 @@
+[remap]
+
+importer="scene"
+importer_version=1
+type="PackedScene"
+uid="uid://d4dofs2lej2fu"
+path="res://.godot/imported/Noor_Poses.glb-276ce749ddb17619c0ce79056c2b573f.scn"
+
+[deps]
+
+source_file="res://assets/characters/Noor_Poses.glb"
+dest_files=["res://.godot/imported/Noor_Poses.glb-276ce749ddb17619c0ce79056c2b573f.scn"]
+
+[params]
+
+nodes/root_type=""
+nodes/root_name=""
+nodes/apply_root_scale=true
+nodes/root_scale=1.0
+nodes/import_as_skeleton_bones=false
+meshes/ensure_tangents=true
+meshes/generate_lods=true
+meshes/create_shadow_meshes=true
+meshes/light_baking=1
+meshes/lightmap_texel_size=0.2
+meshes/force_disable_compression=false
+skins/use_named_skins=true
+animation/import=true
+animation/fps=30
+animation/trimming=false
+animation/remove_immutable_tracks=true
+animation/import_rest_as_RESET=false
+import_script/path=""
+_subresources={
+"materials": {
+"Material.030": {
+"use_external/enabled": true,
+"use_external/path": "res://assets/characters/Material.030.tres"
+},
+"Material.031": {
+"use_external/enabled": true,
+"use_external/path": "res://assets/characters/Material.031.tres"
+},
+"c_noor_socks.001": {
+"use_external/enabled": true,
+"use_external/path": "res://assets/characters/c_noor_socks.001.tres"
+},
+"n_arms.001": {
+"use_external/enabled": true,
+"use_external/path": "res://assets/characters/n_arms.001.tres"
+},
+"n_ears.001": {
+"use_external/enabled": true,
+"use_external/path": "res://assets/characters/n_ears.001.tres"
+},
+"n_eyes_cornea.001": {
+"use_external/enabled": true,
+"use_external/path": "res://assets/characters/n_eyes_cornea.001.tres"
+},
+"n_eyes_pupils.001": {
+"use_external/enabled": true,
+"use_external/path": "res://assets/characters/n_eyes_pupils.001.tres"
+},
+"n_eyesocket.001": {
+"use_external/enabled": true,
+"use_external/path": "res://assets/characters/n_eyesocket.001.tres"
+},
+"n_face.001": {
+"use_external/enabled": true,
+"use_external/path": "res://assets/characters/n_face.001.tres"
+},
+"n_fingernails.001": {
+"use_external/enabled": true,
+"use_external/path": "res://assets/characters/n_fingernails.001.tres"
+},
+"n_legs.001": {
+"use_external/enabled": true,
+"use_external/path": "res://assets/characters/n_legs.001.tres"
+},
+"n_toenails.001": {
+"use_external/enabled": true,
+"use_external/path": "res://assets/characters/n_toenails.001.tres"
+},
+"n_torso.001": {
+"use_external/enabled": true,
+"use_external/path": "res://assets/characters/n_torso.001.tres"
+},
+"noor_armbands.001": {
+"use_external/enabled": true,
+"use_external/path": "res://assets/characters/noor_armbands.001.tres"
+},
+"noor_hair.001": {
+"use_external/enabled": true,
+"use_external/path": "res://assets/characters/noor_hair.001.tres"
+},
+"noor_shoes.001": {
+"use_external/enabled": true,
+"use_external/path": "res://assets/characters/noor_shoes.001.tres"
+},
+"noor_short.001": {
+"use_external/enabled": true,
+"use_external/path": "res://assets/characters/noor_short.001.tres"
+},
+"noor_tshirt.001": {
+"use_external/enabled": true,
+"use_external/path": "res://assets/characters/noor_tshirt.001.tres"
+}
+}
+}
+gltf/naming_version=1
+gltf/embedded_image_handling=1

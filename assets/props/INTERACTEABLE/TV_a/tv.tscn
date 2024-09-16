@@ -54,7 +54,8 @@ _data = {
 [sub_resource type="BoxShape3D" id="BoxShape3D_y0h1t"]
 size = Vector3(1.16162, 1.08209, 0.818115)
 
-[node name="TV" type="StaticBody3D"]
+[node name="TV" type="RigidBody3D"]
+gravity_scale = 0.0
 
 [node name="TV_a" type="MeshInstance3D" parent="."]
 transform = Transform3D(1.8, 0, 0, 0, -7.86805e-08, 1.8, 0, -1.8, -7.86805e-08, 0, 0, 0)

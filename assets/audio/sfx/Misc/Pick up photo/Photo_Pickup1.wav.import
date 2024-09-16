@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dxsho77m1vssf"
+path="res://.godot/imported/Photo_Pickup1.wav-3fddf638e3ac622f40b21cb774bfc746.sample"
+
+[deps]
+
+source_file="res://assets/audio/sfx/Misc/Pick up photo/Photo_Pickup1.wav"
+dest_files=["res://.godot/imported/Photo_Pickup1.wav-3fddf638e3ac622f40b21cb774bfc746.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

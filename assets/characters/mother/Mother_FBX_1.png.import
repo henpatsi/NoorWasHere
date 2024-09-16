@@ -1,0 +1,37 @@
+[remap]
+
+importer="texture"
+type="CompressedTexture2D"
+uid="uid://1amq5o4tv8cw"
+path="res://.godot/imported/Mother_FBX_1.png-c8712e82a233a98b70f1e17b4fbbbc2c.ctex"
+metadata={
+"vram_texture": false
+}
+generator_parameters={
+"md5": "9ba0cbb042848dcca0d4206ce097aab9"
+}
+
+[deps]
+
+source_file="res://assets/characters/mother/Mother_FBX_1.png"
+dest_files=["res://.godot/imported/Mother_FBX_1.png-c8712e82a233a98b70f1e17b4fbbbc2c.ctex"]
+
+[params]
+
+compress/mode=1
+compress/high_quality=false
+compress/lossy_quality=0.7
+compress/hdr_compression=1
+compress/normal_map=0
+compress/channel_pack=0
+mipmaps/generate=true
+mipmaps/limit=-1
+roughness/mode=0
+roughness/src_normal=""
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/normal_map_invert_y=false
+process/hdr_as_srgb=false
+process/hdr_clamp_exposure=false
+process/size_limit=0
+detect_3d/compress_to=0

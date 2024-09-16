@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://dpwrykcp0viaf"
+path="res://.godot/imported/Ambient_noise1.ogg-910bcfbb6b5089733992e844beb9801b.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/audio/sfx/roomtone/Ambient noise/Ambient_noise1.ogg"
+dest_files=["res://.godot/imported/Ambient_noise1.ogg-910bcfbb6b5089733992e844beb9801b.oggvorbisstr"]
+
+[params]
+
+loop=true
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4
