@@ -104,7 +104,7 @@ func raycast() -> void:
 
 	if ray_collision_object and ray_collision_object.is_in_group("Interactable"):
 		if interact_label and interact_enabled:
-			interact_label.text = "Interact with " + ray_collision_object.name
+			interact_label.text = "Interact with " + ray_collision_object.item_name
 	elif interact_label:
 		interact_label.text = ""
 

@@ -2,6 +2,7 @@ class_name Interactable
 extends Node3D
 
 @export_category("Settings")
+## Name of the item, shown when prompted to interact, use editor name if not set
 @export var item_name: String
 ## If true, only be interacted with once
 @export var one_shot: bool = false
@@ -45,6 +46,9 @@ func _ready() -> void:
 	
 	if not is_in_group("Interactable"):
 		printerr("Interactable " + name + " is not in the \"Interactable\" group")
+	
+	if not item_name:
+		item_name = name
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
