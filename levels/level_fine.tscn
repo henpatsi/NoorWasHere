@@ -1,4 +1,4 @@
-[gd_scene load_steps=505 format=4 uid="uid://baq3osaidwfaf"]
+[gd_scene load_steps=504 format=4 uid="uid://baq3osaidwfaf"]
 
 [ext_resource type="Script" path="res://levels/scripts/level.gd" id="1_mw3wp"]
 [ext_resource type="Material" uid="uid://dve3xrg044f4h" path="res://assets/materials/M_housetemp.tres" id="2_db8bv"]
@@ -54,7 +54,6 @@
 [ext_resource type="AudioStream" uid="uid://rosjx4ggy4lh" path="res://assets/audio/VO/10_E01.mp3" id="36_pdvj5"]
 [ext_resource type="AudioStream" uid="uid://c73xua12gwtgx" path="res://assets/audio/VO/10_E02.mp3" id="37_01ytv"]
 [ext_resource type="AudioStream" uid="uid://gtdv2ea1x3dv" path="res://assets/audio/VO/10_E03.mp3" id="38_7rqkt"]
-[ext_resource type="Script" path="res://levels/scripts/interactable_default.gd" id="38_f4eva"]
 [ext_resource type="AudioStream" uid="uid://djux8yihykopn" path="res://assets/audio/VO/09_E03.mp3" id="39_5d7wx"]
 [ext_resource type="AudioStream" uid="uid://db0smnwi0384m" path="res://assets/audio/VO/10_E04.mp3" id="39_iqhku"]
 [ext_resource type="AudioStream" uid="uid://dyw2nbfelyt5a" path="res://assets/audio/VO/10_01.mp3" id="39_r5dow"]
@@ -412,7 +411,7 @@
 [ext_resource type="AudioStream" uid="uid://b72q3xj1r0td5" path="res://assets/audio/sfx/roomtone/Ambient noise/fire.ogg" id="351_ofa72"]
 [ext_resource type="AudioStream" uid="uid://v5y0r4dixf50" path="res://assets/audio/sfx/door/Dooropen.wav" id="356_k7uul"]
 [ext_resource type="AudioStream" uid="uid://big0o0i8xo7e4" path="res://assets/audio/sfx/Misc/cabinet/Cabinet_open.wav" id="356_s4k60"]
-[ext_resource type="AudioStream" uid="uid://m3xgq65pqjwl" path="res://assets/audio/sfx/Misc/light switch/Light_On.wav" id="364_4clln"]
+[ext_resource type="Script" path="res://levels/scripts/interactable.gd" id="365_qvetb"]
 [ext_resource type="AudioStream" uid="uid://bng35hsyj2wbf" path="res://assets/audio/sfx/Misc/Pick up photo/Photo_Pickup2.wav" id="368_sv3tw"]
 [ext_resource type="Material" uid="uid://cfo4jukrqtp5k" path="res://assets/props/INTERACTEABLE/memory capsule/box_bake.tres" id="373_niv5h"]
 [ext_resource type="PackedScene" uid="uid://brtrvnfelp3ux" path="res://assets/props/car/sketchfab_scene.tscn" id="402_y4a1w"]
@@ -3140,7 +3139,7 @@ disabled = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.015213, 1.36914, 0.223512)
 shape = SubResource("BoxShape3D_ibyln")
 
-[node name="TV" parent="Present/LevelObjects/INTERACTABLES" node_paths=PackedStringArray("interact_label", "interact_response_label", "picture_handler", "audio_steam_player") groups=["Interactable"] instance=ExtResource("12_4tqrl")]
+[node name="TV" parent="Present/LevelObjects/INTERACTABLES" node_paths=PackedStringArray("picture_handler", "interact_response_label") groups=["Interactable"] instance=ExtResource("12_4tqrl")]
 transform = Transform3D(-0.940678, -0.337738, 0.0325252, -0.339301, 0.936274, -0.0909153, 0.000253081, -0.0965579, -0.995327, 8.93476, 4.75, 6.06002)
 axis_lock_linear_x = true
 axis_lock_linear_y = true
@@ -3149,13 +3148,11 @@ axis_lock_angular_x = true
 axis_lock_angular_y = true
 axis_lock_angular_z = true
 script = ExtResource("14_trd0m")
-interact_label = NodePath("../../../../UI/InteractLabel")
-interact_response_label = NodePath("../../../../UI/InteractResponseLabel")
 picture_handler = NodePath("../../../../Pictures")
 set_requirement = "tv_on_table"
-audio_steam_player = NodePath("AudioStreamPlayer3D")
 pick_up_audio = ExtResource("18_o6xmn")
 put_down_audio = ExtResource("19_f24x4")
+interact_response_label = NodePath("../../../../UI/InteractResponseLabel")
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Present/LevelObjects/INTERACTABLES/TV"]
 volume_db = 20.0
@@ -4340,13 +4337,11 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 8.9954
 [node name="LightSwitch" parent="Past/INTERACTABLES" instance=ExtResource("14_wds17")]
 transform = Transform3D(2.98023e-08, 0, 1, 0, 1, 0, -1, 0, 2.98023e-08, 2.46362, 5.83048, -2.31098)
 
-[node name="light switch" parent="Past/INTERACTABLES" node_paths=PackedStringArray("audio_stream_player", "nodes_to_show", "nodes_to_hide", "start_monitoring_list") groups=["Interactable"] instance=ExtResource("14_wds17")]
+[node name="light switch" parent="Past/INTERACTABLES" node_paths=PackedStringArray("nodes_to_show", "nodes_to_hide", "start_monitoring_list") groups=["Interactable"] instance=ExtResource("14_wds17")]
 transform = Transform3D(2.98023e-08, 0, 1, 0, 1, 0, -1, 0, 2.98023e-08, 2.46362, 5.83048, -2.31098)
 visible = false
-script = ExtResource("38_f4eva")
+script = ExtResource("365_qvetb")
 one_shot = true
-audio_stream_player = NodePath("AudioStreamPlayer3D")
-audio_clips = Array[AudioStream]([ExtResource("364_4clln")])
 nodes_to_show = [NodePath("../../PictureSpecificObjects/NoorRoomDay"), NodePath("../Pictures/front door picture")]
 nodes_to_hide = [NodePath("../../PictureSpecificObjects/NoorRoomNight")]
 start_monitoring_list = [NodePath("../../TriggerVolumes/V07_Room")]
