@@ -5,7 +5,7 @@ extends Interactable
 @export var variable_name: String
 
 
-func interact(player: CharacterBody3D) -> void:
+func interact(player: CharacterBody3D) -> Node:
 	super.interact(player)
 
 	player.inventory.add_item(variable_name)
@@ -14,3 +14,5 @@ func interact(player: CharacterBody3D) -> void:
 		interact_response_label.change_text("Picked up " + variable_name)
 
 	queue_free()
+
+	return null

@@ -12,7 +12,7 @@ var animation_index: int = 0
 var busy: bool = false
 
 
-func interact(player: CharacterBody3D) -> void:
+func interact(player: CharacterBody3D) -> Node:
 	if busy:
 		print("Interactable busy")
 		return
@@ -37,3 +37,4 @@ func interact(player: CharacterBody3D) -> void:
 	await get_tree().create_timer(animation_player.current_animation_length).timeout
 
 	busy = false
+	return null

@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://bd5b2sgv2c8v8"]
+[gd_scene load_steps=29 format=4 uid="uid://bd5b2sgv2c8v8"]
 
 [ext_resource type="PackedScene" uid="uid://b25ooshew3q2v" path="res://player/player.tscn" id="1_7d6r5"]
 [ext_resource type="Script" path="res://levels/scripts/picture_handler.gd" id="1_827sh"]
@@ -9,11 +9,13 @@
 [ext_resource type="Script" path="res://levels/scripts/ui.gd" id="7_813h0"]
 [ext_resource type="FontFile" uid="uid://bi3g7vfa5cdww" path="res://assets/fonts/Helvetica-Font/Helvetica.ttf" id="8_6nq31"]
 [ext_resource type="Script" path="res://levels/scripts/dynamic_label.gd" id="9_pp8iw"]
-[ext_resource type="Script" path="res://levels/scripts/interactable.gd" id="10_o3qip"]
+[ext_resource type="AudioStream" uid="uid://m3xgq65pqjwl" path="res://assets/audio/sfx/Misc/light switch/Light_On.wav" id="11_3q2yy"]
 [ext_resource type="PackedScene" uid="uid://bn5ukqljga2qo" path="res://levels/scripts/trigger_area.tscn" id="11_bydt5"]
 [ext_resource type="Resource" uid="uid://cnu4kfkgrm0an" path="res://resources/00_01.tres" id="12_8jd77"]
 [ext_resource type="Resource" uid="uid://4n1r1roygv8i" path="res://resources/00_02.tres" id="13_wxw3k"]
 [ext_resource type="Resource" uid="uid://ri6p1no5sv8m" path="res://resources/00_03.tres" id="14_w74bm"]
+[ext_resource type="Script" path="res://levels/scripts/interactable_inspect.gd" id="15_frg6o"]
+[ext_resource type="Material" uid="uid://cfo4jukrqtp5k" path="res://assets/props/INTERACTEABLE/memory capsule/box_bake.tres" id="16_ngep7"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_3aadv"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -54,6 +56,41 @@ shadow_color = Color(0, 0, 0, 0.313726)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jc4wf"]
 albedo_color = Color(0.02223, 0.0568684, 0.156604, 1)
 
+[sub_resource type="ArrayMesh" id="ArrayMesh_vkwhe"]
+_surfaces = [{
+"aabb": AABB(-0.000720772, -0.00142224, -1.07341e-05, 0.00144154, 0.00284448, 0.000951053),
+"format": 34359742465,
+"index_count": 84,
+"index_data": PackedByteArray("AAABAAIAAgADAAAABAAFAAYABgAHAAQACAAJAAQABAAHAAgACQAKAAUABQAEAAkACgALAAYABgAFAAoACwAIAAcABwAGAAsAAwALAAoACgAMAAMADAAKAAkACQANAAwAAgAIAAsACwADAAIADQAJAAgACAACAA0ADgAAAAMAAwAMAA4ADwAOAAwADAANAA8AAQAPAA0ADQACAAEAAQAAAA4ADgAPAAEA"),
+"name": "box_bake",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 16,
+"vertex_data": PackedByteArray("egQ8uq7zuTrAf3Y6egQ8uq7zubrAf3Y6KfI8uoVqurp8oTY6KfI8uoVqujp8oTY64+I3OuPit7pmFjS34+I3OuPitzpmFjS34+I3uuPitzpmFjS34+I3uuPit7pmFjS34+I3uuPit7p8oTY64+I3OuPit7p8oTY64+I3OuPitzp8oTY64+I3uuPitzp8oTY6KfI8OoVqujp8oTY6KfI8OoVqurp8oTY6egQ8Oq7zuTrAf3Y6egQ8Oq7zubrAf3Y6")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_xhmmb"]
+resource_name = "Cube_013"
+_surfaces = [{
+"aabb": AABB(-0.000720772, -0.00142224, -1.07341e-05, 0.00144154, 0.00284448, 0.000951053),
+"attribute_data": PackedByteArray("dZkpPyw21j5TmSk/HX9pP7u+Hj9+p2k/3r4eP17l1T5cNCk+67JVP1Y0KT56bLE+1ZbRPnpssT7altE+6rJVP92W0T7fNXU/XjQpPuE1dT9cNCk+67JVP9qW0T7qslU/9qEsPeuyVT//oSw9fmyxPlY0KT56bLE+XDQpPuuyVT9SNCk+JM1kPtWW0T4gzWQ+1ZbRPnpssT5WNCk+emyxPmJOCD94bLE+Y04IP+iyVT/altE+6rJVP9WW0T56bLE+FHEpP/qAwD4uTSo/yMi+PonLaD8Ayb4+ladpPxqBwD7HWXQ/jOXVPuA1dT++ndc+4DV1P1rLaD+jWXQ/lKdpP7u+Hj9+p2k/ouIdP2XLaD+i4h0/1J3XPt6+Hj9e5dU+bqdpP8hZdD9Ty2g/4TV1P/hMKj/ENXU/7HApP7dZdD8vf2k/TjbWPnWZKT8sNtY+FHEpP/qAwD6Vp2k/GoHAPg1/aT8uf2k/L39pP0421j7HWXQ/jOXVPqNZdD+Up2k/U5kpPx1/aT8Nf2k/Ln9pP26naT/IWXQ/7HApP7dZdD9TmSk/HX9pP3WZKT8sNtY+L39pP0421j4Nf2k/Ln9pPw=="),
+"format": 34359742487,
+"index_count": 84,
+"index_data": PackedByteArray("AAABAAIAAgADAAAABAAFAAYABgAHAAQACAAJAAoACgALAAgADAANAA4ADgAPAAwAEAARABIAEgATABAAFAAVABYAFgAXABQAGAAZABoAGgAbABgAHAAdAB4AHgAfABwAIAAhACIAIgAjACAAJAAlACYAJgAnACQAKAApACoAKgArACgALAAtAC4ALgAvACwAMAAxADIAMgAzADAANAA1ADYANgA3ADQA"),
+"material": ExtResource("16_ngep7"),
+"name": "box_bake",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 56,
+"vertex_data": PackedByteArray("egQ8uq7zuTrAf3Y6egQ8uq7zubrAf3Y6KfI8uoVqurp8oTY6KfI8uoVqujp8oTY64+I3OuPit7pmFjS34+I3OuPitzpmFjS34+I3uuPitzpmFjS34+I3uuPit7pmFjS34+I3uuPit7p8oTY64+I3OuPit7p8oTY64+I3OuPit7pmFjS34+I3uuPit7pmFjS34+I3OuPit7p8oTY64+I3OuPitzp8oTY64+I3OuPitzpmFjS34+I3OuPit7pmFjS34+I3OuPitzp8oTY64+I3uuPitzp8oTY64+I3uuPitzpmFjS34+I3OuPitzpmFjS34+I3uuPitzp8oTY64+I3uuPit7p8oTY64+I3uuPit7pmFjS34+I3uuPitzpmFjS3KfI8uoVqujp8oTY64+I3uuPitzp8oTY64+I3OuPitzp8oTY6KfI8OoVqujp8oTY6KfI8OoVqujp8oTY64+I3OuPitzp8oTY64+I3OuPit7p8oTY6KfI8OoVqurp8oTY6KfI8uoVqurp8oTY64+I3uuPit7p8oTY64+I3uuPitzp8oTY6KfI8uoVqujp8oTY6KfI8OoVqurp8oTY64+I3OuPit7p8oTY64+I3uuPit7p8oTY6KfI8uoVqurp8oTY6egQ8Oq7zuTrAf3Y6egQ8uq7zuTrAf3Y6KfI8uoVqujp8oTY6KfI8OoVqujp8oTY6egQ8Oq7zubrAf3Y6egQ8Oq7zuTrAf3Y6KfI8OoVqujp8oTY6KfI8OoVqurp8oTY6egQ8uq7zubrAf3Y6egQ8Oq7zubrAf3Y6KfI8OoVqurp8oTY6KfI8uoVqurp8oTY6egQ8uq7zubrAf3Y6egQ8uq7zuTrAf3Y6egQ8Oq7zuTrAf3Y6egQ8Oq7zubrAf3Y61QH/f9WB/7/VAf9/1YH/v9UB/3/Vgf+/1QH/f9WB/7//////AAD/v/////8AAP+//////wAA/7//////AAD/v/9/AAAAAP+//38AAAAA/7//fwAAAAD/v/9/AAAAAP+/////f/7/AID///9//v8AgP///3/+/wCA////f///////f///AAD/v/9///8AAP+//3///wAA/7//f///AAD/vwAA/3//f/+/AAD/f/9//78AAP9//3//vwAA/3//f/+///////7//7///////v//v//////+//+///////7//7////7/AAD/v////v8AAP+////+/xMA9b////7/EwD1vwAA/v8AAP+/AAD+/wAA/78AAP7/EwD1vwAA/v8UAPW///////7//7///////v//v//////+//+///////7//7//fyn+////v/9/Kf7///+//38p/v///7//fyn+////vyn+/3/+/xT/Kf7/f/7/FP8p/v9//v8U/yn+/3/+/xT//3/VAf7//7//f9UB/v//v/9/1QH+//+//3/VAf7//7//f/9//v//v/9//3/+//+//3//f/7//7//f/9//v//vw==")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_vkwhe")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_u51br"]
+size = Vector3(0.292725, 0.191528, 0.567993)
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vpgwh"]
 albedo_color = Color(0.189372, 0.356995, 0.189985, 1)
 
@@ -68,7 +105,6 @@ transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75
 shadow_enabled = true
 
 [node name="Player" parent="." node_paths=PackedStringArray("interact_label") instance=ExtResource("1_7d6r5")]
-max_move_speed = 10.0
 interact_label = NodePath("../UI/InteractLabel")
 
 [node name="FootstepASP" parent="Player" index="3"]
@@ -195,27 +231,54 @@ size = Vector3(5, 5, 5)
 
 [node name="Interactables" type="Node" parent="World1"]
 
-[node name="UnnamedInteractable" type="CSGBox3D" parent="World1/Interactables" node_paths=PackedStringArray("interact_response_label") groups=["Interactable"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.21683, 4.76837e-07, -1.52164)
-use_collision = true
-script = ExtResource("10_o3qip")
-interact_response_label = NodePath("../../../UI/InteractResponseLabel")
+[node name="MemoryCapsule" type="StaticBody3D" parent="World1/Interactables" node_paths=PackedStringArray("interact_stream_player") groups=["Interactable"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.61092, 1.0941, -2.31715)
+script = ExtResource("15_frg6o")
+inspect_position_offset = Vector3(0, -0.1, 0)
+item_name = "memory capsule"
+one_shot = false
+interact_stream_player = NodePath("AudioStreamPlayer3D")
+interact_audio_stream = ExtResource("11_3q2yy")
 
-[node name="NamedInteractable" type="CSGBox3D" parent="World1/Interactables" node_paths=PackedStringArray("interact_response_label") groups=["Interactable"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.0836, 0, -1.79692)
-use_collision = true
-script = ExtResource("10_o3qip")
-item_name = "i have a name ok?!"
-interact_response_label = NodePath("../../../UI/InteractResponseLabel")
+[node name="box_bake" type="MeshInstance3D" parent="World1/Interactables/MemoryCapsule"]
+transform = Transform3D(200, 0, 0, 0, -8.74228e-06, 200, 0, -200, -8.74228e-06, 0, 0, 0)
+mesh = SubResource("ArrayMesh_xhmmb")
+skeleton = NodePath("")
 
-[node name="TriggerArea" parent="World1" node_paths=PackedStringArray("dialogue_stream_player", "subtitle_label", "start_monitoring_list") instance=ExtResource("11_bydt5")]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World1/Interactables/MemoryCapsule"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000671387, 0.0899048, 0.000915527)
+shape = SubResource("BoxShape3D_u51br")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="World1/Interactables/MemoryCapsule"]
+
+[node name="MemoryCapsule2" type="StaticBody3D" parent="World1/Interactables" node_paths=PackedStringArray("interact_stream_player") groups=["Interactable"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.61092, 1.0941, 0.0310307)
+script = ExtResource("15_frg6o")
+inspect_position_offset = Vector3(0, -0.1, 0)
+item_name = "memory capsule"
+one_shot = false
+interact_stream_player = NodePath("AudioStreamPlayer3D")
+interact_audio_stream = ExtResource("11_3q2yy")
+
+[node name="box_bake" type="MeshInstance3D" parent="World1/Interactables/MemoryCapsule2"]
+transform = Transform3D(200, 0, 0, 0, -8.74228e-06, 200, 0, -200, -8.74228e-06, 0, 0, 0)
+mesh = SubResource("ArrayMesh_xhmmb")
+skeleton = NodePath("")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World1/Interactables/MemoryCapsule2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000671387, 0.0899048, 0.000915527)
+shape = SubResource("BoxShape3D_u51br")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="World1/Interactables/MemoryCapsule2"]
+
+[node name="TestArea1" parent="World1" node_paths=PackedStringArray("dialogue_stream_player", "subtitle_label", "start_monitoring_list") instance=ExtResource("11_bydt5")]
 dialogue_stream_player = NodePath("../../Player/PlayerDialogueASP")
 dialogue_clips = Array[Resource]([ExtResource("12_8jd77")])
 subtitle_label = NodePath("../../UI/SubtitleLabel")
 dialogue_delay = 1.0
-start_monitoring_list = [NodePath("../TriggerArea2")]
+start_monitoring_list = [NodePath("../TestArea2")]
 
-[node name="TriggerArea2" parent="World1" node_paths=PackedStringArray("dialogue_stream_player", "subtitle_label") instance=ExtResource("11_bydt5")]
+[node name="TestArea2" parent="World1" node_paths=PackedStringArray("dialogue_stream_player", "subtitle_label") instance=ExtResource("11_bydt5")]
 monitoring = false
 dialogue_stream_player = NodePath("../../Player/PlayerDialogueASP")
 dialogue_clips = Array[Resource]([ExtResource("13_wxw3k"), ExtResource("14_w74bm")])

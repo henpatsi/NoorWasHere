@@ -5,9 +5,11 @@ extends Interactable
 @export var picture: TextureRect
 
 
-func interact(player: CharacterBody3D) -> void:
+func interact(player: CharacterBody3D) -> Node:
 	super.interact(player)
 
 	picture_handler.add_picture(picture)
 
 	queue_free()
+	
+	return null

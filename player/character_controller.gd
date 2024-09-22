@@ -27,6 +27,7 @@ var footstep_timer: float = 0.0
 var interact_enabled: bool = true
 
 var ray_collision_object: Object
+var interacting_object: Node
 
 @onready var inventory: Node = $Inventory
 @onready var inspect_position: Node3D = $HeadNode/InspectPosition
@@ -112,6 +113,10 @@ func _input(event: InputEvent) -> void:
 		mouse_input = Vector2(event.relative.x, event.relative.y) * GlobalSettings.mouse_sensitivity_modifier
 	
 	if event.is_action_pressed("interact") and interact_enabled:
-		if ray_collision_object and ray_collision_object.is_in_group("Interactable"):
-			ray_collision_object.interact(self)
-			
+		if not ray_collision_object or not ray_collision_object.is_in_group("Interactable"):
+			print("Did not hit an interactable")
+			return
+		if interacting_object and ray_collision_object != interacting_object:
+			print("Already interacting with " + interacting_object.name)
+			return
+		interacting_object = ray_collision_object.interact(self)

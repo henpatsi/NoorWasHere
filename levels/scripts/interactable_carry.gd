@@ -14,7 +14,7 @@ var carrying: bool = false
 var dropoff_area: Area3D
 
 
-func interact(player: CharacterBody3D) -> void:
+func interact(player: CharacterBody3D) -> Node:
 
 	super.interact(player)
 
@@ -30,8 +30,10 @@ func interact(player: CharacterBody3D) -> void:
 		if carry_audio_stream_player and pick_up_audio:
 			carry_audio_stream_player.stream = pick_up_audio
 			carry_audio_stream_player.play()
+		return self
 	else:
 		release()
+		return null
 
 func release() -> void:
 	if not dropoff_area:

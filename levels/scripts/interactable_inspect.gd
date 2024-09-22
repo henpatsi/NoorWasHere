@@ -3,14 +3,15 @@ extends Interactable
 @export_category("Settings")
 @export var maximum_distance_from_origin: float = 3
 @export var rotation_on_inspect: Vector3
+@export var inspect_position_offset: Vector3
 
 @onready var original_parent: Node = get_parent()
 @onready var original_global_position: Vector3 = global_position
 @onready var oiginal_rotation: Vector3 = rotation
 
 var inspecting: bool = false
-var busy: bool = false
 
+var player: CharacterBody3D
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
@@ -18,27 +19,27 @@ func _process(_delta: float) -> void:
 		release()
 
 
-func interact(player: CharacterBody3D) -> void:
-	if busy:
-		print("Interactable busy")
-		return
-
-	busy = true
-
+func interact(player: CharacterBody3D) -> Node:
+	self.player = player
 	super.interact(player)
 
 	if not inspecting:
-		original_parent.remove_child(self)
-		player.inspect_position.add_child(self)
-		position = Vector3.ZERO
-		rotation = Vector3(deg_to_rad(rotation_on_inspect.x),
-						deg_to_rad(rotation_on_inspect.y),
-						deg_to_rad(rotation_on_inspect.z))
-		inspecting = true
+		inspect()
+		return self
 	else:
 		release()
+		return null
 
-	busy = false
+
+func inspect() -> void:
+	original_parent.remove_child(self)
+	player.inspect_position.add_child(self)
+	position = inspect_position_offset
+	rotation = Vector3(deg_to_rad(rotation_on_inspect.x),
+					deg_to_rad(rotation_on_inspect.y),
+					deg_to_rad(rotation_on_inspect.z))
+	inspecting = true
+
 
 func release() -> void:
 	get_parent().remove_child(self)
@@ -46,3 +47,4 @@ func release() -> void:
 	global_position = original_global_position
 	rotation = oiginal_rotation
 	inspecting = false
+	player.interacting_object = null

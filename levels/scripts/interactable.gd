@@ -56,8 +56,8 @@ func _ready() -> void:
 func _process(_delta) -> void:
 	dialogue_process()
 
-
-func interact(_player: CharacterBody3D) -> void:
+# Called by player when interacting, returns self if this blocks other interactions
+func interact(_player: CharacterBody3D) -> Node:
 	print("Interacted with " + name)
 
 	if one_shot:
@@ -69,6 +69,7 @@ func interact(_player: CharacterBody3D) -> void:
 	if not changes_wait_for_dialogue:
 		apply_scene_changes()
 
+	return null
 
 func handle_teleport_state(state: bool) -> void:
 	if prevent_teleport:
