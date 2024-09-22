@@ -20,14 +20,16 @@ var mouse_input: Vector2
 
 var footstep_timer: float = 0.0
 
-@export_category("Raycast")
+@export_category("Interaction")
 @export var ray_cast: RayCast3D
 @export var ray_distance: float = 3.0
 @export var interact_label: Label
+@export var inspect_rotation_sensitivity: float = 15
 var interact_enabled: bool = true
 
 var ray_collision_object: Object
 var interacting_object: Node
+var inspect_mode: bool = false
 
 @onready var inventory: Node = $Inventory
 @onready var inspect_position: Node3D = $HeadNode/InspectPosition
@@ -35,13 +37,15 @@ var interacting_object: Node
 
 func _physics_process(delta: float) -> void:
 
-	air(delta)
-	move(delta)
-	look(delta)
+	if inspect_mode:
+		rotate_inspect(delta)
+	else:
+		air(delta)
+		move(delta)
+		look(delta)
+		move_and_slide()
 
 	raycast()
-
-	move_and_slide()
 
 
 # MOVE
@@ -79,6 +83,12 @@ func look(delta: float) -> void:
 	head_node.rotate_x(deg_to_rad(-mouse_input.y) * mouse_sensitivity * delta)
 	head_node.rotation.x = clampf(head_node.rotation.x, deg_to_rad(-90), deg_to_rad(90))
 	rotate_y(deg_to_rad(-mouse_input.x) * mouse_sensitivity * delta)
+	mouse_input = Vector2.ZERO
+
+
+func rotate_inspect(delta: float) -> void:
+	interacting_object.rotate_x(deg_to_rad(mouse_input.y) * inspect_rotation_sensitivity * delta)
+	interacting_object.rotate_y(deg_to_rad(mouse_input.x) * inspect_rotation_sensitivity * delta)
 	mouse_input = Vector2.ZERO
 
 
@@ -120,3 +130,11 @@ func _input(event: InputEvent) -> void:
 			print("Already interacting with " + interacting_object.name)
 			return
 		interacting_object = ray_collision_object.interact(self)
+
+
+func set_inspect_mode(state: bool) -> void:
+	inspect_mode = state
+	if inspect_mode:
+		print("Inspect mode on")
+	else:
+		print("Inspect mode off")

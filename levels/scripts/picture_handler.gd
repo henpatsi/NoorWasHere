@@ -94,10 +94,9 @@ func _input(event: InputEvent) -> void:
 		set_active_picture(picture_index - 1)
 	
 	if event.is_action_pressed("enter_picture"):
-		print("Trying to enter picture")
 		if not inspecting:
-			print ("Not inspecting a picture")
 			return
+		print("Trying to enter picture")
 		if not aligned:
 			print ("Not aligned to picture")
 			return

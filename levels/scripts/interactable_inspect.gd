@@ -15,8 +15,9 @@ var player: CharacterBody3D
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
-	if global_position.distance_to(original_global_position) > maximum_distance_from_origin:
+	if inspecting and global_position.distance_to(original_global_position) > maximum_distance_from_origin:
 		release()
+		player.interacting_object = null
 
 
 func interact(player: CharacterBody3D) -> Node:
@@ -39,7 +40,7 @@ func inspect() -> void:
 					deg_to_rad(rotation_on_inspect.y),
 					deg_to_rad(rotation_on_inspect.z))
 	inspecting = true
-
+	player.set_inspect_mode(true)
 
 func release() -> void:
 	get_parent().remove_child(self)
@@ -47,4 +48,4 @@ func release() -> void:
 	global_position = original_global_position
 	rotation = oiginal_rotation
 	inspecting = false
-	player.interacting_object = null
+	player.set_inspect_mode(false)
