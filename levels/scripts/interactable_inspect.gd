@@ -17,6 +17,7 @@ func _process(_delta: float) -> void:
 	if global_position.distance_to(original_global_position) > maximum_distance_from_origin:
 		release()
 
+
 func interact(player: CharacterBody3D) -> void:
 	if busy:
 		print("Interactable busy")

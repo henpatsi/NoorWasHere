@@ -166,7 +166,7 @@ func enter_picture(player: CharacterBody3D, head_node: Node3D, picture_handler: 
 	picture_handler.set_input_state(true)
 
 
-func exit_picture(player: CharacterBody3D, picture_handler: Node) -> void:
+func exit_picture(player: CharacterBody3D, _picture_handler: Node) -> void:
 	inside_picture = false
 	show()
 	get_tree().root.get_child(1).set_present_environment()

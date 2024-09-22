@@ -7,7 +7,7 @@
 [ext_resource type="Script" path="res://levels/scripts/picture_handler.gd" id="3_m4duy"]
 [ext_resource type="PackedScene" uid="uid://b25ooshew3q2v" path="res://player/player.tscn" id="4_aw37m"]
 [ext_resource type="Script" path="res://levels/scripts/picture.gd" id="4_xvv2v"]
-[ext_resource type="PackedScene" uid="uid://d22ogqllffeom" path="res://levels/camera_ref.tscn" id="6_ksg6d"]
+[ext_resource type="PackedScene" path="res://levels/camera_ref.tscn" id="6_ksg6d"]
 [ext_resource type="Script" path="res://levels/scripts/ui.gd" id="6_vry8q"]
 [ext_resource type="Script" path="res://levels/scripts/screenshot.gd" id="7_etppf"]
 [ext_resource type="Script" path="res://levels/scripts/dynamic_label.gd" id="7_rnv2q"]

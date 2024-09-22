@@ -1,0 +1,9 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://4n1r1roygv8i"]
+
+[ext_resource type="AudioStream" uid="uid://dj22rfgydlxpn" path="res://assets/audio/VO/00_02.mp3" id="1_htanu"]
+[ext_resource type="Script" path="res://resources/dialogue_stream.gd" id="2_rjt58"]
+
+[resource]
+script = ExtResource("2_rjt58")
+audio_stream = ExtResource("1_htanu")
+subtitle = "Perhaps I found it funny to avoid a multiple of ten, or maybe I was manifesting to make it past the 27 club."

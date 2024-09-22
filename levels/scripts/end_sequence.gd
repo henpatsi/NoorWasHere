@@ -12,15 +12,6 @@ extends Control
 @onready var color_rect: ColorRect = $ColorRect
 @onready var label: Label = $Label
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-
 
 func play_end_sequence() -> void:
 	picture_handler.set_input_state(false)

@@ -1,15 +1,19 @@
-[gd_scene load_steps=20 format=3 uid="uid://bd5b2sgv2c8v8"]
+[gd_scene load_steps=25 format=3 uid="uid://bd5b2sgv2c8v8"]
 
 [ext_resource type="PackedScene" uid="uid://b25ooshew3q2v" path="res://player/player.tscn" id="1_7d6r5"]
 [ext_resource type="Script" path="res://levels/scripts/picture_handler.gd" id="1_827sh"]
 [ext_resource type="Script" path="res://levels/scripts/test_level.gd" id="1_w023m"]
 [ext_resource type="Script" path="res://levels/scripts/picture.gd" id="2_sagta"]
-[ext_resource type="PackedScene" uid="uid://d22ogqllffeom" path="res://levels/camera_ref.tscn" id="4_5wynm"]
+[ext_resource type="PackedScene" path="res://levels/camera_ref.tscn" id="4_5wynm"]
 [ext_resource type="Script" path="res://levels/scripts/screenshot.gd" id="5_0pnjl"]
 [ext_resource type="Script" path="res://levels/scripts/ui.gd" id="7_813h0"]
 [ext_resource type="FontFile" uid="uid://bi3g7vfa5cdww" path="res://assets/fonts/Helvetica-Font/Helvetica.ttf" id="8_6nq31"]
 [ext_resource type="Script" path="res://levels/scripts/dynamic_label.gd" id="9_pp8iw"]
 [ext_resource type="Script" path="res://levels/scripts/interactable.gd" id="10_o3qip"]
+[ext_resource type="Script" path="res://levels/scripts/trigger_area.gd" id="11_c0ix6"]
+[ext_resource type="Resource" uid="uid://cnu4kfkgrm0an" path="res://resources/00_01.tres" id="12_8jd77"]
+[ext_resource type="Resource" uid="uid://4n1r1roygv8i" path="res://resources/00_02.tres" id="13_wxw3k"]
+[ext_resource type="Resource" uid="uid://ri6p1no5sv8m" path="res://resources/00_03.tres" id="14_w74bm"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_3aadv"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -50,6 +54,9 @@ shadow_color = Color(0, 0, 0, 0.313726)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jc4wf"]
 albedo_color = Color(0.02223, 0.0568684, 0.156604, 1)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_e1f41"]
+size = Vector3(10, 10, 10)
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vpgwh"]
 albedo_color = Color(0.189372, 0.356995, 0.189985, 1)
 
@@ -64,7 +71,6 @@ transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75
 shadow_enabled = true
 
 [node name="Player" parent="." node_paths=PackedStringArray("interact_label") instance=ExtResource("1_7d6r5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 max_move_speed = 10.0
 interact_label = NodePath("../UI/InteractLabel")
 
@@ -163,18 +169,18 @@ script = ExtResource("9_pp8iw")
 
 [node name="SubtitleLabel" type="Label" parent="UI"]
 layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
+anchors_preset = 12
 anchor_top = 1.0
-anchor_right = 0.5
+anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -20.0
-offset_top = -120.0
-offset_right = 20.0
-offset_bottom = -97.0
+offset_top = -220.0
+offset_bottom = -20.0
 grow_horizontal = 2
 grow_vertical = 0
 label_settings = SubResource("LabelSettings_weefs")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
 
 [node name="World1" type="Node3D" parent="."]
 
@@ -204,6 +210,19 @@ script = ExtResource("10_o3qip")
 item_name = "i have a name ok?!"
 interact_response_label = NodePath("../../../UI/InteractResponseLabel")
 
+[node name="DialogueTriggerArea" type="Area3D" parent="World1" node_paths=PackedStringArray("dialogue_stream_player", "subtitle_label")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0207367, 1.57257, -11.0861)
+script = ExtResource("11_c0ix6")
+one_shot = true
+dialogue_stream_player = NodePath("../../Player/PlayerDialogueASP")
+dialogue_clips = Array[Resource]([ExtResource("12_8jd77"), ExtResource("13_wxw3k"), ExtResource("14_w74bm")])
+subtitle_label = NodePath("../../UI/SubtitleLabel")
+dialogue_delay = 1.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World1/DialogueTriggerArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.29609, 0, 3.75128)
+shape = SubResource("BoxShape3D_e1f41")
+
 [node name="World2" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 500, 0, 0)
 
@@ -219,5 +238,7 @@ use_collision = true
 size = Vector3(5, 5, 5)
 
 [node name="Camera3D" type="Camera3D" parent="World2"]
+
+[connection signal="body_entered" from="World1/DialogueTriggerArea" to="World1/DialogueTriggerArea" method="_on_body_entered"]
 
 [editable path="Player"]

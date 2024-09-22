@@ -4,26 +4,29 @@ extends Node3D
 @export_category("Settings")
 ## Name of the item, shown when prompted to interact, use editor name if not set
 @export var item_name: String
-## If true, only be interacted with once
+## If true, can only be interacted with once
 @export var one_shot: bool = false
-## If true, cannot use picture input until audio played
-@export var prevent_teleport: bool = false
 ## Lable to which the response to the interaction (e.g. "locked", "successful") is written
 @export var interact_response_label: Label
 
 @export_category("Audio")
-## If true, only play audio once (does not do anything if one_shot is also true)
-@export var audio_one_shot: bool = false
-## Audio stream player that plays all audio clips
-@export var audio_stream_player: AudioStreamPlayer3D
+## Audio stream player that plays interact audio
+@export var interact_stream_player: AudioStreamPlayer3D
+## Interact audio stream
+@export var interact_audio_stream: AudioStream
+## Audio stream player that plays dialogue audio
+@export var dialogue_stream_player: AudioStreamPlayer3D
+## Array of dialogue clips, played in order
+@export var dialogue_clips: Array[Resource]
 ## Label to which subtitles are written
 @export var subtitle_label: Label
-## Array of audio clips, played in order
-@export var audio_clips: Array[AudioStream]
-## Array of subtitles, shown in order with the same index audio clip
-@export var subtitles: Array[String]
-var audio_index = 0
-var audio_played: bool = false
+## If true, cannot use picture input until dialogue played
+@export var prevent_teleport: bool = true
+## Delay (s) before the dialogue is started
+@export var dialogue_delay: float = 0.0
+
+var dialogue_index = 0
+var dialogue_played: bool = false
 
 @export_category("Scene changes")
 ## Nodes that will be shown once the animation has played
@@ -32,8 +35,8 @@ var audio_played: bool = false
 @export var nodes_to_hide: Array[Node]
 ## Area3D nodes that should start monitoring
 @export var start_monitoring_list: Array[Area3D]
-## Waits until all audio clips have been played until making the listed changes
-@export var wait_for_audio: bool = false
+## Waits until all dialogue clips have been played until making the listed changes
+@export var changes_wait_for_dialogue: bool = false
 
 var picture_manager: Node
 
@@ -51,21 +54,14 @@ func _ready() -> void:
 		item_name = name
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta: float) -> void:
-	pass
-
-
 func interact(_player: CharacterBody3D) -> void:
 	print("Interacted with " + name)
 
 	if one_shot:
 		remove_from_group("Interactable")
 
-	handle_teleport_state(false)
-
-	play_audio_clips()
-	if not wait_for_audio:
+	play_dialogue_clips()
+	if not changes_wait_for_dialogue:
 		apply_scene_changes()
 
 
@@ -74,26 +70,30 @@ func handle_teleport_state(state: bool) -> void:
 		picture_manager.set_input_state(state)
 
 
-func play_audio_clips() -> void:
-	if not audio_stream_player or audio_clips.size() == 0:
-		handle_teleport_state(true)
+func play_dialogue_clips() -> void:
+	if not dialogue_stream_player or dialogue_clips.size() == 0:
 		return
-	if audio_one_shot and audio_played:
-		handle_teleport_state(true)
+	if dialogue_played:
 		return
-	audio_played = true
-	while audio_index < audio_clips.size():
-		audio_stream_player.stream = audio_clips[audio_index]
-		audio_stream_player.play()
-		if subtitle_label and subtitles[audio_index]:
-			subtitle_label.text = subtitles[audio_index]
-		await get_tree().create_timer(audio_clips[audio_index].get_length()).timeout
-		audio_index += 1
-	audio_index = 0
+		
+	dialogue_played = true
+	handle_teleport_state(false)
+	
+	if dialogue_delay > 0:
+		await get_tree().create_timer(dialogue_delay).timeout
+
+	while dialogue_index < dialogue_clips.size():
+		dialogue_stream_player.stream = dialogue_clips[dialogue_index].audio_stream
+		dialogue_stream_player.play()
+		if subtitle_label:
+			subtitle_label.text = dialogue_clips[dialogue_index].subtitle
+		await get_tree().create_timer(dialogue_clips[dialogue_index].audio_stream.get_length()).timeout
+		dialogue_index += 1
+
 	if subtitle_label:
 		subtitle_label.text = ""
 
-	if wait_for_audio:
+	if changes_wait_for_dialogue:
 		apply_scene_changes()
 
 	handle_teleport_state(true)

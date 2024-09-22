@@ -31,9 +31,6 @@ var ray_collision_object: Object
 @onready var inventory: Node = $Inventory
 @onready var inspect_position: Node3D = $HeadNode/InspectPosition
 
-func _ready() -> void:
-	pass
-
 
 func _physics_process(delta: float) -> void:
 

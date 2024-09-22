@@ -1,6 +1,6 @@
 extends Node3D
 
-@export var pauseMenu: PackedScene = preload("res://menus/pause_menu.tscn")
+var pauseMenu: PackedScene = preload("res://menus/pause_menu.tscn")
 
 var paused: bool = false
 

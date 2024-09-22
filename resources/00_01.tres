@@ -1,0 +1,9 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://cnu4kfkgrm0an"]
+
+[ext_resource type="AudioStream" uid="uid://5cmdiux0k4xq" path="res://assets/audio/VO/00_01.mp3" id="1_0py4r"]
+[ext_resource type="Script" path="res://resources/dialogue_stream.gd" id="2_khmk5"]
+
+[resource]
+script = ExtResource("2_khmk5")
+audio_stream = ExtResource("1_0py4r")
+subtitle = "When I was around seven, I made myself one of those time capsules for when I turned 28 years old."
