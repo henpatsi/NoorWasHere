@@ -63,6 +63,10 @@ func interact(_player: CharacterBody3D) -> Node:
 	if one_shot:
 		remove_from_group("Interactable")
 
+	if interact_stream_player and interact_audio_stream:
+		interact_stream_player.stream = interact_audio_stream
+		interact_stream_player.play()
+
 	if not dialogue_triggered and dialogue_stream_player and dialogue_clips.size() > 0:
 		start_dialogue_clips()
 
