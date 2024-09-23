@@ -1,7 +1,6 @@
 extends Interactable
 
 @export_category("Settings")
-@export var maximum_distance_from_origin: float = 3
 @export var rotation_on_inspect: Vector3
 @export var inspect_position_offset: Vector3
 
@@ -11,28 +10,26 @@ extends Interactable
 
 var inspecting: bool = false
 
-var player: CharacterBody3D
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta: float) -> void:
-	if inspecting and global_position.distance_to(original_global_position) > maximum_distance_from_origin:
-		release()
-		player.interacting_object = null
+func _ready() -> void:
+	if not verb:
+		verb = "Inspect"
+
+	super._ready()
 
 
 func interact(player: CharacterBody3D) -> Node:
-	self.player = player
 	super.interact(player)
 
 	if not inspecting:
-		inspect()
+		inspect(player)
 		return self
 	else:
 		release()
 		return null
 
 
-func inspect() -> void:
+func inspect(player: CharacterBody3D) -> void:
 	original_parent.remove_child(self)
 	player.inspect_position.add_child(self)
 	position = inspect_position_offset
@@ -40,7 +37,7 @@ func inspect() -> void:
 					deg_to_rad(rotation_on_inspect.y),
 					deg_to_rad(rotation_on_inspect.z))
 	inspecting = true
-	player.set_inspect_mode(true)
+
 
 func release() -> void:
 	get_parent().remove_child(self)
@@ -48,4 +45,3 @@ func release() -> void:
 	global_position = original_global_position
 	rotation = oiginal_rotation
 	inspecting = false
-	player.set_inspect_mode(false)

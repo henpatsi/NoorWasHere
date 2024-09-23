@@ -5,6 +5,13 @@ extends Interactable
 @export var picture: TextureRect
 
 
+func _ready() -> void:
+	if not verb:
+		verb = "Pick up"
+
+	super._ready()
+
+
 func interact(player: CharacterBody3D) -> Node:
 	super.interact(player)
 

@@ -107,12 +107,17 @@ func air(delta: float) -> void:
 # INTERACT
 
 func raycast() -> void:
+	if interacting_object:
+		if interact_label:
+			interact_label.text = "Release " + interacting_object.item_name
+		return
+
 	ray_cast.target_position = Vector3.FORWARD * ray_distance
 	ray_collision_object = ray_cast.get_collider()
 
-	if ray_collision_object and ray_collision_object.is_in_group("Interactable"):
+	if ray_collision_object and ray_collision_object.has_method("interact"):
 		if interact_label and interact_enabled:
-			interact_label.text = "Interact with " + ray_collision_object.item_name
+			interact_label.text = ray_collision_object.verb + " " + ray_collision_object.item_name
 	elif interact_label:
 		interact_label.text = ""
 
@@ -123,13 +128,24 @@ func _input(event: InputEvent) -> void:
 		mouse_input = Vector2(event.relative.x, event.relative.y) * GlobalSettings.mouse_sensitivity_modifier
 	
 	if event.is_action_pressed("interact") and interact_enabled:
-		if not ray_collision_object or not ray_collision_object.is_in_group("Interactable"):
-			print("Did not hit an interactable")
-			return
-		if interacting_object and ray_collision_object != interacting_object:
-			print("Already interacting with " + interacting_object.name)
-			return
-		interacting_object = ray_collision_object.interact(self)
+		interact_input()
+
+
+func interact_input() -> void:
+	if interacting_object:
+		interacting_object.release()
+		if interacting_object.has_method("inspect"):
+			inspect_mode = false
+		interacting_object = null
+		return
+
+	if not ray_collision_object or not ray_collision_object.has_method("interact"):
+		print("Did not hit an interactable")
+		return
+
+	interacting_object = ray_collision_object.interact(self)
+	if interacting_object.has_method("inspect"):
+		inspect_mode = true
 
 
 func set_inspect_mode(state: bool) -> void:

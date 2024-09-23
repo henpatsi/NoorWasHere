@@ -4,6 +4,8 @@ extends Node3D
 @export_category("Settings")
 ## Name of the item, shown when prompted to interact, use editor name if not set.
 @export var item_name: String
+## Verb for the interaction, by default "Interact with", default overriden in child classes.
+@export var verb: String
 ## If true, can only be interacted with once. Dialogue will ever only be played once.
 @export var one_shot: bool = true
 ## Lable to which the response to the interaction (e.g. "locked", "successful") is written.
@@ -39,18 +41,18 @@ var dialogue_triggered: bool = false
 ## Waits until all dialogue clips have been played until making the listed changes.
 @export var changes_wait_for_dialogue: bool = true
 
-@onready var picture_manager: Node = get_node("/root/" + get_tree().root.get_child(1).name + "/Pictures")
+@onready var picture_manager: Node = %PictureManager
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	if not picture_manager:
 		printerr("Picture manager was not found")
 	
-	if not is_in_group("Interactable"):
-		printerr("Interactable " + name + " is not in the \"Interactable\" group")
-	
 	if not item_name:
 		item_name = name
+	
+	if not verb:
+		verb = "Interact with"
 
 
 func _process(_delta) -> void:
