@@ -41,11 +41,11 @@ func interact(interacting_player: CharacterBody3D) -> Node:
 		release()
 		return null
 
-func release() -> void:
+func release() -> bool:
 	if not dropoff_area:
 		print("Cannot release here")
 		player.set_interact_response_message("Cannot release here")
-		return
+		return false
 
 	var new_parent = dropoff_area
 	get_parent().remove_child(self)
@@ -59,6 +59,8 @@ func release() -> void:
 		carry_audio_stream_player.play()
 
 	player.add_met_picture_requirement(set_requirement)
+
+	return true
 
 func set_dropoff(area: Area3D) -> void:
 	dropoff_area = area

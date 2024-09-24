@@ -164,7 +164,8 @@ func _input(event: InputEvent) -> void:
 
 func interact_input() -> void:
 	if interacting_object:
-		interacting_object.release()
+		if not interacting_object.release():
+			return
 		if interacting_object.has_method("inspect"):
 			inspect_mode = false
 		interacting_object = null

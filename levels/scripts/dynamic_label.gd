@@ -1,6 +1,6 @@
 extends Label
 
-@export var fade_time: float = 1.0
+@export var fade_time: float = 2.0
 
 var timer: float = 0.0
 

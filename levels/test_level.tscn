@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=4 uid="uid://bd5b2sgv2c8v8"]
+[gd_scene load_steps=40 format=4 uid="uid://bd5b2sgv2c8v8"]
 
 [ext_resource type="PackedScene" uid="uid://b25ooshew3q2v" path="res://player/player.tscn" id="1_7d6r5"]
 [ext_resource type="Script" path="res://levels/scripts/picture_handler.gd" id="1_827sh"]
@@ -15,9 +15,13 @@
 [ext_resource type="Resource" uid="uid://cnu4kfkgrm0an" path="res://resources/00_01.tres" id="12_8jd77"]
 [ext_resource type="Resource" uid="uid://4n1r1roygv8i" path="res://resources/00_02.tres" id="13_wxw3k"]
 [ext_resource type="Script" path="res://levels/scripts/interactable_picture.gd" id="14_236fl"]
+[ext_resource type="Script" path="res://levels/scripts/interactable_pickup.gd" id="14_nbo1e"]
 [ext_resource type="Resource" uid="uid://ri6p1no5sv8m" path="res://resources/00_03.tres" id="14_w74bm"]
 [ext_resource type="Script" path="res://levels/scripts/interactable_inspect.gd" id="15_frg6o"]
+[ext_resource type="Script" path="res://levels/scripts/interactable_carry.gd" id="15_pxfaq"]
+[ext_resource type="AudioStream" uid="uid://cb5ijg4lr1lyu" path="res://assets/audio/sfx/Misc/TV/TV_Lift.wav" id="16_erfy3"]
 [ext_resource type="Material" uid="uid://cfo4jukrqtp5k" path="res://assets/props/INTERACTEABLE/memory capsule/box_bake.tres" id="16_ngep7"]
+[ext_resource type="AudioStream" uid="uid://bq8sidpqr5mek" path="res://assets/audio/sfx/Misc/TV/TV_Putdown.wav" id="17_i13gl"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_3aadv"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -321,25 +325,49 @@ shape = SubResource("BoxShape3D_u51br")
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="World1/Interactables/MemoryCapsule"]
 
-[node name="MemoryCapsule2" type="StaticBody3D" parent="World1/Interactables" node_paths=PackedStringArray("interact_stream_player")]
+[node name="MemoryCapsulePickup" type="StaticBody3D" parent="World1/Interactables" node_paths=PackedStringArray("interact_stream_player")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.61092, 1.0941, 0.0310307)
-script = ExtResource("15_frg6o")
-inspect_position_offset = Vector3(0, -0.1, 0)
+script = ExtResource("14_nbo1e")
 item_name = "memory capsule"
-one_shot = false
 interact_stream_player = NodePath("AudioStreamPlayer3D")
 interact_audio_stream = ExtResource("11_3q2yy")
 
-[node name="box_bake" type="MeshInstance3D" parent="World1/Interactables/MemoryCapsule2"]
+[node name="box_bake" type="MeshInstance3D" parent="World1/Interactables/MemoryCapsulePickup"]
 transform = Transform3D(200, 0, 0, 0, -8.74228e-06, 200, 0, -200, -8.74228e-06, 0, 0, 0)
 mesh = SubResource("ArrayMesh_xhmmb")
 skeleton = NodePath("")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="World1/Interactables/MemoryCapsule2"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World1/Interactables/MemoryCapsulePickup"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000671387, 0.0899048, 0.000915527)
 shape = SubResource("BoxShape3D_u51br")
 
-[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="World1/Interactables/MemoryCapsule2"]
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="World1/Interactables/MemoryCapsulePickup"]
+
+[node name="MemoryCapsuleCarry" type="RigidBody3D" parent="World1/Interactables" node_paths=PackedStringArray("carry_audio_stream_player")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.61092, 1.0941, 2.03103)
+axis_lock_linear_x = true
+axis_lock_linear_y = true
+axis_lock_linear_z = true
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
+gravity_scale = 0.0
+script = ExtResource("15_pxfaq")
+carry_audio_stream_player = NodePath("AudioStreamPlayer3D")
+pick_up_audio = ExtResource("16_erfy3")
+put_down_audio = ExtResource("17_i13gl")
+item_name = "memory capsule"
+
+[node name="box_bake" type="MeshInstance3D" parent="World1/Interactables/MemoryCapsuleCarry"]
+transform = Transform3D(200, 0, 0, 0, -8.74228e-06, 200, 0, -200, -8.74228e-06, 0, 0, 0)
+mesh = SubResource("ArrayMesh_xhmmb")
+skeleton = NodePath("")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World1/Interactables/MemoryCapsuleCarry"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000671387, 0.0899048, 0.000915527)
+shape = SubResource("BoxShape3D_u51br")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="World1/Interactables/MemoryCapsuleCarry"]
 
 [node name="PickupPicture" type="StaticBody3D" parent="World1/Interactables" node_paths=PackedStringArray("picture") groups=["Interactable"]]
 transform = Transform3D(0.948335, 0, 0.317272, 0, 1, 0, -0.317272, 0, 0.948335, -4.30694, 0.090492, 1.39724)

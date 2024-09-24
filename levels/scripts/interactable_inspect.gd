@@ -39,9 +39,11 @@ func inspect() -> void:
 	inspecting = true
 
 
-func release() -> void:
+func release() -> bool:
 	get_parent().remove_child(self)
 	original_parent.add_child(self)
 	global_position = original_global_position
 	rotation = oiginal_rotation
 	inspecting = false
+
+	return true
