@@ -6,10 +6,12 @@ func _on_body_entered(body: Node3D) -> void:
 
 	print("Area triggered: " + name)
 
+	player = body
+
 	if one_shot:
 		set_deferred("monitoring", false)
 
-	if not dialogue_triggered and dialogue_stream_player and dialogue_clips.size() > 0:
+	if not dialogue_triggered and dialogue_clips.size() > 0:
 		start_dialogue_clips()
 
 	if not changes_wait_for_dialogue:

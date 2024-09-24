@@ -8,20 +8,14 @@ extends Node3D
 @export var verb: String
 ## If true, can only be interacted with once. Dialogue will ever only be played once.
 @export var one_shot: bool = true
-## Lable to which the response to the interaction (e.g. "locked", "successful") is written.
-@export var interact_response_label: Label
 
 @export_category("Audio")
 ## Audio stream player that plays interact audio.
 @export var interact_stream_player: AudioStreamPlayer3D
 ## Interact audio stream.
 @export var interact_audio_stream: AudioStream
-## Audio stream player that plays dialogue audio.
-@export var dialogue_stream_player: AudioStreamPlayer3D
 ## Array of dialogue clips, played in order.
 @export var dialogue_clips: Array[Resource]
-## Label to which subtitles are written.
-@export var subtitle_label: Label
 ## If true, cannot use picture input until dialogue played.
 @export var prevent_teleport: bool = true
 ## Delay (s) before the dialogue is started.
@@ -68,7 +62,7 @@ func interact(interacting_player: CharacterBody3D) -> Node:
 		interact_stream_player.stream = interact_audio_stream
 		interact_stream_player.play()
 
-	if not dialogue_triggered and dialogue_stream_player and dialogue_clips.size() > 0:
+	if not dialogue_triggered and dialogue_clips.size() > 0:
 		start_dialogue_clips()
 
 	if not changes_wait_for_dialogue:
@@ -92,23 +86,21 @@ func start_dialogue_clips() -> void:
 
 
 func dialogue_process() -> void:
-	if not dialogue_playing or dialogue_stream_player.playing:
+	if not dialogue_playing or player.dialogue_audio_player.playing:
 		return
 
 	if dialogue_index == dialogue_clips.size():
 		dialogue_playing = false
-		if subtitle_label:
-			subtitle_label.text = ""
+		player.set_subtitle("")
 		if changes_wait_for_dialogue:
 			apply_scene_changes()
 		handle_teleport_state(true)
 		return
 
-	dialogue_stream_player.stream = dialogue_clips[dialogue_index].audio_stream
-	dialogue_stream_player.play()
+	player.dialogue_audio_player.stream = dialogue_clips[dialogue_index].audio_stream
+	player.dialogue_audio_player.play()
 
-	if subtitle_label:
-		subtitle_label.text = dialogue_clips[dialogue_index].subtitle
+	player.set_subtitle(dialogue_clips[dialogue_index].subtitle)
 
 	dialogue_index += 1
 

@@ -14,7 +14,7 @@ func _ready() -> void:
 func interact(interacting_player: CharacterBody3D) -> Node:
 	super.interact(interacting_player)
 
-	player.on_picture_picked_up(picture)
+	player.on_picture_picked_up(self)
 
 	queue_free()
 	

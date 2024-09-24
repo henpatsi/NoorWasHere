@@ -17,6 +17,7 @@ var mouse_input: Vector2
 @export var footstep_duration: float = 0.5
 @export var footstep_sound_effects: Array[AudioStream]
 @export var dialogue_audio_player: AudioStreamPlayer3D
+@export var subtitle_label: Label
 
 var footstep_timer: float = 0.0
 
@@ -24,8 +25,8 @@ var footstep_timer: float = 0.0
 @export var ray_cast: RayCast3D
 @export var ray_distance: float = 3.0
 @export var interact_label: Label
-@export var inspect_rotation_sensitivity: float = 15
 @export var interact_response_label: Label 
+@export var inspect_rotation_sensitivity: float = 15
 var interact_enabled: bool = true
 
 var ray_collision_object: Object
@@ -110,27 +111,47 @@ func air(delta: float) -> void:
 
 func raycast() -> void:
 	if interacting_object:
-		if interact_label:
-			interact_label.text = "Release " + interacting_object.item_name
+		set_interact_message("Release " + interacting_object.item_name)
 		return
 
 	ray_cast.target_position = Vector3.FORWARD * ray_distance
 	ray_collision_object = ray_cast.get_collider()
 
-	if ray_collision_object and ray_collision_object.has_method("interact"):
-		if interact_label and interact_enabled:
-			interact_label.text = ray_collision_object.verb + " " + ray_collision_object.item_name
-	elif interact_label:
-		interact_label.text = ""
+	if interact_enabled and ray_collision_object and ray_collision_object.has_method("interact"):
+		set_interact_message(ray_collision_object.verb + " " + ray_collision_object.item_name)
+	else:
+		set_interact_message("")
 
 func on_item_picked_up(item: Node3D) -> void:
 	inventory.add_item(item.variable_name)
-	if interact_response_label:
-		interact_response_label.change_text("Picked up " + item.item_name)
+	set_interact_response_message("Picked up " + item.item_name)
 
-func on_picture_picked_up(picture: TextureRect) -> void:
-	inventory.add_picture(picture)
+func on_picture_picked_up(picture: Node3D) -> void:
+	inventory.add_picture(picture.picture)
 	picture_handler.on_picture_picked_up()
+	set_interact_response_message("Picked up " + picture.item_name)
+
+func set_interact_message(message: String) -> void:
+	if interact_label:
+		interact_label.text = message
+
+func set_interact_response_message(message: String) -> void:
+	if interact_response_label:
+		interact_response_label.change_text(message)
+
+func add_met_picture_requirement(requirement: String) -> void:
+	picture_handler.picture_requirements_met.append(requirement)
+	
+func set_inspect_mode(state: bool) -> void:
+	inspect_mode = state
+	if inspect_mode:
+		print("Inspect mode on")
+	else:
+		print("Inspect mode off")
+
+func set_picture_handler_input(state: bool) -> void:
+	picture_handler.set_input_state(state)
+
 
 # INPUT
 
@@ -140,7 +161,6 @@ func _input(event: InputEvent) -> void:
 	
 	if event.is_action_pressed("interact") and interact_enabled:
 		interact_input()
-
 
 func interact_input() -> void:
 	if interacting_object:
@@ -155,17 +175,11 @@ func interact_input() -> void:
 		return
 
 	interacting_object = ray_collision_object.interact(self)
-	if interacting_object.has_method("inspect"):
+	if interacting_object and interacting_object.has_method("inspect"):
 		inspect_mode = true
 
+# DIALOGUE
 
-func set_inspect_mode(state: bool) -> void:
-	inspect_mode = state
-	if inspect_mode:
-		print("Inspect mode on")
-	else:
-		print("Inspect mode off")
-
-
-func set_picture_handler_input(state: bool) -> void:
-	picture_handler.set_input_state(state)
+func set_subtitle(message: String) -> void:
+	if subtitle_label:
+		subtitle_label.text = message

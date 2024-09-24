@@ -19,8 +19,7 @@ func interact(interacting_player: CharacterBody3D) -> Node:
 	
 	if key_name and not interacting_player.inventory.contains_item(key_name):
 		print("Locked")
-		if interact_response_label:
-			interact_response_label.change_text("Locked")
+		player.set_interact_response_message("Locked")
 		return
 
 	busy = true

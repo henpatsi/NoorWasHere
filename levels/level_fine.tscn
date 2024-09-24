@@ -1543,13 +1543,13 @@ size = Vector3(0.21814, 0.135986, 0.415283)
 [sub_resource type="ViewportTexture" id="ViewportTexture_2q7yh"]
 viewport_path = NodePath("Pictures/3_LivingRoom/SubViewport")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gxkcw"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d500s"]
 resource_local_to_scene = true
 albedo_texture = SubResource("ViewportTexture_2q7yh")
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_01b1r"]
 resource_local_to_scene = true
-material = SubResource("StandardMaterial3D_gxkcw")
+material = SubResource("StandardMaterial3D_d500s")
 size = Vector2(0.48, 0.27)
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_mbhtw"]
@@ -1677,9 +1677,8 @@ volume_db = -45.0
 [node name="TransitionPlayer" type="AudioStreamPlayer3D" parent="Player"]
 process_mode = 3
 
-[node name="Pictures" type="Node" parent="." node_paths=PackedStringArray("pictures")]
+[node name="Pictures" type="Node" parent="."]
 script = ExtResource("3_m4duy")
-pictures = [NodePath("0_Frontyard/FrontyardPicture"), NodePath("1_Backyard/BackyardPicture"), NodePath("2_Office/OfficePicture"), NodePath("5_TV/TVPicture"), NodePath("4_HallwayUpstairs/HallwayUpstairPicture"), NodePath("6_7_NoorRoomNight/NoorRoomNightPicture")]
 
 [node name="0_Frontyard" type="Node" parent="Pictures"]
 
@@ -3059,7 +3058,7 @@ disabled = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.015213, 1.36914, 0.223512)
 shape = SubResource("BoxShape3D_ibyln")
 
-[node name="TV" parent="Present/LevelObjects/INTERACTABLES" node_paths=PackedStringArray("picture_handler", "interact_response_label") groups=["Interactable"] instance=ExtResource("12_4tqrl")]
+[node name="TV" parent="Present/LevelObjects/INTERACTABLES" groups=["Interactable"] instance=ExtResource("12_4tqrl")]
 transform = Transform3D(-0.940678, -0.337738, 0.0325252, -0.339301, 0.936274, -0.0909153, 0.000253081, -0.0965579, -0.995327, 8.93476, 4.75, 6.06002)
 axis_lock_linear_x = true
 axis_lock_linear_y = true
@@ -3068,11 +3067,9 @@ axis_lock_angular_x = true
 axis_lock_angular_y = true
 axis_lock_angular_z = true
 script = ExtResource("14_trd0m")
-picture_handler = NodePath("../../../../Pictures")
 set_requirement = "tv_on_table"
 pick_up_audio = ExtResource("18_o6xmn")
 put_down_audio = ExtResource("19_f24x4")
-interact_response_label = NodePath("../../../../UI/InteractResponseLabel")
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Present/LevelObjects/INTERACTABLES/TV"]
 volume_db = 20.0
@@ -3082,10 +3079,9 @@ transform = Transform3D(2.98023e-08, 0, 1, 0, 1, 0, -1, 0, 2.98023e-08, 2.46362,
 
 [node name="Pictures" type="Node3D" parent="Present/LevelObjects/INTERACTABLES"]
 
-[node name="forest picture" type="StaticBody3D" parent="Present/LevelObjects/INTERACTABLES/Pictures" node_paths=PackedStringArray("picture_handler", "picture") groups=["Interactable"]]
+[node name="forest picture" type="StaticBody3D" parent="Present/LevelObjects/INTERACTABLES/Pictures" node_paths=PackedStringArray("picture") groups=["Interactable"]]
 transform = Transform3D(0.948335, 0, 0.317272, 0, 1, 0, -0.317272, 0, 0.948335, 3.30865, 1.5069, -1.19439)
 script = ExtResource("15_gx5iv")
-picture_handler = NodePath("../../../../../Pictures")
 picture = NodePath("../../../../../Pictures/9_Forest/ForestPicture")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Present/LevelObjects/INTERACTABLES/Pictures/forest picture"]
@@ -4248,10 +4244,9 @@ transform = Transform3D(0.00115186, 0, -0.999999, 0, 1, 0, 0.999999, 0, 0.001151
 
 [node name="Pictures" type="Node3D" parent="Past/INTERACTABLES"]
 
-[node name="living room picture" type="StaticBody3D" parent="Past/INTERACTABLES/Pictures" node_paths=PackedStringArray("picture_handler", "picture") groups=["Interactable"]]
+[node name="living room picture" type="StaticBody3D" parent="Past/INTERACTABLES/Pictures" node_paths=PackedStringArray("picture") groups=["Interactable"]]
 transform = Transform3D(0.948335, 0, 0.317272, 0, 1, 0, -0.317272, 0, 0.948335, -0.83844, 1.51477, 1.39724)
 script = ExtResource("15_gx5iv")
-picture_handler = NodePath("../../../../Pictures")
 picture = NodePath("../../../../Pictures/3_LivingRoom/LivingRoomPicture")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Past/INTERACTABLES/Pictures/living room picture"]
@@ -4263,11 +4258,10 @@ shape = SubResource("BoxShape3D_vc26v")
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Past/INTERACTABLES/Pictures/living room picture"]
 
-[node name="front door picture" type="StaticBody3D" parent="Past/INTERACTABLES/Pictures" node_paths=PackedStringArray("picture_handler", "picture") groups=["Interactable"]]
+[node name="front door picture" type="StaticBody3D" parent="Past/INTERACTABLES/Pictures" node_paths=PackedStringArray("picture") groups=["Interactable"]]
 transform = Transform3D(0.948335, 0, 0.317272, 0, 1, 0, -0.317272, 0, 0.948335, -0.758972, 5.00333, -0.809086)
 visible = false
 script = ExtResource("15_gx5iv")
-picture_handler = NodePath("../../../../Pictures")
 picture = NodePath("../../../../Pictures/8_FrontDoor/FrontDoorPicture")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Past/INTERACTABLES/Pictures/front door picture"]
@@ -4280,10 +4274,9 @@ disabled = true
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Past/INTERACTABLES/Pictures/front door picture"]
 
-[node name="shed picture" type="StaticBody3D" parent="Past/INTERACTABLES/Pictures" node_paths=PackedStringArray("picture_handler", "picture") groups=["Interactable"]]
+[node name="shed picture" type="StaticBody3D" parent="Past/INTERACTABLES/Pictures" node_paths=PackedStringArray("picture") groups=["Interactable"]]
 transform = Transform3D(0.948335, 0, 0.317272, 0, 1, 0, -0.317272, 0, 0.948335, -27.7238, 0.0258856, -33.1338)
 script = ExtResource("15_gx5iv")
-picture_handler = NodePath("../../../../Pictures")
 picture = NodePath("../../../../Pictures/10_Shed/ShedPicture")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Past/INTERACTABLES/Pictures/shed picture"]

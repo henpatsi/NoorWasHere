@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=4 uid="uid://bd5b2sgv2c8v8"]
+[gd_scene load_steps=36 format=4 uid="uid://bd5b2sgv2c8v8"]
 
 [ext_resource type="PackedScene" uid="uid://b25ooshew3q2v" path="res://player/player.tscn" id="1_7d6r5"]
 [ext_resource type="Script" path="res://levels/scripts/picture_handler.gd" id="1_827sh"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://bn5ukqljga2qo" path="res://levels/scripts/trigger_area.tscn" id="11_bydt5"]
 [ext_resource type="Resource" uid="uid://cnu4kfkgrm0an" path="res://resources/00_01.tres" id="12_8jd77"]
 [ext_resource type="Resource" uid="uid://4n1r1roygv8i" path="res://resources/00_02.tres" id="13_wxw3k"]
+[ext_resource type="Script" path="res://levels/scripts/interactable_picture.gd" id="14_236fl"]
 [ext_resource type="Resource" uid="uid://ri6p1no5sv8m" path="res://resources/00_03.tres" id="14_w74bm"]
 [ext_resource type="Script" path="res://levels/scripts/interactable_inspect.gd" id="15_frg6o"]
 [ext_resource type="Material" uid="uid://cfo4jukrqtp5k" path="res://assets/props/INTERACTEABLE/memory capsule/box_bake.tres" id="16_ngep7"]
@@ -95,6 +96,20 @@ shadow_mesh = SubResource("ArrayMesh_vkwhe")
 [sub_resource type="BoxShape3D" id="BoxShape3D_u51br"]
 size = Vector3(0.292725, 0.191528, 0.567993)
 
+[sub_resource type="ViewportTexture" id="ViewportTexture_6so4m"]
+viewport_path = NodePath("Pictures/1/SubViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gxkcw"]
+resource_local_to_scene = true
+albedo_texture = SubResource("ViewportTexture_6so4m")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_31tjn"]
+resource_local_to_scene = true
+material = SubResource("StandardMaterial3D_gxkcw")
+size = Vector2(0.48, 0.27)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_riyh3"]
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vpgwh"]
 albedo_color = Color(0.189372, 0.356995, 0.189985, 1)
 
@@ -108,8 +123,10 @@ environment = SubResource("Environment_ohbl3")
 transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
 shadow_enabled = true
 
-[node name="Player" parent="." node_paths=PackedStringArray("interact_label") instance=ExtResource("1_7d6r5")]
+[node name="Player" parent="." node_paths=PackedStringArray("subtitle_label", "interact_label", "interact_response_label") instance=ExtResource("1_7d6r5")]
+subtitle_label = NodePath("../UI/SubtitleLabel")
 interact_label = NodePath("../UI/InteractLabel")
+interact_response_label = NodePath("../UI/InteractResponseLabel")
 
 [node name="FootstepASP" parent="Player" index="3"]
 volume_db = -45.0
@@ -117,7 +134,7 @@ volume_db = -45.0
 [node name="Inventory" type="Node" parent="." node_paths=PackedStringArray("pictures")]
 unique_name_in_owner = true
 script = ExtResource("3_14087")
-pictures = [NodePath("../Pictures/0/0"), NodePath("../Pictures/1/1")]
+pictures = [NodePath("../Pictures/0/0")]
 
 [node name="Pictures" type="Node" parent="."]
 
@@ -324,18 +341,29 @@ shape = SubResource("BoxShape3D_u51br")
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="World1/Interactables/MemoryCapsule2"]
 
-[node name="TestArea1" parent="World1" node_paths=PackedStringArray("dialogue_stream_player", "subtitle_label", "start_monitoring_list") instance=ExtResource("11_bydt5")]
-dialogue_stream_player = NodePath("../../Player/PlayerDialogueASP")
+[node name="PickupPicture" type="StaticBody3D" parent="World1/Interactables" node_paths=PackedStringArray("picture") groups=["Interactable"]]
+transform = Transform3D(0.948335, 0, 0.317272, 0, 1, 0, -0.317272, 0, 0.948335, -4.30694, 0.090492, 1.39724)
+script = ExtResource("14_236fl")
+picture = NodePath("../../../Pictures/1/1")
+item_name = "other picture"
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="World1/Interactables/PickupPicture"]
+mesh = SubResource("PlaneMesh_31tjn")
+skeleton = NodePath("../../../../../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World1/Interactables/PickupPicture"]
+shape = SubResource("BoxShape3D_riyh3")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="World1/Interactables/PickupPicture"]
+
+[node name="TestArea1" parent="World1" node_paths=PackedStringArray("start_monitoring_list") instance=ExtResource("11_bydt5")]
 dialogue_clips = Array[Resource]([ExtResource("12_8jd77")])
-subtitle_label = NodePath("../../UI/SubtitleLabel")
 dialogue_delay = 1.0
 start_monitoring_list = [NodePath("../TestArea2")]
 
-[node name="TestArea2" parent="World1" node_paths=PackedStringArray("dialogue_stream_player", "subtitle_label") instance=ExtResource("11_bydt5")]
+[node name="TestArea2" parent="World1" instance=ExtResource("11_bydt5")]
 monitoring = false
-dialogue_stream_player = NodePath("../../Player/PlayerDialogueASP")
 dialogue_clips = Array[Resource]([ExtResource("13_wxw3k"), ExtResource("14_w74bm")])
-subtitle_label = NodePath("../../UI/SubtitleLabel")
 prevent_teleport = false
 dialogue_delay = 1.0
 
