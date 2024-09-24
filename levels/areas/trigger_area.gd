@@ -13,6 +13,5 @@ func _on_body_entered(body: Node3D) -> void:
 
 	if not dialogue_triggered and dialogue_clips.size() > 0:
 		start_dialogue_clips()
-
-	if not changes_wait_for_dialogue:
+	else:
 		apply_scene_changes()

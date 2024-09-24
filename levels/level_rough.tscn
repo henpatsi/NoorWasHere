@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://exnttmhfkaqg"]
 
 [ext_resource type="PackedScene" uid="uid://b25ooshew3q2v" path="res://player/player.tscn" id="1_qyilg"]
-[ext_resource type="Script" path="res://levels/scripts/level.gd" id="1_sryye"]
+[ext_resource type="Script" path="res://levels/level.gd" id="1_sryye"]
 [ext_resource type="Material" uid="uid://dve3xrg044f4h" path="res://assets/materials/M_housetemp.tres" id="2_rkvtw"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_rbuat"]

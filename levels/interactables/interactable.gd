@@ -65,8 +65,7 @@ func interact(interacting_player: CharacterBody3D) -> Node:
 
 	if not dialogue_triggered and dialogue_clips.size() > 0:
 		start_dialogue_clips()
-
-	if not changes_wait_for_dialogue:
+	else:
 		apply_scene_changes()
 
 	return null
@@ -79,6 +78,9 @@ func handle_teleport_state(state: bool) -> void:
 func start_dialogue_clips() -> void:
 	dialogue_triggered = true
 	handle_teleport_state(false)
+	
+	if not changes_wait_for_dialogue:
+		apply_scene_changes()
 	
 	if dialogue_delay > 0:
 		await get_tree().create_timer(dialogue_delay).timeout

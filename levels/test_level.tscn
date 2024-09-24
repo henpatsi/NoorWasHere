@@ -1,28 +1,27 @@
-[gd_scene load_steps=41 format=4 uid="uid://bd5b2sgv2c8v8"]
+[gd_scene load_steps=44 format=4 uid="uid://bd5b2sgv2c8v8"]
 
 [ext_resource type="PackedScene" uid="uid://b25ooshew3q2v" path="res://player/player.tscn" id="1_7d6r5"]
-[ext_resource type="Script" path="res://levels/scripts/picture_handler.gd" id="1_827sh"]
-[ext_resource type="Script" path="res://levels/scripts/test_level.gd" id="1_w023m"]
-[ext_resource type="Script" path="res://levels/scripts/picture.gd" id="2_sagta"]
+[ext_resource type="Script" path="res://levels/pictures/picture_handler.gd" id="1_827sh"]
+[ext_resource type="Script" path="res://levels/test_level.gd" id="1_w023m"]
+[ext_resource type="Script" path="res://levels/pictures/picture.gd" id="2_sagta"]
 [ext_resource type="Script" path="res://player/inventory.gd" id="3_14087"]
 [ext_resource type="PackedScene" uid="uid://d22ogqllffeom" path="res://levels/camera_ref.tscn" id="4_5wynm"]
-[ext_resource type="Script" path="res://levels/scripts/screenshot.gd" id="5_0pnjl"]
-[ext_resource type="Script" path="res://levels/scripts/ui.gd" id="7_813h0"]
+[ext_resource type="Script" path="res://levels/pictures/screenshot.gd" id="5_0pnjl"]
+[ext_resource type="Script" path="res://levels/ui/ui.gd" id="7_813h0"]
 [ext_resource type="FontFile" uid="uid://bi3g7vfa5cdww" path="res://assets/fonts/Helvetica-Font/Helvetica.ttf" id="8_6nq31"]
-[ext_resource type="Script" path="res://levels/scripts/dynamic_label.gd" id="9_pp8iw"]
+[ext_resource type="Script" path="res://levels/ui/dynamic_label.gd" id="9_pp8iw"]
 [ext_resource type="AudioStream" uid="uid://m3xgq65pqjwl" path="res://assets/audio/sfx/Misc/light switch/Light_On.wav" id="11_3q2yy"]
-[ext_resource type="PackedScene" uid="uid://bn5ukqljga2qo" path="res://levels/scripts/trigger_area.tscn" id="11_bydt5"]
+[ext_resource type="PackedScene" uid="uid://bn5ukqljga2qo" path="res://levels/areas/trigger_area.tscn" id="11_bydt5"]
 [ext_resource type="Resource" uid="uid://cnu4kfkgrm0an" path="res://resources/00_01.tres" id="12_8jd77"]
 [ext_resource type="Resource" uid="uid://4n1r1roygv8i" path="res://resources/00_02.tres" id="13_wxw3k"]
-[ext_resource type="Script" path="res://levels/scripts/interactable_picture.gd" id="14_236fl"]
-[ext_resource type="Script" path="res://levels/scripts/interactable_pickup.gd" id="14_nbo1e"]
+[ext_resource type="Script" path="res://levels/interactables/interactable_picture.gd" id="14_236fl"]
+[ext_resource type="Script" path="res://levels/interactables/interactable_pickup.gd" id="14_nbo1e"]
 [ext_resource type="Resource" uid="uid://ri6p1no5sv8m" path="res://resources/00_03.tres" id="14_w74bm"]
-[ext_resource type="Script" path="res://levels/scripts/interactable_inspect.gd" id="15_frg6o"]
-[ext_resource type="Script" path="res://levels/scripts/interactable_carry.gd" id="15_pxfaq"]
+[ext_resource type="Script" path="res://levels/interactables/interactable_inspect.gd" id="15_frg6o"]
+[ext_resource type="Script" path="res://levels/interactables/interactable_carry.gd" id="15_pxfaq"]
 [ext_resource type="AudioStream" uid="uid://cb5ijg4lr1lyu" path="res://assets/audio/sfx/Misc/TV/TV_Lift.wav" id="16_erfy3"]
-[ext_resource type="Material" uid="uid://cfo4jukrqtp5k" path="res://assets/props/INTERACTEABLE/memory capsule/box_bake.tres" id="16_ngep7"]
 [ext_resource type="AudioStream" uid="uid://bq8sidpqr5mek" path="res://assets/audio/sfx/Misc/TV/TV_Putdown.wav" id="17_i13gl"]
-[ext_resource type="PackedScene" uid="uid://c2i8ngtjel6as" path="res://levels/scripts/drop_off_zone.tscn" id="19_5o5ew"]
+[ext_resource type="PackedScene" uid="uid://c2i8ngtjel6as" path="res://levels/areas/drop_off_zone.tscn" id="19_5o5ew"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_3aadv"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -66,6 +65,26 @@ shadow_color = Color(0, 0, 0, 0.313726)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jc4wf"]
 albedo_color = Color(0.02223, 0.0568684, 0.156604, 1)
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_o5jd0"]
+load_path = "res://.godot/imported/memory_box_albedo_2.png-79f0dee4ba330e569bd695cd0e55d3c6.s3tc.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_p0lpc"]
+load_path = "res://.godot/imported/box_bake_normal.png-50fba2c044991a3e9120e726e1aaa0df.s3tc.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_o3rb1"]
+load_path = "res://.godot/imported/box_bake_roughness@channels=G.png-2d223446f596daca8ee8a6f41947edaf.s3tc.ctex"
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a8p61"]
+resource_name = "box_bake"
+vertex_color_use_as_albedo = true
+albedo_texture = SubResource("CompressedTexture2D_o5jd0")
+roughness_texture = SubResource("CompressedTexture2D_o3rb1")
+emission_enabled = true
+normal_enabled = true
+normal_scale = 0.0
+normal_texture = SubResource("CompressedTexture2D_p0lpc")
+heightmap_enabled = true
+
 [sub_resource type="ArrayMesh" id="ArrayMesh_vkwhe"]
 _surfaces = [{
 "aabb": AABB(-0.000720772, -0.00142224, -1.07341e-05, 0.00144154, 0.00284448, 0.000951053),
@@ -88,7 +107,7 @@ _surfaces = [{
 "format": 34359742487,
 "index_count": 84,
 "index_data": PackedByteArray("AAABAAIAAgADAAAABAAFAAYABgAHAAQACAAJAAoACgALAAgADAANAA4ADgAPAAwAEAARABIAEgATABAAFAAVABYAFgAXABQAGAAZABoAGgAbABgAHAAdAB4AHgAfABwAIAAhACIAIgAjACAAJAAlACYAJgAnACQAKAApACoAKgArACgALAAtAC4ALgAvACwAMAAxADIAMgAzADAANAA1ADYANgA3ADQA"),
-"material": ExtResource("16_ngep7"),
+"material": SubResource("StandardMaterial3D_a8p61"),
 "name": "box_bake",
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
@@ -206,6 +225,7 @@ camera = NodePath("../SubViewport/PortalCamera")
 world_root = NodePath("../../../World2")
 match_position_distance = 2.0
 match_rotation_distance = 10.0
+requirements = Array[String](["requirement"])
 
 [node name="SubViewport" type="SubViewport" parent="Pictures/1"]
 size = Vector2i(1280, 720)
@@ -306,7 +326,7 @@ size = Vector3(5, 5, 5)
 
 [node name="Interactables" type="Node" parent="World1"]
 
-[node name="MemoryCapsule" type="StaticBody3D" parent="World1/Interactables" node_paths=PackedStringArray("interact_stream_player")]
+[node name="MemoryCapsuleInspect" type="StaticBody3D" parent="World1/Interactables" node_paths=PackedStringArray("interact_stream_player")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.61092, 1.0941, -2.31715)
 script = ExtResource("15_frg6o")
 inspect_position_offset = Vector3(0, -0.1, 0)
@@ -315,23 +335,24 @@ one_shot = false
 interact_stream_player = NodePath("AudioStreamPlayer3D")
 interact_audio_stream = ExtResource("11_3q2yy")
 
-[node name="box_bake" type="MeshInstance3D" parent="World1/Interactables/MemoryCapsule"]
+[node name="box_bake" type="MeshInstance3D" parent="World1/Interactables/MemoryCapsuleInspect"]
 transform = Transform3D(200, 0, 0, 0, -8.74228e-06, 200, 0, -200, -8.74228e-06, 0, 0, 0)
 mesh = SubResource("ArrayMesh_xhmmb")
 skeleton = NodePath("")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="World1/Interactables/MemoryCapsule"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World1/Interactables/MemoryCapsuleInspect"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000671387, 0.0899048, 0.000915527)
 shape = SubResource("BoxShape3D_u51br")
 
-[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="World1/Interactables/MemoryCapsule"]
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="World1/Interactables/MemoryCapsuleInspect"]
 
-[node name="MemoryCapsulePickup" type="StaticBody3D" parent="World1/Interactables" node_paths=PackedStringArray("interact_stream_player")]
+[node name="MemoryCapsulePickup" type="StaticBody3D" parent="World1/Interactables" node_paths=PackedStringArray("interact_stream_player", "nodes_to_show")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.61092, 1.0941, 0.0310307)
 script = ExtResource("14_nbo1e")
 item_name = "memory capsule"
 interact_stream_player = NodePath("AudioStreamPlayer3D")
 interact_audio_stream = ExtResource("11_3q2yy")
+nodes_to_show = [NodePath("../MemoryCapsuleCarry")]
 
 [node name="box_bake" type="MeshInstance3D" parent="World1/Interactables/MemoryCapsulePickup"]
 transform = Transform3D(200, 0, 0, 0, -8.74228e-06, 200, 0, -200, -8.74228e-06, 0, 0, 0)
@@ -344,13 +365,15 @@ shape = SubResource("BoxShape3D_u51br")
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="World1/Interactables/MemoryCapsulePickup"]
 
-[node name="MemoryCapsuleCarry" type="RigidBody3D" parent="World1/Interactables" node_paths=PackedStringArray("carry_audio_stream_player")]
+[node name="MemoryCapsuleCarry" type="RigidBody3D" parent="World1/Interactables" node_paths=PackedStringArray("mesh", "carry_audio_stream_player")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.61092, 1.0941, 2.03103)
 axis_lock_angular_x = true
 axis_lock_angular_y = true
 axis_lock_angular_z = true
 gravity_scale = 0.0
 script = ExtResource("15_pxfaq")
+set_requirement = "requirement"
+mesh = NodePath("box_bake")
 carry_audio_stream_player = NodePath("AudioStreamPlayer3D")
 pick_up_audio = ExtResource("16_erfy3")
 put_down_audio = ExtResource("17_i13gl")
@@ -364,6 +387,7 @@ skeleton = NodePath("")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="World1/Interactables/MemoryCapsuleCarry"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000671387, 0.0899048, 0.000915527)
 shape = SubResource("BoxShape3D_u51br")
+disabled = true
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="World1/Interactables/MemoryCapsuleCarry"]
 
