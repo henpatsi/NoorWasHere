@@ -8,11 +8,9 @@ extends Node
 ## Strength of the lerp to align photo when almost aligned
 @export var align_lerp_strength: float = 2
 
-@export_category("Pictures")
-## Array of pictures that can be selected
-@export var pictures: Array[TextureRect]
 var picture_index: int = 0
 var current_picture: TextureRect
+@onready var inventory: Node = %Inventory
 
 var picture_requirements_met: Array[String]
 
@@ -40,17 +38,21 @@ var transition_out_audio_clip: AudioStream = load("res://assets/audio/sfx/Misc/T
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	if pictures.size() == 0:
+	if inventory.pictures.size() == 0:
 		printerr("Picture handler array is empty.")
 
+	current_picture = inventory.get_picture(0)
 	# Wait to allow screenshot to be taken, which was conflicting with this
-	current_picture = pictures[0]
 	# await get_tree().create_timer(1).timeout
-	current_picture.set_active(true)
+	if current_picture:
+		current_picture.set_active(true)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	if not current_picture:
+		return
+
 	if not inside_picture:
 		outside_picture_process(delta)
 
@@ -79,7 +81,7 @@ func set_input_state(state: bool) -> void:
 
 
 func _input(event: InputEvent) -> void:
-	if not input_enabled:
+	if not input_enabled or not current_picture:
 		return
 	
 	if event.is_action_pressed("inspect_picture"):
@@ -140,28 +142,23 @@ func toggle_inspect() -> void:
 		player.interact_enabled = false
 
 
-func add_picture(picture: TextureRect) -> void:
-	pictures.append(picture)
+func on_picture_picked_up() -> void:
 	if not inside_picture:
-		set_active_picture(pictures.size() - 1)
+		set_active_picture(inventory.pictures.size() - 1)
 
 
 func set_active_picture(index: int) -> void:
 	if inside_picture:
 		print("Cannot swap picture inside picture")
 		return
-	if pictures.size() == 1:
+	if inventory.pictures.size() == 1:
 		print("No pictures to swap to")
 		return
 
-	if index == pictures.size():
-		index = 0
-	if index == -1:
-		index = pictures.size() - 1
-	
-	current_picture.set_active(false)
+	if current_picture:
+		current_picture.set_active(false)
 
-	current_picture = pictures[index]
+	current_picture = inventory.get_picture(index)
 	current_picture.set_active(true)
 
 	picture_index = index

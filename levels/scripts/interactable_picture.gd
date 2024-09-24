@@ -1,7 +1,6 @@
 extends Interactable
 
 @export_category("Settings")
-@export var picture_handler: Node
 @export var picture: TextureRect
 
 
@@ -12,10 +11,10 @@ func _ready() -> void:
 	super._ready()
 
 
-func interact(player: CharacterBody3D) -> Node:
-	super.interact(player)
+func interact(interacting_player: CharacterBody3D) -> Node:
+	super.interact(interacting_player)
 
-	picture_handler.add_picture(picture)
+	player.on_picture_picked_up(picture)
 
 	queue_free()
 	

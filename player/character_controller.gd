@@ -25,13 +25,15 @@ var footstep_timer: float = 0.0
 @export var ray_distance: float = 3.0
 @export var interact_label: Label
 @export var inspect_rotation_sensitivity: float = 15
+@export var interact_response_label: Label 
 var interact_enabled: bool = true
 
 var ray_collision_object: Object
 var interacting_object: Node
 var inspect_mode: bool = false
 
-@onready var inventory: Node = $Inventory
+@onready var inventory: Node = %Inventory
+@onready var picture_handler: Node = %PictureHandler
 @onready var inspect_position: Node3D = $HeadNode/InspectPosition
 
 
@@ -121,6 +123,15 @@ func raycast() -> void:
 	elif interact_label:
 		interact_label.text = ""
 
+func on_item_picked_up(item: Node3D) -> void:
+	inventory.add_item(item.variable_name)
+	if interact_response_label:
+		interact_response_label.change_text("Picked up " + item.item_name)
+
+func on_picture_picked_up(picture: TextureRect) -> void:
+	inventory.add_picture(picture)
+	picture_handler.on_picture_picked_up()
+
 # INPUT
 
 func _input(event: InputEvent) -> void:
@@ -154,3 +165,7 @@ func set_inspect_mode(state: bool) -> void:
 		print("Inspect mode on")
 	else:
 		print("Inspect mode off")
+
+
+func set_picture_handler_input(state: bool) -> void:
+	picture_handler.set_input_state(state)

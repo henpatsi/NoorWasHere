@@ -1,7 +1,7 @@
 extends Interactable
 
 @export_category("Settings")
-## Variable name to add to player inventory
+## Variable name to add to player inventory, item name by default
 @export var variable_name: String
 
 
@@ -11,14 +11,14 @@ func _ready() -> void:
 
 	super._ready()
 
+	if not variable_name:
+		variable_name = item_name
 
-func interact(player: CharacterBody3D) -> Node:
-	super.interact(player)
 
-	player.inventory.add_item(variable_name)
+func interact(interacting_player: CharacterBody3D) -> Node:
+	super.interact(interacting_player)
 
-	if interact_response_label:
-		interact_response_label.change_text("Picked up " + variable_name)
+	player.on_item_picked_up(self)
 
 	queue_free()
 

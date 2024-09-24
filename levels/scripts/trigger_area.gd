@@ -1,11 +1,5 @@
 extends Interactable
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	if not picture_manager:
-		printerr("Picture manager was not found")
-
-
 func _on_body_entered(body: Node3D) -> void:
 	if not body.is_in_group("Player"):
 		return

@@ -2,7 +2,6 @@ extends Interactable
 
 @export_category("Settings")
 @export var rotation_on_carry: Vector3
-@export var picture_handler: Node
 @export var set_requirement: String
 
 @export_category("Carry audio")
@@ -21,9 +20,9 @@ func _ready() -> void:
 	super._ready()
 
 
-func interact(player: CharacterBody3D) -> Node:
+func interact(interacting_player: CharacterBody3D) -> Node:
 
-	super.interact(player)
+	super.interact(interacting_player)
 
 	if not carrying:
 		get_parent().remove_child(self)

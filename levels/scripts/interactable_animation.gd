@@ -12,12 +12,12 @@ var animation_index: int = 0
 var busy: bool = false
 
 
-func interact(player: CharacterBody3D) -> Node:
+func interact(interacting_player: CharacterBody3D) -> Node:
 	if busy:
 		print("Interactable busy")
 		return
 	
-	if key_name and not player.inventory.contains_item(key_name):
+	if key_name and not interacting_player.inventory.contains_item(key_name):
 		print("Locked")
 		if interact_response_label:
 			interact_response_label.change_text("Locked")
@@ -25,7 +25,7 @@ func interact(player: CharacterBody3D) -> Node:
 
 	busy = true
 	
-	super.interact(player)
+	super.interact(interacting_player)
 
 	animation_player.current_animation = interaction_animations[animation_index]
 	animation_player.active = true

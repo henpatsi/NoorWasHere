@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://b25ooshew3q2v"]
+[gd_scene load_steps=14 format=3 uid="uid://b25ooshew3q2v"]
 
 [ext_resource type="Script" path="res://player/character_controller.gd" id="1_mlc4j"]
 [ext_resource type="AudioStream" uid="uid://brpy0oq2perul" path="res://player/footsteps/Concrete footstep 1.wav" id="2_jwcu0"]
@@ -11,7 +11,6 @@
 [ext_resource type="AudioStream" uid="uid://cndffhdbogvvl" path="res://player/footsteps/Concrete footstep 8.wav" id="9_36wfv"]
 [ext_resource type="AudioStream" uid="uid://cacinnac6pw3l" path="res://player/footsteps/Concrete footstep 9.wav" id="10_w6k87"]
 [ext_resource type="AudioStream" uid="uid://ko8n21padphb" path="res://player/footsteps/Concrete footstep 10.wav" id="11_jghtd"]
-[ext_resource type="Script" path="res://player/inventory.gd" id="12_53ja8"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_3ceiv"]
 
@@ -52,6 +51,3 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
 volume_db = -20.0
 
 [node name="PlayerDialogueASP" type="AudioStreamPlayer3D" parent="."]
-
-[node name="Inventory" type="Node" parent="."]
-script = ExtResource("12_53ja8")

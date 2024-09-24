@@ -41,16 +41,13 @@ var dialogue_triggered: bool = false
 ## Waits until all dialogue clips have been played until making the listed changes.
 @export var changes_wait_for_dialogue: bool = true
 
-@onready var picture_manager: Node = %PictureManager
+var player: CharacterBody3D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	if not picture_manager:
-		printerr("Picture manager was not found")
-	
 	if not item_name:
 		item_name = name
-	
+
 	if not verb:
 		verb = "Interact with"
 
@@ -59,11 +56,13 @@ func _process(_delta) -> void:
 	dialogue_process()
 
 # Called by player when interacting, returns self if this blocks other interactions
-func interact(_player: CharacterBody3D) -> Node:
+func interact(interacting_player: CharacterBody3D) -> Node:
 	print("Interacted with " + name)
 
 	if one_shot:
 		remove_from_group("Interactable")
+	
+	player = interacting_player
 
 	if interact_stream_player and interact_audio_stream:
 		interact_stream_player.stream = interact_audio_stream
@@ -79,7 +78,7 @@ func interact(_player: CharacterBody3D) -> Node:
 
 func handle_teleport_state(state: bool) -> void:
 	if prevent_teleport:
-		picture_manager.set_input_state(state)
+		player.set_picture_handler_input(state)
 
 
 func start_dialogue_clips() -> void:

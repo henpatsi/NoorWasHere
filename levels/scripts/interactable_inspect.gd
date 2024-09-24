@@ -18,18 +18,18 @@ func _ready() -> void:
 	super._ready()
 
 
-func interact(player: CharacterBody3D) -> Node:
-	super.interact(player)
+func interact(interacting_player: CharacterBody3D) -> Node:
+	super.interact(interacting_player)
 
 	if not inspecting:
-		inspect(player)
+		inspect()
 		return self
 	else:
 		release()
 		return null
 
 
-func inspect(player: CharacterBody3D) -> void:
+func inspect() -> void:
 	original_parent.remove_child(self)
 	player.inspect_position.add_child(self)
 	position = inspect_position_offset

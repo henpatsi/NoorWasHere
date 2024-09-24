@@ -1,19 +1,23 @@
 extends Node
 
 @export var items: Array[String]
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta: float) -> void:
-	pass
-
+@export var pictures: Array[TextureRect]
 
 func add_item(item: String) -> void:
 	items.append(item)
+
+func add_picture(picture: TextureRect) -> void:
+	pictures.append(picture)
+
+
+func get_picture(index: int) -> TextureRect:
+	if pictures.size() == 0:
+		return null
+	while index < 0:
+		index += pictures.size()
+	if index >= pictures.size():
+		index %= pictures.size()
+	return pictures[index]
 
 
 func contains_item(query: String) -> bool:

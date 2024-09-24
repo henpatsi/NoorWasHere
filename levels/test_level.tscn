@@ -1,9 +1,10 @@
-[gd_scene load_steps=29 format=4 uid="uid://bd5b2sgv2c8v8"]
+[gd_scene load_steps=31 format=4 uid="uid://bd5b2sgv2c8v8"]
 
 [ext_resource type="PackedScene" uid="uid://b25ooshew3q2v" path="res://player/player.tscn" id="1_7d6r5"]
 [ext_resource type="Script" path="res://levels/scripts/picture_handler.gd" id="1_827sh"]
 [ext_resource type="Script" path="res://levels/scripts/test_level.gd" id="1_w023m"]
 [ext_resource type="Script" path="res://levels/scripts/picture.gd" id="2_sagta"]
+[ext_resource type="Script" path="res://player/inventory.gd" id="3_14087"]
 [ext_resource type="PackedScene" uid="uid://d22ogqllffeom" path="res://levels/camera_ref.tscn" id="4_5wynm"]
 [ext_resource type="Script" path="res://levels/scripts/screenshot.gd" id="5_0pnjl"]
 [ext_resource type="Script" path="res://levels/scripts/ui.gd" id="7_813h0"]
@@ -31,7 +32,10 @@ tonemap_mode = 2
 glow_enabled = true
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_dj4h8"]
-viewport_path = NodePath("PictureManager/0/SubViewport")
+viewport_path = NodePath("Pictures/0/SubViewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_nc8y4"]
+viewport_path = NodePath("Pictures/1/SubViewport")
 
 [sub_resource type="LabelSettings" id="LabelSettings_ecdey"]
 font = ExtResource("8_6nq31")
@@ -110,14 +114,16 @@ interact_label = NodePath("../UI/InteractLabel")
 [node name="FootstepASP" parent="Player" index="3"]
 volume_db = -45.0
 
-[node name="PictureManager" type="Node" parent="." node_paths=PackedStringArray("pictures")]
+[node name="Inventory" type="Node" parent="." node_paths=PackedStringArray("pictures")]
 unique_name_in_owner = true
-script = ExtResource("1_827sh")
-pictures = [NodePath("0/0")]
+script = ExtResource("3_14087")
+pictures = [NodePath("../Pictures/0/0"), NodePath("../Pictures/1/1")]
 
-[node name="0" type="Node" parent="PictureManager"]
+[node name="Pictures" type="Node" parent="."]
 
-[node name="0" type="TextureRect" parent="PictureManager/0" node_paths=PackedStringArray("camera", "world_root")]
+[node name="0" type="Node" parent="Pictures"]
+
+[node name="0" type="TextureRect" parent="Pictures/0" node_paths=PackedStringArray("camera", "world_root")]
 clip_contents = true
 anchors_preset = 15
 anchor_right = 1.0
@@ -137,17 +143,17 @@ world_root = NodePath("../../../World2")
 match_position_distance = 2.0
 match_rotation_distance = 10.0
 
-[node name="SubViewport" type="SubViewport" parent="PictureManager/0"]
+[node name="SubViewport" type="SubViewport" parent="Pictures/0"]
 size = Vector2i(1280, 720)
 
-[node name="PortalCamera" type="Camera3D" parent="PictureManager/0/SubViewport"]
+[node name="PortalCamera" type="Camera3D" parent="Pictures/0/SubViewport"]
 transform = Transform3D(0.99798, 0, -0.0635223, 0, 1, 0, 0.0635223, 0, 0.99798, 492.044, 1.75, -0.731335)
 cull_mask = 1048063
 
-[node name="ColorRect" parent="PictureManager/0/SubViewport/PortalCamera" instance=ExtResource("4_5wynm")]
+[node name="ColorRect" parent="Pictures/0/SubViewport/PortalCamera" instance=ExtResource("4_5wynm")]
 visible = false
 
-[node name="0Rect" type="TextureRect" parent="PictureManager/0/SubViewport" node_paths=PackedStringArray("sub_viewport", "picture")]
+[node name="0Rect" type="TextureRect" parent="Pictures/0/SubViewport" node_paths=PackedStringArray("sub_viewport", "picture")]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -157,7 +163,53 @@ script = ExtResource("5_0pnjl")
 sub_viewport = NodePath("..")
 picture = NodePath("../../0")
 
-[node name="TransitionPlayer" type="AudioStreamPlayer3D" parent="PictureManager"]
+[node name="1" type="Node" parent="Pictures"]
+
+[node name="1" type="TextureRect" parent="Pictures/1" node_paths=PackedStringArray("camera", "world_root")]
+clip_contents = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 320.0
+offset_top = 570.0
+offset_right = -320.0
+offset_bottom = 210.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("ViewportTexture_nc8y4")
+expand_mode = 1
+stretch_mode = 3
+script = ExtResource("2_sagta")
+camera = NodePath("../SubViewport/PortalCamera")
+world_root = NodePath("../../../World2")
+match_position_distance = 2.0
+match_rotation_distance = 10.0
+
+[node name="SubViewport" type="SubViewport" parent="Pictures/1"]
+size = Vector2i(1280, 720)
+
+[node name="PortalCamera" type="Camera3D" parent="Pictures/1/SubViewport"]
+transform = Transform3D(0.99798, 0, -0.0635223, 0, 1, 0, 0.0635223, 0, 0.99798, 491.676, 1.75, 5.3622)
+cull_mask = 1048063
+
+[node name="ColorRect" parent="Pictures/1/SubViewport/PortalCamera" instance=ExtResource("4_5wynm")]
+visible = false
+
+[node name="0Rect" type="TextureRect" parent="Pictures/1/SubViewport" node_paths=PackedStringArray("sub_viewport", "picture")]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("5_0pnjl")
+sub_viewport = NodePath("..")
+picture = NodePath("../../1")
+
+[node name="PictureHandler" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("1_827sh")
+
+[node name="TransitionPlayer" type="AudioStreamPlayer3D" parent="PictureHandler"]
 attenuation_model = 3
 panning_strength = 0.0
 
@@ -300,7 +352,5 @@ material = SubResource("StandardMaterial3D_vpgwh")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 2.5, -10)
 use_collision = true
 size = Vector3(5, 5, 5)
-
-[node name="Camera3D" type="Camera3D" parent="World2"]
 
 [editable path="Player"]
