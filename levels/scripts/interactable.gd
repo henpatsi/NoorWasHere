@@ -49,6 +49,7 @@ func _ready() -> void:
 func _process(_delta) -> void:
 	dialogue_process()
 
+
 # Called by player when interacting, returns self if this blocks other interactions
 func interact(interacting_player: CharacterBody3D) -> Node:
 	print("Interacted with " + name)

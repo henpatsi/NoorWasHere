@@ -21,12 +21,9 @@ func _ready() -> void:
 func interact(interacting_player: CharacterBody3D) -> Node:
 	super.interact(interacting_player)
 
-	if not inspecting:
-		inspect()
-		return self
-	else:
-		release()
-		return null
+	inspect()
+	return self
+
 
 
 func inspect() -> void:
