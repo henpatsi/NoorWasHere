@@ -15,7 +15,9 @@ extends Node
 var picture_upper_position: Vector2
 
 var picture_index: int = 0
+var entered_picture_index: int = 0
 var current_picture: TextureRect
+var current_picture_array: Array[TextureRect]
 @onready var inventory: Node = %Inventory
 
 var picture_requirements_met: Array[String]
@@ -23,7 +25,7 @@ var picture_requirements_met: Array[String]
 var up_position: bool = false
 var inspecting: bool = false
 var aligned: bool = false
-var inside_picture: bool = false
+var picture_depth: float = 0
 
 var player_target_position: Vector3
 var player_target_rotation: Vector3
@@ -41,33 +43,26 @@ var input_blockers: float = 0
 var transition_in_audio_clip: AudioStream = load("res://assets/audio/sfx/Misc/Transition/Photo_transition1.wav")
 var transition_out_audio_clip: AudioStream = load("res://assets/audio/sfx/Misc/Transition/Photo_transition2.wav")
 
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	if inventory.pictures.size() == 0:
-		printerr("Picture handler array is empty.")
-
 	for picture in inventory.get_pictures():
-		picture.set_target_position(picture_inventory_position, inspect_speed)
+		picture.set_target_position(picture_inventory_position, 100)
 		picture.set_active(false)
 
-	current_picture = inventory.get_picture(0)
-	# Wait to allow screenshot to be taken, which was conflicting with this
-	# await get_tree().create_timer(1).timeout
-	if current_picture:
-		current_picture.set_target_position(picture_lower_position, inspect_speed)
-		current_picture.set_active(true)
+	initialize_picture_array(inventory.get_pictures())
 
-	picture_upper_position = Vector2(get_viewport().size / 2) - (current_picture.size / 2)
+	if current_picture:
+		picture_upper_position = Vector2(get_viewport().size / 2) - (current_picture.size / 2)
+	else: # Should not be empty at start, but just in case
+		picture_upper_position = Vector2(320, 180)
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if not current_picture:
 		return
 
-	if not inside_picture:
-		outside_picture_process(delta)
-
-func outside_picture_process(delta: float) -> void:
 	if up_position and current_picture.at_target_position:
 		inspecting = true
 
@@ -81,13 +76,24 @@ func outside_picture_process(delta: float) -> void:
 		aligned = false
 
 
+func initialize_picture_array(array: Array[TextureRect]) -> void:
+	current_picture_array = array
+
+	if current_picture_array.size() != 0:
+		current_picture = current_picture_array[0]
+		current_picture.set_target_position(picture_lower_position, inspect_speed)
+		current_picture.set_active(true)
+	else:
+		current_picture = null
+
+
 func set_input_state(state: bool) -> void:
 	if state == false:
 		input_blockers += 1
 	else:
 		input_blockers -= 1
 	print("Picture input blockers: " + str(input_blockers))
-	if input_blockers > 0 and not inside_picture and up_position:
+	if input_blockers > 0 and up_position:
 		toggle_inspect()
 
 
@@ -97,6 +103,9 @@ func _input(event: InputEvent) -> void:
 	
 	if event.is_action_pressed("inspect_picture"):
 		toggle_inspect()
+
+	if event.is_action_pressed("exit_picture"):
+		exit_picture()
 
 	if event.is_action_pressed("next_picture"):
 		print("Swapping to next picture")
@@ -116,31 +125,11 @@ func _input(event: InputEvent) -> void:
 		if not current_picture.requirements_met(picture_requirements_met):
 			interact_response_label.change_text("Something is missing")
 			return
-		if inside_picture:
-			print ("Already inside picture")
-			return
-			
-		if transition_audio_player and transition_in_audio_clip:
-			transition_audio_player.stream = transition_in_audio_clip
-			transition_audio_player.play()
-
-		inside_picture = true
-		current_picture.enter_picture(player, head_node, self)
-		crosshair.show()
-		player.interact_enabled = true
+		enter_picture()
 
 
 func toggle_inspect() -> void:
-	if inside_picture:
-		if transition_audio_player and transition_out_audio_clip:
-			transition_audio_player.stream = transition_out_audio_clip
-			transition_audio_player.play()
-
-		current_picture.exit_picture(player, self)
-		inside_picture = false
-		up_position = false
-	else:
-		up_position = not up_position
+	up_position = not up_position
 
 	if not up_position:
 		inspecting = false
@@ -153,28 +142,51 @@ func toggle_inspect() -> void:
 		current_picture.set_target_position(picture_upper_position, inspect_speed)
 
 
+func enter_picture() -> void:
+	if transition_audio_player and transition_in_audio_clip:
+		transition_audio_player.stream = transition_in_audio_clip
+		transition_audio_player.play()
+
+	picture_depth += 1
+	entered_picture_index = picture_index
+	current_picture.enter_picture(player, head_node, self)
+	crosshair.show()
+	player.interact_enabled = true
+
+	initialize_picture_array(inventory.get_past_pictures())
+
+
+func exit_picture() -> void:
+	if picture_depth == 0:
+		return
+
+	if transition_audio_player and transition_out_audio_clip:
+		transition_audio_player.stream = transition_out_audio_clip
+		transition_audio_player.play()
+
+	current_picture.exit_picture(player, self)
+	picture_depth -= 1
+	up_position = false
+
+	initialize_picture_array(inventory.get_pictures())
+	current_picture = inventory.get_picture(current_picture_array, entered_picture_index)
+
+
 func on_picture_picked_up(picture: TextureRect) -> void:
-	if not inside_picture:
-		picture.position = picture_inventory_position
-		up_position = true
-		set_active_picture(inventory.pictures.size() - 1)
+	current_picture_array.append(picture)
+	picture.position = picture_inventory_position
+	set_active_picture(current_picture_array.size() - 1)
+	toggle_inspect()
 
 
 func set_active_picture(index: int) -> void:
-	if inside_picture:
-		print("Cannot swap picture inside picture")
-		return
-	if inventory.pictures.size() == 1:
-		print("No pictures to swap to")
-		return
-	
 	inspecting = false
 
 	if current_picture:
 		current_picture.set_target_position(picture_inventory_position, swap_speed)
 		current_picture.set_active(false)
 
-	current_picture = inventory.get_picture(index)
+	current_picture = inventory.get_picture(current_picture_array, index)
 	current_picture.set_active(true)
 
 	picture_index = index
