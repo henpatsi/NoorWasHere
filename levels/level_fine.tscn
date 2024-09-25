@@ -3058,7 +3058,7 @@ disabled = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.015213, 1.36914, 0.223512)
 shape = SubResource("BoxShape3D_ibyln")
 
-[node name="TV" parent="Present/LevelObjects/INTERACTABLES" groups=["Interactable"] instance=ExtResource("12_4tqrl")]
+[node name="TV" parent="Present/LevelObjects/INTERACTABLES" instance=ExtResource("12_4tqrl")]
 transform = Transform3D(-0.940678, -0.337738, 0.0325252, -0.339301, 0.936274, -0.0909153, 0.000253081, -0.0965579, -0.995327, 8.93476, 4.75, 6.06002)
 axis_lock_linear_x = true
 axis_lock_linear_y = true
@@ -3079,7 +3079,7 @@ transform = Transform3D(2.98023e-08, 0, 1, 0, 1, 0, -1, 0, 2.98023e-08, 2.46362,
 
 [node name="Pictures" type="Node3D" parent="Present/LevelObjects/INTERACTABLES"]
 
-[node name="forest picture" type="StaticBody3D" parent="Present/LevelObjects/INTERACTABLES/Pictures" node_paths=PackedStringArray("picture") groups=["Interactable"]]
+[node name="forest picture" type="StaticBody3D" parent="Present/LevelObjects/INTERACTABLES/Pictures" node_paths=PackedStringArray("picture")]
 transform = Transform3D(0.948335, 0, 0.317272, 0, 1, 0, -0.317272, 0, 0.948335, 3.30865, 1.5069, -1.19439)
 script = ExtResource("15_gx5iv")
 picture = NodePath("../../../../../Pictures/9_Forest/ForestPicture")
@@ -3988,7 +3988,7 @@ size = Vector3(1.5, 3, 0.25)
 [node name="Doors" type="Node3D" parent="Past/LevelObjects/House/Level2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.5, 0, 5.75)
 
-[node name="Door_Noor" parent="Past/LevelObjects/House/Level2/Doors" node_paths=PackedStringArray("nodes_to_show", "nodes_to_hide") groups=["Interactable"] instance=ExtResource("3_k0uy4")]
+[node name="Door_Noor" parent="Past/LevelObjects/House/Level2/Doors" node_paths=PackedStringArray("nodes_to_show", "nodes_to_hide") instance=ExtResource("3_k0uy4")]
 transform = Transform3D(-0.876895, 0, 0.480682, 0, 1, 0, -0.480682, 0, -0.876895, -0.143921, 0.5, -8.38692)
 script = ExtResource("35_lctib")
 interaction_animations = Array[String](["open_nook_door"])
@@ -4147,7 +4147,7 @@ size = Vector3(25.25, 12.75, 75.25)
 [node name="closet" parent="Past/INTERACTABLES" instance=ExtResource("12_4m6ha")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 8.7492, 4.11726, 6.04004)
 
-[node name="closet_door_left" parent="Past/INTERACTABLES/closet/closet" index="0" node_paths=PackedStringArray("nodes_to_show", "nodes_to_hide") groups=["Interactable"]]
+[node name="closet_door_left" parent="Past/INTERACTABLES/closet/closet" index="0" node_paths=PackedStringArray("nodes_to_show", "nodes_to_hide")]
 transform = Transform3D(0.92365, 2.76383e-07, 0.383235, 0.383235, -1.38731e-06, -0.92365, 2.76383e-07, 1, -1.38731e-06, 0.0576935, -0.03356, 0.00932729)
 script = ExtResource("35_lctib")
 interaction_animations = Array[String](["open_left_closet"])
@@ -4159,7 +4159,7 @@ libraries = {
 "": SubResource("AnimationLibrary_em4an")
 }
 
-[node name="closet_door_right" parent="Past/INTERACTABLES/closet/closet" index="1" node_paths=PackedStringArray("nodes_to_show", "nodes_to_hide") groups=["Interactable"]]
+[node name="closet_door_right" parent="Past/INTERACTABLES/closet/closet" index="1" node_paths=PackedStringArray("nodes_to_show", "nodes_to_hide")]
 transform = Transform3D(-0.994569, 1.96594e-08, -0.104078, 0.104078, 3.7676e-07, -0.994569, -1.96594e-08, 1, 3.7676e-07, -0.0569425, -0.0378286, 0.00932729)
 script = ExtResource("35_lctib")
 interaction_animations = Array[String](["open_right_closet"])
@@ -4180,7 +4180,7 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 8.9954
 [node name="LightSwitch" parent="Past/INTERACTABLES" instance=ExtResource("14_wds17")]
 transform = Transform3D(2.98023e-08, 0, 1, 0, 1, 0, -1, 0, 2.98023e-08, 2.46362, 5.83048, -2.31098)
 
-[node name="light switch" parent="Past/INTERACTABLES" node_paths=PackedStringArray("nodes_to_show", "nodes_to_hide", "start_monitoring_list") groups=["Interactable"] instance=ExtResource("14_wds17")]
+[node name="light switch" parent="Past/INTERACTABLES" node_paths=PackedStringArray("nodes_to_show", "nodes_to_hide", "start_monitoring_list") instance=ExtResource("14_wds17")]
 transform = Transform3D(2.98023e-08, 0, 1, 0, 1, 0, -1, 0, 2.98023e-08, 2.46362, 5.83048, -2.31098)
 visible = false
 script = ExtResource("365_qvetb")
@@ -4202,7 +4202,7 @@ transform = Transform3D(0.989028, 3.9716e-08, 0.147724, 0.147724, -5.34758e-07, 
 [node name="closet_door_right" parent="Past/INTERACTABLES/ShedCloset/closet" index="1"]
 transform = Transform3D(-0.994569, 1.96594e-08, -0.104078, 0.104078, 3.7676e-07, -0.994569, -1.96594e-08, 1, 3.7676e-07, -0.0569425, -0.0378286, 0.00932729)
 
-[node name="shed closet" type="StaticBody3D" parent="Past/INTERACTABLES/ShedCloset" node_paths=PackedStringArray("subtitle_label", "start_monitoring_list") groups=["Interactable"]]
+[node name="shed closet" type="StaticBody3D" parent="Past/INTERACTABLES/ShedCloset" node_paths=PackedStringArray("subtitle_label", "start_monitoring_list")]
 script = ExtResource("35_lctib")
 interaction_animations = Array[String](["open_doors"])
 subtitle_label = NodePath("../../../../UI/SubtitleLabel")
@@ -4220,7 +4220,7 @@ libraries = {
 [node name="memory capsule nonint" parent="Past/INTERACTABLES" instance=ExtResource("16_p4a51")]
 transform = Transform3D(0.965926, 0, 0.258819, 0, 1, 0, -0.258819, 0, 0.965926, -2.25, 5.253, -3)
 
-[node name="memory capsule" type="StaticBody3D" parent="Past/INTERACTABLES" node_paths=PackedStringArray("subtitle_label", "nodes_to_show", "nodes_to_hide") groups=["Interactable"]]
+[node name="memory capsule" type="StaticBody3D" parent="Past/INTERACTABLES" node_paths=PackedStringArray("subtitle_label", "nodes_to_show", "nodes_to_hide")]
 transform = Transform3D(0.965926, 0, 0.258819, 0, 1, 0, -0.258819, 0, 0.965926, -2.25, 5.253, -3)
 visible = false
 script = ExtResource("40_n7i1m")
@@ -4244,7 +4244,7 @@ transform = Transform3D(0.00115186, 0, -0.999999, 0, 1, 0, 0.999999, 0, 0.001151
 
 [node name="Pictures" type="Node3D" parent="Past/INTERACTABLES"]
 
-[node name="living room picture" type="StaticBody3D" parent="Past/INTERACTABLES/Pictures" node_paths=PackedStringArray("picture") groups=["Interactable"]]
+[node name="living room picture" type="StaticBody3D" parent="Past/INTERACTABLES/Pictures" node_paths=PackedStringArray("picture")]
 transform = Transform3D(0.948335, 0, 0.317272, 0, 1, 0, -0.317272, 0, 0.948335, -0.83844, 1.51477, 1.39724)
 script = ExtResource("15_gx5iv")
 picture = NodePath("../../../../Pictures/3_LivingRoom/LivingRoomPicture")
@@ -4258,7 +4258,7 @@ shape = SubResource("BoxShape3D_vc26v")
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Past/INTERACTABLES/Pictures/living room picture"]
 
-[node name="front door picture" type="StaticBody3D" parent="Past/INTERACTABLES/Pictures" node_paths=PackedStringArray("picture") groups=["Interactable"]]
+[node name="front door picture" type="StaticBody3D" parent="Past/INTERACTABLES/Pictures" node_paths=PackedStringArray("picture")]
 transform = Transform3D(0.948335, 0, 0.317272, 0, 1, 0, -0.317272, 0, 0.948335, -0.758972, 5.00333, -0.809086)
 visible = false
 script = ExtResource("15_gx5iv")
@@ -4274,7 +4274,7 @@ disabled = true
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Past/INTERACTABLES/Pictures/front door picture"]
 
-[node name="shed picture" type="StaticBody3D" parent="Past/INTERACTABLES/Pictures" node_paths=PackedStringArray("picture") groups=["Interactable"]]
+[node name="shed picture" type="StaticBody3D" parent="Past/INTERACTABLES/Pictures" node_paths=PackedStringArray("picture")]
 transform = Transform3D(0.948335, 0, 0.317272, 0, 1, 0, -0.317272, 0, 0.948335, -27.7238, 0.0258856, -33.1338)
 script = ExtResource("15_gx5iv")
 picture = NodePath("../../../../Pictures/10_Shed/ShedPicture")

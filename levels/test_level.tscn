@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=4 uid="uid://bd5b2sgv2c8v8"]
+[gd_scene load_steps=50 format=4 uid="uid://bd5b2sgv2c8v8"]
 
 [ext_resource type="PackedScene" uid="uid://b25ooshew3q2v" path="res://player/player.tscn" id="1_7d6r5"]
 [ext_resource type="Script" path="res://levels/pictures/picture_handler.gd" id="1_827sh"]
@@ -22,6 +22,9 @@
 [ext_resource type="AudioStream" uid="uid://cb5ijg4lr1lyu" path="res://assets/audio/sfx/Misc/TV/TV_Lift.wav" id="16_erfy3"]
 [ext_resource type="AudioStream" uid="uid://bq8sidpqr5mek" path="res://assets/audio/sfx/Misc/TV/TV_Putdown.wav" id="17_i13gl"]
 [ext_resource type="PackedScene" uid="uid://c2i8ngtjel6as" path="res://levels/areas/drop_off_zone.tscn" id="19_5o5ew"]
+[ext_resource type="PackedScene" uid="uid://dg3kob4pncl23" path="res://assets/props/door_a/door_a.tscn" id="19_otjuc"]
+[ext_resource type="Script" path="res://levels/interactables/interactable_animation.gd" id="20_vnkjo"]
+[ext_resource type="AudioStream" uid="uid://v5y0r4dixf50" path="res://assets/audio/sfx/door/Dooropen.wav" id="21_7nk0d"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_3aadv"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -133,6 +136,42 @@ material = SubResource("StandardMaterial3D_gxkcw")
 size = Vector2(0.48, 0.27)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_riyh3"]
+
+[sub_resource type="Animation" id="Animation_7sq4h"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 2.64016, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_um6ae"]
+resource_name = "open_nook_door"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 2.64016, 0), Vector3(0, 1.20428, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5rxgu"]
+_data = {
+"RESET": SubResource("Animation_7sq4h"),
+"open_nook_door": SubResource("Animation_um6ae")
+}
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vpgwh"]
 albedo_color = Color(0.189372, 0.356995, 0.189985, 1)
@@ -391,7 +430,7 @@ shape = SubResource("BoxShape3D_u51br")
 [node name="DropOffZone" parent="World1/Interactables" instance=ExtResource("19_5o5ew")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.08211, 1.13238, -6.87056)
 
-[node name="PickupPicture" type="StaticBody3D" parent="World1/Interactables" node_paths=PackedStringArray("picture") groups=["Interactable"]]
+[node name="PickupPicture" type="StaticBody3D" parent="World1/Interactables" node_paths=PackedStringArray("picture")]
 transform = Transform3D(0.948335, 0, 0.317272, 0, 1, 0, -0.317272, 0, 0.948335, -4.30694, 0.090492, 1.39724)
 script = ExtResource("14_236fl")
 picture = NodePath("../../../Pictures/1/1")
@@ -405,6 +444,21 @@ skeleton = NodePath("../../../../../..")
 shape = SubResource("BoxShape3D_riyh3")
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="World1/Interactables/PickupPicture"]
+
+[node name="Door_Noor" parent="World1/Interactables" node_paths=PackedStringArray("interact_stream_player") instance=ExtResource("19_otjuc")]
+transform = Transform3D(-0.876895, 0, 0.480682, 0, 1, 0, -0.480682, 0, -0.876895, -14.724, 0, -0.916)
+script = ExtResource("20_vnkjo")
+interaction_animations = Array[String](["open_nook_door"])
+interact_stream_player = NodePath("AudioStreamPlayer3D")
+interact_audio_stream = ExtResource("21_7nk0d")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="World1/Interactables/Door_Noor"]
+libraries = {
+"": SubResource("AnimationLibrary_5rxgu")
+}
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="World1/Interactables/Door_Noor"]
+volume_db = 20.0
 
 [node name="TestArea1" parent="World1" node_paths=PackedStringArray("start_monitoring_list") instance=ExtResource("11_bydt5")]
 dialogue_clips = Array[Resource]([ExtResource("12_8jd77")])
@@ -499,7 +553,7 @@ shape = SubResource("BoxShape3D_u51br")
 [node name="DropOffZone" parent="World2/Interactables" instance=ExtResource("19_5o5ew")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.08211, 1.13238, -6.87056)
 
-[node name="PickupPicture" type="StaticBody3D" parent="World2/Interactables" node_paths=PackedStringArray("picture") groups=["Interactable"]]
+[node name="PickupPicture" type="StaticBody3D" parent="World2/Interactables" node_paths=PackedStringArray("picture")]
 transform = Transform3D(0.948335, 0, 0.317272, 0, 1, 0, -0.317272, 0, 0.948335, -4.30694, 0.090492, 1.39724)
 script = ExtResource("14_236fl")
 picture = NodePath("../../../Pictures/1/1")
@@ -515,3 +569,4 @@ shape = SubResource("BoxShape3D_riyh3")
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="World2/Interactables/PickupPicture"]
 
 [editable path="Player"]
+[editable path="World1/Interactables/Door_Noor"]

@@ -15,17 +15,21 @@ var busy: bool = false
 func interact(interacting_player: CharacterBody3D) -> Node:
 	if busy:
 		print("Interactable busy")
-		return
+		return null
 	
 	if key_name and not interacting_player.inventory.contains_item(key_name):
 		print("Locked")
 		player.set_interact_response_message("Locked")
-		return
+		return null
 
 	busy = true
 	
 	super.interact(interacting_player)
+	play_animation()
+	
+	return null
 
+func play_animation() -> void:
 	animation_player.current_animation = interaction_animations[animation_index]
 	animation_player.active = true
 	
@@ -36,4 +40,3 @@ func interact(interacting_player: CharacterBody3D) -> Node:
 	await get_tree().create_timer(animation_player.current_animation_length).timeout
 
 	busy = false
-	return null

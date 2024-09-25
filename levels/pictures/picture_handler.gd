@@ -86,7 +86,7 @@ func set_input_state(state: bool) -> void:
 		input_blockers += 1
 	else:
 		input_blockers -= 1
-	print("Picture input set to: " + str(state))
+	print("Picture input blockers: " + str(input_blockers))
 	if input_blockers > 0 and not inside_picture and up_position:
 		toggle_inspect()
 

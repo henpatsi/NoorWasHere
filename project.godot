@@ -27,7 +27,6 @@ window/stretch/mode="canvas_items"
 
 [global_group]
 
-Interactable="An object that the player can use the interact function on"
 Player=""
 DropZone=""
 
