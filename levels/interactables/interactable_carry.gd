@@ -64,6 +64,8 @@ func interact(interacting_player: CharacterBody3D) -> Node:
 
 
 func carry() -> void:
+	player.set_picture_handler_input(false)
+
 	self.collision_layer = 2
 
 	get_parent().remove_child(self)
@@ -84,6 +86,8 @@ func release() -> bool:
 		print("Cannot release here")
 		player.set_interact_response_message("Cannot release here")
 		return false
+
+	player.set_picture_handler_input(true)
 
 	self.collision_layer = 1
 

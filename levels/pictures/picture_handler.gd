@@ -28,7 +28,7 @@ var inside_picture: bool = false
 var player_target_position: Vector3
 var player_target_rotation: Vector3
 
-var input_enabled: bool = true
+var input_blockers: float = 0
 
 @onready var crosshair: ColorRect = $"../UI/Crosshair"
 @onready var interact_label: Label = $"../UI/InteractLabel"
@@ -81,16 +81,18 @@ func outside_picture_process(delta: float) -> void:
 		aligned = false
 
 
-# TODO maybe make this an array of bools, so that all that block have to unblock
 func set_input_state(state: bool) -> void:
-	input_enabled = state
+	if state == false:
+		input_blockers += 1
+	else:
+		input_blockers -= 1
 	print("Picture input set to: " + str(state))
-	if not input_enabled and not inside_picture and up_position:
+	if input_blockers > 0 and not inside_picture and up_position:
 		toggle_inspect()
 
 
 func _input(event: InputEvent) -> void:
-	if not input_enabled or not current_picture:
+	if input_blockers > 0 or not current_picture:
 		return
 	
 	if event.is_action_pressed("inspect_picture"):

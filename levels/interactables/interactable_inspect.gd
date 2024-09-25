@@ -27,6 +27,8 @@ func interact(interacting_player: CharacterBody3D) -> Node:
 
 
 func inspect() -> void:
+	player.set_picture_handler_input(false)
+
 	original_parent.remove_child(self)
 	player.inspect_position.add_child(self)
 	position = inspect_position_offset
@@ -42,5 +44,7 @@ func release() -> bool:
 	global_position = original_global_position
 	rotation = oiginal_rotation
 	inspecting = false
+
+	player.set_picture_handler_input(true)
 
 	return true

@@ -48,7 +48,7 @@ var audioTween: Tween
 @onready var camera_picture_position: Vector3 = camera.global_position
 @onready var camera_picture_rotation: Vector3 = camera.global_rotation
 
-@onready var target_position: Vector2 = Vector2(320, 1000)
+@onready var target_position: Vector2 = Vector2(1000, 1000)
 var move_speed: float = 100
 var at_target_position: bool = false
 

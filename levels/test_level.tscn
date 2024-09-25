@@ -324,7 +324,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 2.5, -10)
 use_collision = true
 size = Vector3(5, 5, 5)
 
-[node name="Interactables" type="Node" parent="World1"]
+[node name="Interactables" type="Node3D" parent="World1"]
 
 [node name="MemoryCapsuleInspect" type="StaticBody3D" parent="World1/Interactables" node_paths=PackedStringArray("interact_stream_player")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.61092, 1.0941, -2.31715)
@@ -430,5 +430,88 @@ material = SubResource("StandardMaterial3D_vpgwh")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 2.5, -10)
 use_collision = true
 size = Vector3(5, 5, 5)
+
+[node name="Interactables" type="Node3D" parent="World2"]
+
+[node name="MemoryCapsuleInspect" type="StaticBody3D" parent="World2/Interactables" node_paths=PackedStringArray("interact_stream_player")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.61092, 1.0941, -2.31715)
+script = ExtResource("15_frg6o")
+inspect_position_offset = Vector3(0, -0.1, 0)
+item_name = "memory capsule"
+one_shot = false
+interact_stream_player = NodePath("AudioStreamPlayer3D")
+interact_audio_stream = ExtResource("11_3q2yy")
+dialogue_clips = Array[Resource]([ExtResource("12_8jd77")])
+
+[node name="box_bake" type="MeshInstance3D" parent="World2/Interactables/MemoryCapsuleInspect"]
+transform = Transform3D(200, 0, 0, 0, -8.74228e-06, 200, 0, -200, -8.74228e-06, 0, 0, 0)
+mesh = SubResource("ArrayMesh_xhmmb")
+skeleton = NodePath("")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World2/Interactables/MemoryCapsuleInspect"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000671387, 0.0899048, 0.000915527)
+shape = SubResource("BoxShape3D_u51br")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="World2/Interactables/MemoryCapsuleInspect"]
+
+[node name="MemoryCapsulePickup" type="StaticBody3D" parent="World2/Interactables" node_paths=PackedStringArray("interact_stream_player")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.61092, 1.0941, 0.0310307)
+script = ExtResource("14_nbo1e")
+item_name = "memory capsule"
+interact_stream_player = NodePath("AudioStreamPlayer3D")
+interact_audio_stream = ExtResource("11_3q2yy")
+
+[node name="box_bake" type="MeshInstance3D" parent="World2/Interactables/MemoryCapsulePickup"]
+transform = Transform3D(200, 0, 0, 0, -8.74228e-06, 200, 0, -200, -8.74228e-06, 0, 0, 0)
+mesh = SubResource("ArrayMesh_xhmmb")
+skeleton = NodePath("")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World2/Interactables/MemoryCapsulePickup"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000671387, 0.0899048, 0.000915527)
+shape = SubResource("BoxShape3D_u51br")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="World2/Interactables/MemoryCapsulePickup"]
+
+[node name="MemoryCapsuleCarry" type="RigidBody3D" parent="World2/Interactables" node_paths=PackedStringArray("mesh", "carry_audio_stream_player")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.61092, 1.0941, 2.03103)
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
+script = ExtResource("15_pxfaq")
+set_requirement = "requirement"
+mesh = NodePath("box_bake")
+carry_audio_stream_player = NodePath("AudioStreamPlayer3D")
+pick_up_audio = ExtResource("16_erfy3")
+put_down_audio = ExtResource("17_i13gl")
+item_name = "memory capsule"
+
+[node name="box_bake" type="MeshInstance3D" parent="World2/Interactables/MemoryCapsuleCarry"]
+transform = Transform3D(200, 0, 0, 0, -8.74228e-06, 200, 0, -200, -8.74228e-06, 0, 0, 0)
+mesh = SubResource("ArrayMesh_xhmmb")
+skeleton = NodePath("")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World2/Interactables/MemoryCapsuleCarry"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000671387, 0.0899048, 0.000915527)
+shape = SubResource("BoxShape3D_u51br")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="World2/Interactables/MemoryCapsuleCarry"]
+
+[node name="DropOffZone" parent="World2/Interactables" instance=ExtResource("19_5o5ew")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.08211, 1.13238, -6.87056)
+
+[node name="PickupPicture" type="StaticBody3D" parent="World2/Interactables" node_paths=PackedStringArray("picture") groups=["Interactable"]]
+transform = Transform3D(0.948335, 0, 0.317272, 0, 1, 0, -0.317272, 0, 0.948335, -4.30694, 0.090492, 1.39724)
+script = ExtResource("14_236fl")
+picture = NodePath("../../../Pictures/1/1")
+item_name = "other picture"
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="World2/Interactables/PickupPicture"]
+mesh = SubResource("PlaneMesh_31tjn")
+skeleton = NodePath("../../../../../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World2/Interactables/PickupPicture"]
+shape = SubResource("BoxShape3D_riyh3")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="World2/Interactables/PickupPicture"]
 
 [editable path="Player"]
