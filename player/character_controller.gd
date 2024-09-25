@@ -128,7 +128,7 @@ func on_item_picked_up(item: Node3D) -> void:
 
 func on_picture_picked_up(picture: Node3D) -> void:
 	inventory.add_picture(picture.picture)
-	picture_handler.on_picture_picked_up()
+	picture_handler.on_picture_picked_up(picture.picture)
 	set_interact_response_message("Picked up " + picture.item_name)
 
 func set_interact_message(message: String) -> void:

@@ -1,12 +1,18 @@
 extends Node
 
 @export_category("Settings")
-## The time (s) it takes for the picture to move to/from the inspect position.
+## The speed at which a picture moves to/from the inspect position.
 @export var inspect_speed: float = 10
-## The height of the top of the picture when not being inspected.
+## The speed at which a picture moves when it is swapped
+@export var swap_speed: float = 5
+## The position of the picture when not being inspected
 @export var picture_lower_position: Vector2 = Vector2(320, 570)
+## The position of the picture when not active
+@export var picture_inventory_position: Vector2 = Vector2(1280, 2280)
 ## Strength of the lerp to align photo when almost aligned
 @export var align_lerp_strength: float = 2
+
+var picture_upper_position: Vector2
 
 var picture_index: int = 0
 var current_picture: TextureRect
@@ -41,7 +47,7 @@ func _ready() -> void:
 		printerr("Picture handler array is empty.")
 
 	for picture in inventory.get_pictures():
-		picture.set_target_position(picture_lower_position * 2, inspect_speed)
+		picture.set_target_position(picture_inventory_position, inspect_speed)
 		picture.set_active(false)
 
 	current_picture = inventory.get_picture(0)
@@ -51,6 +57,7 @@ func _ready() -> void:
 		current_picture.set_target_position(picture_lower_position, inspect_speed)
 		current_picture.set_active(true)
 
+	picture_upper_position = Vector2(get_viewport().size / 2) - (current_picture.size / 2)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -141,11 +148,13 @@ func toggle_inspect() -> void:
 	else:
 		crosshair.hide()
 		player.interact_enabled = false
-		current_picture.set_target_position(Vector2(320,  current_picture.size.y / 2), inspect_speed)
+		current_picture.set_target_position(picture_upper_position, inspect_speed)
 
 
-func on_picture_picked_up() -> void:
+func on_picture_picked_up(picture: TextureRect) -> void:
 	if not inside_picture:
+		picture.position = picture_inventory_position
+		up_position = true
 		set_active_picture(inventory.pictures.size() - 1)
 
 
@@ -156,9 +165,11 @@ func set_active_picture(index: int) -> void:
 	if inventory.pictures.size() == 1:
 		print("No pictures to swap to")
 		return
+	
+	inspecting = false
 
 	if current_picture:
-		current_picture.set_target_position(picture_lower_position * 4, inspect_speed / 2)
+		current_picture.set_target_position(picture_inventory_position, swap_speed)
 		current_picture.set_active(false)
 
 	current_picture = inventory.get_picture(index)
@@ -167,6 +178,6 @@ func set_active_picture(index: int) -> void:
 	picture_index = index
 
 	if up_position:
-		current_picture.set_target_position(Vector2(320,  current_picture.size.y / 2), inspect_speed)
+		current_picture.set_target_position(picture_upper_position, swap_speed * 2)
 	else:
-		current_picture.set_target_position(picture_lower_position, inspect_speed)
+		current_picture.set_target_position(picture_lower_position, swap_speed * 2)
