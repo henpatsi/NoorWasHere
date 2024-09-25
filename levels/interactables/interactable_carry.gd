@@ -5,6 +5,8 @@ extends Interactable
 @export var carry_position_offset: Vector3
 @export var set_requirement: String
 @export var follow_speed: float = 1000
+@export var max_distance_from_player: float = 3
+@export var max_distance_from_original_position: float = 20
 @export var mesh: MeshInstance3D
 
 @export_category("Carry audio")
@@ -14,6 +16,10 @@ extends Interactable
 
 var carrying: bool = false
 var dropoff_area: Area3D
+
+@onready var original_parent: Node = get_parent()
+@onready var original_global_position: Vector3 = global_position
+@onready var oiginal_rotation: Vector3 = rotation
 
 var material: Material
 
@@ -27,10 +33,22 @@ func _ready() -> void:
 	super._ready()
 
 
+func _process(_delta: float) -> void:
+	if not carrying:
+		return
+	
+	if global_position.distance_to(player.global_position) > max_distance_from_player:
+		reset()
+	elif global_position.distance_to(original_global_position) > max_distance_from_original_position:
+		reset()
+
+
 func _physics_process(delta: float) -> void:
-	if carrying:
-		var target_position = player.inspect_position.global_position + carry_position_offset
-		self.linear_velocity = (target_position - global_position) * delta * follow_speed
+	if not carrying:
+		return
+
+	var target_position = player.inspect_position.global_position + carry_position_offset
+	self.linear_velocity = (target_position - global_position) * delta * follow_speed
 
 
 func interact(interacting_player: CharacterBody3D) -> Node:
@@ -80,6 +98,17 @@ func release() -> bool:
 	material_outside_dropoff()
 
 	return true
+
+
+# In case player does something unexpected
+func reset() -> void:
+	get_parent().remove_child(self)
+	original_parent.add_child(self)
+	global_position = original_global_position
+	rotation = oiginal_rotation
+	carrying = false
+	
+	player.interacting_object = null
 
 
 func set_dropoff(area: Area3D) -> void:
