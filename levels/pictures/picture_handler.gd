@@ -4,7 +4,7 @@ extends Node
 ## The time (s) it takes for the picture to move to/from the inspect position.
 @export var inspect_speed: float = 10
 ## The height of the top of the picture when not being inspected.
-@export var picture_lower_y: int = 570
+@export var picture_lower_position: Vector2 = Vector2(320, 570)
 ## Strength of the lerp to align photo when almost aligned
 @export var align_lerp_strength: float = 2
 
@@ -57,9 +57,7 @@ func _process(delta: float) -> void:
 		outside_picture_process(delta)
 
 func outside_picture_process(delta: float) -> void:
-	if current_picture.position.distance_to(picture_target_position) > 1:
-		current_picture.position = lerp(current_picture.position, picture_target_position, inspect_speed * delta)
-	elif up_position:
+	if up_position and current_picture.at_target_position:
 		inspecting = true
 
 	if inspecting and current_picture.player_in_correct_position(head_node):
@@ -132,14 +130,14 @@ func toggle_inspect() -> void:
 		up_position = not up_position
 
 	if not up_position:
-		picture_target_position.y = picture_lower_y
 		inspecting = false
 		crosshair.show()
 		player.interact_enabled = true
+		current_picture.set_target_position(picture_lower_position, inspect_speed)
 	else:
-		picture_target_position.y = current_picture.size.y / 2
 		crosshair.hide()
 		player.interact_enabled = false
+		current_picture.set_target_position(Vector2(320,  current_picture.size.y / 2), inspect_speed)
 
 
 func on_picture_picked_up() -> void:
@@ -164,6 +162,6 @@ func set_active_picture(index: int) -> void:
 	picture_index = index
 
 	if up_position:
-		current_picture.position = Vector2(320, current_picture.size.y / 2)
+		current_picture.set_target_position(Vector2(320,  current_picture.size.y / 2), inspect_speed)
 	else:
-		current_picture.position = Vector2(320, picture_lower_y)
+		current_picture.set_target_position(picture_lower_position, inspect_speed)

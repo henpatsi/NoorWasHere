@@ -48,6 +48,10 @@ var audioTween: Tween
 @onready var camera_picture_position: Vector3 = camera.global_position
 @onready var camera_picture_rotation: Vector3 = camera.global_rotation
 
+@onready var target_position: Vector2 = position
+var move_speed: float = 100
+var at_target_position: bool = false
+
 var printTimer = 0
 
 # Called when the node enters the scene tree for the first time.
@@ -55,13 +59,23 @@ func _ready() -> void:
 	set_active(false)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta: float) -> void:
+func _process(delta: float) -> void:
+
+	if not at_target_position:
+		position = lerp(position, target_position, move_speed * delta)
+		if position.distance_to(target_position) < 1:
+			at_target_position = true
+
 	if not inside_picture:
 		return
 
 	camera.global_position = camera_follow_node.global_position
 	camera.global_rotation = camera_follow_node.global_rotation
 
+func set_target_position(pos: Vector2, speed: float) -> void:
+	target_position = pos
+	move_speed = speed
+	at_target_position = false
 
 func set_active(state: bool) -> void:
 	active_picture = state
