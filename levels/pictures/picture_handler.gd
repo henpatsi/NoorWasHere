@@ -15,7 +15,7 @@ extends Node
 var picture_upper_position: Vector2
 
 var picture_index: int = 0
-var entered_picture_index: int = 0
+var entered_picture_index_array: Array[int] = [0, 0, 0]
 var current_picture: TextureRect
 var current_picture_array: Array[TextureRect]
 @onready var inventory: Node = %Inventory
@@ -46,11 +46,12 @@ var transition_out_audio_clip: AudioStream = load("res://assets/audio/sfx/Misc/T
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	for picture in inventory.get_pictures():
+	for picture in inventory.get_pictures(picture_depth):
 		picture.set_target_position(picture_inventory_position, 100)
 		picture.set_active(false)
+		picture.show()
 
-	initialize_picture_array(inventory.get_pictures())
+	initialize_picture_array(inventory.get_pictures(picture_depth))
 
 	if current_picture:
 		picture_upper_position = Vector2(get_viewport().size / 2) - (current_picture.size / 2)
@@ -87,25 +88,28 @@ func initialize_picture_array(array: Array[TextureRect]) -> void:
 		current_picture = null
 
 
-func set_input_state(state: bool) -> void:
+func set_input_state(state: bool, force_down: bool = true) -> void:
 	if state == false:
 		input_blockers += 1
 	else:
 		input_blockers -= 1
 	print("Picture input blockers: " + str(input_blockers))
-	if input_blockers > 0 and up_position:
+	if input_blockers > 0 and up_position and force_down:
 		toggle_inspect()
 
 
 func _input(event: InputEvent) -> void:
-	if input_blockers > 0 or not current_picture:
+	if input_blockers > 0:
 		return
-	
-	if event.is_action_pressed("inspect_picture"):
-		toggle_inspect()
 
 	if event.is_action_pressed("exit_picture"):
 		exit_picture()
+
+	if not current_picture:
+		return
+
+	if event.is_action_pressed("inspect_picture"):
+		toggle_inspect()
 
 	if event.is_action_pressed("next_picture"):
 		print("Swapping to next picture")
@@ -143,38 +147,48 @@ func toggle_inspect() -> void:
 
 
 func enter_picture() -> void:
+	print("Entering picture")
+
 	if transition_audio_player and transition_in_audio_clip:
 		transition_audio_player.stream = transition_in_audio_clip
 		transition_audio_player.play()
 
+	entered_picture_index_array[picture_depth] = picture_index
+	picture_index = 0
 	picture_depth += 1
-	entered_picture_index = picture_index
 	current_picture.enter_picture(player, head_node, self)
 	crosshair.show()
 	player.interact_enabled = true
 
-	initialize_picture_array(inventory.get_past_pictures())
+	initialize_picture_array(inventory.get_pictures(picture_depth))
 
 
 func exit_picture() -> void:
+	print("Exiting picture")
+
 	if picture_depth == 0:
 		return
+
+	current_picture.set_target_position(picture_inventory_position, 100)
+	inventory.clear_pictures(picture_depth)
+
+	picture_depth -= 1
 
 	if transition_audio_player and transition_out_audio_clip:
 		transition_audio_player.stream = transition_out_audio_clip
 		transition_audio_player.play()
 
-	current_picture.exit_picture(player, self)
-	picture_depth -= 1
-	up_position = false
+	initialize_picture_array(inventory.get_pictures(picture_depth))
+	current_picture = inventory.get_picture(current_picture_array, entered_picture_index_array[picture_depth])
 
-	initialize_picture_array(inventory.get_pictures())
-	current_picture = inventory.get_picture(current_picture_array, entered_picture_index)
+	current_picture.exit_picture(player, self)
+	up_position = false
 
 
 func on_picture_picked_up(picture: TextureRect) -> void:
 	current_picture_array.append(picture)
 	picture.position = picture_inventory_position
+	picture.show()
 	set_active_picture(current_picture_array.size() - 1)
 	toggle_inspect()
 

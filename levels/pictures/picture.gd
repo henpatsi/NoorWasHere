@@ -9,10 +9,10 @@ extends TextureRect
 @export_group("Settings")
 ## For lining up the picture and the real scene.
 ## The maxumim distance the player can be from the actual position.
-@export var match_position_distance: float = 1
+@export var match_position_distance: float = 2
 ## For lining up the picture and the real scene.
 ## The maxumim rotation the player can be from the actual rotation.
-@export var match_rotation_distance: float = 5
+@export var match_rotation_distance: float = 10
 ## A list of requirements that need to be met for this picture to work.
 ## Example: front_door_closed, tv_on_table, living_room_complete
 @export var requirements: Array[String]
@@ -73,6 +73,7 @@ func _process(delta: float) -> void:
 	camera.global_rotation = camera_follow_node.global_rotation
 
 func set_target_position(pos: Vector2, speed: float) -> void:
+	print(name, " pos = ", pos)
 	at_target_position = false
 	target_position = pos
 	move_speed = speed
@@ -138,7 +139,7 @@ func requirements_met(met_requirements: Array[String]) -> bool:
 
 
 func enter_picture(player: CharacterBody3D, head_node: Node3D, picture_handler: Node) -> void:
-	picture_handler.set_input_state(false)
+	picture_handler.set_input_state(false, false)
 	player.process_mode = Node.PROCESS_MODE_DISABLED
 
 	var camera_pos = get_local_camera_pos()
@@ -181,7 +182,7 @@ func enter_picture(player: CharacterBody3D, head_node: Node3D, picture_handler: 
 
 
 func exit_picture(player: CharacterBody3D, picture_handler: Node) -> void:
-	picture_handler.set_input_state(false)
+	picture_handler.set_input_state(false, false)
 
 	inside_picture = false
 	show()
