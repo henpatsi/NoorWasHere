@@ -16,6 +16,7 @@ extends Interactable
 
 var carrying: bool = false
 var dropoff_area: Area3D
+var at_correct_position: bool = false
 
 @onready var original_parent: Node = get_parent()
 @onready var original_global_position: Vector3 = global_position
@@ -52,6 +53,10 @@ func _physics_process(delta: float) -> void:
 
 
 func interact(interacting_player: CharacterBody3D) -> Node:
+	if at_correct_position:
+		player.set_interact_response_message("Object is already at correct position")
+		return
+
 	super.interact(interacting_player)
 
 	carry()
@@ -96,6 +101,8 @@ func release() -> bool:
 	player.add_met_picture_requirement(set_requirement)
 
 	material_outside_dropoff()
+	
+	at_correct_position = true
 
 	return true
 
