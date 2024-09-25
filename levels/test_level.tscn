@@ -5,7 +5,7 @@
 [ext_resource type="Script" path="res://levels/test_level.gd" id="1_w023m"]
 [ext_resource type="Script" path="res://levels/pictures/picture.gd" id="2_sagta"]
 [ext_resource type="Script" path="res://player/inventory.gd" id="3_14087"]
-[ext_resource type="PackedScene" uid="uid://d22ogqllffeom" path="res://levels/camera_ref.tscn" id="4_5wynm"]
+[ext_resource type="PackedScene" path="res://levels/camera_ref.tscn" id="4_5wynm"]
 [ext_resource type="Script" path="res://levels/pictures/screenshot.gd" id="5_0pnjl"]
 [ext_resource type="Script" path="res://levels/ui/ui.gd" id="7_813h0"]
 [ext_resource type="FontFile" uid="uid://bi3g7vfa5cdww" path="res://assets/fonts/Helvetica-Font/Helvetica.ttf" id="8_6nq31"]

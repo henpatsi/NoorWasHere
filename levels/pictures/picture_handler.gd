@@ -14,7 +14,6 @@ var current_picture: TextureRect
 
 var picture_requirements_met: Array[String]
 
-var picture_target_position: Vector2 = Vector2(320, 570)
 var up_position: bool = false
 var inspecting: bool = false
 var aligned: bool = false
@@ -111,8 +110,8 @@ func _input(event: InputEvent) -> void:
 			transition_audio_player.stream = transition_in_audio_clip
 			transition_audio_player.play()
 
-		current_picture.enter_picture(player, head_node, self)
 		inside_picture = true
+		current_picture.enter_picture(player, head_node, self)
 		crosshair.show()
 		player.interact_enabled = true
 

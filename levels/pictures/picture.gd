@@ -48,7 +48,7 @@ var audioTween: Tween
 @onready var camera_picture_position: Vector3 = camera.global_position
 @onready var camera_picture_rotation: Vector3 = camera.global_rotation
 
-@onready var target_position: Vector2 = position
+@onready var target_position: Vector2 = Vector2(320, 570)
 var move_speed: float = 100
 var at_target_position: bool = false
 
@@ -73,6 +73,7 @@ func _process(delta: float) -> void:
 	camera.global_rotation = camera_follow_node.global_rotation
 
 func set_target_position(pos: Vector2, speed: float) -> void:
+	print(pos)
 	target_position = pos
 	move_speed = speed
 	at_target_position = false
@@ -180,7 +181,9 @@ func enter_picture(player: CharacterBody3D, head_node: Node3D, picture_handler: 
 	picture_handler.set_input_state(true)
 
 
-func exit_picture(player: CharacterBody3D, _picture_handler: Node) -> void:
+func exit_picture(player: CharacterBody3D, picture_handler: Node) -> void:
+	picture_handler.set_input_state(false)
+
 	inside_picture = false
 	show()
 	get_tree().root.get_child(1).set_present_environment()
@@ -207,3 +210,5 @@ func exit_picture(player: CharacterBody3D, _picture_handler: Node) -> void:
 
 	camera.global_position = camera_picture_position
 	camera.global_rotation = camera_picture_rotation
+	
+	picture_handler.set_input_state(true)
