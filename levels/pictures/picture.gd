@@ -92,7 +92,7 @@ func set_active(state: bool) -> void:
 				set_child_collider_states(node, true)
 		for area in start_monitoring_list:
 			area.monitoring = true
-		show()
+		#show()
 
 	if not active_picture:
 		for node in nodes_to_show:
@@ -105,7 +105,7 @@ func set_active(state: bool) -> void:
 				set_child_collider_states(node, false)
 		for area in start_monitoring_list:
 			area.monitoring = false
-		hide()
+		#hide()
 
 
 func set_child_collider_states(node: Node, disabled_state: bool) -> void:

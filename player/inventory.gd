@@ -9,6 +9,8 @@ func add_item(item: String) -> void:
 func add_picture(picture: TextureRect) -> void:
 	pictures.append(picture)
 
+func get_pictures() -> Array[TextureRect]:
+	return pictures
 
 func get_picture(index: int) -> TextureRect:
 	if pictures.size() == 0:

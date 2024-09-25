@@ -40,10 +40,15 @@ func _ready() -> void:
 	if inventory.pictures.size() == 0:
 		printerr("Picture handler array is empty.")
 
+	for picture in inventory.get_pictures():
+		picture.set_target_position(picture_lower_position * 2, inspect_speed)
+		picture.set_active(false)
+
 	current_picture = inventory.get_picture(0)
 	# Wait to allow screenshot to be taken, which was conflicting with this
 	# await get_tree().create_timer(1).timeout
 	if current_picture:
+		current_picture.set_target_position(picture_lower_position, inspect_speed)
 		current_picture.set_active(true)
 
 
@@ -153,6 +158,7 @@ func set_active_picture(index: int) -> void:
 		return
 
 	if current_picture:
+		current_picture.set_target_position(picture_lower_position * 4, inspect_speed / 2)
 		current_picture.set_active(false)
 
 	current_picture = inventory.get_picture(index)
