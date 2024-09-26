@@ -222,7 +222,6 @@ starting_pictures = [NodePath("../Pictures/0/0")]
 [node name="0" type="Node" parent="Pictures"]
 
 [node name="0" type="TextureRect" parent="Pictures/0" node_paths=PackedStringArray("camera", "world_root", "nodes_to_show")]
-visible = false
 clip_contents = true
 anchors_preset = 15
 anchor_right = 1.0

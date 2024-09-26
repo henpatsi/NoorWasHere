@@ -199,7 +199,7 @@ func exit_picture(player: CharacterBody3D, picture_handler: Node) -> void:
 	zoomTween.tween_property(self, "position:x", target_position.x, picture_resize_time)
 	zoomTween.tween_property(self, "size:x", 640, picture_resize_time)
 	zoomTween.tween_property(self, "size:y", 360, picture_resize_time)
-	
+
 	if ambientASP and ambientAS:
 		if audioTween:
 			audioTween.kill()
@@ -209,12 +209,19 @@ func exit_picture(player: CharacterBody3D, picture_handler: Node) -> void:
 
 	await get_tree().create_timer(picture_resize_time).timeout
 
+	var camera_return_time: float = 0.2
+	var cameraTween = create_tween().set_parallel()
+	cameraTween.tween_property(camera, "global_position", camera_picture_position, camera_return_time)
+	cameraTween.tween_property(camera, "global_rotation", camera_picture_rotation, camera_return_time)
+
 	if ambientASP and ambientAS:
 		ambientASP.stop()
 
-	camera.global_position = camera_picture_position
-	camera.global_rotation = camera_picture_rotation
-
 	player.process_mode = Node.PROCESS_MODE_PAUSABLE
+
+	await get_tree().create_timer(camera_return_time).timeout
+
+	#camera.global_position = camera_picture_position
+	#camera.global_rotation = camera_picture_rotation
 
 	picture_handler.set_input_state(true)
