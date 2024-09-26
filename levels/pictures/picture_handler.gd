@@ -54,6 +54,7 @@ func _ready() -> void:
 	initialize_picture_array(inventory.get_pictures(picture_depth))
 
 	if current_picture:
+		current_picture.set_target_position(picture_lower_position, inspect_speed)
 		picture_upper_position = Vector2(get_viewport().size / 2) - (current_picture.size / 2)
 	else: # Should not be empty at start, but just in case
 		picture_upper_position = Vector2(320, 180)
@@ -81,8 +82,8 @@ func initialize_picture_array(array: Array[TextureRect]) -> void:
 	current_picture_array = array
 
 	if current_picture_array.size() != 0:
-		current_picture = current_picture_array[0]
-		current_picture.set_target_position(picture_lower_position, inspect_speed)
+		picture_index = entered_picture_index_array[picture_depth]
+		current_picture = inventory.get_picture(current_picture_array, picture_index)
 		current_picture.set_active(true)
 	else:
 		current_picture = null
@@ -102,10 +103,13 @@ func _input(event: InputEvent) -> void:
 	if input_blockers > 0:
 		return
 
+	input_blockers += 1
+
 	if event.is_action_pressed("exit_picture"):
 		exit_picture()
 
 	if not current_picture:
+		input_blockers -= 1
 		return
 
 	if event.is_action_pressed("inspect_picture"):
@@ -121,15 +125,20 @@ func _input(event: InputEvent) -> void:
 	
 	if event.is_action_pressed("enter_picture"):
 		if not inspecting:
+			input_blockers -= 1
 			return
 		print("Trying to enter picture")
 		if not aligned:
 			print ("Not aligned to picture")
+			input_blockers -= 1
 			return
 		if not current_picture.requirements_met(picture_requirements_met):
 			interact_response_label.change_text("Something is missing")
+			input_blockers -= 1
 			return
 		enter_picture()
+
+	input_blockers -= 1
 
 
 func toggle_inspect() -> void:
@@ -169,7 +178,8 @@ func exit_picture() -> void:
 	if picture_depth == 0:
 		return
 
-	current_picture.set_target_position(picture_inventory_position, 100)
+	if current_picture:
+		current_picture.set_target_position(picture_inventory_position, 100)
 	inventory.clear_pictures(picture_depth)
 
 	picture_depth -= 1
@@ -179,10 +189,8 @@ func exit_picture() -> void:
 		transition_audio_player.play()
 
 	initialize_picture_array(inventory.get_pictures(picture_depth))
-	current_picture = inventory.get_picture(current_picture_array, entered_picture_index_array[picture_depth])
 
 	current_picture.exit_picture(player, self)
-	up_position = false
 
 
 func on_picture_picked_up(picture: TextureRect) -> void:

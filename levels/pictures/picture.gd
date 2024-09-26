@@ -191,8 +191,8 @@ func exit_picture(player: CharacterBody3D, picture_handler: Node) -> void:
 	player.global_position -= world_root.position
 
 	var zoomTween = create_tween().set_parallel()
-	zoomTween.tween_property(self, "position:y", 570, picture_resize_time)
-	zoomTween.tween_property(self, "position:x", 320, picture_resize_time)
+	zoomTween.tween_property(self, "position:y", target_position.y, picture_resize_time)
+	zoomTween.tween_property(self, "position:x", target_position.x, picture_resize_time)
 	zoomTween.tween_property(self, "size:x", 640, picture_resize_time)
 	zoomTween.tween_property(self, "size:y", 360, picture_resize_time)
 	
