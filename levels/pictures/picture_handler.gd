@@ -166,11 +166,12 @@ func enter_picture() -> void:
 	picture_index = 0
 	picture_depth += 1
 	current_picture.enter_picture(player, head_node, self)
-	crosshair.show()
-	player.interact_enabled = true
 
 	initialize_picture_array(inventory.get_pictures(picture_depth))
 
+	up_position = false
+	crosshair.show()
+	player.interact_enabled = true
 
 func exit_picture() -> void:
 	print("Exiting picture")
@@ -191,6 +192,10 @@ func exit_picture() -> void:
 	initialize_picture_array(inventory.get_pictures(picture_depth))
 
 	current_picture.exit_picture(player, self)
+	
+	up_position = true
+	crosshair.hide()
+	player.interact_enabled = false
 
 
 func on_picture_picked_up(picture: TextureRect) -> void:
