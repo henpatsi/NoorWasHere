@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="DialogueStream" load_steps=3 format=3]
+
+[ext_resource type="AudioStream" path="res://assets/audio/VO/08_01.mp3" id="1_e132f"]
+[ext_resource type="Script" path="res://resources/dialogue_stream.gd" id="2_7llxk"]
+
+[resource]
+script = ExtResource("2_7llxk")
+audio_stream = ExtResource("1_e132f")
+subtitle = "The day of my presentation, I had to skip school to go to the embassy with my mom."

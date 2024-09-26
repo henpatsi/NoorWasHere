@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="DialogueStream" load_steps=3 format=3]
+
+[ext_resource type="AudioStream" path="res://assets/audio/VO/03_01.mp3" id="1_ctegp"]
+[ext_resource type="Script" path="res://resources/dialogue_stream.gd" id="2_jh1pf"]
+
+[resource]
+script = ExtResource("2_jh1pf")
+audio_stream = ExtResource("1_ctegp")
+subtitle = "Agathe drove me crazy. I had this huge crush on Marty Mcfly, I made her promise not to tell anyone."

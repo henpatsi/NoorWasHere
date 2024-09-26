@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="DialogueStream" load_steps=3 format=3]
+
+[ext_resource type="AudioStream" path="res://assets/audio/VO/02_E01.mp3" id="1_vuq57"]
+[ext_resource type="Script" path="res://resources/dialogue_stream.gd" id="2_s2e13"]
+
+[resource]
+script = ExtResource("2_s2e13")
+audio_stream = ExtResource("1_vuq57")
+subtitle = "Seeing this, I can almost feel it,"

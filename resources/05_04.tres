@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="DialogueStream" load_steps=3 format=3]
+
+[ext_resource type="AudioStream" path="res://assets/audio/VO/05_04.mp3" id="1_f40nq"]
+[ext_resource type="Script" path="res://resources/dialogue_stream.gd" id="2_cysq2"]
+
+[resource]
+script = ExtResource("2_cysq2")
+audio_stream = ExtResource("1_f40nq")
+subtitle = "One night, she watched that 2012 movie."
