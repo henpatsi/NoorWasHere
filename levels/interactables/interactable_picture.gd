@@ -2,7 +2,9 @@ extends Interactable
 
 @export_category("Settings")
 @export var picture: TextureRect
+@export var destroy_on_pickup: bool = true
 
+@onready var collider: CollisionShape3D = $CollisionShape3D
 
 func _ready() -> void:
 	if not verb:
@@ -16,6 +18,10 @@ func interact(interacting_player: CharacterBody3D) -> Node:
 
 	player.on_picture_picked_up(self)
 
-	queue_free()
-	
+	if destroy_on_pickup:
+		queue_free()
+	else:
+		hide()
+		collider.disabled = true
+
 	return null

@@ -221,7 +221,7 @@ starting_pictures = [NodePath("../Pictures/0/0")]
 
 [node name="0" type="Node" parent="Pictures"]
 
-[node name="0" type="TextureRect" parent="Pictures/0" node_paths=PackedStringArray("camera", "world_root")]
+[node name="0" type="TextureRect" parent="Pictures/0" node_paths=PackedStringArray("camera", "world_root", "nodes_to_show")]
 visible = false
 clip_contents = true
 anchors_preset = 15
@@ -239,6 +239,7 @@ stretch_mode = 3
 script = ExtResource("2_sagta")
 camera = NodePath("../SubViewport/PortalCamera")
 world_root = NodePath("../../../World2")
+nodes_to_show = [NodePath("../../../World2/Interactables/PickupPicture")]
 
 [node name="SubViewport" type="SubViewport" parent="Pictures/0"]
 size = Vector2i(1280, 720)
@@ -305,6 +306,7 @@ picture = NodePath("../../1")
 [node name="2" type="Node" parent="Pictures"]
 
 [node name="2" type="TextureRect" parent="Pictures/2" node_paths=PackedStringArray("camera", "world_root")]
+visible = false
 clip_contents = true
 anchors_preset = 15
 anchor_right = 1.0
@@ -613,6 +615,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.08211, 1.13238, -6.87056)
 transform = Transform3D(0.948335, 0, 0.317272, 0, 1, 0, -0.317272, 0, 0.948335, -4.30694, 0.090492, 1.39724)
 script = ExtResource("14_236fl")
 picture = NodePath("../../../Pictures/2/2")
+destroy_on_pickup = false
 item_name = "otherer picture"
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="World2/Interactables/PickupPicture"]
