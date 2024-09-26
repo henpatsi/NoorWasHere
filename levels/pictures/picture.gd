@@ -92,7 +92,6 @@ func set_active(state: bool) -> void:
 				set_child_collider_states(node, true)
 		for area in start_monitoring_list:
 			area.monitoring = true
-		#show()
 
 	if not active_picture:
 		for node in nodes_to_show:
@@ -105,7 +104,6 @@ func set_active(state: bool) -> void:
 				set_child_collider_states(node, false)
 		for area in start_monitoring_list:
 			area.monitoring = false
-		#hide()
 
 
 func set_child_collider_states(node: Node, disabled_state: bool) -> void:
@@ -139,6 +137,7 @@ func requirements_met(met_requirements: Array[String]) -> bool:
 
 
 func enter_picture(player: CharacterBody3D, head_node: Node3D, picture_handler: Node) -> void:
+	print("Enter")
 	picture_handler.set_input_state(false, false)
 	player.process_mode = Node.PROCESS_MODE_DISABLED
 
@@ -172,7 +171,7 @@ func enter_picture(player: CharacterBody3D, head_node: Node3D, picture_handler: 
 	player.global_rotation = camera.global_rotation
 
 	get_tree().root.get_child(1).set_past_environment()
-	hide()
+	#hide()
 
 	player.process_mode = Node.PROCESS_MODE_PAUSABLE
 
@@ -182,10 +181,15 @@ func enter_picture(player: CharacterBody3D, head_node: Node3D, picture_handler: 
 
 
 func exit_picture(player: CharacterBody3D, picture_handler: Node) -> void:
+	print("Exit")
+
 	picture_handler.set_input_state(false, false)
+	player.process_mode = Node.PROCESS_MODE_DISABLED
 
 	inside_picture = false
-	show()
+	var pos = position
+	
+	#show()
 	get_tree().root.get_child(1).set_present_environment()
 
 	player.global_position -= world_root.position
@@ -210,5 +214,7 @@ func exit_picture(player: CharacterBody3D, picture_handler: Node) -> void:
 
 	camera.global_position = camera_picture_position
 	camera.global_rotation = camera_picture_rotation
-	
+
+	player.process_mode = Node.PROCESS_MODE_PAUSABLE
+
 	picture_handler.set_input_state(true)
