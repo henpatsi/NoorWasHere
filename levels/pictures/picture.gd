@@ -187,7 +187,6 @@ func exit_picture(player: CharacterBody3D, picture_handler: Node) -> void:
 	player.process_mode = Node.PROCESS_MODE_DISABLED
 
 	inside_picture = false
-	var pos = position
 	
 	#show()
 	get_tree().root.get_child(1).set_present_environment()
@@ -220,8 +219,5 @@ func exit_picture(player: CharacterBody3D, picture_handler: Node) -> void:
 	player.process_mode = Node.PROCESS_MODE_PAUSABLE
 
 	await get_tree().create_timer(camera_return_time).timeout
-
-	#camera.global_position = camera_picture_position
-	#camera.global_rotation = camera_picture_rotation
 
 	picture_handler.set_input_state(true)
