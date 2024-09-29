@@ -1426,6 +1426,42 @@ size = Vector2(0.48, 0.27)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_vc26v"]
 
+[sub_resource type="ViewportTexture" id="ViewportTexture_2q7yh"]
+viewport_path = NodePath("Pictures/3_LivingRoom/SubViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d500s"]
+resource_local_to_scene = true
+albedo_texture = SubResource("ViewportTexture_2q7yh")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_01b1r"]
+resource_local_to_scene = true
+material = SubResource("StandardMaterial3D_d500s")
+size = Vector2(0.48, 0.27)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_mbhtw"]
+viewport_path = NodePath("Pictures/8_FrontDoor/SubViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_imv2r"]
+resource_local_to_scene = true
+albedo_texture = SubResource("ViewportTexture_mbhtw")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_3cyo4"]
+resource_local_to_scene = true
+material = SubResource("StandardMaterial3D_imv2r")
+size = Vector2(0.48, 0.27)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_p5cuu"]
+viewport_path = NodePath("Pictures/8_FrontDoor/SubViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lj4xd"]
+resource_local_to_scene = true
+albedo_texture = SubResource("ViewportTexture_p5cuu")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_burpu"]
+resource_local_to_scene = true
+material = SubResource("StandardMaterial3D_lj4xd")
+size = Vector2(0.48, 0.27)
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_7tqqu"]
 size = Vector3(2.29877, 1, 1.73438)
 
@@ -1610,42 +1646,6 @@ shadow_mesh = SubResource("ArrayMesh_47rkm")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_bhcac"]
 size = Vector3(0.21814, 0.135986, 0.415283)
-
-[sub_resource type="ViewportTexture" id="ViewportTexture_2q7yh"]
-viewport_path = NodePath("Pictures/3_LivingRoom/SubViewport")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d500s"]
-resource_local_to_scene = true
-albedo_texture = SubResource("ViewportTexture_2q7yh")
-
-[sub_resource type="PlaneMesh" id="PlaneMesh_01b1r"]
-resource_local_to_scene = true
-material = SubResource("StandardMaterial3D_d500s")
-size = Vector2(0.48, 0.27)
-
-[sub_resource type="ViewportTexture" id="ViewportTexture_mbhtw"]
-viewport_path = NodePath("Pictures/8_FrontDoor/SubViewport")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_imv2r"]
-resource_local_to_scene = true
-albedo_texture = SubResource("ViewportTexture_mbhtw")
-
-[sub_resource type="PlaneMesh" id="PlaneMesh_3cyo4"]
-resource_local_to_scene = true
-material = SubResource("StandardMaterial3D_imv2r")
-size = Vector2(0.48, 0.27)
-
-[sub_resource type="ViewportTexture" id="ViewportTexture_p5cuu"]
-viewport_path = NodePath("Pictures/8_FrontDoor/SubViewport")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lj4xd"]
-resource_local_to_scene = true
-albedo_texture = SubResource("ViewportTexture_p5cuu")
-
-[sub_resource type="PlaneMesh" id="PlaneMesh_burpu"]
-resource_local_to_scene = true
-material = SubResource("StandardMaterial3D_lj4xd")
-size = Vector2(0.48, 0.27)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_l4lcx"]
 size = Vector3(9.25, 4.5, 11.25)
@@ -3290,11 +3290,12 @@ start_monitoring_list = [NodePath("../../../Past/TriggerVolumes/V02_Office")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.00644, -0.19323, -7.19336)
 shape = SubResource("BoxShape3D_fhnvu")
 
-[node name="V02E_Office" parent="Present/TriggerVolumes" node_paths=PackedStringArray("start_monitoring_list") instance=ExtResource("13_3syry")]
+[node name="V02E_Office" parent="Present/TriggerVolumes" node_paths=PackedStringArray("nodes_to_show", "start_monitoring_list") instance=ExtResource("13_3syry")]
 process_mode = 1
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.97926, 1.57257, 4.34115)
 monitoring = false
 dialogue_clips = Array[Resource]([ExtResource("325_for8u"), ExtResource("326_0wq6k"), ExtResource("327_bxgpr")])
+nodes_to_show = [NodePath("../../INTERACTABLES/Pictures/living room picture")]
 start_monitoring_list = [NodePath("../../../Past/TriggerVolumes/V03_LivingRoom")]
 
 [node name="CollisionShape3D" parent="Present/TriggerVolumes/V02E_Office" index="0"]
@@ -3430,6 +3431,54 @@ skeleton = NodePath("../../../../..")
 shape = SubResource("BoxShape3D_vc26v")
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Present/INTERACTABLES/Pictures/forest picture"]
+
+[node name="living room picture" type="StaticBody3D" parent="Present/INTERACTABLES/Pictures" node_paths=PackedStringArray("picture")]
+transform = Transform3D(0.948335, 0, 0.317272, 0, 1, 0, -0.317272, 0, 0.948335, -0.889164, 1.79283, 3.52121)
+visible = false
+script = ExtResource("15_gx5iv")
+picture = NodePath("../../../../Pictures/3_LivingRoom/LivingRoomPicture")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Present/INTERACTABLES/Pictures/living room picture"]
+mesh = SubResource("PlaneMesh_01b1r")
+skeleton = NodePath("../../../../../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Present/INTERACTABLES/Pictures/living room picture"]
+shape = SubResource("BoxShape3D_vc26v")
+disabled = true
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Present/INTERACTABLES/Pictures/living room picture"]
+
+[node name="front door picture" type="StaticBody3D" parent="Present/INTERACTABLES/Pictures" node_paths=PackedStringArray("picture")]
+transform = Transform3D(0.948335, 0, 0.317272, 0, 1, 0, -0.317272, 0, 0.948335, -0.759, 5.003, -0.809)
+visible = false
+script = ExtResource("15_gx5iv")
+picture = NodePath("../../../../Pictures/8_FrontDoor/FrontDoorPicture")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Present/INTERACTABLES/Pictures/front door picture"]
+mesh = SubResource("PlaneMesh_3cyo4")
+skeleton = NodePath("../../../../../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Present/INTERACTABLES/Pictures/front door picture"]
+shape = SubResource("BoxShape3D_vc26v")
+disabled = true
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Present/INTERACTABLES/Pictures/front door picture"]
+
+[node name="shed picture" type="StaticBody3D" parent="Present/INTERACTABLES/Pictures" node_paths=PackedStringArray("picture")]
+transform = Transform3D(0.948335, 0, 0.317272, 0, 1, 0, -0.317272, 0, 0.948335, -27.724, 0.026, -33.134)
+visible = false
+script = ExtResource("15_gx5iv")
+picture = NodePath("../../../../Pictures/10_Shed/ShedPicture")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Present/INTERACTABLES/Pictures/shed picture"]
+mesh = SubResource("PlaneMesh_burpu")
+skeleton = NodePath("../../../../../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Present/INTERACTABLES/Pictures/shed picture"]
+shape = SubResource("BoxShape3D_vc26v")
+disabled = true
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Present/INTERACTABLES/Pictures/shed picture"]
 
 [node name="TVStand" type="CSGBox3D" parent="Present/INTERACTABLES"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 9.10975, 4.5, -2.75621)
@@ -4240,7 +4289,7 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 8.9954
 [node name="light_switch" parent="Past/INTERACTABLES" node_paths=PackedStringArray("nodes_to_show", "nodes_to_hide", "start_monitoring_list") instance=ExtResource("14_wds17")]
 transform = Transform3D(2.98023e-08, 0, 1, 0, 1, 0, -1, 0, 2.98023e-08, 2.46362, 5.83048, -2.31098)
 script = ExtResource("365_qvetb")
-nodes_to_show = [NodePath("../../PictureSpecificObjects/NoorRoomDay"), NodePath("../Pictures/front door picture")]
+nodes_to_show = [NodePath("../../PictureSpecificObjects/NoorRoomDay"), NodePath("../../../Present/INTERACTABLES/Pictures/front door picture")]
 nodes_to_hide = [NodePath("../../PictureSpecificObjects/NoorRoomNight")]
 start_monitoring_list = [NodePath("../../TriggerVolumes/V07_Room")]
 
@@ -4293,50 +4342,6 @@ disabled = true
 transform = Transform3D(0.00115186, 0, -0.999999, 0, 1, 0, 0.999999, 0, 0.00115186, 7.09283, 0.169346, -20.7897)
 
 [node name="Pictures" type="Node3D" parent="Past/INTERACTABLES"]
-
-[node name="living room picture" type="StaticBody3D" parent="Past/INTERACTABLES/Pictures" node_paths=PackedStringArray("picture")]
-transform = Transform3D(0.948335, 0, 0.317272, 0, 1, 0, -0.317272, 0, 0.948335, -0.83844, 1.51477, 1.39724)
-script = ExtResource("15_gx5iv")
-picture = NodePath("../../../../Pictures/3_LivingRoom/LivingRoomPicture")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Past/INTERACTABLES/Pictures/living room picture"]
-mesh = SubResource("PlaneMesh_01b1r")
-skeleton = NodePath("../../../../../..")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Past/INTERACTABLES/Pictures/living room picture"]
-shape = SubResource("BoxShape3D_vc26v")
-
-[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Past/INTERACTABLES/Pictures/living room picture"]
-
-[node name="front door picture" type="StaticBody3D" parent="Past/INTERACTABLES/Pictures" node_paths=PackedStringArray("picture")]
-transform = Transform3D(0.948335, 0, 0.317272, 0, 1, 0, -0.317272, 0, 0.948335, -0.758972, 5.00333, -0.809086)
-visible = false
-script = ExtResource("15_gx5iv")
-picture = NodePath("../../../../Pictures/8_FrontDoor/FrontDoorPicture")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Past/INTERACTABLES/Pictures/front door picture"]
-mesh = SubResource("PlaneMesh_3cyo4")
-skeleton = NodePath("../../../../../..")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Past/INTERACTABLES/Pictures/front door picture"]
-shape = SubResource("BoxShape3D_vc26v")
-disabled = true
-
-[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Past/INTERACTABLES/Pictures/front door picture"]
-
-[node name="shed picture" type="StaticBody3D" parent="Past/INTERACTABLES/Pictures" node_paths=PackedStringArray("picture")]
-transform = Transform3D(0.948335, 0, 0.317272, 0, 1, 0, -0.317272, 0, 0.948335, -27.7238, 0.0258856, -33.1338)
-script = ExtResource("15_gx5iv")
-picture = NodePath("../../../../Pictures/10_Shed/ShedPicture")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Past/INTERACTABLES/Pictures/shed picture"]
-mesh = SubResource("PlaneMesh_burpu")
-skeleton = NodePath("../../../../../..")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Past/INTERACTABLES/Pictures/shed picture"]
-shape = SubResource("BoxShape3D_vc26v")
-
-[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Past/INTERACTABLES/Pictures/shed picture"]
 
 [node name="TriggerVolumes" type="Node3D" parent="Past"]
 
