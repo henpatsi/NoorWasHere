@@ -186,16 +186,16 @@ _data = {
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vpgwh"]
 albedo_color = Color(0.189372, 0.356995, 0.189985, 1)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_wyqb3"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_28mam"]
 viewport_path = NodePath("Pictures/2/SubViewport")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a81n4"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p4u6d"]
 resource_local_to_scene = true
-albedo_texture = SubResource("ViewportTexture_wyqb3")
+albedo_texture = SubResource("ViewportTexture_28mam")
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_w2lke"]
+[sub_resource type="PlaneMesh" id="PlaneMesh_oxyli"]
 resource_local_to_scene = true
-material = SubResource("StandardMaterial3D_a81n4")
+material = SubResource("StandardMaterial3D_p4u6d")
 size = Vector2(0.48, 0.27)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_di5k5"]
@@ -689,7 +689,7 @@ destroy_on_pickup = false
 item_name = "otherer picture"
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="World2/Interactables/PickupPicture"]
-mesh = SubResource("PlaneMesh_w2lke")
+mesh = SubResource("PlaneMesh_oxyli")
 skeleton = NodePath("../../../../../..")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="World2/Interactables/PickupPicture"]

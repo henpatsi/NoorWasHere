@@ -1,4 +1,3 @@
-tutorial
 exit into obstacle unstuck
 try make screenshot work
 some visual effect when entering/exiting photo

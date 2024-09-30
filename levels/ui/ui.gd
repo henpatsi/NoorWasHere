@@ -26,6 +26,6 @@ func update() -> void:
 	crosshair.position.x = size.x / 2 - crosshair.size.x / 2
 	crosshair.position.y = size.y / 2 - crosshair.size.y / 2
 	
-	subtitle_label.label_settings.font_size = GlobalSettings.text_size * subtitle_ratio
-	interact_label.label_settings.font_size = GlobalSettings.text_size * interact_text_ratio
-	interact_response_label.label_settings.font_size = GlobalSettings.text_size * interact_response_text_ratio
+	subtitle_label.label_settings.font_size = int(GlobalSettings.text_size * subtitle_ratio)
+	interact_label.label_settings.font_size = int(GlobalSettings.text_size * interact_text_ratio)
+	interact_response_label.label_settings.font_size = int(GlobalSettings.text_size * interact_response_text_ratio)
