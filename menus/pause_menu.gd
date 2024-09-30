@@ -1,6 +1,6 @@
 extends Control
 
-var mainMenuScene: PackedScene = load("res://menus/main_menu.tscn")
+var mainMenuScenePath: String = "res://menus/main_menu.tscn"
 
 @export_category("Setting References")
 @export var mouse_sensitivity_value_label: Label
@@ -67,7 +67,7 @@ func _on_continue_button_pressed() -> void:
 
 func _on_main_menu_button_pressed() -> void:
 	get_tree().paused = false
-	get_tree().change_scene_to_packed(mainMenuScene)
+	get_tree().change_scene_to_file(mainMenuScenePath)
 
 
 func _on_mouse_sensitivity_slider_value_changed(value: float) -> void:

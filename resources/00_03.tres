@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="DialogueStream" load_steps=3 format=3 uid="uid://cqkpitmwbm6ug"]
+
+[ext_resource type="AudioStream" uid="uid://hsf8e2qstbkh" path="res://assets/audio/VO/00_03.mp3" id="1_6nn1q"]
+[ext_resource type="Script" path="res://resources/dialogue_stream.gd" id="2_ajyws"]
+
+[resource]
+script = ExtResource("2_ajyws")
+audio_stream = ExtResource("1_6nn1q")
+subtitle = "As per usual, I’ve left things to the last minute- today, it’s my 28th birthday."
