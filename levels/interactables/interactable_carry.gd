@@ -118,7 +118,8 @@ func reset() -> void:
 	global_position = original_global_position
 	rotation = oiginal_rotation
 	carrying = false
-	
+	self.collision_layer = 1
+
 	player.interacting_object = null
 
 

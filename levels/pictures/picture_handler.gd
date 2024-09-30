@@ -203,7 +203,8 @@ func on_picture_picked_up(picture: TextureRect) -> void:
 	picture.position = picture_inventory_position
 	picture.show()
 	set_active_picture(current_picture_array.size() - 1)
-	toggle_inspect()
+	if input_blockers == 0:
+		toggle_inspect()
 
 
 func set_active_picture(index: int) -> void:

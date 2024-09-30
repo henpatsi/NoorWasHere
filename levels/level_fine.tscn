@@ -1,4 +1,4 @@
-[gd_scene load_steps=495 format=4 uid="uid://baq3osaidwfaf"]
+[gd_scene load_steps=499 format=4 uid="uid://baq3osaidwfaf"]
 
 [ext_resource type="Script" path="res://levels/level.gd" id="1_mw3wp"]
 [ext_resource type="Material" uid="uid://dve3xrg044f4h" path="res://assets/materials/M_housetemp.tres" id="2_db8bv"]
@@ -363,9 +363,13 @@
 [ext_resource type="Resource" path="res://resources/10_E12.tres" id="350_6w0lg"]
 [ext_resource type="AudioStream" uid="uid://bsstebl4bk5v3" path="res://assets/audio/sfx/roomtone/Yard present/Yard_ambience_dark.ogg" id="350_vbnq2"]
 [ext_resource type="AudioStream" uid="uid://b72q3xj1r0td5" path="res://assets/audio/sfx/roomtone/Ambient noise/fire.ogg" id="351_ofa72"]
+[ext_resource type="AudioStream" uid="uid://cdi34vnm152fy" path="res://assets/audio/VO/06_I01.mp3" id="365_4q1ub"]
 [ext_resource type="Script" path="res://levels/interactables/interactable.gd" id="365_qvetb"]
+[ext_resource type="AudioStream" uid="uid://b2fle5bxcqffr" path="res://assets/audio/VO/06_I02.mp3" id="366_26g3u"]
 [ext_resource type="Resource" path="res://resources/01_01.tres" id="366_jl1db"]
+[ext_resource type="AudioStream" uid="uid://ccoenu327e0qu" path="res://assets/audio/VO/06_I03.mp3" id="367_i5cxh"]
 [ext_resource type="Resource" path="res://resources/01_02.tres" id="367_kawyr"]
+[ext_resource type="AudioStream" uid="uid://e0gqrr5hejla" path="res://assets/audio/VO/06_I04.mp3" id="368_57a5c"]
 [ext_resource type="Resource" path="res://resources/02_01.tres" id="368_fhlvw"]
 [ext_resource type="Resource" path="res://resources/02_02.tres" id="369_6h6wg"]
 [ext_resource type="Resource" path="res://resources/02_03.tres" id="370_lym1e"]
@@ -3290,12 +3294,11 @@ start_monitoring_list = [NodePath("../../../Past/TriggerVolumes/V02_Office")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.00644, -0.19323, -7.19336)
 shape = SubResource("BoxShape3D_fhnvu")
 
-[node name="V02E_Office" parent="Present/TriggerVolumes" node_paths=PackedStringArray("nodes_to_show", "start_monitoring_list") instance=ExtResource("13_3syry")]
+[node name="V02E_Office" parent="Present/TriggerVolumes" node_paths=PackedStringArray("start_monitoring_list") instance=ExtResource("13_3syry")]
 process_mode = 1
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.97926, 1.57257, 4.34115)
 monitoring = false
 dialogue_clips = Array[Resource]([ExtResource("325_for8u"), ExtResource("326_0wq6k"), ExtResource("327_bxgpr")])
-nodes_to_show = [NodePath("../../INTERACTABLES/Pictures/living room picture")]
 start_monitoring_list = [NodePath("../../../Past/TriggerVolumes/V03_LivingRoom")]
 
 [node name="CollisionShape3D" parent="Present/TriggerVolumes/V02E_Office" index="0"]
@@ -3399,16 +3402,20 @@ disabled = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.015213, 1.36914, 0.223512)
 shape = SubResource("BoxShape3D_ibyln")
 
-[node name="TV" parent="Present/INTERACTABLES" node_paths=PackedStringArray("carry_audio_stream_player") instance=ExtResource("12_4tqrl")]
+[node name="TV" parent="Present/INTERACTABLES" node_paths=PackedStringArray("mesh", "carry_audio_stream_player") instance=ExtResource("12_4tqrl")]
 transform = Transform3D(-0.940678, -0.337738, 0.0325252, -0.339301, 0.936274, -0.0909153, 0.000253081, -0.0965579, -0.995327, 8.93476, 4.75, 6.06002)
 axis_lock_angular_x = true
 axis_lock_angular_y = true
 axis_lock_angular_z = true
+gravity_scale = 1.0
 script = ExtResource("14_trd0m")
+carry_position_offset = Vector3(0, 0, 0.2)
 set_requirement = "tv_on_table"
+mesh = NodePath("TV_a")
 carry_audio_stream_player = NodePath("AudioStreamPlayer3D")
 pick_up_audio = ExtResource("18_o6xmn")
 put_down_audio = ExtResource("19_f24x4")
+one_shot = false
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Present/INTERACTABLES/TV"]
 volume_db = 20.0
@@ -4326,6 +4333,7 @@ transform = Transform3D(0.965926, 0, 0.258819, 0, 1, 0, -0.258819, 0, 0.965926, 
 script = ExtResource("40_n7i1m")
 rotation_on_inspect = Vector3(0, 90, 0)
 item_name = "memory capsule"
+dialogue_clips = Array[Resource]([ExtResource("365_4q1ub"), ExtResource("366_26g3u"), ExtResource("367_i5cxh"), ExtResource("368_57a5c")])
 nodes_to_show = [NodePath("../light_switch"), NodePath("../../PictureSpecificObjects/NoorRoomNight/LightSwitchSpotlight")]
 
 [node name="box_bake" type="MeshInstance3D" parent="Past/INTERACTABLES/memory_capsule"]
@@ -4355,11 +4363,12 @@ start_monitoring_list = [NodePath("../../../Present/TriggerVolumes/V01E_EnterHou
 [node name="CollisionShape3D" parent="Past/TriggerVolumes/V01_Backyard" index="0"]
 shape = SubResource("BoxShape3D_l4lcx")
 
-[node name="V02_Office" parent="Past/TriggerVolumes" node_paths=PackedStringArray("start_monitoring_list") instance=ExtResource("13_3syry")]
+[node name="V02_Office" parent="Past/TriggerVolumes" node_paths=PackedStringArray("nodes_to_show", "start_monitoring_list") instance=ExtResource("13_3syry")]
 process_mode = 1
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.47925, 2.07257, 3.09115)
 monitoring = false
 dialogue_clips = Array[Resource]([ExtResource("368_fhlvw"), ExtResource("369_6h6wg"), ExtResource("370_lym1e"), ExtResource("371_0do7b")])
+nodes_to_show = [NodePath("../../../Present/INTERACTABLES/Pictures/living room picture")]
 start_monitoring_list = [NodePath("../../../Present/TriggerVolumes/V02E_Office")]
 
 [node name="CollisionShape3D" parent="Past/TriggerVolumes/V02_Office" index="0"]
@@ -4428,11 +4437,12 @@ start_monitoring_list = [NodePath("../../../Present/TriggerVolumes/V08E_FrontDoo
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.25, -0.844238, 0)
 shape = SubResource("BoxShape3D_dppsw")
 
-[node name="V09_Forest" parent="Past/TriggerVolumes" node_paths=PackedStringArray("start_monitoring_list") instance=ExtResource("13_3syry")]
+[node name="V09_Forest" parent="Past/TriggerVolumes" node_paths=PackedStringArray("nodes_to_show", "start_monitoring_list") instance=ExtResource("13_3syry")]
 process_mode = 1
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.47925, 1.82257, -11.4089)
 monitoring = false
 dialogue_clips = Array[Resource]([ExtResource("394_cll47"), ExtResource("395_anpk4"), ExtResource("396_stcis"), ExtResource("397_45ocd"), ExtResource("398_nvk06"), ExtResource("399_r8j72"), ExtResource("400_r6ukt"), ExtResource("401_kl583"), ExtResource("402_fw3bc"), ExtResource("403_khg6v"), ExtResource("404_xi81v"), ExtResource("405_0qtdw")])
+nodes_to_show = [NodePath("../../../Present/INTERACTABLES/Pictures/shed picture")]
 start_monitoring_list = [NodePath("../../../Present/TriggerVolumes/V09E_Forest")]
 
 [node name="CollisionShape3D" parent="Past/TriggerVolumes/V09_Forest" index="0"]
@@ -12161,6 +12171,7 @@ panning_strength = 0.0
 [editable path="Present/INTERACTABLES/closet"]
 [editable path="Present/INTERACTABLES/closet/closet/closet_door_left_open"]
 [editable path="Present/INTERACTABLES/closet/closet/closet_door_right_open"]
+[editable path="Present/INTERACTABLES/TV"]
 [editable path="Present/INTERACTABLES/TVStand/DropOffZone"]
 [editable path="Past/LevelObjects/House/Level1/Doors/Door_Front_Open"]
 [editable path="Past/LevelObjects/House/Level1/Doors/Door_Backyard_Open"]
