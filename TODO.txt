@@ -1,0 +1,4 @@
+tutorial
+exit into obstacle unstuck
+try make screenshot work
+some effect when entering/exiting

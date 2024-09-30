@@ -37,6 +37,8 @@ var dialogue_triggered: bool = false
 
 var player: CharacterBody3D
 
+var interacted_with: bool = false
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	if not item_name:
@@ -54,9 +56,8 @@ func _process(_delta) -> void:
 func interact(interacting_player: CharacterBody3D) -> Node:
 	print("Interacted with " + name)
 
-	if one_shot:
-		remove_from_group("Interactable")
-	
+	interacted_with = true
+
 	player = interacting_player
 
 	if interact_stream_player and interact_audio_stream:

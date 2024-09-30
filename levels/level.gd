@@ -4,7 +4,7 @@ extends Node3D
 @export var env_past := preload("res://assets/WorldEnvironments/Env_Past.tres")
 @export var env_present := preload("res://assets/WorldEnvironments/Env_Present.tres")
 @onready var world_environment: WorldEnvironment = $WorldEnvironment
-@onready var directional_light_3d: DirectionalLight3D = $DirectionalLight3D
+@onready var directional_light_3d: DirectionalLight3D = $DirectionalLightPresent
 
 @export var picture_screenshots: Array[TextureRect]
 @export var black_screen: ColorRect
@@ -43,15 +43,15 @@ func _input(event: InputEvent) -> void:
 			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
 
-func set_past_environment() -> void:
-	print("Setting environment to past")
-	world_environment.environment = env_past
-	directional_light_3d.light_energy = 0
-	
-func set_present_environment() -> void:
-	print("Setting environment to present")
-	world_environment.environment = env_present
-	directional_light_3d.light_energy = 0.075
+#func set_past_environment() -> void:
+	#print("Setting environment to past")
+	#world_environment.environment = env_past
+	#directional_light_3d.light_energy = 0
+	#
+#func set_present_environment() -> void:
+	#print("Setting environment to present")
+	#world_environment.environment = env_present
+	#directional_light_3d.light_energy = 0.075
 	
 func load_scene(path: String) -> void:
 	get_tree().change_scene_to_file(path)

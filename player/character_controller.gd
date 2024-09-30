@@ -118,7 +118,10 @@ func raycast() -> void:
 	ray_collision_object = ray_cast.get_collider()
 
 	if interact_enabled and ray_collision_object and ray_collision_object.has_method("interact"):
-		set_interact_message(ray_collision_object.verb + " " + ray_collision_object.item_name)
+		if ray_collision_object.one_shot and ray_collision_object.interacted_with:
+			set_interact_message("")
+		else:
+			set_interact_message(ray_collision_object.verb + " " + ray_collision_object.item_name)
 	else:
 		set_interact_message("")
 
@@ -172,6 +175,10 @@ func interact_input() -> void:
 
 	if not ray_collision_object or not ray_collision_object.has_method("interact"):
 		print("Did not hit an interactable")
+		return
+
+	if ray_collision_object.one_shot and ray_collision_object.interacted_with:
+		print("One shot, already interacted")
 		return
 
 	interacting_object = ray_collision_object.interact(self)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=499 format=4 uid="uid://baq3osaidwfaf"]
+[gd_scene load_steps=502 format=4 uid="uid://baq3osaidwfaf"]
 
 [ext_resource type="Script" path="res://levels/level.gd" id="1_mw3wp"]
 [ext_resource type="Material" uid="uid://dve3xrg044f4h" path="res://assets/materials/M_housetemp.tres" id="2_db8bv"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://d22ogqllffeom" path="res://levels/camera_ref.tscn" id="6_ksg6d"]
 [ext_resource type="Script" path="res://levels/ui/ui.gd" id="6_vry8q"]
 [ext_resource type="Script" path="res://levels/pictures/screenshot.gd" id="7_etppf"]
+[ext_resource type="Environment" uid="uid://b55jay45p5h4g" path="res://assets/WorldEnvironments/Env_Past.tres" id="7_q30hk"]
 [ext_resource type="Script" path="res://levels/ui/dynamic_label.gd" id="7_rnv2q"]
 [ext_resource type="AudioStream" uid="uid://p1vcrogcvlt8" path="res://assets/audio/sfx/roomtone/Ambient noise/Ambient_noise2.ogg" id="9_golp1"]
 [ext_resource type="FontFile" uid="uid://bi3g7vfa5cdww" path="res://assets/fonts/Helvetica-Font/Helvetica.ttf" id="9_wxn3y"]
@@ -363,15 +364,17 @@
 [ext_resource type="Resource" path="res://resources/10_E12.tres" id="350_6w0lg"]
 [ext_resource type="AudioStream" uid="uid://bsstebl4bk5v3" path="res://assets/audio/sfx/roomtone/Yard present/Yard_ambience_dark.ogg" id="350_vbnq2"]
 [ext_resource type="AudioStream" uid="uid://b72q3xj1r0td5" path="res://assets/audio/sfx/roomtone/Ambient noise/fire.ogg" id="351_ofa72"]
-[ext_resource type="AudioStream" uid="uid://cdi34vnm152fy" path="res://assets/audio/VO/06_I01.mp3" id="365_4q1ub"]
+[ext_resource type="Resource" path="res://resources/10_01.tres" id="365_nxucl"]
 [ext_resource type="Script" path="res://levels/interactables/interactable.gd" id="365_qvetb"]
-[ext_resource type="AudioStream" uid="uid://b2fle5bxcqffr" path="res://assets/audio/VO/06_I02.mp3" id="366_26g3u"]
+[ext_resource type="Resource" path="res://resources/06_I01.tres" id="366_5e8xj"]
+[ext_resource type="Resource" path="res://resources/10_02.tres" id="366_dldfv"]
 [ext_resource type="Resource" path="res://resources/01_01.tres" id="366_jl1db"]
-[ext_resource type="AudioStream" uid="uid://ccoenu327e0qu" path="res://assets/audio/VO/06_I03.mp3" id="367_i5cxh"]
+[ext_resource type="Resource" path="res://resources/06_I02.tres" id="367_ga87n"]
 [ext_resource type="Resource" path="res://resources/01_02.tres" id="367_kawyr"]
-[ext_resource type="AudioStream" uid="uid://e0gqrr5hejla" path="res://assets/audio/VO/06_I04.mp3" id="368_57a5c"]
 [ext_resource type="Resource" path="res://resources/02_01.tres" id="368_fhlvw"]
+[ext_resource type="Resource" path="res://resources/06_I03.tres" id="368_qhkok"]
 [ext_resource type="Resource" path="res://resources/02_02.tres" id="369_6h6wg"]
+[ext_resource type="Resource" path="res://resources/06_I04.tres" id="369_yjunb"]
 [ext_resource type="Resource" path="res://resources/02_03.tres" id="370_lym1e"]
 [ext_resource type="Resource" path="res://resources/02_04.tres" id="371_0do7b"]
 [ext_resource type="Resource" path="res://resources/03_01.tres" id="372_nna4t"]
@@ -1408,10 +1411,10 @@ size = Vector3(33.5, 10, 4.25)
 size = Vector3(68.25, 10, 66.75)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_uiutq"]
-size = Vector3(100, 12.636, 100)
+size = Vector3(100, 12.636, 105.436)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_dk8or"]
-size = Vector3(100, 30, 100)
+size = Vector3(100, 30, 100.073)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ibyln"]
 size = Vector3(1.65393, 3.73828, 1.02539)
@@ -1735,15 +1738,16 @@ black_screen = NodePath("UI/EndSequence/ColorRect")
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = ExtResource("2_mbfvw")
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+[node name="DirectionalLightPresent" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
+visible = false
 light_color = Color(1, 0.756863, 0.588235, 1)
-light_energy = 0.073
+light_energy = 0.075
+light_cull_mask = 4294966271
 shadow_enabled = true
 
 [node name="Player" parent="." node_paths=PackedStringArray("subtitle_label", "interact_label", "interact_response_label") instance=ExtResource("4_aw37m")]
-transform = Transform3D(0.965926, 0, -0.258819, 0, 1, 0, 0.258819, 0, 0.965926, -1, 0, 24.75)
-max_move_speed = 10.0
+transform = Transform3D(0.965926, 0, -0.258819, 0, 1, 0, 0.258819, 0, 0.965926, -2.28338, 0, 27.0333)
 subtitle_label = NodePath("../UI/SubtitleLabel")
 interact_label = NodePath("../UI/InteractLabel")
 interact_response_label = NodePath("../UI/InteractResponseLabel")
@@ -1789,7 +1793,7 @@ size = Vector2i(1280, 720)
 
 [node name="PortalCamera" type="Camera3D" parent="Pictures/0_Frontyard/SubViewport"]
 transform = Transform3D(0.99798, 0, -0.0635223, 0, 1, 0, 0.0635223, 0, 0.99798, 601.386, 1.75, 21.237)
-cull_mask = 1048063
+environment = ExtResource("7_q30hk")
 
 [node name="ColorRect" parent="Pictures/0_Frontyard/SubViewport/PortalCamera" instance=ExtResource("6_ksg6d")]
 visible = false
@@ -1838,6 +1842,7 @@ size = Vector2i(1280, 720)
 [node name="PortalCamera" type="Camera3D" parent="Pictures/1_Backyard/SubViewport"]
 transform = Transform3D(-1, 0, 8.9407e-08, 0, 1, 0, -8.9407e-08, 0, -1, 598.25, 1.75, -11.8452)
 cull_mask = 1048063
+environment = ExtResource("7_q30hk")
 
 [node name="ColorRect" parent="Pictures/1_Backyard/SubViewport/PortalCamera" instance=ExtResource("6_ksg6d")]
 visible = false
@@ -1885,6 +1890,7 @@ size = Vector2i(1280, 720)
 [node name="PortalCamera" type="Camera3D" parent="Pictures/2_Office/SubViewport"]
 transform = Transform3D(0.310759, 0, 0.950489, 0, 1, 0, -0.950489, 0, 0.310759, 603.331, 2.23234, 4.256)
 cull_mask = 1048063
+environment = ExtResource("7_q30hk")
 
 [node name="ColorRect" parent="Pictures/2_Office/SubViewport/PortalCamera" instance=ExtResource("6_ksg6d")]
 visible = false
@@ -1929,6 +1935,7 @@ size = Vector2i(1280, 720)
 [node name="PortalCamera" type="Camera3D" parent="Pictures/3_LivingRoom/SubViewport"]
 transform = Transform3D(-0.891837, 0, -0.452357, 0, 1, 0, 0.452357, 0, -0.891837, 602.581, 2.232, -2.994)
 cull_mask = 1048063
+environment = ExtResource("7_q30hk")
 
 [node name="ColorRect" parent="Pictures/3_LivingRoom/SubViewport/PortalCamera" instance=ExtResource("6_ksg6d")]
 visible = false
@@ -1973,6 +1980,7 @@ size = Vector2i(1280, 720)
 [node name="PortalCamera" type="Camera3D" parent="Pictures/4_HallwayUpstairs/SubViewport"]
 transform = Transform3D(-0.978527, 0, -0.206119, 0, 1, 0, 0.206119, 0, -0.978527, 606.63, 5.98234, -1.10868)
 cull_mask = 1048063
+environment = ExtResource("7_q30hk")
 
 [node name="ColorRect" parent="Pictures/4_HallwayUpstairs/SubViewport/PortalCamera" instance=ExtResource("6_ksg6d")]
 visible = false
@@ -2018,6 +2026,7 @@ size = Vector2i(1280, 720)
 [node name="PortalCamera" type="Camera3D" parent="Pictures/5_TV/SubViewport"]
 transform = Transform3D(0.667833, 0.0324664, -0.743603, 0, 0.999048, 0.0436194, 0.744312, -0.0291304, 0.667197, 603.875, 5.983, 1.875)
 cull_mask = 1048063
+environment = ExtResource("7_q30hk")
 
 [node name="ColorRect" parent="Pictures/5_TV/SubViewport/PortalCamera" instance=ExtResource("6_ksg6d")]
 visible = false
@@ -2062,6 +2071,7 @@ size = Vector2i(1280, 720)
 [node name="PortalCamera" type="Camera3D" parent="Pictures/6_7_NoorRoomNight/SubViewport"]
 transform = Transform3D(-0.452435, -0.154859, 0.878249, 0, 0.984808, 0.173648, -0.891798, 0.0785645, -0.445561, 601.875, 5.98234, -3.125)
 cull_mask = 1048063
+environment = ExtResource("7_q30hk")
 
 [node name="ColorRect" parent="Pictures/6_7_NoorRoomNight/SubViewport/PortalCamera" instance=ExtResource("6_ksg6d")]
 visible = false
@@ -2107,6 +2117,7 @@ size = Vector2i(1280, 720)
 [node name="PortalCamera" type="Camera3D" parent="Pictures/8_FrontDoor/SubViewport"]
 transform = Transform3D(-0.837671, 0, 0.546175, 0, 1, 0, -0.546175, 0, -0.837671, 603.581, 2.232, 3.506)
 cull_mask = 1048063
+environment = ExtResource("7_q30hk")
 
 [node name="ColorRect" parent="Pictures/8_FrontDoor/SubViewport/PortalCamera" instance=ExtResource("6_ksg6d")]
 visible = false
@@ -2151,6 +2162,7 @@ size = Vector2i(1280, 720)
 [node name="PortalCamera" type="Camera3D" parent="Pictures/9_Forest/SubViewport"]
 transform = Transform3D(0.74437, 0, 0.667768, 0, 1, 0, -0.667768, 0, 0.74437, 606.081, 1.75, -10.9936)
 cull_mask = 1048063
+environment = ExtResource("7_q30hk")
 
 [node name="ColorRect" parent="Pictures/9_Forest/SubViewport/PortalCamera" instance=ExtResource("6_ksg6d")]
 visible = false
@@ -2195,6 +2207,7 @@ size = Vector2i(1280, 720)
 [node name="PortalCamera" type="Camera3D" parent="Pictures/10_Shed/SubViewport"]
 transform = Transform3D(-0.546175, 0, -0.837671, 0, 1, 0, 0.837671, 0, -0.546175, 578.081, 1.75, -31.9936)
 cull_mask = 1048063
+environment = ExtResource("7_q30hk")
 
 [node name="ColorRect" parent="Pictures/10_Shed/SubViewport/PortalCamera" instance=ExtResource("6_ksg6d")]
 visible = false
@@ -2259,7 +2272,7 @@ offset_bottom = 123.0
 label_settings = SubResource("LabelSettings_36gwu")
 script = ExtResource("7_rnv2q")
 
-[node name="EndSequence" type="Control" parent="UI" node_paths=PackedStringArray("player", "picture_handler", "picture_screenshots", "player_dialogues_ASP", "level")]
+[node name="EndSequence" type="Control" parent="UI" node_paths=PackedStringArray("player", "picture_screenshots", "player_dialogues_ASP", "level")]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -2268,7 +2281,6 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("10_7ofpm")
 player = NodePath("../../Player")
-picture_handler = NodePath("../../Pictures")
 picture_screenshots = [NodePath("../../Pictures/1_Backyard/SubViewport/BackyardRect"), NodePath("../../Pictures/10_Shed/SubViewport/ShedRect"), NodePath("../../Pictures/8_FrontDoor/SubViewport/FrontDoorRect"), NodePath("../../Pictures/6_7_NoorRoomNight/SubViewport/NoorRoomRect"), NodePath("../../Pictures/5_TV/SubViewport/TVRect"), NodePath("../../Pictures/4_HallwayUpstairs/SubViewport/HallwayUpstairsRect"), NodePath("../../Pictures/3_LivingRoom/SubViewport/LivingRoomRect"), NodePath("../../Pictures/2_Office/SubViewport/OfficeRect"), NodePath("../../Pictures/9_Forest/SubViewport/ForestRect"), NodePath("../../Pictures/0_Frontyard/SubViewport/FrontyardRect")]
 show_times = Array[float]([4.2, 3.0, 3.5, 4.0, 4.0, 4.0, 4.0, 4.0, 4.0, 6.0])
 player_dialogues_ASP = NodePath("../../Player/PlayerDialogueASP")
@@ -3365,9 +3377,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.97926, 6.07257, 10.0911)
 monitoring = false
 dialogue_clips = Array[Resource]([ExtResource("339_iyqfd"), ExtResource("340_cfdqr"), ExtResource("341_bfcbx"), ExtResource("342_10s04"), ExtResource("343_qkaj0"), ExtResource("344_f0t67"), ExtResource("345_wqi2n"), ExtResource("346_lhcnr"), ExtResource("347_mc5ph"), ExtResource("348_u51am"), ExtResource("349_ssvet"), ExtResource("350_6w0lg")])
 start_monitoring_list = [NodePath("../EndSequenceTrigger")]
+changes_wait_for_dialogue = false
 
 [node name="CollisionShape3D" parent="Present/TriggerVolumes/V10E_Shed" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.2964, -0.000420094, -18.4313)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.2964, -0.000420094, -15.7131)
 shape = SubResource("BoxShape3D_uiutq")
 
 [node name="EndSequenceTrigger" type="Area3D" parent="Present/TriggerVolumes" node_paths=PackedStringArray("end_sequence")]
@@ -3376,7 +3389,7 @@ script = ExtResource("50_imxim")
 end_sequence = NodePath("../../../UI/EndSequence")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Present/TriggerVolumes/EndSequenceTrigger"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8.00023, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8.00023, 0.0363197)
 shape = SubResource("BoxShape3D_dk8or")
 
 [node name="INTERACTABLES" type="Node3D" parent="Present"]
@@ -3486,6 +3499,9 @@ shape = SubResource("BoxShape3D_vc26v")
 disabled = true
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Present/INTERACTABLES/Pictures/shed picture"]
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Present/INTERACTABLES/Pictures/shed picture"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 3.38217, 0)
 
 [node name="TVStand" type="CSGBox3D" parent="Present/INTERACTABLES"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 9.10975, 4.5, -2.75621)
@@ -4208,9 +4224,10 @@ material_override = ExtResource("2_db8bv")
 use_collision = true
 size = Vector3(6.5, 3, 0.25)
 
-[node name="CSGBox3D" type="CSGBox3D" parent="Past/LevelObjects/Shed"]
-transform = Transform3D(1, 0, 0, 0, 0.909243, -0.416265, 0, 0.416265, 0.909243, 6.10327, -0.420336, -14.7632)
-size = Vector3(1.23541, 1, 1)
+[node name="Stairs4" type="CSGPolygon3D" parent="Past/LevelObjects/Shed"]
+transform = Transform3D(-4.37114e-08, 0, 2.5704, 0, 0.5, 0, -1, 0, -1.12356e-07, 7.4093, -0.247739, -14.0014)
+use_collision = true
+polygon = PackedVector2Array(0, 0, 1, 1, 1, 1, 1, 0)
 
 [node name="Forest" type="Node3D" parent="Past/LevelObjects"]
 
@@ -4296,6 +4313,7 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 8.9954
 [node name="light_switch" parent="Past/INTERACTABLES" node_paths=PackedStringArray("nodes_to_show", "nodes_to_hide", "start_monitoring_list") instance=ExtResource("14_wds17")]
 transform = Transform3D(2.98023e-08, 0, 1, 0, 1, 0, -1, 0, 2.98023e-08, 2.46362, 5.83048, -2.31098)
 script = ExtResource("365_qvetb")
+one_shot = false
 nodes_to_show = [NodePath("../../PictureSpecificObjects/NoorRoomDay"), NodePath("../../../Present/INTERACTABLES/Pictures/front door picture")]
 nodes_to_hide = [NodePath("../../PictureSpecificObjects/NoorRoomNight")]
 start_monitoring_list = [NodePath("../../TriggerVolumes/V07_Room")]
@@ -4317,6 +4335,7 @@ transform = Transform3D(-0.994569, 1.96594e-08, -0.104078, 0.104078, 3.7676e-07,
 [node name="shed closet" type="StaticBody3D" parent="Past/INTERACTABLES/ShedCloset" node_paths=PackedStringArray("start_monitoring_list")]
 script = ExtResource("35_lctib")
 interaction_animations = Array[String](["open_doors"])
+dialogue_clips = Array[Resource]([ExtResource("365_nxucl"), ExtResource("366_dldfv")])
 start_monitoring_list = [NodePath("../../../../Present/TriggerVolumes/V10E_Shed")]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Past/INTERACTABLES/ShedCloset/shed closet"]
@@ -4333,7 +4352,8 @@ transform = Transform3D(0.965926, 0, 0.258819, 0, 1, 0, -0.258819, 0, 0.965926, 
 script = ExtResource("40_n7i1m")
 rotation_on_inspect = Vector3(0, 90, 0)
 item_name = "memory capsule"
-dialogue_clips = Array[Resource]([ExtResource("365_4q1ub"), ExtResource("366_26g3u"), ExtResource("367_i5cxh"), ExtResource("368_57a5c")])
+one_shot = false
+dialogue_clips = Array[Resource]([ExtResource("366_5e8xj"), ExtResource("367_ga87n"), ExtResource("368_qhkok"), ExtResource("369_yjunb")])
 nodes_to_show = [NodePath("../light_switch"), NodePath("../../PictureSpecificObjects/NoorRoomNight/LightSwitchSpotlight")]
 
 [node name="box_bake" type="MeshInstance3D" parent="Past/INTERACTABLES/memory_capsule"]

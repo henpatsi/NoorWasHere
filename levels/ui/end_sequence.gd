@@ -1,7 +1,6 @@
 extends Control
 
 @export var player: CharacterBody3D
-@export var picture_handler: Node
 @export var picture_screenshots: Array[TextureRect]
 @export var show_times: Array[float]
 @export var player_dialogues_ASP: AudioStreamPlayer3D
@@ -12,6 +11,7 @@ extends Control
 @onready var color_rect: ColorRect = $ColorRect
 @onready var label: Label = $Label
 
+@onready var picture_handler = %PictureHandler
 
 func play_end_sequence() -> void:
 	picture_handler.set_input_state(false)
