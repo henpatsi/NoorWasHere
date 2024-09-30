@@ -121,7 +121,7 @@ func reset() -> void:
 	self.collision_layer = 1
 
 	player.interacting_object = null
-
+	player.set_picture_handler_input(true)
 
 func set_dropoff(area: Area3D) -> void:
 	dropoff_area = area
