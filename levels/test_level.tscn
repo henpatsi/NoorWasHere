@@ -1,4 +1,4 @@
-[gd_scene load_steps=55 format=4 uid="uid://bd5b2sgv2c8v8"]
+[gd_scene load_steps=58 format=4 uid="uid://bd5b2sgv2c8v8"]
 
 [ext_resource type="PackedScene" uid="uid://b25ooshew3q2v" path="res://player/player.tscn" id="1_7d6r5"]
 [ext_resource type="Script" path="res://levels/pictures/picture_handler.gd" id="1_827sh"]
@@ -12,6 +12,7 @@
 [ext_resource type="Script" path="res://levels/ui/dynamic_label.gd" id="9_pp8iw"]
 [ext_resource type="AudioStream" uid="uid://m3xgq65pqjwl" path="res://assets/audio/sfx/Misc/light switch/Light_On.wav" id="11_3q2yy"]
 [ext_resource type="PackedScene" uid="uid://bn5ukqljga2qo" path="res://levels/areas/trigger_area.tscn" id="11_bydt5"]
+[ext_resource type="Script" path="res://levels/tutorial.gd" id="11_ryn7j"]
 [ext_resource type="Resource" uid="uid://cra54wjuo32as" path="res://resources/00_01.tres" id="12_8jd77"]
 [ext_resource type="Resource" uid="uid://cimlmvpdq1ugw" path="res://resources/00_02.tres" id="13_wxw3k"]
 [ext_resource type="Script" path="res://levels/interactables/interactable_picture.gd" id="14_236fl"]
@@ -48,6 +49,9 @@ viewport_path = NodePath("Pictures/1/SubViewport")
 [sub_resource type="ViewportTexture" id="ViewportTexture_0lio8"]
 viewport_path = NodePath("Pictures/2/SubViewport")
 
+[sub_resource type="ViewportTexture" id="ViewportTexture_1c8q1"]
+viewport_path = NodePath("Pictures/3/SubViewport")
+
 [sub_resource type="LabelSettings" id="LabelSettings_ecdey"]
 font = ExtResource("8_6nq31")
 outline_color = Color(0, 0, 0, 1)
@@ -67,6 +71,9 @@ outline_size = 5
 outline_color = Color(0, 0, 0, 1)
 shadow_size = 3
 shadow_color = Color(0, 0, 0, 0.313726)
+
+[sub_resource type="LabelSettings" id="LabelSettings_v2gll"]
+font_size = 32
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jc4wf"]
 albedo_color = Color(0.02223, 0.0568684, 0.156604, 1)
@@ -212,10 +219,11 @@ interact_response_label = NodePath("../UI/InteractResponseLabel")
 [node name="FootstepASP" parent="Player" index="3"]
 volume_db = -45.0
 
-[node name="Inventory" type="Node" parent="." node_paths=PackedStringArray("starting_pictures")]
+[node name="Inventory" type="Node" parent="." node_paths=PackedStringArray("starting_pictures", "pictures_after_tutorial")]
 unique_name_in_owner = true
 script = ExtResource("3_14087")
 starting_pictures = [NodePath("../Pictures/0/0")]
+pictures_after_tutorial = [NodePath("../Pictures/3/0")]
 
 [node name="Pictures" type="Node" parent="."]
 
@@ -343,6 +351,47 @@ script = ExtResource("5_0pnjl")
 sub_viewport = NodePath("..")
 picture = NodePath("../../2")
 
+[node name="3" type="Node" parent="Pictures"]
+
+[node name="0" type="TextureRect" parent="Pictures/3" node_paths=PackedStringArray("camera", "world_root", "nodes_to_show")]
+clip_contents = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 320.0
+offset_top = 570.0
+offset_right = -320.0
+offset_bottom = 210.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("ViewportTexture_1c8q1")
+expand_mode = 1
+stretch_mode = 3
+script = ExtResource("2_sagta")
+camera = NodePath("../SubViewport/PortalCamera")
+world_root = NodePath("../../../World2")
+nodes_to_show = [NodePath("../../../World2/Interactables/PickupPicture")]
+
+[node name="SubViewport" type="SubViewport" parent="Pictures/3"]
+size = Vector2i(1280, 720)
+
+[node name="PortalCamera" type="Camera3D" parent="Pictures/3/SubViewport"]
+transform = Transform3D(0.59273, 0, -0.805401, 0, 1, 0, 0.805401, 0, 0.59273, 481.714, 1.75, -5.09535)
+cull_mask = 1048063
+
+[node name="ColorRect" parent="Pictures/3/SubViewport/PortalCamera" instance=ExtResource("4_5wynm")]
+visible = false
+
+[node name="0Rect" type="TextureRect" parent="Pictures/3/SubViewport" node_paths=PackedStringArray("sub_viewport", "picture")]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("5_0pnjl")
+sub_viewport = NodePath("..")
+picture = NodePath("../../0")
+
 [node name="PictureHandler" type="Node" parent="."]
 unique_name_in_owner = true
 script = ExtResource("1_827sh")
@@ -406,6 +455,29 @@ label_settings = SubResource("LabelSettings_weefs")
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
+
+[node name="Tutorial" type="Control" parent="UI"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("11_ryn7j")
+
+[node name="TutorialLabel" type="Label" parent="UI/Tutorial"]
+visible = false
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -232.0
+offset_top = 61.0
+offset_right = 232.0
+offset_bottom = 106.0
+grow_horizontal = 2
+text = "Press 'F' to raise / lower photo"
+label_settings = SubResource("LabelSettings_v2gll")
 
 [node name="World1" type="Node3D" parent="."]
 
