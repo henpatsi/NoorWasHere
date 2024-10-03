@@ -1,4 +1,4 @@
-[gd_scene load_steps=58 format=4 uid="uid://bd5b2sgv2c8v8"]
+[gd_scene load_steps=62 format=4 uid="uid://bd5b2sgv2c8v8"]
 
 [ext_resource type="PackedScene" uid="uid://b25ooshew3q2v" path="res://player/player.tscn" id="1_7d6r5"]
 [ext_resource type="Script" path="res://levels/pictures/picture_handler.gd" id="1_827sh"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://bn5ukqljga2qo" path="res://levels/areas/trigger_area.tscn" id="11_bydt5"]
 [ext_resource type="Script" path="res://levels/tutorial.gd" id="11_ryn7j"]
 [ext_resource type="Resource" uid="uid://cra54wjuo32as" path="res://resources/00_01.tres" id="12_8jd77"]
+[ext_resource type="Shader" path="res://shaders/teleport.gdshader" id="12_yjm3x"]
 [ext_resource type="Resource" uid="uid://cimlmvpdq1ugw" path="res://resources/00_02.tres" id="13_wxw3k"]
 [ext_resource type="Script" path="res://levels/interactables/interactable_picture.gd" id="14_236fl"]
 [ext_resource type="Script" path="res://levels/interactables/interactable_pickup.gd" id="14_nbo1e"]
@@ -51,6 +52,16 @@ viewport_path = NodePath("Pictures/2/SubViewport")
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_1c8q1"]
 viewport_path = NodePath("Pictures/3/SubViewport")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_jw2n0"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_cechl"]
+seamless = true
+noise = SubResource("FastNoiseLite_jw2n0")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ogyq8"]
+shader = ExtResource("12_yjm3x")
+shader_parameter/distort_noise = SubResource("NoiseTexture2D_cechl")
 
 [sub_resource type="LabelSettings" id="LabelSettings_ecdey"]
 font = ExtResource("8_6nq31")
@@ -408,6 +419,15 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("7_813h0")
+
+[node name="TeleportShaderRect" type="ColorRect" parent="UI"]
+material = SubResource("ShaderMaterial_ogyq8")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="Crosshair" type="ColorRect" parent="UI"]
 layout_mode = 1
