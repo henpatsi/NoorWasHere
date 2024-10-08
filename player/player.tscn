@@ -13,9 +13,12 @@
 [ext_resource type="AudioStream" uid="uid://ko8n21padphb" path="res://player/footsteps/Concrete footstep 10.wav" id="11_jghtd"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_3ceiv"]
+radius = 0.2
+height = 1.5
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_8swph"]
-radius = 0.4
+radius = 0.214318
+height = 1.55099
 
 [node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("footstep_audio_player", "dialogue_audio_player", "ray_cast") groups=["Player"]]
 collision_layer = 2
@@ -27,18 +30,20 @@ ray_cast = NodePath("HeadNode/Camera3D/RayCast3D")
 ray_distance = 2.0
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.718345, 0)
+visible = false
 cast_shadow = 0
 mesh = SubResource("CapsuleMesh_3ceiv")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.685623, 0)
 shape = SubResource("CapsuleShape3D_8swph")
 
 [node name="HeadNode" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.75, 0)
 
 [node name="Camera3D" type="Camera3D" parent="HeadNode"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.511263, 0)
 
 [node name="RayCast3D" type="RayCast3D" parent="HeadNode/Camera3D"]
 

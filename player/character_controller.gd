@@ -33,9 +33,12 @@ var ray_collision_object: Object
 var interacting_object: Node
 var inspect_mode: bool = false
 
-@onready var inventory: Node = %Inventory
-@onready var picture_handler: Node = %PictureHandler
-@onready var inspect_position: Node3D = $HeadNode/InspectPosition
+#@onready var inventory: Node = %Inventory
+#@onready var picture_handler: Node = %PictureHandler
+#@onready var inspect_position: Node3D = $HeadNode/InspectPosition
+
+func _ready() -> void:
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
 
 func _physics_process(delta: float) -> void:
@@ -125,13 +128,13 @@ func raycast() -> void:
 	else:
 		set_interact_message("")
 
-func on_item_picked_up(item: Node3D) -> void:
-	inventory.add_item(item.variable_name)
-	set_interact_response_message("Picked up " + item.item_name)
+#func on_item_picked_up(item: Node3D) -> void:
+	#inventory.add_item(item.variable_name)
+	#set_interact_response_message("Picked up " + item.item_name)
 
-func on_picture_picked_up(picture: Node3D) -> void:
-	picture_handler.on_picture_picked_up(picture.picture)
-	set_interact_response_message("Picked up " + picture.item_name)
+#func on_picture_picked_up(picture: Node3D) -> void:
+	#picture_handler.on_picture_picked_up(picture.picture)
+	#set_interact_response_message("Picked up " + picture.item_name)
 
 func set_interact_message(message: String) -> void:
 	if interact_label:
@@ -141,8 +144,8 @@ func set_interact_response_message(message: String) -> void:
 	if interact_response_label:
 		interact_response_label.change_text(message)
 
-func add_met_picture_requirement(requirement: String) -> void:
-	picture_handler.picture_requirements_met.append(requirement)
+#func add_met_picture_requirement(requirement: String) -> void:
+	#picture_handler.picture_requirements_met.append(requirement)
 	
 func set_inspect_mode(state: bool) -> void:
 	inspect_mode = state
@@ -151,8 +154,8 @@ func set_inspect_mode(state: bool) -> void:
 	else:
 		print("Inspect mode off")
 
-func set_picture_handler_input(state: bool) -> void:
-	picture_handler.set_input_state(state)
+#func set_picture_handler_input(state: bool) -> void:
+	#picture_handler.set_input_state(state)
 
 
 # INPUT
