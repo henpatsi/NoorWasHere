@@ -1,4 +1,4 @@
-[gd_scene load_steps=60 format=3 uid="uid://d2w75ecpou3k1"]
+[gd_scene load_steps=79 format=3 uid="uid://d2w75ecpou3k1"]
 
 [ext_resource type="Environment" uid="uid://dobqonwml2e5x" path="res://assets/WorldEnvironments/Env_Present.tres" id="2_ok3bb"]
 [ext_resource type="PackedScene" uid="uid://b25ooshew3q2v" path="res://player/player.tscn" id="3_h6y6p"]
@@ -24,24 +24,41 @@
 [ext_resource type="PackedScene" uid="uid://ccwk4ehs6qryt" path="res://assets/AtmosphericHouse/Prefabs/Building/Stairs_main_L.prefab.scn" id="26_vdx28"]
 [ext_resource type="PackedScene" uid="uid://cdyqgnxst0m6p" path="res://assets/AtmosphericHouse/Prefabs/Decals/Decals_corner/Decal_wallIn_A_corner_outSmall.prefab.scn" id="27_f57jn"]
 [ext_resource type="PackedScene" uid="uid://giy8pqr4ba4m" path="res://assets/AtmosphericHouse/Prefabs/Building/Porch_A_6x_entrance_separate.prefab.scn" id="28_a07wc"]
+[ext_resource type="PackedScene" uid="uid://b7mvuqdcvgixd" path="res://assets/AtmosphericHouse/Prefabs/Props/Furniture/Table_A_tablecloth.prefab.scn" id="28_q0qr7"]
+[ext_resource type="PackedScene" uid="uid://dnt7eh4fxpryo" path="res://assets/AtmosphericHouse/Prefabs/Props/Furniture/Chair_kitchen.prefab.scn" id="29_jspc5"]
+[ext_resource type="PackedScene" uid="uid://dq7je5yx1pxat" path="res://assets/AtmosphericHouse/Prefabs/Props/Electronics/Fridge.prefab.scn" id="30_k5y37"]
 [ext_resource type="PackedScene" uid="uid://d1ip05cxusln3" path="res://assets/AtmosphericHouse/Prefabs/Building/WallIn_B_1x.prefab.scn" id="30_p2wug"]
 [ext_resource type="PackedScene" uid="uid://bxyfo51ps1g5w" path="res://assets/AtmosphericHouse/Prefabs/Building/Roof_A_6x_gable.prefab.scn" id="32_3l5fc"]
+[ext_resource type="PackedScene" uid="uid://gos3nd1wd5rt" path="res://assets/AtmosphericHouse/Prefabs/Props/Kitchen_cabinets/Kitchen_cabinet_C.prefab.scn" id="32_xhstm"]
+[ext_resource type="PackedScene" uid="uid://dspa838ym58cq" path="res://assets/AtmosphericHouse/Prefabs/Props/Kitchen_cabinets/Kitchen_cabinet_end_R.prefab.scn" id="33_sqdkk"]
+[ext_resource type="PackedScene" uid="uid://cvx4w0x53724r" path="res://assets/AtmosphericHouse/Prefabs/Props/Kitchen_cabinets/Kitchen_counter_corner.prefab.scn" id="34_w7yr4"]
 [ext_resource type="PackedScene" uid="uid://x3170wk23umb" path="res://assets/AtmosphericHouse/Prefabs/Building/Roof_A_6x.prefab.scn" id="35_cdy87"]
+[ext_resource type="PackedScene" uid="uid://bke8bgw8k3fis" path="res://assets/AtmosphericHouse/Prefabs/Props/Kitchen_cabinets/Kitchen_counter_sink.prefab.scn" id="35_wowau"]
+[ext_resource type="PackedScene" uid="uid://2hlghn8v5jng" path="res://assets/AtmosphericHouse/Prefabs/Props/Kitchen_cabinets/Kitchen_counter_A.prefab.scn" id="36_47adu"]
+[ext_resource type="PackedScene" uid="uid://dfnnkqr7g8i0w" path="res://assets/AtmosphericHouse/Prefabs/Props/Kitchen_cabinets/Kitchen_cabinet_A.prefab.scn" id="37_lu25k"]
+[ext_resource type="PackedScene" uid="uid://c8u44pi31ysp7" path="res://assets/AtmosphericHouse/Prefabs/Props/Kitchen_cabinets/Kitchen_cabinet_end_L.prefab.scn" id="38_k62it"]
 [ext_resource type="PackedScene" uid="uid://c5rlwngvkglrn" path="res://assets/AtmosphericHouse/Prefabs/Building/WallOut_2x.prefab.scn" id="38_ps2ba"]
+[ext_resource type="PackedScene" uid="uid://471bb0ddb1c3" path="res://assets/AtmosphericHouse/Prefabs/Props/Kitchen_cabinets/Kitchen_counter_dishwasher.prefab.scn" id="39_686yn"]
 [ext_resource type="PackedScene" uid="uid://dakn77c25518i" path="res://assets/AtmosphericHouse/Prefabs/Building/WallIn_A_2x.prefab.scn" id="39_sgdln"]
+[ext_resource type="PackedScene" uid="uid://dulogcaagci20" path="res://assets/AtmosphericHouse/Prefabs/Props/Kitchen_cabinets/Kitchen_cabinet_corner.prefab.scn" id="40_86ng0"]
 [ext_resource type="PackedScene" uid="uid://bqtfglrb2oaf0" path="res://assets/AtmosphericHouse/Prefabs/Building/WallOut_1x.prefab.scn" id="40_stgaw"]
+[ext_resource type="PackedScene" uid="uid://btgl0tfm87mhx" path="res://assets/AtmosphericHouse/Prefabs/Props/Kitchen_cabinets/Kitchen_cabinet_B.prefab.scn" id="41_bmecd"]
 [ext_resource type="PackedScene" uid="uid://cwanoc4ogu37w" path="res://assets/AtmosphericHouse/Prefabs/Building/WallIn_A_1x.prefab.scn" id="41_mvab6"]
 [ext_resource type="PackedScene" uid="uid://d2japuc01nf4p" path="res://assets/AtmosphericHouse/Prefabs/Building/WallIn_B_2x.prefab.scn" id="41_r5cna"]
 [ext_resource type="PackedScene" uid="uid://cvppc5cef886n" path="res://assets/AtmosphericHouse/Prefabs/Building/WallOut_3x_door.prefab.scn" id="42_u30ys"]
+[ext_resource type="PackedScene" uid="uid://mrvrjaj0uuiq" path="res://assets/AtmosphericHouse/Prefabs/Props/Electronics/Stove.prefab.scn" id="42_vvqv6"]
+[ext_resource type="PackedScene" uid="uid://klpjl1iktatn" path="res://assets/AtmosphericHouse/Prefabs/Props/Kitchen_cabinets/Kitchen_cabinet_shelf_L.prefab.scn" id="43_abc00"]
 [ext_resource type="PackedScene" uid="uid://btq2pihkhcacg" path="res://assets/AtmosphericHouse/Prefabs/Building/Floor_6x3_stairs_L.prefab.scn" id="43_eq5ua"]
 [ext_resource type="PackedScene" uid="uid://leiq8iljv57v" path="res://assets/AtmosphericHouse/Prefabs/Building/WallIn_A_3x_door.prefab.scn" id="43_rt1yv"]
 [ext_resource type="PackedScene" uid="uid://dbf0xujhvm2ba" path="res://assets/AtmosphericHouse/Prefabs/Building/WallIn_B_3x_door.prefab.scn" id="43_stcfb"]
+[ext_resource type="PackedScene" uid="uid://b1mw21g0i0wnn" path="res://assets/AtmosphericHouse/Prefabs/Props/Kitchen_cabinets/Kitchen_counter_B.prefab.scn" id="44_b3bbc"]
 [ext_resource type="PackedScene" uid="uid://dc2fl04jiyy0o" path="res://assets/AtmosphericHouse/Prefabs/Building/Doorframe_in_single.prefab.scn" id="44_ux5ei"]
 [ext_resource type="PackedScene" uid="uid://dlffobxlcndvl" path="res://assets/AtmosphericHouse/Prefabs/Doors/Door_parent_A_L.prefab.scn" id="44_vtruq"]
 [ext_resource type="PackedScene" uid="uid://dvmhg7pinqyhw" path="res://assets/AtmosphericHouse/Prefabs/Building/Porch_A_3x_end_L.prefab.scn" id="45_ef2de"]
 [ext_resource type="PackedScene" uid="uid://bqwmnp4r8hje6" path="res://assets/AtmosphericHouse/Prefabs/Building/Ceiling_6x6.prefab.scn" id="45_erv16"]
 [ext_resource type="PackedScene" uid="uid://daalgg5r5ln0i" path="res://assets/AtmosphericHouse/Prefabs/Doors/Door_parent_C_L.prefab.scn" id="45_g5ina"]
 [ext_resource type="PackedScene" uid="uid://byg18jnxsmrtq" path="res://assets/AtmosphericHouse/Prefabs/Props/Extras/Floor_trim_door.prefab.scn" id="45_gu5u7"]
+[ext_resource type="PackedScene" uid="uid://7ofrlvsdp4it" path="res://assets/AtmosphericHouse/Prefabs/Props/Kitchen_cabinets/Kitchen_cabinet_shelf_R.prefab.scn" id="45_xf2n1"]
 [ext_resource type="PackedScene" uid="uid://bd4m6q646vtoi" path="res://assets/AtmosphericHouse/Prefabs/Building/Ceiling_6x3_stairs_L.prefab.scn" id="46_1jqv5"]
 [ext_resource type="PackedScene" uid="uid://b25htfgwil2ic" path="res://assets/AtmosphericHouse/Prefabs/Building/Ceiling_6x3.prefab.scn" id="47_qbjtw"]
 [ext_resource type="PackedScene" uid="uid://yqlp4x05fhxq" path="res://assets/AtmosphericHouse/Prefabs/Building/Ceiling_4x3.prefab.scn" id="48_jlhw4"]
@@ -52,6 +69,8 @@
 [ext_resource type="PackedScene" uid="uid://b8p74vq306jtj" path="res://assets/AtmosphericHouse/Prefabs/Building/Doorframe_in_double.prefab.scn" id="53_8k0ph"]
 [ext_resource type="PackedScene" uid="uid://wd1reswch54i" path="res://assets/AtmosphericHouse/Prefabs/Props/Extras/Floor_trim_doordouble.prefab.scn" id="54_fnpcf"]
 [ext_resource type="PackedScene" uid="uid://0ler0ig6uhxf" path="res://assets/AtmosphericHouse/Prefabs/Building/WallIn_B_3x.prefab.scn" id="55_3lnqh"]
+[ext_resource type="PackedScene" uid="uid://bl3shlxn72d2t" path="res://assets/AtmosphericHouse/Prefabs/Doors/Door_parent_C_R.prefab.scn" id="61_nv6eq"]
+[ext_resource type="PackedScene" uid="uid://bxvewym5vqwmr" path="res://assets/AtmosphericHouse/Prefabs/Props/Furniture/Sofa_3seat.prefab.scn" id="63_vcp7s"]
 [ext_resource type="AudioStream" uid="uid://bsstebl4bk5v3" path="res://assets/audio/sfx/roomtone/Yard present/Yard_ambience_dark.ogg" id="320_q4s2j"]
 [ext_resource type="AudioStream" uid="uid://b72q3xj1r0td5" path="res://assets/audio/sfx/roomtone/Ambient noise/fire.ogg" id="321_8lv8c"]
 
@@ -288,6 +307,108 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 0, -8)
 
 [node name="Level1" type="Node3D" parent="Present/LevelObjects/House"]
 
+[node name="Props" type="Node3D" parent="Present/LevelObjects/House/Level1"]
+
+[node name="Kitchen" type="Node3D" parent="Present/LevelObjects/House/Level1/Props"]
+
+[node name="Table_A_tablecloth" parent="Present/LevelObjects/House/Level1/Props/Kitchen" instance=ExtResource("28_q0qr7")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 8, 0.5, 7.5)
+
+[node name="Chair_kitchen 1" parent="Present/LevelObjects/House/Level1/Props/Kitchen/Table_A_tablecloth" instance=ExtResource("29_jspc5")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.5, 0, 0.5)
+
+[node name="Chair_kitchen 2" parent="Present/LevelObjects/House/Level1/Props/Kitchen/Table_A_tablecloth" instance=ExtResource("29_jspc5")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0.5)
+
+[node name="Chair_kitchen 3" parent="Present/LevelObjects/House/Level1/Props/Kitchen/Table_A_tablecloth" instance=ExtResource("29_jspc5")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.5, 0, 0.5)
+
+[node name="Chair_kitchen 4" parent="Present/LevelObjects/House/Level1/Props/Kitchen/Table_A_tablecloth" instance=ExtResource("29_jspc5")]
+transform = Transform3D(1, 0, 7.10543e-15, 0, 1, 0, -7.10543e-15, 0, 1, -0.5, 0, -0.5)
+
+[node name="Chair_kitchen 5" parent="Present/LevelObjects/House/Level1/Props/Kitchen/Table_A_tablecloth" instance=ExtResource("29_jspc5")]
+transform = Transform3D(1, 0, 7.10543e-15, 0, 1, 0, -7.10543e-15, 0, 1, 0, 0, -0.5)
+
+[node name="Chair_kitchen 6" parent="Present/LevelObjects/House/Level1/Props/Kitchen/Table_A_tablecloth" instance=ExtResource("29_jspc5")]
+transform = Transform3D(1, 0, 7.10543e-15, 0, 1, 0, -7.10543e-15, 0, 1, 0.5, 0, -0.5)
+
+[node name="Kitchen_kitchen_cabinets_A" type="Node3D" parent="Present/LevelObjects/House/Level1/Props/Kitchen"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 10.5, 1.5, 9)
+
+[node name="Fridge" parent="Present/LevelObjects/House/Level1/Props/Kitchen/Kitchen_kitchen_cabinets_A" instance=ExtResource("30_k5y37")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1.5, -1, 2)
+
+[node name="Kitchen_counter_corner" parent="Present/LevelObjects/House/Level1/Props/Kitchen/Kitchen_kitchen_cabinets_A" instance=ExtResource("34_w7yr4")]
+transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, -1.5, -1, -1.5)
+
+[node name="Kitchen_counter_sink" parent="Present/LevelObjects/House/Level1/Props/Kitchen/Kitchen_kitchen_cabinets_A" instance=ExtResource("35_wowau")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, -1, -1.5)
+
+[node name="Kitchen_counter_A" parent="Present/LevelObjects/House/Level1/Props/Kitchen/Kitchen_kitchen_cabinets_A" instance=ExtResource("36_47adu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, -1, -1.5)
+
+[node name="Kitchen_counter_A2" parent="Present/LevelObjects/House/Level1/Props/Kitchen/Kitchen_kitchen_cabinets_A" instance=ExtResource("36_47adu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, -1, -1.5)
+
+[node name="Kitchen_cabinet_A" parent="Present/LevelObjects/House/Level1/Props/Kitchen/Kitchen_kitchen_cabinets_A" instance=ExtResource("37_lu25k")]
+transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, -1.5, -1, 1.5)
+
+[node name="Kitchen_cabinet_end_L" parent="Present/LevelObjects/House/Level1/Props/Kitchen/Kitchen_kitchen_cabinets_A/Kitchen_cabinet_A" instance=ExtResource("38_k62it")]
+
+[node name="Kitchen_counter_dishwasher" parent="Present/LevelObjects/House/Level1/Props/Kitchen/Kitchen_kitchen_cabinets_A" instance=ExtResource("39_686yn")]
+transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, -1.5, -1, 1.5)
+
+[node name="Kitchen_cabinet_C2" parent="Present/LevelObjects/House/Level1/Props/Kitchen/Kitchen_kitchen_cabinets_A" instance=ExtResource("32_xhstm")]
+transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, -1.5, -1, 0.5)
+
+[node name="Kitchen_cabinet_corner" parent="Present/LevelObjects/House/Level1/Props/Kitchen/Kitchen_kitchen_cabinets_A" instance=ExtResource("40_86ng0")]
+transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, -1.5, -1, -1.5)
+
+[node name="Kitchen_cabinet_end_R" parent="Present/LevelObjects/House/Level1/Props/Kitchen/Kitchen_kitchen_cabinets_A/Kitchen_cabinet_corner" instance=ExtResource("33_sqdkk")]
+transform = Transform3D(0, 0, -1, 0, 1, 0, 1, 0, 0, -1.19209e-07, 0, 1)
+
+[node name="Kitchen_cabinet_B" parent="Present/LevelObjects/House/Level1/Props/Kitchen/Kitchen_kitchen_cabinets_A" instance=ExtResource("41_bmecd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, -1, -1.5)
+
+[node name="Kitchen_cabinet_end_L" parent="Present/LevelObjects/House/Level1/Props/Kitchen/Kitchen_kitchen_cabinets_A/Kitchen_cabinet_B" instance=ExtResource("38_k62it")]
+
+[node name="Kitchen_cabinet_B2" parent="Present/LevelObjects/House/Level1/Props/Kitchen/Kitchen_kitchen_cabinets_A" instance=ExtResource("41_bmecd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, -1, -1.5)
+
+[node name="Kitchen_cabinet_end_L" parent="Present/LevelObjects/House/Level1/Props/Kitchen/Kitchen_kitchen_cabinets_A/Kitchen_cabinet_B2" instance=ExtResource("38_k62it")]
+
+[node name="Stove" parent="Present/LevelObjects/House/Level1/Props/Kitchen/Kitchen_kitchen_cabinets_A" instance=ExtResource("42_vvqv6")]
+transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, -1.5, -1, 0)
+
+[node name="Kitchen_kitchen_cabinets_B" type="Node3D" parent="Present/LevelObjects/House/Level1/Props/Kitchen"]
+transform = Transform3D(1, 0, -2.38419e-07, 0, 1, 0, 2.38419e-07, 0, 1, 10, 1.5, 6)
+
+[node name="LightProbes_AnchorOverride" type="Node3D" parent="Present/LevelObjects/House/Level1/Props/Kitchen/Kitchen_kitchen_cabinets_B"]
+
+[node name="Kitchen_cabinet_shelf_L" parent="Present/LevelObjects/House/Level1/Props/Kitchen/Kitchen_kitchen_cabinets_B" instance=ExtResource("43_abc00")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, -1, -1.5)
+
+[node name="Kitchen_counter_B" parent="Present/LevelObjects/House/Level1/Props/Kitchen/Kitchen_kitchen_cabinets_B" instance=ExtResource("44_b3bbc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, -1, -1.5)
+
+[node name="Kitchen_counter_A" parent="Present/LevelObjects/House/Level1/Props/Kitchen/Kitchen_kitchen_cabinets_B" instance=ExtResource("36_47adu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, -1, -1.5)
+
+[node name="Kitchen_cabinet_B" parent="Present/LevelObjects/House/Level1/Props/Kitchen/Kitchen_kitchen_cabinets_B" instance=ExtResource("41_bmecd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, -1, -1.5)
+
+[node name="Kitchen_cabinet_B (2)" parent="Present/LevelObjects/House/Level1/Props/Kitchen/Kitchen_kitchen_cabinets_B" instance=ExtResource("41_bmecd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, -1, -1.5)
+
+[node name="Kitchen_cabinet_end_R" parent="Present/LevelObjects/House/Level1/Props/Kitchen/Kitchen_kitchen_cabinets_B/Kitchen_cabinet_B (2)" instance=ExtResource("33_sqdkk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -8.74228e-08)
+
+[node name="Kitchen_counter_A (1)" parent="Present/LevelObjects/House/Level1/Props/Kitchen/Kitchen_kitchen_cabinets_B" instance=ExtResource("36_47adu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5, -1, -1.5)
+
+[node name="Kitchen_cabinet_shelf_R" parent="Present/LevelObjects/House/Level1/Props/Kitchen/Kitchen_kitchen_cabinets_B" instance=ExtResource("45_xf2n1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, -1, -1.5)
+
 [node name="Floor" type="Node3D" parent="Present/LevelObjects/House/Level1"]
 
 [node name="Floor_6x6_1" parent="Present/LevelObjects/House/Level1/Floor" instance=ExtResource("21_82uh0")]
@@ -431,6 +552,13 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0.5
 
 [node name="Walls_INT" type="Node3D" parent="Present/LevelObjects/House/Level1"]
 
+[node name="corners" type="Node3D" parent="Present/LevelObjects/House/Level1/Walls_INT"]
+
+[node name="WallIn_A_corner_outSmall3" parent="Present/LevelObjects/House/Level1/Walls_INT/corners" instance=ExtResource("26_re8wc")]
+transform = Transform3D(1.31135e-07, 0, -1, 0, 1, 0, 1, 0, 1.31135e-07, 0, 0.5, 6.5)
+
+[node name="Decal_wallIn_A_corner_outSmall" parent="Present/LevelObjects/House/Level1/Walls_INT/corners/WallIn_A_corner_outSmall3" instance=ExtResource("27_f57jn")]
+
 [node name="WallIn_B_1x" parent="Present/LevelObjects/House/Level1/Walls_INT" instance=ExtResource("30_p2wug")]
 transform = Transform3D(1, 0, -1.74846e-07, 0, 1, 0, 1.74846e-07, 0, 1, 0, 0.5, 2.5)
 
@@ -440,21 +568,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 11)
 [node name="WallIn_B_3x4" parent="Present/LevelObjects/House/Level1/Walls_INT/Wall_DoubleSmall_0" instance=ExtResource("55_3lnqh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.499999)
 
+[node name="WallIn_A_1x2" parent="Present/LevelObjects/House/Level1/Walls_INT" instance=ExtResource("41_mvab6")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1, 0.5, 6.5)
+
 [node name="Wall_DoubleSmall_2" type="Node3D" parent="Present/LevelObjects/House/Level1/Walls_INT"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1.5, 0.5, 6.5)
 
 [node name="WallIn_A_1x" parent="Present/LevelObjects/House/Level1/Walls_INT/Wall_DoubleSmall_2" instance=ExtResource("41_mvab6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -0.5)
-
-[node name="WallIn_A_1x2" parent="Present/LevelObjects/House/Level1/Walls_INT/Wall_DoubleSmall_2" instance=ExtResource("41_mvab6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.19209e-07, 0, -0.5)
-
-[node name="corners" type="Node3D" parent="Present/LevelObjects/House/Level1/Walls_INT"]
-
-[node name="WallIn_A_corner_outSmall3" parent="Present/LevelObjects/House/Level1/Walls_INT/corners" instance=ExtResource("26_re8wc")]
-transform = Transform3D(1.31135e-07, 0, -1, 0, 1, 0, 1, 0, 1.31135e-07, 0, 0.5, 6.5)
-
-[node name="Decal_wallIn_A_corner_outSmall" parent="Present/LevelObjects/House/Level1/Walls_INT/corners/WallIn_A_corner_outSmall3" instance=ExtResource("27_f57jn")]
 
 [node name="WallIn_B_2x" parent="Present/LevelObjects/House/Level1/Walls_INT" instance=ExtResource("41_r5cna")]
 transform = Transform3D(-3.27835e-08, 0, 1, 0, 1, 0, -0.75, 0, -4.37114e-08, 6, 0.5, 6)
@@ -548,6 +669,12 @@ transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 3, 0, 
 
 [node name="Door_parent_A_L" parent="Present/LevelObjects/House/Level1/Doors/DoorBathroom/WallIn_A_3x_door" instance=ExtResource("44_vtruq")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2, 0, -4.76837e-07)
+
+[node name="Door_parent_C_L" parent="Present/LevelObjects/House/Level1/Doors" instance=ExtResource("45_g5ina")]
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, 3.5, 0.5, 18)
+
+[node name="Door_parent_C_R" parent="Present/LevelObjects/House/Level1/Doors" instance=ExtResource("61_nv6eq")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 5.5, 0.5, 18)
 
 [node name="Ceilings" type="Node3D" parent="Present/LevelObjects/House/Level1"]
 
@@ -711,28 +838,36 @@ transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 3, 0, 
 
 [node name="corners" type="Node3D" parent="Present/LevelObjects/House/Level2/Walls_INT"]
 
+[node name="WallIn_A_corner_outSmall3" parent="Present/LevelObjects/House/Level2/Walls_INT/corners" instance=ExtResource("26_re8wc")]
+transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, 3, 0.5, 3.5)
+
+[node name="Decal_wallIn_A_corner_outSmall" parent="Present/LevelObjects/House/Level2/Walls_INT/corners/WallIn_A_corner_outSmall3" instance=ExtResource("27_f57jn")]
+
 [node name="WallIn_A_3x" parent="Present/LevelObjects/House/Level2/Walls_INT" instance=ExtResource("24_jwfw7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0.5, 3.5)
 
 [node name="WallIn_A_3x4" parent="Present/LevelObjects/House/Level2/Walls_INT" instance=ExtResource("24_jwfw7")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 6, 0.5, 7.5)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 6, 0.5, 4.5)
 
 [node name="WallIn_B_3x4" parent="Present/LevelObjects/House/Level2/Walls_INT/WallIn_A_3x4" instance=ExtResource("55_3lnqh")]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 3, 0, 7.15256e-07)
 
-[node name="WallIn_A_3x2" parent="Present/LevelObjects/House/Level2/Walls_INT" instance=ExtResource("24_jwfw7")]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 3, 0.5, 10.5)
-
-[node name="WallIn_A_3x3" parent="Present/LevelObjects/House/Level2/Walls_INT" instance=ExtResource("24_jwfw7")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 10.5)
-
 [node name="WallIn_A_2x" parent="Present/LevelObjects/House/Level2/Walls_INT" instance=ExtResource("39_sgdln")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0.5, 6.5)
+
+[node name="WallIn_A_1x2" parent="Present/LevelObjects/House/Level2/Walls_INT" instance=ExtResource("41_mvab6")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 3, 0.5, 2.5)
+
+[node name="WallIn_A_1x3" parent="Present/LevelObjects/House/Level2/Walls_INT" instance=ExtResource("41_mvab6")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 6, 0.5, 10.5)
+
+[node name="WallIn_A_2x2" parent="Present/LevelObjects/House/Level2/Walls_INT" instance=ExtResource("39_sgdln")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 2, 0.5, 10.5)
 
 [node name="Doors" type="Node3D" parent="Present/LevelObjects/House/Level2"]
 
 [node name="WallIn_A_3x_door2" parent="Present/LevelObjects/House/Level2/Doors" instance=ExtResource("43_rt1yv")]
-transform = Transform3D(1, 0, -1.74846e-07, 0, 1, 0, 1.74846e-07, 0, 1, 3, 0.5, 10.5)
+transform = Transform3D(1, 0, -1.74846e-07, 0, 1, 0, 1.74846e-07, 0, 1, 2, 0.5, 10.5)
 
 [node name="Doorframe_in_single" parent="Present/LevelObjects/House/Level2/Doors/WallIn_A_3x_door2" instance=ExtResource("44_ux5ei")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, 0)
@@ -747,7 +882,7 @@ transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 3, 0, 
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 2, 0, -7.15256e-07)
 
 [node name="WallIn_B_3x_door3" parent="Present/LevelObjects/House/Level2/Doors" instance=ExtResource("43_stcfb")]
-transform = Transform3D(-1, 0, 2.62268e-07, 0, 1, 0, -2.62268e-07, 0, -1, 3, 0.5, 3.5)
+transform = Transform3D(-1, 0, 2.62268e-07, 0, 1, 0, -2.62268e-07, 0, -1, 3, 0.5, 2.5)
 
 [node name="Doorframe_in_single" parent="Present/LevelObjects/House/Level2/Doors/WallIn_B_3x_door3" instance=ExtResource("44_ux5ei")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, -1.31134e-07)
@@ -762,7 +897,7 @@ transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 3, 0, 
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 1, 0, 0)
 
 [node name="WallIn_B_3x_door4" parent="Present/LevelObjects/House/Level2/Doors" instance=ExtResource("43_stcfb")]
-transform = Transform3D(3.0598e-07, 0, 1, 0, 1, 0, -1, 0, 3.0598e-07, 6, 0.5, 7.5)
+transform = Transform3D(3.0598e-07, 0, 1, 0, 1, 0, -1, 0, 3.0598e-07, 6, 0.5, 10.5)
 
 [node name="Doorframe_in_single" parent="Present/LevelObjects/House/Level2/Doors/WallIn_B_3x_door4" instance=ExtResource("44_ux5ei")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, -1.31134e-07)
@@ -775,6 +910,11 @@ transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 3, 0, 
 
 [node name="Door_parent_A_L" parent="Present/LevelObjects/House/Level2/Doors/WallIn_B_3x_door4/WallIn_A_3x_door" instance=ExtResource("44_vtruq")]
 transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 2, 0, -4.76837e-07)
+
+[node name="Props" type="Node3D" parent="Present/LevelObjects/House/Level2"]
+
+[node name="Sofa_3seat" parent="Present/LevelObjects/House/Level2/Props" instance=ExtResource("63_vcp7s")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 4.5, 0.5, 7)
 
 [node name="Ceilings" type="Node3D" parent="Present/LevelObjects/House/Level2"]
 
