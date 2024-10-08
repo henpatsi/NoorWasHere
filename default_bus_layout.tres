@@ -10,6 +10,7 @@ band_db/8000_hz = -31.7
 band_db/16000_hz = -45.4
 
 [resource]
+bus/0/volume_db = -5.625
 bus/1/name = &"Highpass"
 bus/1/solo = false
 bus/1/mute = false
