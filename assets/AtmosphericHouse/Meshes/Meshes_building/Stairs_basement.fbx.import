@@ -1,0 +1,160 @@
+[remap]
+
+importer="scene"
+importer_version=1
+type="PackedScene"
+uid="uid://clkjcsmqd8eym"
+path="res://.godot/imported/Stairs_basement.fbx-c1d9a70f2c40d65e35a017c21a43f5b2.scn"
+
+[deps]
+
+source_file="res://assets/AtmosphericHouse/Meshes/Meshes_building/Stairs_basement.fbx"
+dest_files=["res://.godot/imported/Stairs_basement.fbx-c1d9a70f2c40d65e35a017c21a43f5b2.scn"]
+
+[params]
+
+nodes/root_type=""
+nodes/root_name=""
+nodes/apply_root_scale=true
+nodes/root_scale=1.0
+nodes/import_as_skeleton_bones=false
+meshes/ensure_tangents=1
+meshes/generate_lods=true
+meshes/create_shadow_meshes=false
+meshes/light_baking=1
+meshes/lightmap_texel_size=0.2
+meshes/force_disable_compression=false
+skins/use_named_skins=true
+animation/import=true
+animation/fps=30.0
+animation/trimming=true
+animation/remove_immutable_tracks=false
+animation/import_rest_as_RESET=true
+import_script/path=""
+_subresources={
+"animations": {},
+"materials": {
+"Basement_woods_pipes_clean": {
+"use_external/enabled": true,
+"use_external/path": "res://Assets/AtmosphericHouse/Materials/Basement_woods_pipes_clean.material"
+},
+"Ceiling_plaster_clean": {
+"use_external/enabled": true,
+"use_external/path": "res://Assets/AtmosphericHouse/Materials/Materials_tiled/Ceiling_plaster_clean.material"
+},
+"Floor_wooden_A_clean": {
+"use_external/enabled": true,
+"use_external/path": "res://Assets/AtmosphericHouse/Materials/Materials_tiled/Floor_wooden_A_clean.material"
+},
+"Stairs_basement_clean": {
+"use_external/enabled": true,
+"use_external/path": "res://Assets/AtmosphericHouse/Materials/Stairs_basement_clean.material"
+},
+"Wall_C_brick_clean": {
+"use_external/enabled": true,
+"use_external/path": "res://Assets/AtmosphericHouse/Materials/Materials_tiled/Wall_C_brick_clean.material"
+}
+},
+"meshes": {
+"Basement_stairs_ceiling_wood": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/make_streamable": "",
+"save_to_file/path": "res://Assets/AtmosphericHouse/Meshes/Meshes_building/extracted/Stairs_basement.Basement_stairs_ceiling_wood.mesh"
+},
+"Ceiling_stairs_basement_A": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/make_streamable": "",
+"save_to_file/path": "res://Assets/AtmosphericHouse/Meshes/Meshes_building/extracted/Stairs_basement.Ceiling_stairs_basement_A.mesh"
+},
+"Ceiling_stairs_basement_B": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/make_streamable": "",
+"save_to_file/path": "res://Assets/AtmosphericHouse/Meshes/Meshes_building/extracted/Stairs_basement.Ceiling_stairs_basement_B.mesh"
+},
+"Root Scene_Basement_stairs_ceiling_wood": {
+"save_to_file/enabled": true,
+"save_to_file/make_streamable": "",
+"save_to_file/path": "res://Assets/AtmosphericHouse/Meshes/Meshes_building/extracted/Stairs_basement.Basement_stairs_ceiling_wood.mesh"
+},
+"Root Scene_Ceiling_stairs_basement_A": {
+"save_to_file/enabled": true,
+"save_to_file/make_streamable": "",
+"save_to_file/path": "res://Assets/AtmosphericHouse/Meshes/Meshes_building/extracted/Stairs_basement.Ceiling_stairs_basement_A.mesh"
+},
+"Root Scene_Ceiling_stairs_basement_B": {
+"save_to_file/enabled": true,
+"save_to_file/make_streamable": "",
+"save_to_file/path": "res://Assets/AtmosphericHouse/Meshes/Meshes_building/extracted/Stairs_basement.Ceiling_stairs_basement_B.mesh"
+},
+"Root Scene_Stairs_basement_steps": {
+"save_to_file/enabled": true,
+"save_to_file/make_streamable": "",
+"save_to_file/path": "res://Assets/AtmosphericHouse/Meshes/Meshes_building/extracted/Stairs_basement.Stairs_basement_steps.mesh"
+},
+"Root Scene_WallIn_C_stairs_basement_A": {
+"save_to_file/enabled": true,
+"save_to_file/make_streamable": "",
+"save_to_file/path": "res://Assets/AtmosphericHouse/Meshes/Meshes_building/extracted/Stairs_basement.WallIn_C_stairs_basement_A.mesh"
+},
+"Root Scene_WallIn_C_stairs_basement_B": {
+"save_to_file/enabled": true,
+"save_to_file/make_streamable": "",
+"save_to_file/path": "res://Assets/AtmosphericHouse/Meshes/Meshes_building/extracted/Stairs_basement.WallIn_C_stairs_basement_B.mesh"
+},
+"Stairs_basement_steps": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/make_streamable": "",
+"save_to_file/path": "res://Assets/AtmosphericHouse/Meshes/Meshes_building/extracted/Stairs_basement.Stairs_basement_steps.mesh"
+},
+"WallIn_C_stairs_basement_A": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/make_streamable": "",
+"save_to_file/path": "res://Assets/AtmosphericHouse/Meshes/Meshes_building/extracted/Stairs_basement.WallIn_C_stairs_basement_A.mesh"
+},
+"WallIn_C_stairs_basement_B": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/make_streamable": "",
+"save_to_file/path": "res://Assets/AtmosphericHouse/Meshes/Meshes_building/extracted/Stairs_basement.WallIn_C_stairs_basement_B.mesh"
+}
+},
+"nodes": {
+"PATH:AnimationPlayer": {
+"optimizer/enabled": true,
+"optimizer/max_angular_error": 0.00277778,
+"optimizer/max_linear_error": 0.5
+}
+}
+}
+fbx/importer=0
+fbx/allow_geometry_helper_nodes=false
+fbx/embedded_image_handling=1

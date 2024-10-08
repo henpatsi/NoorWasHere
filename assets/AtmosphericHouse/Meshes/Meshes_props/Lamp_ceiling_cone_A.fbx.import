@@ -1,0 +1,69 @@
+[remap]
+
+importer="scene"
+importer_version=1
+type="PackedScene"
+uid="uid://cc82o5cx55yi3"
+path="res://.godot/imported/Lamp_ceiling_cone_A.fbx-519cb5d7bc96f1e9973dd3106654e9b7.scn"
+
+[deps]
+
+source_file="res://assets/AtmosphericHouse/Meshes/Meshes_props/Lamp_ceiling_cone_A.fbx"
+dest_files=["res://.godot/imported/Lamp_ceiling_cone_A.fbx-519cb5d7bc96f1e9973dd3106654e9b7.scn"]
+
+[params]
+
+nodes/root_type=""
+nodes/root_name=""
+nodes/apply_root_scale=true
+nodes/root_scale=1.0
+nodes/import_as_skeleton_bones=false
+meshes/ensure_tangents=1
+meshes/generate_lods=true
+meshes/create_shadow_meshes=false
+meshes/light_baking=1
+meshes/lightmap_texel_size=0.2
+meshes/force_disable_compression=false
+skins/use_named_skins=true
+animation/import=true
+animation/fps=30.0
+animation/trimming=true
+animation/remove_immutable_tracks=false
+animation/import_rest_as_RESET=true
+import_script/path=""
+_subresources={
+"animations": {},
+"materials": {
+"Lamps_A_on_clean": {
+"use_external/enabled": true,
+"use_external/path": "res://Assets/AtmosphericHouse/Materials/Lamps_A_on_clean.material"
+}
+},
+"meshes": {
+"Lamp_ceiling_cone_A": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/make_streamable": "",
+"save_to_file/path": "res://Assets/AtmosphericHouse/Meshes/Meshes_props/extracted/Lamp_ceiling_cone_A.Lamp_ceiling_cone_A.mesh"
+},
+"Root Scene_Lamp_ceiling_cone_A": {
+"save_to_file/enabled": true,
+"save_to_file/make_streamable": "",
+"save_to_file/path": "res://Assets/AtmosphericHouse/Meshes/Meshes_props/extracted/Lamp_ceiling_cone_A.Lamp_ceiling_cone_A.mesh"
+}
+},
+"nodes": {
+"PATH:AnimationPlayer": {
+"optimizer/enabled": true,
+"optimizer/max_angular_error": 0.00277778,
+"optimizer/max_linear_error": 0.5
+}
+}
+}
+fbx/importer=0
+fbx/allow_geometry_helper_nodes=false
+fbx/embedded_image_handling=1

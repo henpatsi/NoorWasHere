@@ -1,0 +1,149 @@
+[remap]
+
+importer="scene"
+importer_version=1
+type="PackedScene"
+uid="uid://cowj8mycm3nwy"
+path="res://.godot/imported/Stairs_main_R.fbx-9986a2f99d262f0d92a46f59a2b14631.scn"
+
+[deps]
+
+source_file="res://assets/AtmosphericHouse/Meshes/Meshes_building/Stairs_main_R.fbx"
+dest_files=["res://.godot/imported/Stairs_main_R.fbx-9986a2f99d262f0d92a46f59a2b14631.scn"]
+
+[params]
+
+nodes/root_type=""
+nodes/root_name=""
+nodes/apply_root_scale=true
+nodes/root_scale=1.0
+nodes/import_as_skeleton_bones=false
+meshes/ensure_tangents=1
+meshes/generate_lods=true
+meshes/create_shadow_meshes=false
+meshes/light_baking=1
+meshes/lightmap_texel_size=0.2
+meshes/force_disable_compression=false
+skins/use_named_skins=true
+animation/import=false
+animation/fps=30.0
+animation/trimming=true
+animation/remove_immutable_tracks=false
+animation/import_rest_as_RESET=true
+import_script/path=""
+_subresources={
+"animations": {},
+"materials": {
+"Floor_wooden_A_clean": {
+"use_external/enabled": true,
+"use_external/path": "res://Assets/AtmosphericHouse/Materials/Materials_tiled/Floor_wooden_A_clean.material"
+},
+"Molding_white_clean": {
+"use_external/enabled": true,
+"use_external/path": "res://Assets/AtmosphericHouse/Materials/Molding_white_clean.material"
+},
+"Stairs_main_clean": {
+"use_external/enabled": true,
+"use_external/path": "res://Assets/AtmosphericHouse/Materials/Stairs_main_clean.material"
+},
+"Stairs_railing_clean": {
+"use_external/enabled": true,
+"use_external/path": "res://Assets/AtmosphericHouse/Materials/Stairs_railing_clean.material"
+},
+"Wall_A_plaster_clean": {
+"use_external/enabled": true,
+"use_external/path": "res://Assets/AtmosphericHouse/Materials/Materials_tiled/Wall_A_plaster_clean.material"
+},
+"Wall_concrete_clean": {
+"use_external/enabled": true,
+"use_external/path": "res://Assets/AtmosphericHouse/Materials/Materials_tiled/Wall_concrete_clean.material"
+}
+},
+"meshes": {
+"Root Scene_Stairs_main_railing": {
+"save_to_file/enabled": true,
+"save_to_file/make_streamable": "",
+"save_to_file/path": "res://Assets/AtmosphericHouse/Meshes/Meshes_building/extracted/Stairs_main_R.Stairs_main_railing.mesh"
+},
+"Root Scene_Stairs_main_railing_extra": {
+"save_to_file/enabled": true,
+"save_to_file/make_streamable": "",
+"save_to_file/path": "res://Assets/AtmosphericHouse/Meshes/Meshes_building/extracted/Stairs_main_R.Stairs_main_railing_extra.mesh"
+},
+"Root Scene_WallIn_A_stairs_main_A": {
+"save_to_file/enabled": true,
+"save_to_file/make_streamable": "",
+"save_to_file/path": "res://Assets/AtmosphericHouse/Meshes/Meshes_building/extracted/Stairs_main_R.WallIn_A_stairs_main_A.mesh"
+},
+"Root Scene_WallIn_A_stairs_main_B": {
+"save_to_file/enabled": true,
+"save_to_file/make_streamable": "",
+"save_to_file/path": "res://Assets/AtmosphericHouse/Meshes/Meshes_building/extracted/Stairs_main_R.WallIn_A_stairs_main_B.mesh"
+},
+"Root Scene_stairs_main_steps": {
+"save_to_file/enabled": true,
+"save_to_file/make_streamable": "",
+"save_to_file/path": "res://Assets/AtmosphericHouse/Meshes/Meshes_building/extracted/Stairs_main_R.stairs_main_steps.mesh"
+},
+"Stairs_main_railing": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/make_streamable": "",
+"save_to_file/path": "res://Assets/AtmosphericHouse/Meshes/Meshes_building/extracted/Stairs_main_R.Stairs_main_railing.mesh"
+},
+"Stairs_main_railing_extra": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/make_streamable": "",
+"save_to_file/path": "res://Assets/AtmosphericHouse/Meshes/Meshes_building/extracted/Stairs_main_R.Stairs_main_railing_extra.mesh"
+},
+"WallIn_A_stairs_main_A": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/make_streamable": "",
+"save_to_file/path": "res://Assets/AtmosphericHouse/Meshes/Meshes_building/extracted/Stairs_main_R.WallIn_A_stairs_main_A.mesh"
+},
+"WallIn_A_stairs_main_B": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/make_streamable": "",
+"save_to_file/path": "res://Assets/AtmosphericHouse/Meshes/Meshes_building/extracted/Stairs_main_R.WallIn_A_stairs_main_B.mesh"
+},
+"stairs_main_steps": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/make_streamable": "",
+"save_to_file/path": "res://Assets/AtmosphericHouse/Meshes/Meshes_building/extracted/Stairs_main_R.stairs_main_steps.mesh"
+}
+},
+"nodes": {
+"PATH:AnimationPlayer": {
+"optimizer/enabled": true,
+"optimizer/max_angular_error": 0.00277778,
+"optimizer/max_linear_error": 0.5
+}
+}
+}
+fbx/importer=0
+fbx/allow_geometry_helper_nodes=false
+fbx/embedded_image_handling=1

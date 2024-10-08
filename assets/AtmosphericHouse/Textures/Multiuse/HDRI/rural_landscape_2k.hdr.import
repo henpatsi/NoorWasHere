@@ -1,0 +1,26 @@
+[remap]
+
+importer="cubemap_texture"
+type="CompressedCubemap"
+uid="uid://bbh5mid4vth50"
+path.bptc="res://.godot/imported/rural_landscape_2k.hdr-c02475d47e93a0602dc4461774629c83.bptc.ccube"
+metadata={
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
+}
+
+[deps]
+
+source_file="res://assets/AtmosphericHouse/Textures/Multiuse/HDRI/rural_landscape_2k.hdr"
+dest_files=["res://.godot/imported/rural_landscape_2k.hdr-c02475d47e93a0602dc4461774629c83.bptc.ccube"]
+
+[params]
+
+compress/mode=2
+compress/high_quality=false
+compress/lossy_quality=0.5
+compress/hdr_compression=1
+compress/channel_pack=0
+mipmaps/generate=true
+mipmaps/limit=-1
+slices/arrangement=1

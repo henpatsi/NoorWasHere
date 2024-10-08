@@ -1,0 +1,96 @@
+[remap]
+
+importer="scene"
+importer_version=1
+type="PackedScene"
+uid="uid://cwak0uusiqkxl"
+path="res://.godot/imported/Ceiling_4x3_broken_A.fbx-0a0affd2d98075a0409e44e96e95ff01.scn"
+
+[deps]
+
+source_file="res://assets/AtmosphericHouse/Meshes/Meshes_building/Ceiling_4x3_broken_A.fbx"
+dest_files=["res://.godot/imported/Ceiling_4x3_broken_A.fbx-0a0affd2d98075a0409e44e96e95ff01.scn"]
+
+[params]
+
+nodes/root_type=""
+nodes/root_name=""
+nodes/apply_root_scale=true
+nodes/root_scale=1.0
+nodes/import_as_skeleton_bones=false
+meshes/ensure_tangents=1
+meshes/generate_lods=true
+meshes/create_shadow_meshes=false
+meshes/light_baking=1
+meshes/lightmap_texel_size=0.2
+meshes/force_disable_compression=false
+skins/use_named_skins=true
+animation/import=true
+animation/fps=30.0
+animation/trimming=true
+animation/remove_immutable_tracks=false
+animation/import_rest_as_RESET=true
+import_script/path=""
+_subresources={
+"animations": {},
+"materials": {
+"Basement_woods_pipes_worn": {
+"use_external/enabled": true,
+"use_external/path": "res://Assets/AtmosphericHouse/Materials/Basement_woods_pipes_worn.material"
+},
+"Ceiling_plaster_clean": {
+"use_external/enabled": true,
+"use_external/path": "res://Assets/AtmosphericHouse/Materials/Materials_tiled/Ceiling_plaster_clean.material"
+},
+"Exterior_planks_clean": {
+"use_external/enabled": true,
+"use_external/path": "res://Assets/AtmosphericHouse/Materials/Materials_tiled/Exterior_planks_clean.material"
+},
+"Visualizationhelper": {
+"use_external/enabled": true,
+"use_external/path": "res://Assets/AtmosphericHouse/Materials/Visualizationhelper.material"
+}
+},
+"meshes": {
+"Ceiling_4x3_broken_A": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/make_streamable": "",
+"save_to_file/path": "res://Assets/AtmosphericHouse/Meshes/Meshes_building/extracted/Ceiling_4x3_broken_A.Ceiling_4x3_broken_A.mesh"
+},
+"Ceiling_visualizationhelper": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/make_streamable": "",
+"save_to_file/path": "res://Assets/AtmosphericHouse/Meshes/Meshes_building/extracted/Ceiling_4x3_broken_A.Ceiling_visualizationhelper.mesh"
+},
+"Root Scene_Ceiling_4x3_broken_A": {
+"save_to_file/enabled": true,
+"save_to_file/make_streamable": "",
+"save_to_file/path": "res://Assets/AtmosphericHouse/Meshes/Meshes_building/extracted/Ceiling_4x3_broken_A.Ceiling_4x3_broken_A.mesh"
+},
+"Root Scene_Ceiling_visualizationhelper": {
+"save_to_file/enabled": true,
+"save_to_file/make_streamable": "",
+"save_to_file/path": "res://Assets/AtmosphericHouse/Meshes/Meshes_building/extracted/Ceiling_4x3_broken_A.Ceiling_visualizationhelper.mesh"
+}
+},
+"nodes": {
+"PATH:AnimationPlayer": {
+"optimizer/enabled": true,
+"optimizer/max_angular_error": 0.00277778,
+"optimizer/max_linear_error": 0.5
+}
+}
+}
+fbx/importer=0
+fbx/allow_geometry_helper_nodes=false
+fbx/embedded_image_handling=1

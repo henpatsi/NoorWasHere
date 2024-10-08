@@ -1,0 +1,144 @@
+[remap]
+
+importer="scene"
+importer_version=1
+type="PackedScene"
+uid="uid://wxqlmmkoauef"
+path="res://.godot/imported/Lamp_chandelier.fbx-df0542e83c5f009394909e33966724d4.scn"
+
+[deps]
+
+source_file="res://assets/AtmosphericHouse/Meshes/Meshes_props/Lamp_chandelier.fbx"
+dest_files=["res://.godot/imported/Lamp_chandelier.fbx-df0542e83c5f009394909e33966724d4.scn"]
+
+[params]
+
+nodes/root_type=""
+nodes/root_name=""
+nodes/apply_root_scale=true
+nodes/root_scale=1.0
+nodes/import_as_skeleton_bones=false
+meshes/ensure_tangents=1
+meshes/generate_lods=true
+meshes/create_shadow_meshes=false
+meshes/light_baking=1
+meshes/lightmap_texel_size=0.2
+meshes/force_disable_compression=false
+skins/use_named_skins=true
+animation/import=true
+animation/fps=30.0
+animation/trimming=true
+animation/remove_immutable_tracks=false
+animation/import_rest_as_RESET=true
+import_script/path=""
+_subresources={
+"animations": {},
+"materials": {
+"Lamps_B_on_clean": {
+"use_external/enabled": true,
+"use_external/path": "res://Assets/AtmosphericHouse/Materials/Lamps_B_on_clean.material"
+}
+},
+"meshes": {
+"Lamp_chandelier_body": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/make_streamable": "",
+"save_to_file/path": "res://Assets/AtmosphericHouse/Meshes/Meshes_props/extracted/Lamp_chandelier.Lamp_chandelier_body.mesh"
+},
+"Lamp_chandelier_shade_A": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/make_streamable": "",
+"save_to_file/path": "res://Assets/AtmosphericHouse/Meshes/Meshes_props/extracted/Lamp_chandelier.Lamp_chandelier_shade_A.mesh"
+},
+"Lamp_chandelier_shade_B": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/make_streamable": "",
+"save_to_file/path": "res://Assets/AtmosphericHouse/Meshes/Meshes_props/extracted/Lamp_chandelier.Lamp_chandelier_shade_B.mesh"
+},
+"Lamp_chandelier_shade_C": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/make_streamable": "",
+"save_to_file/path": "res://Assets/AtmosphericHouse/Meshes/Meshes_props/extracted/Lamp_chandelier.Lamp_chandelier_shade_C.mesh"
+},
+"Lamp_chandelier_shade_D": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/make_streamable": "",
+"save_to_file/path": "res://Assets/AtmosphericHouse/Meshes/Meshes_props/extracted/Lamp_chandelier.Lamp_chandelier_shade_D.mesh"
+},
+"Lamp_chandelier_shade_E": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/make_streamable": "",
+"save_to_file/path": "res://Assets/AtmosphericHouse/Meshes/Meshes_props/extracted/Lamp_chandelier.Lamp_chandelier_shade_E.mesh"
+},
+"Root Scene_Lamp_chandelier_body": {
+"save_to_file/enabled": true,
+"save_to_file/make_streamable": "",
+"save_to_file/path": "res://Assets/AtmosphericHouse/Meshes/Meshes_props/extracted/Lamp_chandelier.Lamp_chandelier_body.mesh"
+},
+"Root Scene_Lamp_chandelier_shade_A": {
+"save_to_file/enabled": true,
+"save_to_file/make_streamable": "",
+"save_to_file/path": "res://Assets/AtmosphericHouse/Meshes/Meshes_props/extracted/Lamp_chandelier.Lamp_chandelier_shade_A.mesh"
+},
+"Root Scene_Lamp_chandelier_shade_B": {
+"save_to_file/enabled": true,
+"save_to_file/make_streamable": "",
+"save_to_file/path": "res://Assets/AtmosphericHouse/Meshes/Meshes_props/extracted/Lamp_chandelier.Lamp_chandelier_shade_B.mesh"
+},
+"Root Scene_Lamp_chandelier_shade_C": {
+"save_to_file/enabled": true,
+"save_to_file/make_streamable": "",
+"save_to_file/path": "res://Assets/AtmosphericHouse/Meshes/Meshes_props/extracted/Lamp_chandelier.Lamp_chandelier_shade_C.mesh"
+},
+"Root Scene_Lamp_chandelier_shade_D": {
+"save_to_file/enabled": true,
+"save_to_file/make_streamable": "",
+"save_to_file/path": "res://Assets/AtmosphericHouse/Meshes/Meshes_props/extracted/Lamp_chandelier.Lamp_chandelier_shade_D.mesh"
+},
+"Root Scene_Lamp_chandelier_shade_E": {
+"save_to_file/enabled": true,
+"save_to_file/make_streamable": "",
+"save_to_file/path": "res://Assets/AtmosphericHouse/Meshes/Meshes_props/extracted/Lamp_chandelier.Lamp_chandelier_shade_E.mesh"
+}
+},
+"nodes": {
+"PATH:AnimationPlayer": {
+"optimizer/enabled": true,
+"optimizer/max_angular_error": 0.00277778,
+"optimizer/max_linear_error": 0.5
+}
+}
+}
+fbx/importer=0
+fbx/allow_geometry_helper_nodes=false
+fbx/embedded_image_handling=1
