@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=4 uid="uid://dg3kob4pncl23"]
 
-[ext_resource type="Material" path="res://assets/props/door_a/Door_a_Mat.tres" id="1_rtoc4"]
+[ext_resource type="Material" uid="uid://coyl5gs27j0c8" path="res://assets/props/door_a/Door_a_Mat.tres" id="1_rtoc4"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ua55d"]
 resource_name = "Door_a_Mat"
@@ -48,7 +48,7 @@ size = Vector3(0.158508, 2.68457, 1.04059)
 [node name="Door_a" type="StaticBody3D"]
 
 [node name="Door_a" type="MeshInstance3D" parent="."]
-transform = Transform3D(1.25, 0, 0, 0, -5.46392e-08, 1.25, 0, -1.25, -5.46392e-08, 0, 0, 0)
+transform = Transform3D(1.25, 0, 0, 0, -5.15794e-08, 1.02, 0, -1.18, -4.45856e-08, 0, 0, 0)
 material_override = ExtResource("1_rtoc4")
 mesh = SubResource("ArrayMesh_mswg1")
 skeleton = NodePath("")

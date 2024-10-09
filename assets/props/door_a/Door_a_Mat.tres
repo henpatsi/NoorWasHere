@@ -7,7 +7,7 @@
 [resource]
 resource_name = "Door_a_Mat"
 vertex_color_use_as_albedo = true
-albedo_color = Color(0.501961, 0.501961, 0.501961, 1)
+albedo_color = Color(0.888315, 0.938006, 0.934588, 1)
 albedo_texture = ExtResource("1_4efb3")
 roughness_texture = ExtResource("3_84g24")
 normal_enabled = true
