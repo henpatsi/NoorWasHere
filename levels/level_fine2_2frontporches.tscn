@@ -1,4 +1,4 @@
-[gd_scene load_steps=105 format=3 uid="uid://d2w75ecpou3k1"]
+[gd_scene load_steps=108 format=3 uid="uid://d2w75ecpou3k1"]
 
 [ext_resource type="Environment" uid="uid://dobqonwml2e5x" path="res://assets/WorldEnvironments/Env_Present.tres" id="2_ok3bb"]
 [ext_resource type="PackedScene" uid="uid://b25ooshew3q2v" path="res://player/player.tscn" id="3_h6y6p"]
@@ -28,6 +28,7 @@
 [ext_resource type="PackedScene" uid="uid://bok6u53wltnq6" path="res://assets/AtmosphericHouse/Prefabs/Props/Lamps/CeilingFan.prefab.scn" id="29_4j6pu"]
 [ext_resource type="PackedScene" uid="uid://dnt7eh4fxpryo" path="res://assets/AtmosphericHouse/Prefabs/Props/Furniture/Chair_kitchen.prefab.scn" id="29_jspc5"]
 [ext_resource type="PackedScene" uid="uid://dtltiq757q6i6" path="res://assets/props/piano keyboard/piano_keyboard.tscn" id="29_qrpxb"]
+[ext_resource type="Material" uid="uid://boo7h7nmywbn4" path="res://assets/AtmosphericHouse/Materials/CeilingFan_off_clean.material" id="30_3b0r4"]
 [ext_resource type="PackedScene" uid="uid://dq7je5yx1pxat" path="res://assets/AtmosphericHouse/Prefabs/Props/Electronics/Fridge.prefab.scn" id="30_k5y37"]
 [ext_resource type="PackedScene" uid="uid://d1ip05cxusln3" path="res://assets/AtmosphericHouse/Prefabs/Building/WallIn_B_1x.prefab.scn" id="30_p2wug"]
 [ext_resource type="PackedScene" uid="uid://cnkvqkkp0f0bj" path="res://assets/AtmosphericHouse/Prefabs/Props/Kitchen_cabinets/Kitchen_counter_separate.prefab.scn" id="31_74k4o"]
@@ -35,6 +36,7 @@
 [ext_resource type="PackedScene" uid="uid://cepj8tqtkbm3k" path="res://assets/AtmosphericHouse/Prefabs/Props/Lamps/Lamp_chandelier.prefab.scn" id="32_ialk0"]
 [ext_resource type="PackedScene" uid="uid://gos3nd1wd5rt" path="res://assets/AtmosphericHouse/Prefabs/Props/Kitchen_cabinets/Kitchen_cabinet_C.prefab.scn" id="32_xhstm"]
 [ext_resource type="PackedScene" uid="uid://dspa838ym58cq" path="res://assets/AtmosphericHouse/Prefabs/Props/Kitchen_cabinets/Kitchen_cabinet_end_R.prefab.scn" id="33_sqdkk"]
+[ext_resource type="Material" uid="uid://bnruricugxgi6" path="res://assets/AtmosphericHouse/Materials/Lamps_B_off_clean.material" id="34_ux5ck"]
 [ext_resource type="PackedScene" uid="uid://cvx4w0x53724r" path="res://assets/AtmosphericHouse/Prefabs/Props/Kitchen_cabinets/Kitchen_counter_corner.prefab.scn" id="34_w7yr4"]
 [ext_resource type="PackedScene" uid="uid://x3170wk23umb" path="res://assets/AtmosphericHouse/Prefabs/Building/Roof_A_6x.prefab.scn" id="35_cdy87"]
 [ext_resource type="PackedScene" uid="uid://bke8bgw8k3fis" path="res://assets/AtmosphericHouse/Prefabs/Props/Kitchen_cabinets/Kitchen_counter_sink.prefab.scn" id="35_wowau"]
@@ -70,6 +72,7 @@
 [ext_resource type="PackedScene" uid="uid://b25htfgwil2ic" path="res://assets/AtmosphericHouse/Prefabs/Building/Ceiling_6x3.prefab.scn" id="47_qbjtw"]
 [ext_resource type="PackedScene" uid="uid://dbxa4ccdvyd1b" path="res://assets/AtmosphericHouse/Prefabs/Props/Furniture/Sofa_1seat.prefab.scn" id="48_4bm05"]
 [ext_resource type="PackedScene" uid="uid://c2ksvtdnveryn" path="res://assets/AtmosphericHouse/Prefabs/Props/Lamps/Lamp_ceiling_cone_A.prefab.scn" id="48_eyv78"]
+[ext_resource type="Material" uid="uid://ck7twcoo0g13u" path="res://assets/AtmosphericHouse/Materials/Lamps_A_off_clean.material" id="48_ixqw6"]
 [ext_resource type="PackedScene" uid="uid://yqlp4x05fhxq" path="res://assets/AtmosphericHouse/Prefabs/Building/Ceiling_4x3.prefab.scn" id="48_jlhw4"]
 [ext_resource type="PackedScene" uid="uid://5rcmk7xtmlxp" path="res://assets/AtmosphericHouse/Prefabs/Building/Ceiling_3x3.prefab.scn" id="49_eb218"]
 [ext_resource type="PackedScene" uid="uid://bwfw8shu6rmdp" path="res://assets/AtmosphericHouse/Prefabs/Building/Ceiling_2x3.prefab.scn" id="50_p6q7v"]
@@ -132,14 +135,14 @@ albedo_color = Color(0.341962, 0.398952, 0.358896, 1)
 environment = ExtResource("2_ok3bb")
 
 [node name="DirectionalLightPresent" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.220848, 0.489349, -0.843661, -0.599933, 0.75017, 0.278075, 0.768965, 0.444727, 0.45925, 0, 0, 0)
-light_color = Color(1, 0.748019, 0.572639, 1)
+transform = Transform3D(0.0523836, 0.383658, -0.921988, -0.599933, 0.75017, 0.278075, 0.798334, 0.538564, 0.269466, 0, 0, 0)
+light_color = Color(1, 0.659796, 0.410359, 1)
 light_energy = 2.082
 light_cull_mask = 4294966271
 shadow_enabled = true
 
 [node name="Player" parent="." node_paths=PackedStringArray("subtitle_label", "interact_label", "interact_response_label") instance=ExtResource("3_h6y6p")]
-transform = Transform3D(0.965926, 0, -0.258819, 0, 1, 0, 0.258819, 0, 0.965926, 1.71662, 0, 11.5333)
+transform = Transform3D(0.999727, 0, -0.0233503, 0, 1, 0, 0.0233503, 0, 0.999727, 1.71662, 0, 11.5333)
 max_move_speed = 3.5
 subtitle_label = NodePath("../UI/SubtitleLabel")
 interact_label = NodePath("../UI/InteractLabel")
@@ -333,7 +336,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.5, 0.5, -0.5)
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 15, 0.5, 6.5)
 
 [node name="House" type="Node3D" parent="Present/LevelObjects"]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.3491, 4.76837e-07, 1.08027)
+transform = Transform3D(-1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, -0.3491, 4.76837e-07, 1.08027)
 
 [node name="Level1" type="Node3D" parent="Present/LevelObjects/House"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, -6.5)
@@ -344,6 +347,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, -6.5)
 
 [node name="CeilingFan" parent="Present/LevelObjects/House/Level1/Props/LivingRoom" instance=ExtResource("29_4j6pu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.55344, 6.29725, 7.68475)
+
+[node name="MeshRenderer" parent="Present/LevelObjects/House/Level1/Props/LivingRoom/CeilingFan/CeilingFan_Lamps" index="0"]
+surface_material_override/0 = ExtResource("30_3b0r4")
+
+[node name="Point Light CeilingFan" parent="Present/LevelObjects/House/Level1/Props/LivingRoom/CeilingFan" index="4"]
+visible = false
 
 [node name="Chair_kitchen 1" parent="Present/LevelObjects/House/Level1/Props/LivingRoom" instance=ExtResource("29_jspc5")]
 transform = Transform3D(0.0284277, 0, 0.999596, 0, 1, 0, -0.999596, 0, 0.0284277, 3.92365, 0.5, 7.77672)
@@ -362,6 +371,24 @@ transform = Transform3D(-0.845, 0, 1.50996e-07, 0, 1, 0, -1.27591e-07, 0, -1, 5.
 
 [node name="Lamp_chandelier2" parent="Present/LevelObjects/House/Level1/Props/LivingRoom" instance=ExtResource("32_ialk0")]
 transform = Transform3D(-0.833741, 0, -0.552155, 0, 1, 0, 0.552155, 0, -0.833741, 5.04813, 3.29983, 7.80097)
+
+[node name="MeshRenderer" parent="Present/LevelObjects/House/Level1/Props/LivingRoom/Lamp_chandelier2/Lamp_chandelier_shade_A" index="0"]
+surface_material_override/0 = ExtResource("34_ux5ck")
+
+[node name="MeshRenderer" parent="Present/LevelObjects/House/Level1/Props/LivingRoom/Lamp_chandelier2/Lamp_chandelier_shade_B" index="0"]
+surface_material_override/0 = ExtResource("34_ux5ck")
+
+[node name="MeshRenderer" parent="Present/LevelObjects/House/Level1/Props/LivingRoom/Lamp_chandelier2/Lamp_chandelier_shade_C" index="0"]
+surface_material_override/0 = ExtResource("34_ux5ck")
+
+[node name="MeshRenderer" parent="Present/LevelObjects/House/Level1/Props/LivingRoom/Lamp_chandelier2/Lamp_chandelier_shade_D" index="0"]
+surface_material_override/0 = ExtResource("34_ux5ck")
+
+[node name="MeshRenderer" parent="Present/LevelObjects/House/Level1/Props/LivingRoom/Lamp_chandelier2/Lamp_chandelier_shade_E" index="0"]
+surface_material_override/0 = ExtResource("34_ux5ck")
+
+[node name="Point Light" parent="Present/LevelObjects/House/Level1/Props/LivingRoom/Lamp_chandelier2" index="8"]
+visible = false
 
 [node name="Kitchen" type="Node3D" parent="Present/LevelObjects/House/Level1/Props"]
 
@@ -411,6 +438,12 @@ transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, -1.5, -1, 0)
 [node name="Lamp_wall_fluorescent" parent="Present/LevelObjects/House/Level1/Props/Kitchen/Kitchen_kitchen_cabinets_A/Stove" instance=ExtResource("43_akm85")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.55485, 0.0957422)
 
+[node name="MeshRenderer" parent="Present/LevelObjects/House/Level1/Props/Kitchen/Kitchen_kitchen_cabinets_A/Stove/Lamp_wall_fluorescent" index="0"]
+surface_material_override/0 = ExtResource("48_ixqw6")
+
+[node name="Point Light" parent="Present/LevelObjects/House/Level1/Props/Kitchen/Kitchen_kitchen_cabinets_A/Stove/Lamp_wall_fluorescent" index="3"]
+visible = false
+
 [node name="Kitchen_kitchen_cabinets_B" type="Node3D" parent="Present/LevelObjects/House/Level1/Props/Kitchen"]
 transform = Transform3D(1, 0, -2.38419e-07, 0, 1, 0, 2.38419e-07, 0, 1, 10, 1.5, 6)
 
@@ -439,6 +472,12 @@ transform = Transform3D(0.99255, 0, 0.121835, 0, 1, 0, -0.121835, 0, 0.99255, -0
 
 [node name="Lamp_ceiling_cone_A" parent="Present/LevelObjects/House/Level1/Props/Kitchen/Kitchen_counter_separate" instance=ExtResource("48_eyv78")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.79935, 0)
+
+[node name="MeshRenderer" parent="Present/LevelObjects/House/Level1/Props/Kitchen/Kitchen_counter_separate/Lamp_ceiling_cone_A" index="0"]
+surface_material_override/0 = ExtResource("48_ixqw6")
+
+[node name="Spot Light" parent="Present/LevelObjects/House/Level1/Props/Kitchen/Kitchen_counter_separate/Lamp_ceiling_cone_A" index="4"]
+visible = false
 
 [node name="Sofa_2seat" parent="Present/LevelObjects/House/Level1/Props" instance=ExtResource("47_2qtwu")]
 transform = Transform3D(-0.24568, 0, -0.969351, 0, 1, 0, 0.969351, 0, -0.24568, 5.21273, 0.5, 3.9491)
@@ -786,6 +825,29 @@ transform = Transform3D(1, 0, 1.06581e-14, 0, 1, 0, -1.06581e-14, 0, 1, 0, 3.5, 
 [node name="Ceiling_6x7" parent="Present/LevelObjects/House/Level1/Ceilings" instance=ExtResource("47_qbjtw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.5, 10.5)
 
+[node name="Lights" type="Node3D" parent="Present/LevelObjects/House/Level1"]
+
+[node name="SpotLight3D5" type="SpotLight3D" parent="Present/LevelObjects/House/Level1/Lights"]
+transform = Transform3D(-0.984732, 0.141249, 0.101741, 0.162036, 0.95735, 0.239219, -0.0636121, 0.252052, -0.965621, -1.47321, 2.14324, 2.55748)
+light_color = Color(0.930311, 0.742232, 0.582479, 1)
+light_energy = 2.297
+light_specular = 0.05
+shadow_enabled = true
+shadow_opacity = 0.5
+spot_range = 7.682
+spot_angle = 39.95
+spot_angle_attenuation = 7.72748
+
+[node name="SpotLight3D6" type="SpotLight3D" parent="Present/LevelObjects/House/Level1/Lights"]
+transform = Transform3D(-0.842028, 0.0077399, 0.539379, 0.162036, 0.95735, 0.239219, -0.514522, 0.288828, -0.807369, 5.76519, 2.14324, 2.55932)
+light_color = Color(0.930311, 0.742232, 0.582479, 1)
+light_energy = 1.534
+shadow_enabled = true
+shadow_opacity = 0.5
+spot_range = 7.682
+spot_angle = 39.95
+spot_angle_attenuation = 13.4543
+
 [node name="Stairs_main_L" parent="Present/LevelObjects/House" instance=ExtResource("26_vdx28")]
 transform = Transform3D(1.07284e-07, 0, 1, 0, 1, 0, 1, 0, -1.07284e-07, -5, 0.5, 4)
 
@@ -888,11 +950,11 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 6, 0.5
 [node name="WallIn_A_3x" parent="Present/LevelObjects/House/Level2/Walls_EXT/WallOut_3x_18" instance=ExtResource("24_jwfw7")]
 transform = Transform3D(-1, 0, 1.50996e-07, 0, 1, 0, -1.50996e-07, 0, -1, 3, 0, 9.53674e-07)
 
-[node name="WallOut_3x_14" parent="Present/LevelObjects/House/Level2/Walls_EXT" instance=ExtResource("23_7wslc")]
+[node name="WallOut_3x_windowsmall_vinyl3" parent="Present/LevelObjects/House/Level2/Walls_EXT" instance=ExtResource("57_h16g7")]
 transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 0, 0.5, 1.5)
 
-[node name="WallIn_A_3x" parent="Present/LevelObjects/House/Level2/Walls_EXT/WallOut_3x_14" instance=ExtResource("24_jwfw7")]
-transform = Transform3D(-1, 0, 1.50996e-07, 0, 1, 0, -1.50996e-07, 0, -1, 3, 0, 9.53674e-07)
+[node name="WallIn_B_3x_windowsmall" parent="Present/LevelObjects/House/Level2/Walls_EXT/WallOut_3x_windowsmall_vinyl3" instance=ExtResource("58_tdpx0")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 3, 0, 9.53674e-07)
 
 [node name="WallOut_3x_window_vinyl2" parent="Present/LevelObjects/House/Level2/Walls_EXT" instance=ExtResource("81_srmk7")]
 transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 0, 0.5, 10.5)
@@ -972,7 +1034,7 @@ transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 3, 0, 
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0.5, 6.5)
 
 [node name="WallIn_A_1x2" parent="Present/LevelObjects/House/Level2/Walls_INT" instance=ExtResource("41_mvab6")]
-transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 3, 0.5, 2.5)
+transform = Transform3D(1.63515e-07, 0, -1, 0, 1, 0, 1.24693, 0, 1.31134e-07, 3, 0.5, 2.27298)
 
 [node name="WallIn_A_1x4" parent="Present/LevelObjects/House/Level2/Walls_INT" instance=ExtResource("41_mvab6")]
 transform = Transform3D(1, 0, 1.74845e-07, 0, 1, 0, -1.74845e-07, 0, 1, 5, 0.5, 10.5)
@@ -1004,7 +1066,7 @@ transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 3, 0, 
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1, 0, -4.76837e-07)
 
 [node name="WallIn_B_3x_door3" parent="Present/LevelObjects/House/Level2/Doors" instance=ExtResource("43_stcfb")]
-transform = Transform3D(-1, 0, 2.62268e-07, 0, 1, 0, -2.62268e-07, 0, -1, 3, 0.5, 2.5)
+transform = Transform3D(-1, 0, 2.62268e-07, 0, 1, 0, -2.62268e-07, 0, -1, 3, 0.5, 2.22206)
 
 [node name="Doorframe_in_single" parent="Present/LevelObjects/House/Level2/Doors/WallIn_B_3x_door3" instance=ExtResource("44_ux5ei")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, -1.31134e-07)
@@ -1061,6 +1123,59 @@ transform = Transform3D(1, 0, 1.06581e-14, 0, 1, 0, -1.06581e-14, 0, 1, 0, 3.5, 
 [node name="Ceiling_6x8" parent="Present/LevelObjects/House/Level2/Ceilings" instance=ExtResource("47_qbjtw")]
 transform = Transform3D(1, 0, 1.06581e-14, 0, 1, 0, -1.06581e-14, 0, 1, 0, 3.5, 10.5)
 
+[node name="Lights" type="Node3D" parent="Present/LevelObjects/House/Level2"]
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Present/LevelObjects/House/Level2/Lights"]
+transform = Transform3D(-0.921051, 0.0597319, 0.384834, 0.162036, 0.95735, 0.239219, -0.354132, 0.28269, -0.891447, 10.5448, 1.96047, 4.65291)
+light_color = Color(0.930311, 0.742232, 0.582479, 1)
+light_energy = 4.832
+light_specular = 0.05
+shadow_enabled = true
+shadow_opacity = 0.5
+spot_angle = 39.95
+spot_angle_attenuation = 7.72748
+
+[node name="SpotLight3D3" type="SpotLight3D" parent="Present/LevelObjects/House/Level2/Lights"]
+transform = Transform3D(-0.970889, 0.198008, -0.134785, 0.162036, 0.95735, 0.239219, 0.176404, 0.210415, -0.961565, 7.65456, 2.07434, 4.60951)
+light_color = Color(0.930311, 0.742232, 0.582479, 1)
+light_energy = 2.931
+light_specular = 0.05
+shadow_enabled = true
+shadow_opacity = 0.5
+spot_angle = 39.95
+spot_angle_attenuation = 7.72748
+
+[node name="SpotLight3D5" type="SpotLight3D" parent="Present/LevelObjects/House/Level2/Lights"]
+transform = Transform3D(-0.679733, 0.284023, -0.676235, 0.162036, 0.95735, 0.239219, 0.715337, 0.0530304, -0.696765, 0.345722, 2.10414, 3.1378)
+light_color = Color(0.930311, 0.742232, 0.582479, 1)
+light_energy = 2.297
+light_specular = 0.05
+shadow_enabled = true
+shadow_opacity = 0.5
+spot_range = 7.682
+spot_angle = 39.95
+spot_angle_attenuation = 7.72748
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="Present/LevelObjects/House/Level2/Lights"]
+transform = Transform3D(-0.406337, -0.253338, 0.877901, -0.0535956, 0.965749, 0.253882, -0.91215, 0.0561102, -0.405998, 11.6437, 2.003, 8.42523)
+light_color = Color(0.930311, 0.742232, 0.582479, 1)
+light_energy = 2.773
+light_specular = 0.05
+shadow_enabled = true
+shadow_opacity = 0.5
+spot_angle = 38.16
+spot_angle_attenuation = 14.9285
+
+[node name="SpotLight3D4" type="SpotLight3D" parent="Present/LevelObjects/House/Level2/Lights"]
+transform = Transform3D(0.94708, -0.0851983, 0.309486, -0.0802539, 0.870669, 0.485277, -0.310804, -0.484434, 0.817756, 2.72833, 2.003, 13.2948)
+light_color = Color(0.930311, 0.742232, 0.582479, 1)
+light_energy = 1.823
+light_specular = 0.05
+shadow_enabled = true
+shadow_opacity = 0.5
+spot_angle = 79.15
+spot_angle_attenuation = 14.9285
+
 [node name="FrontPorch" type="Node3D" parent="Present/LevelObjects/House"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, -6.5)
 
@@ -1113,7 +1228,7 @@ transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, 3, 6.5, 7.5)
 transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, 3, 6.5, 4.5)
 
 [node name="Roof2" type="Node3D" parent="Present/LevelObjects/House/Roof"]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 16.5, 0, 1)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 16.5, 0, 1.5)
 
 [node name="Roof_A_6x_gable2" parent="Present/LevelObjects/House/Roof/Roof2" instance=ExtResource("32_3l5fc")]
 transform = Transform3D(8.74228e-08, 0, -1, 0, 1, 0, 1, 0, 8.74228e-08, 3, 6.5, 4.5)
@@ -1128,7 +1243,7 @@ transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, 9, 6.5, 10.5)
 transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, 9, 6.5, 7.5)
 
 [node name="Roof3" type="Node3D" parent="Present/LevelObjects/House/Roof"]
-transform = Transform3D(1, 0, -1.06581e-14, 0, 1, 0, 1.06581e-14, 0, 1, -3, 3.5, 10.5)
+transform = Transform3D(1, 0, -7.10543e-15, 0, 0.766731, 0, 7.10543e-15, 0, 1, -3, 3.5, 10.5)
 
 [node name="Roof_A_6x_gable2" parent="Present/LevelObjects/House/Roof/Roof3" instance=ExtResource("32_3l5fc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
@@ -1295,3 +1410,7 @@ panning_strength = 0.0
 bus = &"Highpass"
 
 [editable path="Player"]
+[editable path="Present/LevelObjects/House/Level1/Props/LivingRoom/CeilingFan"]
+[editable path="Present/LevelObjects/House/Level1/Props/LivingRoom/Lamp_chandelier2"]
+[editable path="Present/LevelObjects/House/Level1/Props/Kitchen/Kitchen_kitchen_cabinets_A/Stove/Lamp_wall_fluorescent"]
+[editable path="Present/LevelObjects/House/Level1/Props/Kitchen/Kitchen_counter_separate/Lamp_ceiling_cone_A"]
