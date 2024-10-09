@@ -18,7 +18,7 @@ height = 1.5
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_8swph"]
 radius = 0.214318
-height = 1.55099
+height = 1.70936
 
 [node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("footstep_audio_player", "dialogue_audio_player", "ray_cast") groups=["Player"]]
 collision_layer = 2
@@ -36,11 +36,11 @@ cast_shadow = 0
 mesh = SubResource("CapsuleMesh_3ceiv")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.685623, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.853736, 0)
 shape = SubResource("CapsuleShape3D_8swph")
 
 [node name="HeadNode" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2413, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.58918, 0)
 
 [node name="Camera3D" type="Camera3D" parent="HeadNode"]
 fov = 60.0
