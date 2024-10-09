@@ -61,6 +61,7 @@ noise = SubResource("FastNoiseLite_jw2n0")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ogyq8"]
 shader = ExtResource("12_yjm3x")
+shader_parameter/intensity = 1.0
 shader_parameter/distort_noise = SubResource("NoiseTexture2D_cechl")
 
 [sub_resource type="LabelSettings" id="LabelSettings_ecdey"]

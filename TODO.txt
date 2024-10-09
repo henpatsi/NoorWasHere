@@ -1,3 +1,7 @@
 exit into obstacle unstuck
 try make screenshot work
 some visual effect when entering/exiting photo
+
+some ambient camera sway
+
+crouch
