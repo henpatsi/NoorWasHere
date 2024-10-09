@@ -40,10 +40,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.685623, 0)
 shape = SubResource("CapsuleShape3D_8swph")
 
 [node name="HeadNode" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.75, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2413, 0)
 
 [node name="Camera3D" type="Camera3D" parent="HeadNode"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.511263, 0)
+fov = 60.0
 
 [node name="RayCast3D" type="RayCast3D" parent="HeadNode/Camera3D"]
 

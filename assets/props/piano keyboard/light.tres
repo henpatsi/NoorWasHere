@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://dw64pmrayboxr"]
+
+[resource]
+resource_name = "light"
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.743462, 0.554527, 0.595446, 1)
+emission_enabled = true
+emission = Color(1, 0.364254, 0.455544, 1)
