@@ -1,4 +1,4 @@
-[gd_scene load_steps=112 format=3 uid="uid://c58kgnx88ph33"]
+[gd_scene load_steps=119 format=3 uid="uid://c58kgnx88ph33"]
 
 [ext_resource type="Environment" uid="uid://dobqonwml2e5x" path="res://assets/WorldEnvironments/Env_Present.tres" id="1_8djol"]
 [ext_resource type="PackedScene" uid="uid://b25ooshew3q2v" path="res://player/player.tscn" id="2_cpp0f"]
@@ -106,6 +106,13 @@
 [ext_resource type="PackedScene" uid="uid://brtrvnfelp3ux" path="res://assets/props/car/sketchfab_scene.tscn" id="100_g37rl"]
 [ext_resource type="AudioStream" uid="uid://bsstebl4bk5v3" path="res://assets/audio/sfx/roomtone/Yard present/Yard_ambience_dark.ogg" id="101_g5kun"]
 [ext_resource type="AudioStream" uid="uid://b72q3xj1r0td5" path="res://assets/audio/sfx/roomtone/Ambient noise/fire.ogg" id="102_d6w18"]
+[ext_resource type="PackedScene" uid="uid://b8qewvmjmb0dm" path="res://assets/Exterior/Spruce Trees/spruce_tall_1.tscn" id="107_3v2am"]
+[ext_resource type="PackedScene" uid="uid://cm36h1m1s0jdb" path="res://assets/Exterior/Spruce Trees/spruce_tall_2.tscn" id="108_givt7"]
+[ext_resource type="PackedScene" uid="uid://cxyn76w7s5out" path="res://assets/Exterior/Spruce Trees/spruce_sapling.tscn" id="109_ixibv"]
+[ext_resource type="PackedScene" uid="uid://b3mmarwgjl3nj" path="res://assets/Exterior/Spruce Trees/spruce_no_branch.tscn" id="110_wfnx0"]
+[ext_resource type="PackedScene" uid="uid://b8fhvxdbk6j05" path="res://assets/Exterior/Spruce Trees/spruce_medium.tscn" id="111_3i2rk"]
+[ext_resource type="PackedScene" uid="uid://bm1ekoc6v6mko" path="res://assets/Exterior/Spruce Trees/spruce_small.tscn" id="112_6fyud"]
+[ext_resource type="PackedScene" uid="uid://4nhohfth2wkb" path="res://assets/Exterior/Spruce Trees/spruce_baby.tscn" id="113_6bdkt"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ag0sf"]
 font = ExtResource("4_fxrr7")
@@ -139,8 +146,8 @@ albedo_color = Color(0.341962, 0.398952, 0.358896, 1)
 environment = ExtResource("1_8djol")
 
 [node name="DirectionalLightPresent" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.32607, 0.493832, -0.806107, -0.584562, 0.77547, 0.238608, 0.742944, 0.393416, 0.541533, 0, 0, 0)
-light_color = Color(1, 0.659796, 0.410359, 1)
+transform = Transform3D(0.258643, 0.811368, -0.5242, -0.653071, 0.546729, 0.524009, 0.71176, 0.206809, 0.671288, 0, 0, 0)
+light_color = Color(1, 0.658824, 0.411765, 1)
 light_energy = 2.082
 light_cull_mask = 4294966271
 shadow_enabled = true
@@ -827,7 +834,7 @@ transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, 3, 0.5, 
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 3, 0, 9.53674e-07)
 
 [node name="Door_parent_C_L" parent="Present/LevelObjects/House/Level1/Doors/DoorBackyard" instance=ExtResource("86_fmo2a")]
-transform = Transform3D(1, 0, 5.68434e-13, 0, 1, 0, -5.68434e-13, 0, 1, 2, 0, 4.76837e-07)
+transform = Transform3D(-4.3712e-08, 0, 1, 0, 1, 0, -1, 0, -4.3712e-08, 2, 0, 4.76837e-07)
 
 [node name="DoorFrontyard" parent="Present/LevelObjects/House/Level1/Doors" instance=ExtResource("80_q03gj")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 4.5, 0.5, 9)
@@ -1123,6 +1130,11 @@ transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, 3, 0.5, 
 
 [node name="Decal_wallIn_A_corner_outSmall" parent="Present/LevelObjects/House/Level2/Walls_INT/corners/WallIn_A_corner_outSmall4" instance=ExtResource("72_8xf8c")]
 
+[node name="WallIn_A_corner_outSmall5" parent="Present/LevelObjects/House/Level2/Walls_INT/corners" instance=ExtResource("71_2nqxk")]
+transform = Transform3D(-1, 0, -2.62269e-07, 0, 1, 0, 2.62269e-07, 0, -1, 3, 0.5, 2.20657)
+
+[node name="Decal_wallIn_A_corner_outSmall" parent="Present/LevelObjects/House/Level2/Walls_INT/corners/WallIn_A_corner_outSmall5" instance=ExtResource("72_8xf8c")]
+
 [node name="WallIn_A_1x5" parent="Present/LevelObjects/House/Level2/Walls_INT" instance=ExtResource("17_ly1t1")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 5.5, 0.5, 3.5)
 
@@ -1135,6 +1147,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5, 0.5, 5.5)
 [node name="WallIn_A_3x" parent="Present/LevelObjects/House/Level2/Walls_INT" instance=ExtResource("26_f77mb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0.5, 3.5)
 
+[node name="WallIn_B_3x4" parent="Present/LevelObjects/House/Level2/Walls_INT/WallIn_A_3x" instance=ExtResource("25_vvhpb")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 3, 0, 9.53674e-07)
+
 [node name="WallIn_A_3x4" parent="Present/LevelObjects/House/Level2/Walls_INT" instance=ExtResource("26_f77mb")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 6.5, 0.5, 4.5)
 
@@ -1146,6 +1161,9 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0.5
 
 [node name="WallIn_A_1x2" parent="Present/LevelObjects/House/Level2/Walls_INT" instance=ExtResource("17_ly1t1")]
 transform = Transform3D(1.63515e-07, 0, -1, 0, 1, 0, 1.24693, 0, 1.31134e-07, 3, 0.5, 2.27298)
+
+[node name="WallIn_A_1x6" parent="Present/LevelObjects/House/Level2/Walls_INT/WallIn_A_1x2" instance=ExtResource("17_ly1t1")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.870564, 0, 4.76837e-07)
 
 [node name="WallIn_A_1x4" parent="Present/LevelObjects/House/Level2/Walls_INT" instance=ExtResource("17_ly1t1")]
 transform = Transform3D(1, 0, 1.74845e-07, 0, 1, 0, -1.74845e-07, 0, 1, 5, 0.5, 10.5)
@@ -1357,7 +1375,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
 
 [node name="car" parent="Present/LevelObjects" instance=ExtResource("100_g37rl")]
-transform = Transform3D(-0.965926, 0, 0.258819, 0, 1, 0, -0.258819, 0, -0.965926, -1, 0, 31.25)
+transform = Transform3D(-0.991213, 0, 0.132273, 0, 1, 0, -0.132273, 0, -0.991213, -2.05471, 4.76837e-07, 24.6179)
 
 [node name="Lights" type="Node3D" parent="Present"]
 visible = false
@@ -1513,6 +1531,449 @@ autoplay = true
 max_distance = 220.0
 panning_strength = 0.0
 bus = &"Highpass"
+
+[node name="Forest" type="Node3D" parent="Present"]
+
+[node name="SpruceTrees" type="Node3D" parent="Present/Forest"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 51.5, 0, 0)
+
+[node name="Tall" type="Node3D" parent="Present/Forest/SpruceTrees"]
+
+[node name="SpruceTall1_0" parent="Present/Forest/SpruceTrees/Tall" instance=ExtResource("107_3v2am")]
+transform = Transform3D(70, 3.0598e-06, 3.0598e-06, -3.0598e-06, -3.0598e-06, 70, 3.0598e-06, -70, -3.0598e-06, -2, 0, -68)
+
+[node name="SpruceTall1_1" parent="Present/Forest/SpruceTrees/Tall" instance=ExtResource("107_3v2am")]
+transform = Transform3D(70, 3.0598e-06, 3.0598e-06, -3.0598e-06, -3.0598e-06, 70, 3.0598e-06, -70, -3.0598e-06, 3.5, 0, -70)
+
+[node name="SpruceTall1_2" parent="Present/Forest/SpruceTrees/Tall" instance=ExtResource("107_3v2am")]
+transform = Transform3D(70, 3.0598e-06, 3.0598e-06, -3.0598e-06, -3.0598e-06, 70, 3.0598e-06, -70, -3.0598e-06, 8.5, 0, -68)
+
+[node name="SpruceTall1_3" parent="Present/Forest/SpruceTrees/Tall" instance=ExtResource("107_3v2am")]
+transform = Transform3D(70, 3.0598e-06, 3.0598e-06, -3.0598e-06, -3.0598e-06, 70, 3.0598e-06, -70, -3.0598e-06, 19, 0, -63.5)
+
+[node name="SpruceTall1_4" parent="Present/Forest/SpruceTrees/Tall" instance=ExtResource("107_3v2am")]
+transform = Transform3D(70, 3.0598e-06, 3.0598e-06, -3.0598e-06, -3.0598e-06, 70, 3.0598e-06, -70, -3.0598e-06, 25.5, 0, -60.5)
+
+[node name="SpruceTall1_5" parent="Present/Forest/SpruceTrees/Tall" instance=ExtResource("107_3v2am")]
+transform = Transform3D(70, 3.0598e-06, 3.0598e-06, -3.0598e-06, -3.0598e-06, 70, 3.0598e-06, -70, -3.0598e-06, 28, 0, -53)
+
+[node name="SpruceTall1_6" parent="Present/Forest/SpruceTrees/Tall" instance=ExtResource("107_3v2am")]
+transform = Transform3D(70, 3.0598e-06, 3.0598e-06, -3.0598e-06, -3.0598e-06, 70, 3.0598e-06, -70, -3.0598e-06, 22.5, 0, -39.5)
+
+[node name="SpruceTall1_7" parent="Present/Forest/SpruceTrees/Tall" instance=ExtResource("107_3v2am")]
+transform = Transform3D(70, 3.0598e-06, 3.0598e-06, -3.0598e-06, -3.0598e-06, 70, 3.0598e-06, -70, -3.0598e-06, 16.5, 0, -36)
+
+[node name="SpruceTall1_8" parent="Present/Forest/SpruceTrees/Tall" instance=ExtResource("107_3v2am")]
+transform = Transform3D(70, 3.0598e-06, 3.0598e-06, -3.0598e-06, -3.0598e-06, 70, 3.0598e-06, -70, -3.0598e-06, 8.5, 0, -35)
+
+[node name="SpruceTall1_9" parent="Present/Forest/SpruceTrees/Tall" instance=ExtResource("107_3v2am")]
+transform = Transform3D(70, 3.0598e-06, 3.0598e-06, -3.0598e-06, -3.0598e-06, 70, 3.0598e-06, -70, -3.0598e-06, 1, 0, -37.5)
+
+[node name="SpruceTall1_10" parent="Present/Forest/SpruceTrees/Tall" instance=ExtResource("107_3v2am")]
+transform = Transform3D(70, 3.0598e-06, 3.0598e-06, -3.0598e-06, -3.0598e-06, 70, 3.0598e-06, -70, -3.0598e-06, -6, 0, -37)
+
+[node name="SpruceTall1_11" parent="Present/Forest/SpruceTrees/Tall" instance=ExtResource("107_3v2am")]
+transform = Transform3D(70, 3.0598e-06, 3.0598e-06, -3.0598e-06, -3.0598e-06, 70, 3.0598e-06, -70, -3.0598e-06, -11, 0, -36)
+
+[node name="SpruceTall1_12" parent="Present/Forest/SpruceTrees/Tall" instance=ExtResource("107_3v2am")]
+transform = Transform3D(70, 3.0598e-06, 3.0598e-06, -3.0598e-06, -3.0598e-06, 70, 3.0598e-06, -70, -3.0598e-06, -16, 0, -40.5)
+
+[node name="SpruceTall1_13" parent="Present/Forest/SpruceTrees/Tall" instance=ExtResource("107_3v2am")]
+transform = Transform3D(70, 3.0598e-06, 3.0598e-06, -3.0598e-06, -3.0598e-06, 70, 3.0598e-06, -70, -3.0598e-06, -25, 0, -44.5)
+
+[node name="SpruceTall1_14" parent="Present/Forest/SpruceTrees/Tall" instance=ExtResource("107_3v2am")]
+transform = Transform3D(70, 3.0598e-06, 3.0598e-06, -3.0598e-06, -3.0598e-06, 70, 3.0598e-06, -70, -3.0598e-06, -25, 0, -44.5)
+
+[node name="SpruceTall1_15" parent="Present/Forest/SpruceTrees/Tall" instance=ExtResource("107_3v2am")]
+transform = Transform3D(70, 3.0598e-06, 3.0598e-06, -3.0598e-06, -3.0598e-06, 70, 3.0598e-06, -70, -3.0598e-06, -35.5, 0, -46.5)
+
+[node name="SpruceTall1_16" parent="Present/Forest/SpruceTrees/Tall" instance=ExtResource("107_3v2am")]
+transform = Transform3D(70, 3.0598e-06, 3.0598e-06, -3.0598e-06, -3.0598e-06, 70, 3.0598e-06, -70, -3.0598e-06, -40, 0, -55.5)
+
+[node name="SpruceTall1_17" parent="Present/Forest/SpruceTrees/Tall" instance=ExtResource("107_3v2am")]
+transform = Transform3D(70, 3.0598e-06, 3.0598e-06, -3.0598e-06, -3.0598e-06, 70, 3.0598e-06, -70, -3.0598e-06, -32, 0, -57.5)
+
+[node name="SpruceTall1_18" parent="Present/Forest/SpruceTrees/Tall" instance=ExtResource("107_3v2am")]
+transform = Transform3D(70, 3.0598e-06, 3.0598e-06, -3.0598e-06, -3.0598e-06, 70, 3.0598e-06, -70, -3.0598e-06, -24, 0, -59)
+
+[node name="SpruceTall1_19" parent="Present/Forest/SpruceTrees/Tall" instance=ExtResource("107_3v2am")]
+transform = Transform3D(70, 3.0598e-06, 3.0598e-06, -3.0598e-06, -3.0598e-06, 70, 3.0598e-06, -70, -3.0598e-06, -15.5, 0, -61.5)
+
+[node name="SpruceTall1_20" parent="Present/Forest/SpruceTrees/Tall" instance=ExtResource("107_3v2am")]
+transform = Transform3D(70, 3.0598e-06, 3.0598e-06, -3.0598e-06, -3.0598e-06, 70, 3.0598e-06, -70, -3.0598e-06, -11.5, 0, -70)
+
+[node name="SpruceTall1_21" parent="Present/Forest/SpruceTrees/Tall" instance=ExtResource("107_3v2am")]
+transform = Transform3D(70, 3.0598e-06, 3.0598e-06, -3.0598e-06, -3.0598e-06, 70, 3.0598e-06, -70, -3.0598e-06, -11.5, 0, -70)
+
+[node name="SpruceTall1_22" parent="Present/Forest/SpruceTrees/Tall" instance=ExtResource("107_3v2am")]
+transform = Transform3D(70, 3.0598e-06, 3.0598e-06, -3.0598e-06, -3.0598e-06, 70, 3.0598e-06, -70, -3.0598e-06, -6.5, 0, -71.5)
+
+[node name="SpruceTall1_23" parent="Present/Forest/SpruceTrees/Tall" instance=ExtResource("107_3v2am")]
+transform = Transform3D(70, 3.0598e-06, 3.0598e-06, -3.0598e-06, -3.0598e-06, 70, 3.0598e-06, -70, -3.0598e-06, -3, 0, -71)
+
+[node name="SpruceTall1_24" parent="Present/Forest/SpruceTrees/Tall" instance=ExtResource("107_3v2am")]
+transform = Transform3D(70, 3.0598e-06, 3.0598e-06, -3.0598e-06, -3.0598e-06, 70, 3.0598e-06, -70, -3.0598e-06, 8.5, 0, -71.5)
+
+[node name="SpruceTall1_25" parent="Present/Forest/SpruceTrees/Tall" instance=ExtResource("107_3v2am")]
+transform = Transform3D(70, 3.0598e-06, 3.0598e-06, -3.0598e-06, -3.0598e-06, 70, 3.0598e-06, -70, -3.0598e-06, 5, 0, -65)
+
+[node name="SpruceTall1_26" parent="Present/Forest/SpruceTrees/Tall" instance=ExtResource("107_3v2am")]
+transform = Transform3D(70, 3.0598e-06, 3.0598e-06, -3.0598e-06, -3.0598e-06, 70, 3.0598e-06, -70, -3.0598e-06, 9.5, 0, -62.5)
+
+[node name="SpruceTall1_27" parent="Present/Forest/SpruceTrees/Tall" instance=ExtResource("107_3v2am")]
+transform = Transform3D(70, 3.0598e-06, 3.0598e-06, -3.0598e-06, -3.0598e-06, 70, 3.0598e-06, -70, -3.0598e-06, 16.5, 0, -65.5)
+
+[node name="SpruceTall1_28" parent="Present/Forest/SpruceTrees/Tall" instance=ExtResource("107_3v2am")]
+transform = Transform3D(70, 3.0598e-06, 3.0598e-06, -3.0598e-06, -3.0598e-06, 70, 3.0598e-06, -70, -3.0598e-06, 13.5, 0, -69.5)
+
+[node name="SpruceTall1_29" parent="Present/Forest/SpruceTrees/Tall" instance=ExtResource("107_3v2am")]
+transform = Transform3D(70, 3.0598e-06, 3.0598e-06, -3.0598e-06, -3.0598e-06, 70, 3.0598e-06, -70, -3.0598e-06, 23.5, 0, -63)
+
+[node name="SpruceTall1_30" parent="Present/Forest/SpruceTrees/Tall" instance=ExtResource("107_3v2am")]
+transform = Transform3D(70, 3.0598e-06, 3.0598e-06, -3.0598e-06, -3.0598e-06, 70, 3.0598e-06, -70, -3.0598e-06, 26, 0, -55)
+
+[node name="SpruceTall1_31" parent="Present/Forest/SpruceTrees/Tall" instance=ExtResource("107_3v2am")]
+transform = Transform3D(70, 3.0598e-06, 3.0598e-06, -3.0598e-06, -3.0598e-06, 70, 3.0598e-06, -70, -3.0598e-06, 27.5, 0, -47.5)
+
+[node name="SpruceTall1_32" parent="Present/Forest/SpruceTrees/Tall" instance=ExtResource("107_3v2am")]
+transform = Transform3D(70, 3.0598e-06, 3.0598e-06, -3.0598e-06, -3.0598e-06, 70, 3.0598e-06, -70, -3.0598e-06, 29.5, 0, -42)
+
+[node name="SpruceTall1_33" parent="Present/Forest/SpruceTrees/Tall" instance=ExtResource("107_3v2am")]
+transform = Transform3D(70, 3.0598e-06, 3.0598e-06, -3.0598e-06, -3.0598e-06, 70, 3.0598e-06, -70, -3.0598e-06, 25, 0, -42)
+
+[node name="SpruceTall1_34" parent="Present/Forest/SpruceTrees/Tall" instance=ExtResource("107_3v2am")]
+transform = Transform3D(70, 3.0598e-06, 3.0598e-06, -3.0598e-06, -3.0598e-06, 70, 3.0598e-06, -70, -3.0598e-06, 22.5, 0, -34)
+
+[node name="SpruceTall1_35" parent="Present/Forest/SpruceTrees/Tall" instance=ExtResource("107_3v2am")]
+transform = Transform3D(70, 3.0598e-06, 3.0598e-06, -3.0598e-06, -3.0598e-06, 70, 3.0598e-06, -70, -3.0598e-06, 13.5, 0, -32)
+
+[node name="SpruceTall1_36" parent="Present/Forest/SpruceTrees/Tall" instance=ExtResource("107_3v2am")]
+transform = Transform3D(70, 3.0598e-06, 3.0598e-06, -3.0598e-06, -3.0598e-06, 70, 3.0598e-06, -70, -3.0598e-06, 4.5, 0, -31)
+
+[node name="SpruceTall1_37" parent="Present/Forest/SpruceTrees/Tall" instance=ExtResource("107_3v2am")]
+transform = Transform3D(70, 3.0598e-06, 3.0598e-06, -3.0598e-06, -3.0598e-06, 70, 3.0598e-06, -70, -3.0598e-06, 10.5, 0, -28.5)
+
+[node name="SpruceTall1_38" parent="Present/Forest/SpruceTrees/Tall" instance=ExtResource("107_3v2am")]
+transform = Transform3D(70, 3.0598e-06, 3.0598e-06, -3.0598e-06, -3.0598e-06, 70, 3.0598e-06, -70, -3.0598e-06, -2.5, 0, -34.5)
+
+[node name="SpruceTall1_39" parent="Present/Forest/SpruceTrees/Tall" instance=ExtResource("107_3v2am")]
+transform = Transform3D(70, 3.0598e-06, 3.0598e-06, -3.0598e-06, -3.0598e-06, 70, 3.0598e-06, -70, -3.0598e-06, -7, 0, -32.5)
+
+[node name="SpruceTall1_40" parent="Present/Forest/SpruceTrees/Tall" instance=ExtResource("107_3v2am")]
+transform = Transform3D(70, 3.0598e-06, 3.0598e-06, -3.0598e-06, -3.0598e-06, 70, 3.0598e-06, -70, -3.0598e-06, -20, 0, -34)
+
+[node name="SpruceTall1_41" parent="Present/Forest/SpruceTrees/Tall" instance=ExtResource("107_3v2am")]
+transform = Transform3D(70, 3.0598e-06, 3.0598e-06, -3.0598e-06, -3.0598e-06, 70, 3.0598e-06, -70, -3.0598e-06, -29, 0, -38.5)
+
+[node name="SpruceTall1_42" parent="Present/Forest/SpruceTrees/Tall" instance=ExtResource("107_3v2am")]
+transform = Transform3D(70, 3.0598e-06, 3.0598e-06, -3.0598e-06, -3.0598e-06, 70, 3.0598e-06, -70, -3.0598e-06, -37, 0, -44.5)
+
+[node name="SpruceTall1_43" parent="Present/Forest/SpruceTrees/Tall" instance=ExtResource("107_3v2am")]
+transform = Transform3D(70, 3.0598e-06, 3.0598e-06, -3.0598e-06, -3.0598e-06, 70, 3.0598e-06, -70, -3.0598e-06, -43, 0, -54.5)
+
+[node name="SpruceTall1_44" parent="Present/Forest/SpruceTrees/Tall" instance=ExtResource("107_3v2am")]
+transform = Transform3D(70, 3.0598e-06, 3.0598e-06, -3.0598e-06, -3.0598e-06, 70, 3.0598e-06, -70, -3.0598e-06, -39, 0, -58.5)
+
+[node name="SpruceTall1_45" parent="Present/Forest/SpruceTrees/Tall" instance=ExtResource("107_3v2am")]
+transform = Transform3D(70, 3.0598e-06, 3.0598e-06, -3.0598e-06, -3.0598e-06, 70, 3.0598e-06, -70, -3.0598e-06, -35.5, 0, -54.5)
+
+[node name="SpruceTall1_46" parent="Present/Forest/SpruceTrees/Tall" instance=ExtResource("107_3v2am")]
+transform = Transform3D(70, 3.0598e-06, 3.0598e-06, -3.0598e-06, -3.0598e-06, 70, 3.0598e-06, -70, -3.0598e-06, -33.5, 0, -61.5)
+
+[node name="SpruceTall1_47" parent="Present/Forest/SpruceTrees/Tall" instance=ExtResource("107_3v2am")]
+transform = Transform3D(70, 3.0598e-06, 3.0598e-06, -3.0598e-06, -3.0598e-06, 70, 3.0598e-06, -70, -3.0598e-06, -29, 0, -63.5)
+
+[node name="SpruceTall1_48" parent="Present/Forest/SpruceTrees/Tall" instance=ExtResource("107_3v2am")]
+transform = Transform3D(70, 3.0598e-06, 3.0598e-06, -3.0598e-06, -3.0598e-06, 70, 3.0598e-06, -70, -3.0598e-06, -24, 0, -64)
+
+[node name="SpruceTall1_49" parent="Present/Forest/SpruceTrees/Tall" instance=ExtResource("107_3v2am")]
+transform = Transform3D(70, 3.0598e-06, 3.0598e-06, -3.0598e-06, -3.0598e-06, 70, 3.0598e-06, -70, -3.0598e-06, -23.5, 0, -66.5)
+
+[node name="SpruceTall1_50" parent="Present/Forest/SpruceTrees/Tall" instance=ExtResource("107_3v2am")]
+transform = Transform3D(70, 3.0598e-06, 3.0598e-06, -3.0598e-06, -3.0598e-06, 70, 3.0598e-06, -70, -3.0598e-06, -16.5, 0, -66.5)
+
+[node name="SpruceTall1_51" parent="Present/Forest/SpruceTrees/Tall" instance=ExtResource("107_3v2am")]
+transform = Transform3D(70, 3.0598e-06, 3.0598e-06, -3.0598e-06, -3.0598e-06, 70, 3.0598e-06, -70, -3.0598e-06, -15, 0, -73)
+
+[node name="SpruceTall1_52" parent="Present/Forest/SpruceTrees/Tall" instance=ExtResource("107_3v2am")]
+transform = Transform3D(70, 3.0598e-06, 3.0598e-06, -3.0598e-06, -3.0598e-06, 70, 3.0598e-06, -70, -3.0598e-06, -5.80055e-07, 0, -74)
+
+[node name="SpruceTall1_53" parent="Present/Forest/SpruceTrees/Tall" instance=ExtResource("107_3v2am")]
+transform = Transform3D(70, 3.0598e-06, 3.0598e-06, -3.0598e-06, -3.0598e-06, 70, 3.0598e-06, -70, -3.0598e-06, 4.5, 0, -73)
+
+[node name="SpruceTall1_54" parent="Present/Forest/SpruceTrees/Tall" instance=ExtResource("107_3v2am")]
+transform = Transform3D(70, 3.0598e-06, 3.0598e-06, -3.0598e-06, -3.0598e-06, 70, 3.0598e-06, -70, -3.0598e-06, 12.5, 0, -74)
+
+[node name="SpruceTall1_55" parent="Present/Forest/SpruceTrees/Tall" instance=ExtResource("107_3v2am")]
+transform = Transform3D(70, 3.0598e-06, 3.0598e-06, -3.0598e-06, -3.0598e-06, 70, 3.0598e-06, -70, -3.0598e-06, 26.5, 0, -65)
+
+[node name="SpruceTall1_56" parent="Present/Forest/SpruceTrees/Tall" instance=ExtResource("107_3v2am")]
+transform = Transform3D(70, 3.0598e-06, 3.0598e-06, -3.0598e-06, -3.0598e-06, 70, 3.0598e-06, -70, -3.0598e-06, 29, 0, -57)
+
+[node name="SpruceTall1_57" parent="Present/Forest/SpruceTrees/Tall" instance=ExtResource("107_3v2am")]
+transform = Transform3D(70, 3.0598e-06, 3.0598e-06, -3.0598e-06, -3.0598e-06, 70, 3.0598e-06, -70, -3.0598e-06, -24, 0, -36.5)
+
+[node name="SpruceTall1_58" parent="Present/Forest/SpruceTrees/Tall" instance=ExtResource("107_3v2am")]
+transform = Transform3D(70, 3.0598e-06, 3.0598e-06, -3.0598e-06, -3.0598e-06, 70, 3.0598e-06, -70, -3.0598e-06, -8, 0, -31)
+
+[node name="SpruceTall1_59" parent="Present/Forest/SpruceTrees/Tall" instance=ExtResource("107_3v2am")]
+transform = Transform3D(70, 3.0598e-06, 3.0598e-06, -3.0598e-06, -3.0598e-06, 70, 3.0598e-06, -70, -3.0598e-06, -11, 0, -39)
+
+[node name="SpruceTall1_60" parent="Present/Forest/SpruceTrees/Tall" instance=ExtResource("107_3v2am")]
+transform = Transform3D(70, 3.0598e-06, 3.0598e-06, -3.0598e-06, -3.0598e-06, 70, 3.0598e-06, -70, -3.0598e-06, 6, 0, -38)
+
+[node name="SpruceTall1_61" parent="Present/Forest/SpruceTrees/Tall" instance=ExtResource("107_3v2am")]
+transform = Transform3D(70, 3.0598e-06, 3.0598e-06, -3.0598e-06, -3.0598e-06, 70, 3.0598e-06, -70, -3.0598e-06, -20, 0, -44.5)
+
+[node name="SpruceTall1_62" parent="Present/Forest/SpruceTrees/Tall" instance=ExtResource("107_3v2am")]
+transform = Transform3D(70, 3.0598e-06, 3.0598e-06, -3.0598e-06, -3.0598e-06, 70, 3.0598e-06, -70, -3.0598e-06, -23.5, 0, -47)
+
+[node name="SpruceTall1_63" parent="Present/Forest/SpruceTrees/Tall" instance=ExtResource("107_3v2am")]
+transform = Transform3D(70, 3.0598e-06, 3.0598e-06, -3.0598e-06, -3.0598e-06, 70, 3.0598e-06, -70, -3.0598e-06, -21.5, 0, -69.5)
+
+[node name="SpruceTall2_0" parent="Present/Forest/SpruceTrees/Tall" instance=ExtResource("108_givt7")]
+transform = Transform3D(70, 3.0598e-06, 3.0598e-06, -3.0598e-06, -3.0598e-06, 70, 3.0598e-06, -70, -3.0598e-06, -6, 0, -68.5)
+
+[node name="SpruceTall2_1" parent="Present/Forest/SpruceTrees/Tall" instance=ExtResource("108_givt7")]
+transform = Transform3D(70, 3.0598e-06, 3.0598e-06, -3.0598e-06, -3.0598e-06, 70, 3.0598e-06, -70, -3.0598e-06, -19.5, 0, -64.5)
+
+[node name="SpruceTall2_2" parent="Present/Forest/SpruceTrees/Tall" instance=ExtResource("108_givt7")]
+transform = Transform3D(70, 3.0598e-06, 3.0598e-06, -3.0598e-06, -3.0598e-06, 70, 3.0598e-06, -70, -3.0598e-06, -26, 0, -62)
+
+[node name="SpruceTall2_3" parent="Present/Forest/SpruceTrees/Tall" instance=ExtResource("108_givt7")]
+transform = Transform3D(70, 3.0598e-06, 3.0598e-06, -3.0598e-06, -3.0598e-06, 70, 3.0598e-06, -70, -3.0598e-06, -28, 0, -43)
+
+[node name="SpruceTall2_4" parent="Present/Forest/SpruceTrees/Tall" instance=ExtResource("108_givt7")]
+transform = Transform3D(70, 3.0598e-06, 3.0598e-06, -3.0598e-06, -3.0598e-06, 70, 3.0598e-06, -70, -3.0598e-06, -32.5, 0, -42.5)
+
+[node name="SpruceTall2_5" parent="Present/Forest/SpruceTrees/Tall" instance=ExtResource("108_givt7")]
+transform = Transform3D(70, 3.0598e-06, 3.0598e-06, -3.0598e-06, -3.0598e-06, 70, 3.0598e-06, -70, -3.0598e-06, -19, 0, -39.5)
+
+[node name="SpruceTall2_6" parent="Present/Forest/SpruceTrees/Tall" instance=ExtResource("108_givt7")]
+transform = Transform3D(70, 3.0598e-06, 3.0598e-06, -3.0598e-06, -3.0598e-06, 70, 3.0598e-06, -70, -3.0598e-06, -13, 0, -33.5)
+
+[node name="SpruceTall2_7" parent="Present/Forest/SpruceTrees/Tall" instance=ExtResource("108_givt7")]
+transform = Transform3D(70, 3.0598e-06, 3.0598e-06, -3.0598e-06, -3.0598e-06, 70, 3.0598e-06, -70, -3.0598e-06, -3, 0, -31)
+
+[node name="SpruceTall2_8" parent="Present/Forest/SpruceTrees/Tall" instance=ExtResource("108_givt7")]
+transform = Transform3D(70, 3.0598e-06, 3.0598e-06, -3.0598e-06, -3.0598e-06, 70, 3.0598e-06, -70, -3.0598e-06, 2, -0.5, -32)
+
+[node name="SpruceTall2_9" parent="Present/Forest/SpruceTrees/Tall" instance=ExtResource("108_givt7")]
+transform = Transform3D(70, 3.0598e-06, 3.0598e-06, -3.0598e-06, -3.0598e-06, 70, 3.0598e-06, -70, -3.0598e-06, 17.5, -0.5, -31)
+
+[node name="SpruceTall2_10" parent="Present/Forest/SpruceTrees/Tall" instance=ExtResource("108_givt7")]
+transform = Transform3D(70, 3.0598e-06, 3.0598e-06, -3.0598e-06, -3.0598e-06, 70, 3.0598e-06, -70, -3.0598e-06, 25.5, -0.5, -35.5)
+
+[node name="SpruceTall2_11" parent="Present/Forest/SpruceTrees/Tall" instance=ExtResource("108_givt7")]
+transform = Transform3D(70, 3.0598e-06, 3.0598e-06, -3.0598e-06, -3.0598e-06, 70, 3.0598e-06, -70, -3.0598e-06, 30.5, -0.5, -44.5)
+
+[node name="SpruceTall2_12" parent="Present/Forest/SpruceTrees/Tall" instance=ExtResource("108_givt7")]
+transform = Transform3D(70, 3.0598e-06, 3.0598e-06, -3.0598e-06, -3.0598e-06, 70, 3.0598e-06, -70, -3.0598e-06, 34.5, -0.5, -50.5)
+
+[node name="SpruceTall2_13" parent="Present/Forest/SpruceTrees/Tall" instance=ExtResource("108_givt7")]
+transform = Transform3D(70, 3.0598e-06, 3.0598e-06, -3.0598e-06, -3.0598e-06, 70, 3.0598e-06, -70, -3.0598e-06, 28.5, -0.5, -58)
+
+[node name="SpruceTall2_14" parent="Present/Forest/SpruceTrees/Tall" instance=ExtResource("108_givt7")]
+transform = Transform3D(70, 3.0598e-06, 3.0598e-06, -3.0598e-06, -3.0598e-06, 70, 3.0598e-06, -70, -3.0598e-06, 20, -0.5, -69.5)
+
+[node name="SpruceTall2_15" parent="Present/Forest/SpruceTrees/Tall" instance=ExtResource("108_givt7")]
+transform = Transform3D(70, 3.0598e-06, 3.0598e-06, -3.0598e-06, -3.0598e-06, 70, 3.0598e-06, -70, -3.0598e-06, 29, -0.5, -68)
+
+[node name="SpruceTall2_16" parent="Present/Forest/SpruceTrees/Tall" instance=ExtResource("108_givt7")]
+transform = Transform3D(70, 3.0598e-06, 3.0598e-06, -3.0598e-06, -3.0598e-06, 70, 3.0598e-06, -70, -3.0598e-06, 13.5, -0.5, -66.5)
+
+[node name="SpruceTall2_17" parent="Present/Forest/SpruceTrees/Tall" instance=ExtResource("108_givt7")]
+transform = Transform3D(70, 3.0598e-06, 3.0598e-06, -3.0598e-06, -3.0598e-06, 70, 3.0598e-06, -70, -3.0598e-06, 5, -0.5, -67.5)
+
+[node name="SpruceTall2_18" parent="Present/Forest/SpruceTrees/Tall" instance=ExtResource("108_givt7")]
+transform = Transform3D(70, 3.0598e-06, 3.0598e-06, -3.0598e-06, -3.0598e-06, 70, 3.0598e-06, -70, -3.0598e-06, -9.5, -0.5, -68.5)
+
+[node name="SpruceTall2_19" parent="Present/Forest/SpruceTrees/Tall" instance=ExtResource("108_givt7")]
+transform = Transform3D(70, 3.0598e-06, 3.0598e-06, -3.0598e-06, -3.0598e-06, 70, 3.0598e-06, -70, -3.0598e-06, -18, -0.5, -70.5)
+
+[node name="SpruceTall2_20" parent="Present/Forest/SpruceTrees/Tall" instance=ExtResource("108_givt7")]
+transform = Transform3D(70, 3.0598e-06, 3.0598e-06, -3.0598e-06, -3.0598e-06, 70, 3.0598e-06, -70, -3.0598e-06, -3.5, -0.5, -75.5)
+
+[node name="SpruceTall2_21" parent="Present/Forest/SpruceTrees/Tall" instance=ExtResource("108_givt7")]
+transform = Transform3D(70, 3.0598e-06, 3.0598e-06, -3.0598e-06, -3.0598e-06, 70, 3.0598e-06, -70, -3.0598e-06, 18, -0.5, -73.5)
+
+[node name="SpruceTall2_22" parent="Present/Forest/SpruceTrees/Tall" instance=ExtResource("108_givt7")]
+transform = Transform3D(70, 3.0598e-06, 3.0598e-06, -3.0598e-06, -3.0598e-06, 70, 3.0598e-06, -70, -3.0598e-06, 24, -0.5, -69.5)
+
+[node name="SpruceTall2_23" parent="Present/Forest/SpruceTrees/Tall" instance=ExtResource("108_givt7")]
+transform = Transform3D(70, 3.0598e-06, 3.0598e-06, -3.0598e-06, -3.0598e-06, 70, 3.0598e-06, -70, -3.0598e-06, 7.49999, -0.5, -30)
+
+[node name="SpruceTall2_24" parent="Present/Forest/SpruceTrees/Tall" instance=ExtResource("108_givt7")]
+transform = Transform3D(70, 3.0598e-06, 3.0598e-06, -3.0598e-06, -3.0598e-06, 70, 3.0598e-06, -70, -3.0598e-06, -23.5, -0.5, -39.5)
+
+[node name="SpruceTall2_25" parent="Present/Forest/SpruceTrees/Tall" instance=ExtResource("108_givt7")]
+transform = Transform3D(70, 3.0598e-06, 3.0598e-06, -3.0598e-06, -3.0598e-06, 70, 3.0598e-06, -70, -3.0598e-06, -16.5, -0.5, -34)
+
+[node name="SpruceTall2_26" parent="Present/Forest/SpruceTrees/Tall" instance=ExtResource("108_givt7")]
+transform = Transform3D(70, 3.0598e-06, 3.0598e-06, -3.0598e-06, -3.0598e-06, 70, 3.0598e-06, -70, -3.0598e-06, -28.5, -0.5, -59.5)
+
+[node name="SpruceTall2_27" parent="Present/Forest/SpruceTrees/Tall" instance=ExtResource("108_givt7")]
+transform = Transform3D(70, 3.0598e-06, 3.0598e-06, -3.0598e-06, -3.0598e-06, 70, 3.0598e-06, -70, -3.0598e-06, -19, -0.5, -62.5)
+
+[node name="SpruceTall2_28" parent="Present/Forest/SpruceTrees/Tall" instance=ExtResource("108_givt7")]
+transform = Transform3D(70, 3.0598e-06, 3.0598e-06, -3.0598e-06, -3.0598e-06, 70, 3.0598e-06, -70, -3.0598e-06, -13.5, -0.5, -69.5)
+
+[node name="SpruceTall2_29" parent="Present/Forest/SpruceTrees/Tall" instance=ExtResource("108_givt7")]
+transform = Transform3D(70, 3.0598e-06, 3.0598e-06, -3.0598e-06, -3.0598e-06, 70, 3.0598e-06, -70, -3.0598e-06, -26.5, -0.5, -39)
+
+[node name="SpruceTall2_30" parent="Present/Forest/SpruceTrees/Tall" instance=ExtResource("108_givt7")]
+transform = Transform3D(70, 3.0598e-06, 3.0598e-06, -3.0598e-06, -3.0598e-06, 70, 3.0598e-06, -70, -3.0598e-06, -36, -0.5, -59)
+
+[node name="SpruceTall2_31" parent="Present/Forest/SpruceTrees/Tall" instance=ExtResource("108_givt7")]
+transform = Transform3D(70, 3.0598e-06, 3.0598e-06, -3.0598e-06, -3.0598e-06, 70, 3.0598e-06, -70, -3.0598e-06, -40, -0.5, -46.5)
+
+[node name="SpruceTall2_32" parent="Present/Forest/SpruceTrees/Tall" instance=ExtResource("108_givt7")]
+transform = Transform3D(70, 3.0598e-06, 3.0598e-06, -3.0598e-06, -3.0598e-06, 70, 3.0598e-06, -70, -3.0598e-06, -30.5, -0.5, -47)
+
+[node name="SpruceTall2_33" parent="Present/Forest/SpruceTrees/Tall" instance=ExtResource("108_givt7")]
+transform = Transform3D(70, 3.0598e-06, 3.0598e-06, -3.0598e-06, -3.0598e-06, 70, 3.0598e-06, -70, -3.0598e-06, -25, -0.5, -48.5)
+
+[node name="SpruceTall2_34" parent="Present/Forest/SpruceTrees/Tall" instance=ExtResource("108_givt7")]
+transform = Transform3D(70, 3.0598e-06, 3.0598e-06, -3.0598e-06, -3.0598e-06, 70, 3.0598e-06, -70, -3.0598e-06, -19.5, -0.5, -59.5)
+
+[node name="SpruceTall2_35" parent="Present/Forest/SpruceTrees/Tall" instance=ExtResource("108_givt7")]
+transform = Transform3D(70, 3.0598e-06, 3.0598e-06, -3.0598e-06, -3.0598e-06, 70, 3.0598e-06, -70, -3.0598e-06, 36.5, -0.5, -47.5)
+
+[node name="SpruceTall2_36" parent="Present/Forest/SpruceTrees/Tall" instance=ExtResource("108_givt7")]
+transform = Transform3D(70, 3.0598e-06, 3.0598e-06, -3.0598e-06, -3.0598e-06, 70, 3.0598e-06, -70, -3.0598e-06, 32, -0.5, -67.5)
+
+[node name="SpruceTall2_37" parent="Present/Forest/SpruceTrees/Tall" instance=ExtResource("108_givt7")]
+transform = Transform3D(70, 3.0598e-06, 3.0598e-06, -3.0598e-06, -3.0598e-06, 70, 3.0598e-06, -70, -3.0598e-06, 12, -0.5, -76)
+
+[node name="SpruceTall2_38" parent="Present/Forest/SpruceTrees/Tall" instance=ExtResource("108_givt7")]
+transform = Transform3D(70, 3.0598e-06, 3.0598e-06, -3.0598e-06, -3.0598e-06, 70, 3.0598e-06, -70, -3.0598e-06, 12, -0.5, -76)
+
+[node name="Medium" type="Node3D" parent="Present/Forest/SpruceTrees"]
+
+[node name="SpruceMedium" parent="Present/Forest/SpruceTrees/Medium" instance=ExtResource("111_3i2rk")]
+transform = Transform3D(70, 3.0598e-06, 3.0598e-06, -3.0598e-06, -3.0598e-06, 70, 3.0598e-06, -70, -3.0598e-06, 3.06774e-06, 0, -69.5)
+
+[node name="SpruceMedium2" parent="Present/Forest/SpruceTrees/Medium" instance=ExtResource("111_3i2rk")]
+transform = Transform3D(70, 3.0598e-06, 3.0598e-06, -3.0598e-06, -3.0598e-06, 70, 3.0598e-06, -70, -3.0598e-06, 5, 0, -70.5)
+
+[node name="SpruceMedium3" parent="Present/Forest/SpruceTrees/Medium" instance=ExtResource("111_3i2rk")]
+transform = Transform3D(70, 3.0598e-06, 3.0598e-06, -3.0598e-06, -3.0598e-06, 70, 3.0598e-06, -70, -3.0598e-06, 10.5, 0, -66.5)
+
+[node name="SpruceMedium4" parent="Present/Forest/SpruceTrees/Medium" instance=ExtResource("111_3i2rk")]
+transform = Transform3D(70, 3.0598e-06, 3.0598e-06, -3.0598e-06, -3.0598e-06, 70, 3.0598e-06, -70, -3.0598e-06, 16.5, 0, -67.5)
+
+[node name="SpruceMedium5" parent="Present/Forest/SpruceTrees/Medium" instance=ExtResource("111_3i2rk")]
+transform = Transform3D(70, 3.0598e-06, 3.0598e-06, -3.0598e-06, -3.0598e-06, 70, 3.0598e-06, -70, -3.0598e-06, 22.5, 0, -65.5)
+
+[node name="SpruceMedium6" parent="Present/Forest/SpruceTrees/Medium" instance=ExtResource("111_3i2rk")]
+transform = Transform3D(70, 3.0598e-06, 3.0598e-06, -3.0598e-06, -3.0598e-06, 70, 3.0598e-06, -70, -3.0598e-06, 27, 0, -60)
+
+[node name="SpruceMedium7" parent="Present/Forest/SpruceTrees/Medium" instance=ExtResource("111_3i2rk")]
+transform = Transform3D(70, 3.0598e-06, 3.0598e-06, -3.0598e-06, -3.0598e-06, 70, 3.0598e-06, -70, -3.0598e-06, 30.5, 0, -57.5)
+
+[node name="SpruceMedium8" parent="Present/Forest/SpruceTrees/Medium" instance=ExtResource("111_3i2rk")]
+transform = Transform3D(70, 3.0598e-06, 3.0598e-06, -3.0598e-06, -3.0598e-06, 70, 3.0598e-06, -70, -3.0598e-06, 33.5, 0, -51.5)
+
+[node name="SpruceMedium9" parent="Present/Forest/SpruceTrees/Medium" instance=ExtResource("111_3i2rk")]
+transform = Transform3D(70, 3.0598e-06, 3.0598e-06, -3.0598e-06, -3.0598e-06, 70, 3.0598e-06, -70, -3.0598e-06, 32, 0, -46)
+
+[node name="SpruceMedium10" parent="Present/Forest/SpruceTrees/Medium" instance=ExtResource("111_3i2rk")]
+transform = Transform3D(70, 3.0598e-06, 3.0598e-06, -3.0598e-06, -3.0598e-06, 70, 3.0598e-06, -70, -3.0598e-06, 31, 0, -39)
+
+[node name="SpruceMedium11" parent="Present/Forest/SpruceTrees/Medium" instance=ExtResource("111_3i2rk")]
+transform = Transform3D(70, 3.0598e-06, 3.0598e-06, -3.0598e-06, -3.0598e-06, 70, 3.0598e-06, -70, -3.0598e-06, 25, 0, -33.5)
+
+[node name="SpruceMedium12" parent="Present/Forest/SpruceTrees/Medium" instance=ExtResource("111_3i2rk")]
+transform = Transform3D(70, 3.0598e-06, 3.0598e-06, -3.0598e-06, -3.0598e-06, 70, 3.0598e-06, -70, -3.0598e-06, 17, 0, -27)
+
+[node name="SpruceMedium13" parent="Present/Forest/SpruceTrees/Medium" instance=ExtResource("111_3i2rk")]
+transform = Transform3D(70, 3.0598e-06, 3.0598e-06, -3.0598e-06, -3.0598e-06, 70, 3.0598e-06, -70, -3.0598e-06, 8.49999, 0, -25)
+
+[node name="SpruceMedium14" parent="Present/Forest/SpruceTrees/Medium" instance=ExtResource("111_3i2rk")]
+transform = Transform3D(70, 3.0598e-06, 3.0598e-06, -3.0598e-06, -3.0598e-06, 70, 3.0598e-06, -70, -3.0598e-06, 2.99999, 0, -27.5)
+
+[node name="SpruceMedium15" parent="Present/Forest/SpruceTrees/Medium" instance=ExtResource("111_3i2rk")]
+transform = Transform3D(70, 3.0598e-06, 3.0598e-06, -3.0598e-06, -3.0598e-06, 70, 3.0598e-06, -70, -3.0598e-06, -14, 0, -37.5)
+
+[node name="SpruceMedium16" parent="Present/Forest/SpruceTrees/Medium" instance=ExtResource("111_3i2rk")]
+transform = Transform3D(70, 3.0598e-06, 3.0598e-06, -3.0598e-06, -3.0598e-06, 70, 3.0598e-06, -70, -3.0598e-06, -22, 0, -41)
+
+[node name="SpruceMedium17" parent="Present/Forest/SpruceTrees/Medium" instance=ExtResource("111_3i2rk")]
+transform = Transform3D(70, 3.0598e-06, 3.0598e-06, -3.0598e-06, -3.0598e-06, 70, 3.0598e-06, -70, -3.0598e-06, -33, 0, -41.5)
+
+[node name="SpruceMedium18" parent="Present/Forest/SpruceTrees/Medium" instance=ExtResource("111_3i2rk")]
+transform = Transform3D(70, 3.0598e-06, 3.0598e-06, -3.0598e-06, -3.0598e-06, 70, 3.0598e-06, -70, -3.0598e-06, -42, 0, -57)
+
+[node name="SpruceMedium19" parent="Present/Forest/SpruceTrees/Medium" instance=ExtResource("111_3i2rk")]
+transform = Transform3D(70, 3.0598e-06, 3.0598e-06, -3.0598e-06, -3.0598e-06, 70, 3.0598e-06, -70, -3.0598e-06, -32.5, 0, -56)
+
+[node name="SpruceMedium20" parent="Present/Forest/SpruceTrees/Medium" instance=ExtResource("111_3i2rk")]
+transform = Transform3D(70, 3.0598e-06, 3.0598e-06, -3.0598e-06, -3.0598e-06, 70, 3.0598e-06, -70, -3.0598e-06, -30, 0, -60.5)
+
+[node name="SpruceMedium21" parent="Present/Forest/SpruceTrees/Medium" instance=ExtResource("111_3i2rk")]
+transform = Transform3D(70, 3.0598e-06, 3.0598e-06, -3.0598e-06, -3.0598e-06, 70, 3.0598e-06, -70, -3.0598e-06, -22, 0, -62)
+
+[node name="SpruceMedium22" parent="Present/Forest/SpruceTrees/Medium" instance=ExtResource("111_3i2rk")]
+transform = Transform3D(70, 3.0598e-06, 3.0598e-06, -3.0598e-06, -3.0598e-06, 70, 3.0598e-06, -70, -3.0598e-06, -15.5, 0, -68)
+
+[node name="SpruceMedium23" parent="Present/Forest/SpruceTrees/Medium" instance=ExtResource("111_3i2rk")]
+transform = Transform3D(70, 3.0598e-06, 3.0598e-06, -3.0598e-06, -3.0598e-06, 70, 3.0598e-06, -70, -3.0598e-06, -13.5, 0, -65.5)
+
+[node name="SpruceMedium24" parent="Present/Forest/SpruceTrees/Medium" instance=ExtResource("111_3i2rk")]
+transform = Transform3D(70, 3.0598e-06, 3.0598e-06, -3.0598e-06, -3.0598e-06, 70, 3.0598e-06, -70, -3.0598e-06, -7.5, 0, -65)
+
+[node name="SpruceMedium25" parent="Present/Forest/SpruceTrees/Medium" instance=ExtResource("111_3i2rk")]
+transform = Transform3D(70, 3.0598e-06, 3.0598e-06, -3.0598e-06, -3.0598e-06, 70, 3.0598e-06, -70, -3.0598e-06, 3, 0, -71.5)
+
+[node name="SpruceMedium26" parent="Present/Forest/SpruceTrees/Medium" instance=ExtResource("111_3i2rk")]
+transform = Transform3D(70, 3.0598e-06, 3.0598e-06, -3.0598e-06, -3.0598e-06, 70, 3.0598e-06, -70, -3.0598e-06, 13, 0, -37)
+
+[node name="SpruceMedium27" parent="Present/Forest/SpruceTrees/Medium" instance=ExtResource("111_3i2rk")]
+transform = Transform3D(70, 3.0598e-06, 3.0598e-06, -3.0598e-06, -3.0598e-06, 70, 3.0598e-06, -70, -3.0598e-06, 19.5, 0, -38)
+
+[node name="SpruceMedium28" parent="Present/Forest/SpruceTrees/Medium" instance=ExtResource("111_3i2rk")]
+transform = Transform3D(70, 3.0598e-06, 3.0598e-06, -3.0598e-06, -3.0598e-06, 70, 3.0598e-06, -70, -3.0598e-06, 27, 0, -45)
+
+[node name="SpruceMedium29" parent="Present/Forest/SpruceTrees/Medium" instance=ExtResource("111_3i2rk")]
+transform = Transform3D(70, 3.0598e-06, 3.0598e-06, -3.0598e-06, -3.0598e-06, 70, 3.0598e-06, -70, -3.0598e-06, 29, 0, -51)
+
+[node name="SpruceMedium30" parent="Present/Forest/SpruceTrees/Medium" instance=ExtResource("111_3i2rk")]
+transform = Transform3D(70, 3.0598e-06, 3.0598e-06, -3.0598e-06, -3.0598e-06, 70, 3.0598e-06, -70, -3.0598e-06, 17, 0, -33.5)
+
+[node name="SpruceMedium31" parent="Present/Forest/SpruceTrees/Medium" instance=ExtResource("111_3i2rk")]
+transform = Transform3D(70, 3.0598e-06, 3.0598e-06, -3.0598e-06, -3.0598e-06, 70, 3.0598e-06, -70, -3.0598e-06, -1.50001, 0, -38)
+
+[node name="SpruceMedium32" parent="Present/Forest/SpruceTrees/Medium" instance=ExtResource("111_3i2rk")]
+transform = Transform3D(70, 3.0598e-06, 3.0598e-06, -3.0598e-06, -3.0598e-06, 70, 3.0598e-06, -70, -3.0598e-06, -10, 0, -31)
+
+[node name="SpruceMedium33" parent="Present/Forest/SpruceTrees/Medium" instance=ExtResource("111_3i2rk")]
+transform = Transform3D(70, 3.0598e-06, 3.0598e-06, -3.0598e-06, -3.0598e-06, 70, 3.0598e-06, -70, -3.0598e-06, 2.49999, 0, -76.5)
+
+[node name="SpruceMedium34" parent="Present/Forest/SpruceTrees/Medium" instance=ExtResource("111_3i2rk")]
+transform = Transform3D(70, 3.0598e-06, 3.0598e-06, -3.0598e-06, -3.0598e-06, 70, 3.0598e-06, -70, -3.0598e-06, -28, 0, -45)
+
+[node name="SpruceMedium35" parent="Present/Forest/SpruceTrees/Medium" instance=ExtResource("111_3i2rk")]
+transform = Transform3D(70, 3.0598e-06, 3.0598e-06, -3.0598e-06, -3.0598e-06, 70, 3.0598e-06, -70, -3.0598e-06, -30.5, 0, -58.5)
+
+[node name="SpruceMedium36" parent="Present/Forest/SpruceTrees/Medium" instance=ExtResource("111_3i2rk")]
+transform = Transform3D(70, 3.0598e-06, 3.0598e-06, -3.0598e-06, -3.0598e-06, 70, 3.0598e-06, -70, -3.0598e-06, -40, 0, -56.5)
+
+[node name="SpruceMedium37" parent="Present/Forest/SpruceTrees/Medium" instance=ExtResource("111_3i2rk")]
+transform = Transform3D(70, 3.0598e-06, 3.0598e-06, -3.0598e-06, -3.0598e-06, 70, 3.0598e-06, -70, -3.0598e-06, -31.5, 0, -68)
+
+[node name="SpruceMedium38" parent="Present/Forest/SpruceTrees/Medium" instance=ExtResource("111_3i2rk")]
+transform = Transform3D(70, 3.0598e-06, 3.0598e-06, -3.0598e-06, -3.0598e-06, 70, 3.0598e-06, -70, -3.0598e-06, -25, 0, -72)
+
+[node name="SpruceMedium39" parent="Present/Forest/SpruceTrees/Medium" instance=ExtResource("111_3i2rk")]
+transform = Transform3D(70, 3.0598e-06, 3.0598e-06, -3.0598e-06, -3.0598e-06, 70, 3.0598e-06, -70, -3.0598e-06, -25, 0, -72)
+
+[node name="SpruceSapling" parent="Present/Forest/SpruceTrees" instance=ExtResource("109_ixibv")]
+
+[node name="SpruceNoBranch" parent="Present/Forest/SpruceTrees" instance=ExtResource("110_wfnx0")]
+
+[node name="SpruceSmall" parent="Present/Forest/SpruceTrees" instance=ExtResource("112_6fyud")]
+
+[node name="SpruceBaby" parent="Present/Forest/SpruceTrees" instance=ExtResource("113_6bdkt")]
 
 [editable path="Player"]
 [editable path="Present/LevelObjects/House/Foundations/Foundation_3x"]

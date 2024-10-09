@@ -1,0 +1,12 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://b7cusp8xcujo7"]
+
+[ext_resource type="Texture2D" uid="uid://cff6xe0t1crgr" path="res://assets/Exterior/HQ Trees/BarkAtlas-Diffuse.png" id="1_hr8j5"]
+[ext_resource type="Texture2D" uid="uid://dmcxvc6j1aory" path="res://assets/Exterior/HQ Trees/BarkAtlas-Normal.png" id="2_doe1x"]
+
+[resource]
+resource_name = "BarkAtlas"
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("1_hr8j5")
+emission_enabled = true
+normal_enabled = true
+normal_texture = ExtResource("2_doe1x")
