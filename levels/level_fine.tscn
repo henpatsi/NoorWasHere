@@ -1,4 +1,4 @@
-[gd_scene load_steps=504 format=4 uid="uid://baq3osaidwfaf"]
+[gd_scene load_steps=509 format=4 uid="uid://baq3osaidwfaf"]
 
 [ext_resource type="Script" path="res://levels/level.gd" id="1_mw3wp"]
 [ext_resource type="Material" uid="uid://dve3xrg044f4h" path="res://assets/materials/M_housetemp.tres" id="2_db8bv"]
@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://b25ooshew3q2v" path="res://player/player.tscn" id="4_aw37m"]
 [ext_resource type="Script" path="res://player/inventory.gd" id="4_nwatt"]
 [ext_resource type="Script" path="res://levels/pictures/picture.gd" id="4_xvv2v"]
-[ext_resource type="PackedScene" uid="uid://d22ogqllffeom" path="res://levels/camera_ref.tscn" id="6_ksg6d"]
+[ext_resource type="PackedScene" path="res://levels/camera_ref.tscn" id="6_ksg6d"]
 [ext_resource type="Script" path="res://levels/ui/ui.gd" id="6_vry8q"]
 [ext_resource type="Script" path="res://levels/pictures/screenshot.gd" id="7_etppf"]
 [ext_resource type="Environment" uid="uid://b55jay45p5h4g" path="res://assets/WorldEnvironments/Env_Past.tres" id="7_q30hk"]
@@ -20,7 +20,9 @@
 [ext_resource type="PackedScene" uid="uid://dtrj4a2rd7r80" path="res://assets/props/INTERACTEABLE/closet/closet.tscn" id="12_4m6ha"]
 [ext_resource type="PackedScene" uid="uid://cogjse1d7bpe1" path="res://assets/props/INTERACTEABLE/TV_a/tv.tscn" id="12_4tqrl"]
 [ext_resource type="PackedScene" uid="uid://bn5ukqljga2qo" path="res://levels/areas/trigger_area.tscn" id="13_3syry"]
+[ext_resource type="Shader" path="res://shaders/teleport.gdshader" id="13_uiejv"]
 [ext_resource type="Theme" uid="uid://cbquq6hkpipum" path="res://assets/fonts/Helvetica-Font/helvetica.tres" id="14_5ojdj"]
+[ext_resource type="Script" path="res://levels/pictures/teleport_shader_rect.gd" id="14_nvts0"]
 [ext_resource type="Script" path="res://levels/interactables/interactable_carry.gd" id="14_trd0m"]
 [ext_resource type="PackedScene" uid="uid://daempkcx2ef7j" path="res://assets/props/INTERACTEABLE/lightswitch/light_switch.tscn" id="14_wds17"]
 [ext_resource type="Script" path="res://levels/interactables/interactable_picture.gd" id="15_gx5iv"]
@@ -447,6 +449,18 @@ viewport_path = NodePath("Pictures/9_Forest/SubViewport")
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_8x1ut"]
 viewport_path = NodePath("Pictures/10_Shed/SubViewport")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_1at1f"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_cechl"]
+seamless = true
+noise = SubResource("FastNoiseLite_1at1f")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_unls3"]
+shader = ExtResource("13_uiejv")
+shader_parameter/speed = 0.1
+shader_parameter/intensity = 1.0
+shader_parameter/distort_noise = SubResource("NoiseTexture2D_cechl")
 
 [sub_resource type="LabelSettings" id="LabelSettings_ag0sf"]
 font = ExtResource("9_wxn3y")
@@ -2227,9 +2241,10 @@ script = ExtResource("7_etppf")
 sub_viewport = NodePath("..")
 picture = NodePath("../../ShedPicture")
 
-[node name="PictureHandler" type="Node" parent="."]
+[node name="PictureHandler" type="Node" parent="." node_paths=PackedStringArray("teleport_shader_rect")]
 unique_name_in_owner = true
 script = ExtResource("3_m4duy")
+teleport_shader_rect = NodePath("../UI/TeleportShaderRect")
 
 [node name="TransitionPlayer" type="AudioStreamPlayer3D" parent="PictureHandler"]
 attenuation_model = 3
@@ -2244,6 +2259,16 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("6_vry8q")
 subtitle_ratio = 0.75
+
+[node name="TeleportShaderRect" type="ColorRect" parent="UI"]
+material = SubResource("ShaderMaterial_unls3")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("14_nvts0")
 
 [node name="Crosshair" type="ColorRect" parent="UI"]
 layout_mode = 1
