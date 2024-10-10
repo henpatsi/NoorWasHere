@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=4 uid="uid://cm36h1m1s0jdb"]
+[gd_scene load_steps=6 format=4 uid="uid://cm36h1m1s0jdb"]
 
 [ext_resource type="Material" uid="uid://ctpbxadg2okfc" path="res://assets/Exterior/Spruce Trees/Branches.tres" id="1_nx483"]
 [ext_resource type="Material" uid="uid://bd7migf0ixdux" path="res://assets/Exterior/Spruce Trees/Spruce_bark.tres" id="2_cl6a4"]
+[ext_resource type="Material" uid="uid://yfb3sabybhpv" path="res://assets/materials/shaders/MS_spruce_leaf.tres" id="3_70qdp"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_w1sic"]
 _surfaces = [{
@@ -65,3 +66,4 @@ shadow_mesh = SubResource("ArrayMesh_w1sic")
 transform = Transform3D(70, 3.0598e-06, 3.0598e-06, -3.0598e-06, -3.0598e-06, 70, 3.0598e-06, -70, -3.0598e-06, 0, 0, 0)
 mesh = SubResource("ArrayMesh_838xu")
 skeleton = NodePath("")
+surface_material_override/0 = ExtResource("3_70qdp")

@@ -1,7 +1,10 @@
-[gd_scene load_steps=5 format=4 uid="uid://bm1ekoc6v6mko"]
+[gd_scene load_steps=11 format=4 uid="uid://bm1ekoc6v6mko"]
 
 [ext_resource type="Material" uid="uid://ctpbxadg2okfc" path="res://assets/Exterior/Spruce Trees/Branches.tres" id="1_cb4nk"]
 [ext_resource type="Material" uid="uid://bd7migf0ixdux" path="res://assets/Exterior/Spruce Trees/Spruce_bark.tres" id="2_o58xi"]
+[ext_resource type="Shader" path="res://addons/proton_scatter/demos/assets/materials/leaves.gdshader" id="3_3ma4f"]
+[ext_resource type="Texture2D" uid="uid://cke6xmb7tq7p6" path="res://assets/Exterior/Spruce Trees/Branch_BaseColor.png" id="4_x3jjp"]
+[ext_resource type="Texture2D" uid="uid://xxio0lpscswx" path="res://assets/materials/shaders/noise_texture_2d.tres" id="5_5w0io"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_7p57r"]
 _surfaces = [{
@@ -61,7 +64,29 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_7p57r")
 
+[sub_resource type="Gradient" id="Gradient_0t3qp"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(0.33448, 0.621271, 0.178892, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_q8aai"]
+gradient = SubResource("Gradient_0t3qp")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5ibl6"]
+render_priority = 0
+shader = ExtResource("3_3ma4f")
+shader_parameter/alpha_scissor_threshold = 0.223
+shader_parameter/transmission = null
+shader_parameter/total_height = 3.805
+shader_parameter/wind_direction = Vector2(0.8, -0.5)
+shader_parameter/wind_speed = 0.2
+shader_parameter/wind_strength = 0.3
+shader_parameter/noise_scale = 4.0
+shader_parameter/texture_albedo = ExtResource("4_x3jjp")
+shader_parameter/texture_gradient = SubResource("GradientTexture1D_q8aai")
+shader_parameter/texture_noise = ExtResource("5_5w0io")
+
 [node name="SpruceSmall" type="MeshInstance3D"]
 transform = Transform3D(70, 3.0598e-06, 3.0598e-06, -3.0598e-06, -3.0598e-06, 70, 3.0598e-06, -70, -3.0598e-06, 0, 0, 0)
 mesh = SubResource("ArrayMesh_c4svy")
 skeleton = NodePath("")
+surface_material_override/0 = SubResource("ShaderMaterial_5ibl6")

@@ -8,6 +8,7 @@
 [ext_resource type="Script" path="res://levels/ui/end_sequence.gd" id="6_mgp8g"]
 [ext_resource type="Theme" uid="uid://cbquq6hkpipum" path="res://assets/fonts/Helvetica-Font/helvetica.tres" id="7_xf7f5"]
 [ext_resource type="PackedScene" uid="uid://cvfepaxkmhwfm" path="res://assets/AtmosphericHouse/Prefabs/Building/Floor_6x6.prefab.scn" id="8_85j5o"]
+[ext_resource type="Material" uid="uid://5evkxbd1ekxy" path="res://assets/textures/forest_floor/forest ground/M_forest_ground.tres" id="8_l72da"]
 [ext_resource type="PackedScene" uid="uid://cl32vd4bw7mck" path="res://assets/AtmosphericHouse/Prefabs/Building/Floor_6x3.prefab.scn" id="9_5qrc0"]
 [ext_resource type="PackedScene" uid="uid://vndxkks6cc5m" path="res://assets/AtmosphericHouse/Prefabs/Building/Floor_4x3.prefab.scn" id="10_xfb38"]
 [ext_resource type="PackedScene" uid="uid://bkl0yrgkg6h1" path="res://assets/AtmosphericHouse/Prefabs/Building/Floor_3x3.prefab.scn" id="11_1sdmd"]
@@ -136,9 +137,6 @@ outline_size = 5
 outline_color = Color(0, 0, 0, 1)
 shadow_size = 3
 shadow_color = Color(0, 0, 0, 0.313726)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_08k2r"]
-albedo_color = Color(0.341962, 0.398952, 0.358896, 1)
 
 [node name="Level" type="Node3D"]
 
@@ -269,7 +267,7 @@ label_settings = SubResource("LabelSettings_certn")
 
 [node name="EnvFloor" type="CSGBox3D" parent="Present/LevelObjects"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
-material_override = SubResource("StandardMaterial3D_08k2r")
+material_override = ExtResource("8_l72da")
 use_collision = true
 size = Vector3(100, 1, 100)
 
@@ -1533,6 +1531,7 @@ panning_strength = 0.0
 bus = &"Highpass"
 
 [node name="Forest" type="Node3D" parent="Present"]
+visible = false
 
 [node name="SpruceTrees" type="Node3D" parent="Present/Forest"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 51.5, 0, 0)
@@ -1541,195 +1540,259 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 51.5, 
 
 [node name="SpruceTall1_0" parent="Present/Forest/SpruceTrees/Tall" instance=ExtResource("107_3v2am")]
 transform = Transform3D(70, 3.0598e-06, 3.0598e-06, -3.0598e-06, -3.0598e-06, 70, 3.0598e-06, -70, -3.0598e-06, -2, 0, -68)
+surface_material_override/0 = null
 
 [node name="SpruceTall1_1" parent="Present/Forest/SpruceTrees/Tall" instance=ExtResource("107_3v2am")]
 transform = Transform3D(70, 3.0598e-06, 3.0598e-06, -3.0598e-06, -3.0598e-06, 70, 3.0598e-06, -70, -3.0598e-06, 3.5, 0, -70)
+surface_material_override/0 = null
 
 [node name="SpruceTall1_2" parent="Present/Forest/SpruceTrees/Tall" instance=ExtResource("107_3v2am")]
 transform = Transform3D(70, 3.0598e-06, 3.0598e-06, -3.0598e-06, -3.0598e-06, 70, 3.0598e-06, -70, -3.0598e-06, 8.5, 0, -68)
+surface_material_override/0 = null
 
 [node name="SpruceTall1_3" parent="Present/Forest/SpruceTrees/Tall" instance=ExtResource("107_3v2am")]
 transform = Transform3D(70, 3.0598e-06, 3.0598e-06, -3.0598e-06, -3.0598e-06, 70, 3.0598e-06, -70, -3.0598e-06, 19, 0, -63.5)
+surface_material_override/0 = null
 
 [node name="SpruceTall1_4" parent="Present/Forest/SpruceTrees/Tall" instance=ExtResource("107_3v2am")]
 transform = Transform3D(70, 3.0598e-06, 3.0598e-06, -3.0598e-06, -3.0598e-06, 70, 3.0598e-06, -70, -3.0598e-06, 25.5, 0, -60.5)
+surface_material_override/0 = null
 
 [node name="SpruceTall1_5" parent="Present/Forest/SpruceTrees/Tall" instance=ExtResource("107_3v2am")]
 transform = Transform3D(70, 3.0598e-06, 3.0598e-06, -3.0598e-06, -3.0598e-06, 70, 3.0598e-06, -70, -3.0598e-06, 28, 0, -53)
+surface_material_override/0 = null
 
 [node name="SpruceTall1_6" parent="Present/Forest/SpruceTrees/Tall" instance=ExtResource("107_3v2am")]
 transform = Transform3D(70, 3.0598e-06, 3.0598e-06, -3.0598e-06, -3.0598e-06, 70, 3.0598e-06, -70, -3.0598e-06, 22.5, 0, -39.5)
+surface_material_override/0 = null
 
 [node name="SpruceTall1_7" parent="Present/Forest/SpruceTrees/Tall" instance=ExtResource("107_3v2am")]
 transform = Transform3D(70, 3.0598e-06, 3.0598e-06, -3.0598e-06, -3.0598e-06, 70, 3.0598e-06, -70, -3.0598e-06, 16.5, 0, -36)
+surface_material_override/0 = null
 
 [node name="SpruceTall1_8" parent="Present/Forest/SpruceTrees/Tall" instance=ExtResource("107_3v2am")]
 transform = Transform3D(70, 3.0598e-06, 3.0598e-06, -3.0598e-06, -3.0598e-06, 70, 3.0598e-06, -70, -3.0598e-06, 8.5, 0, -35)
+surface_material_override/0 = null
 
 [node name="SpruceTall1_9" parent="Present/Forest/SpruceTrees/Tall" instance=ExtResource("107_3v2am")]
 transform = Transform3D(70, 3.0598e-06, 3.0598e-06, -3.0598e-06, -3.0598e-06, 70, 3.0598e-06, -70, -3.0598e-06, 1, 0, -37.5)
+surface_material_override/0 = null
 
 [node name="SpruceTall1_10" parent="Present/Forest/SpruceTrees/Tall" instance=ExtResource("107_3v2am")]
 transform = Transform3D(70, 3.0598e-06, 3.0598e-06, -3.0598e-06, -3.0598e-06, 70, 3.0598e-06, -70, -3.0598e-06, -6, 0, -37)
+surface_material_override/0 = null
 
 [node name="SpruceTall1_11" parent="Present/Forest/SpruceTrees/Tall" instance=ExtResource("107_3v2am")]
 transform = Transform3D(70, 3.0598e-06, 3.0598e-06, -3.0598e-06, -3.0598e-06, 70, 3.0598e-06, -70, -3.0598e-06, -11, 0, -36)
+surface_material_override/0 = null
 
 [node name="SpruceTall1_12" parent="Present/Forest/SpruceTrees/Tall" instance=ExtResource("107_3v2am")]
 transform = Transform3D(70, 3.0598e-06, 3.0598e-06, -3.0598e-06, -3.0598e-06, 70, 3.0598e-06, -70, -3.0598e-06, -16, 0, -40.5)
+surface_material_override/0 = null
 
 [node name="SpruceTall1_13" parent="Present/Forest/SpruceTrees/Tall" instance=ExtResource("107_3v2am")]
 transform = Transform3D(70, 3.0598e-06, 3.0598e-06, -3.0598e-06, -3.0598e-06, 70, 3.0598e-06, -70, -3.0598e-06, -25, 0, -44.5)
+surface_material_override/0 = null
 
 [node name="SpruceTall1_14" parent="Present/Forest/SpruceTrees/Tall" instance=ExtResource("107_3v2am")]
 transform = Transform3D(70, 3.0598e-06, 3.0598e-06, -3.0598e-06, -3.0598e-06, 70, 3.0598e-06, -70, -3.0598e-06, -25, 0, -44.5)
+surface_material_override/0 = null
 
 [node name="SpruceTall1_15" parent="Present/Forest/SpruceTrees/Tall" instance=ExtResource("107_3v2am")]
 transform = Transform3D(70, 3.0598e-06, 3.0598e-06, -3.0598e-06, -3.0598e-06, 70, 3.0598e-06, -70, -3.0598e-06, -35.5, 0, -46.5)
+surface_material_override/0 = null
 
 [node name="SpruceTall1_16" parent="Present/Forest/SpruceTrees/Tall" instance=ExtResource("107_3v2am")]
 transform = Transform3D(70, 3.0598e-06, 3.0598e-06, -3.0598e-06, -3.0598e-06, 70, 3.0598e-06, -70, -3.0598e-06, -40, 0, -55.5)
+surface_material_override/0 = null
 
 [node name="SpruceTall1_17" parent="Present/Forest/SpruceTrees/Tall" instance=ExtResource("107_3v2am")]
 transform = Transform3D(70, 3.0598e-06, 3.0598e-06, -3.0598e-06, -3.0598e-06, 70, 3.0598e-06, -70, -3.0598e-06, -32, 0, -57.5)
+surface_material_override/0 = null
 
 [node name="SpruceTall1_18" parent="Present/Forest/SpruceTrees/Tall" instance=ExtResource("107_3v2am")]
 transform = Transform3D(70, 3.0598e-06, 3.0598e-06, -3.0598e-06, -3.0598e-06, 70, 3.0598e-06, -70, -3.0598e-06, -24, 0, -59)
+surface_material_override/0 = null
 
 [node name="SpruceTall1_19" parent="Present/Forest/SpruceTrees/Tall" instance=ExtResource("107_3v2am")]
 transform = Transform3D(70, 3.0598e-06, 3.0598e-06, -3.0598e-06, -3.0598e-06, 70, 3.0598e-06, -70, -3.0598e-06, -15.5, 0, -61.5)
+surface_material_override/0 = null
 
 [node name="SpruceTall1_20" parent="Present/Forest/SpruceTrees/Tall" instance=ExtResource("107_3v2am")]
 transform = Transform3D(70, 3.0598e-06, 3.0598e-06, -3.0598e-06, -3.0598e-06, 70, 3.0598e-06, -70, -3.0598e-06, -11.5, 0, -70)
+surface_material_override/0 = null
 
 [node name="SpruceTall1_21" parent="Present/Forest/SpruceTrees/Tall" instance=ExtResource("107_3v2am")]
 transform = Transform3D(70, 3.0598e-06, 3.0598e-06, -3.0598e-06, -3.0598e-06, 70, 3.0598e-06, -70, -3.0598e-06, -11.5, 0, -70)
+surface_material_override/0 = null
 
 [node name="SpruceTall1_22" parent="Present/Forest/SpruceTrees/Tall" instance=ExtResource("107_3v2am")]
 transform = Transform3D(70, 3.0598e-06, 3.0598e-06, -3.0598e-06, -3.0598e-06, 70, 3.0598e-06, -70, -3.0598e-06, -6.5, 0, -71.5)
+surface_material_override/0 = null
 
 [node name="SpruceTall1_23" parent="Present/Forest/SpruceTrees/Tall" instance=ExtResource("107_3v2am")]
 transform = Transform3D(70, 3.0598e-06, 3.0598e-06, -3.0598e-06, -3.0598e-06, 70, 3.0598e-06, -70, -3.0598e-06, -3, 0, -71)
+surface_material_override/0 = null
 
 [node name="SpruceTall1_24" parent="Present/Forest/SpruceTrees/Tall" instance=ExtResource("107_3v2am")]
 transform = Transform3D(70, 3.0598e-06, 3.0598e-06, -3.0598e-06, -3.0598e-06, 70, 3.0598e-06, -70, -3.0598e-06, 8.5, 0, -71.5)
+surface_material_override/0 = null
 
 [node name="SpruceTall1_25" parent="Present/Forest/SpruceTrees/Tall" instance=ExtResource("107_3v2am")]
 transform = Transform3D(70, 3.0598e-06, 3.0598e-06, -3.0598e-06, -3.0598e-06, 70, 3.0598e-06, -70, -3.0598e-06, 5, 0, -65)
+surface_material_override/0 = null
 
 [node name="SpruceTall1_26" parent="Present/Forest/SpruceTrees/Tall" instance=ExtResource("107_3v2am")]
 transform = Transform3D(70, 3.0598e-06, 3.0598e-06, -3.0598e-06, -3.0598e-06, 70, 3.0598e-06, -70, -3.0598e-06, 9.5, 0, -62.5)
+surface_material_override/0 = null
 
 [node name="SpruceTall1_27" parent="Present/Forest/SpruceTrees/Tall" instance=ExtResource("107_3v2am")]
 transform = Transform3D(70, 3.0598e-06, 3.0598e-06, -3.0598e-06, -3.0598e-06, 70, 3.0598e-06, -70, -3.0598e-06, 16.5, 0, -65.5)
+surface_material_override/0 = null
 
 [node name="SpruceTall1_28" parent="Present/Forest/SpruceTrees/Tall" instance=ExtResource("107_3v2am")]
 transform = Transform3D(70, 3.0598e-06, 3.0598e-06, -3.0598e-06, -3.0598e-06, 70, 3.0598e-06, -70, -3.0598e-06, 13.5, 0, -69.5)
+surface_material_override/0 = null
 
 [node name="SpruceTall1_29" parent="Present/Forest/SpruceTrees/Tall" instance=ExtResource("107_3v2am")]
 transform = Transform3D(70, 3.0598e-06, 3.0598e-06, -3.0598e-06, -3.0598e-06, 70, 3.0598e-06, -70, -3.0598e-06, 23.5, 0, -63)
+surface_material_override/0 = null
 
 [node name="SpruceTall1_30" parent="Present/Forest/SpruceTrees/Tall" instance=ExtResource("107_3v2am")]
 transform = Transform3D(70, 3.0598e-06, 3.0598e-06, -3.0598e-06, -3.0598e-06, 70, 3.0598e-06, -70, -3.0598e-06, 26, 0, -55)
+surface_material_override/0 = null
 
 [node name="SpruceTall1_31" parent="Present/Forest/SpruceTrees/Tall" instance=ExtResource("107_3v2am")]
 transform = Transform3D(70, 3.0598e-06, 3.0598e-06, -3.0598e-06, -3.0598e-06, 70, 3.0598e-06, -70, -3.0598e-06, 27.5, 0, -47.5)
+surface_material_override/0 = null
 
 [node name="SpruceTall1_32" parent="Present/Forest/SpruceTrees/Tall" instance=ExtResource("107_3v2am")]
 transform = Transform3D(70, 3.0598e-06, 3.0598e-06, -3.0598e-06, -3.0598e-06, 70, 3.0598e-06, -70, -3.0598e-06, 29.5, 0, -42)
+surface_material_override/0 = null
 
 [node name="SpruceTall1_33" parent="Present/Forest/SpruceTrees/Tall" instance=ExtResource("107_3v2am")]
 transform = Transform3D(70, 3.0598e-06, 3.0598e-06, -3.0598e-06, -3.0598e-06, 70, 3.0598e-06, -70, -3.0598e-06, 25, 0, -42)
+surface_material_override/0 = null
 
 [node name="SpruceTall1_34" parent="Present/Forest/SpruceTrees/Tall" instance=ExtResource("107_3v2am")]
 transform = Transform3D(70, 3.0598e-06, 3.0598e-06, -3.0598e-06, -3.0598e-06, 70, 3.0598e-06, -70, -3.0598e-06, 22.5, 0, -34)
+surface_material_override/0 = null
 
 [node name="SpruceTall1_35" parent="Present/Forest/SpruceTrees/Tall" instance=ExtResource("107_3v2am")]
 transform = Transform3D(70, 3.0598e-06, 3.0598e-06, -3.0598e-06, -3.0598e-06, 70, 3.0598e-06, -70, -3.0598e-06, 13.5, 0, -32)
+surface_material_override/0 = null
 
 [node name="SpruceTall1_36" parent="Present/Forest/SpruceTrees/Tall" instance=ExtResource("107_3v2am")]
 transform = Transform3D(70, 3.0598e-06, 3.0598e-06, -3.0598e-06, -3.0598e-06, 70, 3.0598e-06, -70, -3.0598e-06, 4.5, 0, -31)
+surface_material_override/0 = null
 
 [node name="SpruceTall1_37" parent="Present/Forest/SpruceTrees/Tall" instance=ExtResource("107_3v2am")]
 transform = Transform3D(70, 3.0598e-06, 3.0598e-06, -3.0598e-06, -3.0598e-06, 70, 3.0598e-06, -70, -3.0598e-06, 10.5, 0, -28.5)
+surface_material_override/0 = null
 
 [node name="SpruceTall1_38" parent="Present/Forest/SpruceTrees/Tall" instance=ExtResource("107_3v2am")]
 transform = Transform3D(70, 3.0598e-06, 3.0598e-06, -3.0598e-06, -3.0598e-06, 70, 3.0598e-06, -70, -3.0598e-06, -2.5, 0, -34.5)
+surface_material_override/0 = null
 
 [node name="SpruceTall1_39" parent="Present/Forest/SpruceTrees/Tall" instance=ExtResource("107_3v2am")]
 transform = Transform3D(70, 3.0598e-06, 3.0598e-06, -3.0598e-06, -3.0598e-06, 70, 3.0598e-06, -70, -3.0598e-06, -7, 0, -32.5)
+surface_material_override/0 = null
 
 [node name="SpruceTall1_40" parent="Present/Forest/SpruceTrees/Tall" instance=ExtResource("107_3v2am")]
 transform = Transform3D(70, 3.0598e-06, 3.0598e-06, -3.0598e-06, -3.0598e-06, 70, 3.0598e-06, -70, -3.0598e-06, -20, 0, -34)
+surface_material_override/0 = null
 
 [node name="SpruceTall1_41" parent="Present/Forest/SpruceTrees/Tall" instance=ExtResource("107_3v2am")]
 transform = Transform3D(70, 3.0598e-06, 3.0598e-06, -3.0598e-06, -3.0598e-06, 70, 3.0598e-06, -70, -3.0598e-06, -29, 0, -38.5)
+surface_material_override/0 = null
 
 [node name="SpruceTall1_42" parent="Present/Forest/SpruceTrees/Tall" instance=ExtResource("107_3v2am")]
 transform = Transform3D(70, 3.0598e-06, 3.0598e-06, -3.0598e-06, -3.0598e-06, 70, 3.0598e-06, -70, -3.0598e-06, -37, 0, -44.5)
+surface_material_override/0 = null
 
 [node name="SpruceTall1_43" parent="Present/Forest/SpruceTrees/Tall" instance=ExtResource("107_3v2am")]
 transform = Transform3D(70, 3.0598e-06, 3.0598e-06, -3.0598e-06, -3.0598e-06, 70, 3.0598e-06, -70, -3.0598e-06, -43, 0, -54.5)
+surface_material_override/0 = null
 
 [node name="SpruceTall1_44" parent="Present/Forest/SpruceTrees/Tall" instance=ExtResource("107_3v2am")]
 transform = Transform3D(70, 3.0598e-06, 3.0598e-06, -3.0598e-06, -3.0598e-06, 70, 3.0598e-06, -70, -3.0598e-06, -39, 0, -58.5)
+surface_material_override/0 = null
 
 [node name="SpruceTall1_45" parent="Present/Forest/SpruceTrees/Tall" instance=ExtResource("107_3v2am")]
 transform = Transform3D(70, 3.0598e-06, 3.0598e-06, -3.0598e-06, -3.0598e-06, 70, 3.0598e-06, -70, -3.0598e-06, -35.5, 0, -54.5)
+surface_material_override/0 = null
 
 [node name="SpruceTall1_46" parent="Present/Forest/SpruceTrees/Tall" instance=ExtResource("107_3v2am")]
 transform = Transform3D(70, 3.0598e-06, 3.0598e-06, -3.0598e-06, -3.0598e-06, 70, 3.0598e-06, -70, -3.0598e-06, -33.5, 0, -61.5)
+surface_material_override/0 = null
 
 [node name="SpruceTall1_47" parent="Present/Forest/SpruceTrees/Tall" instance=ExtResource("107_3v2am")]
 transform = Transform3D(70, 3.0598e-06, 3.0598e-06, -3.0598e-06, -3.0598e-06, 70, 3.0598e-06, -70, -3.0598e-06, -29, 0, -63.5)
+surface_material_override/0 = null
 
 [node name="SpruceTall1_48" parent="Present/Forest/SpruceTrees/Tall" instance=ExtResource("107_3v2am")]
 transform = Transform3D(70, 3.0598e-06, 3.0598e-06, -3.0598e-06, -3.0598e-06, 70, 3.0598e-06, -70, -3.0598e-06, -24, 0, -64)
+surface_material_override/0 = null
 
 [node name="SpruceTall1_49" parent="Present/Forest/SpruceTrees/Tall" instance=ExtResource("107_3v2am")]
 transform = Transform3D(70, 3.0598e-06, 3.0598e-06, -3.0598e-06, -3.0598e-06, 70, 3.0598e-06, -70, -3.0598e-06, -23.5, 0, -66.5)
+surface_material_override/0 = null
 
 [node name="SpruceTall1_50" parent="Present/Forest/SpruceTrees/Tall" instance=ExtResource("107_3v2am")]
 transform = Transform3D(70, 3.0598e-06, 3.0598e-06, -3.0598e-06, -3.0598e-06, 70, 3.0598e-06, -70, -3.0598e-06, -16.5, 0, -66.5)
+surface_material_override/0 = null
 
 [node name="SpruceTall1_51" parent="Present/Forest/SpruceTrees/Tall" instance=ExtResource("107_3v2am")]
 transform = Transform3D(70, 3.0598e-06, 3.0598e-06, -3.0598e-06, -3.0598e-06, 70, 3.0598e-06, -70, -3.0598e-06, -15, 0, -73)
+surface_material_override/0 = null
 
 [node name="SpruceTall1_52" parent="Present/Forest/SpruceTrees/Tall" instance=ExtResource("107_3v2am")]
 transform = Transform3D(70, 3.0598e-06, 3.0598e-06, -3.0598e-06, -3.0598e-06, 70, 3.0598e-06, -70, -3.0598e-06, -5.80055e-07, 0, -74)
+surface_material_override/0 = null
 
 [node name="SpruceTall1_53" parent="Present/Forest/SpruceTrees/Tall" instance=ExtResource("107_3v2am")]
 transform = Transform3D(70, 3.0598e-06, 3.0598e-06, -3.0598e-06, -3.0598e-06, 70, 3.0598e-06, -70, -3.0598e-06, 4.5, 0, -73)
+surface_material_override/0 = null
 
 [node name="SpruceTall1_54" parent="Present/Forest/SpruceTrees/Tall" instance=ExtResource("107_3v2am")]
 transform = Transform3D(70, 3.0598e-06, 3.0598e-06, -3.0598e-06, -3.0598e-06, 70, 3.0598e-06, -70, -3.0598e-06, 12.5, 0, -74)
+surface_material_override/0 = null
 
 [node name="SpruceTall1_55" parent="Present/Forest/SpruceTrees/Tall" instance=ExtResource("107_3v2am")]
 transform = Transform3D(70, 3.0598e-06, 3.0598e-06, -3.0598e-06, -3.0598e-06, 70, 3.0598e-06, -70, -3.0598e-06, 26.5, 0, -65)
+surface_material_override/0 = null
 
 [node name="SpruceTall1_56" parent="Present/Forest/SpruceTrees/Tall" instance=ExtResource("107_3v2am")]
 transform = Transform3D(70, 3.0598e-06, 3.0598e-06, -3.0598e-06, -3.0598e-06, 70, 3.0598e-06, -70, -3.0598e-06, 29, 0, -57)
+surface_material_override/0 = null
 
 [node name="SpruceTall1_57" parent="Present/Forest/SpruceTrees/Tall" instance=ExtResource("107_3v2am")]
 transform = Transform3D(70, 3.0598e-06, 3.0598e-06, -3.0598e-06, -3.0598e-06, 70, 3.0598e-06, -70, -3.0598e-06, -24, 0, -36.5)
+surface_material_override/0 = null
 
 [node name="SpruceTall1_58" parent="Present/Forest/SpruceTrees/Tall" instance=ExtResource("107_3v2am")]
 transform = Transform3D(70, 3.0598e-06, 3.0598e-06, -3.0598e-06, -3.0598e-06, 70, 3.0598e-06, -70, -3.0598e-06, -8, 0, -31)
+surface_material_override/0 = null
 
 [node name="SpruceTall1_59" parent="Present/Forest/SpruceTrees/Tall" instance=ExtResource("107_3v2am")]
 transform = Transform3D(70, 3.0598e-06, 3.0598e-06, -3.0598e-06, -3.0598e-06, 70, 3.0598e-06, -70, -3.0598e-06, -11, 0, -39)
+surface_material_override/0 = null
 
 [node name="SpruceTall1_60" parent="Present/Forest/SpruceTrees/Tall" instance=ExtResource("107_3v2am")]
 transform = Transform3D(70, 3.0598e-06, 3.0598e-06, -3.0598e-06, -3.0598e-06, 70, 3.0598e-06, -70, -3.0598e-06, 6, 0, -38)
+surface_material_override/0 = null
 
 [node name="SpruceTall1_61" parent="Present/Forest/SpruceTrees/Tall" instance=ExtResource("107_3v2am")]
 transform = Transform3D(70, 3.0598e-06, 3.0598e-06, -3.0598e-06, -3.0598e-06, 70, 3.0598e-06, -70, -3.0598e-06, -20, 0, -44.5)
+surface_material_override/0 = null
 
 [node name="SpruceTall1_62" parent="Present/Forest/SpruceTrees/Tall" instance=ExtResource("107_3v2am")]
 transform = Transform3D(70, 3.0598e-06, 3.0598e-06, -3.0598e-06, -3.0598e-06, 70, 3.0598e-06, -70, -3.0598e-06, -23.5, 0, -47)
+surface_material_override/0 = null
 
 [node name="SpruceTall1_63" parent="Present/Forest/SpruceTrees/Tall" instance=ExtResource("107_3v2am")]
 transform = Transform3D(70, 3.0598e-06, 3.0598e-06, -3.0598e-06, -3.0598e-06, 70, 3.0598e-06, -70, -3.0598e-06, -21.5, 0, -69.5)
+surface_material_override/0 = null
 
 [node name="SpruceTall2_0" parent="Present/Forest/SpruceTrees/Tall" instance=ExtResource("108_givt7")]
 transform = Transform3D(70, 3.0598e-06, 3.0598e-06, -3.0598e-06, -3.0598e-06, 70, 3.0598e-06, -70, -3.0598e-06, -6, 0, -68.5)
@@ -1974,6 +2037,17 @@ transform = Transform3D(70, 3.0598e-06, 3.0598e-06, -3.0598e-06, -3.0598e-06, 70
 [node name="SpruceSmall" parent="Present/Forest/SpruceTrees" instance=ExtResource("112_6fyud")]
 
 [node name="SpruceBaby" parent="Present/Forest/SpruceTrees" instance=ExtResource("113_6bdkt")]
+
+[node name="SpruceTall1" parent="Present/Forest" instance=ExtResource("107_3v2am")]
+transform = Transform3D(70, 3.0598e-06, 3.0598e-06, -3.0598e-06, -3.0598e-06, 70, 3.0598e-06, -70, -3.0598e-06, -14.5, 0, 19.5)
+visible = false
+surface_material_override/0 = null
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Present"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.198934, 0)
+visible = false
+use_collision = true
+size = Vector3(60, 1, 60)
 
 [editable path="Player"]
 [editable path="Present/LevelObjects/House/Foundations/Foundation_3x"]

@@ -9,7 +9,7 @@
 [resource]
 resource_name = "Spruce_bark"
 vertex_color_use_as_albedo = true
-albedo_color = Color(0.427801, 0.378298, 0.358336, 1)
+albedo_color = Color(0.524375, 0.533825, 0.58972, 1)
 albedo_texture = ExtResource("1_d8q4p")
 roughness_texture = ExtResource("3_of6jq")
 emission_enabled = true
