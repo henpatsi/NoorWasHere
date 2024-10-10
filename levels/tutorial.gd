@@ -44,6 +44,9 @@ func _process(_delta: float) -> void:
 	if text_index <= 4 and picture_handler.picture_depth == 0 and entered_picture:
 		switch_text(text5, 5)
 
+	if text_index == 5 and picture_handler.picture_index != 0:
+		switch_text("", 6)
+
 
 func switch_text(new_text: String, new_index: int, delay: float = default_text_swap_delay) -> void:
 	if busy:
