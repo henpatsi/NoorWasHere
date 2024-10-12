@@ -13,7 +13,8 @@ var rng = RandomNumberGenerator.new()
 
 var crouching: bool = false
 @onready var collision_shape: CollisionShape3D = $CollisionShape3D
-@onready var original_collision_shape_height: float = collision_shape.shape.height
+@onready var collision_shape_original_height: float = collision_shape.shape.height
+@onready var collision_shape_target_height: float = collision_shape_original_height
 
 @export_category("Camera")
 @export var mouse_sensitivity: float = 10
@@ -117,7 +118,11 @@ func ambient_headbob(delta: float) -> void:
 
 
 func crouch_transition(delta: float) -> void:
+	if not is_on_floor():
+		crouch(false)
 	head_node.position.y = lerpf(head_node.position.y, head_node_target_y, crouch_speed * delta)
+	collision_shape.shape.height = lerpf(collision_shape.shape.height, collision_shape_target_height, crouch_speed * delta)
+	collision_shape.position.y = collision_shape.shape.height / 2
 
 
 func rotate_inspect(delta: float) -> void:
@@ -229,12 +234,10 @@ func interact_input() -> void:
 func crouch(state: bool) -> void:
 	if state:
 		head_node_target_y = head_node.position.y * crouch_ratio
-		collision_shape.shape.height *= crouch_ratio
+		collision_shape_target_height = collision_shape.shape.height * crouch_ratio
 	else:
 		head_node_target_y = head_node_original_y
-		collision_shape.shape.height = original_collision_shape_height
-
-	collision_shape.position.y = collision_shape.shape.height / 2
+		collision_shape_target_height = collision_shape_original_height
 
 	crouching = state
 
