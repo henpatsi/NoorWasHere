@@ -7,10 +7,15 @@ var rng = RandomNumberGenerator.new()
 @export_category("Movement")
 @export var max_move_speed: float = 5.0
 @export var jump_velocity: float = 4.5
+
+@export_category("Camera")
 @export var mouse_sensitivity: float = 10
+@export var ambient_headbob_amplitude: float = 0.15
+@export var ambient_headbob_frequency: float = 1
 
 @onready var head_node: Node3D = $HeadNode
 var mouse_input: Vector2
+var ambient_headbob_time: float = 0
 
 @export_category("Audio")
 @export var footstep_audio_player: AudioStreamPlayer3D
@@ -83,10 +88,17 @@ func footstep(delta: float) -> void:
 # LOOK
 
 func look(delta: float) -> void:
+	ambient_headbob(delta)
+
 	head_node.rotate_x(deg_to_rad(-mouse_input.y) * mouse_sensitivity * delta)
 	head_node.rotation.x = clampf(head_node.rotation.x, deg_to_rad(-90), deg_to_rad(90))
 	rotate_y(deg_to_rad(-mouse_input.x) * mouse_sensitivity * delta)
 	mouse_input = Vector2.ZERO
+
+func ambient_headbob(delta: float) -> void:
+	ambient_headbob_time += delta * ambient_headbob_frequency
+	var headbob_height = cos(ambient_headbob_time) * ambient_headbob_amplitude * 0.1
+	head_node.rotate_x(deg_to_rad(headbob_height))
 
 
 func rotate_inspect(delta: float) -> void:

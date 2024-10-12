@@ -1,6 +1,4 @@
 exit into obstacle unstuck
 try make screenshot work
 
-some ambient camera sway
-
 crouch
