@@ -1,9 +1,0 @@
-[gd_resource type="Resource" script_class="DialogueStream" load_steps=3 format=3]
-
-[ext_resource type="AudioStream" path="res://assets/audio/VO/07_03.mp3" id="1_jm3fm"]
-[ext_resource type="Script" path="res://resources/dialogue_stream.gd" id="2_7782h"]
-
-[resource]
-script = ExtResource("2_7782h")
-audio_stream = ExtResource("1_jm3fm")
-subtitle = "It didn’t matter if it was about my hopes and dreams or Napoleon, "

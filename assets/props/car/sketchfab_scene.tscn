@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=4 uid="uid://brtrvnfelp3ux"]
+[gd_scene load_steps=19 format=4 uid="uid://brtrvnfelp3ux"]
 
 [ext_resource type="Texture2D" uid="uid://bex6d42r36rb7" path="res://assets/props/car/dirty_car_0.png" id="1_a7f1o"]
 [ext_resource type="Texture2D" uid="uid://ebmmm5r3kjuw" path="res://assets/props/car/dirty_car_1.png" id="2_siieq"]
@@ -142,6 +142,12 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_btv3x")
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_85087"]
+size = Vector3(2.35677, 1.13599, 5.41602)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_58atl"]
+size = Vector3(1.74333, 0.542419, 2.55222)
+
 [node name="car" type="Node3D"]
 
 [node name="Sketchfab_model" type="Node3D" parent="."]
@@ -153,7 +159,7 @@ transform = Transform3D(1, 0, 0, 0, 0, -1, 0, 1, 0, 0, 0, 0)
 [node name="RootNode" type="Node3D" parent="Sketchfab_model/57049a778210450ea99a30722ba37f9d_fbx"]
 
 [node name="car_noname1" type="Node3D" parent="Sketchfab_model/57049a778210450ea99a30722ba37f9d_fbx/RootNode"]
-transform = Transform3D(1, 0, 0, 0, 2.22045e-16, 1, 0, -1, 2.22045e-16, 0, 0, 1.11053e-07)
+transform = Transform3D(0.92, 0, 0, 0, -4.02145e-08, 0.92, 0, -0.92, -4.02145e-08, 0, 0, 1.11053e-07)
 
 [node name="car_noname1_large_car_body_mat_0" type="MeshInstance3D" parent="Sketchfab_model/57049a778210450ea99a30722ba37f9d_fbx/RootNode/car_noname1"]
 transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 0, 0, 0)
@@ -169,3 +175,13 @@ skeleton = NodePath("")
 transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 0, 0, 0)
 mesh = SubResource("ArrayMesh_12os1")
 skeleton = NodePath("")
+
+[node name="collision_car" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="collision_car"]
+transform = Transform3D(1, 0, 0, 0, 1, 3.55271e-15, 0, -3.55271e-15, 1, -0.00103378, 0.557118, -0.00488281)
+shape = SubResource("BoxShape3D_85087")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="collision_car"]
+transform = Transform3D(1, 0, 0, 0, 1, 3.55271e-15, 0, -3.55271e-15, 1, -0.0499439, 1.35204, -0.413864)
+shape = SubResource("BoxShape3D_58atl")

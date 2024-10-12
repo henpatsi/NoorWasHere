@@ -1,9 +1,0 @@
-[gd_resource type="Resource" script_class="DialogueStream" load_steps=3 format=3]
-
-[ext_resource type="AudioStream" path="res://assets/audio/VO/04_03.mp3" id="1_cwf5s"]
-[ext_resource type="Script" path="res://resources/dialogue_stream.gd" id="2_pl0h1"]
-
-[resource]
-script = ExtResource("2_pl0h1")
-audio_stream = ExtResource("1_cwf5s")
-subtitle = "I kinda enjoyed that, having her think I’d gone missing, calling out my name. "
