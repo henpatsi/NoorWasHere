@@ -216,6 +216,10 @@ func on_picture_picked_up(picture: TextureRect) -> void:
 
 
 func set_active_picture(index: int) -> void:
+	if inventory.get_pictures(picture_depth).size() <= 1:
+		print("Nothing to swap to")
+		return
+
 	inspecting = false
 
 	if current_picture:
