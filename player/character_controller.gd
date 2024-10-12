@@ -7,6 +7,13 @@ var rng = RandomNumberGenerator.new()
 @export_category("Movement")
 @export var max_move_speed: float = 5.0
 @export var jump_velocity: float = 4.5
+@export var crouch_ratio: float = 0.5
+@export var crouch_move_speed_modifier: float = 0.5
+@export var crouch_speed: float = 10
+
+var crouching: bool = false
+@onready var collision_shape: CollisionShape3D = $CollisionShape3D
+@onready var original_collision_shape_height: float = collision_shape.shape.height
 
 @export_category("Camera")
 @export var mouse_sensitivity: float = 10
@@ -14,6 +21,8 @@ var rng = RandomNumberGenerator.new()
 @export var ambient_headbob_frequency: float = 1
 
 @onready var head_node: Node3D = $HeadNode
+@onready var head_node_original_y: float = head_node.position.y
+@onready var head_node_target_y: float = head_node_original_y
 var mouse_input: Vector2
 var ambient_headbob_time: float = 0
 
@@ -53,6 +62,7 @@ func _physics_process(delta: float) -> void:
 		look(delta)
 		move_and_slide()
 
+	crouch_transition(delta)
 	raycast()
 
 
@@ -62,12 +72,17 @@ func move(delta: float) -> void:
 	# Get the input direction and handle the movement/deceleration.
 	var input_dir := Input.get_vector("move_left", "move_right", "move_forward", "move_backward")
 	var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+	
+	var current_max_move_speed = max_move_speed
+	if crouching:
+		current_max_move_speed *= crouch_move_speed_modifier
+	
 	if direction:
-		velocity.x = direction.x * max_move_speed
-		velocity.z = direction.z * max_move_speed
+		velocity.x = direction.x * current_max_move_speed
+		velocity.z = direction.z * current_max_move_speed
 	else:
-		velocity.x = move_toward(velocity.x, 0, max_move_speed)
-		velocity.z = move_toward(velocity.z, 0, max_move_speed)
+		velocity.x = move_toward(velocity.x, 0, current_max_move_speed)
+		velocity.z = move_toward(velocity.z, 0, current_max_move_speed)
 	
 	if abs(velocity.x) > 0 or abs(velocity.z) > 0:
 		footstep(delta)
@@ -99,6 +114,10 @@ func ambient_headbob(delta: float) -> void:
 	ambient_headbob_time += delta * ambient_headbob_frequency
 	var headbob_height = cos(ambient_headbob_time) * ambient_headbob_amplitude * 0.1
 	head_node.rotate_x(deg_to_rad(headbob_height))
+
+
+func crouch_transition(delta: float) -> void:
+	head_node.position.y = lerpf(head_node.position.y, head_node_target_y, crouch_speed * delta)
 
 
 func rotate_inspect(delta: float) -> void:
@@ -176,6 +195,15 @@ func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("interact") and interact_enabled:
 		interact_input()
 
+	if inspect_mode:
+		return
+
+	if event.is_action_pressed("crouch"):
+		crouch(true)
+	if event.is_action_released("crouch"):
+		crouch(false)
+
+
 func interact_input() -> void:
 	if interacting_object:
 		if not interacting_object.release():
@@ -196,6 +224,20 @@ func interact_input() -> void:
 	interacting_object = ray_collision_object.interact(self)
 	if interacting_object and interacting_object.has_method("inspect"):
 		inspect_mode = true
+
+
+func crouch(state: bool) -> void:
+	if state:
+		head_node_target_y = head_node.position.y * crouch_ratio
+		collision_shape.shape.height *= crouch_ratio
+	else:
+		head_node_target_y = head_node_original_y
+		collision_shape.shape.height = original_collision_shape_height
+
+	collision_shape.position.y = collision_shape.shape.height / 2
+
+	crouching = state
+
 
 # DIALOGUE
 
