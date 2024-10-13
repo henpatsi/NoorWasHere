@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="DialogueStream" load_steps=3 format=3]
+
+[ext_resource type="AudioStream" uid="uid://0yd2n0iqw3yf" path="res://assets/audio/VO/01_E01.mp3" id="1_wlqi4"]
+[ext_resource type="Script" path="res://levels/dialogue_streams/dialogue_stream.gd" id="2_6jiaq"]
+
+[resource]
+script = ExtResource("2_6jiaq")
+audio_stream = ExtResource("1_wlqi4")
+subtitle = "It’s weird being back."

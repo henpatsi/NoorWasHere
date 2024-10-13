@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="DialogueStream" load_steps=3 format=3]
+
+[ext_resource type="AudioStream" uid="uid://dwart4mxusd84" path="res://assets/audio/VO/10_E05.mp3" id="1_0ploj"]
+[ext_resource type="Script" path="res://levels/dialogue_streams/dialogue_stream.gd" id="2_qke82"]
+
+[resource]
+script = ExtResource("2_qke82")
+audio_stream = ExtResource("1_0ploj")
+subtitle = "And I read it that night- maybe twenty times."

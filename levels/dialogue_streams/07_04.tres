@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="DialogueStream" load_steps=3 format=3]
+
+[ext_resource type="AudioStream" uid="uid://cr1fnsw6fttm7" path="res://assets/audio/VO/07_04.mp3" id="1_8g7il"]
+[ext_resource type="Script" path="res://levels/dialogue_streams/dialogue_stream.gd" id="2_litv3"]
+
+[resource]
+script = ExtResource("2_litv3")
+audio_stream = ExtResource("1_8g7il")
+subtitle = "I'd be the first to raise my hand."

@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="DialogueStream" load_steps=3 format=3]
+
+[ext_resource type="AudioStream" uid="uid://knwc0m0qw3co" path="res://assets/audio/VO/09_04.mp3" id="1_fcr78"]
+[ext_resource type="Script" path="res://levels/dialogue_streams/dialogue_stream.gd" id="2_tx587"]
+
+[resource]
+script = ExtResource("2_tx587")
+audio_stream = ExtResource("1_fcr78")
+subtitle = "Or that disgusted look on Claire’s face"

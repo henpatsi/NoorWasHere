@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="DialogueStream" load_steps=3 format=3]
+
+[ext_resource type="AudioStream" uid="uid://y5di5xugha71" path="res://assets/audio/VO/08_E01.mp3" id="1_v6wa3"]
+[ext_resource type="Script" path="res://levels/dialogue_streams/dialogue_stream.gd" id="2_ibt4s"]
+
+[resource]
+script = ExtResource("2_ibt4s")
+audio_stream = ExtResource("1_v6wa3")
+subtitle = "That night, she let me sleep beside her."

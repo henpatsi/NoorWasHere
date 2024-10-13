@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="DialogueStream" load_steps=3 format=3]
+
+[ext_resource type="AudioStream" uid="uid://bepnij3aeco4x" path="res://assets/audio/VO/02_03.mp3" id="1_j621e"]
+[ext_resource type="Script" path="res://levels/dialogue_streams/dialogue_stream.gd" id="2_pdyvk"]
+
+[resource]
+script = ExtResource("2_pdyvk")
+audio_stream = ExtResource("1_j621e")
+subtitle = "Next time Agathe came over, I told her all about it and she fell in love with it too."

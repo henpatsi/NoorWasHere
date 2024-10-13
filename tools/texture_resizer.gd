@@ -56,5 +56,8 @@ func resize_image(image_path: String) -> void:
 		new_width = new_height * aspect_ratio
 
 	image.resize(new_width, new_height)
-	image.save_png(image_path)
-	resized_images_print.append(image_path + " (" + str(image.get_width()) + " x " + str(image.get_height()) + ")")
+	var error = image.save_png(image_path)
+	if error:
+		print("Error resizing, ", image_path, ": ", error_string(error))
+	else:
+		resized_images_print.append(image_path + " (" + str(image.get_width()) + " x " + str(image.get_height()) + ")")

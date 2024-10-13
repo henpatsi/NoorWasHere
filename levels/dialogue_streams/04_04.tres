@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="DialogueStream" load_steps=3 format=3]
+
+[ext_resource type="AudioStream" uid="uid://35of1pk4oj5j" path="res://assets/audio/VO/04_04.mp3" id="1_pj82h"]
+[ext_resource type="Script" path="res://levels/dialogue_streams/dialogue_stream.gd" id="2_oah3q"]
+
+[resource]
+script = ExtResource("2_oah3q")
+audio_stream = ExtResource("1_pj82h")
+subtitle = "Or at least until I heard the panic in her voice."

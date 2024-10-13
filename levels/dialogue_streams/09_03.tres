@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="DialogueStream" load_steps=3 format=3]
+
+[ext_resource type="AudioStream" uid="uid://cap2ildok3po3" path="res://assets/audio/VO/09_03.mp3" id="1_qfll1"]
+[ext_resource type="Script" path="res://levels/dialogue_streams/dialogue_stream.gd" id="2_pa6xk"]
+
+[resource]
+script = ExtResource("2_pa6xk")
+audio_stream = ExtResource("1_qfll1")
+subtitle = "saying, “You know, there’s other people in here.”"

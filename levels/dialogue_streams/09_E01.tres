@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="DialogueStream" load_steps=3 format=3]
+
+[ext_resource type="AudioStream" uid="uid://buugs51ij4otd" path="res://assets/audio/VO/09_E01.mp3" id="1_86b4n"]
+[ext_resource type="Script" path="res://levels/dialogue_streams/dialogue_stream.gd" id="2_dvsis"]
+
+[resource]
+script = ExtResource("2_dvsis")
+audio_stream = ExtResource("1_86b4n")
+subtitle = "I guess I’m here because more than the fear of losing these walls,"

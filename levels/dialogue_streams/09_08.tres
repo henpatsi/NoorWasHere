@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="DialogueStream" load_steps=3 format=3]
+
+[ext_resource type="AudioStream" uid="uid://b42y4r8qyiepg" path="res://assets/audio/VO/09_08.mp3" id="1_k05ip"]
+[ext_resource type="Script" path="res://levels/dialogue_streams/dialogue_stream.gd" id="2_npyg2"]
+
+[resource]
+script = ExtResource("2_npyg2")
+audio_stream = ExtResource("1_k05ip")
+subtitle = "It’s hard to say when I started hiding what I loved most, to dull myself down."

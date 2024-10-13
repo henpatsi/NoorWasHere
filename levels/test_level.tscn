@@ -5,7 +5,7 @@
 [ext_resource type="Script" path="res://levels/test_level.gd" id="1_w023m"]
 [ext_resource type="Script" path="res://levels/pictures/picture.gd" id="2_sagta"]
 [ext_resource type="Script" path="res://player/inventory.gd" id="3_14087"]
-[ext_resource type="PackedScene" path="res://levels/camera_ref.tscn" id="4_5wynm"]
+[ext_resource type="PackedScene" uid="uid://d22ogqllffeom" path="res://levels/camera_ref.tscn" id="4_5wynm"]
 [ext_resource type="Script" path="res://levels/pictures/screenshot.gd" id="5_0pnjl"]
 [ext_resource type="Environment" uid="uid://b55jay45p5h4g" path="res://assets/WorldEnvironments/Env_Past.tres" id="5_gbh07"]
 [ext_resource type="Script" path="res://levels/ui/ui.gd" id="7_813h0"]
@@ -15,12 +15,12 @@
 [ext_resource type="AudioStream" uid="uid://m3xgq65pqjwl" path="res://assets/audio/sfx/Misc/light switch/Light_On.wav" id="11_3q2yy"]
 [ext_resource type="PackedScene" uid="uid://bn5ukqljga2qo" path="res://levels/areas/trigger_area.tscn" id="11_bydt5"]
 [ext_resource type="Script" path="res://levels/tutorial.gd" id="11_ryn7j"]
-[ext_resource type="Resource" uid="uid://cra54wjuo32as" path="res://resources/00_01.tres" id="12_8jd77"]
+[ext_resource type="Resource" uid="uid://cra54wjuo32as" path="res://levels/dialogue_streams/00_01.tres" id="12_8jd77"]
 [ext_resource type="Shader" path="res://shaders/teleport.gdshader" id="12_yjm3x"]
-[ext_resource type="Resource" uid="uid://cimlmvpdq1ugw" path="res://resources/00_02.tres" id="13_wxw3k"]
+[ext_resource type="Resource" uid="uid://cimlmvpdq1ugw" path="res://levels/dialogue_streams/00_02.tres" id="13_wxw3k"]
 [ext_resource type="Script" path="res://levels/interactables/interactable_picture.gd" id="14_236fl"]
 [ext_resource type="Script" path="res://levels/interactables/interactable_pickup.gd" id="14_nbo1e"]
-[ext_resource type="Resource" uid="uid://cqkpitmwbm6ug" path="res://resources/00_03.tres" id="14_w74bm"]
+[ext_resource type="Resource" uid="uid://cqkpitmwbm6ug" path="res://levels/dialogue_streams/00_03.tres" id="14_w74bm"]
 [ext_resource type="Script" path="res://levels/interactables/interactable_inspect.gd" id="15_frg6o"]
 [ext_resource type="Script" path="res://levels/interactables/interactable_carry.gd" id="15_pxfaq"]
 [ext_resource type="AudioStream" uid="uid://cb5ijg4lr1lyu" path="res://assets/audio/sfx/Misc/TV/TV_Lift.wav" id="16_erfy3"]
@@ -233,9 +233,6 @@ shadow_enabled = true
 subtitle_label = NodePath("../UI/SubtitleLabel")
 interact_label = NodePath("../UI/InteractLabel")
 interact_response_label = NodePath("../UI/InteractResponseLabel")
-
-[node name="FootstepASP" parent="Player" index="3"]
-volume_db = -45.0
 
 [node name="Inventory" type="Node" parent="." node_paths=PackedStringArray("starting_pictures", "pictures_after_tutorial")]
 unique_name_in_owner = true
@@ -476,11 +473,14 @@ script = ExtResource("9_pp8iw")
 
 [node name="SubtitleLabel" type="Label" parent="UI"]
 layout_mode = 1
-anchors_preset = 12
+anchors_preset = 7
+anchor_left = 0.5
 anchor_top = 1.0
-anchor_right = 1.0
+anchor_right = 0.5
 anchor_bottom = 1.0
+offset_left = -500.0
 offset_top = -220.0
+offset_right = 500.0
 offset_bottom = -20.0
 grow_horizontal = 2
 grow_vertical = 0

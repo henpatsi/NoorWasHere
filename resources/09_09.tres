@@ -1,9 +1,0 @@
-[gd_resource type="Resource" script_class="DialogueStream" load_steps=3 format=3]
-
-[ext_resource type="AudioStream" path="res://assets/audio/VO/09_09.mp3" id="1_sj54m"]
-[ext_resource type="Script" path="res://resources/dialogue_stream.gd" id="2_r7y8j"]
-
-[resource]
-script = ExtResource("2_r7y8j")
-audio_stream = ExtResource("1_sj54m")
-subtitle = "For the past twenty years, everyday I’ve taken one little step away from myself."

@@ -1,9 +1,0 @@
-[gd_resource type="Resource" script_class="DialogueStream" load_steps=3 format=3]
-
-[ext_resource type="AudioStream" path="res://assets/audio/VO/09_06.mp3" id="1_nmfif"]
-[ext_resource type="Script" path="res://resources/dialogue_stream.gd" id="2_3tmq1"]
-
-[resource]
-script = ExtResource("2_3tmq1")
-audio_stream = ExtResource("1_nmfif")
-subtitle = "Or maybe when I was around ten years old,"

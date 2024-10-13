@@ -2,3 +2,7 @@ exit into obstacle unstuck
 	- works automatically but can sometimes go through walls you should not
 
 try make screenshot work
+
+uncrouch only if space
+
+footsteps based on surface

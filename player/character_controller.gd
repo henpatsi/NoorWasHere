@@ -2,7 +2,6 @@ extends CharacterBody3D
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
-var rng = RandomNumberGenerator.new()
 
 @export_category("Movement")
 @export var max_move_speed: float = 5.0
@@ -28,13 +27,11 @@ var mouse_input: Vector2
 var ambient_headbob_time: float = 0
 
 @export_category("Audio")
-@export var footstep_audio_player: AudioStreamPlayer3D
-@export var footstep_duration: float = 0.5
-@export var footstep_sound_effects: Array[AudioStream]
 @export var dialogue_audio_player: AudioStreamPlayer3D
 @export var subtitle_label: Label
 
-var footstep_timer: float = 0.0
+@onready var footstep_player = $FootstepPlayer
+
 
 @export_category("Interaction")
 @export var ray_cast: RayCast3D
@@ -85,21 +82,8 @@ func move(delta: float) -> void:
 		velocity.x = move_toward(velocity.x, 0, current_max_move_speed)
 		velocity.z = move_toward(velocity.z, 0, current_max_move_speed)
 	
-	if abs(velocity.x) > 0 or abs(velocity.z) > 0:
-		footstep(delta)
-
-
-func footstep(delta: float) -> void:
-	if is_on_floor():
-		footstep_timer += delta;
-	if footstep_timer < footstep_duration:
-		return
-
-	footstep_audio_player.stream = footstep_sound_effects[rng.randi_range(0, footstep_sound_effects.size() - 1)]
-	footstep_audio_player.play()
-
-	footstep_timer = 0
-
+	if is_on_floor() and (abs(velocity.x) > 0 or abs(velocity.z) > 0):
+		footstep_player.movement_process(delta)
 
 # LOOK
 
