@@ -119,11 +119,17 @@ func _input(event: InputEvent) -> void:
 
 	if event.is_action_pressed("next_picture"):
 		print("Swapping to next picture")
-		set_active_picture(picture_index + 1)
+		if inventory.get_pictures(picture_depth).size() <= 1:
+			print("Nothing to swap to")
+		else:
+			set_active_picture(picture_index + 1)
 	
 	if event.is_action_pressed("previous_picture"):
 		print("Swapping to previous picture")
-		set_active_picture(picture_index - 1)
+		if inventory.get_pictures(picture_depth).size() <= 1:
+			print("Nothing to swap to")
+		else:
+			set_active_picture(picture_index - 1)
 	
 	if event.is_action_pressed("enter_picture"):
 		if not inspecting:
@@ -216,10 +222,7 @@ func on_picture_picked_up(picture: TextureRect) -> void:
 
 
 func set_active_picture(index: int) -> void:
-	if inventory.get_pictures(picture_depth).size() <= 1:
-		print("Nothing to swap to")
-		return
-
+	print("Setting active picture")
 	inspecting = false
 
 	if current_picture:
