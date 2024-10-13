@@ -55,7 +55,7 @@ size = Vector3(0.00662231, 0.0731812, 0.113899)
 [node name="closet" type="StaticBody3D"]
 
 [node name="closet" type="MeshInstance3D" parent="."]
-transform = Transform3D(13, 0, 0, 0, -5.68248e-07, 13, 0, -13, -5.68248e-07, 0.00122887, 0.100377, -0.00663996)
+transform = Transform3D(11, 0, 0, 0, -4.80825e-07, 11, 0, -11, -4.80825e-07, 0.00122887, 0.100377, -0.00663996)
 material_override = ExtResource("1_ga8cu")
 mesh = SubResource("ArrayMesh_hik11")
 skeleton = NodePath("")

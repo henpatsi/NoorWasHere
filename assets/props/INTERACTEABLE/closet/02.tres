@@ -6,7 +6,7 @@
 [resource]
 resource_name = "02"
 vertex_color_use_as_albedo = true
-albedo_color = Color(0.5, 0.5, 0.5, 1)
+albedo_color = Color(0.819915, 0.923645, 0.929691, 1)
 albedo_texture = ExtResource("1_bgxfm")
 roughness_texture = ExtResource("2_8a5ug")
 emission_enabled = true
