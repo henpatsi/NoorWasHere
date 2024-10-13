@@ -1,4 +1,4 @@
-extends Control
+extends Node
 
 @export var audio_clip_dir_path: String = "res://assets/audio/VO/"
 @export var subtitles_path: String = "res://assets/audio/subtitles/voice_line_subtitles.csv"
