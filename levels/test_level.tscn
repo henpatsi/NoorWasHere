@@ -391,7 +391,7 @@ stretch_mode = 3
 script = ExtResource("2_sagta")
 camera = NodePath("../SubViewport/PortalCamera")
 world_root = NodePath("../../../World2")
-nodes_to_show = [NodePath("../../../World2/Interactables/PickupPicture")]
+nodes_to_show = [NodePath("../../../World2/Interactables/PickupPicture"), NodePath("../../../World2/Picture3Objects")]
 
 [node name="SubViewport" type="SubViewport" parent="Pictures/3"]
 size = Vector2i(1280, 720)
@@ -745,6 +745,14 @@ visible = false
 
 [node name="SpotLight3D" type="SpotLight3D" parent="World2/Picture0Objects"]
 transform = Transform3D(1, 0, 0, 0, 0.050715, 0.998713, 0, -0.998713, 0.050715, -8.6882, 9.40225, -1.9904)
+light_energy = 4.0
+spot_range = 15.0
+
+[node name="Picture3Objects" type="Node3D" parent="World2"]
+visible = false
+
+[node name="SpotLight3D" type="SpotLight3D" parent="World2/Picture3Objects"]
+transform = Transform3D(1, 0, 0, 0, 0.050715, 0.998713, 0, -0.998713, 0.050715, -6.41711, 9.40225, -14.6591)
 light_energy = 4.0
 spot_range = 15.0
 

@@ -1,4 +1,4 @@
 exit into obstacle unstuck
-try make screenshot work
+	- works automatically but can sometimes go through walls you should not
 
-crouch
+try make screenshot work
