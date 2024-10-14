@@ -1,4 +1,4 @@
-[gd_scene load_steps=65 format=4 uid="uid://bd5b2sgv2c8v8"]
+[gd_scene load_steps=66 format=4 uid="uid://bd5b2sgv2c8v8"]
 
 [ext_resource type="PackedScene" uid="uid://b25ooshew3q2v" path="res://player/player.tscn" id="1_7d6r5"]
 [ext_resource type="Script" path="res://levels/pictures/picture_handler.gd" id="1_827sh"]
@@ -90,8 +90,11 @@ shadow_color = Color(0, 0, 0, 0.313726)
 [sub_resource type="LabelSettings" id="LabelSettings_v2gll"]
 font_size = 32
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6s5fc"]
+albedo_color = Color(0.131806, 0.281694, 0.190929, 1)
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jc4wf"]
-albedo_color = Color(0.02223, 0.0568684, 0.156604, 1)
+albedo_color = Color(0.0937043, 0.173732, 0.216351, 1)
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_o5jd0"]
 load_path = "res://.godot/imported/memory_box_albedo_2.png-79f0dee4ba330e569bd695cd0e55d3c6.s3tc.ctex"
@@ -514,8 +517,14 @@ label_settings = SubResource("LabelSettings_v2gll")
 
 [node name="World1" type="Node3D" parent="."]
 
-[node name="Floor" type="CSGBox3D" parent="World1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+[node name="Floor" type="CSGBox3D" parent="World1" groups=["FootstepGrass"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50, -1, 0)
+use_collision = true
+size = Vector3(100, 2, 100)
+material = SubResource("StandardMaterial3D_6s5fc")
+
+[node name="Floor2" type="CSGBox3D" parent="World1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -50, -1, 0)
 use_collision = true
 size = Vector3(100, 2, 100)
 material = SubResource("StandardMaterial3D_jc4wf")

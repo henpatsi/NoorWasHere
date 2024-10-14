@@ -50,6 +50,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
 [node name="FootstepPlayer" type="AudioStreamPlayer3D" parent="."]
 volume_db = -20.0
 script = ExtResource("12_hbpo8")
-footstep_sound_effects = Array[AudioStream]([ExtResource("2_jwcu0"), ExtResource("3_nygiy"), ExtResource("4_hcqhq"), ExtResource("5_v410j"), ExtResource("6_4uoq0"), ExtResource("7_pybik"), ExtResource("8_iq7hm"), ExtResource("9_36wfv"), ExtResource("10_w6k87"), ExtResource("11_jghtd")])
+default_footstep_sound_effects = Array[AudioStream]([ExtResource("2_jwcu0"), ExtResource("3_nygiy"), ExtResource("4_hcqhq"), ExtResource("5_v410j"), ExtResource("6_4uoq0"), ExtResource("7_pybik"), ExtResource("8_iq7hm"), ExtResource("9_36wfv"), ExtResource("10_w6k87"), ExtResource("11_jghtd")])
 
 [node name="PlayerDialogueASP" type="AudioStreamPlayer3D" parent="."]
