@@ -29,6 +29,7 @@ window/stretch/mode="canvas_items"
 
 Player=""
 DropZone=""
+FootstepGrass="Plays grass footstep audio when player  walks on this object."
 
 [input]
 

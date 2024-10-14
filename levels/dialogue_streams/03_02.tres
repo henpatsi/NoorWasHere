@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="DialogueStream" load_steps=3 format=3]
+
+[ext_resource type="AudioStream" uid="uid://04j43qydnc03" path="res://assets/audio/VO/03_02.mp3" id="1_yy7jc"]
+[ext_resource type="Script" path="res://levels/dialogue_streams/dialogue_stream.gd" id="2_f7m1x"]
+
+[resource]
+script = ExtResource("2_f7m1x")
+audio_stream = ExtResource("1_yy7jc")
+subtitle = "Of course, over dinner with my mom, she announces it, loud and clear."

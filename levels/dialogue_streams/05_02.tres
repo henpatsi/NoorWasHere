@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="DialogueStream" load_steps=3 format=3]
+
+[ext_resource type="AudioStream" uid="uid://drq17f6atj1hj" path="res://assets/audio/VO/05_02.mp3" id="1_yuovy"]
+[ext_resource type="Script" path="res://levels/dialogue_streams/dialogue_stream.gd" id="2_3ub53"]
+
+[resource]
+script = ExtResource("2_3ub53")
+audio_stream = ExtResource("1_yuovy")
+subtitle = "I probably saw most David Lynch films by the age of nine-"

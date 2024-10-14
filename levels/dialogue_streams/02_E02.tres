@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="DialogueStream" load_steps=3 format=3]
+
+[ext_resource type="AudioStream" uid="uid://c54iabrj4b7av" path="res://assets/audio/VO/02_E02.mp3" id="1_uoc44"]
+[ext_resource type="Script" path="res://levels/dialogue_streams/dialogue_stream.gd" id="2_dcf4b"]
+
+[resource]
+script = ExtResource("2_dcf4b")
+audio_stream = ExtResource("1_uoc44")
+subtitle = "the excitement rippling through my body. I was full of that as a kid."

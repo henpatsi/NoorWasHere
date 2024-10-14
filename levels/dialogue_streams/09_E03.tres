@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="DialogueStream" load_steps=3 format=3]
+
+[ext_resource type="AudioStream" uid="uid://djux8yihykopn" path="res://assets/audio/VO/09_E03.mp3" id="1_eknl3"]
+[ext_resource type="Script" path="res://levels/dialogue_streams/dialogue_stream.gd" id="2_on0s5"]
+
+[resource]
+script = ExtResource("2_on0s5")
+audio_stream = ExtResource("1_eknl3")
+subtitle = "is my way back home again."

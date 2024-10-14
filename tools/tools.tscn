@@ -1,0 +1,43 @@
+[gd_scene load_steps=3 format=3 uid="uid://bslfuqo1ius0x"]
+
+[ext_resource type="Script" path="res://tools/dialogue_stream_creator.gd" id="1_nwdk6"]
+[ext_resource type="Script" path="res://tools/texture_resizer.gd" id="2_d2c5u"]
+
+[node name="Tools" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="DialogueStreamCreator" type="Node" parent="."]
+script = ExtResource("1_nwdk6")
+resource_path = "res://asd"
+
+[node name="TextureResizer" type="Node" parent="."]
+script = ExtResource("2_d2c5u")
+
+[node name="Controls" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="CreateDialogueStreamsButton" type="Button" parent="Controls"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Create Dialogue Streams"
+
+[node name="ResizeTexturesButton" type="Button" parent="Controls"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Resize Textures"
+
+[connection signal="pressed" from="Controls/CreateDialogueStreamsButton" to="DialogueStreamCreator" method="_on_create_resources_button_pressed"]
+[connection signal="pressed" from="Controls/ResizeTexturesButton" to="TextureResizer" method="_on_resize_textures_button_pressed"]

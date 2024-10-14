@@ -11,6 +11,8 @@ extends Node
 @export var picture_inventory_position: Vector2 = Vector2(1280, 2280)
 ## Strength of the lerp to align photo when almost aligned
 @export var align_lerp_strength: float = 2
+## Rect containing shader to use when teleporting into picture
+@export var teleport_shader_rect: ColorRect
 
 var picture_upper_position: Vector2
 
@@ -117,11 +119,17 @@ func _input(event: InputEvent) -> void:
 
 	if event.is_action_pressed("next_picture"):
 		print("Swapping to next picture")
-		set_active_picture(picture_index + 1)
+		if inventory.get_pictures(picture_depth).size() <= 1:
+			print("Nothing to swap to")
+		else:
+			set_active_picture(picture_index + 1)
 	
 	if event.is_action_pressed("previous_picture"):
 		print("Swapping to previous picture")
-		set_active_picture(picture_index - 1)
+		if inventory.get_pictures(picture_depth).size() <= 1:
+			print("Nothing to swap to")
+		else:
+			set_active_picture(picture_index - 1)
 	
 	if event.is_action_pressed("enter_picture"):
 		if not inspecting:
@@ -172,6 +180,9 @@ func enter_picture() -> void:
 	up_position = false
 	crosshair.show()
 	player.interact_enabled = true
+	
+	if teleport_shader_rect:
+		teleport_shader_rect.on_enter_picture()
 
 func exit_picture() -> void:
 	print("Exiting picture")
@@ -197,6 +208,9 @@ func exit_picture() -> void:
 	crosshair.hide()
 	player.interact_enabled = false
 
+	if teleport_shader_rect:
+		teleport_shader_rect.on_exit_picture()
+
 
 func on_picture_picked_up(picture: TextureRect) -> void:
 	current_picture_array.append(picture)
@@ -208,6 +222,7 @@ func on_picture_picked_up(picture: TextureRect) -> void:
 
 
 func set_active_picture(index: int) -> void:
+	print("Setting active picture")
 	inspecting = false
 
 	if current_picture:

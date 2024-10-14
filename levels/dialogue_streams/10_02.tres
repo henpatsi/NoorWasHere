@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="DialogueStream" load_steps=3 format=3]
+
+[ext_resource type="AudioStream" uid="uid://csdeduuvsta0s" path="res://assets/audio/VO/10_02.mp3" id="1_gudtf"]
+[ext_resource type="Script" path="res://levels/dialogue_streams/dialogue_stream.gd" id="2_7ku5p"]
+
+[resource]
+script = ExtResource("2_7ku5p")
+audio_stream = ExtResource("1_gudtf")
+subtitle = "or destroyed- but I don’t remember this."

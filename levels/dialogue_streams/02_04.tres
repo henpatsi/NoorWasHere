@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="DialogueStream" load_steps=3 format=3]
+
+[ext_resource type="AudioStream" uid="uid://c7nghwlcfmvc6" path="res://assets/audio/VO/02_04.mp3" id="1_y8i4s"]
+[ext_resource type="Script" path="res://levels/dialogue_streams/dialogue_stream.gd" id="2_6rft4"]
+
+[resource]
+script = ExtResource("2_6rft4")
+audio_stream = ExtResource("1_y8i4s")
+subtitle = "That’s when I knew she was my best friend."

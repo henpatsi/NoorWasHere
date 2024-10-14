@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="DialogueStream" load_steps=3 format=3]
+
+[ext_resource type="AudioStream" uid="uid://dyw2nbfelyt5a" path="res://assets/audio/VO/10_01.mp3" id="1_ioqv5"]
+[ext_resource type="Script" path="res://levels/dialogue_streams/dialogue_stream.gd" id="2_gsjaa"]
+
+[resource]
+script = ExtResource("2_gsjaa")
+audio_stream = ExtResource("1_ioqv5")
+subtitle = "She put it away? I mean, maybe she thought it would get rained on"

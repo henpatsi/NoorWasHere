@@ -2,6 +2,7 @@ extends Node
 
 @export var items: Array[String]
 @export var starting_pictures: Array[TextureRect]
+@export var pictures_after_tutorial: Array[TextureRect]
 @export var max_depth = 2
 
 var pictures = {}
@@ -20,6 +21,10 @@ func add_item(item: String) -> void:
 func add_picture(array: Array[TextureRect], picture: TextureRect) -> void:
 	array.append(picture)
 	picture.show()
+
+func add_tutorial_pictures() -> void:
+	for picture in pictures_after_tutorial:
+		add_picture(pictures[0], picture)
 
 func clear_pictures(depth: int) -> void:
 	pictures[depth].clear()

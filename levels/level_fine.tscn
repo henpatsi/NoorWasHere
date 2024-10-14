@@ -1,4 +1,4 @@
-[gd_scene load_steps=502 format=4 uid="uid://baq3osaidwfaf"]
+[gd_scene load_steps=509 format=4 uid="uid://baq3osaidwfaf"]
 
 [ext_resource type="Script" path="res://levels/level.gd" id="1_mw3wp"]
 [ext_resource type="Material" uid="uid://dve3xrg044f4h" path="res://assets/materials/M_housetemp.tres" id="2_db8bv"]
@@ -20,12 +20,15 @@
 [ext_resource type="PackedScene" uid="uid://dtrj4a2rd7r80" path="res://assets/props/INTERACTEABLE/closet/closet.tscn" id="12_4m6ha"]
 [ext_resource type="PackedScene" uid="uid://cogjse1d7bpe1" path="res://assets/props/INTERACTEABLE/TV_a/tv.tscn" id="12_4tqrl"]
 [ext_resource type="PackedScene" uid="uid://bn5ukqljga2qo" path="res://levels/areas/trigger_area.tscn" id="13_3syry"]
+[ext_resource type="Shader" path="res://shaders/teleport.gdshader" id="13_uiejv"]
 [ext_resource type="Theme" uid="uid://cbquq6hkpipum" path="res://assets/fonts/Helvetica-Font/helvetica.tres" id="14_5ojdj"]
+[ext_resource type="Script" path="res://levels/pictures/teleport_shader_rect.gd" id="14_nvts0"]
 [ext_resource type="Script" path="res://levels/interactables/interactable_carry.gd" id="14_trd0m"]
 [ext_resource type="PackedScene" uid="uid://daempkcx2ef7j" path="res://assets/props/INTERACTEABLE/lightswitch/light_switch.tscn" id="14_wds17"]
 [ext_resource type="Script" path="res://levels/interactables/interactable_picture.gd" id="15_gx5iv"]
 [ext_resource type="PackedScene" uid="uid://dw8pdqr1nnbrr" path="res://assets/props/INTERACTEABLE/memory capsule/memory_capsule.tscn" id="16_p4a51"]
 [ext_resource type="PackedScene" uid="uid://c2i8ngtjel6as" path="res://levels/areas/drop_off_zone.tscn" id="17_ky4rg"]
+[ext_resource type="Script" path="res://levels/tutorial.gd" id="17_mwfvv"]
 [ext_resource type="AudioStream" uid="uid://cb5ijg4lr1lyu" path="res://assets/audio/sfx/Misc/TV/TV_Lift.wav" id="18_o6xmn"]
 [ext_resource type="AudioStream" uid="uid://bq8sidpqr5mek" path="res://assets/audio/sfx/Misc/TV/TV_Putdown.wav" id="19_f24x4"]
 [ext_resource type="Script" path="res://levels/interactables/interactable_animation.gd" id="35_lctib"]
@@ -304,116 +307,116 @@
 [ext_resource type="Texture2D" uid="uid://2xn6dxchskmm" path="res://assets/vfx/128/smoke_128_269.png" id="318_h4m5y"]
 [ext_resource type="Texture2D" uid="uid://cs4wv88y3nvuf" path="res://assets/vfx/128/smoke_128_270.png" id="319_dft4h"]
 [ext_resource type="Texture2D" uid="uid://pf18s873dsm7" path="res://assets/vfx/128/smoke_128_271.png" id="320_0aird"]
-[ext_resource type="Resource" uid="uid://cra54wjuo32as" path="res://resources/00_01.tres" id="321_55erq"]
+[ext_resource type="Resource" uid="uid://cra54wjuo32as" path="res://levels/dialogue_streams/00_01.tres" id="321_55erq"]
 [ext_resource type="Texture2D" uid="uid://c4qrtse8epklb" path="res://assets/vfx/128/smoke_128_272.png" id="321_oldf2"]
-[ext_resource type="Resource" uid="uid://cimlmvpdq1ugw" path="res://resources/00_02.tres" id="322_ppgpj"]
+[ext_resource type="Resource" uid="uid://cimlmvpdq1ugw" path="res://levels/dialogue_streams/00_02.tres" id="322_ppgpj"]
 [ext_resource type="Texture2D" uid="uid://dem67skvk017g" path="res://assets/vfx/128/smoke_128_273.png" id="322_ww8tr"]
-[ext_resource type="Resource" uid="uid://cqkpitmwbm6ug" path="res://resources/00_03.tres" id="323_5psi5"]
+[ext_resource type="Resource" uid="uid://cqkpitmwbm6ug" path="res://levels/dialogue_streams/00_03.tres" id="323_5psi5"]
 [ext_resource type="Texture2D" uid="uid://je1wyxiwk3uq" path="res://assets/vfx/128/smoke_128_274.png" id="323_7uhy3"]
 [ext_resource type="Texture2D" uid="uid://uehrlsfdxvk5" path="res://assets/vfx/128/smoke_128_275.png" id="324_mebt1"]
-[ext_resource type="Resource" path="res://resources/01_E01.tres" id="324_th5ja"]
+[ext_resource type="Resource" path="res://levels/dialogue_streams/01_E01.tres" id="324_th5ja"]
 [ext_resource type="Texture2D" uid="uid://cee0ixfoq1d81" path="res://assets/vfx/128/smoke_128_276.png" id="325_1ij7d"]
-[ext_resource type="Resource" path="res://resources/02_E01.tres" id="325_for8u"]
-[ext_resource type="Resource" path="res://resources/02_E02.tres" id="326_0wq6k"]
+[ext_resource type="Resource" path="res://levels/dialogue_streams/02_E01.tres" id="325_for8u"]
+[ext_resource type="Resource" path="res://levels/dialogue_streams/02_E02.tres" id="326_0wq6k"]
 [ext_resource type="Texture2D" uid="uid://bje5orw24kfpb" path="res://assets/vfx/128/smoke_128_277.png" id="326_jxld5"]
-[ext_resource type="Resource" path="res://resources/02_E03.tres" id="327_bxgpr"]
+[ext_resource type="Resource" path="res://levels/dialogue_streams/02_E03.tres" id="327_bxgpr"]
 [ext_resource type="Texture2D" uid="uid://ch4h2m8qdm4xu" path="res://assets/vfx/128/smoke_128_278.png" id="327_dm6iq"]
-[ext_resource type="Resource" path="res://resources/03_E01.tres" id="328_j7jla"]
+[ext_resource type="Resource" path="res://levels/dialogue_streams/03_E01.tres" id="328_j7jla"]
 [ext_resource type="Texture2D" uid="uid://c48sn4krracp1" path="res://assets/vfx/128/smoke_128_279.png" id="328_vd3xo"]
 [ext_resource type="Texture2D" uid="uid://lwuuqraquqiu" path="res://assets/vfx/128/smoke_128_280.png" id="329_5m41e"]
-[ext_resource type="Resource" path="res://resources/03_E02.tres" id="329_7g5wd"]
-[ext_resource type="Resource" path="res://resources/04_04.tres" id="330_4j6ta"]
+[ext_resource type="Resource" path="res://levels/dialogue_streams/03_E02.tres" id="329_7g5wd"]
+[ext_resource type="Resource" path="res://levels/dialogue_streams/04_04.tres" id="330_4j6ta"]
 [ext_resource type="Texture2D" uid="uid://kqq0c2vmosoi" path="res://assets/vfx/128/smoke_128_281.png" id="330_ay7cl"]
-[ext_resource type="Resource" path="res://resources/04_05.tres" id="331_dh7af"]
+[ext_resource type="Resource" path="res://levels/dialogue_streams/04_05.tres" id="331_dh7af"]
 [ext_resource type="Texture2D" uid="uid://cbgvbhwkokh6p" path="res://assets/vfx/128/smoke_128_282.png" id="331_u7jpn"]
 [ext_resource type="Texture2D" uid="uid://cxartf8ejs4sn" path="res://assets/vfx/128/smoke_128_283.png" id="332_1ti32"]
-[ext_resource type="Resource" path="res://resources/07_E01.tres" id="332_txjfc"]
-[ext_resource type="Resource" path="res://resources/07_E02.tres" id="333_65h2m"]
+[ext_resource type="Resource" path="res://levels/dialogue_streams/07_E01.tres" id="332_txjfc"]
+[ext_resource type="Resource" path="res://levels/dialogue_streams/07_E02.tres" id="333_65h2m"]
 [ext_resource type="Texture2D" uid="uid://c2q8yplod2ftj" path="res://assets/vfx/128/smoke_128_284.png" id="333_qrbva"]
 [ext_resource type="Texture2D" uid="uid://b5glg480mcyht" path="res://assets/vfx/128/smoke_128_285.png" id="334_jgle8"]
-[ext_resource type="Resource" path="res://resources/08_E01.tres" id="334_paxk1"]
+[ext_resource type="Resource" path="res://levels/dialogue_streams/08_E01.tres" id="334_paxk1"]
 [ext_resource type="Texture2D" uid="uid://3r1jpxi8qil" path="res://assets/vfx/128/smoke_128_286.png" id="335_r6ojg"]
-[ext_resource type="Resource" path="res://resources/08_E02.tres" id="335_w5fr3"]
-[ext_resource type="Resource" path="res://resources/09_E01.tres" id="336_1e6qj"]
+[ext_resource type="Resource" path="res://levels/dialogue_streams/08_E02.tres" id="335_w5fr3"]
+[ext_resource type="Resource" path="res://levels/dialogue_streams/09_E01.tres" id="336_1e6qj"]
 [ext_resource type="Texture2D" uid="uid://dum227mauohwd" path="res://assets/vfx/128/smoke_128_287.png" id="336_8s3b3"]
-[ext_resource type="Resource" path="res://resources/09_E02.tres" id="337_b3w0c"]
+[ext_resource type="Resource" path="res://levels/dialogue_streams/09_E02.tres" id="337_b3w0c"]
 [ext_resource type="Texture2D" uid="uid://dd3gkl30yrt8d" path="res://assets/vfx/128/smoke_128_288.png" id="337_vj56x"]
-[ext_resource type="Resource" path="res://resources/09_E03.tres" id="338_2rolw"]
+[ext_resource type="Resource" path="res://levels/dialogue_streams/09_E03.tres" id="338_2rolw"]
 [ext_resource type="Texture2D" uid="uid://w03seni3pqj" path="res://assets/vfx/128/smoke_128_289.png" id="338_c2fqe"]
-[ext_resource type="Resource" path="res://resources/10_E01.tres" id="339_iyqfd"]
+[ext_resource type="Resource" path="res://levels/dialogue_streams/10_E01.tres" id="339_iyqfd"]
 [ext_resource type="Texture2D" uid="uid://bwf7s05cu45si" path="res://assets/vfx/128/smoke_128_290.png" id="339_uh5fv"]
-[ext_resource type="Resource" path="res://resources/10_E02.tres" id="340_cfdqr"]
+[ext_resource type="Resource" path="res://levels/dialogue_streams/10_E02.tres" id="340_cfdqr"]
 [ext_resource type="Texture2D" uid="uid://c86meah45cjfl" path="res://assets/vfx/128/smoke_128_291.png" id="340_wq8cb"]
 [ext_resource type="Texture2D" uid="uid://b4qb0283gy3kb" path="res://assets/vfx/128/smoke_128_292.png" id="341_627gr"]
-[ext_resource type="Resource" path="res://resources/10_E03.tres" id="341_bfcbx"]
-[ext_resource type="Resource" path="res://resources/10_E04.tres" id="342_10s04"]
+[ext_resource type="Resource" path="res://levels/dialogue_streams/10_E03.tres" id="341_bfcbx"]
+[ext_resource type="Resource" path="res://levels/dialogue_streams/10_E04.tres" id="342_10s04"]
 [ext_resource type="Texture2D" uid="uid://cd5n5xkn8wokx" path="res://assets/vfx/128/smoke_128_293.png" id="342_nqyl6"]
 [ext_resource type="Texture2D" uid="uid://c5l5uus8od5b4" path="res://assets/vfx/128/smoke_128_294.png" id="343_4df24"]
-[ext_resource type="Resource" path="res://resources/10_E05.tres" id="343_qkaj0"]
-[ext_resource type="Resource" path="res://resources/10_E06.tres" id="344_f0t67"]
+[ext_resource type="Resource" path="res://levels/dialogue_streams/10_E05.tres" id="343_qkaj0"]
+[ext_resource type="Resource" path="res://levels/dialogue_streams/10_E06.tres" id="344_f0t67"]
 [ext_resource type="Texture2D" uid="uid://c033vhhnurvja" path="res://assets/vfx/128/smoke_128_295.png" id="344_k83uf"]
 [ext_resource type="Texture2D" uid="uid://x3kbhrmtsvr3" path="res://assets/vfx/128/smoke_128_296.png" id="345_ti0yt"]
-[ext_resource type="Resource" path="res://resources/10_E07.tres" id="345_wqi2n"]
+[ext_resource type="Resource" path="res://levels/dialogue_streams/10_E07.tres" id="345_wqi2n"]
 [ext_resource type="Texture2D" uid="uid://c5d6g5n2i7ghg" path="res://assets/vfx/128/smoke_128_297.png" id="346_6ku6o"]
-[ext_resource type="Resource" path="res://resources/10_E08.tres" id="346_lhcnr"]
+[ext_resource type="Resource" path="res://levels/dialogue_streams/10_E08.tres" id="346_lhcnr"]
 [ext_resource type="Texture2D" uid="uid://c2dovnruele42" path="res://assets/vfx/128/smoke_128_298.png" id="347_b5wfh"]
-[ext_resource type="Resource" path="res://resources/10_E09.tres" id="347_mc5ph"]
+[ext_resource type="Resource" path="res://levels/dialogue_streams/10_E09.tres" id="347_mc5ph"]
 [ext_resource type="Texture2D" uid="uid://dt6fi3paymqfj" path="res://assets/vfx/128/smoke_128_299.png" id="348_6exb0"]
-[ext_resource type="Resource" path="res://resources/10_E10.tres" id="348_u51am"]
-[ext_resource type="Resource" path="res://resources/10_E11.tres" id="349_ssvet"]
-[ext_resource type="Resource" path="res://resources/10_E12.tres" id="350_6w0lg"]
+[ext_resource type="Resource" path="res://levels/dialogue_streams/10_E10.tres" id="348_u51am"]
+[ext_resource type="Resource" path="res://levels/dialogue_streams/10_E11.tres" id="349_ssvet"]
+[ext_resource type="Resource" path="res://levels/dialogue_streams/10_E12.tres" id="350_6w0lg"]
 [ext_resource type="AudioStream" uid="uid://bsstebl4bk5v3" path="res://assets/audio/sfx/roomtone/Yard present/Yard_ambience_dark.ogg" id="350_vbnq2"]
 [ext_resource type="AudioStream" uid="uid://b72q3xj1r0td5" path="res://assets/audio/sfx/roomtone/Ambient noise/fire.ogg" id="351_ofa72"]
-[ext_resource type="Resource" path="res://resources/10_01.tres" id="365_nxucl"]
+[ext_resource type="Resource" path="res://levels/dialogue_streams/10_01.tres" id="365_nxucl"]
 [ext_resource type="Script" path="res://levels/interactables/interactable.gd" id="365_qvetb"]
-[ext_resource type="Resource" path="res://resources/06_I01.tres" id="366_5e8xj"]
-[ext_resource type="Resource" path="res://resources/10_02.tres" id="366_dldfv"]
-[ext_resource type="Resource" path="res://resources/01_01.tres" id="366_jl1db"]
-[ext_resource type="Resource" path="res://resources/06_I02.tres" id="367_ga87n"]
-[ext_resource type="Resource" path="res://resources/01_02.tres" id="367_kawyr"]
-[ext_resource type="Resource" path="res://resources/02_01.tres" id="368_fhlvw"]
-[ext_resource type="Resource" path="res://resources/06_I03.tres" id="368_qhkok"]
-[ext_resource type="Resource" path="res://resources/02_02.tres" id="369_6h6wg"]
-[ext_resource type="Resource" path="res://resources/06_I04.tres" id="369_yjunb"]
-[ext_resource type="Resource" path="res://resources/02_03.tres" id="370_lym1e"]
-[ext_resource type="Resource" path="res://resources/02_04.tres" id="371_0do7b"]
-[ext_resource type="Resource" path="res://resources/03_01.tres" id="372_nna4t"]
+[ext_resource type="Resource" path="res://levels/dialogue_streams/06_I01.tres" id="366_5e8xj"]
+[ext_resource type="Resource" path="res://levels/dialogue_streams/10_02.tres" id="366_dldfv"]
+[ext_resource type="Resource" path="res://levels/dialogue_streams/01_01.tres" id="366_jl1db"]
+[ext_resource type="Resource" path="res://levels/dialogue_streams/06_I02.tres" id="367_ga87n"]
+[ext_resource type="Resource" path="res://levels/dialogue_streams/01_02.tres" id="367_kawyr"]
+[ext_resource type="Resource" path="res://levels/dialogue_streams/02_01.tres" id="368_fhlvw"]
+[ext_resource type="Resource" path="res://levels/dialogue_streams/06_I03.tres" id="368_qhkok"]
+[ext_resource type="Resource" path="res://levels/dialogue_streams/02_02.tres" id="369_6h6wg"]
+[ext_resource type="Resource" path="res://levels/dialogue_streams/06_I04.tres" id="369_yjunb"]
+[ext_resource type="Resource" path="res://levels/dialogue_streams/02_03.tres" id="370_lym1e"]
+[ext_resource type="Resource" path="res://levels/dialogue_streams/02_04.tres" id="371_0do7b"]
+[ext_resource type="Resource" path="res://levels/dialogue_streams/03_01.tres" id="372_nna4t"]
 [ext_resource type="Material" uid="uid://cfo4jukrqtp5k" path="res://assets/props/INTERACTEABLE/memory capsule/box_bake.tres" id="373_niv5h"]
-[ext_resource type="Resource" path="res://resources/03_02.tres" id="373_oi1vu"]
-[ext_resource type="Resource" path="res://resources/03_03.tres" id="374_7ksww"]
-[ext_resource type="Resource" path="res://resources/03_04.tres" id="375_b10by"]
-[ext_resource type="Resource" path="res://resources/04_01.tres" id="376_vg21u"]
-[ext_resource type="Resource" path="res://resources/04_02.tres" id="377_08nvm"]
-[ext_resource type="Resource" path="res://resources/04_03.tres" id="378_mvhl1"]
-[ext_resource type="Resource" path="res://resources/05_01.tres" id="379_bq0u6"]
-[ext_resource type="Resource" path="res://resources/05_02.tres" id="380_t7chy"]
-[ext_resource type="Resource" path="res://resources/05_03.tres" id="381_3m8wm"]
-[ext_resource type="Resource" path="res://resources/05_04.tres" id="382_ox64q"]
-[ext_resource type="Resource" path="res://resources/05_05.tres" id="383_iv86u"]
-[ext_resource type="Resource" path="res://resources/06_01.tres" id="384_coj3g"]
-[ext_resource type="Resource" path="res://resources/06_02.tres" id="385_0xtwk"]
-[ext_resource type="Resource" path="res://resources/06_03.tres" id="386_km080"]
-[ext_resource type="Resource" path="res://resources/07_01.tres" id="387_r8sya"]
-[ext_resource type="Resource" path="res://resources/07_02.tres" id="388_4obdp"]
-[ext_resource type="Resource" path="res://resources/07_03.tres" id="389_mi4sr"]
-[ext_resource type="Resource" path="res://resources/07_04.tres" id="390_seema"]
-[ext_resource type="Resource" path="res://resources/08_01.tres" id="391_co2jh"]
-[ext_resource type="Resource" path="res://resources/08_02.tres" id="392_6q7ke"]
-[ext_resource type="Resource" path="res://resources/08_03.tres" id="393_5gga3"]
-[ext_resource type="Resource" path="res://resources/09_01.tres" id="394_cll47"]
-[ext_resource type="Resource" path="res://resources/09_02.tres" id="395_anpk4"]
-[ext_resource type="Resource" path="res://resources/09_03.tres" id="396_stcis"]
-[ext_resource type="Resource" path="res://resources/09_04.tres" id="397_45ocd"]
-[ext_resource type="Resource" path="res://resources/09_05.tres" id="398_nvk06"]
-[ext_resource type="Resource" path="res://resources/09_06.tres" id="399_r8j72"]
-[ext_resource type="Resource" path="res://resources/09_07.tres" id="400_r6ukt"]
-[ext_resource type="Resource" path="res://resources/09_08.tres" id="401_kl583"]
-[ext_resource type="Resource" path="res://resources/09_09.tres" id="402_fw3bc"]
+[ext_resource type="Resource" path="res://levels/dialogue_streams/03_02.tres" id="373_oi1vu"]
+[ext_resource type="Resource" path="res://levels/dialogue_streams/03_03.tres" id="374_7ksww"]
+[ext_resource type="Resource" path="res://levels/dialogue_streams/03_04.tres" id="375_b10by"]
+[ext_resource type="Resource" path="res://levels/dialogue_streams/04_01.tres" id="376_vg21u"]
+[ext_resource type="Resource" path="res://levels/dialogue_streams/04_02.tres" id="377_08nvm"]
+[ext_resource type="Resource" path="res://levels/dialogue_streams/04_03.tres" id="378_mvhl1"]
+[ext_resource type="Resource" path="res://levels/dialogue_streams/05_01.tres" id="379_bq0u6"]
+[ext_resource type="Resource" path="res://levels/dialogue_streams/05_02.tres" id="380_t7chy"]
+[ext_resource type="Resource" path="res://levels/dialogue_streams/05_03.tres" id="381_3m8wm"]
+[ext_resource type="Resource" path="res://levels/dialogue_streams/05_04.tres" id="382_ox64q"]
+[ext_resource type="Resource" path="res://levels/dialogue_streams/05_05.tres" id="383_iv86u"]
+[ext_resource type="Resource" path="res://levels/dialogue_streams/06_01.tres" id="384_coj3g"]
+[ext_resource type="Resource" path="res://levels/dialogue_streams/06_02.tres" id="385_0xtwk"]
+[ext_resource type="Resource" path="res://levels/dialogue_streams/06_03.tres" id="386_km080"]
+[ext_resource type="Resource" path="res://levels/dialogue_streams/07_01.tres" id="387_r8sya"]
+[ext_resource type="Resource" path="res://levels/dialogue_streams/07_02.tres" id="388_4obdp"]
+[ext_resource type="Resource" path="res://levels/dialogue_streams/07_03.tres" id="389_mi4sr"]
+[ext_resource type="Resource" path="res://levels/dialogue_streams/07_04.tres" id="390_seema"]
+[ext_resource type="Resource" path="res://levels/dialogue_streams/08_01.tres" id="391_co2jh"]
+[ext_resource type="Resource" path="res://levels/dialogue_streams/08_02.tres" id="392_6q7ke"]
+[ext_resource type="Resource" path="res://levels/dialogue_streams/08_03.tres" id="393_5gga3"]
+[ext_resource type="Resource" path="res://levels/dialogue_streams/09_01.tres" id="394_cll47"]
+[ext_resource type="Resource" path="res://levels/dialogue_streams/09_02.tres" id="395_anpk4"]
+[ext_resource type="Resource" path="res://levels/dialogue_streams/09_03.tres" id="396_stcis"]
+[ext_resource type="Resource" path="res://levels/dialogue_streams/09_04.tres" id="397_45ocd"]
+[ext_resource type="Resource" path="res://levels/dialogue_streams/09_05.tres" id="398_nvk06"]
+[ext_resource type="Resource" path="res://levels/dialogue_streams/09_06.tres" id="399_r8j72"]
+[ext_resource type="Resource" path="res://levels/dialogue_streams/09_07.tres" id="400_r6ukt"]
+[ext_resource type="Resource" path="res://levels/dialogue_streams/09_08.tres" id="401_kl583"]
+[ext_resource type="Resource" path="res://levels/dialogue_streams/09_09.tres" id="402_fw3bc"]
 [ext_resource type="PackedScene" uid="uid://brtrvnfelp3ux" path="res://assets/props/car/sketchfab_scene.tscn" id="402_y4a1w"]
-[ext_resource type="Resource" path="res://resources/09_10.tres" id="403_khg6v"]
+[ext_resource type="Resource" path="res://levels/dialogue_streams/09_10.tres" id="403_khg6v"]
 [ext_resource type="AudioStream" uid="uid://dpwrykcp0viaf" path="res://assets/audio/sfx/roomtone/Ambient noise/Ambient_noise1.ogg" id="404_qmrnh"]
-[ext_resource type="Resource" path="res://resources/09_11.tres" id="404_xi81v"]
-[ext_resource type="Resource" path="res://resources/09_12.tres" id="405_0qtdw"]
+[ext_resource type="Resource" path="res://levels/dialogue_streams/09_11.tres" id="404_xi81v"]
+[ext_resource type="Resource" path="res://levels/dialogue_streams/09_12.tres" id="405_0qtdw"]
 [ext_resource type="PackedScene" uid="uid://paat7hmvkfo8" path="res://assets/characters/mother/mother_fbx.tscn" id="408_ojblb"]
 [ext_resource type="PackedScene" uid="uid://c5d7tcijs5p06" path="res://assets/characters/agathe/agathe_final_01.tscn" id="417_2f2gg"]
 
@@ -447,6 +450,18 @@ viewport_path = NodePath("Pictures/9_Forest/SubViewport")
 [sub_resource type="ViewportTexture" id="ViewportTexture_8x1ut"]
 viewport_path = NodePath("Pictures/10_Shed/SubViewport")
 
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_1at1f"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_cechl"]
+seamless = true
+noise = SubResource("FastNoiseLite_1at1f")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_unls3"]
+shader = ExtResource("13_uiejv")
+shader_parameter/speed = 0.1
+shader_parameter/intensity = 1.0
+shader_parameter/distort_noise = SubResource("NoiseTexture2D_cechl")
+
 [sub_resource type="LabelSettings" id="LabelSettings_ag0sf"]
 font = ExtResource("9_wxn3y")
 outline_color = Color(0, 0, 0, 1)
@@ -469,6 +484,9 @@ outline_size = 5
 outline_color = Color(0, 0, 0, 1)
 shadow_size = 3
 shadow_color = Color(0, 0, 0, 0.313726)
+
+[sub_resource type="LabelSettings" id="LabelSettings_unp5l"]
+font_size = 32
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_08k2r"]
 albedo_color = Color(0.341962, 0.398952, 0.358896, 1)
@@ -1386,9 +1404,6 @@ animations = [{
 "speed": 30.0
 }]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_v5m3i"]
-size = Vector3(28, 4.5, 11.25)
-
 [sub_resource type="BoxShape3D" id="BoxShape3D_fhnvu"]
 size = Vector3(7.8681, 3.75, 4.13672)
 
@@ -1654,6 +1669,9 @@ shadow_mesh = SubResource("ArrayMesh_47rkm")
 [sub_resource type="BoxShape3D" id="BoxShape3D_bhcac"]
 size = Vector3(0.21814, 0.135986, 0.415283)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_v5m3i"]
+size = Vector3(28, 4.5, 18.684)
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_l4lcx"]
 size = Vector3(9.25, 4.5, 11.25)
 
@@ -1755,10 +1773,11 @@ interact_response_label = NodePath("../UI/InteractResponseLabel")
 [node name="FootstepASP" parent="Player" index="3"]
 volume_db = -45.0
 
-[node name="Inventory" type="Node" parent="." node_paths=PackedStringArray("starting_pictures")]
+[node name="Inventory" type="Node" parent="." node_paths=PackedStringArray("starting_pictures", "pictures_after_tutorial")]
 unique_name_in_owner = true
 script = ExtResource("4_nwatt")
-starting_pictures = [NodePath("../Pictures/0_Frontyard/FrontyardPicture"), NodePath("../Pictures/1_Backyard/BackyardPicture"), NodePath("../Pictures/2_Office/OfficePicture"), NodePath("../Pictures/4_HallwayUpstairs/HallwayUpstairPicture"), NodePath("../Pictures/5_TV/TVPicture"), NodePath("../Pictures/6_7_NoorRoomNight/NoorRoomNightPicture")]
+starting_pictures = [NodePath("../Pictures/0_Frontyard/FrontyardPicture")]
+pictures_after_tutorial = [NodePath("../Pictures/1_Backyard/BackyardPicture"), NodePath("../Pictures/2_Office/OfficePicture"), NodePath("../Pictures/4_HallwayUpstairs/HallwayUpstairPicture"), NodePath("../Pictures/5_TV/TVPicture"), NodePath("../Pictures/6_7_NoorRoomNight/NoorRoomNightPicture")]
 
 [node name="Pictures" type="Node" parent="."]
 
@@ -2222,9 +2241,10 @@ script = ExtResource("7_etppf")
 sub_viewport = NodePath("..")
 picture = NodePath("../../ShedPicture")
 
-[node name="PictureHandler" type="Node" parent="."]
+[node name="PictureHandler" type="Node" parent="." node_paths=PackedStringArray("teleport_shader_rect")]
 unique_name_in_owner = true
 script = ExtResource("3_m4duy")
+teleport_shader_rect = NodePath("../UI/TeleportShaderRect")
 
 [node name="TransitionPlayer" type="AudioStreamPlayer3D" parent="PictureHandler"]
 attenuation_model = 3
@@ -2239,6 +2259,16 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("6_vry8q")
 subtitle_ratio = 0.75
+
+[node name="TeleportShaderRect" type="ColorRect" parent="UI"]
+material = SubResource("ShaderMaterial_unls3")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("14_nvts0")
 
 [node name="Crosshair" type="ColorRect" parent="UI"]
 layout_mode = 1
@@ -2330,6 +2360,29 @@ offset_bottom = -97.0
 grow_horizontal = 2
 grow_vertical = 0
 label_settings = SubResource("LabelSettings_certn")
+
+[node name="Tutorial" type="Control" parent="UI"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("17_mwfvv")
+
+[node name="TutorialLabel" type="Label" parent="UI/Tutorial"]
+visible = false
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -232.0
+offset_top = 61.0
+offset_right = 232.0
+offset_bottom = 106.0
+grow_horizontal = 2
+text = "Press 'F' to raise / lower photo"
+label_settings = SubResource("LabelSettings_unp5l")
 
 [node name="Present" type="Node3D" parent="."]
 
@@ -3284,16 +3337,6 @@ panning_strength = 0.0
 bus = &"Highpass"
 
 [node name="TriggerVolumes" type="Node3D" parent="Present"]
-
-[node name="V00_FrontDoor" parent="Present/TriggerVolumes" node_paths=PackedStringArray("start_monitoring_list") instance=ExtResource("13_3syry")]
-process_mode = 1
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.97926, 1.57257, 23.8411)
-dialogue_clips = Array[Resource]([ExtResource("321_55erq"), ExtResource("322_ppgpj"), ExtResource("323_5psi5")])
-start_monitoring_list = [NodePath("../../../Past/TriggerVolumes/V01_Backyard")]
-
-[node name="CollisionShape3D" parent="Present/TriggerVolumes/V00_FrontDoor" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.25, 0.125, -6.625)
-shape = SubResource("BoxShape3D_v5m3i")
 
 [node name="V01E_EnterHouse" parent="Present/TriggerVolumes" node_paths=PackedStringArray("start_monitoring_list") instance=ExtResource("13_3syry")]
 process_mode = 1
@@ -4372,6 +4415,16 @@ transform = Transform3D(0.00115186, 0, -0.999999, 0, 1, 0, 0.999999, 0, 0.001151
 [node name="Pictures" type="Node3D" parent="Past/INTERACTABLES"]
 
 [node name="TriggerVolumes" type="Node3D" parent="Past"]
+
+[node name="V00_FrontDoor" parent="Past/TriggerVolumes" node_paths=PackedStringArray("start_monitoring_list") instance=ExtResource("13_3syry")]
+process_mode = 1
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.97925, 1.57257, 23.8411)
+dialogue_clips = Array[Resource]([ExtResource("321_55erq"), ExtResource("322_ppgpj"), ExtResource("323_5psi5")])
+start_monitoring_list = [NodePath("../V01_Backyard")]
+
+[node name="CollisionShape3D" parent="Past/TriggerVolumes/V00_FrontDoor" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.25, 0.125, -7.88947)
+shape = SubResource("BoxShape3D_v5m3i")
 
 [node name="V01_Backyard" parent="Past/TriggerVolumes" node_paths=PackedStringArray("start_monitoring_list") instance=ExtResource("13_3syry")]
 process_mode = 1
@@ -12179,7 +12232,6 @@ panning_strength = 0.0
 
 [editable path="Player"]
 [editable path="Present/LevelObjects/House/Level2/Doors/Door_Noor_open"]
-[editable path="Present/TriggerVolumes/V00_FrontDoor"]
 [editable path="Present/TriggerVolumes/V01E_EnterHouse"]
 [editable path="Present/TriggerVolumes/V02E_Office"]
 [editable path="Present/TriggerVolumes/V03E_LivingRoom"]
@@ -12199,6 +12251,7 @@ panning_strength = 0.0
 [editable path="Past/INTERACTABLES/closet"]
 [editable path="Past/INTERACTABLES/light_switch"]
 [editable path="Past/INTERACTABLES/ShedCloset"]
+[editable path="Past/TriggerVolumes/V00_FrontDoor"]
 [editable path="Past/TriggerVolumes/V01_Backyard"]
 [editable path="Past/TriggerVolumes/V02_Office"]
 [editable path="Past/TriggerVolumes/V03_LivingRoom"]

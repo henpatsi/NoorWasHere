@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="DialogueStream" load_steps=3 format=3]
+
+[ext_resource type="AudioStream" uid="uid://ntgyksx2a581" path="res://assets/audio/VO/05_01.mp3" id="1_h87hy"]
+[ext_resource type="Script" path="res://levels/dialogue_streams/dialogue_stream.gd" id="2_3do6l"]
+
+[resource]
+script = ExtResource("2_3do6l")
+audio_stream = ExtResource("1_h87hy")
+subtitle = "I was surprised I never got caught."

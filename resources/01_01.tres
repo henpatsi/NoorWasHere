@@ -1,9 +1,0 @@
-[gd_resource type="Resource" script_class="DialogueStream" load_steps=3 format=3]
-
-[ext_resource type="AudioStream" path="res://assets/audio/VO/01_01.mp3" id="1_pnv7m"]
-[ext_resource type="Script" path="res://resources/dialogue_stream.gd" id="2_akne1"]
-
-[resource]
-script = ExtResource("2_akne1")
-audio_stream = ExtResource("1_pnv7m")
-subtitle = "Spongebob was my idol. My mom kept a box of my drawings filled with him."

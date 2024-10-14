@@ -1,9 +1,0 @@
-[gd_resource type="Resource" script_class="DialogueStream" load_steps=3 format=3]
-
-[ext_resource type="AudioStream" path="res://assets/audio/VO/03_03.mp3" id="1_sak2e"]
-[ext_resource type="Script" path="res://resources/dialogue_stream.gd" id="2_cjsmq"]
-
-[resource]
-script = ExtResource("2_cjsmq")
-audio_stream = ExtResource("1_sak2e")
-subtitle = "My mom says ‘That’s why you’re always asking to watch Back To The Future’."

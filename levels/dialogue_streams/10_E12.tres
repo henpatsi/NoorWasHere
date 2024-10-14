@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="DialogueStream" load_steps=3 format=3]
+
+[ext_resource type="AudioStream" uid="uid://bvxdqtj1x1o3n" path="res://assets/audio/VO/10_E12.mp3" id="1_soitb"]
+[ext_resource type="Script" path="res://levels/dialogue_streams/dialogue_stream.gd" id="2_sdj4e"]
+
+[resource]
+script = ExtResource("2_sdj4e")
+audio_stream = ExtResource("1_soitb")
+subtitle = "I would hear her again."
