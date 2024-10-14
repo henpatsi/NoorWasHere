@@ -23,7 +23,7 @@ size = Vector3(1.26099, 1, 1)
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 12, 0, -16.5)
 
 [node name="Door_Front" parent="." instance=ExtResource("1_yl68d")]
-transform = Transform3D(1.31135e-07, 0, -1, 0, 1, 0, 1, 0, 1.31135e-07, 0.0177612, 0.1634, -1.00485)
+transform = Transform3D(6.03983e-08, 0, -0.8, 0, 0.8, 0, 0.8, 0, 6.03983e-08, 0.0177612, 0.1634, -1.00485)
 
 [node name="structure" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1634, 0)

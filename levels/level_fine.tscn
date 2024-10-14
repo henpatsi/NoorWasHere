@@ -452,7 +452,7 @@ viewport_path = NodePath("Pictures/10_Shed/SubViewport")
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_1at1f"]
 
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_cechl"]
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_xrk02"]
 seamless = true
 noise = SubResource("FastNoiseLite_1at1f")
 
@@ -460,7 +460,7 @@ noise = SubResource("FastNoiseLite_1at1f")
 shader = ExtResource("13_uiejv")
 shader_parameter/speed = 0.1
 shader_parameter/intensity = 1.0
-shader_parameter/distort_noise = SubResource("NoiseTexture2D_cechl")
+shader_parameter/distort_noise = SubResource("NoiseTexture2D_xrk02")
 
 [sub_resource type="LabelSettings" id="LabelSettings_ag0sf"]
 font = ExtResource("9_wxn3y")
