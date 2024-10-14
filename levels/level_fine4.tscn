@@ -1,12 +1,6 @@
-[gd_scene load_steps=144 format=4 uid="uid://8ymkajun4ggs"]
+[gd_scene load_steps=131 format=4 uid="uid://8ymkajun4ggs"]
 
 [ext_resource type="Environment" uid="uid://dobqonwml2e5x" path="res://assets/WorldEnvironments/Env_Present.tres" id="1_1utkg"]
-[ext_resource type="PackedScene" uid="uid://b25ooshew3q2v" path="res://player/player.tscn" id="2_056t5"]
-[ext_resource type="Script" path="res://levels/ui/ui.gd" id="3_el2g1"]
-[ext_resource type="FontFile" uid="uid://bi3g7vfa5cdww" path="res://assets/fonts/Helvetica-Font/Helvetica.ttf" id="4_oyp50"]
-[ext_resource type="Script" path="res://levels/ui/dynamic_label.gd" id="5_5bt05"]
-[ext_resource type="Script" path="res://levels/ui/end_sequence.gd" id="6_g5jdd"]
-[ext_resource type="Theme" uid="uid://cbquq6hkpipum" path="res://assets/fonts/Helvetica-Font/helvetica.tres" id="7_4jq1x"]
 [ext_resource type="Material" uid="uid://5evkxbd1ekxy" path="res://assets/textures/forest_floor/forest ground/M_forest_ground.tres" id="8_cq1kr"]
 [ext_resource type="PackedScene" uid="uid://cvfepaxkmhwfm" path="res://assets/AtmosphericHouse/Prefabs/Building/Floor_6x6.prefab.scn" id="9_taq1k"]
 [ext_resource type="PackedScene" uid="uid://cl32vd4bw7mck" path="res://assets/AtmosphericHouse/Prefabs/Building/Floor_6x3.prefab.scn" id="10_3ssf2"]
@@ -108,9 +102,6 @@
 [ext_resource type="PackedScene" uid="uid://brtrvnfelp3ux" path="res://assets/props/car/sketchfab_scene.tscn" id="105_081hi"]
 [ext_resource type="PackedScene" uid="uid://bkdujsmnx5mff" path="res://assets/AtmosphericHouse/Prefabs/Props/Furniture/Cabinet_B.prefab.scn" id="105_coir8"]
 [ext_resource type="Material" uid="uid://d3ret080564jl" path="res://assets/AtmosphericHouse/Materials/Materials_tiled/Wallpanel_exterior_white_clean.material" id="105_p1hhi"]
-[ext_resource type="AudioStream" uid="uid://bsstebl4bk5v3" path="res://assets/audio/sfx/roomtone/Yard present/Yard_ambience_dark.ogg" id="106_vh2uf"]
-[ext_resource type="PackedScene" uid="uid://dtrj4a2rd7r80" path="res://assets/props/INTERACTEABLE/closet/closet.tscn" id="107_4kgmo"]
-[ext_resource type="AudioStream" uid="uid://b72q3xj1r0td5" path="res://assets/audio/sfx/roomtone/Ambient noise/fire.ogg" id="107_ury00"]
 [ext_resource type="Script" path="res://addons/yamms/MultiScatter.gd" id="108_vqrjf"]
 [ext_resource type="ArrayMesh" uid="uid://qv0ry0lfx1jf" path="res://assets/Exterior/Spruce Trees/meshes/Mesh_SpruceTree_Tall2.tres" id="109_m65bl"]
 [ext_resource type="Script" path="res://addons/yamms/MultiScatterItem.gd" id="109_s0ksg"]
@@ -123,29 +114,6 @@
 [ext_resource type="Texture2D" uid="uid://dqp1ybjqsov40" path="res://assets/Exterior/Spruce Trees/image_forest.png" id="117_s6qah"]
 [ext_resource type="Texture2D" uid="uid://w68ef1kuyc0x" path="res://assets/Exterior/Spruce Trees/SpruceForest_Distance_image_forest.png" id="118_inmag"]
 [ext_resource type="PackedScene" uid="uid://cbpge3yvesygj" path="res://assets/AtmosphericHouse/Prefabs/Props/Basement_props/Shelf_wooden_standing.prefab.scn" id="123_hogvr"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_ag0sf"]
-font = ExtResource("4_oyp50")
-outline_color = Color(0, 0, 0, 1)
-shadow_size = 2
-shadow_color = Color(0, 0, 0, 0.313726)
-
-[sub_resource type="LabelSettings" id="LabelSettings_36gwu"]
-font = ExtResource("4_oyp50")
-outline_color = Color(0, 0, 0, 1)
-shadow_size = 2
-shadow_color = Color(0, 0, 0, 0.313726)
-
-[sub_resource type="LabelSettings" id="LabelSettings_116ps"]
-font_size = 32
-
-[sub_resource type="LabelSettings" id="LabelSettings_certn"]
-font = ExtResource("4_oyp50")
-font_size = 32
-outline_size = 5
-outline_color = Color(0, 0, 0, 1)
-shadow_size = 3
-shadow_color = Color(0, 0, 0, 0.313726)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_qij83"]
 size = Vector3(1.26099, 1, 1)
@@ -271,117 +239,6 @@ light_color = Color(1, 0.658824, 0.411765, 1)
 light_energy = 2.082
 light_cull_mask = 4294966271
 shadow_enabled = true
-
-[node name="Player" parent="." node_paths=PackedStringArray("subtitle_label", "interact_label", "interact_response_label") instance=ExtResource("2_056t5")]
-transform = Transform3D(0.99993, 0, -0.0118155, 0, 1, 0, 0.0118155, 0, 0.99993, -0.651258, 0, 20.7569)
-max_move_speed = 7.0
-subtitle_label = NodePath("../UI/SubtitleLabel")
-interact_label = NodePath("../UI/InteractLabel")
-interact_response_label = NodePath("../UI/InteractResponseLabel")
-
-[node name="FootstepASP" parent="Player" index="3"]
-volume_db = -45.0
-
-[node name="UI" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-script = ExtResource("3_el2g1")
-subtitle_ratio = 0.75
-
-[node name="Crosshair" type="ColorRect" parent="UI"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -5.0
-offset_top = -5.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0, 0, 0, 0.392157)
-
-[node name="InteractLabel" type="Label" parent="UI"]
-layout_mode = 1
-offset_left = 50.0
-offset_top = 50.0
-offset_right = 154.0
-offset_bottom = 73.0
-text = "
-"
-label_settings = SubResource("LabelSettings_ag0sf")
-
-[node name="InteractResponseLabel" type="Label" parent="UI"]
-layout_mode = 1
-offset_left = 50.0
-offset_top = 100.0
-offset_right = 154.0
-offset_bottom = 123.0
-label_settings = SubResource("LabelSettings_36gwu")
-script = ExtResource("5_5bt05")
-
-[node name="EndSequence" type="Control" parent="UI" node_paths=PackedStringArray("player", "picture_screenshots", "player_dialogues_ASP", "level")]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-script = ExtResource("6_g5jdd")
-player = NodePath("../../Player")
-picture_screenshots = [null, null, null, null, null, null, null, null, null, null]
-show_times = Array[float]([4.2, 3.0, 3.5, 4.0, 4.0, 4.0, 4.0, 4.0, 4.0, 6.0])
-player_dialogues_ASP = NodePath("../../Player/PlayerDialogueASP")
-level = NodePath("../..")
-
-[node name="ColorRect" type="ColorRect" parent="UI/EndSequence"]
-visible = false
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0, 0, 0, 1)
-
-[node name="Label" type="Label" parent="UI/EndSequence"]
-visible = false
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -92.5
-offset_top = -87.5
-offset_right = 92.5
-offset_bottom = 87.5
-grow_horizontal = 2
-grow_vertical = 2
-theme = ExtResource("7_4jq1x")
-text = "created by Sana, Anton, Henri, Jamie, Dennis & Marcus"
-label_settings = SubResource("LabelSettings_116ps")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="SubtitleLabel" type="Label" parent="UI"]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -20.0
-offset_top = -120.0
-offset_right = 20.0
-offset_bottom = -97.0
-grow_horizontal = 2
-grow_vertical = 0
-label_settings = SubResource("LabelSettings_certn")
 
 [node name="Present" type="Node3D" parent="."]
 
@@ -1724,33 +1581,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000705719, 0.0270712, 0)
 transform = Transform3D(0.934726, -0.355368, -2.8532e-09, 0.355368, 0.934726, 1.55336e-08, -2.8532e-09, -1.55336e-08, 1, -0.439995, -0.695944, -1.5)
 shape = SubResource("BoxShape3D_qij83")
 
-[node name="props" type="Node3D" parent="Present/LevelObjects/shed"]
-
-[node name="closet" parent="Present/LevelObjects/shed/props" instance=ExtResource("107_4kgmo")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 5.46349, 0, -1.5)
-
-[node name="Sounds" type="Node3D" parent="Present"]
-
-[node name="AmbienceOutdoor" type="AudioStreamPlayer3D" parent="Present/Sounds"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 2.25, 35.25)
-stream = ExtResource("106_vh2uf")
-volume_db = -10.0
-unit_size = 60.0
-autoplay = true
-max_distance = 100.0
-panning_strength = 0.0
-bus = &"Highpass"
-
-[node name="AmbienceForestFire" type="AudioStreamPlayer3D" parent="Present/Sounds"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -50.5, 2.25, -79.75)
-stream = ExtResource("107_ury00")
-volume_db = -10.0
-unit_size = 60.0
-autoplay = true
-max_distance = 220.0
-panning_strength = 0.0
-bus = &"Highpass"
-
 [node name="Forest" type="Node3D" parent="Present"]
 
 [node name="MultiScatter" type="Path3D" parent="Present/Forest"]
@@ -1839,7 +1669,6 @@ shape = SubResource("BoxShape3D_5y6gq")
 [node name="Shelf_wooden_standing" parent="Present/Obstacles" instance=ExtResource("123_hogvr")]
 transform = Transform3D(0.492111, 0.0245626, -0.870186, 0.718181, -0.576376, 0.38988, -0.491978, -0.816815, -0.301282, 3.96168, 3.09095, -0.648681)
 
-[editable path="Player"]
 [editable path="Present/LevelObjects/House/Level1/Props/LivingRoom/CeilingFan"]
 [editable path="Present/LevelObjects/House/Level1/Props/LivingRoom/Lamp_chandelier2"]
 [editable path="Present/LevelObjects/House/Level1/Props/Kitchen/Kitchen_kitchen_cabinets_A/Stove/Lamp_wall_fluorescent"]

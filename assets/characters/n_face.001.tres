@@ -1,9 +1,0 @@
-[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://cfo3k4ml3x647"]
-
-[ext_resource type="Texture2D" uid="uid://chp8tuumihw30" path="res://assets/characters/Noor_Poses_noor_face.png" id="1_ffmb5"]
-
-[resource]
-resource_name = "n_face.001"
-cull_mode = 2
-albedo_texture = ExtResource("1_ffmb5")
-roughness = 0.4

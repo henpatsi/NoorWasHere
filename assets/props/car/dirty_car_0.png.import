@@ -2,14 +2,11 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bex6d42r36rb7"
+uid="uid://b801v2qlif7ro"
 path.s3tc="res://.godot/imported/dirty_car_0.png-86c5f9cd62dc61d903034836d3e14453.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
-}
-generator_parameters={
-"md5": "04aab9053ea14b238537466835e5ccec"
 }
 
 [deps]

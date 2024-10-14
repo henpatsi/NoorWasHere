@@ -1,9 +1,0 @@
-[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://b1mpg6k8qf84s"]
-
-[ext_resource type="Texture2D" uid="uid://bcytd8d86dnly" path="res://assets/characters/Noor_Poses_noor_legs.png" id="1_rtimx"]
-
-[resource]
-resource_name = "n_legs.001"
-cull_mode = 2
-albedo_texture = ExtResource("1_rtimx")
-roughness = 0.4

@@ -1,9 +1,0 @@
-[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://xu2ma0lpordq"]
-
-[ext_resource type="Texture2D" uid="uid://cp2lecep42imf" path="res://assets/characters/Noor_Poses_noor_hair.png" id="1_igbax"]
-
-[resource]
-resource_name = "noor_hair.001"
-transparency = 4
-cull_mode = 2
-albedo_texture = ExtResource("1_igbax")
