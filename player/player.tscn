@@ -17,6 +17,7 @@
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_8swph"]
 radius = 0.4
+height = 1.75
 
 [node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("dialogue_audio_player", "ray_cast") groups=["Player"]]
 collision_layer = 2
@@ -27,17 +28,19 @@ ray_distance = 2.0
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+visible = false
 cast_shadow = 0
 mesh = SubResource("CapsuleMesh_3ceiv")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.875, 0)
 shape = SubResource("CapsuleShape3D_8swph")
 
 [node name="HeadNode" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.75, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
 
 [node name="Camera3D" type="Camera3D" parent="HeadNode"]
+cull_mask = 1047551
 
 [node name="RayCast3D" type="RayCast3D" parent="HeadNode/Camera3D"]
 

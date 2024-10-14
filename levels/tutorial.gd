@@ -1,5 +1,7 @@
 extends Control
 
+@export var enabled: bool = true
+
 # Delay before new text is displayed.
 @export var default_text_swap_delay: float = 1
 
@@ -22,9 +24,15 @@ var pictures_added: bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	if not enabled:
+		return
+
 	switch_text(text1, 1)
 
 func _process(_delta: float) -> void:
+	if not enabled:
+		return
+
 	if text_index <= 1 and picture_handler.inspecting:
 		switch_text(text2, 2)
 
