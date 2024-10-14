@@ -1,4 +1,4 @@
-[gd_scene load_steps=144 format=4 uid="uid://8ymkajun4ggs"]
+[gd_scene load_steps=147 format=4 uid="uid://8ymkajun4ggs"]
 
 [ext_resource type="Environment" uid="uid://dobqonwml2e5x" path="res://assets/WorldEnvironments/Env_Present.tres" id="1_1utkg"]
 [ext_resource type="PackedScene" uid="uid://b25ooshew3q2v" path="res://player/player.tscn" id="2_056t5"]
@@ -122,30 +122,9 @@
 [ext_resource type="ArrayMesh" uid="uid://b62r2qbq1meq7" path="res://assets/Exterior/Spruce Trees/meshes/Mesh_SpruceTree_Medium_LP.tres" id="116_fyp5e"]
 [ext_resource type="Texture2D" uid="uid://dqp1ybjqsov40" path="res://assets/Exterior/Spruce Trees/image_forest.png" id="117_s6qah"]
 [ext_resource type="Texture2D" uid="uid://w68ef1kuyc0x" path="res://assets/Exterior/Spruce Trees/SpruceForest_Distance_image_forest.png" id="118_inmag"]
+[ext_resource type="Script" path="res://levels/shader.gd" id="120_mgjf0"]
 [ext_resource type="PackedScene" uid="uid://cbpge3yvesygj" path="res://assets/AtmosphericHouse/Prefabs/Props/Basement_props/Shelf_wooden_standing.prefab.scn" id="123_hogvr"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_ag0sf"]
-font = ExtResource("4_oyp50")
-outline_color = Color(0, 0, 0, 1)
-shadow_size = 2
-shadow_color = Color(0, 0, 0, 0.313726)
-
-[sub_resource type="LabelSettings" id="LabelSettings_36gwu"]
-font = ExtResource("4_oyp50")
-outline_color = Color(0, 0, 0, 1)
-shadow_size = 2
-shadow_color = Color(0, 0, 0, 0.313726)
-
-[sub_resource type="LabelSettings" id="LabelSettings_116ps"]
-font_size = 32
-
-[sub_resource type="LabelSettings" id="LabelSettings_certn"]
-font = ExtResource("4_oyp50")
-font_size = 32
-outline_size = 5
-outline_color = Color(0, 0, 0, 1)
-shadow_size = 3
-shadow_color = Color(0, 0, 0, 0.313726)
+[ext_resource type="Shader" path="res://assets/post process/PPS_Grain.gdshader" id="124_jt25u"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_qij83"]
 size = Vector3(1.26099, 1, 1)
@@ -260,6 +239,37 @@ shadow_mesh = SubResource("ArrayMesh_3e5qj")
 [sub_resource type="BoxShape3D" id="BoxShape3D_5y6gq"]
 size = Vector3(2.50783, 10.7489, 1)
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5m5co"]
+shader = ExtResource("124_jt25u")
+shader_parameter/grain_amount = 0.014
+shader_parameter/grain_size = 19.127
+shader_parameter/distortion_strength = 0.0
+shader_parameter/chromatic_aberration_strength = 0.01
+shader_parameter/aberration_radius = 1.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_ag0sf"]
+font = ExtResource("4_oyp50")
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 2
+shadow_color = Color(0, 0, 0, 0.313726)
+
+[sub_resource type="LabelSettings" id="LabelSettings_36gwu"]
+font = ExtResource("4_oyp50")
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 2
+shadow_color = Color(0, 0, 0, 0.313726)
+
+[sub_resource type="LabelSettings" id="LabelSettings_116ps"]
+font_size = 32
+
+[sub_resource type="LabelSettings" id="LabelSettings_certn"]
+font = ExtResource("4_oyp50")
+font_size = 32
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 3
+shadow_color = Color(0, 0, 0, 0.313726)
+
 [node name="Level" type="Node3D"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -281,107 +291,6 @@ interact_response_label = NodePath("../UI/InteractResponseLabel")
 
 [node name="FootstepASP" parent="Player" index="3"]
 volume_db = -45.0
-
-[node name="UI" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-script = ExtResource("3_el2g1")
-subtitle_ratio = 0.75
-
-[node name="Crosshair" type="ColorRect" parent="UI"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -5.0
-offset_top = -5.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0, 0, 0, 0.392157)
-
-[node name="InteractLabel" type="Label" parent="UI"]
-layout_mode = 1
-offset_left = 50.0
-offset_top = 50.0
-offset_right = 154.0
-offset_bottom = 73.0
-text = "
-"
-label_settings = SubResource("LabelSettings_ag0sf")
-
-[node name="InteractResponseLabel" type="Label" parent="UI"]
-layout_mode = 1
-offset_left = 50.0
-offset_top = 100.0
-offset_right = 154.0
-offset_bottom = 123.0
-label_settings = SubResource("LabelSettings_36gwu")
-script = ExtResource("5_5bt05")
-
-[node name="EndSequence" type="Control" parent="UI" node_paths=PackedStringArray("player", "picture_screenshots", "player_dialogues_ASP", "level")]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-script = ExtResource("6_g5jdd")
-player = NodePath("../../Player")
-picture_screenshots = [null, null, null, null, null, null, null, null, null, null]
-show_times = Array[float]([4.2, 3.0, 3.5, 4.0, 4.0, 4.0, 4.0, 4.0, 4.0, 6.0])
-player_dialogues_ASP = NodePath("../../Player/PlayerDialogueASP")
-level = NodePath("../..")
-
-[node name="ColorRect" type="ColorRect" parent="UI/EndSequence"]
-visible = false
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0, 0, 0, 1)
-
-[node name="Label" type="Label" parent="UI/EndSequence"]
-visible = false
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -92.5
-offset_top = -87.5
-offset_right = 92.5
-offset_bottom = 87.5
-grow_horizontal = 2
-grow_vertical = 2
-theme = ExtResource("7_4jq1x")
-text = "created by Sana, Anton, Henri, Jamie, Dennis & Marcus"
-label_settings = SubResource("LabelSettings_116ps")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="SubtitleLabel" type="Label" parent="UI"]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -20.0
-offset_top = -120.0
-offset_right = 20.0
-offset_bottom = -97.0
-grow_horizontal = 2
-grow_vertical = 0
-label_settings = SubResource("LabelSettings_certn")
 
 [node name="Present" type="Node3D" parent="."]
 
@@ -1838,6 +1747,116 @@ shape = SubResource("BoxShape3D_5y6gq")
 
 [node name="Shelf_wooden_standing" parent="Present/Obstacles" instance=ExtResource("123_hogvr")]
 transform = Transform3D(0.492111, 0.0245626, -0.870186, 0.718181, -0.576376, 0.38988, -0.491978, -0.816815, -0.301282, 3.96168, 3.09095, -0.648681)
+
+[node name="Shader" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_5m5co")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("120_mgjf0")
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("3_el2g1")
+subtitle_ratio = 0.75
+
+[node name="Crosshair" type="ColorRect" parent="UI"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -5.0
+offset_top = -5.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.392157)
+
+[node name="InteractLabel" type="Label" parent="UI"]
+layout_mode = 1
+offset_left = 50.0
+offset_top = 50.0
+offset_right = 154.0
+offset_bottom = 73.0
+text = "
+"
+label_settings = SubResource("LabelSettings_ag0sf")
+
+[node name="InteractResponseLabel" type="Label" parent="UI"]
+layout_mode = 1
+offset_left = 50.0
+offset_top = 100.0
+offset_right = 154.0
+offset_bottom = 123.0
+label_settings = SubResource("LabelSettings_36gwu")
+script = ExtResource("5_5bt05")
+
+[node name="EndSequence" type="Control" parent="UI" node_paths=PackedStringArray("player", "picture_screenshots", "player_dialogues_ASP", "level")]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("6_g5jdd")
+player = NodePath("../../Player")
+picture_screenshots = [null, null, null, null, null, null, null, null, null, null]
+show_times = Array[float]([4.2, 3.0, 3.5, 4.0, 4.0, 4.0, 4.0, 4.0, 4.0, 6.0])
+player_dialogues_ASP = NodePath("../../Player/PlayerDialogueASP")
+level = NodePath("../..")
+
+[node name="ColorRect" type="ColorRect" parent="UI/EndSequence"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="UI/EndSequence"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -92.5
+offset_top = -87.5
+offset_right = 92.5
+offset_bottom = 87.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("7_4jq1x")
+text = "created by Sana, Anton, Henri, Jamie, Dennis & Marcus"
+label_settings = SubResource("LabelSettings_116ps")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SubtitleLabel" type="Label" parent="UI"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -120.0
+offset_right = 20.0
+offset_bottom = -97.0
+grow_horizontal = 2
+grow_vertical = 0
+label_settings = SubResource("LabelSettings_certn")
 
 [editable path="Player"]
 [editable path="Present/LevelObjects/House/Level1/Props/LivingRoom/CeilingFan"]
