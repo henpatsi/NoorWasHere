@@ -1,0 +1,26 @@
+[gd_resource type="ShaderMaterial" load_steps=6 format=3 uid="uid://yfb3sabybhpv"]
+
+[ext_resource type="Shader" path="res://addons/proton_scatter/demos/assets/materials/leaves.gdshader" id="1_tm6r5"]
+[ext_resource type="Texture2D" uid="uid://cke6xmb7tq7p6" path="res://assets/Exterior/Spruce Trees/textures/Branch_BaseColor.png" id="2_wk08m"]
+[ext_resource type="Texture2D" uid="uid://xxio0lpscswx" path="res://assets/materials/shaders/noise_texture_2d.tres" id="3_8o467"]
+
+[sub_resource type="Gradient" id="Gradient_0t3qp"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(0.229797, 0.434573, 0.120362, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_q8aai"]
+gradient = SubResource("Gradient_0t3qp")
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_tm6r5")
+shader_parameter/alpha_scissor_threshold = 0.223
+shader_parameter/transmission = null
+shader_parameter/total_height = 3.805
+shader_parameter/wind_direction = Vector2(1, -0.5)
+shader_parameter/wind_speed = 0.2
+shader_parameter/wind_strength = 0.3
+shader_parameter/noise_scale = 4.0
+shader_parameter/texture_albedo = ExtResource("2_wk08m")
+shader_parameter/texture_gradient = SubResource("GradientTexture1D_q8aai")
+shader_parameter/texture_noise = ExtResource("3_8o467")

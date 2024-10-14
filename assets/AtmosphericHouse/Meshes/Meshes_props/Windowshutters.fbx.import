@@ -1,0 +1,84 @@
+[remap]
+
+importer="scene"
+importer_version=1
+type="PackedScene"
+uid="uid://d13p2g4wymt8v"
+path="res://.godot/imported/Windowshutters.fbx-0cf7af8f0d94d8df8609619d6232ea77.scn"
+
+[deps]
+
+source_file="res://assets/AtmosphericHouse/Meshes/Meshes_props/Windowshutters.fbx"
+dest_files=["res://.godot/imported/Windowshutters.fbx-0cf7af8f0d94d8df8609619d6232ea77.scn"]
+
+[params]
+
+nodes/root_type=""
+nodes/root_name=""
+nodes/apply_root_scale=true
+nodes/root_scale=1.0
+nodes/import_as_skeleton_bones=false
+meshes/ensure_tangents=1
+meshes/generate_lods=true
+meshes/create_shadow_meshes=false
+meshes/light_baking=1
+meshes/lightmap_texel_size=0.2
+meshes/force_disable_compression=false
+skins/use_named_skins=true
+animation/import=true
+animation/fps=30.0
+animation/trimming=true
+animation/remove_immutable_tracks=false
+animation/import_rest_as_RESET=true
+import_script/path=""
+_subresources={
+"animations": {},
+"materials": {
+"Exterior_gutter_clean": {
+"use_external/enabled": true,
+"use_external/path": "res://Assets/AtmosphericHouse/Materials/Exterior_gutter_clean.material"
+}
+},
+"meshes": {
+"Root Scene_Windowshutter_L": {
+"save_to_file/enabled": true,
+"save_to_file/make_streamable": "",
+"save_to_file/path": "res://Assets/AtmosphericHouse/Meshes/Meshes_props/extracted/Windowshutters.Windowshutter_L.mesh"
+},
+"Root Scene_Windowshutter_R": {
+"save_to_file/enabled": true,
+"save_to_file/make_streamable": "",
+"save_to_file/path": "res://Assets/AtmosphericHouse/Meshes/Meshes_props/extracted/Windowshutters.Windowshutter_R.mesh"
+},
+"Windowshutter_L": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/make_streamable": "",
+"save_to_file/path": "res://Assets/AtmosphericHouse/Meshes/Meshes_props/extracted/Windowshutters.Windowshutter_L.mesh"
+},
+"Windowshutter_R": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/make_streamable": "",
+"save_to_file/path": "res://Assets/AtmosphericHouse/Meshes/Meshes_props/extracted/Windowshutters.Windowshutter_R.mesh"
+}
+},
+"nodes": {
+"PATH:AnimationPlayer": {
+"optimizer/enabled": true,
+"optimizer/max_angular_error": 0.00277778,
+"optimizer/max_linear_error": 0.5
+}
+}
+}
+fbx/importer=0
+fbx/allow_geometry_helper_nodes=false
+fbx/embedded_image_handling=1

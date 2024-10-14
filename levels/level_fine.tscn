@@ -1770,9 +1770,6 @@ subtitle_label = NodePath("../UI/SubtitleLabel")
 interact_label = NodePath("../UI/InteractLabel")
 interact_response_label = NodePath("../UI/InteractResponseLabel")
 
-[node name="FootstepASP" parent="Player" index="3"]
-volume_db = -45.0
-
 [node name="Inventory" type="Node" parent="." node_paths=PackedStringArray("starting_pictures", "pictures_after_tutorial")]
 unique_name_in_owner = true
 script = ExtResource("4_nwatt")

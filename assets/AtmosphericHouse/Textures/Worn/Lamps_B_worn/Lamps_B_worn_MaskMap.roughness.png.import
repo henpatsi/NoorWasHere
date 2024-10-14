@@ -1,0 +1,35 @@
+[remap]
+
+importer="texture"
+type="CompressedTexture2D"
+uid="uid://ciruknow5hjon"
+path.s3tc="res://.godot/imported/Lamps_B_worn_MaskMap.roughness.png-ab05b2b7c1d5414cbeff99178240274e.s3tc.ctex"
+metadata={
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
+}
+
+[deps]
+
+source_file="res://assets/AtmosphericHouse/Textures/Worn/Lamps_B_worn/Lamps_B_worn_MaskMap.roughness.png"
+dest_files=["res://.godot/imported/Lamps_B_worn_MaskMap.roughness.png-ab05b2b7c1d5414cbeff99178240274e.s3tc.ctex"]
+
+[params]
+
+compress/mode=2
+compress/high_quality=false
+compress/lossy_quality=0.5
+compress/hdr_compression=1
+compress/normal_map=2
+compress/channel_pack=0
+mipmaps/generate=true
+mipmaps/limit=-1
+roughness/mode=5
+roughness/src_normal=""
+process/fix_alpha_border=true
+process/premult_alpha=0
+process/normal_map_invert_y=false
+process/hdr_as_srgb=false
+process/hdr_clamp_exposure=false
+process/size_limit=2048
+detect_3d/compress_to=0

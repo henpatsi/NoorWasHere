@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://idm6ihba5vlr"]
+
+[ext_resource type="Texture2D" uid="uid://cyfauekkih6b5" path="res://assets/Exterior/Spruce Trees/textures/Spruce Bark_BaseColor.png" id="1_j7ehc"]
+[ext_resource type="Texture2D" uid="uid://cb4e55w2pn6x2" path="res://assets/Exterior/Spruce Trees/textures/Spruce Bark_Roughness.png" id="5_cu2xg"]
+
+[resource]
+albedo_color = Color(0.52549, 0.533333, 0.588235, 1)
+albedo_texture = ExtResource("1_j7ehc")
+roughness_texture = ExtResource("5_cu2xg")
