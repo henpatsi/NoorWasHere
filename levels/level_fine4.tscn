@@ -740,6 +740,7 @@ picture = NodePath("../../ForestPicture")
 [node name="10_Shed" type="Node" parent="Pictures"]
 
 [node name="ShedPicture" type="TextureRect" parent="Pictures/10_Shed" node_paths=PackedStringArray("camera", "world_root")]
+visible = false
 clip_contents = true
 anchors_preset = 15
 anchor_right = 1.0
@@ -8468,6 +8469,7 @@ bones/408/position = Vector3(0.00409159, -0.00500152, 0.00417215)
 bones/408/rotation = Quaternion(0.0307497, 0.0818857, 0.056881, 0.994542)
 
 [node name="Shed" type="Node3D" parent="Past/PictureSpecificObjects"]
+visible = false
 
 [node name="SpotLight3D2" type="SpotLight3D" parent="Past/PictureSpecificObjects/Shed"]
 transform = Transform3D(0.868969, 0.276518, -0.410403, -7.66341e-09, 0.829321, 0.558773, 0.494867, -0.485556, 0.720654, 0.941406, 7.18083, -9.42368)

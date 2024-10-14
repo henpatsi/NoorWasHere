@@ -116,7 +116,7 @@ func set_child_collider_states(node: Node, disabled_state: bool) -> void:
 
 func get_local_camera_pos() -> Vector3:
 	var camera_pos = camera.position - world_root.position
-	camera_pos.y -= 1.75
+	camera_pos.y -= 1.5
 	return camera_pos
 
 
