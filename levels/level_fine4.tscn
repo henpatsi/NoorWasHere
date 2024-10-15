@@ -182,7 +182,6 @@ dof_blur_near_distance = 3.0
 dof_blur_near_transition = 3.5
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_pua2a"]
-frequency = 0.0064
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_cechl"]
 seamless = true
@@ -190,7 +189,7 @@ noise = SubResource("FastNoiseLite_pua2a")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_feq75"]
 shader = ExtResource("51_y5c0d")
-shader_parameter/speed = 0.05
+shader_parameter/speed = 0.1
 shader_parameter/intensity = 1.0
 shader_parameter/distort_noise = SubResource("NoiseTexture2D_cechl")
 
@@ -597,7 +596,7 @@ environment = ExtResource("2_qtfwo")
 
 [node name="DirectionalLightPresent" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.258643, 0.811368, -0.5242, -0.653071, 0.546729, 0.524009, 0.71176, 0.206809, 0.671288, 0, 0, 0)
-light_color = Color(1, 0.658824, 0.411765, 1)
+light_color = Color(0.735702, 0.499066, 0.254213, 1)
 light_energy = 2.082
 light_cull_mask = 4294966271
 shadow_enabled = true
@@ -9542,13 +9541,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.138, 0.597)
 transform = Transform3D(0.965926, 0, 0.258819, 0, 1, 0, -0.258819, 0, 0.965926, -6.84113, 4.30306, -1.82549)
 script = ExtResource("67_o478p")
 rotation_on_inspect = Vector3(0, 90, 0)
+inspect_position_offset = Vector3(0, 0.2, 0)
 item_name = "memory capsule"
 one_shot = false
 dialogue_clips = Array[Resource]([ExtResource("100_4owrl"), ExtResource("101_j67wt"), ExtResource("102_wcay5"), ExtResource("103_u0q55")])
 nodes_to_show = [NodePath("../../PictureSpecificObjects/NoorRoomNight/LightSwitchSpotlight"), NodePath("../InteractableLightSwitch")]
 
 [node name="box_bake" type="MeshInstance3D" parent="Past/Interactables/MemoryCapsule"]
-transform = Transform3D(200, 0, 0, 0, -8.74228e-06, 200, 0, -200, -8.74228e-06, 0, 0, 0)
+transform = Transform3D(180, 0, 0, 0, -7.86805e-06, 180, 0, -180, -7.86805e-06, 0, 0, 0)
 mesh = SubResource("ArrayMesh_vq02a")
 skeleton = NodePath("")
 
