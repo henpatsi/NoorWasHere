@@ -1,4 +1,4 @@
-[gd_scene load_steps=117 format=4 uid="uid://8ymkajun4ggs"]
+[gd_scene load_steps=257 format=4 uid="uid://8ymkajun4ggs"]
 
 [ext_resource type="Environment" uid="uid://dobqonwml2e5x" path="res://assets/WorldEnvironments/Env_Present.tres" id="1_1utkg"]
 [ext_resource type="Script" path="res://levels/level.gd" id="1_eatkt"]
@@ -43,24 +43,117 @@
 [ext_resource type="Script" path="res://levels/ui/end_sequence.gd" id="55_3cw5q"]
 [ext_resource type="Theme" uid="uid://cbquq6hkpipum" path="res://assets/fonts/Helvetica-Font/helvetica.tres" id="56_4odsg"]
 [ext_resource type="Script" path="res://levels/tutorial.gd" id="57_65ug8"]
+[ext_resource type="ArrayMesh" uid="uid://crbcymi4k36p4" path="res://assets/AtmosphericHouse/Meshes/Meshes_props/extracted/Light_switch.Light_switch.mesh" id="58_66kcy"]
+[ext_resource type="Material" uid="uid://dbk2qa7fympq8" path="res://assets/AtmosphericHouse/Materials/Misc_prop_set_clean.material" id="59_5ykdg"]
+[ext_resource type="Script" path="res://levels/interactables/interactable.gd" id="59_hynrv"]
 [ext_resource type="PackedScene" uid="uid://bkyarvlhmy1iu" path="res://assets/characters/noor_poses.tscn" id="59_sfpfk"]
 [ext_resource type="PackedScene" uid="uid://c5d7tcijs5p06" path="res://assets/characters/agathe/agathe_final_01.tscn" id="60_d3482"]
+[ext_resource type="AudioStream" uid="uid://m3xgq65pqjwl" path="res://assets/audio/sfx/Misc/light switch/Light_On.wav" id="60_fuak1"]
+[ext_resource type="PackedScene" uid="uid://bn5ukqljga2qo" path="res://levels/areas/trigger_area.tscn" id="61_hoger"]
 [ext_resource type="PackedScene" uid="uid://paat7hmvkfo8" path="res://assets/characters/mother/mother_fbx.tscn" id="61_ml2e7"]
+[ext_resource type="Resource" path="res://levels/dialogue_streams/01_E01.tres" id="62_musyg"]
+[ext_resource type="ArrayMesh" uid="uid://yk0xh52dki6u" path="res://assets/AtmosphericHouse/Meshes/Meshes_props/extracted/Cabinet_B.Cabinet_B.mesh" id="62_oi8bm"]
+[ext_resource type="Resource" path="res://levels/dialogue_streams/02_E01.tres" id="63_1purc"]
+[ext_resource type="Material" uid="uid://dmv7rqma4dp18" path="res://assets/AtmosphericHouse/Materials/Wardrobe_clean.material" id="63_q8axx"]
+[ext_resource type="Resource" path="res://levels/dialogue_streams/02_E02.tres" id="64_1o75g"]
+[ext_resource type="ArrayMesh" uid="uid://xyccblp8cijy" path="res://assets/AtmosphericHouse/Meshes/Meshes_props/extracted/Cabinet_B.Cabinet_B_door_L.mesh" id="64_sbu8e"]
+[ext_resource type="Resource" path="res://levels/dialogue_streams/02_E03.tres" id="65_ks7fy"]
+[ext_resource type="Script" path="res://levels/interactables/interactable_animation.gd" id="65_mhbtl"]
+[ext_resource type="AudioStream" uid="uid://v5y0r4dixf50" path="res://assets/audio/sfx/door/Dooropen.wav" id="66_53s0v"]
+[ext_resource type="Resource" path="res://levels/dialogue_streams/03_E01.tres" id="66_eccg1"]
+[ext_resource type="Resource" path="res://levels/dialogue_streams/03_E02.tres" id="67_5awl8"]
+[ext_resource type="Script" path="res://levels/interactables/interactable_inspect.gd" id="67_o478p"]
+[ext_resource type="ArrayMesh" uid="uid://c6ol5cm5nm1gs" path="res://assets/AtmosphericHouse/Meshes/Meshes_props/extracted/Cabinet_B.Cabinet_B_door_R.mesh" id="67_uhivi"]
+[ext_resource type="Resource" path="res://levels/dialogue_streams/04_04.tres" id="68_ikkh7"]
+[ext_resource type="Resource" path="res://levels/dialogue_streams/04_05.tres" id="69_i3quu"]
+[ext_resource type="Resource" path="res://levels/dialogue_streams/07_E01.tres" id="70_sxsab"]
+[ext_resource type="Resource" path="res://levels/dialogue_streams/07_E02.tres" id="71_t2wie"]
+[ext_resource type="Resource" path="res://levels/dialogue_streams/08_E01.tres" id="72_0hirb"]
+[ext_resource type="Material" uid="uid://cfo4jukrqtp5k" path="res://assets/props/INTERACTEABLE/memory capsule/box_bake.tres" id="72_8yoht"]
+[ext_resource type="Resource" path="res://levels/dialogue_streams/08_E02.tres" id="73_i320y"]
+[ext_resource type="Resource" path="res://levels/dialogue_streams/09_E01.tres" id="74_tkio4"]
+[ext_resource type="Resource" path="res://levels/dialogue_streams/09_E02.tres" id="75_k53da"]
+[ext_resource type="Resource" path="res://levels/dialogue_streams/09_E03.tres" id="76_eexyy"]
+[ext_resource type="Resource" path="res://levels/dialogue_streams/10_E01.tres" id="77_ugy5w"]
+[ext_resource type="Resource" path="res://levels/dialogue_streams/10_E02.tres" id="78_4nshw"]
+[ext_resource type="Resource" path="res://levels/dialogue_streams/10_E03.tres" id="79_vt8fk"]
+[ext_resource type="Resource" path="res://levels/dialogue_streams/10_E04.tres" id="80_p413y"]
+[ext_resource type="Resource" path="res://levels/dialogue_streams/10_E05.tres" id="81_f3wl0"]
+[ext_resource type="Resource" path="res://levels/dialogue_streams/10_E06.tres" id="82_7i50x"]
+[ext_resource type="Resource" path="res://levels/dialogue_streams/10_E07.tres" id="83_afnio"]
+[ext_resource type="Resource" path="res://levels/dialogue_streams/10_E08.tres" id="84_6850s"]
+[ext_resource type="Resource" path="res://levels/dialogue_streams/10_E09.tres" id="85_y7p5e"]
+[ext_resource type="Resource" path="res://levels/dialogue_streams/10_E10.tres" id="86_l1lrt"]
+[ext_resource type="Resource" path="res://levels/dialogue_streams/10_E11.tres" id="87_coh12"]
+[ext_resource type="Resource" path="res://levels/dialogue_streams/10_E12.tres" id="88_v4h8f"]
+[ext_resource type="Script" path="res://levels/areas/end_sequence_trigger.gd" id="89_ornnm"]
 [ext_resource type="PackedScene" uid="uid://dlffobxlcndvl" path="res://assets/AtmosphericHouse/Prefabs/Doors/Door_parent_A_L.prefab.scn" id="91_pc8rc"]
-[ext_resource type="PackedScene" uid="uid://dorg6gkdgutra" path="res://assets/AtmosphericHouse/Prefabs/Props/Miscellaneous/Light_switch.prefab.scn" id="98_r2k0x"]
+[ext_resource type="PackedScene" uid="uid://dg3kob4pncl23" path="res://assets/props/door_a/door_a.tscn" id="94_wdjwv"]
+[ext_resource type="Resource" path="res://levels/dialogue_streams/06_I01.tres" id="100_4owrl"]
+[ext_resource type="Resource" uid="uid://cra54wjuo32as" path="res://levels/dialogue_streams/00_01.tres" id="101_6uwb1"]
+[ext_resource type="Resource" path="res://levels/dialogue_streams/06_I02.tres" id="101_j67wt"]
+[ext_resource type="Resource" uid="uid://cimlmvpdq1ugw" path="res://levels/dialogue_streams/00_02.tres" id="102_km3cr"]
+[ext_resource type="Resource" path="res://levels/dialogue_streams/06_I03.tres" id="102_wcay5"]
+[ext_resource type="Resource" uid="uid://cqkpitmwbm6ug" path="res://levels/dialogue_streams/00_03.tres" id="103_ph14m"]
+[ext_resource type="Resource" path="res://levels/dialogue_streams/06_I04.tres" id="103_u0q55"]
+[ext_resource type="Resource" path="res://levels/dialogue_streams/01_01.tres" id="104_u36xg"]
+[ext_resource type="Material" uid="uid://berxmnoetcdax" path="res://assets/props/INTERACTEABLE/closet/02.tres" id="105_16yf5"]
 [ext_resource type="PackedScene" uid="uid://brtrvnfelp3ux" path="res://assets/props/car/sketchfab_scene.tscn" id="105_081hi"]
-[ext_resource type="PackedScene" uid="uid://bkdujsmnx5mff" path="res://assets/AtmosphericHouse/Prefabs/Props/Furniture/Cabinet_B.prefab.scn" id="105_coir8"]
+[ext_resource type="Resource" path="res://levels/dialogue_streams/01_02.tres" id="105_wycb2"]
+[ext_resource type="PackedScene" uid="uid://c466iifg5vfql" path="res://assets/props/INTERACTEABLE/closet/closet_door_left.tscn" id="106_7n1ix"]
+[ext_resource type="Resource" path="res://levels/dialogue_streams/02_01.tres" id="106_iig3p"]
+[ext_resource type="Resource" path="res://levels/dialogue_streams/10_01.tres" id="106_qi4pq"]
+[ext_resource type="Resource" path="res://levels/dialogue_streams/10_02.tres" id="107_e7r60"]
+[ext_resource type="Resource" path="res://levels/dialogue_streams/02_02.tres" id="107_h2hc5"]
+[ext_resource type="Resource" path="res://levels/dialogue_streams/02_03.tres" id="108_fax2n"]
+[ext_resource type="PackedScene" uid="uid://dw8pdqr1nnbrr" path="res://assets/props/INTERACTEABLE/memory capsule/memory_capsule.tscn" id="108_qslu4"]
 [ext_resource type="Script" path="res://addons/yamms/MultiScatter.gd" id="108_vqrjf"]
+[ext_resource type="Resource" path="res://levels/dialogue_streams/02_04.tres" id="109_hsjgi"]
 [ext_resource type="ArrayMesh" uid="uid://qv0ry0lfx1jf" path="res://assets/Exterior/Spruce Trees/meshes/Mesh_SpruceTree_Tall2.tres" id="109_m65bl"]
 [ext_resource type="Script" path="res://addons/yamms/MultiScatterItem.gd" id="109_s0ksg"]
+[ext_resource type="Resource" path="res://levels/dialogue_streams/03_01.tres" id="110_jq8ks"]
+[ext_resource type="PackedScene" uid="uid://daalgg5r5ln0i" path="res://assets/AtmosphericHouse/Prefabs/Doors/Door_parent_C_L.prefab.scn" id="110_m8m7y"]
 [ext_resource type="ArrayMesh" uid="uid://c14ntdaikbh57" path="res://assets/Exterior/Spruce Trees/meshes/Mesh_SpruceTree_Tall1.tres" id="111_1yoif"]
 [ext_resource type="Script" path="res://addons/yamms/MultiScatterExclude.gd" id="111_b7kg4"]
+[ext_resource type="Resource" path="res://levels/dialogue_streams/03_02.tres" id="111_tbb5q"]
 [ext_resource type="ArrayMesh" uid="uid://b7vkeny64ev51" path="res://assets/Exterior/Spruce Trees/meshes/Mesh_SpruceTree_Medium.tres" id="112_8idv3"]
+[ext_resource type="Resource" path="res://levels/dialogue_streams/03_03.tres" id="112_ru1ro"]
 [ext_resource type="ArrayMesh" uid="uid://bkrowq7om23r4" path="res://assets/Exterior/Spruce Trees/meshes/Mesh_SpruceTree_Small.tres" id="113_ibyr3"]
+[ext_resource type="Resource" path="res://levels/dialogue_streams/03_04.tres" id="113_yr2ye"]
+[ext_resource type="Resource" path="res://levels/dialogue_streams/04_01.tres" id="114_hn2qc"]
 [ext_resource type="ArrayMesh" uid="uid://jj1on2dg8825" path="res://assets/Exterior/Spruce Trees/meshes/Mesh_SpruceTree_Tall1_LP.tres" id="115_dba7f"]
+[ext_resource type="Resource" path="res://levels/dialogue_streams/04_02.tres" id="115_qb102"]
 [ext_resource type="ArrayMesh" uid="uid://b62r2qbq1meq7" path="res://assets/Exterior/Spruce Trees/meshes/Mesh_SpruceTree_Medium_LP.tres" id="116_fyp5e"]
+[ext_resource type="Resource" path="res://levels/dialogue_streams/04_03.tres" id="116_wead5"]
 [ext_resource type="Texture2D" uid="uid://dqp1ybjqsov40" path="res://assets/Exterior/Spruce Trees/image_forest.png" id="117_s6qah"]
+[ext_resource type="Resource" path="res://levels/dialogue_streams/05_01.tres" id="117_ynhr2"]
+[ext_resource type="Resource" path="res://levels/dialogue_streams/05_02.tres" id="118_2vakk"]
 [ext_resource type="Texture2D" uid="uid://w68ef1kuyc0x" path="res://assets/Exterior/Spruce Trees/SpruceForest_Distance_image_forest.png" id="118_inmag"]
+[ext_resource type="Resource" path="res://levels/dialogue_streams/05_03.tres" id="119_s05v1"]
+[ext_resource type="Resource" path="res://levels/dialogue_streams/05_04.tres" id="120_1veon"]
+[ext_resource type="Resource" path="res://levels/dialogue_streams/05_05.tres" id="121_y7nxl"]
+[ext_resource type="Resource" path="res://levels/dialogue_streams/06_01.tres" id="122_e5j5p"]
+[ext_resource type="Resource" path="res://levels/dialogue_streams/06_02.tres" id="123_o6ubq"]
+[ext_resource type="Resource" path="res://levels/dialogue_streams/06_03.tres" id="124_a80ag"]
+[ext_resource type="Resource" path="res://levels/dialogue_streams/07_01.tres" id="125_by3s6"]
+[ext_resource type="Resource" path="res://levels/dialogue_streams/07_02.tres" id="126_riop3"]
+[ext_resource type="Resource" path="res://levels/dialogue_streams/07_03.tres" id="127_4n75o"]
+[ext_resource type="Resource" path="res://levels/dialogue_streams/07_04.tres" id="128_0xb2g"]
+[ext_resource type="Resource" path="res://levels/dialogue_streams/08_01.tres" id="129_d5jm5"]
+[ext_resource type="Resource" path="res://levels/dialogue_streams/08_02.tres" id="130_w1d1f"]
+[ext_resource type="Resource" path="res://levels/dialogue_streams/08_03.tres" id="131_i1v4b"]
+[ext_resource type="Resource" path="res://levels/dialogue_streams/09_01.tres" id="132_8a3ni"]
+[ext_resource type="Resource" path="res://levels/dialogue_streams/09_02.tres" id="133_kbvum"]
+[ext_resource type="Resource" path="res://levels/dialogue_streams/09_03.tres" id="134_3tcnw"]
+[ext_resource type="Resource" path="res://levels/dialogue_streams/09_04.tres" id="135_gaqj3"]
+[ext_resource type="Resource" path="res://levels/dialogue_streams/09_05.tres" id="136_7q7c6"]
+[ext_resource type="Resource" path="res://levels/dialogue_streams/09_06.tres" id="137_m4ln3"]
+[ext_resource type="Resource" path="res://levels/dialogue_streams/09_07.tres" id="138_1oliw"]
+[ext_resource type="Resource" path="res://levels/dialogue_streams/09_08.tres" id="139_x7lbl"]
+[ext_resource type="Resource" path="res://levels/dialogue_streams/09_09.tres" id="140_6prnf"]
+[ext_resource type="Resource" path="res://levels/dialogue_streams/09_10.tres" id="141_y36l6"]
+[ext_resource type="Resource" path="res://levels/dialogue_streams/09_11.tres" id="142_yrwe7"]
+[ext_resource type="Resource" path="res://levels/dialogue_streams/09_12.tres" id="143_f0bcn"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_vg48x"]
 viewport_path = NodePath("Pictures/0_Frontyard/SubViewport")
@@ -240,6 +333,57 @@ shadow_mesh = SubResource("ArrayMesh_3e5qj")
 [sub_resource type="BoxShape3D" id="BoxShape3D_5y6gq"]
 size = Vector3(2.50783, 10.7489, 1)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_wyaxm"]
+size = Vector3(0.05, 2.05673, 0.54)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_we6wf"]
+size = Vector3(0.05, 2.05673, 0.54)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_u2udf"]
+size = Vector3(1.25, 2.05673, 0.04)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_137pe"]
+size = Vector3(1.38, 0.12, 0.56)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_d76b6"]
+size = Vector3(1.25, 0.03, 0.41)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jylds"]
+size = Vector3(1.3, 0.17, 0.56)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_823y0"]
+size = Vector3(0.618565, 1.84598, 0.0675862)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_yi1rk"]
+size = Vector3(0.618565, 1.84598, 0.0675862)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fchym"]
+size = Vector3(2.28512, 1, 2.26251)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xlii3"]
+size = Vector3(8.51214, 1, 6.36591)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_76nbc"]
+size = Vector3(0.765106, 2.30713, 5.14832)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_66vq0"]
+size = Vector3(5.8058, 1, 10.585)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jcbxe"]
+size = Vector3(4.86743, 1, 5.27344)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qsxxs"]
+size = Vector3(10.5432, 2, 8.18213)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wplsv"]
+size = Vector3(29.0076, 2, 33.8246)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_poyp8"]
+size = Vector3(27.7599, 2, 34.7125)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xmkwy"]
+size = Vector3(100, 30, 100.073)
+
 [sub_resource type="PlaneMesh" id="PlaneMesh_rg8of"]
 size = Vector2(400, 400)
 
@@ -305,6 +449,234 @@ size = Vector3(0.386719, 7.3186, 48.5793)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_2tam2"]
 size = Vector3(0.386719, 7.3186, 27.2921)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_daimo"]
+size = Vector3(0.14008, 0.172501, 0.0877145)
+
+[sub_resource type="Animation" id="Animation_rktb1"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_tusgy"]
+resource_name = "open"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, -1.91986, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1aa2e"]
+_data = {
+"RESET": SubResource("Animation_rktb1"),
+"open": SubResource("Animation_tusgy")
+}
+
+[sub_resource type="Animation" id="Animation_ca87l"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_2lqyr"]
+resource_name = "open"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 1.91986, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_sp5rb"]
+_data = {
+"RESET": SubResource("Animation_ca87l"),
+"open": SubResource("Animation_2lqyr")
+}
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_47rkm"]
+_surfaces = [{
+"aabb": AABB(-0.000720772, -0.00142224, -1.07341e-05, 0.00144154, 0.00284448, 0.000951053),
+"format": 34359742465,
+"index_count": 84,
+"index_data": PackedByteArray("AAABAAIAAgADAAAABAAFAAYABgAHAAQACAAJAAQABAAHAAgACQAKAAUABQAEAAkACgALAAYABgAFAAoACwAIAAcABwAGAAsAAwALAAoACgAMAAMADAAKAAkACQANAAwAAgAIAAsACwADAAIADQAJAAgACAACAA0ADgAAAAMAAwAMAA4ADwAOAAwADAANAA8AAQAPAA0ADQACAAEAAQAAAA4ADgAPAAEA"),
+"name": "box_bake",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 16,
+"vertex_data": PackedByteArray("egQ8uq7zuTrAf3Y6egQ8uq7zubrAf3Y6KfI8uoVqurp8oTY6KfI8uoVqujp8oTY64+I3OuPit7pmFjS34+I3OuPitzpmFjS34+I3uuPitzpmFjS34+I3uuPit7pmFjS34+I3uuPit7p8oTY64+I3OuPit7p8oTY64+I3OuPitzp8oTY64+I3uuPitzp8oTY6KfI8OoVqujp8oTY6KfI8OoVqurp8oTY6egQ8Oq7zuTrAf3Y6egQ8Oq7zubrAf3Y6")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_7ycwe"]
+resource_name = "Cube_013"
+_surfaces = [{
+"aabb": AABB(-0.000720772, -0.00142224, -1.07341e-05, 0.00144154, 0.00284448, 0.000951053),
+"attribute_data": PackedByteArray("dZkpPyw21j5TmSk/HX9pP7u+Hj9+p2k/3r4eP17l1T5cNCk+67JVP1Y0KT56bLE+1ZbRPnpssT7altE+6rJVP92W0T7fNXU/XjQpPuE1dT9cNCk+67JVP9qW0T7qslU/9qEsPeuyVT//oSw9fmyxPlY0KT56bLE+XDQpPuuyVT9SNCk+JM1kPtWW0T4gzWQ+1ZbRPnpssT5WNCk+emyxPmJOCD94bLE+Y04IP+iyVT/altE+6rJVP9WW0T56bLE+FHEpP/qAwD4uTSo/yMi+PonLaD8Ayb4+ladpPxqBwD7HWXQ/jOXVPuA1dT++ndc+4DV1P1rLaD+jWXQ/lKdpP7u+Hj9+p2k/ouIdP2XLaD+i4h0/1J3XPt6+Hj9e5dU+bqdpP8hZdD9Ty2g/4TV1P/hMKj/ENXU/7HApP7dZdD8vf2k/TjbWPnWZKT8sNtY+FHEpP/qAwD6Vp2k/GoHAPg1/aT8uf2k/L39pP0421j7HWXQ/jOXVPqNZdD+Up2k/U5kpPx1/aT8Nf2k/Ln9pP26naT/IWXQ/7HApP7dZdD9TmSk/HX9pP3WZKT8sNtY+L39pP0421j4Nf2k/Ln9pPw=="),
+"format": 34359742487,
+"index_count": 84,
+"index_data": PackedByteArray("AAABAAIAAgADAAAABAAFAAYABgAHAAQACAAJAAoACgALAAgADAANAA4ADgAPAAwAEAARABIAEgATABAAFAAVABYAFgAXABQAGAAZABoAGgAbABgAHAAdAB4AHgAfABwAIAAhACIAIgAjACAAJAAlACYAJgAnACQAKAApACoAKgArACgALAAtAC4ALgAvACwAMAAxADIAMgAzADAANAA1ADYANgA3ADQA"),
+"material": ExtResource("72_8yoht"),
+"name": "box_bake",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 56,
+"vertex_data": PackedByteArray("egQ8uq7zuTrAf3Y6egQ8uq7zubrAf3Y6KfI8uoVqurp8oTY6KfI8uoVqujp8oTY64+I3OuPit7pmFjS34+I3OuPitzpmFjS34+I3uuPitzpmFjS34+I3uuPit7pmFjS34+I3uuPit7p8oTY64+I3OuPit7p8oTY64+I3OuPit7pmFjS34+I3uuPit7pmFjS34+I3OuPit7p8oTY64+I3OuPitzp8oTY64+I3OuPitzpmFjS34+I3OuPit7pmFjS34+I3OuPitzp8oTY64+I3uuPitzp8oTY64+I3uuPitzpmFjS34+I3OuPitzpmFjS34+I3uuPitzp8oTY64+I3uuPit7p8oTY64+I3uuPit7pmFjS34+I3uuPitzpmFjS3KfI8uoVqujp8oTY64+I3uuPitzp8oTY64+I3OuPitzp8oTY6KfI8OoVqujp8oTY6KfI8OoVqujp8oTY64+I3OuPitzp8oTY64+I3OuPit7p8oTY6KfI8OoVqurp8oTY6KfI8uoVqurp8oTY64+I3uuPit7p8oTY64+I3uuPitzp8oTY6KfI8uoVqujp8oTY6KfI8OoVqurp8oTY64+I3OuPit7p8oTY64+I3uuPit7p8oTY6KfI8uoVqurp8oTY6egQ8Oq7zuTrAf3Y6egQ8uq7zuTrAf3Y6KfI8uoVqujp8oTY6KfI8OoVqujp8oTY6egQ8Oq7zubrAf3Y6egQ8Oq7zuTrAf3Y6KfI8OoVqujp8oTY6KfI8OoVqurp8oTY6egQ8uq7zubrAf3Y6egQ8Oq7zubrAf3Y6KfI8OoVqurp8oTY6KfI8uoVqurp8oTY6egQ8uq7zubrAf3Y6egQ8uq7zuTrAf3Y6egQ8Oq7zuTrAf3Y6egQ8Oq7zubrAf3Y61QH/f9WB/7/VAf9/1YH/v9UB/3/Vgf+/1QH/f9WB/7//////AAD/v/////8AAP+//////wAA/7//////AAD/v/9/AAAAAP+//38AAAAA/7//fwAAAAD/v/9/AAAAAP+/////f/7/AID///9//v8AgP///3/+/wCA////f///////f///AAD/v/9///8AAP+//3///wAA/7//f///AAD/vwAA/3//f/+/AAD/f/9//78AAP9//3//vwAA/3//f/+///////7//7///////v//v//////+//+///////7//7////7/AAD/v////v8AAP+////+/xMA9b////7/EwD1vwAA/v8AAP+/AAD+/wAA/78AAP7/EwD1vwAA/v8UAPW///////7//7///////v//v//////+//+///////7//7//fyn+////v/9/Kf7///+//38p/v///7//fyn+////vyn+/3/+/xT/Kf7/f/7/FP8p/v9//v8U/yn+/3/+/xT//3/VAf7//7//f9UB/v//v/9/1QH+//+//3/VAf7//7//f/9//v//v/9//3/+//+//3//f/7//7//f/9//v//vw==")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_47rkm")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_nlwn7"]
+size = Vector3(0.21814, 0.135986, 0.415283)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p3lup"]
+resource_name = "02"
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.5, 0.5, 0.5, 1)
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_energy_multiplier = 0.0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_pliv7"]
+_surfaces = [{
+"aabb": AABB(-0.0573304, -0.0346939, -9.8973e-09, 0.114661, 0.0693879, 0.22822),
+"format": 34359742465,
+"index_count": 114,
+"index_data": PackedByteArray("AAABAAIAAQAAAAMABAAFAAAAAgAEAAAAAQADAAYABwABAAYACAAJAAoACwAKAAkADAANAA4ADwANAAwACQAQAAsAEQAQAAkACAARAAkAEgARAAgACgASAAgAEwASAAoAFAATAAoAFQAUAAoAEwAUABAAFgAQABQAFwALABAAFgAXABAADgAVABcADAAOABcADgANABUAFAAVAA0ADwAUAA0AFgAUAA8ADAAXABYAFgAPAAwAGAAZABoAGwAYABoAHAAdAB4AHQAcAB8AHAAYABsAHwAcABsAFQAKAAsAFwAVAAsA"),
+"name": "02",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 32,
+"vertex_data": PackedByteArray("5KpovcEVAL089To8KbZqPXiZ+LxfUCey5apovcEVAL0m5CkyKbZqPXiZ+Lwm9To8O9NqvTRSCj24KycyO9NqvTRSCj079To8041oPTobDj0m9To8041oPTobDj3OCCqyE9NqvTxSCj19smk++41oPUAbDj18smk+qY1ovTMbDr1/smk+ZNNqPS5SCr19smk+0/tcPRz7/zyoxmY+0gZfvfjJ+DyJsmk8yAZfvfjJ+DypxmY+yftcPRz7/zx2smk8WtNqPS5SCr0o9To88Y1oPUAbDj0o9To8HdNqvTxSCj089To8s41ovTMbDr089To8et5cvfoCDr2Jsmk8b95cvfoCDr2qxmY+ICRfPWlqCr12smk8KiRfPWlqCr2pxmY+IwpdvSH+8bw4aDo+6AZfvdrJ+Dw3aDo+svtcPQD7/zw2aDo+d/hePf3M6rw3aDo+IwpdvSH+8bxkfDc+svtcPQD7/zxhfDc+6AZfvdrJ+DxjfDc+d/hePf3M6rxjfDc+")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_hik11"]
+resource_name = "Mesh_007"
+_surfaces = [{
+"aabb": AABB(-0.0573304, -0.0346939, -9.8973e-09, 0.114661, 0.0693879, 0.22822),
+"attribute_data": PackedByteArray("PCzbPdZxxT6uzQQ+0sMcP67NBD7WccU+PCzbPdLDHD/OEwM+uO6BPny41z247oE+fLjXPfYZxD7OEwM+9hnEPrzM1T3sXNw+rF2nPexc3D6sXac9IEQPP7zM1T0gRA8/YQtnP4Bjgjx4AC0/gGOCPGELZz/omRs+dAAtP+iZGz6GAAw+Hs02PyhhDj9EUv8+hgAMPkRS/z4oYQ4/Hs02P47DBT6ojIg+3rgPP+DLBT6OwwU+4MsFPt64Dz+ojIg+bn0HPmT6/T5UJxA/iOSJPm59Bz6I5Ik+VCcQP2T6/T7e5wQ+akxaP+yBDz8OeTc/3ucEPg55Nz/sgQ8/akxaP3QODj9eLX4/7YEPP+a5fD+u5gQ+5rl8P5a0Cj5eLX4/sMXmPNigfT+YSAo9IvB6P7DF5jx+BBI/eEgKPTa1FD+Y5z499ElVPvgBKD0Yh0o+GAIoPSYYfz+Y5z49cGd8P+2BDz/2DXw/7IEPP1r4Wj/vu7A+WvhaP++7sD72DXw/GA0PP7q+ID8ebno/ur4gPxgNDz9EUv8+Hm56P0RS/z5wJN88ABSdupZ0eD4gHAM+lnR4PgAUnbpwJN88IBwDPtwtED+qaiE/3C0QP0CAQj/ijns/QIBCP+KOez+qaiE/0VFHP4YFfz/RUUc/CoxgP9wtED8KjGA/3S0QP4YFfz8PZK8+WvhaPxY4Aj7OcXk/D2SvPs5xeT8WOAI+WvhaP7AmsjxQV1M/sPHfPFBXUz+w8d88OjjaPrAmsjw6ONo+mLINPUjgej/4lyQ9AJF9P/iXJD1C9BE/mLINPfqkFD8="),
+"format": 34359742487,
+"index_count": 114,
+"index_data": PackedByteArray("AAABAAIAAQAAAAMABAAFAAYABwAEAAYACAAJAAoACwAIAAoADAANAA4ADwAOAA0AEAARABIAEwARABAAFAAVABYAFwAVABQAGAAZABoAGwAZABgAHAAdAB4AHwAdABwAIAAhACIAIwAgACIAJAAlACYAJwAmACUAKAApACoAKwAoACoALAAtAC4ALwAsAC4AMAAxADIAMwAyADEANAA1ADYANwA1ADQAOAA5ADoAOgA7ADgAPAA9AD4APwA8AD4AQABBAEIAQQBAAEMARABFAEYARwBEAEYASABJAEoASwBIAEoA"),
+"material": SubResource("StandardMaterial3D_p3lup"),
+"name": "02",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 76,
+"vertex_data": PackedByteArray("5KpovcEVAL089To8KbZqPXiZ+LxfUCey5apovcEVAL0m5CkyKbZqPXiZ+Lwm9To8O9NqvTRSCj24KycyO9NqvTRSCj079To85KpovcEVAL089To85apovcEVAL0m5CkyKbZqPXiZ+LxfUCeyKbZqPXiZ+Lwm9To8041oPTobDj0m9To8041oPTobDj3OCCqyE9NqvTxSCj19smk++41oPUAbDj18smk+qY1ovTMbDr1/smk+ZNNqPS5SCr19smk+0/tcPRz7/zyoxmY+0gZfvfjJ+DyJsmk8yAZfvfjJ+DypxmY+yftcPRz7/zx2smk8+41oPUAbDj18smk+WtNqPS5SCr0o9To8ZNNqPS5SCr19smk+8Y1oPUAbDj0o9To8E9NqvTxSCj19smk+8Y1oPUAbDj0o9To8+41oPUAbDj18smk+HdNqvTxSCj089To8qY1ovTMbDr1/smk+HdNqvTxSCj089To8E9NqvTxSCj19smk+s41ovTMbDr089To8et5cvfoCDr2Jsmk8s41ovTMbDr089To8qY1ovTMbDr1/smk+b95cvfoCDr2qxmY+s41ovTMbDr089To8et5cvfoCDr2Jsmk8WtNqPS5SCr0o9To8ICRfPWlqCr12smk8KiRfPWlqCr2pxmY+ZNNqPS5SCr19smk+WtNqPS5SCr0o9To8ICRfPWlqCr12smk8yAZfvfjJ+DypxmY+b95cvfoCDr2qxmY+KiRfPWlqCr2pxmY+0/tcPRz7/zyoxmY+yAZfvfjJ+DypxmY+0gZfvfjJ+DyJsmk8b95cvfoCDr2qxmY+et5cvfoCDr2Jsmk8yftcPRz7/zx2smk8et5cvfoCDr2Jsmk80gZfvfjJ+DyJsmk8ICRfPWlqCr12smk80/tcPRz7/zyoxmY+KiRfPWlqCr2pxmY+ICRfPWlqCr12smk8yftcPRz7/zx2smk8IwpdvSH+8bw4aDo+6AZfvdrJ+Dw3aDo+svtcPQD7/zw2aDo+d/hePf3M6rw3aDo+IwpdvSH+8bxkfDc+svtcPQD7/zxhfDc+6AZfvdrJ+DxjfDc+d/hePf3M6rxjfDc+IwpdvSH+8bxkfDc+IwpdvSH+8bw4aDo+d/hePf3M6rw3aDo+d/hePf3M6rxjfDc+b95cvfoCDr2qxmY+qY1ovTMbDr1/smk+ZNNqPS5SCr19smk+KiRfPWlqCr2pxmY+BoEHAQAA/n8GgQcBAAD+fwaBBwEAAP5/BoEHAf//AAAHAfh+AAD+fwcB+H7//wAABwH4fgAA/n8HAfh+AAD+f/f+BoH//wAA9/4Ggf//AAD3/gaB//8AAPf+BoH//wAA/3//fwcBg0D/f/9/BwGDQP9//38HAYNA/3//fwcBg0AGgQcBAAD+fwaBBwEAAP5/BoEHAQAA/n8GgQcBAAD+f/f+BoEAAP5/9/4GgQAA/n/3/gaBAAD+f/f+BoEAAP5/+H73/gAA/n/4fvf+AAAAAPh+9/4AAP5/+H73/gAAAAAHAfh+AAD+fwcB+H4AAP5/BwH4fgAA/n8HAfh+AAD+fwaBBwEAAP5/BoEHAQAA/n8GgQcBAAAAAAaBBwEAAAAABoEHAf9//z8GgQcB/3//PwaBBwH/f/8/BoEHAf9//z8GgQcBBwGDQAaBBwEHAYNABoEHAQcBg0AGgQcBBwGDQP7/AAAHAYNA/v8AAAcBg0D+/wAABwGDQAAAAAAHAYNA9/4GgQAA/n/3/gaBAAAAAPf+BoEAAP5/9/4GgQAAAAD/f/9/BwGDQP9//38HAYNA/3//fwcBg0D/f/9/BwGDQAcB+H4AAP5/BwH4fgAA/n8HAfh+AAD+fwcB+H4AAP5//3//fwcBg0D/f/9/BwGDQP9//38HAYNA/3//fwcBg0AAAAAABwGDQAAAAAAHAYNAAAAAAAcBg0AAAAAABwGDQAaBBwH/f/8/BoEHAf9//z8GgQcB/3//PwaBBwH/f/8/BoEHAf9//z8GgQcB/3//PwaBBwH/f/8/BoEHAf9//z8=")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_pliv7")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bwirk"]
+size = Vector3(0.00662231, 0.0773544, 0.226383)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4r478"]
+size = Vector3(0.00662231, 0.0777817, 0.226383)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0f53p"]
+size = Vector3(0.00662231, 0.0731812, 0.113899)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_rrwwd"]
+size = Vector3(1.3468, 3.46198, 1.42325)
+
+[sub_resource type="Animation" id="Animation_na34f"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../closet/closet_door_left:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1.42253, 1.5708, 1.5708)]
+}
+
+[sub_resource type="Animation" id="Animation_vepiy"]
+resource_name = "open_doors"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../closet/closet_door_left:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(1.42253, 1.5708, 1.5708), Vector3(-0.261799, 1.5708, 1.5708)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_a7axc"]
+_data = {
+"RESET": SubResource("Animation_na34f"),
+"open_doors": SubResource("Animation_vepiy")
+}
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0ydkt"]
+size = Vector3(4, 4, 4)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ih2pu"]
+size = Vector3(4, 4, 4)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_g1oup"]
+size = Vector3(4, 4, 4)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_mg7jj"]
+size = Vector3(4, 4, 4)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_crq12"]
+size = Vector3(4, 4, 4)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8mcd0"]
+size = Vector3(4, 4, 4)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_dtwkv"]
+size = Vector3(4, 4, 4)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_n524c"]
+size = Vector3(10, 4, 10)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jda4h"]
+size = Vector3(4, 4, 4)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_14nep"]
+size = Vector3(4, 4, 4)
 
 [node name="Level" type="Node3D"]
 script = ExtResource("1_eatkt")
@@ -381,7 +753,7 @@ picture = NodePath("../../FrontyardPicture")
 
 [node name="1_Backyard" type="Node" parent="Pictures"]
 
-[node name="BackyardPicture" type="TextureRect" parent="Pictures/1_Backyard" node_paths=PackedStringArray("camera", "world_root", "nodes_to_show")]
+[node name="BackyardPicture" type="TextureRect" parent="Pictures/1_Backyard" node_paths=PackedStringArray("camera", "world_root", "nodes_to_show", "nodes_to_hide")]
 visible = false
 clip_contents = true
 anchors_preset = 15
@@ -400,6 +772,7 @@ script = ExtResource("43_f2no6")
 camera = NodePath("../SubViewport/PortalCamera")
 world_root = NodePath("../../../Past")
 nodes_to_show = [NodePath("../../../Past/PictureSpecificObjects/Backyard")]
+nodes_to_hide = [NodePath("../../../Past/ChangingScene/BackDoorClosed")]
 ambientAS = ExtResource("44_deav4")
 starting_volume = 50.0
 ending_volume = 60.0
@@ -563,7 +936,7 @@ picture = NodePath("../../HallwayUpstairPicture")
 
 [node name="5_TV" type="Node" parent="Pictures"]
 
-[node name="TVPicture" type="TextureRect" parent="Pictures/5_TV" node_paths=PackedStringArray("camera", "world_root", "nodes_to_show")]
+[node name="TVPicture" type="TextureRect" parent="Pictures/5_TV" node_paths=PackedStringArray("camera", "world_root", "nodes_to_show", "nodes_to_hide")]
 visible = false
 clip_contents = true
 anchors_preset = 15
@@ -582,6 +955,7 @@ script = ExtResource("43_f2no6")
 camera = NodePath("../SubViewport/PortalCamera")
 world_root = NodePath("../../../Past")
 nodes_to_show = [NodePath("../../../Past/PictureSpecificObjects/TV")]
+nodes_to_hide = [NodePath("../../../Past/ChangingScene/NoorDoorClosed")]
 ambientAS = ExtResource("44_deav4")
 
 [node name="SubViewport" type="SubViewport" parent="Pictures/5_TV"]
@@ -607,7 +981,7 @@ picture = NodePath("../../TVPicture")
 
 [node name="6_7_NoorRoomNight" type="Node" parent="Pictures"]
 
-[node name="NoorRoomNightPicture" type="TextureRect" parent="Pictures/6_7_NoorRoomNight" node_paths=PackedStringArray("camera", "world_root", "nodes_to_show")]
+[node name="NoorRoomNightPicture" type="TextureRect" parent="Pictures/6_7_NoorRoomNight" node_paths=PackedStringArray("camera", "world_root", "nodes_to_show", "nodes_to_hide", "nodes_to_hide_on_exit")]
 visible = false
 clip_contents = true
 anchors_preset = 15
@@ -626,6 +1000,8 @@ script = ExtResource("43_f2no6")
 camera = NodePath("../SubViewport/PortalCamera")
 world_root = NodePath("../../../Past")
 nodes_to_show = [NodePath("../../../Past/PictureSpecificObjects/NoorRoomNight")]
+nodes_to_hide = [NodePath("../../../Past/ChangingScene/NoorDoorClosed")]
+nodes_to_hide_on_exit = [NodePath("../../../Past/PictureSpecificObjects/NoorRoomDay")]
 ambientAS = ExtResource("48_4trxr")
 
 [node name="SubViewport" type="SubViewport" parent="Pictures/6_7_NoorRoomNight"]
@@ -651,7 +1027,7 @@ picture = NodePath("../../NoorRoomNightPicture")
 
 [node name="8_FrontDoor" type="Node" parent="Pictures"]
 
-[node name="FrontDoorPicture" type="TextureRect" parent="Pictures/8_FrontDoor" node_paths=PackedStringArray("camera", "world_root", "nodes_to_show")]
+[node name="FrontDoorPicture" type="TextureRect" parent="Pictures/8_FrontDoor" node_paths=PackedStringArray("camera", "world_root", "nodes_to_show", "nodes_to_hide")]
 visible = false
 clip_contents = true
 anchors_preset = 15
@@ -670,6 +1046,7 @@ script = ExtResource("43_f2no6")
 camera = NodePath("../SubViewport/PortalCamera")
 world_root = NodePath("../../../Past")
 nodes_to_show = [NodePath("../../../Past/PictureSpecificObjects/FrontDoor")]
+nodes_to_hide = [NodePath("../../../Past/ChangingScene/FrontDoorClosed")]
 ambientAS = ExtResource("48_4trxr")
 
 [node name="SubViewport" type="SubViewport" parent="Pictures/8_FrontDoor"]
@@ -739,7 +1116,7 @@ picture = NodePath("../../ForestPicture")
 
 [node name="10_Shed" type="Node" parent="Pictures"]
 
-[node name="ShedPicture" type="TextureRect" parent="Pictures/10_Shed" node_paths=PackedStringArray("camera", "world_root")]
+[node name="ShedPicture" type="TextureRect" parent="Pictures/10_Shed" node_paths=PackedStringArray("camera", "world_root", "nodes_to_show")]
 visible = false
 clip_contents = true
 anchors_preset = 15
@@ -757,6 +1134,7 @@ stretch_mode = 3
 script = ExtResource("43_f2no6")
 camera = NodePath("../SubViewport/PortalCamera")
 world_root = NodePath("../../../Past")
+nodes_to_show = [NodePath("../../../Past/PictureSpecificObjects/Shed")]
 ambientAS = ExtResource("48_4trxr")
 
 [node name="SubViewport" type="SubViewport" parent="Pictures/10_Shed"]
@@ -1010,18 +1388,8 @@ transform = Transform3D(-0.981406, 0, -0.19194, 0, 1, 0, 0.19194, 0, -0.981406, 
 
 [node name="Shed" parent="Present" instance=ExtResource("26_ssg50")]
 
-[node name="Interactables" type="Node3D" parent="Present"]
-
-[node name="Light_switch" parent="Present/Interactables" instance=ExtResource("98_r2k0x")]
-transform = Transform3D(1.94707e-07, 0, -1, 0, 1, 0, 1, 0, 1.94707e-07, -1.96481, 4.79474, -0.51291)
-
-[node name="Cabinet_B" parent="Present/Interactables" instance=ExtResource("105_coir8")]
-transform = Transform3D(1, 0, 2.38419e-07, 0, 1, 0, -2.38419e-07, 0, 1, 0.00419585, 3.5, -5.43668)
-
-[node name="Door_parent_A_L" parent="Present/Interactables" instance=ExtResource("91_pc8rc")]
-transform = Transform3D(-1, 0, 2.38498e-08, 0, 1, 0, -2.38498e-08, 0, -1, -1.8491, 3.5, -1.91973)
-
 [node name="Forest" type="Node3D" parent="Present"]
+visible = false
 
 [node name="MultiScatter" type="Path3D" parent="Present/Forest"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000805497, 13.8305, -0.00707054)
@@ -1104,6 +1472,220 @@ skeleton = NodePath("")
 transform = Transform3D(0.996909, 0.0763344, -0.0182566, -0.0763524, 0.997079, -0.000314265, 0.0181793, 0.00170188, 0.999827, 0.306956, 4.88568, -0.00255013)
 shape = SubResource("BoxShape3D_5y6gq")
 
+[node name="ChangingScene" type="Node3D" parent="Present"]
+
+[node name="HallwayCabinet" type="Node3D" parent="Present/ChangingScene"]
+transform = Transform3D(1, 0, 2.38419e-07, 0, 1, 0, -2.38419e-07, 0, 1, 0.00419585, 3.5, -5.43668)
+
+[node name="MeshRenderer" type="MeshInstance3D" parent="Present/ChangingScene/HallwayCabinet"]
+mesh = ExtResource("62_oi8bm")
+surface_material_override/0 = ExtResource("63_q8axx")
+
+[node name="BoxCollider" type="StaticBody3D" parent="Present/ChangingScene/HallwayCabinet"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Present/ChangingScene/HallwayCabinet/BoxCollider"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.64, 1.02874, 4.47035e-08)
+shape = SubResource("BoxShape3D_wyaxm")
+
+[node name="BoxCollider2" type="StaticBody3D" parent="Present/ChangingScene/HallwayCabinet"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Present/ChangingScene/HallwayCabinet/BoxCollider2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.64, 1.02874, 4.47035e-08)
+shape = SubResource("BoxShape3D_we6wf")
+
+[node name="BoxCollider3" type="StaticBody3D" parent="Present/ChangingScene/HallwayCabinet"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Present/ChangingScene/HallwayCabinet/BoxCollider3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.02874, -0.28)
+shape = SubResource("BoxShape3D_u2udf")
+
+[node name="BoxCollider4" type="StaticBody3D" parent="Present/ChangingScene/HallwayCabinet"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Present/ChangingScene/HallwayCabinet/BoxCollider4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.08, 4.47035e-08)
+shape = SubResource("BoxShape3D_137pe")
+
+[node name="BoxCollider5" type="StaticBody3D" parent="Present/ChangingScene/HallwayCabinet"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Present/ChangingScene/HallwayCabinet/BoxCollider5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.645, -0.03)
+shape = SubResource("BoxShape3D_d76b6")
+
+[node name="BoxCollider6" type="StaticBody3D" parent="Present/ChangingScene/HallwayCabinet"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Present/ChangingScene/HallwayCabinet/BoxCollider6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.08, 4.47035e-08)
+shape = SubResource("BoxShape3D_jylds")
+
+[node name="Cabinet_B_door_L_parent" type="Node3D" parent="Present/ChangingScene/HallwayCabinet"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.612675, 1.09225, 0.276442)
+
+[node name="HallwayCabinet_door_L_closed" type="Node3D" parent="Present/ChangingScene/HallwayCabinet/Cabinet_B_door_L_parent"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -7.62939e-08, 7.62939e-08)
+
+[node name="MeshRenderer" type="MeshInstance3D" parent="Present/ChangingScene/HallwayCabinet/Cabinet_B_door_L_parent/HallwayCabinet_door_L_closed"]
+gi_mode = 2
+mesh = ExtResource("64_sbu8e")
+surface_material_override/0 = ExtResource("63_q8axx")
+
+[node name="BoxCollider" type="StaticBody3D" parent="Present/ChangingScene/HallwayCabinet/Cabinet_B_door_L_parent/HallwayCabinet_door_L_closed"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Present/ChangingScene/HallwayCabinet/Cabinet_B_door_L_parent/HallwayCabinet_door_L_closed/BoxCollider"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.303899, 0, 0.00417362)
+shape = SubResource("BoxShape3D_823y0")
+
+[node name="HallwayCabinet_door_L_open" type="Node3D" parent="Present/ChangingScene/HallwayCabinet/Cabinet_B_door_L_parent"]
+transform = Transform3D(-0.34202, 0, -0.939693, 0, 1, 0, 0.939693, 0, -0.34202, 0, -7.62939e-08, 7.62939e-08)
+visible = false
+
+[node name="MeshRenderer" type="MeshInstance3D" parent="Present/ChangingScene/HallwayCabinet/Cabinet_B_door_L_parent/HallwayCabinet_door_L_open"]
+gi_mode = 2
+mesh = ExtResource("64_sbu8e")
+surface_material_override/0 = ExtResource("63_q8axx")
+
+[node name="BoxCollider" type="StaticBody3D" parent="Present/ChangingScene/HallwayCabinet/Cabinet_B_door_L_parent/HallwayCabinet_door_L_open"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Present/ChangingScene/HallwayCabinet/Cabinet_B_door_L_parent/HallwayCabinet_door_L_open/BoxCollider"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.303899, 0, 0.00417362)
+shape = SubResource("BoxShape3D_823y0")
+
+[node name="Cabinet_B_door_R_parent" type="Node3D" parent="Present/ChangingScene/HallwayCabinet"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.61391, 1.09225, 0.276442)
+
+[node name="HallwayCabinet_door_R_closed" type="Node3D" parent="Present/ChangingScene/HallwayCabinet/Cabinet_B_door_R_parent"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -7.62939e-08, 7.62939e-08)
+
+[node name="MeshRenderer" type="MeshInstance3D" parent="Present/ChangingScene/HallwayCabinet/Cabinet_B_door_R_parent/HallwayCabinet_door_R_closed"]
+gi_mode = 2
+mesh = ExtResource("67_uhivi")
+surface_material_override/0 = ExtResource("63_q8axx")
+
+[node name="BoxCollider" type="StaticBody3D" parent="Present/ChangingScene/HallwayCabinet/Cabinet_B_door_R_parent/HallwayCabinet_door_R_closed"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Present/ChangingScene/HallwayCabinet/Cabinet_B_door_R_parent/HallwayCabinet_door_R_closed/BoxCollider"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.303903, 0, 0.00417362)
+shape = SubResource("BoxShape3D_yi1rk")
+
+[node name="HallwayCabinet_door_R_open" type="Node3D" parent="Present/ChangingScene/HallwayCabinet/Cabinet_B_door_R_parent"]
+transform = Transform3D(-0.34202, 0, 0.939693, 0, 1, 0, -0.939693, 0, -0.34202, 0, 0, 0)
+visible = false
+
+[node name="MeshRenderer" type="MeshInstance3D" parent="Present/ChangingScene/HallwayCabinet/Cabinet_B_door_R_parent/HallwayCabinet_door_R_open"]
+gi_mode = 2
+mesh = ExtResource("67_uhivi")
+surface_material_override/0 = ExtResource("63_q8axx")
+
+[node name="BoxCollider" type="StaticBody3D" parent="Present/ChangingScene/HallwayCabinet/Cabinet_B_door_R_parent/HallwayCabinet_door_R_open"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Present/ChangingScene/HallwayCabinet/Cabinet_B_door_R_parent/HallwayCabinet_door_R_open/BoxCollider"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.303903, 0, 0.00417362)
+shape = SubResource("BoxShape3D_yi1rk")
+
+[node name="LightProbes_AnchorOverride" type="Node3D" parent="Present/ChangingScene/HallwayCabinet"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.138, 0.597)
+
+[node name="Door_parent_A_L" parent="Present/ChangingScene" instance=ExtResource("91_pc8rc")]
+transform = Transform3D(-1, 0, 2.38498e-08, 0, 1, 0, -2.38498e-08, 0, -1, -1.8491, 3.5, -1.91973)
+
+[node name="TriggerVolumes" type="Node3D" parent="Present"]
+
+[node name="V01E_EnterHouse" parent="Present/TriggerVolumes" node_paths=PackedStringArray("start_monitoring_list") instance=ExtResource("61_hoger")]
+process_mode = 1
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.97926, 1.57257, 4.34115)
+monitoring = false
+dialogue_clips = Array[Resource]([ExtResource("62_musyg")])
+start_monitoring_list = [NodePath("../../../Past/TriggerVolumes/V02_Office")]
+
+[node name="CollisionShape3D" parent="Present/TriggerVolumes/V01E_EnterHouse" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.81989, -0.354219, -8.72427)
+shape = SubResource("BoxShape3D_fchym")
+
+[node name="V02E_Office" parent="Present/TriggerVolumes" node_paths=PackedStringArray("start_monitoring_list") instance=ExtResource("61_hoger")]
+process_mode = 1
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.97926, 1.57257, 4.34115)
+monitoring = false
+dialogue_clips = Array[Resource]([ExtResource("63_1purc"), ExtResource("64_1o75g"), ExtResource("65_ks7fy")])
+start_monitoring_list = [NodePath("../../../Past/TriggerVolumes/V03_LivingRoom")]
+
+[node name="CollisionShape3D" parent="Present/TriggerVolumes/V02E_Office" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2426, 0.119119, -1.66963)
+shape = SubResource("BoxShape3D_xlii3")
+
+[node name="V03E_LivingRoom" parent="Present/TriggerVolumes" node_paths=PackedStringArray("start_monitoring_list") instance=ExtResource("61_hoger")]
+process_mode = 1
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.97926, 6.07257, 3.84115)
+monitoring = false
+dialogue_clips = Array[Resource]([ExtResource("66_eccg1"), ExtResource("67_5awl8")])
+start_monitoring_list = [NodePath("../../../Past/TriggerVolumes/V04_Hallway")]
+
+[node name="CollisionShape3D" parent="Present/TriggerVolumes/V03E_LivingRoom" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.06487, -1.30798, -1.69916)
+shape = SubResource("BoxShape3D_76nbc")
+
+[node name="V04E_Hallway" parent="Present/TriggerVolumes" node_paths=PackedStringArray("start_monitoring_list") instance=ExtResource("61_hoger")]
+process_mode = 1
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.97926, 6.07257, 1.09115)
+monitoring = false
+dialogue_clips = Array[Resource]([ExtResource("68_ikkh7"), ExtResource("69_i3quu")])
+start_monitoring_list = [NodePath("../../../Past/TriggerVolumes/V05_TV")]
+
+[node name="CollisionShape3D" parent="Present/TriggerVolumes/V04E_Hallway" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.47258, -1.13206, -1.2975)
+shape = SubResource("BoxShape3D_66vq0")
+
+[node name="V07E_NoorRoom" parent="Present/TriggerVolumes" node_paths=PackedStringArray("start_monitoring_list") instance=ExtResource("61_hoger")]
+process_mode = 1
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.97926, 6.07257, 1.09115)
+monitoring = false
+dialogue_clips = Array[Resource]([ExtResource("70_sxsab"), ExtResource("71_t2wie")])
+start_monitoring_list = [NodePath("../../../Past/TriggerVolumes/V08_FrontDoor")]
+
+[node name="CollisionShape3D" parent="Present/TriggerVolumes/V07E_NoorRoom" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.2628, -1.46303, -0.988394)
+shape = SubResource("BoxShape3D_jcbxe")
+
+[node name="V08E_FrontDoor" parent="Present/TriggerVolumes" node_paths=PackedStringArray("start_monitoring_list") instance=ExtResource("61_hoger")]
+process_mode = 1
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.97926, 6.07257, 10.0911)
+monitoring = false
+dialogue_clips = Array[Resource]([ExtResource("72_0hirb"), ExtResource("73_i320y")])
+start_monitoring_list = [NodePath("../../../Past/TriggerVolumes/V09_Forest")]
+
+[node name="CollisionShape3D" parent="Present/TriggerVolumes/V08E_FrontDoor" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.26628, -4.93001, 0.728827)
+shape = SubResource("BoxShape3D_qsxxs")
+
+[node name="V09E_Forest" parent="Present/TriggerVolumes" instance=ExtResource("61_hoger")]
+process_mode = 1
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.97926, 6.07257, 10.0911)
+monitoring = false
+dialogue_clips = Array[Resource]([ExtResource("74_tkio4"), ExtResource("75_k53da"), ExtResource("76_eexyy")])
+
+[node name="CollisionShape3D" parent="Present/TriggerVolumes/V09E_Forest" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.77085, -4.79267, -28.0892)
+shape = SubResource("BoxShape3D_wplsv")
+
+[node name="V10E_Shed" parent="Present/TriggerVolumes" node_paths=PackedStringArray("start_monitoring_list") instance=ExtResource("61_hoger")]
+process_mode = 1
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.97926, 6.07257, 10.0911)
+monitoring = false
+dialogue_clips = Array[Resource]([ExtResource("77_ugy5w"), ExtResource("78_4nshw"), ExtResource("79_vt8fk"), ExtResource("80_p413y"), ExtResource("81_f3wl0"), ExtResource("82_7i50x"), ExtResource("83_afnio"), ExtResource("84_6850s"), ExtResource("85_y7p5e"), ExtResource("86_l1lrt"), ExtResource("87_coh12"), ExtResource("88_v4h8f")])
+start_monitoring_list = [NodePath("../EndSequenceTrigger")]
+changes_wait_for_dialogue = false
+
+[node name="CollisionShape3D" parent="Present/TriggerVolumes/V10E_Shed" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.81385, -4.42562, -28.5935)
+shape = SubResource("BoxShape3D_poyp8")
+
+[node name="EndSequenceTrigger" type="Area3D" parent="Present/TriggerVolumes" node_paths=PackedStringArray("end_sequence")]
+monitoring = false
+script = ExtResource("89_ornnm")
+end_sequence = NodePath("../../../UI/EndSequence")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Present/TriggerVolumes/EndSequenceTrigger"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8.00023, 0.0363197)
+shape = SubResource("BoxShape3D_xmkwy")
+
 [node name="Past" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1000, 0, 0)
 
@@ -1147,6 +1729,27 @@ size = Vector3(350, 1, 350)
 
 [node name="House" parent="Past" instance=ExtResource("24_sg2mp")]
 
+[node name="Point Light CeilingFan" parent="Past/House/Level1/Props/LivingRoom/CeilingFan" index="4"]
+visible = false
+
+[node name="Point Light" parent="Past/House/Level1/Props/LivingRoom/Lamp_chandelier2" index="8"]
+visible = false
+
+[node name="Lamp_ceiling_circle" parent="Past/House/Level1/Props/Kitchen/Kitchen_kitchen_cabinets_A/Fridge" index="0"]
+visible = false
+
+[node name="Door_parent_C_L" parent="Past/House/Level1/Doors/DoorBackyard" index="6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 100, 0)
+
+[node name="Door_Front" parent="Past/House/Level1/Doors/DoorFrontyard" index="6"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2.026, 100, -0.018)
+
+[node name="Lights" parent="Past/House/Level1" index="6"]
+visible = false
+
+[node name="Light_switch" parent="Past/House/Level2/Props/Noor\'s room" index="2"]
+visible = false
+
 [node name="Lights" parent="Past/House/Level2" index="6"]
 visible = false
 
@@ -1158,17 +1761,6 @@ visible = false
 transform = Transform3D(-0.981406, 0, -0.19194, 0, 1, 0, 0.19194, 0, -0.981406, -1.11716, 4.76837e-07, 24.6179)
 
 [node name="Shed" parent="Past" instance=ExtResource("26_ssg50")]
-
-[node name="Interactables" type="Node3D" parent="Past"]
-
-[node name="Light_switch" parent="Past/Interactables" instance=ExtResource("98_r2k0x")]
-transform = Transform3D(1.94707e-07, 0, -1, 0, 1, 0, 1, 0, 1.94707e-07, -1.96481, 4.79474, -0.51291)
-
-[node name="Cabinet_B" parent="Past/Interactables" instance=ExtResource("105_coir8")]
-transform = Transform3D(1, 0, 2.38419e-07, 0, 1, 0, -2.38419e-07, 0, 1, 0.00419585, 3.5, -5.43668)
-
-[node name="Door_parent_A_L" parent="Past/Interactables" instance=ExtResource("91_pc8rc")]
-transform = Transform3D(-1, 0, 2.38498e-08, 0, 1, 0, -2.38498e-08, 0, -1, -1.8491, 3.5, -1.91973)
 
 [node name="Forest" type="Node3D" parent="Past"]
 visible = false
@@ -1852,6 +2444,9 @@ bones/408/rotation = Quaternion(-0.745228, -0.0145114, -0.0771921, 0.662168)
 [node name="Body_004" parent="Past/PictureSpecificObjects/Backyard/Noor_01/rig_001/Skeleton3D" index="1"]
 surface_material_override/2 = null
 surface_material_override/8 = null
+
+[node name="BackDoorOpen" parent="Past/PictureSpecificObjects/Backyard" instance=ExtResource("110_m8m7y")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.349121, 0.5, -5.91973)
 
 [node name="Office" type="Node3D" parent="Past/PictureSpecificObjects"]
 visible = false
@@ -4963,17 +5558,20 @@ bones/405/position = Vector3(2.23517e-10, -1.02445e-10, 1.74623e-10)
 bones/408/position = Vector3(0.00590444, -0.00286572, 0.00244043)
 bones/408/rotation = Quaternion(-0.246738, 0.135754, 0.0781005, 0.956343)
 
+[node name="NoorDoorAjar" parent="Past/PictureSpecificObjects/TV" instance=ExtResource("91_pc8rc")]
+transform = Transform3D(-0.426395, 0, 0.904537, 0, 1, 0, -0.904537, 0, -0.426395, -1.84912, 3.5, -1.91973)
+
 [node name="NoorRoomNight" type="Node3D" parent="Past/PictureSpecificObjects"]
 visible = false
 
 [node name="SpotLight3D2" type="SpotLight3D" parent="Past/PictureSpecificObjects/NoorRoomNight"]
-transform = Transform3D(-0.0414675, 0.334547, 0.941466, 0.999031, -2.6984e-08, 0.044003, 0.0147211, 0.942379, -0.334223, -0.519958, 5.61538, -1.69975)
+transform = Transform3D(-0.044003, 0.00167543, 0.99903, 0.999031, -2.85604e-08, 0.044003, 7.37524e-05, 0.999999, -0.0016738, -0.459717, 4.72171, -1.03073)
 light_color = Color(1, 0.972549, 0.862745, 1)
 shadow_enabled = true
 spot_range = 7.746
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Past/PictureSpecificObjects/NoorRoomNight"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.68481, 4.16139, 2.05166)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.50446, 4.16139, 2.12987)
 light_color = Color(0.764706, 1, 1, 1)
 light_energy = 0.02
 shadow_enabled = true
@@ -5505,7 +6103,7 @@ surface_material_override/8 = null
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.99835, 3.86179, 0.325108)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Past/PictureSpecificObjects/NoorRoomNight/NightStaticBody3D"]
-transform = Transform3D(0.990418, 0, 0.138101, 0, 1, 0, -0.138101, 0, 0.990418, 1.19763, 0.889984, -1.50806)
+transform = Transform3D(0.999978, 0, 0.00656195, 0, 1, 0, -0.00656195, 0, 0.999978, 1.11304, 0.889984, -1.50806)
 shape = SubResource("BoxShape3D_6qa1d")
 disabled = true
 
@@ -5954,11 +6552,14 @@ bones/405/position = Vector3(4.3047e-11, 1.67638e-10, -6.89179e-10)
 bones/408/position = Vector3(0.0069962, -0.00358452, 0.00540097)
 bones/408/rotation = Quaternion(0.0658247, -0.0583926, 0.139758, 0.986268)
 
+[node name="NoorDoorAjar" parent="Past/PictureSpecificObjects/NoorRoomNight" instance=ExtResource("91_pc8rc")]
+transform = Transform3D(-0.788612, 0, 0.614891, 0, 1, 0, -0.614891, 0, -0.788612, -1.84912, 3.5, -1.91973)
+
 [node name="NoorRoomDay" type="Node3D" parent="Past/PictureSpecificObjects"]
 visible = false
 
 [node name="SpotLight3D2" type="SpotLight3D" parent="Past/PictureSpecificObjects/NoorRoomDay"]
-transform = Transform3D(-0.0414675, 0.334547, 0.941466, 0.999031, -3.72349e-09, 0.044003, 0.0147211, 0.942379, -0.334223, 3.68683, 6.03813, -4.1001)
+transform = Transform3D(-0.0414675, 0.334547, 0.941466, 0.999031, -2.6984e-08, 0.044003, 0.0147211, 0.942379, -0.334223, -1.20135, 4.90278, -2.26159)
 light_color = Color(1, 0.972549, 0.862745, 1)
 shadow_enabled = true
 spot_range = 7.746
@@ -5967,11 +6568,11 @@ spot_range = 7.746
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.20844, 4.82809, -2.07524)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Past/PictureSpecificObjects/NoorRoomDay/DayStaticBody3D"]
-transform = Transform3D(0.974652, 0, 0.223726, 0, 1, 0, -0.223726, 0, 0.974652, 1.35999, 0.889984, -1.50806)
+transform = Transform3D(0.974652, 0, 0.223726, 0, 1, 0, -0.223726, 0, 0.974652, -2.70978, 0.214841, 1.60946)
 shape = SubResource("BoxShape3D_6qa1d")
 
 [node name="Noor_07" parent="Past/PictureSpecificObjects/NoorRoomDay" instance=ExtResource("59_sfpfk")]
-transform = Transform3D(-0.647887, -0.0950157, 0.945365, -0.0861122, 1.1454, 0.0561051, -0.946217, -0.0391807, -0.652409, 0.150391, 4.24088, -3.05192)
+transform = Transform3D(-0.647887, -0.0950157, 0.945365, -0.0861122, 1.1454, 0.0561051, -0.946217, -0.0391807, -0.652409, -5.21692, 3.53245, -0.875542)
 
 [node name="Skeleton3D" parent="Past/PictureSpecificObjects/NoorRoomDay/Noor_07/rig_001" index="0"]
 bones/1/position = Vector3(-0.602138, 3.96645, 62.6772)
@@ -6488,20 +7089,13 @@ bones/408/rotation = Quaternion(-0.703806, 0.00132382, -0.000995949, 0.710391)
 surface_material_override/2 = null
 surface_material_override/8 = null
 
-[node name="PhotoSpotlight" type="SpotLight3D" parent="Past/PictureSpecificObjects/NoorRoomDay"]
-transform = Transform3D(0.99889, -2.05909e-09, 0.0471064, -0.0471064, -4.36629e-08, 0.99889, 0, -1, -4.37114e-08, -0.682556, 5.79852, -0.887459)
-visible = false
-spot_range = 1.0
-spot_angle = 15.0
-
 [node name="OmniLight3D" type="OmniLight3D" parent="Past/PictureSpecificObjects/NoorRoomDay"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 7.26396, -2.43939)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.96796, 5.99511, -0.119621)
 shadow_enabled = true
 shadow_opacity = 0.85
 
-[node name="CSGBox3D" type="CSGBox3D" parent="Past/PictureSpecificObjects/NoorRoomDay"]
-transform = Transform3D(0.359545, -0.428961, -0.828686, 0.12496, 0.902208, -0.412802, 0.924723, 0.0448686, 0.377987, 0.299744, 5.46546, -3.23494)
-size = Vector3(0.214661, 0.00393677, 0.339966)
+[node name="NoorDoorAjar" parent="Past/PictureSpecificObjects/NoorRoomDay" instance=ExtResource("91_pc8rc")]
+transform = Transform3D(-0.788612, 0, 0.614891, 0, 1, 0, -0.614891, 0, -0.788612, -1.84912, 3.5, -1.91973)
 
 [node name="FrontDoor" type="Node3D" parent="Past/PictureSpecificObjects"]
 visible = false
@@ -7506,6 +8100,9 @@ bones/406/rotation = Quaternion(0.777813, -0.101847, -0.00750549, 0.620143)
 bones/408/position = Vector3(0.00295155, -0.00637863, 0.00345291)
 bones/408/rotation = Quaternion(0.0658248, 0.0583926, -0.139758, 0.986268)
 
+[node name="FrontDoorOpen" parent="Past/PictureSpecificObjects/FrontDoor" instance=ExtResource("94_wdjwv")]
+transform = Transform3D(0.991025, 0, 0.133675, 0, 1, 0, -0.133675, 0, 0.991025, 2.17657, 0.5, 6.06251)
+
 [node name="Forest" type="Node3D" parent="Past/PictureSpecificObjects"]
 visible = false
 
@@ -8469,7 +9066,6 @@ bones/408/position = Vector3(0.00409159, -0.00500152, 0.00417215)
 bones/408/rotation = Quaternion(0.0307497, 0.0818857, 0.056881, 0.994542)
 
 [node name="Shed" type="Node3D" parent="Past/PictureSpecificObjects"]
-visible = false
 
 [node name="SpotLight3D2" type="SpotLight3D" parent="Past/PictureSpecificObjects/Shed"]
 transform = Transform3D(0.868969, 0.276518, -0.410403, -7.66341e-09, 0.829321, 0.558773, 0.494867, -0.485556, 0.720654, 0.941406, 7.18083, -9.42368)
@@ -8939,11 +9535,369 @@ bones/408/position = Vector3(0.00420177, -0.00655796, 0.00507626)
 bones/408/rotation = Quaternion(0.0484166, -0.0404222, -0.106875, 0.99227)
 
 [node name="CapsuleSpotlight" type="SpotLight3D" parent="Past/PictureSpecificObjects/Shed"]
-transform = Transform3D(1, 0, 0, 0, 0.802672, 0.596421, 0, -0.596421, 0.802672, 10.3201, 2.10254, -21.0643)
+transform = Transform3D(1, 0, 0, 0, 0.802672, 0.596421, 0, -0.596421, 0.802672, 10.665, 1.79164, -20.697)
+visible = false
 spot_range = 3.0
 
+[node name="Interactables" type="Node3D" parent="Past"]
+
+[node name="InteractableLightSwitch" type="Node3D" parent="Past/Interactables"]
+transform = Transform3D(1.94707e-07, 0, -1, 0, 1, 0, 1, 0, 1.94707e-07, -1.96481, 4.79474, -0.51291)
+
+[node name="MeshRenderer" type="MeshInstance3D" parent="Past/Interactables/InteractableLightSwitch"]
+mesh = ExtResource("58_66kcy")
+surface_material_override/0 = ExtResource("59_5ykdg")
+
+[node name="LightSwitchCollider" type="StaticBody3D" parent="Past/Interactables/InteractableLightSwitch" node_paths=PackedStringArray("interact_stream_player", "nodes_to_show", "nodes_to_hide", "start_monitoring_list")]
+script = ExtResource("59_hynrv")
+item_name = "light switch"
+one_shot = false
+interact_stream_player = NodePath("../AudioStreamPlayer3D")
+interact_audio_stream = ExtResource("60_fuak1")
+nodes_to_show = [NodePath("../../../PictureSpecificObjects/NoorRoomDay")]
+nodes_to_hide = [NodePath("../../../PictureSpecificObjects/NoorRoomNight")]
+start_monitoring_list = [NodePath("../../../TriggerVolumes/V07_Room")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Past/Interactables/InteractableLightSwitch/LightSwitchCollider"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00222546, -0.00519562, 0.0288086)
+shape = SubResource("BoxShape3D_daimo")
+disabled = true
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Past/Interactables/InteractableLightSwitch"]
+
+[node name="InteractableCabinet" type="Node3D" parent="Past/Interactables"]
+transform = Transform3D(1, 0, 2.38419e-07, 0, 1, 0, -2.38419e-07, 0, 1, 0.00419585, 3.5, -5.43668)
+
+[node name="MeshRenderer" type="MeshInstance3D" parent="Past/Interactables/InteractableCabinet"]
+mesh = ExtResource("62_oi8bm")
+surface_material_override/0 = ExtResource("63_q8axx")
+
+[node name="BoxCollider" type="StaticBody3D" parent="Past/Interactables/InteractableCabinet"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Past/Interactables/InteractableCabinet/BoxCollider"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.64, 1.02874, 4.47035e-08)
+shape = SubResource("BoxShape3D_wyaxm")
+
+[node name="BoxCollider2" type="StaticBody3D" parent="Past/Interactables/InteractableCabinet"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Past/Interactables/InteractableCabinet/BoxCollider2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.64, 1.02874, 4.47035e-08)
+shape = SubResource("BoxShape3D_we6wf")
+
+[node name="BoxCollider3" type="StaticBody3D" parent="Past/Interactables/InteractableCabinet"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Past/Interactables/InteractableCabinet/BoxCollider3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.02874, -0.28)
+shape = SubResource("BoxShape3D_u2udf")
+
+[node name="BoxCollider4" type="StaticBody3D" parent="Past/Interactables/InteractableCabinet"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Past/Interactables/InteractableCabinet/BoxCollider4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.08, 4.47035e-08)
+shape = SubResource("BoxShape3D_137pe")
+
+[node name="BoxCollider5" type="StaticBody3D" parent="Past/Interactables/InteractableCabinet"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Past/Interactables/InteractableCabinet/BoxCollider5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.645, -0.03)
+shape = SubResource("BoxShape3D_d76b6")
+
+[node name="BoxCollider6" type="StaticBody3D" parent="Past/Interactables/InteractableCabinet"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Past/Interactables/InteractableCabinet/BoxCollider6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.08, 4.47035e-08)
+shape = SubResource("BoxShape3D_jylds")
+
+[node name="Cabinet_B_door_L_parent" type="Node3D" parent="Past/Interactables/InteractableCabinet"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.612675, 1.09225, 0.276442)
+
+[node name="Cabinet_B_door_L" type="Node3D" parent="Past/Interactables/InteractableCabinet/Cabinet_B_door_L_parent"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -7.62939e-08, 7.62939e-08)
+
+[node name="MeshRenderer" type="MeshInstance3D" parent="Past/Interactables/InteractableCabinet/Cabinet_B_door_L_parent/Cabinet_B_door_L"]
+gi_mode = 2
+mesh = ExtResource("64_sbu8e")
+surface_material_override/0 = ExtResource("63_q8axx")
+
+[node name="BoxCollider" type="StaticBody3D" parent="Past/Interactables/InteractableCabinet/Cabinet_B_door_L_parent/Cabinet_B_door_L" node_paths=PackedStringArray("interact_stream_player", "nodes_to_show", "nodes_to_hide")]
+script = ExtResource("65_mhbtl")
+interaction_animations = Array[String](["open"])
+item_name = "cabinet door"
+verb = "Open"
+interact_stream_player = NodePath("../AudioStreamPlayer3D")
+interact_audio_stream = ExtResource("66_53s0v")
+nodes_to_show = [NodePath("../../../../../../Present/ChangingScene/HallwayCabinet/Cabinet_B_door_L_parent/HallwayCabinet_door_L_open")]
+nodes_to_hide = [NodePath("../../../../../../Present/ChangingScene/HallwayCabinet/Cabinet_B_door_L_parent/HallwayCabinet_door_L_closed")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Past/Interactables/InteractableCabinet/Cabinet_B_door_L_parent/Cabinet_B_door_L/BoxCollider"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.303899, 0, 0.00417362)
+shape = SubResource("BoxShape3D_823y0")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Past/Interactables/InteractableCabinet/Cabinet_B_door_L_parent/Cabinet_B_door_L"]
+libraries = {
+"": SubResource("AnimationLibrary_1aa2e")
+}
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Past/Interactables/InteractableCabinet/Cabinet_B_door_L_parent/Cabinet_B_door_L"]
+
+[node name="Cabinet_B_door_R_parent" type="Node3D" parent="Past/Interactables/InteractableCabinet"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.61391, 1.09225, 0.276442)
+
+[node name="Cabinet_B_door_R" type="Node3D" parent="Past/Interactables/InteractableCabinet/Cabinet_B_door_R_parent"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -7.62939e-08, 7.62939e-08)
+
+[node name="MeshRenderer" type="MeshInstance3D" parent="Past/Interactables/InteractableCabinet/Cabinet_B_door_R_parent/Cabinet_B_door_R"]
+gi_mode = 2
+mesh = ExtResource("67_uhivi")
+surface_material_override/0 = ExtResource("63_q8axx")
+
+[node name="BoxCollider" type="StaticBody3D" parent="Past/Interactables/InteractableCabinet/Cabinet_B_door_R_parent/Cabinet_B_door_R" node_paths=PackedStringArray("interact_stream_player", "nodes_to_show", "nodes_to_hide")]
+script = ExtResource("65_mhbtl")
+interaction_animations = Array[String](["open"])
+item_name = "cabinet door"
+verb = "Open"
+interact_stream_player = NodePath("../AudioStreamPlayer3D")
+interact_audio_stream = ExtResource("66_53s0v")
+nodes_to_show = [NodePath("../../../../../../Present/ChangingScene/HallwayCabinet/Cabinet_B_door_R_parent/HallwayCabinet_door_R_open")]
+nodes_to_hide = [NodePath("../../../../../../Present/ChangingScene/HallwayCabinet/Cabinet_B_door_R_parent/HallwayCabinet_door_R_closed")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Past/Interactables/InteractableCabinet/Cabinet_B_door_R_parent/Cabinet_B_door_R/BoxCollider"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.303903, 0, 0.00417362)
+shape = SubResource("BoxShape3D_yi1rk")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Past/Interactables/InteractableCabinet/Cabinet_B_door_R_parent/Cabinet_B_door_R"]
+libraries = {
+"": SubResource("AnimationLibrary_sp5rb")
+}
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Past/Interactables/InteractableCabinet/Cabinet_B_door_R_parent/Cabinet_B_door_R"]
+
+[node name="LightProbes_AnchorOverride" type="Node3D" parent="Past/Interactables/InteractableCabinet"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.138, 0.597)
+
+[node name="MemoryCapsule" type="StaticBody3D" parent="Past/Interactables" node_paths=PackedStringArray("nodes_to_show")]
+transform = Transform3D(0.965926, 0, 0.258819, 0, 1, 0, -0.258819, 0, 0.965926, -6.84113, 4.30306, -1.02536)
+script = ExtResource("67_o478p")
+rotation_on_inspect = Vector3(0, 90, 0)
+item_name = "memory capsule"
+one_shot = false
+dialogue_clips = Array[Resource]([ExtResource("100_4owrl"), ExtResource("101_j67wt"), ExtResource("102_wcay5"), ExtResource("103_u0q55")])
+nodes_to_show = [NodePath("../../PictureSpecificObjects/NoorRoomNight/LightSwitchSpotlight"), NodePath("../InteractableLightSwitch")]
+
+[node name="box_bake" type="MeshInstance3D" parent="Past/Interactables/MemoryCapsule"]
+transform = Transform3D(200, 0, 0, 0, -8.74228e-06, 200, 0, -200, -8.74228e-06, 0, 0, 0)
+mesh = SubResource("ArrayMesh_7ycwe")
+skeleton = NodePath("")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Past/Interactables/MemoryCapsule"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00128174, 0.0645752, -0.000854492)
+shape = SubResource("BoxShape3D_nlwn7")
+disabled = true
+
+[node name="ShedCloset" type="StaticBody3D" parent="Past/Interactables"]
+transform = Transform3D(0.899647, 0, -0.0251922, 0, 0.9, 0, 0.0251922, 0, 0.899647, 10.5988, -0.107088, -21.9063)
+
+[node name="closet" type="MeshInstance3D" parent="Past/Interactables/ShedCloset"]
+transform = Transform3D(13, 0, 0, 0, -5.68248e-07, 13, 0, -13, -5.68248e-07, 0.00122887, 0.100377, -0.00663996)
+material_override = ExtResource("105_16yf5")
+mesh = SubResource("ArrayMesh_hik11")
+skeleton = NodePath("")
+
+[node name="closet_door_left" parent="Past/Interactables/ShedCloset/closet" instance=ExtResource("106_7n1ix")]
+transform = Transform3D(0.989028, 3.9716e-08, 0.147724, 0.147724, -5.34758e-07, -0.989028, 3.9716e-08, 1, -5.34758e-07, 0.0576923, -0.03356, 0.00932729)
+
+[node name="closet_door_right" parent="Past/Interactables/ShedCloset/closet" instance=ExtResource("106_7n1ix")]
+transform = Transform3D(-0.994569, 1.96594e-08, -0.104078, 0.104078, 3.7676e-07, -0.994569, -1.96594e-08, 1, 3.7676e-07, -0.0569425, -0.0378286, 0.00932729)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Past/Interactables/ShedCloset"]
+transform = Transform3D(13, 0, 0, 0, -5.68243e-07, 13, 0, -13, -5.68243e-07, 0.719505, 1.61536, 0.0186019)
+shape = SubResource("BoxShape3D_bwirk")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="Past/Interactables/ShedCloset"]
+transform = Transform3D(-2.38419e-07, -13, -5.68243e-07, 0, -5.68243e-07, 13, -13, 2.38419e-07, 1.42109e-14, 0.0149659, 1.61536, -0.416941)
+shape = SubResource("BoxShape3D_bwirk")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Past/Interactables/ShedCloset"]
+transform = Transform3D(13, 0, 0, 0, -5.68243e-07, 13, 0, -13, -5.68243e-07, -0.710468, 1.59028, 0.0351653)
+shape = SubResource("BoxShape3D_4r478")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="Past/Interactables/ShedCloset"]
+transform = Transform3D(-5.68248e-07, -5.68243e-07, 13, -13, 2.48387e-14, -5.68248e-07, 0, -13, -5.68243e-07, 0.0568542, 3.02479, 0.0262885)
+shape = SubResource("BoxShape3D_0f53p")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Past/Interactables/ShedCloset"]
+
+[node name="door" type="StaticBody3D" parent="Past/Interactables/ShedCloset" node_paths=PackedStringArray("nodes_to_show", "start_monitoring_list")]
+script = ExtResource("65_mhbtl")
+interaction_animations = Array[String](["open_doors"])
+item_name = "closet door"
+verb = "Open"
+dialogue_clips = Array[Resource]([ExtResource("106_qi4pq"), ExtResource("107_e7r60")])
+nodes_to_show = [NodePath("../../../PictureSpecificObjects/Shed/CapsuleSpotlight")]
+start_monitoring_list = [NodePath("../../../../Present/TriggerVolumes/V10E_Shed")]
+changes_wait_for_dialogue = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Past/Interactables/ShedCloset/door"]
+transform = Transform3D(1, 0, 3.72529e-07, 0, 1, 0, -3.72529e-07, 0, 1, 0.0187378, 1.23099, 0.211632)
+shape = SubResource("BoxShape3D_rrwwd")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Past/Interactables/ShedCloset/door"]
+libraries = {
+"": SubResource("AnimationLibrary_a7axc")
+}
+
+[node name="memory_capsule_shed" parent="Past/Interactables" instance=ExtResource("108_qslu4")]
+transform = Transform3D(0.00115186, 0, -0.999999, 0, 1, 0, 0.999999, 0, 0.00115186, 10.8135, 0.185526, -21.8679)
+
+[node name="ChangingScene" type="Node3D" parent="Past"]
+
+[node name="NoorDoorClosed" parent="Past/ChangingScene" instance=ExtResource("91_pc8rc")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1.8491, 3.5, -1.91973)
+
+[node name="BackDoorClosed" parent="Past/ChangingScene" instance=ExtResource("110_m8m7y")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.349121, 0.5, -5.91973)
+
+[node name="FrontDoorClosed" parent="Past/ChangingScene" instance=ExtResource("94_wdjwv")]
+transform = Transform3D(1.94707e-07, 0, -1, 0, 1, 0, 1, 0, 1.94707e-07, 2.17657, 0.5, 6.06251)
+
+[node name="TriggerVolumes" type="Node3D" parent="Past"]
+
+[node name="V00_FrontDoor" parent="Past/TriggerVolumes" node_paths=PackedStringArray("start_monitoring_list") instance=ExtResource("61_hoger")]
+process_mode = 1
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.97925, 1.57257, 23.8411)
+dialogue_clips = Array[Resource]([ExtResource("101_6uwb1"), ExtResource("102_km3cr"), ExtResource("103_ph14m")])
+start_monitoring_list = [NodePath("../V01_Backyard")]
+
+[node name="CollisionShape3D" parent="Past/TriggerVolumes/V00_FrontDoor" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.266846, 0.125, -12.178)
+shape = SubResource("BoxShape3D_0ydkt")
+
+[node name="V01_Backyard" parent="Past/TriggerVolumes" node_paths=PackedStringArray("start_monitoring_list") instance=ExtResource("61_hoger")]
+process_mode = 1
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.77075, 1.57257, -11.1589)
+monitoring = false
+dialogue_clips = Array[Resource]([ExtResource("104_u36xg"), ExtResource("105_wycb2")])
+start_monitoring_list = [NodePath("../../../Present/TriggerVolumes/V01E_EnterHouse")]
+
+[node name="CollisionShape3D" parent="Past/TriggerVolumes/V01_Backyard" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.37695, 0, -0.659801)
+shape = SubResource("BoxShape3D_ih2pu")
+
+[node name="V02_Office" parent="Past/TriggerVolumes" node_paths=PackedStringArray("nodes_to_show", "start_monitoring_list") instance=ExtResource("61_hoger")]
+process_mode = 1
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.47925, 2.07257, 3.09115)
+monitoring = false
+dialogue_clips = Array[Resource]([ExtResource("106_iig3p"), ExtResource("107_h2hc5"), ExtResource("108_fax2n"), ExtResource("109_hsjgi")])
+nodes_to_show = [null]
+start_monitoring_list = [NodePath("../../../Present/TriggerVolumes/V02E_Office")]
+
+[node name="CollisionShape3D" parent="Past/TriggerVolumes/V02_Office" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.03351, -0.0935996, 1.74063)
+shape = SubResource("BoxShape3D_g1oup")
+
+[node name="V03_LivingRoom" parent="Past/TriggerVolumes" node_paths=PackedStringArray("start_monitoring_list") instance=ExtResource("61_hoger")]
+process_mode = 1
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.72925, 1.57257, -2.65885)
+monitoring = false
+dialogue_clips = Array[Resource]([ExtResource("110_jq8ks"), ExtResource("111_tbb5q"), ExtResource("112_ru1ro"), ExtResource("113_yr2ye")])
+start_monitoring_list = [NodePath("../../../Present/TriggerVolumes/V03E_LivingRoom")]
+
+[node name="CollisionShape3D" parent="Past/TriggerVolumes/V03_LivingRoom" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.70294, 0.432209, 4.52394)
+shape = SubResource("BoxShape3D_mg7jj")
+
+[node name="V04_Hallway" parent="Past/TriggerVolumes" node_paths=PackedStringArray("start_monitoring_list") instance=ExtResource("61_hoger")]
+process_mode = 1
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.97925, 5.82257, -1.65885)
+monitoring = false
+dialogue_clips = Array[Resource]([ExtResource("114_hn2qc"), ExtResource("115_qb102"), ExtResource("116_wead5")])
+start_monitoring_list = [NodePath("../../../Present/TriggerVolumes/V04E_Hallway")]
+
+[node name="CollisionShape3D" parent="Past/TriggerVolumes/V04_Hallway" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.36743, -0.803636, 5.57116)
+shape = SubResource("BoxShape3D_crq12")
+
+[node name="V05_TV" parent="Past/TriggerVolumes" node_paths=PackedStringArray("start_monitoring_list") instance=ExtResource("61_hoger")]
+process_mode = 1
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.72925, 5.82257, 1.34115)
+monitoring = false
+dialogue_clips = Array[Resource]([ExtResource("117_ynhr2"), ExtResource("118_2vakk"), ExtResource("119_s05v1"), ExtResource("120_1veon"), ExtResource("121_y7nxl")])
+start_monitoring_list = [NodePath("../V06_Room")]
+
+[node name="CollisionShape3D" parent="Past/TriggerVolumes/V05_TV" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.66345, -0.869113, -3.43681)
+shape = SubResource("BoxShape3D_8mcd0")
+
+[node name="V06_Room" parent="Past/TriggerVolumes" node_paths=PackedStringArray("nodes_to_show") instance=ExtResource("61_hoger")]
+process_mode = 1
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.47925, 5.82257, -2.90885)
+monitoring = false
+dialogue_clips = Array[Resource]([ExtResource("122_e5j5p"), ExtResource("123_o6ubq"), ExtResource("124_a80ag")])
+nodes_to_show = [NodePath("../../PictureSpecificObjects/NoorRoomNight/TimeCapsuleSpotlight"), NodePath("../../Interactables/MemoryCapsule")]
+
+[node name="CollisionShape3D" parent="Past/TriggerVolumes/V06_Room" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.03223, -0.825229, 1.46914)
+shape = SubResource("BoxShape3D_dtwkv")
+
+[node name="V07_Room" parent="Past/TriggerVolumes" node_paths=PackedStringArray("start_monitoring_list") instance=ExtResource("61_hoger")]
+process_mode = 1
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.729248, 5.82257, -2.40885)
+monitoring = false
+dialogue_clips = Array[Resource]([ExtResource("125_by3s6"), ExtResource("126_riop3"), ExtResource("127_4n75o"), ExtResource("128_0xb2g")])
+start_monitoring_list = [NodePath("../../../Present/TriggerVolumes/V07E_NoorRoom")]
+
+[node name="CollisionShape3D" parent="Past/TriggerVolumes/V07_Room" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.97571, -0.942371, 2.13427)
+shape = SubResource("BoxShape3D_n524c")
+
+[node name="V08_FrontDoor" parent="Past/TriggerVolumes" node_paths=PackedStringArray("start_monitoring_list") instance=ExtResource("61_hoger")]
+process_mode = 1
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.97925, 2.07257, 4.09115)
+monitoring = false
+dialogue_clips = Array[Resource]([ExtResource("129_d5jm5"), ExtResource("130_w1d1f"), ExtResource("131_i1v4b")])
+start_monitoring_list = [NodePath("../../../Present/TriggerVolumes/V08E_FrontDoor")]
+
+[node name="CollisionShape3D" parent="Past/TriggerVolumes/V08_FrontDoor" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.18762, -0.0703962, -3.04296)
+shape = SubResource("BoxShape3D_jda4h")
+
+[node name="V09_Forest" parent="Past/TriggerVolumes" node_paths=PackedStringArray("nodes_to_show", "start_monitoring_list") instance=ExtResource("61_hoger")]
+process_mode = 1
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.47925, 1.82257, -11.4089)
+monitoring = false
+dialogue_clips = Array[Resource]([ExtResource("132_8a3ni"), ExtResource("133_kbvum"), ExtResource("134_3tcnw"), ExtResource("135_gaqj3"), ExtResource("136_7q7c6"), ExtResource("137_m4ln3"), ExtResource("138_1oliw"), ExtResource("139_x7lbl"), ExtResource("140_6prnf"), ExtResource("141_y36l6"), ExtResource("142_yrwe7"), ExtResource("143_f0bcn")])
+nodes_to_show = [null]
+start_monitoring_list = [NodePath("../../../Present/TriggerVolumes/V09E_Forest")]
+
+[node name="CollisionShape3D" parent="Past/TriggerVolumes/V09_Forest" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.73877, -0.353532, -5.54214)
+shape = SubResource("BoxShape3D_14nep")
+
+[connection signal="body_entered" from="Present/TriggerVolumes/EndSequenceTrigger" to="Present/TriggerVolumes/EndSequenceTrigger" method="_on_body_entered"]
+
 [editable path="Player"]
+[editable path="Present/TriggerVolumes/V01E_EnterHouse"]
+[editable path="Present/TriggerVolumes/V02E_Office"]
+[editable path="Present/TriggerVolumes/V03E_LivingRoom"]
+[editable path="Present/TriggerVolumes/V04E_Hallway"]
+[editable path="Present/TriggerVolumes/V07E_NoorRoom"]
+[editable path="Present/TriggerVolumes/V08E_FrontDoor"]
+[editable path="Present/TriggerVolumes/V09E_Forest"]
+[editable path="Present/TriggerVolumes/V10E_Shed"]
 [editable path="Past/House"]
+[editable path="Past/House/Level1/Props/LivingRoom/CeilingFan"]
+[editable path="Past/House/Level1/Props/LivingRoom/Lamp_chandelier2"]
+[editable path="Past/House/Level1/Props/Kitchen/Kitchen_kitchen_cabinets_A/Fridge"]
+[editable path="Past/House/Level1/Props/Kitchen/Kitchen_kitchen_cabinets_A/Fridge/Lamp_ceiling_circle"]
+[editable path="Past/House/Level1/Props/Kitchen/Kitchen_kitchen_cabinets_A/Fridge/Props/Jar_F"]
+[editable path="Past/House/Level1/Props/Kitchen/Kitchen_kitchen_cabinets_A/Fridge/Props/Jar_G"]
+[editable path="Past/House/Level1/Props/Kitchen/Kitchen_kitchen_cabinets_A/Fridge/Props/Bottle_plastic"]
+[editable path="Past/House/Level1/Props/Kitchen/Kitchen_kitchen_cabinets_A/Fridge/Props/Food_box"]
+[editable path="Past/House/Level1/Props/Kitchen/Kitchen_kitchen_cabinets_A/Fridge/Props/Beer_set_A"]
+[editable path="Past/House/Level1/Props/Kitchen/Kitchen_kitchen_cabinets_A/Fridge/Props/Jar_G2"]
+[editable path="Past/House/Level1/Props/Kitchen/Kitchen_kitchen_cabinets_A/Fridge/Props/Jar_F2"]
+[editable path="Past/House/Level1/Props/Kitchen/Kitchen_kitchen_cabinets_A/Fridge/Props/Jar_F3"]
+[editable path="Past/House/Level1/Props/Kitchen/Kitchen_kitchen_cabinets_A/Fridge/Props/Bottle_plastic2"]
 [editable path="Past/House/Level1/Props/Kitchen/Kitchen_kitchen_cabinets_A/Stove/Lamp_wall_fluorescent"]
 [editable path="Past/House/Level1/Props/Kitchen/Kitchen_counter_separate/Lamp_ceiling_cone_A"]
 [editable path="Past/PictureSpecificObjects/Frontyard/Noor_00"]
@@ -8964,3 +9918,13 @@ spot_range = 3.0
 [editable path="Past/PictureSpecificObjects/Forest/Noor_09"]
 [editable path="Past/PictureSpecificObjects/Forest/Mother_09"]
 [editable path="Past/PictureSpecificObjects/Shed/Mother_10"]
+[editable path="Past/TriggerVolumes/V00_FrontDoor"]
+[editable path="Past/TriggerVolumes/V01_Backyard"]
+[editable path="Past/TriggerVolumes/V02_Office"]
+[editable path="Past/TriggerVolumes/V03_LivingRoom"]
+[editable path="Past/TriggerVolumes/V04_Hallway"]
+[editable path="Past/TriggerVolumes/V05_TV"]
+[editable path="Past/TriggerVolumes/V06_Room"]
+[editable path="Past/TriggerVolumes/V07_Room"]
+[editable path="Past/TriggerVolumes/V08_FrontDoor"]
+[editable path="Past/TriggerVolumes/V09_Forest"]

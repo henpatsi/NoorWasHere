@@ -120,7 +120,8 @@ func apply_scene_changes() -> void:
 			node.hide()
 			set_child_collider_states(node, true)
 	for area in start_monitoring_list:
-		area.monitoring = true
+		if area:
+			area.monitoring = true
 
 
 func set_child_collider_states(node: Node, disabled_state: bool) -> void:

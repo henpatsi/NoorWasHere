@@ -7,10 +7,22 @@ extends Interactable
 @export var interaction_animations: Array[String]
 
 var animation_index: int = 0
-@onready var animation_player: AnimationPlayer = $AnimationPlayer
+var animation_player: AnimationPlayer = null
+
+var animation_player_search_paths: Array[String] = ["AnimationPlayer", "../AnimationPlayer"]
 
 var busy: bool = false
 
+func _ready() -> void:
+	super._ready()
+	
+	for path in animation_player_search_paths:
+		animation_player = get_node_or_null(path)
+		if animation_player:
+			break
+
+	if not animation_player:
+		print(self.name, " is missing an animation player!")
 
 func interact(interacting_player: CharacterBody3D) -> Node:
 	if busy:
