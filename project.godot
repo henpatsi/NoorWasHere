@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="BrackeysJam2024_2"
-run/main_scene="res://menus/main_menu.tscn"
+run/main_scene="res://levels/level_fine4.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 config/icon="res://icon.svg"
 
@@ -24,6 +24,10 @@ GlobalSettings="*res://menus/global_settings.gd"
 window/size/viewport_width=1280
 window/size/viewport_height=720
 window/stretch/mode="canvas_items"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/yamms/plugin.cfg")
 
 [global_group]
 

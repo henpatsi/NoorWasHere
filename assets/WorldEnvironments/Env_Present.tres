@@ -14,7 +14,6 @@ sky = SubResource("Sky_olqo2")
 tonemap_mode = 3
 glow_enabled = true
 fog_light_color = Color(0.637106, 0.526707, 0.430996, 1)
-fog_density = 0.0054
 volumetric_fog_enabled = true
 volumetric_fog_density = 0.0375
 volumetric_fog_emission = Color(0.332439, 0.22341, 0.164369, 1)

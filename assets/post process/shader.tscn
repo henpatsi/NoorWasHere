@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://cfy4e22geu17o"]
+
+[ext_resource type="Shader" path="res://assets/post process/PPS_Grain.gdshader" id="1_bsiih"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ajn5i"]
+shader = ExtResource("1_bsiih")
+shader_parameter/grain_amount = 0.02
+shader_parameter/grain_size = 60.0
+shader_parameter/distortion_strength = 0.0
+shader_parameter/chromatic_aberration_strength = 0.01
+shader_parameter/aberration_radius = 1.0
+
+[node name="Shader_past" type="ColorRect"]
+material = SubResource("ShaderMaterial_ajn5i")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2

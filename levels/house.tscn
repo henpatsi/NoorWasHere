@@ -1105,7 +1105,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
 
 [node name="Shelf_wooden_standing" parent="." instance=ExtResource("85_vjomw")]
-transform = Transform3D(-0.492111, -0.0245627, 0.870186, 0.718181, -0.576376, 0.38988, 0.491978, 0.816815, 0.301282, -4.31078, 3.09095, 1.72895)
+transform = Transform3D(-0.492111, -0.0245627, 0.870186, 0.718181, -0.576376, 0.38988, 0.491978, 0.816815, 0.301282, -4.32755, 3, 1.51661)
 
 [editable path="Level1/Props/Kitchen/Kitchen_kitchen_cabinets_A/Stove/Lamp_wall_fluorescent"]
 [editable path="Level1/Props/Kitchen/Kitchen_counter_separate/Lamp_ceiling_cone_A"]
