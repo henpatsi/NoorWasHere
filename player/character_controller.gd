@@ -220,8 +220,9 @@ func interact_input() -> void:
 
 func crouch(state: bool) -> void:
 	if state:
-		head_node_target_y = head_node.position.y * crouch_ratio
-		collision_shape_target_height = collision_shape.shape.height * crouch_ratio
+		if not crouching:
+			head_node_target_y = head_node.position.y * crouch_ratio
+			collision_shape_target_height = collision_shape.shape.height * crouch_ratio
 	else:
 		head_node_target_y = head_node_original_y
 		collision_shape_target_height = collision_shape_original_height
