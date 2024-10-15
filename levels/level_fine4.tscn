@@ -1,4 +1,4 @@
-[gd_scene load_steps=255 format=4 uid="uid://8ymkajun4ggs"]
+[gd_scene load_steps=257 format=4 uid="uid://8ymkajun4ggs"]
 
 [ext_resource type="Environment" uid="uid://dobqonwml2e5x" path="res://assets/WorldEnvironments/Env_Present.tres" id="1_1utkg"]
 [ext_resource type="Script" path="res://levels/level.gd" id="1_eatkt"]
@@ -88,6 +88,7 @@
 [ext_resource type="Resource" path="res://levels/dialogue_streams/10_E12.tres" id="88_v4h8f"]
 [ext_resource type="Script" path="res://levels/areas/end_sequence_trigger.gd" id="89_ornnm"]
 [ext_resource type="PackedScene" uid="uid://dlffobxlcndvl" path="res://assets/AtmosphericHouse/Prefabs/Doors/Door_parent_A_L.prefab.scn" id="91_pc8rc"]
+[ext_resource type="PackedScene" uid="uid://dg3kob4pncl23" path="res://assets/props/door_a/door_a.tscn" id="94_wdjwv"]
 [ext_resource type="Resource" path="res://levels/dialogue_streams/06_I01.tres" id="100_4owrl"]
 [ext_resource type="Resource" uid="uid://cra54wjuo32as" path="res://levels/dialogue_streams/00_01.tres" id="101_6uwb1"]
 [ext_resource type="Resource" path="res://levels/dialogue_streams/06_I02.tres" id="101_j67wt"]
@@ -111,6 +112,7 @@
 [ext_resource type="ArrayMesh" uid="uid://qv0ry0lfx1jf" path="res://assets/Exterior/Spruce Trees/meshes/Mesh_SpruceTree_Tall2.tres" id="109_m65bl"]
 [ext_resource type="Script" path="res://addons/yamms/MultiScatterItem.gd" id="109_s0ksg"]
 [ext_resource type="Resource" path="res://levels/dialogue_streams/03_01.tres" id="110_jq8ks"]
+[ext_resource type="PackedScene" uid="uid://daalgg5r5ln0i" path="res://assets/AtmosphericHouse/Prefabs/Doors/Door_parent_C_L.prefab.scn" id="110_m8m7y"]
 [ext_resource type="ArrayMesh" uid="uid://c14ntdaikbh57" path="res://assets/Exterior/Spruce Trees/meshes/Mesh_SpruceTree_Tall1.tres" id="111_1yoif"]
 [ext_resource type="Script" path="res://addons/yamms/MultiScatterExclude.gd" id="111_b7kg4"]
 [ext_resource type="Resource" path="res://levels/dialogue_streams/03_02.tres" id="111_tbb5q"]
@@ -751,7 +753,7 @@ picture = NodePath("../../FrontyardPicture")
 
 [node name="1_Backyard" type="Node" parent="Pictures"]
 
-[node name="BackyardPicture" type="TextureRect" parent="Pictures/1_Backyard" node_paths=PackedStringArray("camera", "world_root", "nodes_to_show")]
+[node name="BackyardPicture" type="TextureRect" parent="Pictures/1_Backyard" node_paths=PackedStringArray("camera", "world_root", "nodes_to_show", "nodes_to_hide")]
 visible = false
 clip_contents = true
 anchors_preset = 15
@@ -770,6 +772,7 @@ script = ExtResource("43_f2no6")
 camera = NodePath("../SubViewport/PortalCamera")
 world_root = NodePath("../../../Past")
 nodes_to_show = [NodePath("../../../Past/PictureSpecificObjects/Backyard")]
+nodes_to_hide = [NodePath("../../../Past/ChangingScene/BackDoorClosed")]
 ambientAS = ExtResource("44_deav4")
 starting_volume = 50.0
 ending_volume = 60.0
@@ -1024,7 +1027,7 @@ picture = NodePath("../../NoorRoomNightPicture")
 
 [node name="8_FrontDoor" type="Node" parent="Pictures"]
 
-[node name="FrontDoorPicture" type="TextureRect" parent="Pictures/8_FrontDoor" node_paths=PackedStringArray("camera", "world_root", "nodes_to_show")]
+[node name="FrontDoorPicture" type="TextureRect" parent="Pictures/8_FrontDoor" node_paths=PackedStringArray("camera", "world_root", "nodes_to_show", "nodes_to_hide")]
 visible = false
 clip_contents = true
 anchors_preset = 15
@@ -1043,6 +1046,7 @@ script = ExtResource("43_f2no6")
 camera = NodePath("../SubViewport/PortalCamera")
 world_root = NodePath("../../../Past")
 nodes_to_show = [NodePath("../../../Past/PictureSpecificObjects/FrontDoor")]
+nodes_to_hide = [NodePath("../../../Past/ChangingScene/FrontDoorClosed")]
 ambientAS = ExtResource("48_4trxr")
 
 [node name="SubViewport" type="SubViewport" parent="Pictures/8_FrontDoor"]
@@ -1733,6 +1737,12 @@ visible = false
 
 [node name="Lamp_ceiling_circle" parent="Past/House/Level1/Props/Kitchen/Kitchen_kitchen_cabinets_A/Fridge" index="0"]
 visible = false
+
+[node name="Door_parent_C_L" parent="Past/House/Level1/Doors/DoorBackyard" index="6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 100, 0)
+
+[node name="Door_Front" parent="Past/House/Level1/Doors/DoorFrontyard" index="6"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2.026, 100, -0.018)
 
 [node name="Lights" parent="Past/House/Level1" index="6"]
 visible = false
@@ -2434,6 +2444,9 @@ bones/408/rotation = Quaternion(-0.745228, -0.0145114, -0.0771921, 0.662168)
 [node name="Body_004" parent="Past/PictureSpecificObjects/Backyard/Noor_01/rig_001/Skeleton3D" index="1"]
 surface_material_override/2 = null
 surface_material_override/8 = null
+
+[node name="BackDoorOpen" parent="Past/PictureSpecificObjects/Backyard" instance=ExtResource("110_m8m7y")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.349121, 0.5, -5.91973)
 
 [node name="Office" type="Node3D" parent="Past/PictureSpecificObjects"]
 visible = false
@@ -8087,6 +8100,9 @@ bones/406/rotation = Quaternion(0.777813, -0.101847, -0.00750549, 0.620143)
 bones/408/position = Vector3(0.00295155, -0.00637863, 0.00345291)
 bones/408/rotation = Quaternion(0.0658248, 0.0583926, -0.139758, 0.986268)
 
+[node name="FrontDoorOpen" parent="Past/PictureSpecificObjects/FrontDoor" instance=ExtResource("94_wdjwv")]
+transform = Transform3D(0.991025, 0, 0.133675, 0, 1, 0, -0.133675, 0, 0.991025, 2.17657, 0.5, 6.06251)
+
 [node name="Forest" type="Node3D" parent="Past/PictureSpecificObjects"]
 visible = false
 
@@ -9719,6 +9735,7 @@ verb = "Open"
 dialogue_clips = Array[Resource]([ExtResource("106_qi4pq"), ExtResource("107_e7r60")])
 nodes_to_show = [NodePath("../../../PictureSpecificObjects/Shed/CapsuleSpotlight")]
 start_monitoring_list = [NodePath("../../../../Present/TriggerVolumes/V10E_Shed")]
+changes_wait_for_dialogue = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Past/Interactables/ShedCloset/door"]
 transform = Transform3D(1, 0, 3.72529e-07, 0, 1, 0, -3.72529e-07, 0, 1, 0.0187378, 1.23099, 0.211632)
@@ -9736,6 +9753,12 @@ transform = Transform3D(0.00115186, 0, -0.999999, 0, 1, 0, 0.999999, 0, 0.001151
 
 [node name="NoorDoorClosed" parent="Past/ChangingScene" instance=ExtResource("91_pc8rc")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1.8491, 3.5, -1.91973)
+
+[node name="BackDoorClosed" parent="Past/ChangingScene" instance=ExtResource("110_m8m7y")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.349121, 0.5, -5.91973)
+
+[node name="FrontDoorClosed" parent="Past/ChangingScene" instance=ExtResource("94_wdjwv")]
+transform = Transform3D(1.94707e-07, 0, -1, 0, 1, 0, 1, 0, 1.94707e-07, 2.17657, 0.5, 6.06251)
 
 [node name="TriggerVolumes" type="Node3D" parent="Past"]
 
