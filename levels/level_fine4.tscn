@@ -1,4 +1,4 @@
-[gd_scene load_steps=213 format=4 uid="uid://8ymkajun4ggs"]
+[gd_scene load_steps=216 format=4 uid="uid://8ymkajun4ggs"]
 
 [ext_resource type="Script" path="res://levels/level.gd" id="1_eatkt"]
 [ext_resource type="Material" uid="uid://5evkxbd1ekxy" path="res://assets/textures/forest_floor/forest ground/M_forest_ground.tres" id="8_cq1kr"]
@@ -264,6 +264,9 @@ size = Vector3(9.7627, 5.12244, 0.553589)
 [sub_resource type="BoxShape3D" id="BoxShape3D_elmpk"]
 size = Vector3(9.7627, 5.12244, 0.553589)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_pfecn"]
+size = Vector3(0.407364, 1.35342, 0.355392)
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_e442g"]
 size = Vector3(8.09546, 3.01855, 0.348755)
 
@@ -273,14 +276,14 @@ size = Vector3(8.1828, 3.01855, 0.348755)
 [sub_resource type="BoxShape3D" id="BoxShape3D_y0twe"]
 size = Vector3(4.78015, 3.01855, 0.348755)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_w1sdq"]
-size = Vector3(0.29834, 2.93018, 4.16656)
-
 [sub_resource type="BoxShape3D" id="BoxShape3D_s4gly"]
-size = Vector3(0.29834, 2.93018, 4.65242)
+size = Vector3(0.29834, 2.93018, 6.20046)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_8nia8"]
 size = Vector3(3.90222, 2.9801, 0.199707)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7bofv"]
+size = Vector3(8.46477, 2.9801, 0.199707)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ssd1a"]
 size = Vector3(5.38617, 2.9801, 0.199707)
@@ -288,11 +291,17 @@ size = Vector3(5.38617, 2.9801, 0.199707)
 [sub_resource type="BoxShape3D" id="BoxShape3D_7uf5k"]
 size = Vector3(6.35915, 2.9801, 0.199707)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_wsvac"]
-size = Vector3(3.73438, 4.36621, 1.36279)
+[sub_resource type="BoxShape3D" id="BoxShape3D_37bvl"]
+size = Vector3(7.50214, 2.9801, 0.199707)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_tpgs8"]
-size = Vector3(6.90625, 4.36621, 0.223633)
+[sub_resource type="BoxShape3D" id="BoxShape3D_wsvac"]
+size = Vector3(6.40485, 4.36621, 0.337463)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_n1yfm"]
+size = Vector3(2.34192, 4.36621, 3.89796)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ig375"]
+size = Vector3(7.30566, 4.36621, 0.223633)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_v3tki"]
 size = Vector3(3.73755, 2.74072, 0.236206)
@@ -401,12 +410,12 @@ _surfaces = [{
 "aabb": AABB(-0.000720772, -0.00142224, -1.07341e-05, 0.00144154, 0.00284448, 0.000951053),
 "format": 34359742465,
 "index_count": 84,
-"index_data": PackedByteArray("AAABAAIAAgADAAAABAAFAAYABgAHAAQACAAJAAQABAAHAAgACQAKAAUABQAEAAkACgALAAYABgAFAAoACwAIAAcABwAGAAsAAwALAAoACgAMAAMADAAKAAkACQANAAwAAgAIAAsACwADAAIADQAJAAgACAACAA0ADgAAAAMAAwAMAA4ADwAOAAwADAANAA8AAQAPAA0ADQACAAEAAQAAAA4ADgAPAAEA"),
+"index_data": PackedByteArray("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"),
 "name": "box_bake",
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 16,
-"vertex_data": PackedByteArray("egQ8uq7zuTrAf3Y6egQ8uq7zubrAf3Y6KfI8uoVqurp8oTY6KfI8uoVqujp8oTY64+I3OuPit7pmFjS34+I3OuPitzpmFjS34+I3uuPitzpmFjS34+I3uuPit7pmFjS34+I3uuPit7p8oTY64+I3OuPit7p8oTY64+I3OuPitzp8oTY64+I3uuPitzp8oTY6KfI8OoVqujp8oTY6KfI8OoVqurp8oTY6egQ8Oq7zuTrAf3Y6egQ8Oq7zubrAf3Y6")
+"vertex_data": PackedByteArray("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA")
 }]
 blend_shape_mode = 0
 
@@ -414,16 +423,16 @@ blend_shape_mode = 0
 resource_name = "Cube_013"
 _surfaces = [{
 "aabb": AABB(-0.000720772, -0.00142224, -1.07341e-05, 0.00144154, 0.00284448, 0.000951053),
-"attribute_data": PackedByteArray("dZkpPyw21j5TmSk/HX9pP7u+Hj9+p2k/3r4eP17l1T5cNCk+67JVP1Y0KT56bLE+1ZbRPnpssT7altE+6rJVP92W0T7fNXU/XjQpPuE1dT9cNCk+67JVP9qW0T7qslU/9qEsPeuyVT//oSw9fmyxPlY0KT56bLE+XDQpPuuyVT9SNCk+JM1kPtWW0T4gzWQ+1ZbRPnpssT5WNCk+emyxPmJOCD94bLE+Y04IP+iyVT/altE+6rJVP9WW0T56bLE+FHEpP/qAwD4uTSo/yMi+PonLaD8Ayb4+ladpPxqBwD7HWXQ/jOXVPuA1dT++ndc+4DV1P1rLaD+jWXQ/lKdpP7u+Hj9+p2k/ouIdP2XLaD+i4h0/1J3XPt6+Hj9e5dU+bqdpP8hZdD9Ty2g/4TV1P/hMKj/ENXU/7HApP7dZdD8vf2k/TjbWPnWZKT8sNtY+FHEpP/qAwD6Vp2k/GoHAPg1/aT8uf2k/L39pP0421j7HWXQ/jOXVPqNZdD+Up2k/U5kpPx1/aT8Nf2k/Ln9pP26naT/IWXQ/7HApP7dZdD9TmSk/HX9pP3WZKT8sNtY+L39pP0421j4Nf2k/Ln9pPw=="),
+"attribute_data": PackedByteArray("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=="),
 "format": 34359742487,
 "index_count": 84,
-"index_data": PackedByteArray("AAABAAIAAgADAAAABAAFAAYABgAHAAQACAAJAAoACgALAAgADAANAA4ADgAPAAwAEAARABIAEgATABAAFAAVABYAFgAXABQAGAAZABoAGgAbABgAHAAdAB4AHgAfABwAIAAhACIAIgAjACAAJAAlACYAJgAnACQAKAApACoAKgArACgALAAtAC4ALgAvACwAMAAxADIAMgAzADAANAA1ADYANgA3ADQA"),
+"index_data": PackedByteArray("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"),
 "material": ExtResource("72_8yoht"),
 "name": "box_bake",
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 56,
-"vertex_data": PackedByteArray("egQ8uq7zuTrAf3Y6egQ8uq7zubrAf3Y6KfI8uoVqurp8oTY6KfI8uoVqujp8oTY64+I3OuPit7pmFjS34+I3OuPitzpmFjS34+I3uuPitzpmFjS34+I3uuPit7pmFjS34+I3uuPit7p8oTY64+I3OuPit7p8oTY64+I3OuPit7pmFjS34+I3uuPit7pmFjS34+I3OuPit7p8oTY64+I3OuPitzp8oTY64+I3OuPitzpmFjS34+I3OuPit7pmFjS34+I3OuPitzp8oTY64+I3uuPitzp8oTY64+I3uuPitzpmFjS34+I3OuPitzpmFjS34+I3uuPitzp8oTY64+I3uuPit7p8oTY64+I3uuPit7pmFjS34+I3uuPitzpmFjS3KfI8uoVqujp8oTY64+I3uuPitzp8oTY64+I3OuPitzp8oTY6KfI8OoVqujp8oTY6KfI8OoVqujp8oTY64+I3OuPitzp8oTY64+I3OuPit7p8oTY6KfI8OoVqurp8oTY6KfI8uoVqurp8oTY64+I3uuPit7p8oTY64+I3uuPitzp8oTY6KfI8uoVqujp8oTY6KfI8OoVqurp8oTY64+I3OuPit7p8oTY64+I3uuPit7p8oTY6KfI8uoVqurp8oTY6egQ8Oq7zuTrAf3Y6egQ8uq7zuTrAf3Y6KfI8uoVqujp8oTY6KfI8OoVqujp8oTY6egQ8Oq7zubrAf3Y6egQ8Oq7zuTrAf3Y6KfI8OoVqujp8oTY6KfI8OoVqurp8oTY6egQ8uq7zubrAf3Y6egQ8Oq7zubrAf3Y6KfI8OoVqurp8oTY6KfI8uoVqurp8oTY6egQ8uq7zubrAf3Y6egQ8uq7zuTrAf3Y6egQ8Oq7zuTrAf3Y6egQ8Oq7zubrAf3Y61QH/f9WB/7/VAf9/1YH/v9UB/3/Vgf+/1QH/f9WB/7//////AAD/v/////8AAP+//////wAA/7//////AAD/v/9/AAAAAP+//38AAAAA/7//fwAAAAD/v/9/AAAAAP+/////f/7/AID///9//v8AgP///3/+/wCA////f///////f///AAD/v/9///8AAP+//3///wAA/7//f///AAD/vwAA/3//f/+/AAD/f/9//78AAP9//3//vwAA/3//f/+///////7//7///////v//v//////+//+///////7//7////7/AAD/v////v8AAP+////+/xMA9b////7/EwD1vwAA/v8AAP+/AAD+/wAA/78AAP7/EwD1vwAA/v8UAPW///////7//7///////v//v//////+//+///////7//7//fyn+////v/9/Kf7///+//38p/v///7//fyn+////vyn+/3/+/xT/Kf7/f/7/FP8p/v9//v8U/yn+/3/+/xT//3/VAf7//7//f9UB/v//v/9/1QH+//+//3/VAf7//7//f/9//v//v/9//3/+//+//3//f/7//7//f/9//v//vw==")
+"vertex_data": PackedByteArray("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==")
 }]
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_47rkm")
@@ -444,12 +453,12 @@ _surfaces = [{
 "aabb": AABB(-0.0573304, -0.0346939, -9.8973e-09, 0.114661, 0.0693879, 0.22822),
 "format": 34359742465,
 "index_count": 114,
-"index_data": PackedByteArray("AAABAAIAAQAAAAMABAAFAAAAAgAEAAAAAQADAAYABwABAAYACAAJAAoACwAKAAkADAANAA4ADwANAAwACQAQAAsAEQAQAAkACAARAAkAEgARAAgACgASAAgAEwASAAoAFAATAAoAFQAUAAoAEwAUABAAFgAQABQAFwALABAAFgAXABAADgAVABcADAAOABcADgANABUAFAAVAA0ADwAUAA0AFgAUAA8ADAAXABYAFgAPAAwAGAAZABoAGwAYABoAHAAdAB4AHQAcAB8AHAAYABsAHwAcABsAFQAKAAsAFwAVAAsA"),
+"index_data": PackedByteArray("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"),
 "name": "02",
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 32,
-"vertex_data": PackedByteArray("5KpovcEVAL089To8KbZqPXiZ+LxfUCey5apovcEVAL0m5CkyKbZqPXiZ+Lwm9To8O9NqvTRSCj24KycyO9NqvTRSCj079To8041oPTobDj0m9To8041oPTobDj3OCCqyE9NqvTxSCj19smk++41oPUAbDj18smk+qY1ovTMbDr1/smk+ZNNqPS5SCr19smk+0/tcPRz7/zyoxmY+0gZfvfjJ+DyJsmk8yAZfvfjJ+DypxmY+yftcPRz7/zx2smk8WtNqPS5SCr0o9To88Y1oPUAbDj0o9To8HdNqvTxSCj089To8s41ovTMbDr089To8et5cvfoCDr2Jsmk8b95cvfoCDr2qxmY+ICRfPWlqCr12smk8KiRfPWlqCr2pxmY+IwpdvSH+8bw4aDo+6AZfvdrJ+Dw3aDo+svtcPQD7/zw2aDo+d/hePf3M6rw3aDo+IwpdvSH+8bxkfDc+svtcPQD7/zxhfDc+6AZfvdrJ+DxjfDc+d/hePf3M6rxjfDc+")
+"vertex_data": PackedByteArray("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA")
 }]
 blend_shape_mode = 0
 
@@ -457,16 +466,16 @@ blend_shape_mode = 0
 resource_name = "Mesh_007"
 _surfaces = [{
 "aabb": AABB(-0.0573304, -0.0346939, -9.8973e-09, 0.114661, 0.0693879, 0.22822),
-"attribute_data": PackedByteArray("PCzbPdZxxT6uzQQ+0sMcP67NBD7WccU+PCzbPdLDHD/OEwM+uO6BPny41z247oE+fLjXPfYZxD7OEwM+9hnEPrzM1T3sXNw+rF2nPexc3D6sXac9IEQPP7zM1T0gRA8/YQtnP4Bjgjx4AC0/gGOCPGELZz/omRs+dAAtP+iZGz6GAAw+Hs02PyhhDj9EUv8+hgAMPkRS/z4oYQ4/Hs02P47DBT6ojIg+3rgPP+DLBT6OwwU+4MsFPt64Dz+ojIg+bn0HPmT6/T5UJxA/iOSJPm59Bz6I5Ik+VCcQP2T6/T7e5wQ+akxaP+yBDz8OeTc/3ucEPg55Nz/sgQ8/akxaP3QODj9eLX4/7YEPP+a5fD+u5gQ+5rl8P5a0Cj5eLX4/sMXmPNigfT+YSAo9IvB6P7DF5jx+BBI/eEgKPTa1FD+Y5z499ElVPvgBKD0Yh0o+GAIoPSYYfz+Y5z49cGd8P+2BDz/2DXw/7IEPP1r4Wj/vu7A+WvhaP++7sD72DXw/GA0PP7q+ID8ebno/ur4gPxgNDz9EUv8+Hm56P0RS/z5wJN88ABSdupZ0eD4gHAM+lnR4PgAUnbpwJN88IBwDPtwtED+qaiE/3C0QP0CAQj/ijns/QIBCP+KOez+qaiE/0VFHP4YFfz/RUUc/CoxgP9wtED8KjGA/3S0QP4YFfz8PZK8+WvhaPxY4Aj7OcXk/D2SvPs5xeT8WOAI+WvhaP7AmsjxQV1M/sPHfPFBXUz+w8d88OjjaPrAmsjw6ONo+mLINPUjgej/4lyQ9AJF9P/iXJD1C9BE/mLINPfqkFD8="),
+"attribute_data": PackedByteArray("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA="),
 "format": 34359742487,
 "index_count": 114,
-"index_data": PackedByteArray("AAABAAIAAQAAAAMABAAFAAYABwAEAAYACAAJAAoACwAIAAoADAANAA4ADwAOAA0AEAARABIAEwARABAAFAAVABYAFwAVABQAGAAZABoAGwAZABgAHAAdAB4AHwAdABwAIAAhACIAIwAgACIAJAAlACYAJwAmACUAKAApACoAKwAoACoALAAtAC4ALwAsAC4AMAAxADIAMwAyADEANAA1ADYANwA1ADQAOAA5ADoAOgA7ADgAPAA9AD4APwA8AD4AQABBAEIAQQBAAEMARABFAEYARwBEAEYASABJAEoASwBIAEoA"),
+"index_data": PackedByteArray("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"),
 "material": SubResource("StandardMaterial3D_p3lup"),
 "name": "02",
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 76,
-"vertex_data": PackedByteArray("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")
+"vertex_data": PackedByteArray("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAQCIAAAAgAAAAIAAAACAAAAAdwAAAP8AAAB3AAAAgAAAAIAAAACAAQEBiAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=")
 }]
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_pliv7")
@@ -529,7 +538,7 @@ size = Vector3(4, 4, 4)
 size = Vector3(4, 4, 4)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_mg7jj"]
-size = Vector3(4, 4, 4)
+size = Vector3(4.45947, 4, 4)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_crq12"]
 size = Vector3(4, 4, 4)
@@ -856,7 +865,7 @@ ambientAS = ExtResource("44_deav4")
 size = Vector2i(1280, 720)
 
 [node name="PortalCamera" type="Camera3D" parent="Pictures/5_TV/SubViewport"]
-transform = Transform3D(-0.841379, -0.0235739, 0.539932, 0, 0.999048, 0.0436194, -0.540446, 0.0367004, -0.840578, 1002.1, 5, -2.17883)
+transform = Transform3D(-0.760587, -0.0283192, 0.648618, -1.56719e-09, 0.999048, 0.0436194, -0.649236, 0.0331763, -0.759863, 1002.4, 5, -2.0044)
 cull_mask = 1048063
 environment = ExtResource("45_dt783")
 attributes = SubResource("CameraAttributesPractical_1i0ad")
@@ -1581,11 +1590,13 @@ shape = SubResource("BoxShape3D_05igh")
 disabled = true
 
 [node name="Noor_00" parent="Past/PictureSpecificObjects/Frontyard" instance=ExtResource("59_sfpfk")]
-transform = Transform3D(1.13452, 0, 0.188043, 0, 1.15, 0, -0.188043, 0, 1.13452, 1.43915, 0.551395, 7.01302)
+transform = Transform3D(1.14808, 0, 0.0662588, 0, 1.15, 0, -0.0662588, 0, 1.14808, 1.64801, 0.52381, 7.33376)
 
-[node name="Body_004" parent="Past/PictureSpecificObjects/Frontyard/Noor_00/rig_001/Skeleton3D" index="1"]
-surface_material_override/2 = null
-surface_material_override/8 = null
+[node name="StaticBody3D" type="StaticBody3D" parent="Past/PictureSpecificObjects/Frontyard/Noor_00"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Past/PictureSpecificObjects/Frontyard/Noor_00/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0136719, 0.604016, 0.0603733)
+shape = SubResource("BoxShape3D_pfecn")
 
 [node name="Backyard" type="Node3D" parent="Past/PictureSpecificObjects"]
 visible = false
@@ -1642,7 +1653,7 @@ shape = SubResource("BoxShape3D_y0twe")
 disabled = true
 
 [node name="Noor_01" parent="Past/PictureSpecificObjects/Backyard" instance=ExtResource("59_sfpfk")]
-transform = Transform3D(-1.13966, 0.0911279, 0.124003, 0.0752758, 1.13837, -0.144745, -0.134219, -0.135327, -1.1341, 0.586609, 0.284442, -8.6485)
+transform = Transform3D(-1.13339, 0.051049, -0.187943, 0.0752758, 1.13837, -0.144745, 0.179616, -0.154957, -1.12527, 0.457092, 0.339791, -8.58473)
 
 [node name="Skeleton3D" parent="Past/PictureSpecificObjects/Backyard/Noor_01/rig_001" index="0"]
 bones/1/position = Vector3(-1.76605, 41.7765, 15.6014)
@@ -2150,29 +2161,26 @@ bones/406/rotation = Quaternion(0.94239, -0.101177, 0.0340393, 0.317027)
 bones/408/position = Vector3(-14.3261, -5.78549, 21.306)
 bones/408/rotation = Quaternion(-0.745228, -0.0145114, -0.0771921, 0.662168)
 
-[node name="Body_004" parent="Past/PictureSpecificObjects/Backyard/Noor_01/rig_001/Skeleton3D" index="1"]
-surface_material_override/2 = null
-surface_material_override/8 = null
-
 [node name="BackDoorOpen" parent="Past/PictureSpecificObjects/Backyard" instance=ExtResource("110_m8m7y")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.349121, 0.5, -5.91973)
 
 [node name="Office" type="Node3D" parent="Past/PictureSpecificObjects"]
+visible = false
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Past/PictureSpecificObjects/Office"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.49994, 1.82637, -0.212008)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.80975, 1.63639, 0.316133)
 light_color = Color(0.901961, 1, 1, 1)
 light_energy = 0.2
 shadow_enabled = true
-omni_range = 2.155
+omni_range = 2.511
 
 [node name="OmniLight3D2" type="OmniLight3D" parent="Past/PictureSpecificObjects/Office"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.77209, 3.08829, 4.07903)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.67181, 2.9559, 4.07903)
 light_color = Color(0.65537, 0.58609, 0.546358, 1)
-light_energy = 0.51
+light_energy = 0.4
 light_specular = 0.0
 shadow_enabled = true
-omni_range = 3.406
+omni_range = 2.831
 
 [node name="OmniLight3D3" type="OmniLight3D" parent="Past/PictureSpecificObjects/Office"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.8443, 2.88976, 2.55866)
@@ -2185,18 +2193,13 @@ omni_range = 9.575
 [node name="StaticBody3D" type="StaticBody3D" parent="Past/PictureSpecificObjects/Office"]
 transform = Transform3D(-0.999865, 0, 0.0164229, 0, 1, 0, -0.0164229, 0, -0.999865, 1.28192, -2.38419e-07, 3.97187)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Past/PictureSpecificObjects/Office/StaticBody3D"]
-transform = Transform3D(-0.0362597, 0, -0.999343, 0, 1, 0, 0.999343, 0, -0.0362597, 1.05573, 1.69751, -2.07911)
-shape = SubResource("BoxShape3D_w1sdq")
-disabled = true
-
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="Past/PictureSpecificObjects/Office/StaticBody3D"]
-transform = Transform3D(0.0597079, 0, -0.998218, 0, 1, 0, 0.998218, 0, 0.0597079, 1.41718, 1.69751, 1.30911)
+transform = Transform3D(0.823383, 0, -0.567503, 0, 1, 0, 0.567503, 0, 0.823383, 0.0783081, 1.69751, -0.243655)
 shape = SubResource("BoxShape3D_s4gly")
 disabled = true
 
 [node name="Noor_02" parent="Past/PictureSpecificObjects/Office" instance=ExtResource("59_sfpfk")]
-transform = Transform3D(-0.702718, 0.160406, 0.896079, 0.0752758, 1.13837, -0.144745, -0.907205, -0.0297932, -0.70611, 6.86359, 0.457471, -0.0588463)
+transform = Transform3D(-0.190114, 0.155423, 1.12348, 0.0752758, 1.13837, -0.144745, -1.13168, 0.049611, -0.198364, 6.70294, 0.608896, 0.227051)
 
 [node name="Skeleton3D" parent="Past/PictureSpecificObjects/Office/Noor_02/rig_001" index="0"]
 bones/1/position = Vector3(-1.76605, 41.7765, 38.8258)
@@ -2699,57 +2702,60 @@ bones/406/rotation = Quaternion(0.94239, -0.101177, 0.0340393, 0.317027)
 bones/408/position = Vector3(-14.3261, 17.4389, 21.306)
 bones/408/rotation = Quaternion(-0.745228, -0.0145114, -0.0771921, 0.662168)
 
-[node name="Body_004" parent="Past/PictureSpecificObjects/Office/Noor_02/rig_001/Skeleton3D" index="1"]
-surface_material_override/2 = null
-surface_material_override/8 = null
-
 [node name="Agathe_Final01" parent="Past/PictureSpecificObjects/Office" instance=ExtResource("60_d3482")]
-transform = Transform3D(-0.674856, 0, -0.429616, 0, 0.8, 0, 0.429616, 0, -0.674856, 6.67322, 0.174513, 0.928708)
+transform = Transform3D(-0.465188, 0, -0.650846, 0, 0.8, 0, 0.650846, 0, -0.465188, 6.79193, 0.564498, 1.16596)
 
 [node name="LivingRoom" type="Node3D" parent="Past/PictureSpecificObjects"]
 visible = false
 
 [node name="OmniLight3D3" type="OmniLight3D" parent="Past/PictureSpecificObjects/LivingRoom"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.389954, 2.73462, -0.215771)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.389954, 2.34595, -0.215636)
 light_color = Color(1, 0.929412, 0.803922, 1)
-light_energy = 0.4
+light_energy = 0.298
 shadow_enabled = true
-shadow_opacity = 0.95
+shadow_opacity = 0.74
+shadow_blur = 3.0
 omni_range = 5.525
 
 [node name="OmniLight3D4" type="OmniLight3D" parent="Past/PictureSpecificObjects/LivingRoom"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.49109, 2.52647, -2.52393)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.70892, 4.6272, -1.04814)
 light_color = Color(1, 0.929412, 0.803922, 1)
-light_energy = 0.84
+light_energy = 0.15
+light_specular = 0.0
 shadow_enabled = true
 shadow_opacity = 0.95
-omni_range = 5.525
+omni_range = 4.289
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Past/PictureSpecificObjects/LivingRoom"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.17426, 0, 2.57742)
 
 [node name="CollisionShape3D4" type="CollisionShape3D" parent="Past/PictureSpecificObjects/LivingRoom/StaticBody3D"]
-transform = Transform3D(-0.929674, 0, 0.368384, 0, 1, 0, -0.368384, 0, -0.929674, -2.51367, 1.91392, 0.718285)
+transform = Transform3D(-0.952433, 0, 0.304748, 0, 1, 0, -0.304748, 0, -0.952433, -2.51367, 1.91392, 0.602505)
 shape = SubResource("BoxShape3D_8nia8")
 disabled = true
 
 [node name="CollisionShape3D6" type="CollisionShape3D" parent="Past/PictureSpecificObjects/LivingRoom/StaticBody3D"]
-transform = Transform3D(-0.0130894, 0, -0.999914, 0, 1, 0, 0.999914, 0, -0.0130894, -0.929871, 5.00117, -2.64948)
-shape = SubResource("BoxShape3D_ssd1a")
+transform = Transform3D(-0.0130894, 0, -0.999914, 0, 1, 0, 0.999914, 0, -0.0130894, -2.56854, 5.00117, -1.22781)
+shape = SubResource("BoxShape3D_7bofv")
 disabled = true
 
 [node name="CollisionShape3D7" type="CollisionShape3D" parent="Past/PictureSpecificObjects/LivingRoom/StaticBody3D"]
-transform = Transform3D(0.79851, 0, -0.601982, 0, 1, 0, 0.601982, 0, 0.79851, -0.036499, 5.00117, 0.0718913)
+transform = Transform3D(0.992534, 0, -0.121973, 0, 1, 0, 0.121973, 0, 0.992534, -0.036499, 5.00117, 1.24457)
 shape = SubResource("BoxShape3D_ssd1a")
 disabled = true
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="Past/PictureSpecificObjects/LivingRoom/StaticBody3D"]
-transform = Transform3D(-0.995074, 0, 0.0991458, 0, 1, 0, -0.0991458, 0, -0.995074, -6.0611, 1.1887, -5.8902)
+transform = Transform3D(-0.999067, 0, -0.0432013, 0, 1, 0, 0.0432013, 0, -0.999067, -4.40753, 1.1887, -5.50928)
 shape = SubResource("BoxShape3D_7uf5k")
 disabled = true
 
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="Past/PictureSpecificObjects/LivingRoom/StaticBody3D"]
+transform = Transform3D(0.161036, 0, -0.98695, 0, 1, 0, 0.98695, 0, 0.161036, -8.66815, 1.1887, -3.29912)
+shape = SubResource("BoxShape3D_37bvl")
+disabled = true
+
 [node name="Noor_03" parent="Past/PictureSpecificObjects/LivingRoom" instance=ExtResource("59_sfpfk")]
-transform = Transform3D(-1.1286, 0.0471989, -0.215733, 0.0752758, 1.13837, -0.144745, 0.20761, -0.156173, -1.12027, 0.533569, 0.487449, -0.509336)
+transform = Transform3D(0.164503, 0.0366406, -1.13758, 0.0487369, 1.14812, 0.0440279, 1.13713, -0.0545086, 0.162682, 0.281616, 0.697605, -0.121429)
 
 [node name="Skeleton3D" parent="Past/PictureSpecificObjects/LivingRoom/Noor_03/rig_001" index="0"]
 bones/1/position = Vector3(-1.52823, 44.4616, 39.2954)
@@ -3253,19 +3259,15 @@ bones/406/rotation = Quaternion(0.94239, -0.101177, 0.0340393, 0.317027)
 bones/408/position = Vector3(-11.7256, 5.09163, 13.1637)
 bones/408/rotation = Quaternion(-0.673625, -0.00659906, -0.0598017, 0.736621)
 
-[node name="Body_004" parent="Past/PictureSpecificObjects/LivingRoom/Noor_03/rig_001/Skeleton3D" index="1"]
-surface_material_override/2 = null
-surface_material_override/8 = null
-
 [node name="Mother_03" parent="Past/PictureSpecificObjects/LivingRoom" instance=ExtResource("61_ml2e7")]
-transform = Transform3D(0.999886, 0, 0.0151139, 0, 1, 0, -0.0151139, 0, 0.999886, -0.379883, 0.416617, -0.174205)
+transform = Transform3D(0.999886, 0, 0.0151139, 0, 1, 0, -0.0151139, 0, 0.999886, -0.379883, 0.332953, -0.461967)
 
 [node name="Skeleton3D" parent="Past/PictureSpecificObjects/LivingRoom/Mother_03/Mother" index="0"]
 bones/115/position = Vector3(0.000175682, 0.00109628, 0.000251014)
 bones/115/rotation = Quaternion(-0.182943, -0.117671, -0.789172, 0.574363)
 
 [node name="Agathe_Final01" parent="Past/PictureSpecificObjects/LivingRoom" instance=ExtResource("60_d3482")]
-transform = Transform3D(-0.43907, 0, 0.545177, 0, 0.7, 0, -0.545177, 0, -0.43907, -0.957825, 0.399825, -0.224998)
+transform = Transform3D(-0.682914, 0, 0.153714, 0, 0.7, 0, -0.153714, 0, -0.682914, 0.00689697, 0.617047, 0.214696)
 
 [node name="Skeleton3D" parent="Past/PictureSpecificObjects/LivingRoom/Agathe_Final01/Armature" index="0"]
 bones/0/position = Vector3(0.000262706, 0.00755512, 0.0109035)
@@ -3326,42 +3328,48 @@ bones/63/rotation = Quaternion(0.28926, 0.00868333, -0.00282823, 0.957207)
 visible = false
 
 [node name="OmniLight3D2" type="OmniLight3D" parent="Past/PictureSpecificObjects/HallwayUpstairs"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.48346, 5.24053, 1.96043)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.95258, 5.72712, 0.291297)
 light_color = Color(1, 0.929412, 0.803922, 1)
 light_energy = 0.242
 shadow_enabled = true
-omni_range = 4.066
+shadow_opacity = 0.8
+omni_range = 4.987
+
+[node name="OmniLight3D4" type="OmniLight3D" parent="Past/PictureSpecificObjects/HallwayUpstairs"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.17114, 5.11798, 1.36454)
+light_color = Color(1, 0.929412, 0.803922, 1)
+light_energy = 0.03
+light_specular = 0.0
+shadow_opacity = 0.8
+omni_range = 2.994
 
 [node name="OmniLight3D3" type="OmniLight3D" parent="Past/PictureSpecificObjects/HallwayUpstairs"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.388, 6.17035, -4.55818)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.49109, 5.89447, -4.53752)
 light_color = Color(1, 0.929412, 0.803922, 1)
-light_energy = 0.09
+light_energy = 0.2
 shadow_enabled = true
-omni_range = 4.066
-
-[node name="SpotLight3D" type="SpotLight3D" parent="Past/PictureSpecificObjects/HallwayUpstairs"]
-transform = Transform3D(-0.94329, 0.236856, 0.2326, -0.13171, -0.910186, 0.3927, 0.304722, 0.339795, 0.889766, 0.214844, 4.88622, 3.45224)
-light_color = Color(0.654126, 0.779346, 0.858804, 1)
-light_energy = 0.086
-shadow_enabled = true
-spot_range = 14.504
-spot_angle = 59.24
+omni_range = 3.672
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Past/PictureSpecificObjects/HallwayUpstairs"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.55121, 4.33477, 0.0576477)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Past/PictureSpecificObjects/HallwayUpstairs/StaticBody3D"]
-transform = Transform3D(0.0422244, 0, -0.999108, 0, 1, 0, 0.999108, 0, 0.0422244, -2.69574, 1.11816, -1.02625)
+transform = Transform3D(-0.999955, 0, 0.00952937, 0, 1, 0, -0.00952937, 0, -0.999955, -5.03699, 1.11816, 3.97657)
 shape = SubResource("BoxShape3D_wsvac")
 disabled = true
 
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="Past/PictureSpecificObjects/HallwayUpstairs/StaticBody3D"]
+transform = Transform3D(-0.999978, 0, 0.00663222, 0, 1, 0, -0.00663222, 0, -0.999978, -1.99182, 1.11816, -0.943457)
+shape = SubResource("BoxShape3D_n1yfm")
+disabled = true
+
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="Past/PictureSpecificObjects/HallwayUpstairs/StaticBody3D"]
-transform = Transform3D(-0.144028, 0, -0.989574, 0, 1, 0, 0.989574, 0, -0.144028, -7.91119, 0.344661, -3.91449)
-shape = SubResource("BoxShape3D_tpgs8")
+transform = Transform3D(0.216781, 0, -0.976221, 0, 1, 0, 0.976221, 0, 0.216781, -6.54987, 0.344661, 0.542351)
+shape = SubResource("BoxShape3D_ig375")
 disabled = true
 
 [node name="Noor_04" parent="Past/PictureSpecificObjects/HallwayUpstairs" instance=ExtResource("59_sfpfk")]
-transform = Transform3D(-0.0490879, -0.0441957, -1.1481, 0.0787322, 1.14632, -0.0474933, 1.14625, -0.0806295, -0.045905, -0.454651, 3.65211, -5.49769)
+transform = Transform3D(-0.0490879, -0.0441957, -1.1481, 0.0787322, 1.14632, -0.0474932, 1.14625, -0.0806297, -0.0459049, -0.184692, 3.63695, -5.50879)
 
 [node name="Skeleton3D" parent="Past/PictureSpecificObjects/HallwayUpstairs/Noor_04/rig_001" index="0"]
 bones/1/position = Vector3(-5.04642, 44.1866, 0.59626)
@@ -3869,14 +3877,11 @@ bones/403/rotation = Quaternion(-2.22353e-08, 1.11759e-08, 9.77889e-09, 1)
 bones/408/position = Vector3(-1.04512, -11.2664, 22.4304)
 bones/408/rotation = Quaternion(-0.795693, 0.0351915, 0.0334658, 0.603751)
 
-[node name="Body_004" parent="Past/PictureSpecificObjects/HallwayUpstairs/Noor_04/rig_001/Skeleton3D" index="1"]
-surface_material_override/2 = null
-surface_material_override/8 = null
-
 [node name="Mother_04" parent="Past/PictureSpecificObjects/HallwayUpstairs" instance=ExtResource("61_ml2e7")]
-transform = Transform3D(0.866356, 0, -0.499426, 0, 1, 0, 0.499426, 0, 0.866356, 4.03284, 2.71919, -0.0169698)
+transform = Transform3D(0.914472, 0, -0.404647, 0, 1, 0, 0.404647, 0, 0.914472, 3.89215, 3.15227, 0.708987)
 
 [node name="Skeleton3D" parent="Past/PictureSpecificObjects/HallwayUpstairs/Mother_04/Mother" index="0"]
+transform = Transform3D(1.51994, 0.0131847, 5.76321e-10, -0.0131847, 1.51994, -2.48335e-12, -5.76321e-10, -2.51177e-12, 1.52, 0, 0, 0)
 bones/1/position = Vector3(-0.000244155, 0.000458055, 0.00931934)
 bones/1/rotation = Quaternion(0.861582, 0.106942, 0.0611237, 0.492447)
 bones/2/rotation = Quaternion(-0.206742, 0.00147936, 0.00701606, 0.978369)
@@ -3988,8 +3993,9 @@ bones/111/rotation = Quaternion(-0.0172175, 0.113818, -0.0361589, 0.992694)
 bones/111/scale = Vector3(1, 1, 1)
 bones/115/position = Vector3(0.00018839, 0.00121788, 0.000259495)
 bones/115/rotation = Quaternion(-0.479977, -0.280459, -0.649319, 0.518989)
-bones/116/position = Vector3(3.03e-05, 0.00162356, -0.000281992)
-bones/116/rotation = Quaternion(-0.113327, 0.465893, -0.0124884, 0.877465)
+bones/116/position = Vector3(3.02359e-05, 0.00162365, -0.000281984)
+bones/116/rotation = Quaternion(0.266099, 0.541923, 0.509701, 0.612956)
+bones/116/scale = Vector3(1, 1, 1)
 bones/117/rotation = Quaternion(0.334183, 0.0220281, -0.108875, 0.935939)
 bones/118/rotation = Quaternion(-0.0836382, -0.006642, -0.018062, 0.99631)
 bones/122/position = Vector3(5.51196e-05, -9.76153e-05, 7.19392e-05)
@@ -3998,6 +4004,7 @@ bones/123/rotation = Quaternion(-1.86266e-08, -0.00332782, -9.87208e-08, 0.99999
 bones/125/position = Vector3(-0.000800716, -0.000201439, 0.000174051)
 bones/125/rotation = Quaternion(-1.91853e-07, -7.22706e-07, -7.6741e-07, 1)
 bones/126/rotation = Quaternion(1.02721e-08, 0.0731831, 1.0739e-08, 0.997319)
+bones/126/scale = Vector3(1, 1, 1)
 bones/129/position = Vector3(-0.000181007, 0.0015791, 0.000286241)
 bones/129/rotation = Quaternion(-0.744985, -0.170878, -0.31641, 0.561857)
 bones/129/scale = Vector3(1, 1, 0.999999)
@@ -4012,18 +4019,23 @@ bones/136/rotation = Quaternion(-0.00238769, -0.0211404, -5.03284e-05, 0.999774)
 bones/136/scale = Vector3(1.03258, 1.03258, 1.03259)
 bones/137/rotation = Quaternion(0.00454262, -2.70352e-08, -5.60557e-09, 0.99999)
 bones/137/scale = Vector3(0.996864, 0.996864, 0.996864)
-bones/138/position = Vector3(3.03e-05, 0.00162356, -0.000281992)
-bones/138/rotation = Quaternion(-0.111022, 0.567416, -0.0259423, 0.8155)
+bones/138/position = Vector3(3.02359e-05, 0.00162365, -0.000281984)
+bones/138/rotation = Quaternion(-0.0658417, 0.592979, 0.0608231, 0.800213)
+bones/138/scale = Vector3(1, 1, 1)
 bones/139/position = Vector3(-0.000646737, -0.000158972, -1.65313e-05)
 bones/139/rotation = Quaternion(-3.25963e-09, 4.00469e-08, -2.98023e-08, 1)
-bones/140/position = Vector3(3.03e-05, 0.00162356, -0.000281992)
-bones/140/rotation = Quaternion(-0.111022, 0.567416, -0.0259424, 0.8155)
+bones/139/scale = Vector3(1, 1, 1)
+bones/140/position = Vector3(3.02359e-05, 0.00162365, -0.000281984)
+bones/140/rotation = Quaternion(-0.236074, 0.458438, -0.277453, 0.810631)
+bones/140/scale = Vector3(1, 1, 1)
 bones/141/rotation = Quaternion(1.09782e-07, -0.0465257, 5.04392e-07, 0.998917)
 bones/142/position = Vector3(-8.91129e-09, 0.00111728, -3.65694e-08)
 bones/142/rotation = Quaternion(0.341255, -0.0465258, -0.0841259, 0.935042)
 bones/142/scale = Vector3(1, 1, 1)
 bones/143/rotation = Quaternion(-2.4587e-07, -0.00317094, -3.8557e-07, 0.999995)
-bones/144/rotation = Quaternion(-0.0836955, -0.00348469, -0.0177978, 0.996326)
+bones/144/position = Vector3(-3.63383e-07, 0.00124233, -1.40616e-07)
+bones/144/rotation = Quaternion(-0.138778, -0.154359, 0.135913, 0.968732)
+bones/144/scale = Vector3(0.999999, 1, 1)
 bones/146/position = Vector3(-1.49012e-09, 0.000641191, -1.11293e-09)
 bones/146/rotation = Quaternion(0.474013, 0.310099, 0.0965566, 0.81843)
 bones/146/scale = Vector3(1, 1, 1)
@@ -4310,14 +4322,34 @@ bones/408/position = Vector3(0.00616905, -0.00365488, 0.00439994)
 bones/408/rotation = Quaternion(0.0828449, 0.0102829, 0.122747, 0.988921)
 
 [node name="TV" type="Node3D" parent="Past/PictureSpecificObjects"]
-visible = false
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Past/PictureSpecificObjects/TV"]
+transform = Transform3D(0.981072, 0.0636328, 0.182888, -0.138552, 0.890483, 0.433409, -0.13528, -0.450545, 0.882445, 1.15784, 5.26911, 3.8969)
+light_color = Color(0.815686, 1, 1, 1)
+light_energy = 0.474
+shadow_enabled = true
+spot_range = 5.537
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Past/PictureSpecificObjects/TV"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.116394, 4.67355, 3.51861)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.225647, 4.67355, 2.87201)
 light_color = Color(0.815686, 1, 1, 1)
-light_energy = 0.663
+light_energy = 0.3
 shadow_enabled = true
-omni_range = 6.498
+omni_range = 6.838
+
+[node name="OmniLight3D3" type="OmniLight3D" parent="Past/PictureSpecificObjects/TV"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.637878, 4.67355, 0.873317)
+light_color = Color(0.815686, 1, 1, 1)
+light_energy = 0.05
+light_specular = 0.0
+omni_range = 6.838
+
+[node name="OmniLight3D4" type="OmniLight3D" parent="Past/PictureSpecificObjects/TV"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.991699, 4.77015, 0.411777)
+light_color = Color(0.815686, 1, 1, 1)
+light_energy = 0.05
+light_specular = 0.0
+omni_range = 6.838
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Past/PictureSpecificObjects/TV"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.00153, 4.82809, -0.476687)
@@ -4338,7 +4370,10 @@ shape = SubResource("BoxShape3D_1e8ie")
 disabled = true
 
 [node name="Noor_05" parent="Past/PictureSpecificObjects/TV" instance=ExtResource("59_sfpfk")]
-transform = Transform3D(1.14277, -0.077248, 0.103037, 0.0795369, 1.14703, -0.0221867, -0.101284, 0.0291736, 1.14516, -1.88409, 3.59072, -1.22025)
+transform = Transform3D(1.14436, 0.0808996, 0.0800738, 0.0795369, -1.14703, 0.0221867, 0.0814281, -0.0165396, -1.14699, -1.82727, 3.59072, -1.17382)
+
+[node name="rig_001" parent="Past/PictureSpecificObjects/TV/Noor_05" index="0"]
+transform = Transform3D(0.008, 0, 0, 0, -0.008, 6.99382e-10, 0, -6.99382e-10, -0.008, 0, 0, 0)
 
 [node name="Skeleton3D" parent="Past/PictureSpecificObjects/TV/Noor_05/rig_001" index="0"]
 bones/1/position = Vector3(-2.07792, 3.71149, 62.9833)
@@ -4351,9 +4386,9 @@ bones/4/scale = Vector3(1, 1, 1)
 bones/5/rotation = Quaternion(0.0736634, 0.0508536, 0.107079, 0.990213)
 bones/6/rotation = Quaternion(0.0227644, 0.0884481, 0.0020226, 0.995819)
 bones/6/scale = Vector3(0.999995, 1.00001, 0.999995)
-bones/7/position = Vector3(1.78814e-06, 3.07316, -2.74961e-06)
-bones/7/rotation = Quaternion(-0.181915, 0.134406, -0.0803054, 0.970769)
-bones/7/scale = Vector3(1, 0.999996, 1)
+bones/7/position = Vector3(-0.011776, 3.0701, 0.000471754)
+bones/7/rotation = Quaternion(-0.182146, 0.210596, -0.237946, 0.930513)
+bones/7/scale = Vector3(0.999998, 0.999998, 1)
 bones/8/position = Vector3(19.3543, -0.549221, 83.2098)
 bones/8/rotation = Quaternion(0.24713, 0.808315, -0.0654299, 0.530351)
 bones/8/scale = Vector3(1, 19.7676, 1)
@@ -4852,12 +4887,8 @@ bones/403/rotation = Quaternion(0, 0, 2.98023e-08, 1)
 bones/408/position = Vector3(-13.3258, 35.3181, 57.1382)
 bones/408/rotation = Quaternion(-0.705919, 0.0472712, -0.088198, 0.701189)
 
-[node name="Body_004" parent="Past/PictureSpecificObjects/TV/Noor_05/rig_001/Skeleton3D" index="1"]
-surface_material_override/2 = null
-surface_material_override/8 = null
-
 [node name="Mother_05" parent="Past/PictureSpecificObjects/TV" instance=ExtResource("61_ml2e7")]
-transform = Transform3D(0.997231, 0, 0.0743693, 0, 1, 0, -0.0743693, 0, 0.997231, -0.319458, 3.48021, 1.05949)
+transform = Transform3D(0.9816, 0.168944, 0.0889971, -0.17601, 0.981245, 0.0786045, -0.0740482, -0.0928224, 0.992926, -0.177551, 3.56813, 1.03755)
 
 [node name="Skeleton3D" parent="Past/PictureSpecificObjects/TV/Mother_05/Mother" index="0"]
 bones/1/position = Vector3(0.000452791, 0.00409455, 0.00446031)
@@ -5836,10 +5867,10 @@ visible = false
 spot_angle = 10.0
 
 [node name="Mother_06" parent="Past/PictureSpecificObjects/NoorRoomNight" instance=ExtResource("61_ml2e7")]
-transform = Transform3D(-0.11407, 0, 0.993473, 0, 1, 0, -0.993473, 0, -0.11407, -0.955688, 3.45856, -1.53847)
+transform = Transform3D(-0.11407, 0, 0.993473, 0, 1, 0, -0.993473, 0, -0.11407, -0.955688, 3.50043, -1.53847)
 
 [node name="Mother" parent="Past/PictureSpecificObjects/NoorRoomNight/Mother_06" index="0"]
-transform = Transform3D(-98.4534, 17.5195, -1.04424e-06, 0, 5.96047e-06, 100, 17.5195, 98.4534, -5.86828e-06, -0.0689545, 0, -0.648621)
+transform = Transform3D(-73.84, 13.1396, 5.74351e-07, 0, -3.27835e-06, 75, 13.1396, 73.84, 3.22765e-06, -0.0689545, 0, -0.648621)
 
 [node name="Skeleton3D" parent="Past/PictureSpecificObjects/NoorRoomNight/Mother_06/Mother" index="0"]
 bones/1/position = Vector3(-0.000142054, 0.000441019, 0.00928507)
@@ -9472,6 +9503,7 @@ transform = Transform3D(0.00115186, 0, -0.999999, 0, 1, 0, 0.999999, 0, 0.001151
 
 [node name="NoorDoorClosed" parent="Past/ChangingScene" instance=ExtResource("91_pc8rc")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1.8491, 3.5, -1.91973)
+visible = false
 
 [node name="BackDoorClosed" parent="Past/ChangingScene" instance=ExtResource("110_m8m7y")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.349121, 0.5, -5.91973)
@@ -9522,7 +9554,7 @@ dialogue_clips = Array[Resource]([ExtResource("110_jq8ks"), ExtResource("111_tbb
 start_monitoring_list = [NodePath("../../../Present/TriggerVolumes/V03E_LivingRoom")]
 
 [node name="CollisionShape3D" parent="Past/TriggerVolumes/V03_LivingRoom" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.70294, 0.432209, 4.52394)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.47321, 0.432209, 1.8966)
 shape = SubResource("BoxShape3D_mg7jj")
 
 [node name="V04_Hallway" parent="Past/TriggerVolumes" node_paths=PackedStringArray("start_monitoring_list") instance=ExtResource("61_hoger")]
@@ -9619,7 +9651,6 @@ shape = SubResource("BoxShape3D_14nep")
 [editable path="Past/House/Level1/Props/Kitchen/Kitchen_kitchen_cabinets_A/Fridge/Props/Bottle_plastic2"]
 [editable path="Past/House/Level1/Props/Kitchen/Kitchen_kitchen_cabinets_A/Stove/Lamp_wall_fluorescent"]
 [editable path="Past/House/Level1/Props/Kitchen/Kitchen_counter_separate/Lamp_ceiling_cone_A"]
-[editable path="Past/PictureSpecificObjects/Frontyard/Noor_00"]
 [editable path="Past/PictureSpecificObjects/Backyard/Noor_01"]
 [editable path="Past/PictureSpecificObjects/Office/Noor_02"]
 [editable path="Past/PictureSpecificObjects/LivingRoom/Noor_03"]
