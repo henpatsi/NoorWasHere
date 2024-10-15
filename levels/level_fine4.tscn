@@ -1,4 +1,4 @@
-[gd_scene load_steps=147 format=4 uid="uid://8ymkajun4ggs"]
+[gd_scene load_steps=149 format=4 uid="uid://8ymkajun4ggs"]
 
 [ext_resource type="Environment" uid="uid://dobqonwml2e5x" path="res://assets/WorldEnvironments/Env_Present.tres" id="1_1utkg"]
 [ext_resource type="PackedScene" uid="uid://b25ooshew3q2v" path="res://player/player.tscn" id="2_056t5"]
@@ -241,8 +241,8 @@ size = Vector3(2.50783, 10.7489, 1)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_5m5co"]
 shader = ExtResource("124_jt25u")
-shader_parameter/grain_amount = 0.014
-shader_parameter/grain_size = 19.127
+shader_parameter/grain_amount = 0.017
+shader_parameter/grain_size = 35.0
 shader_parameter/distortion_strength = 0.0
 shader_parameter/chromatic_aberration_strength = 0.01
 shader_parameter/aberration_radius = 1.0
@@ -270,15 +270,22 @@ outline_color = Color(0, 0, 0, 1)
 shadow_size = 3
 shadow_color = Color(0, 0, 0, 0.313726)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3jd5m"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_js1bs"]
+material = SubResource("StandardMaterial3D_3jd5m")
+flip_faces = true
+size = Vector2(1000, 1000)
+
 [node name="Level" type="Node3D"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = ExtResource("1_1utkg")
 
 [node name="DirectionalLightPresent" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.258643, 0.811368, -0.5242, -0.653071, 0.546729, 0.524009, 0.71176, 0.206809, 0.671288, 0, 0, 0)
-light_color = Color(1, 0.658824, 0.411765, 1)
-light_energy = 2.082
+transform = Transform3D(0.303201, 0.823825, -0.478937, -0.575654, 0.558873, 0.596895, 0.759402, 0.0947228, 0.643689, 0, 0, 0)
+light_color = Color(0.729865, 0.575408, 0.500683, 1)
+light_energy = 1.25
 light_cull_mask = 4294966271
 shadow_enabled = true
 
@@ -1436,6 +1443,38 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
 [node name="car" parent="Present/LevelObjects" instance=ExtResource("105_081hi")]
 transform = Transform3D(-0.981406, 0, -0.19194, 0, 1, 0, 0.19194, 0, -0.981406, -1.11716, 4.76837e-07, 24.6179)
 
+[node name="OmniLight3D" type="OmniLight3D" parent="Present/LevelObjects/car"]
+transform = Transform3D(1, 0, -8.9407e-08, 0, 1, 0, 8.9407e-08, 0, 1, -0.750395, 0.87389, 2.84262)
+light_color = Color(0.815686, 0.709804, 0.596078, 1)
+light_energy = 3.531
+light_volumetric_fog_energy = 1.5
+shadow_enabled = true
+omni_range = 0.889
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Present/LevelObjects/car/OmniLight3D"]
+transform = Transform3D(-0.994874, 0, 0.101126, 0, 1, 0, -0.101126, 0, -0.994874, 0, -2.38419e-07, 0)
+light_color = Color(0.815079, 0.709208, 0.595649, 1)
+light_energy = 5.737
+light_volumetric_fog_energy = 1.5
+spot_range = 13.389
+spot_angle = 28.42
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="Present/LevelObjects/car"]
+transform = Transform3D(0.984599, 0, 0.174834, 0, 1, 0, -0.174834, 0, 0.984599, 0.694584, 0.87389, 2.80984)
+light_color = Color(0.815686, 0.709804, 0.596078, 1)
+light_energy = 3.531
+light_volumetric_fog_energy = 1.5
+shadow_enabled = true
+omni_range = 0.889
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Present/LevelObjects/car/OmniLight3D2"]
+transform = Transform3D(-0.994874, 0, 0.101126, 0, 1, 0, -0.101126, 0, -0.994874, 0, -2.38419e-07, 0)
+light_color = Color(0.815079, 0.709208, 0.595649, 1)
+light_energy = 5.737
+light_volumetric_fog_energy = 1.5
+spot_range = 10.96
+spot_angle = 28.42
+
 [node name="shed" type="Node3D" parent="Present/LevelObjects"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 12, 0, -16.5)
 
@@ -1749,6 +1788,7 @@ shape = SubResource("BoxShape3D_5y6gq")
 transform = Transform3D(0.492111, 0.0245626, -0.870186, 0.718181, -0.576376, 0.38988, -0.491978, -0.816815, -0.301282, 3.96168, 3.09095, -0.648681)
 
 [node name="Shader" type="ColorRect" parent="."]
+visible = false
 material = SubResource("ShaderMaterial_5m5co")
 anchors_preset = 15
 anchor_right = 1.0
@@ -1857,6 +1897,11 @@ offset_bottom = -97.0
 grow_horizontal = 2
 grow_vertical = 0
 label_settings = SubResource("LabelSettings_certn")
+
+[node name="ShadowCatcher" type="MeshInstance3D" parent="."]
+transform = Transform3D(-1, 2.62268e-07, 0, -2.62268e-07, -1, 0, 0, 0, 1, 0, 43.4957, 73.591)
+visible = false
+mesh = SubResource("PlaneMesh_js1bs")
 
 [editable path="Player"]
 [editable path="Present/LevelObjects/House/Level1/Props/LivingRoom/CeilingFan"]

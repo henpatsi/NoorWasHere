@@ -1,22 +1,27 @@
 [gd_resource type="Environment" load_steps=3 format=3 uid="uid://dobqonwml2e5x"]
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_rbuat"]
-sky_top_color = Color(0.449829, 0.452629, 0.410049, 1)
-sky_horizon_color = Color(0.824757, 0.586713, 0.549907, 1)
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_dfpge"]
+sky_top_color = Color(0.539165, 0.40832, 0.312596, 1)
+sky_horizon_color = Color(0.558492, 0.322771, 0.2267, 1)
+sky_curve = 0.235375
 ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
 
-[sub_resource type="Sky" id="Sky_olqo2"]
-sky_material = SubResource("ProceduralSkyMaterial_rbuat")
+[sub_resource type="Sky" id="Sky_osl22"]
+sky_material = SubResource("ProceduralSkyMaterial_dfpge")
 
 [resource]
 background_mode = 2
-background_energy_multiplier = 0.4
-sky = SubResource("Sky_olqo2")
+background_energy_multiplier = 0.6
+sky = SubResource("Sky_osl22")
+sky_rotation = Vector3(0, 1.15192, 0)
+ambient_light_source = 3
 tonemap_mode = 3
 glow_enabled = true
+glow_bloom = 0.17
 fog_light_color = Color(0.637106, 0.526707, 0.430996, 1)
 fog_density = 0.0054
 volumetric_fog_enabled = true
-volumetric_fog_density = 0.0375
-volumetric_fog_emission = Color(0.332439, 0.22341, 0.164369, 1)
+volumetric_fog_density = 0.0645
+volumetric_fog_emission = Color(0.331601, 0.22307, 0.172412, 1)
+volumetric_fog_emission_energy = 0.3
 volumetric_fog_sky_affect = 0.602
