@@ -22,6 +22,9 @@ extends TextureRect
 @export var nodes_to_show: Array[Node]
 ## Nodes that will be hidden when picture is active and shown when inactive
 @export var nodes_to_hide: Array[Node]
+## Nodes that will only be hidden once exiting the photo.
+## Useful if something is shown through an interaction within the photo.
+@export var nodes_to_hide_on_exit: Array[Node]
 ## Area3D nodes that should start monitoring
 @export var start_monitoring_list: Array[Area3D]
 ## Audio stream player to play audio when scene is entered
@@ -188,8 +191,10 @@ func exit_picture(player: CharacterBody3D, picture_handler: Node) -> void:
 
 	inside_picture = false
 	
-	#show()
-	#get_tree().root.get_child(1).set_present_environment()
+	for node in nodes_to_hide_on_exit:
+		if is_instance_valid(node):
+			node.hide()
+			set_child_collider_states(node, true)
 
 	player.global_position -= world_root.position
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=117 format=4 uid="uid://8ymkajun4ggs"]
+[gd_scene load_steps=121 format=4 uid="uid://8ymkajun4ggs"]
 
 [ext_resource type="Environment" uid="uid://dobqonwml2e5x" path="res://assets/WorldEnvironments/Env_Present.tres" id="1_1utkg"]
 [ext_resource type="Script" path="res://levels/level.gd" id="1_eatkt"]
@@ -43,11 +43,14 @@
 [ext_resource type="Script" path="res://levels/ui/end_sequence.gd" id="55_3cw5q"]
 [ext_resource type="Theme" uid="uid://cbquq6hkpipum" path="res://assets/fonts/Helvetica-Font/helvetica.tres" id="56_4odsg"]
 [ext_resource type="Script" path="res://levels/tutorial.gd" id="57_65ug8"]
+[ext_resource type="ArrayMesh" uid="uid://crbcymi4k36p4" path="res://assets/AtmosphericHouse/Meshes/Meshes_props/extracted/Light_switch.Light_switch.mesh" id="58_66kcy"]
+[ext_resource type="Material" uid="uid://dbk2qa7fympq8" path="res://assets/AtmosphericHouse/Materials/Misc_prop_set_clean.material" id="59_5ykdg"]
+[ext_resource type="Script" path="res://levels/interactables/interactable.gd" id="59_hynrv"]
 [ext_resource type="PackedScene" uid="uid://bkyarvlhmy1iu" path="res://assets/characters/noor_poses.tscn" id="59_sfpfk"]
 [ext_resource type="PackedScene" uid="uid://c5d7tcijs5p06" path="res://assets/characters/agathe/agathe_final_01.tscn" id="60_d3482"]
+[ext_resource type="AudioStream" uid="uid://m3xgq65pqjwl" path="res://assets/audio/sfx/Misc/light switch/Light_On.wav" id="60_fuak1"]
 [ext_resource type="PackedScene" uid="uid://paat7hmvkfo8" path="res://assets/characters/mother/mother_fbx.tscn" id="61_ml2e7"]
 [ext_resource type="PackedScene" uid="uid://dlffobxlcndvl" path="res://assets/AtmosphericHouse/Prefabs/Doors/Door_parent_A_L.prefab.scn" id="91_pc8rc"]
-[ext_resource type="PackedScene" uid="uid://dorg6gkdgutra" path="res://assets/AtmosphericHouse/Prefabs/Props/Miscellaneous/Light_switch.prefab.scn" id="98_r2k0x"]
 [ext_resource type="PackedScene" uid="uid://brtrvnfelp3ux" path="res://assets/props/car/sketchfab_scene.tscn" id="105_081hi"]
 [ext_resource type="PackedScene" uid="uid://bkdujsmnx5mff" path="res://assets/AtmosphericHouse/Prefabs/Props/Furniture/Cabinet_B.prefab.scn" id="105_coir8"]
 [ext_resource type="Script" path="res://addons/yamms/MultiScatter.gd" id="108_vqrjf"]
@@ -245,6 +248,9 @@ size = Vector2(400, 400)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_rkybf"]
 size = Vector2(400, 200)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_daimo"]
+size = Vector3(0.14008, 0.172501, 0.0877145)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_05igh"]
 size = Vector3(9.7627, 5.12244, 0.553589)
@@ -563,7 +569,7 @@ picture = NodePath("../../HallwayUpstairPicture")
 
 [node name="5_TV" type="Node" parent="Pictures"]
 
-[node name="TVPicture" type="TextureRect" parent="Pictures/5_TV" node_paths=PackedStringArray("camera", "world_root", "nodes_to_show")]
+[node name="TVPicture" type="TextureRect" parent="Pictures/5_TV" node_paths=PackedStringArray("camera", "world_root", "nodes_to_show", "nodes_to_hide")]
 visible = false
 clip_contents = true
 anchors_preset = 15
@@ -582,6 +588,7 @@ script = ExtResource("43_f2no6")
 camera = NodePath("../SubViewport/PortalCamera")
 world_root = NodePath("../../../Past")
 nodes_to_show = [NodePath("../../../Past/PictureSpecificObjects/TV")]
+nodes_to_hide = [NodePath("../../../Past/ChangingScene/NoorDoorClosed")]
 ambientAS = ExtResource("44_deav4")
 
 [node name="SubViewport" type="SubViewport" parent="Pictures/5_TV"]
@@ -607,7 +614,7 @@ picture = NodePath("../../TVPicture")
 
 [node name="6_7_NoorRoomNight" type="Node" parent="Pictures"]
 
-[node name="NoorRoomNightPicture" type="TextureRect" parent="Pictures/6_7_NoorRoomNight" node_paths=PackedStringArray("camera", "world_root", "nodes_to_show")]
+[node name="NoorRoomNightPicture" type="TextureRect" parent="Pictures/6_7_NoorRoomNight" node_paths=PackedStringArray("camera", "world_root", "nodes_to_show", "nodes_to_hide", "nodes_to_hide_on_exit")]
 visible = false
 clip_contents = true
 anchors_preset = 15
@@ -626,6 +633,8 @@ script = ExtResource("43_f2no6")
 camera = NodePath("../SubViewport/PortalCamera")
 world_root = NodePath("../../../Past")
 nodes_to_show = [NodePath("../../../Past/PictureSpecificObjects/NoorRoomNight")]
+nodes_to_hide = [NodePath("../../../Past/ChangingScene/NoorDoorClosed")]
+nodes_to_hide_on_exit = [NodePath("../../../Past/PictureSpecificObjects/NoorRoomDay")]
 ambientAS = ExtResource("48_4trxr")
 
 [node name="SubViewport" type="SubViewport" parent="Pictures/6_7_NoorRoomNight"]
@@ -1010,18 +1019,8 @@ transform = Transform3D(-0.981406, 0, -0.19194, 0, 1, 0, 0.19194, 0, -0.981406, 
 
 [node name="Shed" parent="Present" instance=ExtResource("26_ssg50")]
 
-[node name="Interactables" type="Node3D" parent="Present"]
-
-[node name="Light_switch" parent="Present/Interactables" instance=ExtResource("98_r2k0x")]
-transform = Transform3D(1.94707e-07, 0, -1, 0, 1, 0, 1, 0, 1.94707e-07, -1.96481, 4.79474, -0.51291)
-
-[node name="Cabinet_B" parent="Present/Interactables" instance=ExtResource("105_coir8")]
-transform = Transform3D(1, 0, 2.38419e-07, 0, 1, 0, -2.38419e-07, 0, 1, 0.00419585, 3.5, -5.43668)
-
-[node name="Door_parent_A_L" parent="Present/Interactables" instance=ExtResource("91_pc8rc")]
-transform = Transform3D(-1, 0, 2.38498e-08, 0, 1, 0, -2.38498e-08, 0, -1, -1.8491, 3.5, -1.91973)
-
 [node name="Forest" type="Node3D" parent="Present"]
+visible = false
 
 [node name="MultiScatter" type="Path3D" parent="Present/Forest"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000805497, 13.8305, -0.00707054)
@@ -1104,6 +1103,14 @@ skeleton = NodePath("")
 transform = Transform3D(0.996909, 0.0763344, -0.0182566, -0.0763524, 0.997079, -0.000314265, 0.0181793, 0.00170188, 0.999827, 0.306956, 4.88568, -0.00255013)
 shape = SubResource("BoxShape3D_5y6gq")
 
+[node name="ChangingScene" type="Node3D" parent="Present"]
+
+[node name="Cabinet_B" parent="Present/ChangingScene" instance=ExtResource("105_coir8")]
+transform = Transform3D(1, 0, 2.38419e-07, 0, 1, 0, -2.38419e-07, 0, 1, 0.00419585, 3.5, -5.43668)
+
+[node name="Door_parent_A_L" parent="Present/ChangingScene" instance=ExtResource("91_pc8rc")]
+transform = Transform3D(-1, 0, 2.38498e-08, 0, 1, 0, -2.38498e-08, 0, -1, -1.8491, 3.5, -1.91973)
+
 [node name="Past" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1000, 0, 0)
 
@@ -1147,6 +1154,9 @@ size = Vector3(350, 1, 350)
 
 [node name="House" parent="Past" instance=ExtResource("24_sg2mp")]
 
+[node name="Light_switch" parent="Past/House/Level2/Props/Noor\'s room" index="2"]
+visible = false
+
 [node name="Lights" parent="Past/House/Level2" index="6"]
 visible = false
 
@@ -1158,17 +1168,6 @@ visible = false
 transform = Transform3D(-0.981406, 0, -0.19194, 0, 1, 0, 0.19194, 0, -0.981406, -1.11716, 4.76837e-07, 24.6179)
 
 [node name="Shed" parent="Past" instance=ExtResource("26_ssg50")]
-
-[node name="Interactables" type="Node3D" parent="Past"]
-
-[node name="Light_switch" parent="Past/Interactables" instance=ExtResource("98_r2k0x")]
-transform = Transform3D(1.94707e-07, 0, -1, 0, 1, 0, 1, 0, 1.94707e-07, -1.96481, 4.79474, -0.51291)
-
-[node name="Cabinet_B" parent="Past/Interactables" instance=ExtResource("105_coir8")]
-transform = Transform3D(1, 0, 2.38419e-07, 0, 1, 0, -2.38419e-07, 0, 1, 0.00419585, 3.5, -5.43668)
-
-[node name="Door_parent_A_L" parent="Past/Interactables" instance=ExtResource("91_pc8rc")]
-transform = Transform3D(-1, 0, 2.38498e-08, 0, 1, 0, -2.38498e-08, 0, -1, -1.8491, 3.5, -1.91973)
 
 [node name="Forest" type="Node3D" parent="Past"]
 visible = false
@@ -1241,6 +1240,38 @@ transform = Transform3D(9, 0, 0, 0, 0, -4.5, 0, 9, 0, 16.5153, 4.13525, 9.30077)
 material_override = SubResource("StandardMaterial3D_efus5")
 mesh = SubResource("ArrayMesh_2k6c1")
 skeleton = NodePath("")
+
+[node name="Interactables" type="Node3D" parent="Past"]
+
+[node name="Light_switch" type="Node3D" parent="Past/Interactables"]
+transform = Transform3D(1.94707e-07, 0, -1, 0, 1, 0, 1, 0, 1.94707e-07, -1.96481, 4.79474, -0.51291)
+
+[node name="MeshRenderer" type="MeshInstance3D" parent="Past/Interactables/Light_switch"]
+mesh = ExtResource("58_66kcy")
+surface_material_override/0 = ExtResource("59_5ykdg")
+
+[node name="LightSwitchCollider" type="StaticBody3D" parent="Past/Interactables/Light_switch" node_paths=PackedStringArray("interact_stream_player", "nodes_to_show", "nodes_to_hide")]
+script = ExtResource("59_hynrv")
+item_name = "light switch"
+one_shot = false
+interact_stream_player = NodePath("../AudioStreamPlayer3D")
+interact_audio_stream = ExtResource("60_fuak1")
+nodes_to_show = [NodePath("../../../PictureSpecificObjects/NoorRoomDay")]
+nodes_to_hide = [NodePath("../../../PictureSpecificObjects/NoorRoomNight")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Past/Interactables/Light_switch/LightSwitchCollider"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00222546, -0.00519562, 0.0288086)
+shape = SubResource("BoxShape3D_daimo")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Past/Interactables/Light_switch"]
+
+[node name="Cabinet_B" parent="Past/Interactables" instance=ExtResource("105_coir8")]
+transform = Transform3D(1, 0, 2.38419e-07, 0, 1, 0, -2.38419e-07, 0, 1, 0.00419585, 3.5, -5.43668)
+
+[node name="ChangingScene" type="Node3D" parent="Past"]
+
+[node name="NoorDoorClosed" parent="Past/ChangingScene" instance=ExtResource("91_pc8rc")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1.8491, 3.5, -1.91973)
 
 [node name="PictureSpecificObjects" type="Node3D" parent="Past"]
 
@@ -4963,6 +4994,9 @@ bones/405/position = Vector3(2.23517e-10, -1.02445e-10, 1.74623e-10)
 bones/408/position = Vector3(0.00590444, -0.00286572, 0.00244043)
 bones/408/rotation = Quaternion(-0.246738, 0.135754, 0.0781005, 0.956343)
 
+[node name="NoorDoorAjar" parent="Past/PictureSpecificObjects/TV" instance=ExtResource("91_pc8rc")]
+transform = Transform3D(-0.426395, 0, 0.904537, 0, 1, 0, -0.904537, 0, -0.426395, -1.84912, 3.5, -1.91973)
+
 [node name="NoorRoomNight" type="Node3D" parent="Past/PictureSpecificObjects"]
 visible = false
 
@@ -5505,7 +5539,7 @@ surface_material_override/8 = null
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.99835, 3.86179, 0.325108)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Past/PictureSpecificObjects/NoorRoomNight/NightStaticBody3D"]
-transform = Transform3D(0.990418, 0, 0.138101, 0, 1, 0, -0.138101, 0, 0.990418, 1.19763, 0.889984, -1.50806)
+transform = Transform3D(0.999978, 0, 0.00656195, 0, 1, 0, -0.00656195, 0, 0.999978, 1.11304, 0.889984, -1.50806)
 shape = SubResource("BoxShape3D_6qa1d")
 disabled = true
 
@@ -5954,11 +5988,14 @@ bones/405/position = Vector3(4.3047e-11, 1.67638e-10, -6.89179e-10)
 bones/408/position = Vector3(0.0069962, -0.00358452, 0.00540097)
 bones/408/rotation = Quaternion(0.0658247, -0.0583926, 0.139758, 0.986268)
 
+[node name="NoorDoorAjar" parent="Past/PictureSpecificObjects/NoorRoomNight" instance=ExtResource("91_pc8rc")]
+transform = Transform3D(-0.788612, 0, 0.614891, 0, 1, 0, -0.614891, 0, -0.788612, -1.84912, 3.5, -1.91973)
+
 [node name="NoorRoomDay" type="Node3D" parent="Past/PictureSpecificObjects"]
 visible = false
 
 [node name="SpotLight3D2" type="SpotLight3D" parent="Past/PictureSpecificObjects/NoorRoomDay"]
-transform = Transform3D(-0.0414675, 0.334547, 0.941466, 0.999031, -3.72349e-09, 0.044003, 0.0147211, 0.942379, -0.334223, 3.68683, 6.03813, -4.1001)
+transform = Transform3D(-0.0414675, 0.334547, 0.941466, 0.999031, -2.6984e-08, 0.044003, 0.0147211, 0.942379, -0.334223, -1.20135, 4.90278, -2.26159)
 light_color = Color(1, 0.972549, 0.862745, 1)
 shadow_enabled = true
 spot_range = 7.746
@@ -5967,11 +6004,11 @@ spot_range = 7.746
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.20844, 4.82809, -2.07524)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Past/PictureSpecificObjects/NoorRoomDay/DayStaticBody3D"]
-transform = Transform3D(0.974652, 0, 0.223726, 0, 1, 0, -0.223726, 0, 0.974652, 1.35999, 0.889984, -1.50806)
+transform = Transform3D(0.974652, 0, 0.223726, 0, 1, 0, -0.223726, 0, 0.974652, -2.70978, 0.214841, 1.60946)
 shape = SubResource("BoxShape3D_6qa1d")
 
 [node name="Noor_07" parent="Past/PictureSpecificObjects/NoorRoomDay" instance=ExtResource("59_sfpfk")]
-transform = Transform3D(-0.647887, -0.0950157, 0.945365, -0.0861122, 1.1454, 0.0561051, -0.946217, -0.0391807, -0.652409, 0.150391, 4.24088, -3.05192)
+transform = Transform3D(-0.647887, -0.0950157, 0.945365, -0.0861122, 1.1454, 0.0561051, -0.946217, -0.0391807, -0.652409, -5.21692, 3.53245, -0.875542)
 
 [node name="Skeleton3D" parent="Past/PictureSpecificObjects/NoorRoomDay/Noor_07/rig_001" index="0"]
 bones/1/position = Vector3(-0.602138, 3.96645, 62.6772)
@@ -6488,20 +6525,13 @@ bones/408/rotation = Quaternion(-0.703806, 0.00132382, -0.000995949, 0.710391)
 surface_material_override/2 = null
 surface_material_override/8 = null
 
-[node name="PhotoSpotlight" type="SpotLight3D" parent="Past/PictureSpecificObjects/NoorRoomDay"]
-transform = Transform3D(0.99889, -2.05909e-09, 0.0471064, -0.0471064, -4.36629e-08, 0.99889, 0, -1, -4.37114e-08, -0.682556, 5.79852, -0.887459)
-visible = false
-spot_range = 1.0
-spot_angle = 15.0
-
 [node name="OmniLight3D" type="OmniLight3D" parent="Past/PictureSpecificObjects/NoorRoomDay"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 7.26396, -2.43939)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.96796, 5.99511, -0.119621)
 shadow_enabled = true
 shadow_opacity = 0.85
 
-[node name="CSGBox3D" type="CSGBox3D" parent="Past/PictureSpecificObjects/NoorRoomDay"]
-transform = Transform3D(0.359545, -0.428961, -0.828686, 0.12496, 0.902208, -0.412802, 0.924723, 0.0448686, 0.377987, 0.299744, 5.46546, -3.23494)
-size = Vector3(0.214661, 0.00393677, 0.339966)
+[node name="NoorDoorAjar" parent="Past/PictureSpecificObjects/NoorRoomDay" instance=ExtResource("91_pc8rc")]
+transform = Transform3D(-0.788612, 0, 0.614891, 0, 1, 0, -0.614891, 0, -0.788612, -1.84912, 3.5, -1.91973)
 
 [node name="FrontDoor" type="Node3D" parent="Past/PictureSpecificObjects"]
 visible = false

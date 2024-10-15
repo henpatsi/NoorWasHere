@@ -202,12 +202,15 @@ func interact_input() -> void:
 		interacting_object = null
 		return
 
-	if not ray_collision_object or not ray_collision_object.has_method("interact"):
-		print("Did not hit an interactable")
+	if not ray_collision_object:
+		print("Did not hit anything")
+		return
+	if not ray_collision_object.has_method("interact"):
+		print("Hit object not interactable: ", ray_collision_object.name)
 		return
 
 	if ray_collision_object.one_shot and ray_collision_object.interacted_with:
-		print("One shot, already interacted")
+		print("One shot, already interacted with", ray_collision_object.name)
 		return
 
 	interacting_object = ray_collision_object.interact(self)
