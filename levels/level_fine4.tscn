@@ -1,4 +1,4 @@
-[gd_scene load_steps=216 format=4 uid="uid://8ymkajun4ggs"]
+[gd_scene load_steps=218 format=4 uid="uid://8ymkajun4ggs"]
 
 [ext_resource type="Script" path="res://levels/level.gd" id="1_eatkt"]
 [ext_resource type="Material" uid="uid://5evkxbd1ekxy" path="res://assets/textures/forest_floor/forest ground/M_forest_ground.tres" id="8_cq1kr"]
@@ -26,6 +26,7 @@
 [ext_resource type="ArrayMesh" uid="uid://crbcymi4k36p4" path="res://assets/AtmosphericHouse/Meshes/Meshes_props/extracted/Light_switch.Light_switch.mesh" id="58_66kcy"]
 [ext_resource type="Material" uid="uid://dbk2qa7fympq8" path="res://assets/AtmosphericHouse/Materials/Misc_prop_set_clean.material" id="59_5ykdg"]
 [ext_resource type="Script" path="res://levels/interactables/interactable.gd" id="59_hynrv"]
+[ext_resource type="Material" uid="uid://boo7h7nmywbn4" path="res://assets/AtmosphericHouse/Materials/CeilingFan_off_clean.material" id="59_mp6qk"]
 [ext_resource type="PackedScene" uid="uid://bkyarvlhmy1iu" path="res://assets/characters/noor_poses.tscn" id="59_sfpfk"]
 [ext_resource type="PackedScene" uid="uid://c5d7tcijs5p06" path="res://assets/characters/agathe/agathe_final_01.tscn" id="60_d3482"]
 [ext_resource type="AudioStream" uid="uid://m3xgq65pqjwl" path="res://assets/audio/sfx/Misc/light switch/Light_On.wav" id="60_fuak1"]
@@ -259,7 +260,7 @@ size = Vector2(400, 400)
 size = Vector2(400, 200)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_05igh"]
-size = Vector3(9.7627, 5.12244, 0.553589)
+size = Vector3(9.7627, 5.12244, 0.205505)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_elmpk"]
 size = Vector3(9.7627, 5.12244, 0.553589)
@@ -303,14 +304,17 @@ size = Vector3(2.34192, 4.36621, 3.89796)
 [sub_resource type="BoxShape3D" id="BoxShape3D_ig375"]
 size = Vector3(7.30566, 4.36621, 0.223633)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_v3tki"]
-size = Vector3(3.73755, 2.74072, 0.236206)
+[sub_resource type="BoxShape3D" id="BoxShape3D_bfuob"]
+size = Vector3(5.06262, 2.74072, 0.236206)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_aed62"]
-size = Vector3(3.99664, 3.71252, 1.56549)
+size = Vector3(4.04141, 3.71252, 1.24007)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_1e8ie"]
-size = Vector3(2.50644, 2.74072, 2.54352)
+[sub_resource type="BoxShape3D" id="BoxShape3D_xkipa"]
+size = Vector3(0.603802, 2.18872, 2.54352)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6t4wj"]
+size = Vector3(0.603802, 2.18872, 2.54352)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_6qa1d"]
 size = Vector3(0.128784, 3.04449, 4.01611)
@@ -865,14 +869,13 @@ ambientAS = ExtResource("44_deav4")
 size = Vector2i(1280, 720)
 
 [node name="PortalCamera" type="Camera3D" parent="Pictures/5_TV/SubViewport"]
-transform = Transform3D(-0.760587, -0.0283192, 0.648618, -1.56719e-09, 0.999048, 0.0436194, -0.649236, 0.0331763, -0.759863, 1002.4, 5, -2.0044)
+transform = Transform3D(-0.795959, -0.0696213, 0.601334, -0.0060795, 0.994234, 0.107063, -0.605321, 0.0815622, -0.791792, 1002.44, 4.99931, -2.08213)
 cull_mask = 1048063
 environment = ExtResource("45_dt783")
 attributes = SubResource("CameraAttributesPractical_1i0ad")
 fov = 65.0
 
 [node name="ColorRect" parent="Pictures/5_TV/SubViewport/PortalCamera" instance=ExtResource("46_oe0we")]
-visible = false
 
 [node name="Shader" parent="Pictures/5_TV/SubViewport/PortalCamera" instance=ExtResource("8_hm01e")]
 
@@ -1492,6 +1495,9 @@ size = Vector3(350, 1, 350)
 
 [node name="House" parent="Past" instance=ExtResource("24_sg2mp")]
 
+[node name="MeshRenderer" parent="Past/House/Level1/Props/LivingRoom/CeilingFan/CeilingFan_Lamps" index="0"]
+surface_material_override/0 = ExtResource("59_mp6qk")
+
 [node name="Point Light CeilingFan" parent="Past/House/Level1/Props/LivingRoom/CeilingFan" index="4"]
 visible = false
 
@@ -1534,7 +1540,7 @@ visible = false
 
 [node name="SpotLight3D" type="SpotLight3D" parent="Past/PictureSpecificObjects/Frontyard"]
 transform = Transform3D(0.166594, 0.102562, 0.980677, -0.00745055, 0.994678, -0.102761, -0.985997, 0.00981274, 0.166472, 6.81915, 3.13207, 10.421)
-light_color = Color(0.906105, 0.812688, 0.725005, 1)
+light_color = Color(0.856581, 0.728477, 0.606637, 1)
 light_energy = 0.985
 light_volumetric_fog_energy = 0.5
 light_size = 0.006
@@ -1585,7 +1591,7 @@ shape = SubResource("BoxShape3D_05igh")
 disabled = true
 
 [node name="CollisionShape3D5" type="CollisionShape3D" parent="Past/PictureSpecificObjects/Frontyard/StaticBody3D"]
-transform = Transform3D(0.418818, 0, -0.90807, 0, 1, 0, 0.90807, 0, 0.418818, 5.76617, 2.37244, 12.1869)
+transform = Transform3D(0.265388, 0, -0.964142, 0, 1, 0, 0.964142, 0, 0.265388, 6.755, 2.37244, 12.136)
 shape = SubResource("BoxShape3D_05igh")
 disabled = true
 
@@ -3995,7 +4001,6 @@ bones/115/position = Vector3(0.00018839, 0.00121788, 0.000259495)
 bones/115/rotation = Quaternion(-0.479977, -0.280459, -0.649319, 0.518989)
 bones/116/position = Vector3(3.02359e-05, 0.00162365, -0.000281984)
 bones/116/rotation = Quaternion(0.266099, 0.541923, 0.509701, 0.612956)
-bones/116/scale = Vector3(1, 1, 1)
 bones/117/rotation = Quaternion(0.334183, 0.0220281, -0.108875, 0.935939)
 bones/118/rotation = Quaternion(-0.0836382, -0.006642, -0.018062, 0.99631)
 bones/122/position = Vector3(5.51196e-05, -9.76153e-05, 7.19392e-05)
@@ -4004,7 +4009,6 @@ bones/123/rotation = Quaternion(-1.86266e-08, -0.00332782, -9.87208e-08, 0.99999
 bones/125/position = Vector3(-0.000800716, -0.000201439, 0.000174051)
 bones/125/rotation = Quaternion(-1.91853e-07, -7.22706e-07, -7.6741e-07, 1)
 bones/126/rotation = Quaternion(1.02721e-08, 0.0731831, 1.0739e-08, 0.997319)
-bones/126/scale = Vector3(1, 1, 1)
 bones/129/position = Vector3(-0.000181007, 0.0015791, 0.000286241)
 bones/129/rotation = Quaternion(-0.744985, -0.170878, -0.31641, 0.561857)
 bones/129/scale = Vector3(1, 1, 0.999999)
@@ -4021,13 +4025,10 @@ bones/137/rotation = Quaternion(0.00454262, -2.70352e-08, -5.60557e-09, 0.99999)
 bones/137/scale = Vector3(0.996864, 0.996864, 0.996864)
 bones/138/position = Vector3(3.02359e-05, 0.00162365, -0.000281984)
 bones/138/rotation = Quaternion(-0.0658417, 0.592979, 0.0608231, 0.800213)
-bones/138/scale = Vector3(1, 1, 1)
 bones/139/position = Vector3(-0.000646737, -0.000158972, -1.65313e-05)
 bones/139/rotation = Quaternion(-3.25963e-09, 4.00469e-08, -2.98023e-08, 1)
-bones/139/scale = Vector3(1, 1, 1)
 bones/140/position = Vector3(3.02359e-05, 0.00162365, -0.000281984)
 bones/140/rotation = Quaternion(-0.236074, 0.458438, -0.277453, 0.810631)
-bones/140/scale = Vector3(1, 1, 1)
 bones/141/rotation = Quaternion(1.09782e-07, -0.0465257, 5.04392e-07, 0.998917)
 bones/142/position = Vector3(-8.91129e-09, 0.00111728, -3.65694e-08)
 bones/142/rotation = Quaternion(0.341255, -0.0465258, -0.0841259, 0.935042)
@@ -4035,7 +4036,6 @@ bones/142/scale = Vector3(1, 1, 1)
 bones/143/rotation = Quaternion(-2.4587e-07, -0.00317094, -3.8557e-07, 0.999995)
 bones/144/position = Vector3(-3.63383e-07, 0.00124233, -1.40616e-07)
 bones/144/rotation = Quaternion(-0.138778, -0.154359, 0.135913, 0.968732)
-bones/144/scale = Vector3(0.999999, 1, 1)
 bones/146/position = Vector3(-1.49012e-09, 0.000641191, -1.11293e-09)
 bones/146/rotation = Quaternion(0.474013, 0.310099, 0.0965566, 0.81843)
 bones/146/scale = Vector3(1, 1, 1)
@@ -4322,6 +4322,7 @@ bones/408/position = Vector3(0.00616905, -0.00365488, 0.00439994)
 bones/408/rotation = Quaternion(0.0828449, 0.0102829, 0.122747, 0.988921)
 
 [node name="TV" type="Node3D" parent="Past/PictureSpecificObjects"]
+visible = false
 
 [node name="SpotLight3D" type="SpotLight3D" parent="Past/PictureSpecificObjects/TV"]
 transform = Transform3D(0.981072, 0.0636328, 0.182888, -0.138552, 0.890483, 0.433409, -0.13528, -0.450545, 0.882445, 1.15784, 5.26911, 3.8969)
@@ -4355,18 +4356,23 @@ omni_range = 6.838
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.00153, 4.82809, -0.476687)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Past/PictureSpecificObjects/TV/StaticBody3D"]
-transform = Transform3D(0.0323353, 0, -0.999477, 0, 1, 0, 0.999477, 0, 0.0323353, -7.97961, 0.097044, -0.89946)
-shape = SubResource("BoxShape3D_v3tki")
+transform = Transform3D(0.503759, 0, -0.863844, 0, 1, 0, 0.863844, 0, 0.503759, -9.27344, 0.097044, -0.236161)
+shape = SubResource("BoxShape3D_bfuob")
 disabled = true
 
 [node name="CollisionShape3D3" type="CollisionShape3D" parent="Past/PictureSpecificObjects/TV/StaticBody3D"]
-transform = Transform3D(-0.0401494, 0, 0.999194, 0, 1, 0, -0.999194, 0, -0.0401494, -1.96002, 0.384459, -0.337025)
+transform = Transform3D(-0.0401494, 0, 0.999194, 0, 1, 0, -0.999194, 0, -0.0401494, -2.02905, 0.384459, -0.527189)
 shape = SubResource("BoxShape3D_aed62")
 disabled = true
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="Past/PictureSpecificObjects/TV/StaticBody3D"]
-transform = Transform3D(0.00383946, 0, -0.999992, 0, 1, 0, 0.999992, 0, 0.00383946, -4.85425, 0.0909619, -3.58571)
-shape = SubResource("BoxShape3D_1e8ie")
+transform = Transform3D(0.00383946, 0, -0.999992, 0, 1, 0, 0.999992, 0, 0.00383946, -4.85364, -0.185039, -2.70676)
+shape = SubResource("BoxShape3D_xkipa")
+disabled = true
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="Past/PictureSpecificObjects/TV/StaticBody3D"]
+transform = Transform3D(0.00383946, 0, -0.999992, 0, 1, 0, 0.999992, 0, 0.00383946, -3.21594, -0.185039, 6.10251)
+shape = SubResource("BoxShape3D_6t4wj")
 disabled = true
 
 [node name="Noor_05" parent="Past/PictureSpecificObjects/TV" instance=ExtResource("59_sfpfk")]
@@ -5314,17 +5320,34 @@ transform = Transform3D(-0.426395, 0, 0.904537, 0, 1, 0, -0.904537, 0, -0.426395
 visible = false
 
 [node name="SpotLight3D2" type="SpotLight3D" parent="Past/PictureSpecificObjects/NoorRoomNight"]
-transform = Transform3D(-0.044003, 0.00167543, 0.99903, 0.999031, -2.85604e-08, 0.044003, 7.37524e-05, 0.999999, -0.0016738, -0.459717, 4.72171, -1.03073)
-light_color = Color(1, 0.972549, 0.862745, 1)
+transform = Transform3D(-0.338425, -0.0104309, 0.940935, 0.940972, 0.00298106, 0.338472, -0.00633552, 0.999941, 0.00880628, -0.0892944, 5.65754, -1.01618)
+light_color = Color(0.990615, 0.90889, 0.794905, 1)
+light_energy = 4.141
 shadow_enabled = true
 spot_range = 7.746
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Past/PictureSpecificObjects/NoorRoomNight"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.50446, 4.16139, 2.12987)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.33356, 4.44157, 2.12987)
 light_color = Color(0.764706, 1, 1, 1)
-light_energy = 0.02
+light_energy = 0.05
 shadow_enabled = true
-omni_range = 0.957
+omni_range = 1.226
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="Past/PictureSpecificObjects/NoorRoomNight"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.5257, 5.2603, 1.20608)
+light_color = Color(0.764706, 1, 1, 1)
+light_energy = 0.018
+light_specular = 0.0
+shadow_enabled = true
+omni_range = 6.604
+
+[node name="OmniLight3D3" type="OmniLight3D" parent="Past/PictureSpecificObjects/NoorRoomNight"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.24091, 5.2603, -1.47769)
+light_color = Color(0.970616, 0.835981, 0.737803, 1)
+light_energy = 0.05
+light_specular = 0.0
+shadow_enabled = true
+omni_range = 4.827
 
 [node name="Noor_06" parent="Past/PictureSpecificObjects/NoorRoomNight" instance=ExtResource("59_sfpfk")]
 transform = Transform3D(0.0697276, 0.0613885, -1.14624, -0.0861122, 1.1454, 0.056105, 1.14465, 0.082429, 0.0740452, -5.75409, 4.11165, 1.7838)
@@ -5844,30 +5867,32 @@ bones/403/rotation = Quaternion(3.86499e-08, 1.16415e-08, 3.25963e-09, 1)
 bones/408/position = Vector3(56.9994, -27.4233, -29.0958)
 bones/408/rotation = Quaternion(-0.0621233, -0.074052, 0.454045, 0.88572)
 
-[node name="Body_004" parent="Past/PictureSpecificObjects/NoorRoomNight/Noor_06/rig_001/Skeleton3D" index="1"]
-surface_material_override/2 = null
-surface_material_override/8 = null
-
 [node name="NightStaticBody3D" type="StaticBody3D" parent="Past/PictureSpecificObjects/NoorRoomNight"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.99835, 3.86179, 0.325108)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Past/PictureSpecificObjects/NoorRoomNight/NightStaticBody3D"]
-transform = Transform3D(0.999978, 0, 0.00656195, 0, 1, 0, -0.00656195, 0, 0.999978, 1.11304, 0.889984, -1.50806)
+transform = Transform3D(0.999978, 0, 0.00656195, 0, 1, 0, -0.00656195, 0, 0.999978, 1.13617, 0.889984, -1.50806)
 shape = SubResource("BoxShape3D_6qa1d")
 disabled = true
 
 [node name="TimeCapsuleSpotlight" type="SpotLight3D" parent="Past/PictureSpecificObjects/NoorRoomNight"]
-transform = Transform3D(0.997143, -3.30177e-09, 0.0755356, -0.0755356, -4.35865e-08, 0.997143, 0, -1, -4.37114e-08, -6.8028, 5.87537, -0.979087)
+transform = Transform3D(0.705406, 0.595159, 0.384951, -0.479029, -9.54745e-08, 0.877799, 0.52243, -0.803608, 0.285098, -5.92133, 6.17984, -1.16901)
 visible = false
-spot_angle = 20.0
+light_energy = 2.08
+light_volumetric_fog_energy = 4.0
+shadow_enabled = true
+spot_angle = 15.74
 
 [node name="LightSwitchSpotlight" type="SpotLight3D" parent="Past/PictureSpecificObjects/NoorRoomNight"]
-transform = Transform3D(0.892468, 1.97187e-08, -0.451111, 0.451111, -3.9011e-08, 0.892468, 0, -1, -4.37114e-08, -2.38495, 5.77474, -0.506849)
+transform = Transform3D(0.783705, 2.71506e-08, -0.621134, 0.621134, -3.42568e-08, 0.783705, 0, -1, -4.37114e-08, -3.11975, 6.15125, -0.483816)
 visible = false
+light_energy = 2.883
+light_volumetric_fog_energy = 4.0
 spot_angle = 10.0
+spot_angle_attenuation = 1.68179
 
 [node name="Mother_06" parent="Past/PictureSpecificObjects/NoorRoomNight" instance=ExtResource("61_ml2e7")]
-transform = Transform3D(-0.11407, 0, 0.993473, 0, 1, 0, -0.993473, 0, -0.11407, -0.955688, 3.50043, -1.53847)
+transform = Transform3D(0.0232809, 0, 0.999729, 0, 1, 0, -0.999729, 0, 0.0232809, -0.822388, 3.50043, -1.11389)
 
 [node name="Mother" parent="Past/PictureSpecificObjects/NoorRoomNight/Mother_06" index="0"]
 transform = Transform3D(-73.84, 13.1396, 5.74351e-07, 0, -3.27835e-06, 75, 13.1396, 73.84, 3.22765e-06, -0.0689545, 0, -0.648621)
@@ -6307,21 +6332,15 @@ transform = Transform3D(-0.788612, 0, 0.614891, 0, 1, 0, -0.614891, 0, -0.788612
 [node name="NoorRoomDay" type="Node3D" parent="Past/PictureSpecificObjects"]
 visible = false
 
-[node name="SpotLight3D2" type="SpotLight3D" parent="Past/PictureSpecificObjects/NoorRoomDay"]
-transform = Transform3D(-0.0414675, 0.334547, 0.941466, 0.999031, -2.6984e-08, 0.044003, 0.0147211, 0.942379, -0.334223, -1.20135, 4.90278, -2.26159)
-light_color = Color(1, 0.972549, 0.862745, 1)
-shadow_enabled = true
-spot_range = 7.746
-
 [node name="DayStaticBody3D" type="StaticBody3D" parent="Past/PictureSpecificObjects/NoorRoomDay"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.20844, 4.82809, -2.07524)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Past/PictureSpecificObjects/NoorRoomDay/DayStaticBody3D"]
-transform = Transform3D(0.974652, 0, 0.223726, 0, 1, 0, -0.223726, 0, 0.974652, -2.70978, 0.214841, 1.60946)
+transform = Transform3D(0.999972, 0, -0.0075402, 0, 1, 0, 0.0075402, 0, 0.999972, -2.96198, 0.214841, 1.60946)
 shape = SubResource("BoxShape3D_6qa1d")
 
 [node name="Noor_07" parent="Past/PictureSpecificObjects/NoorRoomDay" instance=ExtResource("59_sfpfk")]
-transform = Transform3D(-0.647887, -0.0950157, 0.945365, -0.0861122, 1.1454, 0.0561051, -0.946217, -0.0391807, -0.652409, -5.21692, 3.53245, -0.875542)
+transform = Transform3D(-0.843564, -0.0955767, 0.775735, -0.096662, 1.14537, 0.0360039, -0.7756, -0.0387935, -0.848198, -4.96219, 3.50904, -0.594859)
 
 [node name="Skeleton3D" parent="Past/PictureSpecificObjects/NoorRoomDay/Noor_07/rig_001" index="0"]
 bones/1/position = Vector3(-0.602138, 3.96645, 62.6772)
@@ -6834,20 +6853,64 @@ bones/406/rotation = Quaternion(0.899909, -0.104408, 0.022235, 0.422809)
 bones/408/position = Vector3(-2.88239, 32.7466, 56.8079)
 bones/408/rotation = Quaternion(-0.703806, 0.00132382, -0.000995949, 0.710391)
 
-[node name="Body_004" parent="Past/PictureSpecificObjects/NoorRoomDay/Noor_07/rig_001/Skeleton3D" index="1"]
-surface_material_override/2 = null
-surface_material_override/8 = null
-
 [node name="OmniLight3D" type="OmniLight3D" parent="Past/PictureSpecificObjects/NoorRoomDay"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.96796, 5.99511, -0.119621)
-shadow_enabled = true
-shadow_opacity = 0.85
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.59076, 4.96695, 0.684258)
+light_color = Color(0.92115, 0.88317, 0.856189, 1)
+light_energy = 0.1
+shadow_opacity = 0.33
+omni_range = 3.324
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="Past/PictureSpecificObjects/NoorRoomDay"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.85535, 5.08634, -1.33887)
+light_color = Color(0.933333, 0.858824, 0.74902, 1)
+light_energy = 0.15
+shadow_opacity = 0.33
+omni_range = 7.52
 
 [node name="NoorDoorAjar" parent="Past/PictureSpecificObjects/NoorRoomDay" instance=ExtResource("91_pc8rc")]
 transform = Transform3D(-0.788612, 0, 0.614891, 0, 1, 0, -0.614891, 0, -0.788612, -1.84912, 3.5, -1.91973)
 
-[node name="FrontDoor" type="Node3D" parent="Past/PictureSpecificObjects"]
+[node name="SpotLight3D4" type="SpotLight3D" parent="Past/PictureSpecificObjects/NoorRoomDay"]
+transform = Transform3D(0.859719, 0.0107062, -0.510655, 0.0233417, 0.997912, 0.060219, 0.510234, -0.063691, 0.857674, -5.99133, 5.93548, 4.53258)
+light_color = Color(0.93256, 0.860342, 0.74918, 1)
+light_energy = 7.773
+shadow_enabled = true
+spot_range = 15.365
+spot_angle = 57.15
+
+[node name="SpotLight3D6" type="SpotLight3D" parent="Past/PictureSpecificObjects/NoorRoomDay"]
+transform = Transform3D(0.876776, 0.00850706, -0.480824, 0.0233417, 0.997912, 0.060219, 0.480332, -0.0640218, 0.874747, -3.11871, 5.727, 4.53258)
+light_color = Color(0.93256, 0.860342, 0.74918, 1)
+light_energy = 7.773
+shadow_enabled = true
+spot_range = 15.365
+spot_angle = 57.15
+
+[node name="SpotLight3D5" type="SpotLight3D" parent="Past/PictureSpecificObjects/NoorRoomDay"]
+transform = Transform3D(0.950666, 0.00668144, 0.310144, -0.0262627, 0.997912, 0.0590037, -0.309102, -0.064238, 0.948857, -11.2234, 6.43825, 1.93971)
+light_color = Color(0.93256, 0.860342, 0.74918, 1)
+light_energy = 7.093
+shadow_enabled = true
+spot_range = 60.958
+spot_angle = 57.15
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="Past/PictureSpecificObjects/NoorRoomDay"]
+transform = Transform3D(0.80999, 0, -0.586443, 0, 1, 0, 0.586443, 0, 0.80999, -3.63464, 5.53022, 4.90523)
 visible = false
+light_color = Color(0.900419, 0.862995, 0.834181, 1)
+light_energy = 7.773
+shadow_enabled = true
+spot_range = 15.365
+
+[node name="SpotLight3D3" type="SpotLight3D" parent="Past/PictureSpecificObjects/NoorRoomDay"]
+transform = Transform3D(-0.842509, 0, -0.538683, 0, 1, 0, 0.538683, 0, -0.842509, -6.52094, 6.2407, -5.19569)
+visible = false
+light_color = Color(0.900419, 0.862995, 0.834181, 1)
+light_energy = 7.773
+shadow_enabled = true
+spot_range = 15.365
+
+[node name="FrontDoor" type="Node3D" parent="Past/PictureSpecificObjects"]
 
 [node name="SpotLight3D" type="SpotLight3D" parent="Past/PictureSpecificObjects/FrontDoor"]
 transform = Transform3D(0.911101, -0.196025, 0.362586, 0, 0.879673, 0.475579, -0.412182, -0.4333, 0.801472, 1.89343, 3.44737, 12.5219)
@@ -7405,15 +7468,11 @@ bones/406/rotation = Quaternion(0.753591, -0.134772, -0.00776925, 0.643333)
 bones/408/position = Vector3(35.8065, 19.3697, 18.2561)
 bones/408/rotation = Quaternion(-0.6648, 0.183649, 0.284193, 0.665995)
 
-[node name="Body_004" parent="Past/PictureSpecificObjects/FrontDoor/Noor_08/rig_001/Skeleton3D" index="1"]
-surface_material_override/2 = null
-surface_material_override/8 = null
-
 [node name="Mother_08" parent="Past/PictureSpecificObjects/FrontDoor" instance=ExtResource("61_ml2e7")]
 transform = Transform3D(-0.855832, 0, -0.225338, 0, 0.885, 0, 0.225338, 0, -0.855832, 0.891418, -0.0648069, 10.1658)
 
 [node name="Mother" parent="Past/PictureSpecificObjects/FrontDoor/Mother_08" index="0"]
-transform = Transform3D(-98.4534, 17.5195, -1.04424e-06, 0, 5.96047e-06, 100, 17.5195, 98.4534, -5.86828e-06, -0.0689545, 0, -0.648621)
+transform = Transform3D(-78.7627, 14.0156, 6.12641e-07, 0, -3.49691e-06, 80, 14.0156, 78.7627, 3.44283e-06, -0.0689545, 0, -0.648621)
 
 [node name="Skeleton3D" parent="Past/PictureSpecificObjects/FrontDoor/Mother_08/Mother" index="0"]
 bones/1/position = Vector3(0.000142054, 0.000441019, 0.00872974)
@@ -8369,10 +8428,6 @@ bones/401/rotation = Quaternion(-3.72529e-09, -1.49012e-08, -2.42144e-08, 1)
 bones/403/rotation = Quaternion(1.86265e-08, 1.49012e-08, 1.77636e-15, 1)
 bones/408/position = Vector3(1.1149, -34.9972, 51.6356)
 bones/408/rotation = Quaternion(-0.528081, 0.108097, -0.00470076, 0.842273)
-
-[node name="Body_004" parent="Past/PictureSpecificObjects/Forest/Noor_09/rig_001/Skeleton3D" index="1"]
-surface_material_override/2 = null
-surface_material_override/8 = null
 
 [node name="Mother_09" parent="Past/PictureSpecificObjects/Forest" instance=ExtResource("61_ml2e7")]
 transform = Transform3D(0.902953, 0, -0.429739, 0, 1, 0, 0.429739, 0, 0.902953, 9.26031, -0.0293064, -25.547)
@@ -9426,7 +9481,7 @@ libraries = {
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.138, 0.597)
 
 [node name="MemoryCapsule" type="StaticBody3D" parent="Past/Interactables" node_paths=PackedStringArray("nodes_to_show")]
-transform = Transform3D(0.965926, 0, 0.258819, 0, 1, 0, -0.258819, 0, 0.965926, -6.84113, 4.30306, -1.02536)
+transform = Transform3D(0.965926, 0, 0.258819, 0, 1, 0, -0.258819, 0, 0.965926, -6.84113, 4.30306, -1.82549)
 script = ExtResource("67_o478p")
 rotation_on_inspect = Vector3(0, 90, 0)
 item_name = "memory capsule"
@@ -9503,13 +9558,13 @@ transform = Transform3D(0.00115186, 0, -0.999999, 0, 1, 0, 0.999999, 0, 0.001151
 
 [node name="NoorDoorClosed" parent="Past/ChangingScene" instance=ExtResource("91_pc8rc")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1.8491, 3.5, -1.91973)
-visible = false
 
 [node name="BackDoorClosed" parent="Past/ChangingScene" instance=ExtResource("110_m8m7y")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.349121, 0.5, -5.91973)
 
 [node name="FrontDoorClosed" parent="Past/ChangingScene" instance=ExtResource("94_wdjwv")]
 transform = Transform3D(1.94707e-07, 0, -1, 0, 1, 0, 1, 0, 1.94707e-07, 2.17657, 0.5, 6.06251)
+visible = false
 
 [node name="TriggerVolumes" type="Node3D" parent="Past"]
 
@@ -9651,6 +9706,7 @@ shape = SubResource("BoxShape3D_14nep")
 [editable path="Past/House/Level1/Props/Kitchen/Kitchen_kitchen_cabinets_A/Fridge/Props/Bottle_plastic2"]
 [editable path="Past/House/Level1/Props/Kitchen/Kitchen_kitchen_cabinets_A/Stove/Lamp_wall_fluorescent"]
 [editable path="Past/House/Level1/Props/Kitchen/Kitchen_counter_separate/Lamp_ceiling_cone_A"]
+[editable path="Past/PictureSpecificObjects/Frontyard/Noor_00"]
 [editable path="Past/PictureSpecificObjects/Backyard/Noor_01"]
 [editable path="Past/PictureSpecificObjects/Office/Noor_02"]
 [editable path="Past/PictureSpecificObjects/LivingRoom/Noor_03"]
