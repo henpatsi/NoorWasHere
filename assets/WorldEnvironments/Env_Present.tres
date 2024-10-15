@@ -10,11 +10,18 @@ sky_material = SubResource("ProceduralSkyMaterial_rbuat")
 
 [resource]
 background_mode = 2
+background_energy_multiplier = 0.5
 sky = SubResource("Sky_olqo2")
 tonemap_mode = 3
 glow_enabled = true
-fog_light_color = Color(0.637106, 0.526707, 0.430996, 1)
+glow_bloom = 0.14
+glow_blend_mode = 1
+fog_mode = 1
+fog_light_color = Color(0.0312994, 0.0190845, 0.0111527, 1)
+fog_density = 1.0
+fog_height = -3.0
+fog_height_density = 0.2
+fog_depth_curve = 0.554785
 volumetric_fog_enabled = true
-volumetric_fog_density = 0.0375
 volumetric_fog_emission = Color(0.332439, 0.22341, 0.164369, 1)
 volumetric_fog_sky_affect = 0.602

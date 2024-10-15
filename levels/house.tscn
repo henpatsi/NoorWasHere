@@ -1,10 +1,12 @@
-[gd_scene load_steps=87 format=3 uid="uid://cro8l3a3d3ryp"]
+[gd_scene load_steps=89 format=3 uid="uid://cro8l3a3d3ryp"]
 
 [ext_resource type="PackedScene" uid="uid://bisr1khpxni54" path="res://assets/AtmosphericHouse/Prefabs/Building/Foundation_3x.prefab.scn" id="1_opih8"]
 [ext_resource type="PackedScene" uid="uid://bok6u53wltnq6" path="res://assets/AtmosphericHouse/Prefabs/Props/Lamps/CeilingFan.prefab.scn" id="2_w52ss"]
+[ext_resource type="Material" uid="uid://boo7h7nmywbn4" path="res://assets/AtmosphericHouse/Materials/CeilingFan_off_clean.material" id="3_7o7ja"]
 [ext_resource type="PackedScene" uid="uid://dnt7eh4fxpryo" path="res://assets/AtmosphericHouse/Prefabs/Props/Furniture/Chair_kitchen.prefab.scn" id="3_l3gxx"]
 [ext_resource type="PackedScene" uid="uid://b7mvuqdcvgixd" path="res://assets/AtmosphericHouse/Prefabs/Props/Furniture/Table_A_tablecloth.prefab.scn" id="4_0l6e3"]
 [ext_resource type="PackedScene" uid="uid://cepj8tqtkbm3k" path="res://assets/AtmosphericHouse/Prefabs/Props/Lamps/Lamp_chandelier.prefab.scn" id="5_d017r"]
+[ext_resource type="Material" uid="uid://bnruricugxgi6" path="res://assets/AtmosphericHouse/Materials/Lamps_B_off_clean.material" id="6_5jk1r"]
 [ext_resource type="Material" uid="uid://c2usbbppnb64l" path="res://assets/AtmosphericHouse/Materials/Carpets_persian_clean2.material" id="6_tklb1"]
 [ext_resource type="PackedScene" uid="uid://dtltiq757q6i6" path="res://assets/props/piano keyboard/piano_keyboard.tscn" id="7_cnpog"]
 [ext_resource type="PackedScene" uid="uid://bjs45wc1kt8yc" path="res://assets/AtmosphericHouse/Prefabs/Props/Furniture/Cabinet_C.prefab.scn" id="8_ahjo2"]
@@ -144,6 +146,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, -6.5)
 [node name="CeilingFan" parent="Level1/Props/LivingRoom" instance=ExtResource("2_w52ss")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.55344, 6.29725, 7.68475)
 
+[node name="MeshRenderer" parent="Level1/Props/LivingRoom/CeilingFan/CeilingFan_Lamps" index="0"]
+surface_material_override/0 = ExtResource("3_7o7ja")
+
 [node name="Chair_kitchen 1" parent="Level1/Props/LivingRoom" instance=ExtResource("3_l3gxx")]
 transform = Transform3D(0.0284277, 0, 0.999596, 0, 1, 0, -0.999596, 0, 0.0284277, 3.92365, 0.5, 7.77672)
 
@@ -161,6 +166,21 @@ transform = Transform3D(-0.845, 0, 1.50996e-07, 0, 1, 0, -1.27591e-07, 0, -1, 5.
 
 [node name="Lamp_chandelier2" parent="Level1/Props/LivingRoom" instance=ExtResource("5_d017r")]
 transform = Transform3D(-0.833741, 0, -0.552155, 0, 1, 0, 0.552155, 0, -0.833741, 5.04813, 3.29983, 7.80097)
+
+[node name="MeshRenderer" parent="Level1/Props/LivingRoom/Lamp_chandelier2/Lamp_chandelier_shade_A" index="0"]
+surface_material_override/0 = ExtResource("6_5jk1r")
+
+[node name="MeshRenderer" parent="Level1/Props/LivingRoom/Lamp_chandelier2/Lamp_chandelier_shade_B" index="0"]
+surface_material_override/0 = ExtResource("6_5jk1r")
+
+[node name="MeshRenderer" parent="Level1/Props/LivingRoom/Lamp_chandelier2/Lamp_chandelier_shade_C" index="0"]
+surface_material_override/0 = ExtResource("6_5jk1r")
+
+[node name="MeshRenderer" parent="Level1/Props/LivingRoom/Lamp_chandelier2/Lamp_chandelier_shade_D" index="0"]
+surface_material_override/0 = ExtResource("6_5jk1r")
+
+[node name="MeshRenderer" parent="Level1/Props/LivingRoom/Lamp_chandelier2/Lamp_chandelier_shade_E" index="0"]
+surface_material_override/0 = ExtResource("6_5jk1r")
 
 [node name="Carpet_Persian" type="CSGBox3D" parent="Level1/Props/LivingRoom"]
 transform = Transform3D(1, 0, -4.37114e-08, 0, 1, 0, 4.37114e-08, 0, 1, 5.0903, 0.4942, 7.78907)
@@ -1107,5 +1127,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
 [node name="Shelf_wooden_standing" parent="." instance=ExtResource("85_vjomw")]
 transform = Transform3D(-0.492111, -0.0245627, 0.870186, 0.718181, -0.576376, 0.38988, 0.491978, 0.816815, 0.301282, -4.32755, 3, 1.51661)
 
+[editable path="Level1/Props/LivingRoom/CeilingFan"]
+[editable path="Level1/Props/LivingRoom/Lamp_chandelier2"]
 [editable path="Level1/Props/Kitchen/Kitchen_kitchen_cabinets_A/Stove/Lamp_wall_fluorescent"]
 [editable path="Level1/Props/Kitchen/Kitchen_counter_separate/Lamp_ceiling_cone_A"]
