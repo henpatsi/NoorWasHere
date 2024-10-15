@@ -182,6 +182,7 @@ dof_blur_near_distance = 3.0
 dof_blur_near_transition = 3.5
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_pua2a"]
+frequency = 0.0064
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_cechl"]
 seamless = true
@@ -189,7 +190,7 @@ noise = SubResource("FastNoiseLite_pua2a")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_feq75"]
 shader = ExtResource("51_y5c0d")
-shader_parameter/speed = 0.1
+shader_parameter/speed = 0.05
 shader_parameter/intensity = 1.0
 shader_parameter/distort_noise = SubResource("NoiseTexture2D_cechl")
 
