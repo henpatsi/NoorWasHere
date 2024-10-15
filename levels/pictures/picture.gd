@@ -27,6 +27,8 @@ extends TextureRect
 @export var nodes_to_hide_on_exit: Array[Node]
 ## Area3D nodes that should start monitoring
 @export var start_monitoring_list: Array[Area3D]
+
+@export_group("Audio")
 ## Audio stream player to play audio when scene is entered
 @export var ambientASP: AudioStreamPlayer3D
 ## Audio stream that is played when scene is entered
@@ -36,10 +38,20 @@ extends TextureRect
 @export var ending_volume: float = 20
 ## Time it takes music to fade in from silent to the original value
 @export var volume_fade_in_time: float = 3
+
+@export_group("Transition")
 ## Time it takes to perfectly position player
 @export var move_tween_time: float = 0.2
 ## Time it takes to resize picture to full screen
 @export var picture_resize_time: float = 1.0
+### Dialogue to play as player enters the picture
+#@export var dialogue_on_enter: Array[Resource]
+### Dialogue to play as player exits the picture
+#@export var dialogue_on_exit: Array[Resource]
+### Delay before enter dialogue played
+#@export var enter_dialogue_delay: float = 0
+### Delay before exit dialogue played
+#@export var exit_dialogue_delay: float = 0
 
 var active_picture: bool = false
 var inside_picture: bool = false
