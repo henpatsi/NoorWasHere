@@ -1555,6 +1555,7 @@ transform = Transform3D(-0.981406, 0, -0.19194, 0, 1, 0, 0.19194, 0, -0.981406, 
 [node name="PictureSpecificObjects" type="Node3D" parent="Past"]
 
 [node name="Frontyard" type="Node3D" parent="Past/PictureSpecificObjects"]
+visible = false
 
 [node name="SpotLight3D" type="SpotLight3D" parent="Past/PictureSpecificObjects/Frontyard"]
 transform = Transform3D(0.166594, 0.102562, 0.980677, -0.00745055, 0.994678, -0.102761, -0.985997, 0.00981274, 0.166472, 6.81915, 3.13207, 10.421)
@@ -1623,7 +1624,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0136719, 0.604016, 0.060373
 shape = SubResource("BoxShape3D_pfecn")
 
 [node name="Backyard" type="Node3D" parent="Past/PictureSpecificObjects"]
-visible = false
 
 [node name="SpotLight3D" type="SpotLight3D" parent="Past/PictureSpecificObjects/Backyard"]
 transform = Transform3D(0.687366, -0.369302, -0.625415, -0.13171, -0.910186, 0.3927, -0.714269, -0.187555, -0.674272, -3.73438, 2.89467, -11.5582)
@@ -9739,11 +9739,6 @@ shape = SubResource("BoxShape3D_14nep")
 [connection signal="body_entered" from="Present/TriggerVolumes/EndSequenceTrigger" to="Present/TriggerVolumes/EndSequenceTrigger" method="_on_body_entered"]
 
 [editable path="Player"]
-[editable path="Present/House"]
-[editable path="Present/House/Level1/Props/LivingRoom/CeilingFan"]
-[editable path="Present/House/Level1/Props/LivingRoom/Lamp_chandelier2"]
-[editable path="Present/House/Level1/Props/Kitchen/Kitchen_kitchen_cabinets_A/Stove/Lamp_wall_fluorescent"]
-[editable path="Present/House/Level1/Props/Kitchen/Kitchen_counter_separate/Lamp_ceiling_cone_A"]
 [editable path="Present/TriggerVolumes/V01E_EnterHouse"]
 [editable path="Present/TriggerVolumes/V02E_Office"]
 [editable path="Present/TriggerVolumes/V03E_LivingRoom"]

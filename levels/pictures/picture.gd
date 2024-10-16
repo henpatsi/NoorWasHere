@@ -160,8 +160,8 @@ func enter_picture(player: CharacterBody3D, head_node: Node3D, picture_handler: 
 	var moveTween = create_tween().set_parallel()
 	moveTween.tween_property(player, "global_position:x", camera_pos.x, move_tween_time)
 	moveTween.tween_property(player, "global_position:z", camera_pos.z, move_tween_time)
-	moveTween.tween_property(player, "rotation:y", camera.rotation.y, move_tween_time)
-	moveTween.tween_property(head_node, "rotation:x", camera.rotation.x, move_tween_time)
+	moveTween.tween_property(player, "rotation:y", camera.global_rotation.y, move_tween_time)
+	moveTween.tween_property(head_node, "rotation:x", camera.global_rotation.x, move_tween_time)
 	
 	await get_tree().create_timer(move_tween_time).timeout
 
@@ -183,10 +183,8 @@ func enter_picture(player: CharacterBody3D, head_node: Node3D, picture_handler: 
 
 	player.global_position = camera.global_position
 	player.position.y -= head_node.position.y
-	player.global_rotation = camera.global_rotation
-
-	#get_tree().root.get_child(1).set_past_environment()
-	#hide()
+	player.rotation.y = camera.global_rotation.y
+	head_node.rotation.x = camera.global_rotation.x
 
 	player.process_mode = Node.PROCESS_MODE_PAUSABLE
 
