@@ -671,7 +671,6 @@ picture = NodePath("../../FrontyardPicture")
 [node name="1_Backyard" type="Node" parent="Pictures"]
 
 [node name="BackyardPicture" type="TextureRect" parent="Pictures/1_Backyard" node_paths=PackedStringArray("camera", "world_root", "nodes_to_show", "nodes_to_hide")]
-visible = false
 clip_contents = true
 anchors_preset = 15
 anchor_right = 1.0
