@@ -1,4 +1,4 @@
-[gd_scene load_steps=255 format=4 uid="uid://8ymkajun4ggs"]
+[gd_scene load_steps=261 format=4 uid="uid://8ymkajun4ggs"]
 
 [ext_resource type="Script" path="res://levels/level.gd" id="1_eatkt"]
 [ext_resource type="Environment" uid="uid://dobqonwml2e5x" path="res://assets/WorldEnvironments/Env_Present.tres" id="2_qtfwo"]
@@ -60,11 +60,14 @@
 [ext_resource type="Resource" path="res://levels/dialogue_streams/08_E01.tres" id="72_0hirb"]
 [ext_resource type="Material" uid="uid://cfo4jukrqtp5k" path="res://assets/props/INTERACTEABLE/memory capsule/box_bake.tres" id="72_8yoht"]
 [ext_resource type="Resource" path="res://levels/dialogue_streams/08_E02.tres" id="73_i320y"]
+[ext_resource type="Texture2D" uid="uid://d2np0uu0ucye2" path="res://assets/props/paper/paper_Image_0.png" id="74_fguty"]
 [ext_resource type="Resource" path="res://levels/dialogue_streams/09_E01.tres" id="74_tkio4"]
 [ext_resource type="Texture2D" uid="uid://bq25u2mxuuqqf" path="res://assets/props/shovel/shovel_Image_3.jpg" id="75_ix66p"]
+[ext_resource type="Texture2D" uid="uid://bfutm7jqobedb" path="res://assets/props/paper/paper_Image_1.png" id="75_jygac"]
 [ext_resource type="Resource" path="res://levels/dialogue_streams/09_E02.tres" id="75_k53da"]
 [ext_resource type="Resource" path="res://levels/dialogue_streams/09_E03.tres" id="76_eexyy"]
 [ext_resource type="Texture2D" uid="uid://tekbwhwaqxl2" path="res://assets/props/shovel/shovel_Image_4.png" id="76_iotlt"]
+[ext_resource type="Texture2D" uid="uid://cc1rcxkam538w" path="res://assets/props/paper/paper_Image_2.png" id="76_qxcry"]
 [ext_resource type="Texture2D" uid="uid://cm1fkvt2ntodt" path="res://assets/props/shovel/shovel_Image_5.png" id="77_5p5cw"]
 [ext_resource type="Resource" path="res://levels/dialogue_streams/10_E01.tres" id="77_ugy5w"]
 [ext_resource type="Resource" path="res://levels/dialogue_streams/10_E02.tres" id="78_4nshw"]
@@ -391,6 +394,51 @@ _data = {
 [sub_resource type="BoxShape3D" id="BoxShape3D_6qa1d"]
 size = Vector3(0.128784, 3.04449, 4.01611)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_blc4d"]
+resource_name = "material"
+cull_mode = 2
+albedo_texture = ExtResource("74_fguty")
+metallic_texture = ExtResource("75_jygac")
+metallic_texture_channel = 2
+roughness_texture = ExtResource("75_jygac")
+roughness_texture_channel = 1
+normal_enabled = true
+normal_texture = ExtResource("76_qxcry")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_h4syf"]
+_surfaces = [{
+"aabb": AABB(-0.104981, -0.00161344, -0.150763, 0.195466, 0.0242361, 0.300123),
+"format": 34896613377,
+"index_count": 81,
+"index_data": PackedByteArray("AAACAAEAAAADAAIABAAGAAUABAAHAAYACAAKAAkACAALAAoADAANAAMADAAOAA0AAwAPAAIAAwANAA8AEAADAAAAEAAMAAMAEQAMAAcAEQAOAAwABwAQAAYABwAMABAAEgAHAAQAEgARAAcADQARAAsADQAOABEACwASAAoACwARABIADwALAAgADwANAAsABQABABQAFAATAAUAEwAVAAUA"),
+"lods": [0.00320829, PackedByteArray("AAACAAEAEAACAAAAEAAPAAIADwAQABIADwASAAgACAASAAoACAAKAAkAEgAQAAQABAAQAAYABAAGAAUABQABABQAFAATAAUAEwAVAAUA")],
+"name": "material",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 22,
+"vertex_data": PackedByteArray("pVEAALcbAACRbAAAWwAAAKlRuCBbAAAAgj5yGWYWAADzAAAAblIAAPMAAADKbQAA2hsAAG5SAABeFwAAMUAAALAb9Kw0AAAA8wD//1sAAAAAAIxyCRsAAPMUglKRFQAAyi00AfQtAABfK3kyAREAAPYjlhhNJAAALTZ3WQAAAADCNgAAEjcAAKgSpCLLLQAA8wDFERI3AAD//wAA//8AAP//AABbAAAA8wAAAP//AAA=")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_1d45v"]
+resource_name = "paper_02_3_all_0"
+_surfaces = [{
+"aabb": AABB(-0.104981, -0.00161344, -0.150763, 0.195466, 0.0242361, 0.300123),
+"attribute_data": PackedByteArray("ku++Qef+6zfn/r1BjfK6SOjQM1+TwTNf6NBhVSHbBFf9/nBV5/4zX/Tvi18F8+ZXWuXVTpP1t0/C6mtSG//FSz3gj0tw5bxYPeAzX6NvGwLn/hsC5/7rN6NvM18="),
+"format": 34896613399,
+"index_count": 81,
+"index_data": PackedByteArray("AAACAAEAAAADAAIABAAGAAUABAAHAAYACAAKAAkACAALAAoADAANAAMADAAOAA0AAwAPAAIAAwANAA8AEAADAAAAEAAMAAMAEQAMAAcAEQAOAAwABwAQAAYABwAMABAAEgAHAAQAEgARAAcADQARAAsADQAOABEACwASAAoACwARABIADwALAAgADwANAAsABQAVABQAFAATAAUAEwAWAAUA"),
+"lods": [0.00320829, PackedByteArray("AAACAAEAEAACAAAAEAAPAAIADwAQABIADwASAAgACAASAAoACAAKAAkAEgAQAAQABAAQAAYABAAGAAUABQABABQAFAATAAUAEwAWAAUA")],
+"material": SubResource("StandardMaterial3D_blc4d"),
+"name": "material",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 23,
+"vertex_data": PackedByteArray("pVEAALcbxC6RbAAAWwD5L6lRuCBbAG0xgj5yGWYWDDDzAAAAblIsLPMAAADKbaoq2hsAAG5StypeFwAAMUD4LLAb9Kw0AKU48wD//1sAQDkAAIxyCRttNvMUglKRFSQ2yi00AfQtRS5fK3kyARGcM/YjlhhNJDkxLTZ3WQAAwDXCNgAAEjcxLKgSpCLLLTox8wDFERI3mzD//wAA//+qKv//AABbAKoqkWwAAFsAqirzAAAA//+qKpjT3yeQ0vsmkNLsJXvT4iZm1cApVNWqKlTVoiqs1DEpAtAKHQPQZhyS0WsgDdHfIC7USyj60awjktL3JVvRoiH+1LgpCNP2JVXUkSZU1aoqVNWqKlTVqipU1aoq")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_h4syf")
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_rhtjj"]
 size = Vector3(0.128784, 2.59883, 3.52136)
 
@@ -698,7 +746,6 @@ _data = {
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pmej6"]
 resource_name = "Windowframe_clean"
 vertex_color_use_as_albedo = true
-albedo_color = Color(1, 1, 1, 1)
 albedo_texture = ExtResource("90_cge6m")
 metallic = 1.0
 metallic_texture = ExtResource("91_osyq3")
@@ -1223,7 +1270,7 @@ ambientAS = ExtResource("48_4trxr")
 size = Vector2i(1280, 720)
 
 [node name="PortalCamera" type="Camera3D" parent="Pictures/8_FrontDoor/SubViewport"]
-transform = Transform3D(-0.971481, -0.0149084, 0.23665, 0.00671143, 0.995893, 0.0902904, -0.237024, 0.0893036, -0.967391, 1001.75, 2, 1.217)
+transform = Transform3D(-0.981269, 0.0293328, -0.190398, -0.0133177, 0.975646, 0.218945, 0.192184, 0.217379, -0.956981, 996.947, 5, 2.30982)
 cull_mask = 1048063
 environment = ExtResource("45_dt783")
 attributes = ExtResource("8_runqa")
@@ -1831,7 +1878,7 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2.026,
 [node name="Lights" parent="Past/House/Level1" index="6"]
 visible = false
 
-[node name="Light_switch" parent="Past/House/Level2/Props/Noor\'s room" index="2"]
+[node name="Light_switch" parent="Past/House/Level2/Props/Noor\'s room" index="1"]
 visible = false
 
 [node name="Lights" parent="Past/House/Level2" index="6"]
@@ -6731,6 +6778,7 @@ bones/42/rotation = Quaternion(-0.543445, 0.130921, 0.0776199, 0.825532)
 bones/42/scale = Vector3(1.01548, 1.01548, 1.01548)
 bones/43/position = Vector3(-0.00043893, 13.9847, -0.00887062)
 bones/43/rotation = Quaternion(0.00195266, 0.913745, -0.405474, -0.0256335)
+bones/44/rotation = Quaternion(0.655187, -0.60788, -0.36122, -0.265955)
 bones/47/position = Vector3(1.04308e-07, 5.99027e-06, -1.13249e-06)
 bones/47/scale = Vector3(1.01548, 1.01548, 1.01548)
 bones/49/rotation = Quaternion(5.26653e-09, 0.0715328, -3.06285e-08, 0.997438)
@@ -6758,6 +6806,7 @@ bones/71/rotation = Quaternion(-0.458057, -0.0279174, -0.069864, 0.885733)
 bones/71/scale = Vector3(1.00177, 1.00062, 0.997636)
 bones/72/rotation = Quaternion(0.00348604, 0.953607, -0.301031, 0.00105909)
 bones/72/scale = Vector3(1.00028, 0.999718, 1)
+bones/79/rotation = Quaternion(-0.006498, 0.953617, -0.300945, -0.00204189)
 bones/81/rotation = Quaternion(-0.601938, -0.0613359, 0.0145357, 0.796051)
 bones/82/position = Vector3(1.21714e-07, 4.27623e-07, -5.76377e-06)
 bones/82/rotation = Quaternion(-0.0961358, 0.00235763, 0.000227702, 0.995365)
@@ -6878,6 +6927,7 @@ bones/157/rotation = Quaternion(0.16415, 0.00127669, 0.0276956, 0.986046)
 bones/158/position = Vector3(-2.21045e-06, 1.62442, -7.9143e-07)
 bones/158/rotation = Quaternion(0.159112, -0.00569958, -0.052506, 0.985847)
 bones/159/position = Vector3(-1.0341, -0.906142, 1.0127)
+bones/159/rotation = Quaternion(0.0781036, 0.491754, 0.303761, 0.812285)
 bones/159/scale = Vector3(1, 0.932826, 1)
 bones/160/position = Vector3(-1.43051e-06, -5.0962e-06, -6.55649e-07)
 bones/161/position = Vector3(-8.23967e-06, 3.90311, 1.23744e-06)
@@ -7164,6 +7214,8 @@ bones/369/rotation = Quaternion(-0.513988, -0.220101, -0.595557, 0.576787)
 bones/370/position = Vector3(-0.463269, 9.11282, 6.22042)
 bones/370/rotation = Quaternion(-0.596461, 0.251682, 0.479553, 0.592385)
 bones/371/position = Vector3(1.53668e-07, -4.22262e-06, 1.03563e-06)
+bones/373/position = Vector3(2.97179e-07, -9.58616e-08, -2.90796e-06)
+bones/373/rotation = Quaternion(-0.526776, -0.461252, 0.53569, -0.472005)
 bones/375/position = Vector3(40.8991, 102.848, -26.4769)
 bones/375/rotation = Quaternion(-0.486348, 0.168621, -0.300633, 0.802903)
 bones/376/position = Vector3(-3.24037e-07, -9.4237e-06, 8.78229e-06)
@@ -7174,6 +7226,7 @@ bones/381/rotation = Quaternion(-0.129927, -3.11498e-09, 0.988779, -0.0737267)
 bones/383/position = Vector3(-6.7718, -16.0719, -0.827748)
 bones/383/rotation = Quaternion(-0.103781, -0.00370887, -0.0202238, 0.994388)
 bones/390/rotation = Quaternion(0.944888, 0.07549, -0.0253709, -0.317561)
+bones/393/rotation = Quaternion(0.00141884, -0.0187692, 0.996354, -0.083217)
 bones/394/position = Vector3(10.5986, 32.6212, 57.0743)
 bones/394/rotation = Quaternion(-0.703806, 0.00132382, -0.000995949, 0.710391)
 bones/395/position = Vector3(1.05376e-06, -1.55774e-06, 4.95199e-06)
@@ -7182,9 +7235,15 @@ bones/397/rotation = Quaternion(0, 0, 0.0109626, 0.99994)
 bones/399/rotation = Quaternion(0.114459, -4.75048e-10, -9.37484e-10, 0.993428)
 bones/401/rotation = Quaternion(-4.39515e-19, -2.39095e-10, 1.06481e-28, 1)
 bones/403/rotation = Quaternion(0.114459, 1.94221e-11, -2.83982e-09, 0.993428)
+bones/404/rotation = Quaternion(0.94239, -0.101177, 0.0340395, -0.317027)
 bones/406/rotation = Quaternion(0.899909, -0.104408, 0.022235, 0.422809)
 bones/408/position = Vector3(-2.88239, 32.7466, 56.8079)
 bones/408/rotation = Quaternion(-0.703806, 0.00132382, -0.000995949, 0.710391)
+
+[node name="paper" type="MeshInstance3D" parent="Past/PictureSpecificObjects/NoorRoomDay/Noor_07"]
+transform = Transform3D(-0.657843, -0.096962, 0.00808861, -0.0959445, 0.63725, -0.164111, 0.0161775, -0.163512, -0.644381, -0.000292357, 0.76722, 0.194478)
+mesh = SubResource("ArrayMesh_1d45v")
+skeleton = NodePath("")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Past/PictureSpecificObjects/NoorRoomDay"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.59076, 4.96695, 0.684258)
@@ -7244,14 +7303,14 @@ shadow_enabled = true
 spot_range = 15.365
 
 [node name="FrontDoor" type="Node3D" parent="Past/PictureSpecificObjects"]
-visible = false
 
 [node name="SpotLight3D" type="SpotLight3D" parent="Past/PictureSpecificObjects/FrontDoor"]
-transform = Transform3D(0.982315, 0.166291, 0.0860458, -0.186163, 0.81837, 0.543703, 0.0199954, -0.550107, 0.834855, 1.89343, 2.76789, 11.3627)
+transform = Transform3D(0.555697, 0.544065, -0.628644, -0.186163, 0.81837, 0.543704, 0.810274, -0.185104, 0.556051, -7.39691, 6.05807, 11.3627)
 light_color = Color(0.936675, 0.841667, 0.762417, 1)
-light_energy = 11.352
+light_energy = 7.175
+light_volumetric_fog_energy = 1.079
 shadow_enabled = true
-spot_range = 9.19
+spot_range = 23.583
 spot_angle = 55.42
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Past/PictureSpecificObjects/FrontDoor"]
@@ -8262,6 +8321,7 @@ bones/408/rotation = Quaternion(0.0658248, 0.0583926, -0.139758, 0.986268)
 transform = Transform3D(0.967369, 0, 0.25337, 0, 1, 0, -0.25337, 0, 0.967369, 1.18347, 0.5, 6.06251)
 
 [node name="Forest" type="Node3D" parent="Past/PictureSpecificObjects"]
+visible = false
 
 [node name="SpotLight3D2" type="SpotLight3D" parent="Past/PictureSpecificObjects/Forest"]
 transform = Transform3D(0.663398, -0.0967627, -0.741984, 0.0607598, 0.995295, -0.0754727, 0.745796, 0.00498559, 0.666156, -12.2623, 7.28962, -5.29666)
@@ -9857,7 +9917,7 @@ libraries = {
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.138, 0.597)
 
 [node name="MemoryCapsule" type="StaticBody3D" parent="Past/Interactables" node_paths=PackedStringArray("nodes_to_show")]
-transform = Transform3D(0.965926, 0, 0.258819, 0, 1, 0, -0.258819, 0, 0.965926, -6.84113, 4.30306, -1.82549)
+transform = Transform3D(0.965926, 0, 0.258819, 0, 1, 0, -0.258819, 0, 0.965926, -6.84113, 4.31293, -1.82549)
 script = ExtResource("67_o478p")
 rotation_on_inspect = Vector3(0, 90, 0)
 inspect_position_offset = Vector3(0, 0.2, 0)
@@ -9867,7 +9927,7 @@ dialogue_clips = Array[Resource]([ExtResource("100_4owrl"), ExtResource("101_j67
 nodes_to_show = [NodePath("../../PictureSpecificObjects/NoorRoomNight/LightSwitchSpotlight"), NodePath("../InteractableLightSwitch")]
 
 [node name="box_bake" type="MeshInstance3D" parent="Past/Interactables/MemoryCapsule"]
-transform = Transform3D(180, 0, 0, 0, -7.86805e-06, 180, 0, -180, -7.86805e-06, 0, 0, 0)
+transform = Transform3D(160, 0, 0, 0, -6.99382e-06, 160, 0, -160, -6.99382e-06, 0, 0, 0)
 mesh = SubResource("ArrayMesh_vq02a")
 skeleton = NodePath("")
 
@@ -10098,6 +10158,15 @@ shape = SubResource("BoxShape3D_14nep")
 [editable path="Past/House/Level1/Props/Kitchen/Kitchen_kitchen_cabinets_A/Stove/Lamp_wall_fluorescent"]
 [editable path="Past/House/Level1/Props/Kitchen/Kitchen_counter_separate/Lamp_ceiling_cone_A"]
 [editable path="Past/House/Level1/Props/Office/ComputerDesk/Computer_screen (1)"]
+[editable path="Past/House/Level2/Floor/Floor_6x8"]
+[editable path="Past/House/Level2/Walls_EXT/WallOut_3x_20/WallIn_B_3x4"]
+[editable path="Past/House/Level2/Walls_EXT/WallOut_3x_window_vinyl4/WallIn_B_3x_window"]
+[editable path="Past/House/Level2/Walls_EXT/WallOut_3x_windowsmall_vinyl2/WallIn_B_3x_windowsmall"]
+[editable path="Past/House/Level2/Walls_EXT/WallIn_B_3x_window"]
+[editable path="Past/House/Level2/Walls_EXT/WallOut_3x_19/WallIn_B_3x4"]
+[editable path="Past/House/Level2/Walls_EXT/WallOut_3x_windowdouble_vinyl2/WallIn_B_3x_windowdouble"]
+[editable path="Past/House/Level2/Walls_INT/WallIn_A_3x4/WallIn_B_3x4"]
+[editable path="Past/House/Level2/Doors/WallIn_B_3x_door4"]
 [editable path="Past/House/PictureSpecificObjects/Frontyard/Noor_00"]
 [editable path="Past/House/PictureSpecificObjects/Backyard/Noor_01"]
 [editable path="Past/House/PictureSpecificObjects/Office/Noor_02"]

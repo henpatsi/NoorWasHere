@@ -1,4 +1,4 @@
-[gd_scene load_steps=213 format=4 uid="uid://cro8l3a3d3ryp"]
+[gd_scene load_steps=217 format=4 uid="uid://cro8l3a3d3ryp"]
 
 [ext_resource type="PackedScene" uid="uid://bisr1khpxni54" path="res://assets/AtmosphericHouse/Prefabs/Building/Foundation_3x.prefab.scn" id="1_opih8"]
 [ext_resource type="PackedScene" uid="uid://bok6u53wltnq6" path="res://assets/AtmosphericHouse/Prefabs/Props/Lamps/CeilingFan.prefab.scn" id="2_w52ss"]
@@ -135,6 +135,7 @@
 [ext_resource type="PackedScene" uid="uid://paat7hmvkfo8" path="res://assets/characters/mother/mother_fbx.tscn" id="91_inek7"]
 [ext_resource type="Material" uid="uid://bwuegnncxmtyn" path="res://assets/AtmosphericHouse/Materials/Materials_tiled/Floor_carpet_B_clean.material" id="118_iurnp"]
 [ext_resource type="Texture2D" uid="uid://ck3uixiaht3d0" path="res://assets/props/WindowOpen/Wall_WindowOPEN_Wallpanel_exterior_white_clean_albedo000.png" id="120_l5l2x"]
+[ext_resource type="Material" uid="uid://cowmhiit6fhsu" path="res://assets/AtmosphericHouse/Materials/Materials_tiled/Wall_B_wallpaper_B_clean.material" id="120_ounk7"]
 [ext_resource type="Texture2D" uid="uid://byndgt8eqfnfq" path="res://assets/props/WindowOpen/Wall_WindowOPEN_Wallpanel_exterior_white_clean_orm000.png" id="121_tav1m"]
 [ext_resource type="Texture2D" uid="uid://ckv6v360utaao" path="res://assets/props/WindowOpen/Wall_WindowOPEN_Wallpanel_exterior_white_clean_normal000.png" id="122_lp33e"]
 [ext_resource type="PackedScene" uid="uid://cogjse1d7bpe1" path="res://assets/props/INTERACTEABLE/TV_a/tv.tscn" id="122_oxb4o"]
@@ -151,6 +152,7 @@
 [ext_resource type="Texture2D" uid="uid://flxxugtxm3gr" path="res://assets/props/WindowOpen/Wall_WindowOPEN_Exterior_trims_clean_normal000.png" id="128_5sdy0"]
 [ext_resource type="PackedScene" uid="uid://rny3nxdg3min" path="res://assets/AtmosphericHouse/Prefabs/Props/Clothes/Rag_A.prefab.scn" id="129_opotm"]
 [ext_resource type="PackedScene" uid="uid://bkqb35ue07xe" path="res://assets/AtmosphericHouse/Prefabs/Props/Storage_props/Can_plastic_C.prefab.scn" id="130_yk8ps"]
+[ext_resource type="PackedScene" uid="uid://bos7in0dxlnk5" path="res://assets/AtmosphericHouse/Prefabs/Building/WallIn_B_3x_windowdouble.prefab.scn" id="131_mhu5r"]
 [ext_resource type="PackedScene" uid="uid://cedlclp5no1dg" path="res://assets/AtmosphericHouse/Prefabs/Props/Storage_props/Storage_prop_set_A.prefab.scn" id="131_ntudo"]
 [ext_resource type="PackedScene" uid="uid://big0bdlitqb86" path="res://assets/AtmosphericHouse/Prefabs/Props/Electronics/Washing_machine.prefab.scn" id="132_wctbw"]
 [ext_resource type="PackedScene" uid="uid://cocth6jkvedt3" path="res://assets/AtmosphericHouse/Prefabs/Props/Electronics/Dryer.prefab.scn" id="133_76su4"]
@@ -177,6 +179,8 @@
 [ext_resource type="PackedScene" uid="uid://djgvra1y2jraw" path="res://assets/AtmosphericHouse/Prefabs/Props/Office_props/Diary.prefab.scn" id="158_7tu0t"]
 [ext_resource type="PackedScene" uid="uid://ietq7n7ckd3f" path="res://assets/AtmosphericHouse/Prefabs/Props/Girl_room_props/Post_it_set_B.prefab.scn" id="159_phihw"]
 [ext_resource type="PackedScene" uid="uid://77yxvhl4qv87" path="res://assets/AtmosphericHouse/Prefabs/Props/Lamps/Lamp_table_work.prefab.scn" id="160_a654o"]
+[ext_resource type="PackedScene" uid="uid://bjambolkguixc" path="res://assets/AtmosphericHouse/Prefabs/Props/Furniture/Dresser_A.prefab.scn" id="164_1ufdu"]
+[ext_resource type="PackedScene" uid="uid://c0eb2ajfucb76" path="res://assets/AtmosphericHouse/Prefabs/Props/Girl_room_props/Magazine_animals.prefab.scn" id="165_n2cen"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hy353"]
 resource_name = "Wallpanel_exterior_white_clean"
@@ -1283,11 +1287,17 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0.5, 10.5)
 [node name="WallIn_B_3x4" parent="Level2/Walls_EXT/WallOut_3x_20" instance=ExtResource("41_on6cr")]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 3, 0, 7.15256e-07)
 
+[node name="MeshRenderer" parent="Level2/Walls_EXT/WallOut_3x_20/WallIn_B_3x4" index="0"]
+material_override = ExtResource("120_ounk7")
+
 [node name="WallOut_3x_window_vinyl4" parent="Level2/Walls_EXT" instance=ExtResource("44_kqtt8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0.5, 10.5)
 
 [node name="WallIn_B_3x_window" parent="Level2/Walls_EXT/WallOut_3x_window_vinyl4" instance=ExtResource("90_incyp")]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 3, 0, 0)
+
+[node name="MeshRenderer" parent="Level2/Walls_EXT/WallOut_3x_window_vinyl4/WallIn_B_3x_window" index="0"]
+material_override = ExtResource("120_ounk7")
 
 [node name="WallOut_3x_2" parent="Level2/Walls_EXT" instance=ExtResource("40_e55w2")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 6, 0.5, 13.5)
@@ -1319,8 +1329,14 @@ transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 12, 0.
 [node name="WallIn_B_3x_windowsmall" parent="Level2/Walls_EXT/WallOut_3x_windowsmall_vinyl2" instance=ExtResource("43_bx0lj")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 3, 0, 9.53674e-07)
 
+[node name="MeshRenderer" parent="Level2/Walls_EXT/WallOut_3x_windowsmall_vinyl2/WallIn_B_3x_windowsmall" index="0"]
+material_override = ExtResource("120_ounk7")
+
 [node name="WallIn_B_3x_window" parent="Level2/Walls_EXT" instance=ExtResource("90_incyp")]
 transform = Transform3D(1, 0, 1.42109e-14, 0, 1, 0, -1.42109e-14, 0, 1, 6, 0.5, 4.5)
+
+[node name="MeshRenderer" parent="Level2/Walls_EXT/WallIn_B_3x_window" index="0"]
+material_override = ExtResource("120_ounk7")
 
 [node name="WallEXT" type="MeshInstance3D" parent="Level2/Walls_EXT/WallIn_B_3x_window"]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 3, 0, 0)
@@ -1362,11 +1378,17 @@ transform = Transform3D(-2.18557e-07, 0, 1, 0, 1, 0, -1, 0, -2.18557e-07, 12, 0.
 [node name="WallIn_B_3x4" parent="Level2/Walls_EXT/WallOut_3x_19" instance=ExtResource("41_on6cr")]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 3, 0, 7.15256e-07)
 
+[node name="MeshRenderer" parent="Level2/Walls_EXT/WallOut_3x_19/WallIn_B_3x4" index="0"]
+material_override = ExtResource("120_ounk7")
+
 [node name="WallOut_3x_windowdouble_vinyl2" parent="Level2/Walls_EXT" instance=ExtResource("47_7ca67")]
 transform = Transform3D(-2.18557e-07, 0, 1, 0, 1, 0, -1, 0, -2.18557e-07, 12, 0.5, 10.5)
 
-[node name="WallIn_A_3x_windowdouble" parent="Level2/Walls_EXT/WallOut_3x_windowdouble_vinyl2" instance=ExtResource("38_ha8ow")]
+[node name="WallIn_B_3x_windowdouble" parent="Level2/Walls_EXT/WallOut_3x_windowdouble_vinyl2" instance=ExtResource("131_mhu5r")]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 3, 0, 0)
+
+[node name="MeshRenderer" parent="Level2/Walls_EXT/WallOut_3x_windowdouble_vinyl2/WallIn_B_3x_windowdouble" index="0"]
+material_override = ExtResource("120_ounk7")
 
 [node name="WallOut_3x_windowdouble_vinyl" parent="Level2/Walls_EXT" instance=ExtResource("47_7ca67")]
 transform = Transform3D(1, 0, 1.06581e-14, 0, 1, 0, -1.06581e-14, 0, 1, 1, 0.5, 13.5)
@@ -1426,6 +1448,9 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 6.5, 0
 [node name="WallIn_B_3x4" parent="Level2/Walls_INT/WallIn_A_3x4" instance=ExtResource("41_on6cr")]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 3, 0, 7.15256e-07)
 
+[node name="MeshRenderer" parent="Level2/Walls_INT/WallIn_A_3x4/WallIn_B_3x4" index="0"]
+material_override = ExtResource("120_ounk7")
+
 [node name="WallIn_A_2x" parent="Level2/Walls_INT" instance=ExtResource("49_ai3l5")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0.5, 6.5)
 
@@ -1481,6 +1506,9 @@ transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 1, 0, 
 
 [node name="WallIn_B_3x_door4" parent="Level2/Doors" instance=ExtResource("64_h8p2c")]
 transform = Transform3D(3.0598e-07, 0, 1, 0, 1, 0, -1, 0, 3.0598e-07, 6.5, 0.5, 10.5)
+
+[node name="MeshRenderer" parent="Level2/Doors/WallIn_B_3x_door4" index="0"]
+material_override = ExtResource("120_ounk7")
 
 [node name="Doorframe_in_single" parent="Level2/Doors/WallIn_B_3x_door4" instance=ExtResource("65_jpqak")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, -1.31134e-07)
@@ -1557,13 +1585,10 @@ transform = Transform3D(0.155479, -0.987839, 0, 0, 0, 1, -0.987839, -0.155479, 0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.823, 1.1674, -0.693007)
 
 [node name="Girl_box_B_closed (5)" parent="Level2/Props/Noor\'s room/NoorShelf" instance=ExtResource("142_hd8o8")]
-transform = Transform3D(-0.999999, -5.24865e-11, -0.0012008, 2.2881e-15, 1, -4.37114e-08, 0.0012008, -4.37114e-08, -0.999999, -2.075, 0.421, -0.707)
+transform = Transform3D(-0.622839, 3.41976e-08, 0.782349, 2.2881e-15, 1, -4.37114e-08, -0.782349, -2.72252e-08, -0.622839, -2.29313, 0.421, -0.707394)
 
 [node name="Bookcase_B" parent="Level2/Props/Noor\'s room/NoorShelf" instance=ExtResource("143_t1dml")]
 transform = Transform3D(1, 0, 0, 0, 1, -4.37114e-08, 0, 4.37114e-08, 1, -2.539, 0, -0.72)
-
-[node name="Girl_box_B_closed (4)" parent="Level2/Props/Noor\'s room/NoorShelf" instance=ExtResource("142_hd8o8")]
-transform = Transform3D(1, 0, 0, 0, 1, -4.37114e-08, 0, 4.37114e-08, 1, -2.376, 0.421, -0.731563)
 
 [node name="Office_cardboard_box_A" parent="Level2/Props/Noor\'s room/NoorShelf" instance=ExtResource("38_vtg6n")]
 transform = Transform3D(0.115901, -4.34168e-08, -0.993261, -1.77636e-15, 1, -4.37114e-08, 0.993261, 5.0662e-09, 0.115901, -3.0248, 1.4917, -0.7046)
@@ -1587,7 +1612,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.76928, 0.8014, -0.744051)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.2436, 0.8009, -0.7099)
 
 [node name="desk" type="Node3D" parent="Level2/Props/Noor\'s room"]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 7.74851, 0.502702, 5.88943)
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 7.74851, 0.502702, 4.95864)
 
 [node name="Jar_B" parent="Level2/Props/Noor\'s room/desk" instance=ExtResource("147_4pvq0")]
 transform = Transform3D(-0.574479, 0, 0.818519, 0, 1, 0, -0.818519, 0, -0.574479, 0.952082, 0.78, -0.554273)
@@ -1599,7 +1624,7 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.9760
 transform = Transform3D(0, 0, -1, 0, 1, 0, 1, 0, 0, 0.755082, 0, -0.670273)
 
 [node name="Chair_wooden (2)" parent="Level2/Props/Noor\'s room/desk" instance=ExtResource("29_knkkl")]
-transform = Transform3D(-0.0672398, 4.36125e-08, 0.997737, 1.77636e-15, 1, -4.37114e-08, -0.997737, -2.93914e-09, -0.0672398, 0.261082, 0, -0.728274)
+transform = Transform3D(0.658053, 3.29135e-08, 0.752972, 1.77636e-15, 1, -4.37114e-08, -0.752972, 2.87644e-08, 0.658053, -0.164625, 0, -1.13514)
 
 [node name="Book_Open (1)" parent="Level2/Props/Noor\'s room/desk" instance=ExtResource("149_h4w7p")]
 transform = Transform3D(0.133633, -4.36945e-08, -0.991031, 4.63328e-09, 1, -4.34652e-08, 0.991031, 1.21666e-09, 0.133633, 0.934082, 0.78, -0.943273)
@@ -1632,7 +1657,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.932609, 0.78, -0.0784737)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.960082, 0.78, 0.0577265)
 
 [node name="Trashcan" parent="Level2/Props/Noor\'s room/desk" instance=ExtResource("157_44vcu")]
-transform = Transform3D(0.52935, 0, -0.848404, 0, 1, 0, 0.848404, 0, 0.52935, 0.933082, 0, 0.387726)
+transform = Transform3D(-0.206857, 0, -1.23277, 0, 1.25, 0, 1.23277, 0, -0.206857, 0.794839, 0, -1.84545)
 
 [node name="Diary" parent="Level2/Props/Noor\'s room/desk" instance=ExtResource("158_7tu0t")]
 transform = Transform3D(-0.0817242, -3.55271e-15, -0.996655, -4.35652e-08, 1, 3.57227e-09, 0.996655, 4.37114e-08, -0.0817242, 0.587082, 0.78, -0.624273)
@@ -1657,6 +1682,18 @@ transform = Transform3D(0.705127, 1.77636e-15, -0.709081, -3.09949e-08, 1, -3.08
 
 [node name="Lamp_table_work (2)" parent="Level2/Props/Noor\'s room/desk" instance=ExtResource("160_a654o")]
 transform = Transform3D(-0.776463, 3.39185e-09, 0.630163, 3.00959e-08, 1, 3.17005e-08, -0.630163, 4.35796e-08, -0.776463, -6.24292, 3.778, 2.07773)
+
+[node name="Dresser_A" parent="Level2/Props/Noor\'s room" instance=ExtResource("164_1ufdu")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 11.5418, 0.5, 9.20863)
+
+[node name="Side_table_E (2)2" parent="Level2/Props/Noor\'s room" instance=ExtResource("74_1itkc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.3453, 0.5, 6.63244)
+
+[node name="Magazine_animals" parent="Level2/Props/Noor\'s room/Side_table_E (2)2" instance=ExtResource("165_n2cen")]
+transform = Transform3D(0.485115, 0, -0.87445, 0, 1, 0, 0.87445, 0, 0.485115, -0.0725298, 0.572915, -0.11601)
+
+[node name="Lamp_table_shade (3)" parent="Level2/Props/Noor\'s room/Side_table_E (2)2" instance=ExtResource("123_d1nhu")]
+transform = Transform3D(0.916802, 0, -0.399341, 0, 1, 0, 0.399341, 0, 0.916802, 0.0727615, 0.571678, 0.0832887)
 
 [node name="Closet room" type="Node3D" parent="Level2/Props"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 0, 12.5)
@@ -9665,6 +9702,14 @@ spot_angle = 15.0
 [editable path="Level1/Props/Kitchen/Kitchen_counter_separate/Lamp_ceiling_cone_A"]
 [editable path="Level1/Props/Office/ComputerDesk/Computer_screen (1)"]
 [editable path="Level2/Floor/Floor_6x8"]
+[editable path="Level2/Walls_EXT/WallOut_3x_20/WallIn_B_3x4"]
+[editable path="Level2/Walls_EXT/WallOut_3x_window_vinyl4/WallIn_B_3x_window"]
+[editable path="Level2/Walls_EXT/WallOut_3x_windowsmall_vinyl2/WallIn_B_3x_windowsmall"]
+[editable path="Level2/Walls_EXT/WallIn_B_3x_window"]
+[editable path="Level2/Walls_EXT/WallOut_3x_19/WallIn_B_3x4"]
+[editable path="Level2/Walls_EXT/WallOut_3x_windowdouble_vinyl2/WallIn_B_3x_windowdouble"]
+[editable path="Level2/Walls_INT/WallIn_A_3x4/WallIn_B_3x4"]
+[editable path="Level2/Doors/WallIn_B_3x_door4"]
 [editable path="PictureSpecificObjects/Frontyard/Noor_00"]
 [editable path="PictureSpecificObjects/Backyard/Noor_01"]
 [editable path="PictureSpecificObjects/Office/Noor_02"]
