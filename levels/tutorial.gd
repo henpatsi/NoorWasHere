@@ -83,3 +83,7 @@ func _on_crouch_tutorial_area_body_entered(body: Node3D) -> void:
 
 func _on_crouch_tutorial_area_body_exited(body: Node3D) -> void:
 	set_text("")
+
+
+func _on_crouch_tutorial_area_2_body_entered(body: Node3D) -> void:
+	print("Wodop")
