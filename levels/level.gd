@@ -13,17 +13,8 @@ var paused: bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	#black_screen.show()
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
-	#set_past_environment()
-	#for screenshot in picture_screenshots:
-		#screenshot.take_screenshot()
-		#await get_tree().create_timer(0.2).timeout
-	#set_present_environment()
-#
-	#await get_tree().create_timer(0.1).timeout
-	#black_screen.hide()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
@@ -42,16 +33,5 @@ func _input(event: InputEvent) -> void:
 		if not paused:
 			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
-
-#func set_past_environment() -> void:
-	#print("Setting environment to past")
-	#world_environment.environment = env_past
-	#directional_light_3d.light_energy = 0
-	#
-#func set_present_environment() -> void:
-	#print("Setting environment to present")
-	#world_environment.environment = env_present
-	#directional_light_3d.light_energy = 0.075
-	
 func load_scene(path: String) -> void:
 	get_tree().change_scene_to_file(path)
