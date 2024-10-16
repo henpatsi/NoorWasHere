@@ -53,6 +53,8 @@ var entered_picture
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	for picture in inventory.get_pictures(picture_depth):
+		if not picture:
+			continue
 		picture.set_target_position(picture_inventory_position, 100)
 		picture.set_active(false)
 		picture.show()
