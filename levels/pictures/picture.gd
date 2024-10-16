@@ -207,15 +207,15 @@ func exit_picture(player: CharacterBody3D, picture_handler: Node) -> void:
 	player.process_mode = Node.PROCESS_MODE_DISABLED
 
 	inside_picture = false
-	
+
+	picture_shader.on_exit_picture()
+
 	for node in nodes_to_hide_on_exit:
 		if is_instance_valid(node):
 			node.hide()
 			set_child_collider_states(node, true)
 
 	player.global_position -= world_root.position
-
-	picture_shader.on_exit_picture()
 
 	var zoomTween = create_tween().set_parallel()
 	zoomTween.tween_property(self, "position:y", target_position.y, picture_resize_time)
