@@ -1,4 +1,4 @@
-[gd_scene load_steps=236 format=4 uid="uid://8ymkajun4ggs"]
+[gd_scene load_steps=241 format=4 uid="uid://8ymkajun4ggs"]
 
 [ext_resource type="Script" path="res://levels/level.gd" id="1_eatkt"]
 [ext_resource type="Environment" uid="uid://dobqonwml2e5x" path="res://assets/WorldEnvironments/Env_Present.tres" id="2_qtfwo"]
@@ -64,6 +64,7 @@
 [ext_resource type="Resource" path="res://levels/dialogue_streams/08_E02.tres" id="73_i320y"]
 [ext_resource type="Resource" path="res://levels/dialogue_streams/09_E01.tres" id="74_tkio4"]
 [ext_resource type="Resource" path="res://levels/dialogue_streams/09_E02.tres" id="75_k53da"]
+[ext_resource type="PackedScene" uid="uid://b0atye8v1ibwx" path="res://assets/AtmosphericHouse/Meshes/Meshes_doors/Door_mesh_A_L.fbx" id="76_2y8er"]
 [ext_resource type="Resource" path="res://levels/dialogue_streams/09_E03.tres" id="76_eexyy"]
 [ext_resource type="Resource" path="res://levels/dialogue_streams/10_E01.tres" id="77_ugy5w"]
 [ext_resource type="Resource" path="res://levels/dialogue_streams/10_E02.tres" id="78_4nshw"]
@@ -252,6 +253,12 @@ size = Vector3(0.618565, 1.84598, 0.0675862)
 [sub_resource type="BoxShape3D" id="BoxShape3D_yi1rk"]
 size = Vector3(0.618565, 1.84598, 0.0675862)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_7r8pl"]
+size = Vector3(1, 2.16087, 0.0576172)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_b0eli"]
+size = Vector3(1.53613, 2.16087, 0.0576172)
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_fchym"]
 size = Vector3(2.28512, 1, 2.26251)
 
@@ -342,6 +349,9 @@ size = Vector3(0.603802, 2.18872, 2.54352)
 [sub_resource type="BoxShape3D" id="BoxShape3D_6t4wj"]
 size = Vector3(0.603802, 2.18872, 2.54352)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_fqff5"]
+size = Vector3(1, 2.16087, 0.0576172)
+
 [sub_resource type="Animation" id="Animation_m66kf"]
 length = 0.001
 tracks/0/type = "value"
@@ -380,6 +390,9 @@ _data = {
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_6qa1d"]
 size = Vector3(0.128784, 3.04449, 4.01611)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6l1c6"]
+size = Vector3(1.03223, 2.16087, 0.0576172)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_rhtjj"]
 size = Vector3(0.128784, 2.59883, 3.52136)
@@ -1449,12 +1462,41 @@ disabled = true
 [node name="LightProbes_AnchorOverride" type="Node3D" parent="Present/ChangingScene/HallwayCabinet"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.138, 0.597)
 
-[node name="NoorDoorClosed" parent="Present/ChangingScene" instance=ExtResource("91_pc8rc")]
+[node name="NoorDoorClosed" type="Node3D" parent="Present/ChangingScene"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1.8491, 3.5, -1.91973)
 
-[node name="NoorDoorOpen" parent="Present/ChangingScene" instance=ExtResource("91_pc8rc")]
+[node name="Door_mesh_A_L" parent="Present/ChangingScene/NoorDoorClosed" instance=ExtResource("76_2y8er")]
+
+[node name="Door_mesh_A_L2" parent="Present/ChangingScene/NoorDoorClosed" instance=ExtResource("76_2y8er")]
+visible = false
+
+[node name="LightProbes_AnchorOverride" type="Node3D" parent="Present/ChangingScene/NoorDoorClosed"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.042, -0.118)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Present/ChangingScene/NoorDoorClosed"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Present/ChangingScene/NoorDoorClosed/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.498528, 1.08181, 0.0288086)
+shape = SubResource("BoxShape3D_7r8pl")
+
+[node name="NoorDoorOpen" type="Node3D" parent="Present/ChangingScene"]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1.8491, 3.5, -1.91973)
 visible = false
+
+[node name="Door_mesh_A_L" parent="Present/ChangingScene/NoorDoorOpen" instance=ExtResource("76_2y8er")]
+
+[node name="Door_mesh_A_L2" parent="Present/ChangingScene/NoorDoorOpen" instance=ExtResource("76_2y8er")]
+visible = false
+
+[node name="LightProbes_AnchorOverride" type="Node3D" parent="Present/ChangingScene/NoorDoorOpen"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.042, -0.118)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Present/ChangingScene/NoorDoorOpen"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Present/ChangingScene/NoorDoorOpen/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.268066, 1.08181, 0.0288086)
+shape = SubResource("BoxShape3D_b0eli")
+disabled = true
 
 [node name="TriggerVolumes" type="Node3D" parent="Present"]
 
@@ -4427,6 +4469,7 @@ bones/408/position = Vector3(0.00616905, -0.00365488, 0.00439994)
 bones/408/rotation = Quaternion(0.0828449, 0.0102829, 0.122747, 0.988921)
 
 [node name="TV" type="Node3D" parent="Past/PictureSpecificObjects"]
+visible = false
 
 [node name="SpotLight3D" type="SpotLight3D" parent="Past/PictureSpecificObjects/TV"]
 transform = Transform3D(0.981072, 0.0636328, 0.182888, -0.138552, 0.890483, 0.433409, -0.13528, -0.450545, 0.882445, 1.15784, 5.26911, 3.8969)
@@ -5417,15 +5460,30 @@ bones/405/position = Vector3(2.23517e-10, -1.02445e-10, 1.74623e-10)
 bones/408/position = Vector3(0.00590444, -0.00286572, 0.00244043)
 bones/408/rotation = Quaternion(-0.246738, 0.135754, 0.0781005, 0.956343)
 
-[node name="NoorDoorAjar" parent="Past/PictureSpecificObjects/TV" node_paths=PackedStringArray("interact_stream_player", "nodes_to_show", "nodes_to_hide") instance=ExtResource("91_pc8rc")]
+[node name="NoorDoorAjar" type="Node3D" parent="Past/PictureSpecificObjects/TV"]
 transform = Transform3D(-0.426395, 0, 0.904537, 0, 1, 0, -0.904537, 0, -0.426395, -1.84912, 3.5, -1.91973)
+
+[node name="Door_mesh_A_L" parent="Past/PictureSpecificObjects/TV/NoorDoorAjar" instance=ExtResource("76_2y8er")]
+
+[node name="Door_mesh_A_L2" parent="Past/PictureSpecificObjects/TV/NoorDoorAjar" instance=ExtResource("76_2y8er")]
+visible = false
+
+[node name="LightProbes_AnchorOverride" type="Node3D" parent="Past/PictureSpecificObjects/TV/NoorDoorAjar"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.042, -0.118)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Past/PictureSpecificObjects/TV/NoorDoorAjar" node_paths=PackedStringArray("interact_stream_player", "nodes_to_show", "nodes_to_hide")]
 script = ExtResource("65_mhbtl")
 interaction_animations = Array[String](["open"])
 item_name = "door"
-interact_stream_player = NodePath("AudioStreamPlayer3D")
+interact_stream_player = NodePath("../AudioStreamPlayer3D")
 interact_audio_stream = ExtResource("66_53s0v")
-nodes_to_show = [NodePath("../../../../Present/ChangingScene/NoorDoorOpen")]
-nodes_to_hide = [NodePath("../../../../Present/ChangingScene/NoorDoorClosed")]
+nodes_to_show = [NodePath("../../../../../Present/ChangingScene/NoorDoorOpen")]
+nodes_to_hide = [NodePath("../../../../../Present/ChangingScene/NoorDoorClosed")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Past/PictureSpecificObjects/TV/NoorDoorAjar/StaticBody3D"]
+transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, -0.52475, 1.08181, 0.0279541)
+shape = SubResource("BoxShape3D_fqff5")
+disabled = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Past/PictureSpecificObjects/TV/NoorDoorAjar"]
 libraries = {
@@ -6444,8 +6502,23 @@ bones/405/position = Vector3(4.3047e-11, 1.67638e-10, -6.89179e-10)
 bones/408/position = Vector3(0.0069962, -0.00358452, 0.00540097)
 bones/408/rotation = Quaternion(0.0658247, -0.0583926, 0.139758, 0.986268)
 
-[node name="NoorDoorAjar" parent="Past/PictureSpecificObjects/NoorRoomNight" instance=ExtResource("91_pc8rc")]
+[node name="NoorDoorAjar" type="Node3D" parent="Past/PictureSpecificObjects/NoorRoomNight"]
 transform = Transform3D(-0.788612, 0, 0.614891, 0, 1, 0, -0.614891, 0, -0.788612, -1.84912, 3.5, -1.91973)
+
+[node name="Door_mesh_A_L" parent="Past/PictureSpecificObjects/NoorRoomNight/NoorDoorAjar" instance=ExtResource("76_2y8er")]
+
+[node name="Door_mesh_A_L2" parent="Past/PictureSpecificObjects/NoorRoomNight/NoorDoorAjar" instance=ExtResource("76_2y8er")]
+visible = false
+
+[node name="LightProbes_AnchorOverride" type="Node3D" parent="Past/PictureSpecificObjects/NoorRoomNight/NoorDoorAjar"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.042, -0.118)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Past/PictureSpecificObjects/NoorRoomNight/NoorDoorAjar"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Past/PictureSpecificObjects/NoorRoomNight/NoorDoorAjar/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.516511, 1.082, 0.0325923)
+shape = SubResource("BoxShape3D_6l1c6")
+disabled = true
 
 [node name="NoorRoomDay" type="Node3D" parent="Past/PictureSpecificObjects"]
 visible = false
@@ -6986,8 +7059,23 @@ light_energy = 0.15
 shadow_opacity = 0.33
 omni_range = 7.52
 
-[node name="NoorDoorAjar" parent="Past/PictureSpecificObjects/NoorRoomDay" instance=ExtResource("91_pc8rc")]
+[node name="NoorDoorAjar" type="Node3D" parent="Past/PictureSpecificObjects/NoorRoomDay"]
 transform = Transform3D(-0.788612, 0, 0.614891, 0, 1, 0, -0.614891, 0, -0.788612, -1.84912, 3.5, -1.91973)
+
+[node name="Door_mesh_A_L" parent="Past/PictureSpecificObjects/NoorRoomDay/NoorDoorAjar" instance=ExtResource("76_2y8er")]
+
+[node name="Door_mesh_A_L2" parent="Past/PictureSpecificObjects/NoorRoomDay/NoorDoorAjar" instance=ExtResource("76_2y8er")]
+visible = false
+
+[node name="LightProbes_AnchorOverride" type="Node3D" parent="Past/PictureSpecificObjects/NoorRoomDay/NoorDoorAjar"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.042, -0.118)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Past/PictureSpecificObjects/NoorRoomDay/NoorDoorAjar"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Past/PictureSpecificObjects/NoorRoomDay/NoorDoorAjar/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.516511, 1.082, 0.0325923)
+shape = SubResource("BoxShape3D_6l1c6")
+disabled = true
 
 [node name="SpotLight3D4" type="SpotLight3D" parent="Past/PictureSpecificObjects/NoorRoomDay"]
 transform = Transform3D(0.859719, 0.0107062, -0.510655, 0.0233417, 0.997912, 0.060219, 0.510234, -0.063691, 0.857674, -5.99133, 5.93548, 4.53258)
@@ -9841,6 +9929,10 @@ shape = SubResource("BoxShape3D_14nep")
 
 [editable path="Player"]
 [editable path="Present/Interactables/DropOffZone"]
+[editable path="Present/ChangingScene/NoorDoorClosed/Door_mesh_A_L"]
+[editable path="Present/ChangingScene/NoorDoorClosed/Door_mesh_A_L2"]
+[editable path="Present/ChangingScene/NoorDoorOpen/Door_mesh_A_L"]
+[editable path="Present/ChangingScene/NoorDoorOpen/Door_mesh_A_L2"]
 [editable path="Present/TriggerVolumes/V01E_EnterHouse"]
 [editable path="Present/TriggerVolumes/V02E_Office"]
 [editable path="Present/TriggerVolumes/V03E_LivingRoom"]
@@ -9875,9 +9967,15 @@ shape = SubResource("BoxShape3D_14nep")
 [editable path="Past/PictureSpecificObjects/HallwayUpstairs/Mother_04"]
 [editable path="Past/PictureSpecificObjects/TV/Noor_05"]
 [editable path="Past/PictureSpecificObjects/TV/Mother_05"]
+[editable path="Past/PictureSpecificObjects/TV/NoorDoorAjar/Door_mesh_A_L"]
+[editable path="Past/PictureSpecificObjects/TV/NoorDoorAjar/Door_mesh_A_L2"]
 [editable path="Past/PictureSpecificObjects/NoorRoomNight/Noor_06"]
 [editable path="Past/PictureSpecificObjects/NoorRoomNight/Mother_06"]
+[editable path="Past/PictureSpecificObjects/NoorRoomNight/NoorDoorAjar/Door_mesh_A_L"]
+[editable path="Past/PictureSpecificObjects/NoorRoomNight/NoorDoorAjar/Door_mesh_A_L2"]
 [editable path="Past/PictureSpecificObjects/NoorRoomDay/Noor_07"]
+[editable path="Past/PictureSpecificObjects/NoorRoomDay/NoorDoorAjar/Door_mesh_A_L"]
+[editable path="Past/PictureSpecificObjects/NoorRoomDay/NoorDoorAjar/Door_mesh_A_L2"]
 [editable path="Past/PictureSpecificObjects/FrontDoor/Noor_08"]
 [editable path="Past/PictureSpecificObjects/FrontDoor/Mother_08"]
 [editable path="Past/PictureSpecificObjects/Forest/Noor_09"]
