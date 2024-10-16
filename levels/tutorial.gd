@@ -78,12 +78,10 @@ func set_text(new_text: String) -> void:
 
 
 func _on_crouch_tutorial_area_body_entered(body: Node3D) -> void:
-	set_text("Hold left control to crouch")
+	if body.is_in_group("Player"):
+		set_text("Hold left control to crouch")
 
 
 func _on_crouch_tutorial_area_body_exited(body: Node3D) -> void:
-	set_text("")
-
-
-func _on_crouch_tutorial_area_2_body_entered(body: Node3D) -> void:
-	print("Wodop")
+	if body.is_in_group("Player"):
+		set_text("")

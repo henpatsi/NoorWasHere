@@ -175,7 +175,7 @@ func enter_picture() -> void:
 	entered_picture_index_array[picture_depth] = picture_index
 	picture_index = 0
 	picture_depth += 1
-	current_picture.enter_picture(player, head_node, self)
+	current_picture.enter_picture(head_node, self)
 
 	entered_picture = current_picture
 
@@ -210,7 +210,7 @@ func exit_picture() -> void:
 
 	initialize_picture_array(inventory.get_pictures(picture_depth))
 
-	current_picture.exit_picture(player, self)
+	current_picture.exit_picture(self)
 	
 	up_position = true
 	crosshair.hide()

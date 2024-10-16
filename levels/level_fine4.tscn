@@ -1036,6 +1036,7 @@ light_cull_mask = 4294966271
 shadow_enabled = true
 
 [node name="Player" parent="." node_paths=PackedStringArray("subtitle_label", "interact_label", "interact_response_label") instance=ExtResource("41_vuow4")]
+unique_name_in_owner = true
 transform = Transform3D(0.998472, 0, -0.0552638, 0, 1, 0, 0.0552638, 0, 0.998472, 1.21662, 0, 20.34)
 subtitle_label = NodePath("../UI/SubtitleLabel")
 interact_label = NodePath("../UI/InteractLabel")
@@ -8694,6 +8695,7 @@ libraries = {
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Past/PictureSpecificObjects/FrontDoor/NoorWindow"]
 
 [node name="Forest" type="Node3D" parent="Past/PictureSpecificObjects"]
+visible = false
 
 [node name="SpotLight3D2" type="SpotLight3D" parent="Past/PictureSpecificObjects/Forest"]
 transform = Transform3D(0.663398, -0.0967627, -0.741984, 0.0607598, 0.995295, -0.0754727, 0.745796, 0.00498559, 0.666156, -12.2623, 7.28962, -5.29666)
