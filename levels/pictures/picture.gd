@@ -6,6 +6,7 @@ extends TextureRect
 ## The root of the world where the camera is located.
 @export var world_root: Node3D
 
+
 @export_group("Settings")
 ## For lining up the picture and the real scene.
 ## The maxumim distance the player can be from the actual position.
@@ -16,6 +17,7 @@ extends TextureRect
 ## A list of requirements that need to be met for this picture to work.
 ## Example: front_door_closed, tv_on_table, living_room_complete
 @export var requirements: Array[String]
+
 
 @export_group("Scene changes")
 ## Nodes that will be shown when picture is active and hidden when inactive
@@ -28,6 +30,7 @@ extends TextureRect
 ## Area3D nodes that should start monitoring
 @export var start_monitoring_list: Array[Area3D]
 
+
 @export_group("Audio")
 ## Audio stream player to play audio when scene is entered
 @export var ambientASP: AudioStreamPlayer3D
@@ -38,6 +41,7 @@ extends TextureRect
 @export var ending_volume: float = 20
 ## Time it takes music to fade in from silent to the original value
 @export var volume_fade_in_time: float = 3
+
 
 @export_group("Transition")
 ## Time it takes to perfectly position player
@@ -53,6 +57,7 @@ extends TextureRect
 ### Delay before exit dialogue played
 #@export var exit_dialogue_delay: float = 0
 
+
 var active_picture: bool = false
 var inside_picture: bool = false
 
@@ -67,7 +72,7 @@ var audioTween: Tween
 var move_speed: float = 100
 var at_target_position: bool = false
 
-var printTimer = 0
+@onready var picture_shader: ColorRect = $"../SubViewport/PortalCamera/Shader"
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -160,10 +165,12 @@ func enter_picture(player: CharacterBody3D, head_node: Node3D, picture_handler: 
 	var moveTween = create_tween().set_parallel()
 	moveTween.tween_property(player, "global_position:x", camera_pos.x, move_tween_time)
 	moveTween.tween_property(player, "global_position:z", camera_pos.z, move_tween_time)
-	moveTween.tween_property(player, "rotation:y", camera.rotation.y, move_tween_time)
-	moveTween.tween_property(head_node, "rotation:x", camera.rotation.x, move_tween_time)
+	moveTween.tween_property(player, "rotation:y", camera.global_rotation.y, move_tween_time)
+	moveTween.tween_property(head_node, "rotation:x", camera.global_rotation.x, move_tween_time)
 	
 	await get_tree().create_timer(move_tween_time).timeout
+
+	picture_shader.on_enter_picture()
 
 	var zoomTween = create_tween().set_parallel()
 	zoomTween.tween_property(self, "position:y", 0, picture_resize_time)
@@ -183,10 +190,8 @@ func enter_picture(player: CharacterBody3D, head_node: Node3D, picture_handler: 
 
 	player.global_position = camera.global_position
 	player.position.y -= head_node.position.y
-	player.global_rotation = camera.global_rotation
-
-	#get_tree().root.get_child(1).set_past_environment()
-	#hide()
+	player.rotation.y = camera.global_rotation.y
+	head_node.rotation.x = camera.global_rotation.x
 
 	player.process_mode = Node.PROCESS_MODE_PAUSABLE
 
@@ -202,7 +207,9 @@ func exit_picture(player: CharacterBody3D, picture_handler: Node) -> void:
 	player.process_mode = Node.PROCESS_MODE_DISABLED
 
 	inside_picture = false
-	
+
+	picture_shader.on_exit_picture()
+
 	for node in nodes_to_hide_on_exit:
 		if is_instance_valid(node):
 			node.hide()

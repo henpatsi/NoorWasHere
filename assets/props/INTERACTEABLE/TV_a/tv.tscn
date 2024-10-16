@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=4 uid="uid://cogjse1d7bpe1"]
+[gd_scene load_steps=6 format=4 uid="uid://cogjse1d7bpe1"]
 
 [ext_resource type="Material" uid="uid://d4eil0ph6pfc4" path="res://assets/props/INTERACTEABLE/TV_a/TV_A_Mat.tres" id="1_kgbr8"]
 
@@ -42,32 +42,20 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_eu51v")
 
-[sub_resource type="Animation" id="Animation_dcw12"]
-resource_name = "Unreal Take"
-length = 0.001
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_jt2j3"]
-_data = {
-"Unreal Take": SubResource("Animation_dcw12")
-}
-
 [sub_resource type="BoxShape3D" id="BoxShape3D_y0h1t"]
-size = Vector3(1.16162, 1.08209, 0.818115)
+size = Vector3(0.632446, 0.596755, 0.449036)
 
 [node name="TV" type="RigidBody3D"]
-gravity_scale = 0.0
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
 
-[node name="TV_a" type="MeshInstance3D" parent="."]
-transform = Transform3D(1.8, 0, 0, 0, -7.86805e-08, 1.8, 0, -1.8, -7.86805e-08, 0, 0, 0)
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
 material_override = ExtResource("1_kgbr8")
 mesh = SubResource("ArrayMesh_xe5ye")
 skeleton = NodePath("")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_jt2j3")
-}
-
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0109863, 0.545013, -0.0601807)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000427395, 0.302346, -0.0353699)
 shape = SubResource("BoxShape3D_y0h1t")

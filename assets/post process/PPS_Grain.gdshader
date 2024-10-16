@@ -8,10 +8,12 @@ uniform float distortion_strength : hint_range(0.0, 1.0) = 0.05; // Strength of 
 uniform float chromatic_aberration_strength : hint_range(0.0, 0.01) = 0.001; // Strength for color separation
 uniform float aberration_radius : hint_range(0.0, 1.0) = 0.4; // Radius for chromatic aberration effect
 
+uniform float speed = 0.5; // Primarily for toggling time dependance on and off
+
 // Simple animated noise function
 float noise(vec2 uv, float time) {
     // Increase frequency of noise by adjusting the UV scale
-    return fract(sin(dot(uv * 0.1, vec2(12.9898, 78.233) + time * 0.5)) * 43758.5453);
+    return fract(sin(dot(uv * 0.1, vec2(12.9898, 78.233) + time * speed)) * 43758.5453);
 }
 
 void fragment() {
@@ -27,14 +29,14 @@ void fragment() {
     // Compute the distance from the center
     vec2 to_center = uv - center;
     float dist = length(to_center);
-    
+
     // Apply lens distortion based on the distance from the center
     float radius = 1.0 - smoothstep(0.0, 0.5, dist); // Controls the transition for distortion
     vec2 distorted_uv = uv + to_center * (distortion_strength * dist * radius);
 
     // Determine the effect of chromatic aberration based on distance from center
     float effect_amount = smoothstep(aberration_radius, 1.0, dist);
-    
+
     // Calculate noise displacement for chromatic aberration
     float noise_displacement = noise(uv * 0.5, TIME) * 0.001; // Scale the noise for the displacement
 
