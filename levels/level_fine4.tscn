@@ -1262,6 +1262,36 @@ label_settings = SubResource("LabelSettings_y6k4h")
 [node name="Car" parent="Present" instance=ExtResource("105_081hi")]
 transform = Transform3D(-0.981406, 0, -0.19194, 0, 1, 0, 0.19194, 0, -0.981406, -1.11716, 4.76837e-07, 24.6179)
 
+[node name="Headlight1" type="OmniLight3D" parent="Present/Car"]
+transform = Transform3D(0.998152, 0, 0.0607698, 0, 1, 0, -0.0607698, 0, 0.998152, -0.80145, 0.859004, 2.97167)
+light_color = Color(0.921773, 0.826071, 0.664673, 1)
+light_energy = 3.128
+light_volumetric_fog_energy = 2.34
+omni_range = 0.378
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Present/Car/Headlight1"]
+transform = Transform3D(0.989786, -0.0228688, 0.140714, -0.0393546, -0.992526, 0.115517, 0.13702, -0.119875, -0.983288, 0, 0, 0)
+light_color = Color(0.921773, 0.826071, 0.664673, 1)
+light_energy = 2.498
+light_volumetric_fog_energy = 3.522
+spot_range = 9.631
+spot_angle = 21.06
+
+[node name="Headlight2" type="OmniLight3D" parent="Present/Car"]
+transform = Transform3D(0.980102, 0, 0.198496, 0, 1, 0, -0.198496, 0, 0.980102, 0.79855, 0.859004, 2.97167)
+light_color = Color(0.921773, 0.826071, 0.664673, 1)
+light_energy = 3.128
+light_volumetric_fog_energy = 2.34
+omni_range = 0.378
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Present/Car/Headlight2"]
+transform = Transform3D(0.989786, -0.0228688, 0.140714, -0.0393546, -0.992526, 0.115517, 0.13702, -0.119875, -0.983288, 0, 0, 0)
+light_color = Color(0.921773, 0.826071, 0.664673, 1)
+light_energy = 2.498
+light_volumetric_fog_energy = 3.522
+spot_range = 9.631
+spot_angle = 21.06
+
 [node name="Shed" parent="Present" instance=ExtResource("26_ssg50")]
 
 [node name="Forest" parent="Present" instance=ExtResource("23_7p1rt")]
