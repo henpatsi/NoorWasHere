@@ -251,7 +251,7 @@ func exit_picture(picture_handler: Node) -> void:
 
 	await get_tree().create_timer(camera_return_time).timeout
 
-	if not enter_dialogue_triggered and enter_dialogue_clips.size() > 0:
+	if not exit_dialogue_triggered and enter_dialogue_clips.size() > 0:
 		start_dialogue_clips()
 	elif not dialogue_playing:
 		apply_scene_changes(true, exit_nodes_to_show, exit_nodes_to_hide, exit_start_monitoring_list)
