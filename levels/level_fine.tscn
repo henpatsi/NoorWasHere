@@ -1437,13 +1437,13 @@ size = Vector3(1.65393, 3.73828, 1.02539)
 [sub_resource type="ViewportTexture" id="ViewportTexture_35tsd"]
 viewport_path = NodePath("Pictures/9_Forest/SubViewport")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u38jg"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_14h48"]
 resource_local_to_scene = true
 albedo_texture = SubResource("ViewportTexture_35tsd")
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_lodhw"]
 resource_local_to_scene = true
-material = SubResource("StandardMaterial3D_u38jg")
+material = SubResource("StandardMaterial3D_14h48")
 size = Vector2(0.48, 0.27)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_vc26v"]
@@ -1451,37 +1451,37 @@ size = Vector2(0.48, 0.27)
 [sub_resource type="ViewportTexture" id="ViewportTexture_2q7yh"]
 viewport_path = NodePath("Pictures/3_LivingRoom/SubViewport")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d500s"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mu6ri"]
 resource_local_to_scene = true
 albedo_texture = SubResource("ViewportTexture_2q7yh")
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_01b1r"]
 resource_local_to_scene = true
-material = SubResource("StandardMaterial3D_d500s")
+material = SubResource("StandardMaterial3D_mu6ri")
 size = Vector2(0.48, 0.27)
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_mbhtw"]
 viewport_path = NodePath("Pictures/8_FrontDoor/SubViewport")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_imv2r"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rwkxi"]
 resource_local_to_scene = true
 albedo_texture = SubResource("ViewportTexture_mbhtw")
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_3cyo4"]
 resource_local_to_scene = true
-material = SubResource("StandardMaterial3D_imv2r")
+material = SubResource("StandardMaterial3D_rwkxi")
 size = Vector2(0.48, 0.27)
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_p5cuu"]
 viewport_path = NodePath("Pictures/8_FrontDoor/SubViewport")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lj4xd"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kc7w0"]
 resource_local_to_scene = true
 albedo_texture = SubResource("ViewportTexture_p5cuu")
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_burpu"]
 resource_local_to_scene = true
-material = SubResource("StandardMaterial3D_lj4xd")
+material = SubResource("StandardMaterial3D_kc7w0")
 size = Vector2(0.48, 0.27)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_7tqqu"]
@@ -3455,16 +3455,11 @@ disabled = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.015213, 1.36914, 0.223512)
 shape = SubResource("BoxShape3D_ibyln")
 
-[node name="TV" parent="Present/INTERACTABLES" node_paths=PackedStringArray("mesh", "carry_audio_stream_player") instance=ExtResource("12_4tqrl")]
+[node name="TV" parent="Present/INTERACTABLES" node_paths=PackedStringArray("carry_audio_stream_player") instance=ExtResource("12_4tqrl")]
 transform = Transform3D(-0.940678, -0.337738, 0.0325252, -0.339301, 0.936274, -0.0909153, 0.000253081, -0.0965579, -0.995327, 8.93476, 4.75, 6.06002)
-axis_lock_angular_x = true
-axis_lock_angular_y = true
-axis_lock_angular_z = true
-gravity_scale = 1.0
 script = ExtResource("14_trd0m")
 carry_position_offset = Vector3(0, 0, 0.2)
 set_requirement = "tv_on_table"
-mesh = NodePath("TV_a")
 carry_audio_stream_player = NodePath("AudioStreamPlayer3D")
 pick_up_audio = ExtResource("18_o6xmn")
 put_down_audio = ExtResource("19_f24x4")
