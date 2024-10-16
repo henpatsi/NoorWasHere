@@ -1,4 +1,4 @@
-[gd_scene load_steps=229 format=4 uid="uid://8ymkajun4ggs"]
+[gd_scene load_steps=233 format=4 uid="uid://8ymkajun4ggs"]
 
 [ext_resource type="Script" path="res://levels/level.gd" id="1_eatkt"]
 [ext_resource type="Environment" uid="uid://dobqonwml2e5x" path="res://assets/WorldEnvironments/Env_Present.tres" id="2_qtfwo"]
@@ -44,6 +44,7 @@
 [ext_resource type="Material" uid="uid://dmv7rqma4dp18" path="res://assets/AtmosphericHouse/Materials/Wardrobe_clean.material" id="63_q8axx"]
 [ext_resource type="Resource" path="res://levels/dialogue_streams/02_E02.tres" id="64_1o75g"]
 [ext_resource type="ArrayMesh" uid="uid://xyccblp8cijy" path="res://assets/AtmosphericHouse/Meshes/Meshes_props/extracted/Cabinet_B.Cabinet_B_door_L.mesh" id="64_sbu8e"]
+[ext_resource type="Script" path="res://levels/debug_teleport.gd" id="65_3us2a"]
 [ext_resource type="Resource" path="res://levels/dialogue_streams/02_E03.tres" id="65_ks7fy"]
 [ext_resource type="Script" path="res://levels/interactables/interactable_animation.gd" id="65_mhbtl"]
 [ext_resource type="AudioStream" uid="uid://v5y0r4dixf50" path="res://assets/audio/sfx/door/Dooropen.wav" id="66_53s0v"]
@@ -337,6 +338,42 @@ size = Vector3(0.603802, 2.18872, 2.54352)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_6t4wj"]
 size = Vector3(0.603802, 2.18872, 2.54352)
+
+[sub_resource type="Animation" id="Animation_u0w2x"]
+resource_name = "open"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 2.0113, 0), Vector3(0, 3.14159, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_m66kf"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 2.0113, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vhss5"]
+_data = {
+"RESET": SubResource("Animation_m66kf"),
+"open": SubResource("Animation_u0w2x")
+}
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_6qa1d"]
 size = Vector3(0.128784, 3.04449, 4.01611)
@@ -1368,6 +1405,7 @@ surface_material_override/0 = ExtResource("63_q8axx")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Present/ChangingScene/HallwayCabinet/Cabinet_B_door_L_parent/HallwayCabinet_door_L_open/BoxCollider"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.303899, 0, 0.00417362)
 shape = SubResource("BoxShape3D_823y0")
+disabled = true
 
 [node name="Cabinet_B_door_R_parent" type="Node3D" parent="Present/ChangingScene/HallwayCabinet"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.61391, 1.09225, 0.276442)
@@ -1400,12 +1438,17 @@ surface_material_override/0 = ExtResource("63_q8axx")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Present/ChangingScene/HallwayCabinet/Cabinet_B_door_R_parent/HallwayCabinet_door_R_open/BoxCollider"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.303903, 0, 0.00417362)
 shape = SubResource("BoxShape3D_yi1rk")
+disabled = true
 
 [node name="LightProbes_AnchorOverride" type="Node3D" parent="Present/ChangingScene/HallwayCabinet"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.138, 0.597)
 
-[node name="Door_parent_A_L" parent="Present/ChangingScene" instance=ExtResource("91_pc8rc")]
-transform = Transform3D(-1, 0, 2.38498e-08, 0, 1, 0, -2.38498e-08, 0, -1, -1.8491, 3.5, -1.91973)
+[node name="NoorDoorClosed" parent="Present/ChangingScene" instance=ExtResource("91_pc8rc")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1.8491, 3.5, -1.91973)
+
+[node name="NoorDoorOpen" parent="Present/ChangingScene" instance=ExtResource("91_pc8rc")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1.8491, 3.5, -1.91973)
+visible = false
 
 [node name="TriggerVolumes" type="Node3D" parent="Present"]
 
@@ -1505,6 +1548,17 @@ end_sequence = NodePath("../../../UI/EndSequence")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Present/TriggerVolumes/EndSequenceTrigger"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8.00023, 0.0363197)
 shape = SubResource("BoxShape3D_xmkwy")
+
+[node name="DebugTeleportPositions" type="Node3D" parent="Present" node_paths=PackedStringArray("player", "positions")]
+script = ExtResource("65_3us2a")
+player = NodePath("../../Player")
+positions = [NodePath("Upstairs"), NodePath("Downstairs")]
+
+[node name="Upstairs" type="Node3D" parent="Present/DebugTeleportPositions"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.597109, 3.73397, -1.72835)
+
+[node name="Downstairs" type="Node3D" parent="Present/DebugTeleportPositions"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.597109, 0.683431, -1.72835)
 
 [node name="Past" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1000, 0, 0)
@@ -1650,6 +1704,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0136719, 0.604016, 0.060373
 shape = SubResource("BoxShape3D_pfecn")
 
 [node name="Backyard" type="Node3D" parent="Past/PictureSpecificObjects"]
+visible = false
 
 [node name="SpotLight3D" type="SpotLight3D" parent="Past/PictureSpecificObjects/Backyard"]
 transform = Transform3D(0.687366, -0.369302, -0.625415, -0.13171, -0.910186, 0.3927, -0.714269, -0.187555, -0.674272, -3.73438, 2.89467, -11.5582)
@@ -4366,7 +4421,6 @@ bones/408/position = Vector3(0.00616905, -0.00365488, 0.00439994)
 bones/408/rotation = Quaternion(0.0828449, 0.0102829, 0.122747, 0.988921)
 
 [node name="TV" type="Node3D" parent="Past/PictureSpecificObjects"]
-visible = false
 
 [node name="SpotLight3D" type="SpotLight3D" parent="Past/PictureSpecificObjects/TV"]
 transform = Transform3D(0.981072, 0.0636328, 0.182888, -0.138552, 0.890483, 0.433409, -0.13528, -0.450545, 0.882445, 1.15784, 5.26911, 3.8969)
@@ -5357,8 +5411,22 @@ bones/405/position = Vector3(2.23517e-10, -1.02445e-10, 1.74623e-10)
 bones/408/position = Vector3(0.00590444, -0.00286572, 0.00244043)
 bones/408/rotation = Quaternion(-0.246738, 0.135754, 0.0781005, 0.956343)
 
-[node name="NoorDoorAjar" parent="Past/PictureSpecificObjects/TV" instance=ExtResource("91_pc8rc")]
+[node name="NoorDoorAjar" parent="Past/PictureSpecificObjects/TV" node_paths=PackedStringArray("interact_stream_player", "nodes_to_show", "nodes_to_hide") instance=ExtResource("91_pc8rc")]
 transform = Transform3D(-0.426395, 0, 0.904537, 0, 1, 0, -0.904537, 0, -0.426395, -1.84912, 3.5, -1.91973)
+script = ExtResource("65_mhbtl")
+interaction_animations = Array[String](["open"])
+item_name = "door"
+interact_stream_player = NodePath("AudioStreamPlayer3D")
+interact_audio_stream = ExtResource("66_53s0v")
+nodes_to_show = [NodePath("../../../../Present/ChangingScene/NoorDoorOpen")]
+nodes_to_hide = [NodePath("../../../../Present/ChangingScene/NoorDoorClosed")]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Past/PictureSpecificObjects/TV/NoorDoorAjar"]
+libraries = {
+"": SubResource("AnimationLibrary_vhss5")
+}
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Past/PictureSpecificObjects/TV/NoorDoorAjar"]
 
 [node name="NoorRoomNight" type="Node3D" parent="Past/PictureSpecificObjects"]
 visible = false
@@ -6382,6 +6450,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.20844, 4.82809, -2.07524)
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Past/PictureSpecificObjects/NoorRoomDay/DayStaticBody3D"]
 transform = Transform3D(0.999972, 0, -0.0075402, 0, 1, 0, 0.0075402, 0, 0.999972, -2.96198, 0.214841, 1.60946)
 shape = SubResource("BoxShape3D_6qa1d")
+disabled = true
 
 [node name="Noor_07" parent="Past/PictureSpecificObjects/NoorRoomDay" instance=ExtResource("59_sfpfk")]
 transform = Transform3D(-0.843564, -0.0955767, 0.775735, -0.096662, 1.14537, 0.0360039, -0.7756, -0.0387935, -0.848198, -4.96219, 3.50904, -0.594859)
