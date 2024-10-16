@@ -14,6 +14,12 @@ extends Node
 ## Rect containing shader to use when teleporting into picture
 @export var teleport_shader_rect: ColorRect
 
+@export_category("Audio")
+@onready var audio_player: AudioStreamPlayer3D = $"AudioPlayer"
+@export var transition_in_audio_clip: AudioStream
+@export var transition_out_audio_clip: AudioStream
+@export var swap_picture_audio: AudioStream
+
 var picture_upper_position: Vector2
 
 var picture_index: int = 0
@@ -41,14 +47,14 @@ var input_blockers: float = 0
 @onready var player: CharacterBody3D = $"../Player"
 @onready var head_node: Node3D = $"../Player/HeadNode"
 
-@onready var transition_audio_player: AudioStreamPlayer3D = $"TransitionPlayer"
-var transition_in_audio_clip: AudioStream = load("res://assets/audio/sfx/Misc/Transition/Photo_transition1.wav")
-var transition_out_audio_clip: AudioStream = load("res://assets/audio/sfx/Misc/Transition/Photo_transition2.wav")
-
+var exit_area_tester: PackedScene = preload("res://levels/areas/exit_zone_tester.tscn")
+var entered_picture
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	for picture in inventory.get_pictures(picture_depth):
+		if not picture:
+			continue
 		picture.set_target_position(picture_inventory_position, 100)
 		picture.set_active(false)
 		picture.show()
@@ -103,6 +109,8 @@ func set_input_state(state: bool, force_down: bool = true) -> void:
 
 func _input(event: InputEvent) -> void:
 	if input_blockers > 0:
+		if event.is_action_pressed("exit_picture"):
+			interact_response_label.change_text("Cannot exit picture right now")
 		return
 
 	input_blockers += 1
@@ -119,18 +127,12 @@ func _input(event: InputEvent) -> void:
 
 	if event.is_action_pressed("next_picture"):
 		print("Swapping to next picture")
-		if inventory.get_pictures(picture_depth).size() <= 1:
-			print("Nothing to swap to")
-		else:
-			set_active_picture(picture_index + 1)
-	
+		swap_picture(picture_index + 1)
+
 	if event.is_action_pressed("previous_picture"):
 		print("Swapping to previous picture")
-		if inventory.get_pictures(picture_depth).size() <= 1:
-			print("Nothing to swap to")
-		else:
-			set_active_picture(picture_index - 1)
-	
+		swap_picture(picture_index - 1)
+
 	if event.is_action_pressed("enter_picture"):
 		if not inspecting:
 			input_blockers -= 1
@@ -166,14 +168,16 @@ func toggle_inspect() -> void:
 func enter_picture() -> void:
 	print("Entering picture")
 
-	if transition_audio_player and transition_in_audio_clip:
-		transition_audio_player.stream = transition_in_audio_clip
-		transition_audio_player.play()
+	if audio_player and transition_in_audio_clip:
+		audio_player.stream = transition_in_audio_clip
+		audio_player.play()
 
 	entered_picture_index_array[picture_depth] = picture_index
 	picture_index = 0
 	picture_depth += 1
-	current_picture.enter_picture(player, head_node, self)
+	current_picture.enter_picture(head_node, self)
+
+	entered_picture = current_picture
 
 	initialize_picture_array(inventory.get_pictures(picture_depth))
 
@@ -185,10 +189,14 @@ func enter_picture() -> void:
 		teleport_shader_rect.on_enter_picture()
 
 func exit_picture() -> void:
-	print("Exiting picture")
-
 	if picture_depth == 0:
+		print("Not inside picture")
 		return
+
+	if not await test_if_exit_possible():
+		return
+
+	print("Exiting picture")
 
 	if current_picture:
 		current_picture.set_target_position(picture_inventory_position, 100)
@@ -196,13 +204,13 @@ func exit_picture() -> void:
 
 	picture_depth -= 1
 
-	if transition_audio_player and transition_out_audio_clip:
-		transition_audio_player.stream = transition_out_audio_clip
-		transition_audio_player.play()
+	if audio_player and transition_out_audio_clip:
+		audio_player.stream = transition_out_audio_clip
+		audio_player.play()
 
 	initialize_picture_array(inventory.get_pictures(picture_depth))
 
-	current_picture.exit_picture(player, self)
+	current_picture.exit_picture(self)
 	
 	up_position = true
 	crosshair.hide()
@@ -212,6 +220,25 @@ func exit_picture() -> void:
 		teleport_shader_rect.on_exit_picture()
 
 
+func test_if_exit_possible() -> bool:
+	var exit_area_tester_instance = exit_area_tester.instantiate()
+	add_child(exit_area_tester_instance)
+	exit_area_tester_instance.global_position = player.global_position
+	exit_area_tester_instance.global_position -= entered_picture.world_root.position
+	print(exit_area_tester_instance.global_position)
+
+	await get_tree().create_timer(0.1).timeout
+
+	if exit_area_tester_instance.hit_no_exit_area:
+		print("Can not exit here")
+		interact_response_label.change_text("Cannot exit picture here")
+		exit_area_tester_instance.queue_free()
+		return false
+
+	exit_area_tester_instance.queue_free()
+	return true
+
+
 func on_picture_picked_up(picture: TextureRect) -> void:
 	current_picture_array.append(picture)
 	picture.position = picture_inventory_position
@@ -219,6 +246,18 @@ func on_picture_picked_up(picture: TextureRect) -> void:
 	set_active_picture(current_picture_array.size() - 1)
 	if input_blockers == 0:
 		toggle_inspect()
+
+
+func swap_picture(target_index: int) -> void:
+	if inventory.get_pictures(picture_depth).size() <= 1:
+		print("Nothing to swap to")
+		return
+
+	set_active_picture(target_index)
+	
+	if audio_player and swap_picture_audio:
+		audio_player.stream = swap_picture_audio
+		audio_player.play()
 
 
 func set_active_picture(index: int) -> void:

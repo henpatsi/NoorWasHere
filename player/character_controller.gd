@@ -207,6 +207,7 @@ func interact_input() -> void:
 		return
 	if not ray_collision_object.has_method("interact"):
 		print("Hit object not interactable: ", ray_collision_object.name)
+		print("Parent: ", ray_collision_object.get_node("..").name)
 		return
 
 	if ray_collision_object.one_shot and ray_collision_object.interacted_with:

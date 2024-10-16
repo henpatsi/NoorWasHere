@@ -48,7 +48,7 @@ size = Vector3(0.158508, 2.68457, 1.04059)
 [node name="Door_a" type="StaticBody3D"]
 
 [node name="Door_a" type="MeshInstance3D" parent="."]
-transform = Transform3D(1.25, 0, 0, 0, -5.46392e-08, 1.25, 0, -1.25, -5.46392e-08, 0, 0, 0)
+transform = Transform3D(1, 0, 0, 0, -5.24537e-08, 1, 0, -1.2, -4.37114e-08, 0, 0, 0)
 material_override = ExtResource("1_rtoc4")
 mesh = SubResource("ArrayMesh_mswg1")
 skeleton = NodePath("")
