@@ -1,4 +1,4 @@
-[gd_scene load_steps=233 format=4 uid="uid://8ymkajun4ggs"]
+[gd_scene load_steps=234 format=4 uid="uid://8ymkajun4ggs"]
 
 [ext_resource type="Script" path="res://levels/level.gd" id="1_eatkt"]
 [ext_resource type="Environment" uid="uid://dobqonwml2e5x" path="res://assets/WorldEnvironments/Env_Present.tres" id="2_qtfwo"]
@@ -55,6 +55,7 @@
 [ext_resource type="Resource" path="res://levels/dialogue_streams/04_04.tres" id="68_ikkh7"]
 [ext_resource type="Resource" path="res://levels/dialogue_streams/04_05.tres" id="69_i3quu"]
 [ext_resource type="Resource" path="res://levels/dialogue_streams/07_E01.tres" id="70_sxsab"]
+[ext_resource type="PackedScene" uid="uid://bwosq8v2feeth" path="res://assets/AtmosphericHouse/Prefabs/Props/Small_table_props/Hair_brush.prefab.scn" id="71_h6xul"]
 [ext_resource type="Resource" path="res://levels/dialogue_streams/07_E02.tres" id="71_t2wie"]
 [ext_resource type="Resource" path="res://levels/dialogue_streams/08_E01.tres" id="72_0hirb"]
 [ext_resource type="Material" uid="uid://cfo4jukrqtp5k" path="res://assets/props/INTERACTEABLE/memory capsule/box_bake.tres" id="72_8yoht"]
@@ -339,21 +340,6 @@ size = Vector3(0.603802, 2.18872, 2.54352)
 [sub_resource type="BoxShape3D" id="BoxShape3D_6t4wj"]
 size = Vector3(0.603802, 2.18872, 2.54352)
 
-[sub_resource type="Animation" id="Animation_u0w2x"]
-resource_name = "open"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(0, 2.0113, 0), Vector3(0, 3.14159, 0)]
-}
-
 [sub_resource type="Animation" id="Animation_m66kf"]
 length = 0.001
 tracks/0/type = "value"
@@ -367,6 +353,21 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector3(0, 2.0113, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_u0w2x"]
+resource_name = "open"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 2.0113, 0), Vector3(0, 3.14159, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_vhss5"]
@@ -3460,7 +3461,6 @@ bones/62/rotation = Quaternion(0.575143, 0.0934027, 0.0277184, 0.812231)
 bones/63/rotation = Quaternion(0.28926, 0.00868333, -0.00282823, 0.957207)
 
 [node name="HallwayUpstairs" type="Node3D" parent="Past/PictureSpecificObjects"]
-visible = false
 
 [node name="OmniLight3D2" type="OmniLight3D" parent="Past/PictureSpecificObjects/HallwayUpstairs"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.95258, 5.72712, 0.291297)
@@ -4450,7 +4450,11 @@ bones/405/position = Vector3(1.63475e-10, -2.79397e-10, -3.91155e-10)
 bones/408/position = Vector3(0.00616905, -0.00365488, 0.00439994)
 bones/408/rotation = Quaternion(0.0828449, 0.0102829, 0.122747, 0.988921)
 
+[node name="Hair_brush" parent="Past/PictureSpecificObjects/HallwayUpstairs/Mother_04" instance=ExtResource("71_h6xul")]
+transform = Transform3D(0.582882, -0.702278, -0.408723, -0.788159, -0.366312, -0.494592, 0.197621, 0.610427, -0.767023, 0.487, 1.26687, 0.332184)
+
 [node name="TV" type="Node3D" parent="Past/PictureSpecificObjects"]
+visible = false
 
 [node name="SpotLight3D" type="SpotLight3D" parent="Past/PictureSpecificObjects/TV"]
 transform = Transform3D(0.981072, 0.0636328, 0.182888, -0.138552, 0.890483, 0.433409, -0.13528, -0.450545, 0.882445, 1.15784, 5.26911, 3.8969)
@@ -9889,6 +9893,25 @@ shape = SubResource("BoxShape3D_14nep")
 [editable path="Past/House/Level1/Props/Kitchen/Kitchen_kitchen_cabinets_A/Fridge/Props/Bottle_plastic2"]
 [editable path="Past/House/Level1/Props/Kitchen/Kitchen_kitchen_cabinets_A/Stove/Lamp_wall_fluorescent"]
 [editable path="Past/House/Level1/Props/Kitchen/Kitchen_counter_separate/Lamp_ceiling_cone_A"]
+[editable path="Past/House/Level1/Props/Office/ComputerDesk/Computer_screen (1)"]
+[editable path="Past/House/PictureSpecificObjects/Frontyard/Noor_00"]
+[editable path="Past/House/PictureSpecificObjects/Backyard/Noor_01"]
+[editable path="Past/House/PictureSpecificObjects/Office/Noor_02"]
+[editable path="Past/House/PictureSpecificObjects/LivingRoom/Noor_03"]
+[editable path="Past/House/PictureSpecificObjects/LivingRoom/Mother_03"]
+[editable path="Past/House/PictureSpecificObjects/LivingRoom/Agathe_Final01"]
+[editable path="Past/House/PictureSpecificObjects/HallwayUpstairs/Noor_04"]
+[editable path="Past/House/PictureSpecificObjects/HallwayUpstairs/Mother_04"]
+[editable path="Past/House/PictureSpecificObjects/TV/Noor_05"]
+[editable path="Past/House/PictureSpecificObjects/TV/Mother_05"]
+[editable path="Past/House/PictureSpecificObjects/NoorRoomNight/Noor_06"]
+[editable path="Past/House/PictureSpecificObjects/NoorRoomNight/Mother_06"]
+[editable path="Past/House/PictureSpecificObjects/NoorRoomDay/Noor_07"]
+[editable path="Past/House/PictureSpecificObjects/FrontDoor/Noor_08"]
+[editable path="Past/House/PictureSpecificObjects/FrontDoor/Mother_08"]
+[editable path="Past/House/PictureSpecificObjects/Forest/Noor_09"]
+[editable path="Past/House/PictureSpecificObjects/Forest/Mother_09"]
+[editable path="Past/House/PictureSpecificObjects/Shed/Mother_10"]
 [editable path="Past/PictureSpecificObjects/Frontyard/Noor_00"]
 [editable path="Past/PictureSpecificObjects/Backyard/Noor_01"]
 [editable path="Past/PictureSpecificObjects/Office/Noor_02"]

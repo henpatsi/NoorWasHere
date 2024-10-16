@@ -1,4 +1,4 @@
-[gd_scene load_steps=120 format=3 uid="uid://cro8l3a3d3ryp"]
+[gd_scene load_steps=164 format=3 uid="uid://cro8l3a3d3ryp"]
 
 [ext_resource type="PackedScene" uid="uid://bisr1khpxni54" path="res://assets/AtmosphericHouse/Prefabs/Building/Foundation_3x.prefab.scn" id="1_opih8"]
 [ext_resource type="PackedScene" uid="uid://bok6u53wltnq6" path="res://assets/AtmosphericHouse/Prefabs/Props/Lamps/CeilingFan.prefab.scn" id="2_w52ss"]
@@ -35,48 +35,89 @@
 [ext_resource type="PackedScene" uid="uid://dujbh8xvxse2s" path="res://assets/AtmosphericHouse/Prefabs/Props/Furniture/Sofa_2seat.prefab.scn" id="31_hev3l"]
 [ext_resource type="PackedScene" uid="uid://dbxa4ccdvyd1b" path="res://assets/AtmosphericHouse/Prefabs/Props/Furniture/Sofa_1seat.prefab.scn" id="32_ly5e3"]
 [ext_resource type="PackedScene" uid="uid://cvv2vxf6018n7" path="res://assets/AtmosphericHouse/Prefabs/Props/Furniture/Side_table_D.prefab.scn" id="33_k22p3"]
+[ext_resource type="PackedScene" uid="uid://b3eraplq7mwsk" path="res://assets/AtmosphericHouse/Prefabs/Props/Furniture/Bookcase_A.prefab.scn" id="33_owfh1"]
+[ext_resource type="PackedScene" uid="uid://bflc7k8aq26kf" path="res://assets/AtmosphericHouse/Prefabs/Props/Office_props/Folder_set_C.prefab.scn" id="34_cqyx5"]
 [ext_resource type="PackedScene" uid="uid://cvfepaxkmhwfm" path="res://assets/AtmosphericHouse/Prefabs/Building/Floor_6x6.prefab.scn" id="34_vchdc"]
+[ext_resource type="PackedScene" uid="uid://ytn8f8qudafr" path="res://assets/AtmosphericHouse/Prefabs/Props/Office_props/Papers_pile_B.prefab.scn" id="35_b5e0g"]
 [ext_resource type="PackedScene" uid="uid://bkl0yrgkg6h1" path="res://assets/AtmosphericHouse/Prefabs/Building/Floor_3x3.prefab.scn" id="35_kcyh2"]
 [ext_resource type="PackedScene" uid="uid://cl32vd4bw7mck" path="res://assets/AtmosphericHouse/Prefabs/Building/Floor_6x3.prefab.scn" id="36_3mwy7"]
+[ext_resource type="PackedScene" uid="uid://dnt2r8ocprmkk" path="res://assets/AtmosphericHouse/Prefabs/Props/Interior_plants/Interior_plant_B.prefab.scn" id="36_7j5os"]
+[ext_resource type="PackedScene" uid="uid://cbhvelg54tsjf" path="res://assets/AtmosphericHouse/Prefabs/Props/Furniture/Workdesk_extension.prefab.scn" id="37_dx18a"]
 [ext_resource type="PackedScene" uid="uid://bop38y8i8hxx6" path="res://assets/AtmosphericHouse/Prefabs/Building/WallOut_3x_windowdouble_static.prefab.scn" id="37_ng4tf"]
 [ext_resource type="PackedScene" uid="uid://df84lw3apwirb" path="res://assets/AtmosphericHouse/Prefabs/Building/WallIn_A_3x_windowdouble.prefab.scn" id="38_ha8ow"]
+[ext_resource type="PackedScene" uid="uid://ceonbci7ilw5q" path="res://assets/AtmosphericHouse/Prefabs/Props/Office_props/Office_cardboard_box_A.prefab.scn" id="38_vtg6n"]
+[ext_resource type="PackedScene" uid="uid://dogkgoh6vo44c" path="res://assets/AtmosphericHouse/Prefabs/Props/Storage_props/Storage_box_cardboard_B.prefab.scn" id="39_ca1ci"]
 [ext_resource type="PackedScene" uid="uid://dian7ubunkymn" path="res://assets/AtmosphericHouse/Prefabs/Building/WallOut_corner.prefab.scn" id="39_jmhl6"]
 [ext_resource type="PackedScene" uid="uid://cqp764y1b45s3" path="res://assets/AtmosphericHouse/Prefabs/Building/WallOut_3x.prefab.scn" id="40_e55w2"]
+[ext_resource type="PackedScene" uid="uid://biu7d5fj5ijyk" path="res://assets/AtmosphericHouse/Prefabs/Props/Office_props/Folder_set_B.prefab.scn" id="40_fbgb4"]
+[ext_resource type="PackedScene" uid="uid://dutf3yapnp5pg" path="res://assets/AtmosphericHouse/Prefabs/Props/Office_props/Office_box_A.prefab.scn" id="41_mic36"]
 [ext_resource type="PackedScene" uid="uid://0ler0ig6uhxf" path="res://assets/AtmosphericHouse/Prefabs/Building/WallIn_B_3x.prefab.scn" id="41_on6cr"]
+[ext_resource type="PackedScene" uid="uid://x8pcktfcf7un" path="res://assets/AtmosphericHouse/Prefabs/Props/Office_props/Folder_D.prefab.scn" id="42_5lihm"]
 [ext_resource type="PackedScene" uid="uid://dl4cxcjstdjyv" path="res://assets/AtmosphericHouse/Prefabs/Building/WallOut_3x_windowsmall_vinyl.prefab.scn" id="42_8oxj3"]
 [ext_resource type="PackedScene" uid="uid://bhobcblb8nn0p" path="res://assets/AtmosphericHouse/Prefabs/Building/WallIn_B_3x_windowsmall.prefab.scn" id="43_bx0lj"]
+[ext_resource type="PackedScene" uid="uid://ej4m1mqigijh" path="res://assets/AtmosphericHouse/Prefabs/Props/Office_props/Papers_B.prefab.scn" id="43_rvy7a"]
 [ext_resource type="PackedScene" uid="uid://dblhntolocgre" path="res://assets/AtmosphericHouse/Prefabs/Building/WallOut_3x_window_vinyl.prefab.scn" id="44_kqtt8"]
+[ext_resource type="PackedScene" uid="uid://cx243e54ei8cl" path="res://assets/AtmosphericHouse/Prefabs/Props/Office_props/Office_box_B.prefab.scn" id="44_vlj20"]
 [ext_resource type="PackedScene" uid="uid://b8bbbs83quhjj" path="res://assets/AtmosphericHouse/Prefabs/Building/WallIn_A_3x_window.prefab.scn" id="45_82lad"]
+[ext_resource type="PackedScene" uid="uid://c663f7nqr13s3" path="res://assets/AtmosphericHouse/Prefabs/Props/Office_props/Folder_set_A.prefab.scn" id="45_ibmct"]
 [ext_resource type="PackedScene" uid="uid://bqtfglrb2oaf0" path="res://assets/AtmosphericHouse/Prefabs/Building/WallOut_1x.prefab.scn" id="46_bv5ht"]
+[ext_resource type="PackedScene" uid="uid://dhbk1ra05gbxq" path="res://assets/AtmosphericHouse/Prefabs/Props/Storage_props/Storage_box_cardboard_A.prefab.scn" id="46_ggka4"]
 [ext_resource type="PackedScene" uid="uid://cy7a515880yv2" path="res://assets/AtmosphericHouse/Prefabs/Building/WallOut_3x_windowdouble_vinyl.prefab.scn" id="47_7ca67"]
+[ext_resource type="PackedScene" uid="uid://co6yje2xbyqi6" path="res://assets/AtmosphericHouse/Prefabs/Props/Office_props/Post_it_D.prefab.scn" id="47_62o03"]
+[ext_resource type="PackedScene" uid="uid://unuwewrr3ul7" path="res://assets/AtmosphericHouse/Prefabs/Props/Office_props/Post_it_A.prefab.scn" id="48_ptkw0"]
 [ext_resource type="PackedScene" uid="uid://c5rlwngvkglrn" path="res://assets/AtmosphericHouse/Prefabs/Building/WallOut_2x.prefab.scn" id="48_x0uj8"]
 [ext_resource type="PackedScene" uid="uid://dakn77c25518i" path="res://assets/AtmosphericHouse/Prefabs/Building/WallIn_A_2x.prefab.scn" id="49_ai3l5"]
+[ext_resource type="PackedScene" uid="uid://pblqdy7ckrfj" path="res://assets/AtmosphericHouse/Prefabs/Props/Office_props/Folder_C.prefab.scn" id="49_dgyef"]
+[ext_resource type="PackedScene" uid="uid://0na7yd4q1bta" path="res://assets/AtmosphericHouse/Prefabs/Props/Office_props/Folder_set_D.prefab.scn" id="50_g22s0"]
 [ext_resource type="PackedScene" uid="uid://cwanoc4ogu37w" path="res://assets/AtmosphericHouse/Prefabs/Building/WallIn_A_1x.prefab.scn" id="50_sr6uc"]
 [ext_resource type="PackedScene" uid="uid://b5euitmq7hgc5" path="res://assets/AtmosphericHouse/Prefabs/Building/WallIn_A_corner_outSmall.prefab.scn" id="51_74xwm"]
+[ext_resource type="PackedScene" uid="uid://cd7dn47hw4ooy" path="res://assets/AtmosphericHouse/Prefabs/Props/Office_props/Office_cardboard_box_B.prefab.scn" id="51_wpuot"]
 [ext_resource type="PackedScene" uid="uid://cdyqgnxst0m6p" path="res://assets/AtmosphericHouse/Prefabs/Decals/Decals_corner/Decal_wallIn_A_corner_outSmall.prefab.scn" id="52_fcpwi"]
+[ext_resource type="PackedScene" uid="uid://c6q5fjrgjbv7d" path="res://assets/AtmosphericHouse/Prefabs/Props/Office_props/Folder_B.prefab.scn" id="52_js3iv"]
+[ext_resource type="PackedScene" uid="uid://cguu5ovexn1vv" path="res://assets/AtmosphericHouse/Prefabs/Props/Office_props/Folder_A.prefab.scn" id="53_l7wvu"]
 [ext_resource type="PackedScene" uid="uid://oj3unlfxtfi6" path="res://assets/AtmosphericHouse/Prefabs/Building/WallIn_A_columnhalf_medium.prefab.scn" id="53_mdahl"]
 [ext_resource type="PackedScene" uid="uid://bcw5c2j440oht" path="res://assets/AtmosphericHouse/Prefabs/Building/WallIn_A_corner_outLarge.prefab.scn" id="54_dw8yn"]
+[ext_resource type="PackedScene" uid="uid://b5v7hb6ph5hml" path="res://assets/AtmosphericHouse/Prefabs/Props/Storage_props/Storage_box_wicker.prefab.scn" id="54_swhtj"]
+[ext_resource type="PackedScene" uid="uid://xag1dt8itmvc" path="res://assets/AtmosphericHouse/Prefabs/Props/Storage_props/Storage_box_B_closed.prefab.scn" id="55_k7vg7"]
 [ext_resource type="PackedScene" uid="uid://d1ip05cxusln3" path="res://assets/AtmosphericHouse/Prefabs/Building/WallIn_B_1x.prefab.scn" id="55_rvpn6"]
 [ext_resource type="PackedScene" uid="uid://b73gyc3ntardg" path="res://assets/AtmosphericHouse/Prefabs/Building/WallIn_B_3x_doordouble.prefab.scn" id="56_n1dl5"]
+[ext_resource type="PackedScene" uid="uid://dku6owrau6nmn" path="res://assets/AtmosphericHouse/Prefabs/Props/Furniture/Workdesk_extension_shelf.prefab.scn" id="56_sp2wk"]
 [ext_resource type="PackedScene" uid="uid://b8p74vq306jtj" path="res://assets/AtmosphericHouse/Prefabs/Building/Doorframe_in_double.prefab.scn" id="57_u4jkh"]
+[ext_resource type="PackedScene" uid="uid://cl3wxt8y84vp6" path="res://assets/AtmosphericHouse/Prefabs/Props/Storage_props/Storage_box_C.prefab.scn" id="57_uy8qe"]
 [ext_resource type="PackedScene" uid="uid://wd1reswch54i" path="res://assets/AtmosphericHouse/Prefabs/Props/Extras/Floor_trim_doordouble.prefab.scn" id="58_rfoib"]
 [ext_resource type="PackedScene" uid="uid://c76i6i8d1f260" path="res://assets/AtmosphericHouse/Prefabs/Building/WallIn_A_3x_doordouble.prefab.scn" id="59_vcbks"]
+[ext_resource type="PackedScene" uid="uid://baobhtlaffc2" path="res://assets/AtmosphericHouse/Prefabs/Props/Furniture/Cabinet_A.prefab.scn" id="59_y6pvi"]
 [ext_resource type="PackedScene" uid="uid://cvppc5cef886n" path="res://assets/AtmosphericHouse/Prefabs/Building/WallOut_3x_door.prefab.scn" id="60_mrd5x"]
+[ext_resource type="PackedScene" uid="uid://mbwkda10g4yo" path="res://assets/AtmosphericHouse/Prefabs/Props/Electronics/Computer_mouse.prefab.scn" id="60_tst1e"]
+[ext_resource type="PackedScene" uid="uid://dbce6w4opvsnv" path="res://assets/AtmosphericHouse/Prefabs/Props/Electronics/Computer_mousepad.prefab.scn" id="61_8mos0"]
 [ext_resource type="PackedScene" uid="uid://leiq8iljv57v" path="res://assets/AtmosphericHouse/Prefabs/Building/WallIn_A_3x_door.prefab.scn" id="61_td6xg"]
 [ext_resource type="PackedScene" uid="uid://daalgg5r5ln0i" path="res://assets/AtmosphericHouse/Prefabs/Doors/Door_parent_C_L.prefab.scn" id="62_h8tdy"]
+[ext_resource type="PackedScene" uid="uid://1d4htwedb12p" path="res://assets/AtmosphericHouse/Prefabs/Props/Kitchen_supplies/Coffee_mug.prefab.scn" id="62_jrwxh"]
 [ext_resource type="PackedScene" uid="uid://dg3kob4pncl23" path="res://assets/props/door_a/door_a.tscn" id="63_4cjlg"]
+[ext_resource type="PackedScene" uid="uid://byvithjl63aaa" path="res://assets/AtmosphericHouse/Prefabs/Props/Office_props/Papers_pile_A.prefab.scn" id="63_fi2lv"]
+[ext_resource type="PackedScene" uid="uid://cx12rqb3tg1xt" path="res://assets/AtmosphericHouse/Prefabs/Props/Books/Book_F.prefab.scn" id="64_eumqd"]
 [ext_resource type="PackedScene" uid="uid://dbf0xujhvm2ba" path="res://assets/AtmosphericHouse/Prefabs/Building/WallIn_B_3x_door.prefab.scn" id="64_h8p2c"]
+[ext_resource type="PackedScene" uid="uid://de0xdog8b3ovn" path="res://assets/AtmosphericHouse/Prefabs/Props/Office_props/Papers_A.prefab.scn" id="65_0j68h"]
 [ext_resource type="PackedScene" uid="uid://dc2fl04jiyy0o" path="res://assets/AtmosphericHouse/Prefabs/Building/Doorframe_in_single.prefab.scn" id="65_jpqak"]
+[ext_resource type="PackedScene" uid="uid://625v3ae7pr5t" path="res://assets/AtmosphericHouse/Prefabs/Props/Small_table_props/Pencil_holder.prefab.scn" id="66_11ypo"]
 [ext_resource type="PackedScene" uid="uid://byg18jnxsmrtq" path="res://assets/AtmosphericHouse/Prefabs/Props/Extras/Floor_trim_door.prefab.scn" id="66_e46g4"]
+[ext_resource type="PackedScene" uid="uid://btmpuvhh0xc54" path="res://assets/AtmosphericHouse/Prefabs/Props/Small_table_props/Notebook.prefab.scn" id="67_7bslq"]
 [ext_resource type="PackedScene" uid="uid://dlffobxlcndvl" path="res://assets/AtmosphericHouse/Prefabs/Doors/Door_parent_A_L.prefab.scn" id="67_d57a6"]
 [ext_resource type="PackedScene" uid="uid://bl3shlxn72d2t" path="res://assets/AtmosphericHouse/Prefabs/Doors/Door_parent_C_R.prefab.scn" id="68_kdrxb"]
 [ext_resource type="PackedScene" uid="uid://bqwmnp4r8hje6" path="res://assets/AtmosphericHouse/Prefabs/Building/Ceiling_6x6.prefab.scn" id="69_bgy0s"]
+[ext_resource type="PackedScene" uid="uid://dq8cm3it16ee1" path="res://assets/AtmosphericHouse/Prefabs/Props/Electronics/Computer_screen.prefab.scn" id="69_q7orh"]
 [ext_resource type="PackedScene" uid="uid://bd4m6q646vtoi" path="res://assets/AtmosphericHouse/Prefabs/Building/Ceiling_6x3_stairs_L.prefab.scn" id="70_r40cx"]
+[ext_resource type="PackedScene" uid="uid://cpag20lhph3sb" path="res://assets/AtmosphericHouse/Prefabs/Props/Electronics/Computer_keyboard.prefab.scn" id="70_yoe16"]
 [ext_resource type="PackedScene" uid="uid://b25htfgwil2ic" path="res://assets/AtmosphericHouse/Prefabs/Building/Ceiling_6x3.prefab.scn" id="71_f7sbc"]
+[ext_resource type="PackedScene" uid="uid://dsqficlxb1yum" path="res://assets/AtmosphericHouse/Prefabs/Props/Electronics/Computer_central_unit.prefab.scn" id="71_hursr"]
 [ext_resource type="PackedScene" uid="uid://ccwk4ehs6qryt" path="res://assets/AtmosphericHouse/Prefabs/Building/Stairs_main_L.prefab.scn" id="72_2ofa6"]
+[ext_resource type="PackedScene" uid="uid://cmtlap1nihmi2" path="res://assets/AtmosphericHouse/Prefabs/Props/Office_props/Post_it_B.prefab.scn" id="72_b6j2x"]
+[ext_resource type="PackedScene" uid="uid://degdtptk7drga" path="res://assets/AtmosphericHouse/Prefabs/Props/Interior_plants/Interior_plant_A.prefab.scn" id="73_lg55k"]
 [ext_resource type="PackedScene" uid="uid://btq2pihkhcacg" path="res://assets/AtmosphericHouse/Prefabs/Building/Floor_6x3_stairs_L.prefab.scn" id="73_xsaqk"]
+[ext_resource type="PackedScene" uid="uid://dgvvtu1y3m5op" path="res://assets/AtmosphericHouse/Prefabs/Props/Furniture/Side_table_E.prefab.scn" id="74_1itkc"]
 [ext_resource type="PackedScene" uid="uid://dkmbk5p2vb6wq" path="res://assets/AtmosphericHouse/Prefabs/Building/WallIn_A_3x.prefab.scn" id="74_6dl27"]
 [ext_resource type="PackedScene" uid="uid://bxvewym5vqwmr" path="res://assets/AtmosphericHouse/Prefabs/Props/Furniture/Sofa_3seat.prefab.scn" id="75_6fys0"]
+[ext_resource type="PackedScene" uid="uid://dayyhex41dsq3" path="res://assets/AtmosphericHouse/Prefabs/Props/Books/Book_D.prefab.scn" id="75_gqvkk"]
 [ext_resource type="PackedScene" uid="uid://cyvfhngva1xt2" path="res://assets/AtmosphericHouse/Prefabs/Props/Furniture/Table_coffee.prefab.scn" id="76_6kh8c"]
 [ext_resource type="PackedScene" uid="uid://d2bvvvhiiwqwy" path="res://assets/AtmosphericHouse/Prefabs/Props/Furniture/Side_table_F.prefab.scn" id="77_q5re5"]
 [ext_resource type="PackedScene" uid="uid://deuhrvt8i4r4j" path="res://assets/AtmosphericHouse/Prefabs/Props/Furniture/Bed_twin.prefab.scn" id="78_bbn4i"]
@@ -91,6 +132,9 @@
 [ext_resource type="PackedScene" uid="uid://bkyarvlhmy1iu" path="res://assets/characters/noor_poses.tscn" id="89_olo3v"]
 [ext_resource type="PackedScene" uid="uid://c5d7tcijs5p06" path="res://assets/characters/agathe/agathe_final_01.tscn" id="90_roxap"]
 [ext_resource type="PackedScene" uid="uid://paat7hmvkfo8" path="res://assets/characters/mother/mother_fbx.tscn" id="91_inek7"]
+[ext_resource type="PackedScene" uid="uid://cogjse1d7bpe1" path="res://assets/props/INTERACTEABLE/TV_a/tv.tscn" id="122_oxb4o"]
+[ext_resource type="PackedScene" uid="uid://bsg5rvg8nn4xx" path="res://assets/AtmosphericHouse/Prefabs/Props/Lamps/Lamp_table_shade.prefab.scn" id="123_d1nhu"]
+[ext_resource type="PackedScene" uid="uid://crq5per6664sk" path="res://assets/AtmosphericHouse/Prefabs/Props/Electronics/Tv_remote.prefab.scn" id="124_it4hn"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_kjo86"]
 size = Vector3(9.7627, 5.12244, 0.205505)
@@ -380,13 +424,220 @@ transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, 0.492, 0
 [node name="Office" type="Node3D" parent="Level1/Props"]
 
 [node name="Chair_wooden (1)" parent="Level1/Props/Office" instance=ExtResource("29_knkkl")]
-transform = Transform3D(-0.109183, -4.345e-08, -0.994022, 1.21025e-14, 1, -4.37114e-08, 0.994022, -4.77256e-09, -0.109183, -1.69091, 0.510074, 7.31705)
+transform = Transform3D(-0.109183, -4.345e-08, -0.994022, 1.21025e-14, 1, -4.37114e-08, 0.994022, -4.77256e-09, -0.109183, -1.66448, 0.510073, 7.3232)
 
 [node name="Chair_wooden (1)2" parent="Level1/Props/Office" instance=ExtResource("29_knkkl")]
-transform = Transform3D(0.660647, 3.28139e-08, 0.750697, 1.09742e-14, 1, -4.37114e-08, -0.750697, 2.88778e-08, 0.660647, -2.42732, 0.510074, 6.27564)
+transform = Transform3D(0.660647, 3.28139e-08, 0.750697, 1.09742e-14, 1, -4.37114e-08, -0.750697, 2.88778e-08, 0.660647, -2.40089, 0.510073, 6.28179)
 
-[node name="Workdesk" parent="Level1/Props/Office" instance=ExtResource("30_6uwph")]
-transform = Transform3D(-1, 0, 4.37114e-08, 0, 1, 0, -4.37114e-08, 0, -1, -1.96238, 0.5, 7.95829)
+[node name="Light_switch (11)" parent="Level1/Props/Office" instance=ExtResource("86_t7fi0")]
+transform = Transform3D(-8.74228e-08, 0, -1, 0, 1, 0, 1, 0, -8.74228e-08, 0.887249, 1.63673, 4.76661)
+
+[node name="LittleShelf" type="Node3D" parent="Level1/Props/Office"]
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, -0.539943, 0, 2.57786)
+
+[node name="Bookcase_A" parent="Level1/Props/Office/LittleShelf" instance=ExtResource("33_owfh1")]
+transform = Transform3D(0, 0, -1, 0, 1, 0, 1, 0, 0, -0.205662, 0.502732, 2.06844)
+
+[node name="Folder_set_C" parent="Level1/Props/Office/LittleShelf" instance=ExtResource("34_cqyx5")]
+transform = Transform3D(0, 0, -1, 0, 1, 0, 1, 0, 0, -0.202662, 0.901731, 1.96244)
+
+[node name="Papers_pile_B" parent="Level1/Props/Office/LittleShelf" instance=ExtResource("35_b5e0g")]
+transform = Transform3D(0.98864, -3.80969e-09, 0.150302, -2.7785e-09, 1, 4.3623e-08, -0.150302, -4.35451e-08, 0.98864, -0.194391, 1.30773, 2.09912)
+
+[node name="Interior_plant_B (1)" parent="Level1/Props/Office/LittleShelf" instance=ExtResource("36_7j5os")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.194666, 1.30883, 2.37144)
+
+[node name="BigShelf" type="Node3D" parent="Level1/Props/Office"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -2.99625, 2.38419e-07, 4.99356)
+
+[node name="Workdesk_extension" parent="Level1/Props/Office/BigShelf" instance=ExtResource("37_dx18a")]
+transform = Transform3D(-2.18557e-07, 0, -1, 0, 1, 0, 1, 0, -2.18557e-07, -0.530775, 0.502732, 0.538164)
+
+[node name="Office_cardboard_box_A (4)" parent="Level1/Props/Office/BigShelf" instance=ExtResource("38_vtg6n")]
+transform = Transform3D(-0.124164, 4.37114e-08, 0.992262, 5.42738e-09, 1, -4.33731e-08, -0.992262, 5.77023e-15, -0.124164, -0.602772, 0.787332, 1.02216)
+
+[node name="Storage_box_cardboard_B (5)" parent="Level1/Props/Office/BigShelf" instance=ExtResource("39_ca1ci")]
+transform = Transform3D(0.923086, -4.94793e-09, -0.113195, -2.89409e-15, 0.93, -4.06516e-08, 0.113195, 4.03493e-08, 0.923086, -0.543772, 0.500731, 1.00516)
+
+[node name="Office_cardboard_box_A (3)" parent="Level1/Props/Office/BigShelf" instance=ExtResource("38_vtg6n")]
+transform = Transform3D(0.996211, -1.63455e-09, 0.0869724, 5.42738e-09, 1, -4.33731e-08, -0.0869724, 4.36808e-08, 0.996211, -0.330776, 1.96883, -0.428836)
+
+[node name="Folder_set_B (1)" parent="Level1/Props/Office/BigShelf" instance=ExtResource("40_fbgb4")]
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, -0.357776, 2.37673, -0.430836)
+
+[node name="Office_box_A (3)" parent="Level1/Props/Office/BigShelf" instance=ExtResource("41_mic36")]
+transform = Transform3D(0.992228, 5.43909e-09, 0.124432, -5.32764e-15, 1, -4.37114e-08, -0.124432, 4.33717e-08, 0.992228, -0.354771, 1.28263, 1.20316)
+
+[node name="Office_cardboard_box_A (2)" parent="Level1/Props/Office/BigShelf" instance=ExtResource("38_vtg6n")]
+transform = Transform3D(0.0133183, 4.37075e-08, 0.999911, -5.55112e-17, 1, -4.37114e-08, -0.999911, 5.82163e-10, 0.0133183, -0.39677, 1.50173, 1.58816)
+
+[node name="Folder_D (1)" parent="Level1/Props/Office/BigShelf" instance=ExtResource("42_5lihm")]
+transform = Transform3D(0.231989, 2.02811e-08, -0.972718, 8.74228e-08, -1, 8.07467e-15, -0.972718, -8.50378e-08, -0.231989, -0.69237, 1.30723, 1.02786)
+
+[node name="Papers_B (1)" parent="Level1/Props/Office/BigShelf" instance=ExtResource("43_rvy7a")]
+transform = Transform3D(-0.24727, -9.23406e-09, -0.968947, -4.36815e-08, 1, 1.61727e-09, 0.968947, 4.27249e-08, -0.24727, -0.729771, 1.28273, 0.984161)
+
+[node name="Office_box_B (2)" parent="Level1/Props/Office/BigShelf" instance=ExtResource("44_vlj20")]
+transform = Transform3D(0.996793, 0, 0.0800218, 0, 1, 0, -0.0800218, 0, 0.996793, -0.354775, 1.43913, -0.161837)
+
+[node name="Office_box_B (1)" parent="Level1/Props/Office/BigShelf" instance=ExtResource("44_vlj20")]
+transform = Transform3D(1, 0, -1.31134e-07, 0, 1, 0, 1.31134e-07, 0, 1, -0.354775, 1.28273, -0.161837)
+
+[node name="Office_box_A (2)" parent="Level1/Props/Office/BigShelf" instance=ExtResource("41_mic36")]
+transform = Transform3D(0.990606, -1.66706e-10, -0.136742, -5.81202e-09, 1, -4.33233e-08, 0.136742, 4.3711e-08, 0.990606, -0.365775, 1.50263, 0.291162)
+
+[node name="Folder_set_A (1)" parent="Level1/Props/Office/BigShelf" instance=ExtResource("45_ibmct")]
+transform = Transform3D(0.0263779, -0.999593, -0.0108535, -0.999652, -0.0263793, -2.68165e-07, -0.000286098, 0.0108497, -0.999941, -0.402776, 1.39573, -0.501836)
+
+[node name="Office_cardboard_box_A (1)" parent="Level1/Props/Office/BigShelf" instance=ExtResource("38_vtg6n")]
+transform = Transform3D(-0.124164, 4.37114e-08, 0.992262, 5.42738e-09, 1, -4.33731e-08, -0.992262, 5.77023e-15, -0.124164, -0.35577, 2.37373, 1.22516)
+
+[node name="Office_box_A (1)" parent="Level1/Props/Office/BigShelf" instance=ExtResource("41_mic36")]
+transform = Transform3D(0.132964, 4.37114e-08, 0.991121, -5.81203e-09, 1, -4.33233e-08, -0.991121, 7.32454e-15, 0.132964, -0.334874, 2.52683, 0.780262)
+
+[node name="Storage_box_cardboard_B (6)" parent="Level1/Props/Office/BigShelf" instance=ExtResource("39_ca1ci")]
+transform = Transform3D(-0.889471, 2.76668e-09, 0.0632941, 7.3002e-15, 0.89172, -3.89783e-08, -0.0632941, -3.888e-08, -0.889471, -0.621769, 0.502732, 2.03746)
+
+[node name="Storage_box_cardboard_A (2)" parent="Level1/Props/Office/BigShelf" instance=ExtResource("46_ggka4")]
+transform = Transform3D(-0.750502, -4.33983e-09, -0.0992837, 2.35626e-15, 0.75704, -3.30913e-08, 0.0992837, -3.28055e-08, -0.750502, -0.640769, 0.770432, 2.04416)
+
+[node name="Post_it_D" parent="Level1/Props/Office/BigShelf" instance=ExtResource("47_62o03")]
+transform = Transform3D(-2.18557e-07, 0, -1, 0, 1, 0, 1, 0, -2.18557e-07, -0.526475, 1.9522, 0.289164)
+
+[node name="Post_it_A" parent="Level1/Props/Office/BigShelf" instance=ExtResource("48_ptkw0")]
+transform = Transform3D(-2.18557e-07, 0, -1, 0, 1, 0, 1, 0, -2.18557e-07, -0.532275, 1.90273, 0.542164)
+
+[node name="Folder_C (1)" parent="Level1/Props/Office/BigShelf" instance=ExtResource("49_dgyef")]
+transform = Transform3D(-0.0127057, 0, -0.999919, 0, 1, 0, 0.999919, 0, -0.0127057, -0.339771, 1.28273, 0.942162)
+
+[node name="Papers_pile_B2" parent="Level1/Props/Office/BigShelf" instance=ExtResource("35_b5e0g")]
+transform = Transform3D(-0.150302, -4.35451e-08, 0.98864, -2.7785e-09, 1, 4.3623e-08, -0.98864, 3.80969e-09, -0.150302, -0.373175, 1.43713, 0.726063)
+
+[node name="Folder_set_D" parent="Level1/Props/Office/BigShelf" instance=ExtResource("50_g22s0")]
+transform = Transform3D(-2.18557e-07, 0, -1, 0, 1, 0, 1, 0, -2.18557e-07, -0.367776, 2.36595, 0.198163)
+
+[node name="Folder_set_C2" parent="Level1/Props/Office/BigShelf" instance=ExtResource("34_cqyx5")]
+transform = Transform3D(-2.18557e-07, 0, -1, 0, 1, 0, 1, 0, -2.18557e-07, -0.359771, 1.96873, 1.40616)
+
+[node name="Folder_set_B" parent="Level1/Props/Office/BigShelf" instance=ExtResource("40_fbgb4")]
+transform = Transform3D(0.0628865, 0, -0.998021, 0, 1, 0, 0.998021, 0, 0.0628865, -0.340775, 1.96873, 0.251163)
+
+[node name="Office_cardboard_box_B" parent="Level1/Props/Office/BigShelf" instance=ExtResource("51_wpuot")]
+transform = Transform3D(1, 0, -1.31134e-07, 0, 1, 0, 1.31134e-07, 0, 1, -0.362775, 1.28273, 0.283163)
+
+[node name="Office_cardboard_box_A" parent="Level1/Props/Office/BigShelf" instance=ExtResource("38_vtg6n")]
+transform = Transform3D(1.31134e-07, 4.37114e-08, 1, 0, 1, -4.37114e-08, -1, 5.73206e-15, 1.31134e-07, -0.417769, 1.28273, 1.58816)
+
+[node name="Office_box_B" parent="Level1/Props/Office/BigShelf" instance=ExtResource("44_vlj20")]
+transform = Transform3D(1.31134e-07, 4.37114e-08, 1, 0, 1, -4.37114e-08, -1, 5.73206e-15, 1.31134e-07, -0.355774, 1.28273, 0.726162)
+
+[node name="Office_box_A" parent="Level1/Props/Office/BigShelf" instance=ExtResource("41_mic36")]
+transform = Transform3D(1.31134e-07, 4.37114e-08, 1, 0, 1, -4.37114e-08, -1, 5.73206e-15, 1.31134e-07, -0.334874, 2.37073, 0.780262)
+
+[node name="Folder_set_A" parent="Level1/Props/Office/BigShelf" instance=ExtResource("45_ibmct")]
+transform = Transform3D(-2.18557e-07, 0, -1, 0, 1, 0, 1, 0, -2.18557e-07, -0.389651, 2.37373, 1.60516)
+
+[node name="Folder_C" parent="Level1/Props/Office/BigShelf" instance=ExtResource("49_dgyef")]
+transform = Transform3D(-0.287123, 0, -0.957894, 0, 1, 0, 0.957894, 0, -0.287123, -0.356771, 1.96873, 0.955162)
+
+[node name="Folder_B" parent="Level1/Props/Office/BigShelf" instance=ExtResource("52_js3iv")]
+transform = Transform3D(0.197857, 0, -0.980231, 0, 1, 0, 0.980231, 0, 0.197857, -0.338774, 1.96873, 0.758162)
+
+[node name="Folder_A" parent="Level1/Props/Office/BigShelf" instance=ExtResource("53_l7wvu")]
+transform = Transform3D(-2.18557e-07, 0, -1, 0, 1, 0, 1, 0, -2.18557e-07, -0.338776, 1.96723, 0.627161)
+
+[node name="Storage_box_cardboard_B (3)" parent="Level1/Props/Office/BigShelf" instance=ExtResource("39_ca1ci")]
+transform = Transform3D(1.21955e-07, 4.06516e-08, 0.93, 1.96935e-22, 0.93, -4.06516e-08, -0.93, 5.33081e-15, 1.21955e-07, -0.354775, 2.77873, 0.639162)
+
+[node name="Storage_box_wicker (3)" parent="Level1/Props/Office/BigShelf" instance=ExtResource("54_swhtj")]
+transform = Transform3D(1.31134e-07, 4.37114e-08, 1, 0, 1, -4.37114e-08, -1, 5.73206e-15, 1.31134e-07, -0.342771, 2.77973, 1.42616)
+
+[node name="Storage_box_B_closed (2)" parent="Level1/Props/Office/BigShelf" instance=ExtResource("55_k7vg7")]
+transform = Transform3D(-0.135035, 4.3311e-08, 0.990841, 6.66134e-16, 1, -4.37114e-08, -0.990841, -5.90258e-09, -0.135035, -0.560776, 0.503731, -0.205837)
+
+[node name="Workdesk_extension_shelf" parent="Level1/Props/Office/BigShelf" instance=ExtResource("56_sp2wk")]
+transform = Transform3D(-2.18557e-07, 0, -1, 0, 1, 0, 1, 0, -2.18557e-07, -0.299775, 1.25373, 0.539164)
+
+[node name="Storage_box_C (7)" parent="Level1/Props/Office/BigShelf" instance=ExtResource("57_uy8qe")]
+transform = Transform3D(-0.255974, 0, -0.966684, 0, 1, 0, 0.966684, 0, -0.255974, -0.356575, 2.77873, -0.159936)
+
+[node name="Cabinets" type="Node3D" parent="Level1/Props/Office"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1.10725, -7.15256e-07, 6.60656)
+
+[node name="Side_table_D (2)" parent="Level1/Props/Office/Cabinets" instance=ExtResource("33_k22p3")]
+transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, -1.80035, 0.502732, 1.14778)
+
+[node name="Cabinet_A (1)" parent="Level1/Props/Office/Cabinets" instance=ExtResource("59_y6pvi")]
+transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, -2.00835, 2.27173, 1.14388)
+
+[node name="Folder_B2" parent="Level1/Props/Office/Cabinets" instance=ExtResource("52_js3iv")]
+transform = Transform3D(-2.38419e-07, 0.148944, 0.988846, 1, 1.19209e-07, 1.49012e-07, -8.9407e-08, 0.988846, -0.148944, -1.81765, 1.57833, 0.936183)
+
+[node name="Folder_set_A2" parent="Level1/Props/Office/Cabinets" instance=ExtResource("45_ibmct")]
+transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, -1.79375, 1.37093, 1.44948)
+
+[node name="Office_box_B2" parent="Level1/Props/Office/Cabinets" instance=ExtResource("44_vlj20")]
+transform = Transform3D(1, 0, 0, 0, 1, -4.37114e-08, 0, 4.37114e-08, 1, -1.79034, 1.37773, 1.10378)
+
+[node name="ComputerDesk" type="Node3D" parent="Level1/Props/Office"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1.97094, 2.38419e-07, 14.9598)
+
+[node name="Papers_B" parent="Level1/Props/Office/ComputerDesk" instance=ExtResource("43_rvy7a")]
+transform = Transform3D(-0.036999, -1.77636e-15, -0.999315, -4.36815e-08, 1, 1.61728e-09, 0.999315, 4.37114e-08, -0.036999, -6.81677, 1.28273, 6.05844)
+
+[node name="Computer_mouse (1)" parent="Level1/Props/Office/ComputerDesk" instance=ExtResource("60_tst1e")]
+transform = Transform3D(0.0674308, -4.36119e-08, -0.997724, -5.32907e-15, 1, -4.37114e-08, 0.997724, 2.9475e-09, 0.0674308, -7.18957, 1.28559, 6.00234)
+
+[node name="Computer_mousepad (1)" parent="Level1/Props/Office/ComputerDesk" instance=ExtResource("61_8mos0")]
+transform = Transform3D(-0.0563388, 4.3642e-08, 0.998412, -5.32907e-15, 1, -4.37114e-08, -0.998412, -2.46265e-09, -0.0563388, -7.17861, 1.28228, 6.02011)
+
+[node name="Coffee_mug" parent="Level1/Props/Office/ComputerDesk" instance=ExtResource("62_jrwxh")]
+transform = Transform3D(0.971229, 1.04098e-08, 0.238148, -4.44089e-16, 1, -4.37114e-08, -0.238148, 4.24538e-08, 0.971229, -6.84576, 1.28173, 5.12844)
+
+[node name="Papers_pile_A" parent="Level1/Props/Office/ComputerDesk" instance=ExtResource("63_fi2lv")]
+transform = Transform3D(0.256242, 1.77636e-15, -0.966613, -4.2252e-08, 1, -1.12007e-08, 0.966613, 4.37114e-08, 0.256242, -7.11656, 1.28273, 4.93754)
+
+[node name="Book_F" parent="Level1/Props/Office/ComputerDesk" instance=ExtResource("64_eumqd")]
+transform = Transform3D(0.224936, 0.974374, 0, 0, 0, 1, 0.974374, -0.224936, 0, -6.82167, 1.72533, 6.39424)
+
+[node name="Papers_A" parent="Level1/Props/Office/ComputerDesk" instance=ExtResource("65_0j68h")]
+transform = Transform3D(0, 0, -1, 0, 1, 0, 1, 0, 0, -7.14076, 1.28273, 5.19444)
+
+[node name="Folder_D" parent="Level1/Props/Office/ComputerDesk" instance=ExtResource("42_5lihm")]
+transform = Transform3D(-0.228594, 5.32907e-15, -0.973522, -4.2554e-08, 1, 9.99215e-09, 0.973522, 4.37114e-08, -0.228594, -6.89376, 1.28273, 5.98444)
+
+[node name="Pencil_holder (2)" parent="Level1/Props/Office/ComputerDesk" instance=ExtResource("66_11ypo")]
+transform = Transform3D(1, 0, 0, 0, 1, -4.37114e-08, 0, 4.37114e-08, 1, -6.73576, 1.28273, 5.20444)
+
+[node name="Notebook (1)" parent="Level1/Props/Office/ComputerDesk" instance=ExtResource("67_7bslq")]
+transform = Transform3D(0.265917, -4.21376e-08, -0.963996, -3.55271e-15, 1, -4.37114e-08, 0.963996, 1.16236e-08, 0.265917, -6.90576, 1.28153, 5.33444)
+
+[node name="Workdesk2" parent="Level1/Props/Office/ComputerDesk" instance=ExtResource("30_6uwph")]
+transform = Transform3D(0, 0, -1, 0, 1, 0, 1, 0, 0, -6.94476, 0.502732, 3.68193)
+
+[node name="Computer_screen (1)" parent="Level1/Props/Office/ComputerDesk" instance=ExtResource("69_q7orh")]
+transform = Transform3D(0, 0, -1, 0, 1, 0, 1, 0, 0, -6.85576, 1.28228, 3.68393)
+
+[node name="Computer_keyboard (1)" parent="Level1/Props/Office/ComputerDesk" instance=ExtResource("70_yoe16")]
+transform = Transform3D(0, 0, -1, 0, 1, 0, 1, 0, 0, -7.17576, 1.28228, 3.65393)
+
+[node name="Computer_central_unit (1)" parent="Level1/Props/Office/ComputerDesk" instance=ExtResource("71_hursr")]
+transform = Transform3D(-4.62598e-08, 0, -1.0583, 0, 1.0583, 0, 1.0583, 0, -4.62598e-08, -6.81177, 1.28103, 4.45793)
+
+[node name="Post_it_B" parent="Level1/Props/Office/ComputerDesk" instance=ExtResource("72_b6j2x")]
+transform = Transform3D(0, 0.0537507, -0.998554, 0, 0.998554, 0.0537507, 1, 0, 0, -6.89616, 1.78633, 5.44791)
+
+[node name="PlantTable" type="Node3D" parent="Level1/Props/Office"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.396614, -0.00295937, 8.51715)
+
+[node name="Interior_plant_A" parent="Level1/Props/Office/PlantTable" instance=ExtResource("73_lg55k")]
+transform = Transform3D(1, 0, 0, 0, 1, -4.37114e-08, 0, 4.37114e-08, 1, -0.90835, 1.17973, 1.44941)
+
+[node name="Side_table_E (5)" parent="Level1/Props/Office/PlantTable" instance=ExtResource("74_1itkc")]
+transform = Transform3D(-3.0598e-08, 0, -0.7, 0, 1.2, 0, 0.7, 0, -3.0598e-08, -0.884251, 0.501732, 1.43771)
+
+[node name="Book_D" parent="Level1/Props/Office/PlantTable" instance=ExtResource("75_gqvkk")]
+transform = Transform3D(0.274254, 0.862737, 3.77115e-08, 0, -3.9571e-08, 0.90528, 0.862738, -0.274254, -1.1988e-08, -1.05855, 0.998631, 1.38071)
 
 [node name="Entrance" type="Node3D" parent="Level1/Props"]
 
@@ -398,6 +649,8 @@ transform = Transform3D(0.631502, 0, -0.775375, 0, 1, 0, 0.775375, 0, 0.631502, 
 
 [node name="Side_table_D" parent="Level1/Props/Entrance" instance=ExtResource("33_k22p3")]
 transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, 1.31041, 0.5, 2.72637)
+
+[node name="Backyard" type="Node3D" parent="Level1/Props"]
 
 [node name="Floor" type="Node3D" parent="Level1"]
 
@@ -505,10 +758,10 @@ transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 3, 0, 
 transform = Transform3D(1.96701e-07, 0, -1, 0, 1, 0, 1.5, 0, 1.31134e-07, -3, 0.5, 2.5)
 
 [node name="WallOut_1x5" parent="Level1/Walls_EXT" instance=ExtResource("46_bv5ht")]
-transform = Transform3D(1.96701e-07, 0, -1, 0, 1, 0, 1.5, 0, 1.31134e-07, -3, 0.5, 7)
+transform = Transform3D(1.96701e-07, 0, -1, 0, 1, 0, 1.5, 0, 1.31134e-07, -3, 0.5, 4)
 
 [node name="WallOut_3x_windowdouble_vinyl" parent="Level1/Walls_EXT" instance=ExtResource("47_7ca67")]
-transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -3, 0.5, 4)
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -3, 0.5, 5.5)
 
 [node name="WallIn_A_3x_windowdouble" parent="Level1/Walls_EXT/WallOut_3x_windowdouble_vinyl" instance=ExtResource("38_ha8ow")]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 3, 0, 0)
@@ -649,7 +902,7 @@ transform = Transform3D(-3.93403e-07, 0, 1, 0, 1, 0, -1, 0, -3.93403e-07, 1.8968
 transform = Transform3D(-6.55668e-08, 0, 1, 0, 1, 0, -1.5, 0, -4.37112e-08, -3, 0.5, 4)
 
 [node name="WallIn_B_1x4" parent="Level1/Walls_INT" instance=ExtResource("55_rvpn6")]
-transform = Transform3D(-6.55668e-08, 0, 1, 0, 1, 0, -1.5, 0, -4.37112e-08, -3, 0.5, 8.5)
+transform = Transform3D(-6.55668e-08, 0, 1, 0, 1, 0, -1.5, 0, -4.37112e-08, -3, 0.5, 5.5)
 
 [node name="Doors" type="Node3D" parent="Level1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -7.5)
@@ -1056,10 +1309,22 @@ transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 3, 0, 
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 4.48033, 0.5, 7.32109)
 
 [node name="Table_coffee" parent="Level2/Props/TVarea" instance=ExtResource("76_6kh8c")]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 4.46448, 0.5, 5.89795)
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 4.46124, 0.5, 5.69045)
 
 [node name="Side_table_F" parent="Level2/Props/TVarea" instance=ExtResource("77_q5re5")]
 transform = Transform3D(1.21, 0, 0, 0, 1, 0, 0, 0, 2.045, 4.5, 0.5, 3.94367)
+
+[node name="TV" parent="Level2/Props/TVarea" instance=ExtResource("122_oxb4o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.46946, 1.26401, 3.98681)
+
+[node name="Side_table_E (2)" parent="Level2/Props/TVarea" instance=ExtResource("74_1itkc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.11831, 0.5, 7.37373)
+
+[node name="Lamp_table_shade (4)" parent="Level2/Props/TVarea/Side_table_E (2)" instance=ExtResource("123_d1nhu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.585263, 0)
+
+[node name="Tv_remote" parent="Level2/Props/TVarea" instance=ExtResource("124_it4hn")]
+transform = Transform3D(0.92589, 1.65138e-08, 0.377792, 0, 1, -4.37114e-08, -0.377792, 4.04719e-08, 0.92589, 4.18107, 0.923004, 5.71835)
 
 [node name="Noor\'s room" type="Node3D" parent="Level2/Props"]
 
@@ -9058,6 +9323,7 @@ spot_angle = 15.0
 [editable path="Level1/Props/LivingRoom/Lamp_chandelier2"]
 [editable path="Level1/Props/Kitchen/Kitchen_kitchen_cabinets_A/Stove/Lamp_wall_fluorescent"]
 [editable path="Level1/Props/Kitchen/Kitchen_counter_separate/Lamp_ceiling_cone_A"]
+[editable path="Level1/Props/Office/ComputerDesk/Computer_screen (1)"]
 [editable path="PictureSpecificObjects/Frontyard/Noor_00"]
 [editable path="PictureSpecificObjects/Backyard/Noor_01"]
 [editable path="PictureSpecificObjects/Office/Noor_02"]
