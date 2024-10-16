@@ -66,7 +66,7 @@ func interact(interacting_player: CharacterBody3D) -> Node:
 
 	if not dialogue_triggered and dialogue_clips.size() > 0:
 		start_dialogue_clips()
-	else:
+	elif not dialogue_playing:
 		apply_scene_changes()
 
 	return null
