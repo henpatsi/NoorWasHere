@@ -19,7 +19,7 @@ extends TextureRect
 @export var requirements: Array[String]
 
 
-@export_group("Scene changes")
+@export_group("Picture Specific Objects")
 ## Nodes that will be shown when picture is active and hidden when inactive
 @export var nodes_to_show: Array[Node]
 ## Nodes that will be hidden when picture is active and shown when inactive
@@ -27,8 +27,6 @@ extends TextureRect
 ## Nodes that will only be hidden once exiting the photo.
 ## Useful if something is shown through an interaction within the photo.
 @export var nodes_to_hide_on_exit: Array[Node]
-## Area3D nodes that should start monitoring
-@export var start_monitoring_list: Array[Area3D]
 
 
 @export_group("Audio")
@@ -43,20 +41,51 @@ extends TextureRect
 @export var volume_fade_in_time: float = 3
 
 
+@export_group("Dialogue")
+## Dialogue to play as player enters the picture
+@export var enter_dialogue_clips: Array[Resource]
+## Dialogue to play as player exits the picture
+@export var exit_dialogue_clips: Array[Resource]
+## Delay before enter dialogue played
+@export var enter_dialogue_delay: float = 0
+## Delay before exit dialogue played
+@export var exit_dialogue_delay: float = 0
+## If true, cannot use picture input until dialogue played.
+@export var prevent_teleport: bool = true
+
+var dialogue_clips
+var dialogue_delay
+var dialogue_index = 0
+var dialogue_playing: bool = false
+var enter_dialogue_triggered: bool = false
+var exit_dialogue_triggered: bool = false
+
+
+@export_group("Scene Changes")
+## Nodes that will be shown when picture is entered
+@export var enter_nodes_to_show: Array[Node]
+## Nodes that will be hidden when picture is entered
+@export var enter_nodes_to_hide: Array[Node]
+## Nodes that will be shown when picture is exited
+@export var exit_nodes_to_show: Array[Node]
+## Nodes that will be hidden when picture is exited
+@export var exit_nodes_to_hide: Array[Node]
+## Area3D nodes that should start monitoring when entered
+@export var enter_start_monitoring_list: Array[Area3D]
+## Area3D nodes that should start monitoring when exit
+@export var exit_start_monitoring_list: Array[Area3D]
+## Waits until all dialogue clips have been played until making the listed changes.
+@export var changes_wait_for_dialogue: bool = true
+
+var nodes_to_show_transition
+var nodes_to_hide_transition
+var start_monitoring_list_transition
+
 @export_group("Transition")
 ## Time it takes to perfectly position player
 @export var move_tween_time: float = 0.2
 ## Time it takes to resize picture to full screen
 @export var picture_resize_time: float = 1.0
-### Dialogue to play as player enters the picture
-#@export var dialogue_on_enter: Array[Resource]
-### Dialogue to play as player exits the picture
-#@export var dialogue_on_exit: Array[Resource]
-### Delay before enter dialogue played
-#@export var enter_dialogue_delay: float = 0
-### Delay before exit dialogue played
-#@export var exit_dialogue_delay: float = 0
-
 
 var active_picture: bool = false
 var inside_picture: bool = false
@@ -74,12 +103,16 @@ var at_target_position: bool = false
 
 @onready var picture_shader: ColorRect = $"../SubViewport/PortalCamera/Shader"
 
+@onready var player: CharacterBody3D = %Player
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	set_active(false)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+
+	dialogue_process()
 
 	if not at_target_position:
 		position = lerp(position, target_position, move_speed * delta)
@@ -100,39 +133,7 @@ func set_target_position(pos: Vector2, speed: float) -> void:
 
 func set_active(state: bool) -> void:
 	active_picture = state
-
-	if active_picture:
-		for node in nodes_to_show:
-			if is_instance_valid(node):
-				node.show()
-				set_child_collider_states(node, false)
-		for node in nodes_to_hide:
-			if is_instance_valid(node):
-				node.hide()
-				set_child_collider_states(node, true)
-		for area in start_monitoring_list:
-			area.monitoring = true
-
-	if not active_picture:
-		for node in nodes_to_show:
-			if is_instance_valid(node):
-				node.hide()
-				set_child_collider_states(node, true)
-		for node in nodes_to_hide:
-			if is_instance_valid(node):
-				node.show()
-				set_child_collider_states(node, false)
-		for area in start_monitoring_list:
-			area.monitoring = false
-
-
-func set_child_collider_states(node: Node, disabled_state: bool) -> void:
-	for child in node.get_children():
-		if is_instance_valid(child):
-			set_child_collider_states(child, disabled_state)
-	if node is CollisionShape3D:
-		node.disabled = disabled_state
-
+	apply_scene_changes(state, nodes_to_show, nodes_to_hide)
 
 func get_local_camera_pos() -> Vector3:
 	var camera_pos = camera.position - world_root.position
@@ -156,7 +157,7 @@ func requirements_met(met_requirements: Array[String]) -> bool:
 	return true
 
 
-func enter_picture(player: CharacterBody3D, head_node: Node3D, picture_handler: Node) -> void:
+func enter_picture(head_node: Node3D, picture_handler: Node) -> void:
 	print("Enter")
 	picture_handler.set_input_state(false, false)
 	player.process_mode = Node.PROCESS_MODE_DISABLED
@@ -197,10 +198,16 @@ func enter_picture(player: CharacterBody3D, head_node: Node3D, picture_handler: 
 
 	camera_follow_node = head_node
 	inside_picture = true
+
+	if not enter_dialogue_triggered and enter_dialogue_clips.size() > 0:
+		start_dialogue_clips()
+	elif not dialogue_playing:
+		apply_scene_changes(true, enter_nodes_to_show, enter_nodes_to_hide, enter_start_monitoring_list)
+
 	picture_handler.set_input_state(true)
 
 
-func exit_picture(player: CharacterBody3D, picture_handler: Node) -> void:
+func exit_picture(picture_handler: Node) -> void:
 	print("Exit")
 
 	picture_handler.set_input_state(false, false)
@@ -244,4 +251,97 @@ func exit_picture(player: CharacterBody3D, picture_handler: Node) -> void:
 
 	await get_tree().create_timer(camera_return_time).timeout
 
+	if not exit_dialogue_triggered and enter_dialogue_clips.size() > 0:
+		start_dialogue_clips()
+	elif not dialogue_playing:
+		apply_scene_changes(true, exit_nodes_to_show, exit_nodes_to_hide, exit_start_monitoring_list)
+
 	picture_handler.set_input_state(true)
+
+
+func start_dialogue_clips() -> void:
+	if inside_picture:
+		enter_dialogue_triggered = true
+		dialogue_clips = enter_dialogue_clips
+		dialogue_delay = enter_dialogue_delay
+		start_monitoring_list_transition = enter_start_monitoring_list
+		nodes_to_show_transition = enter_nodes_to_show
+		nodes_to_hide_transition = enter_nodes_to_hide
+	else:
+		exit_dialogue_triggered = true
+		dialogue_clips = exit_dialogue_clips
+		dialogue_delay = exit_dialogue_delay
+		start_monitoring_list_transition = exit_start_monitoring_list
+		nodes_to_show_transition = exit_nodes_to_show
+		nodes_to_hide_transition = exit_nodes_to_hide
+
+	handle_teleport_state(false)
+	
+	if not changes_wait_for_dialogue:
+		apply_scene_changes(true, nodes_to_show_transition, nodes_to_hide_transition, start_monitoring_list_transition)
+	
+	if dialogue_delay > 0:
+		await get_tree().create_timer(dialogue_delay).timeout
+
+	dialogue_index = 0
+	dialogue_playing = true
+
+
+func dialogue_process() -> void:
+	if not dialogue_playing or player.dialogue_audio_player.playing:
+		return
+
+	if dialogue_index == dialogue_clips.size():
+		dialogue_playing = false
+		player.set_subtitle("")
+		if changes_wait_for_dialogue:
+			apply_scene_changes(true, nodes_to_show_transition, nodes_to_hide_transition, start_monitoring_list_transition)
+		handle_teleport_state(true)
+		return
+
+	player.dialogue_audio_player.stream = dialogue_clips[dialogue_index].audio_stream
+	player.dialogue_audio_player.play()
+
+	player.set_subtitle(dialogue_clips[dialogue_index].subtitle)
+
+	dialogue_index += 1
+
+
+func handle_teleport_state(state: bool) -> void:
+	if prevent_teleport:
+		player.set_picture_handler_input(state)
+
+
+func apply_scene_changes(state: bool, show_nodes, hide_nodes, monitor_areas = null) -> void:
+	if state == true:
+		for node in show_nodes:
+			if is_instance_valid(node):
+				node.show()
+				set_child_collider_states(node, false)
+		for node in hide_nodes:
+			if is_instance_valid(node):
+				node.hide()
+				set_child_collider_states(node, true)
+		if monitor_areas:
+			for area in monitor_areas:
+				if area:
+					area.monitoring = true
+	else:
+		for node in show_nodes:
+			if is_instance_valid(node):
+				node.hide()
+				set_child_collider_states(node, true)
+		for node in hide_nodes:
+			if is_instance_valid(node):
+				node.show()
+				set_child_collider_states(node, false)
+
+
+func set_child_collider_states(node: Node, disabled_state: bool) -> void:
+	for child in node.get_children():
+		if is_instance_valid(child):
+			set_child_collider_states(child, disabled_state)
+	if node is CollisionShape3D:
+		node.disabled = disabled_state
+	if node is CSGBox3D:
+		node.use_collision = not disabled_state

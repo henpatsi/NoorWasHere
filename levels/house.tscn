@@ -423,9 +423,6 @@ transform = Transform3D(4.37114e-08, 0, 1, 0, 1, 0, 1, 0, -4.37114e-08, 1.49669,
 
 [node name="Kitchen" type="Node3D" parent="Level1/Props"]
 
-[node name="Chair_kitchen 7" parent="Level1/Props/Kitchen" instance=ExtResource("3_l3gxx")]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 8.62001, 0.5, 10.1568)
-
 [node name="Kitchen_kitchen_cabinets_A" type="Node3D" parent="Level1/Props/Kitchen"]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 10.5, 1.5, 9)
 

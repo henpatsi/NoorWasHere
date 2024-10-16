@@ -109,6 +109,8 @@ func set_input_state(state: bool, force_down: bool = true) -> void:
 
 func _input(event: InputEvent) -> void:
 	if input_blockers > 0:
+		if event.is_action_pressed("exit_picture"):
+			interact_response_label.change_text("Cannot exit picture right now")
 		return
 
 	input_blockers += 1
@@ -173,7 +175,7 @@ func enter_picture() -> void:
 	entered_picture_index_array[picture_depth] = picture_index
 	picture_index = 0
 	picture_depth += 1
-	current_picture.enter_picture(player, head_node, self)
+	current_picture.enter_picture(head_node, self)
 
 	entered_picture = current_picture
 
@@ -187,14 +189,14 @@ func enter_picture() -> void:
 		teleport_shader_rect.on_enter_picture()
 
 func exit_picture() -> void:
-	print("Exiting picture")
-
 	if picture_depth == 0:
 		print("Not inside picture")
 		return
 
 	if not await test_if_exit_possible():
 		return
+
+	print("Exiting picture")
 
 	if current_picture:
 		current_picture.set_target_position(picture_inventory_position, 100)
@@ -208,7 +210,7 @@ func exit_picture() -> void:
 
 	initialize_picture_array(inventory.get_pictures(picture_depth))
 
-	current_picture.exit_picture(player, self)
+	current_picture.exit_picture(self)
 	
 	up_position = true
 	crosshair.hide()
@@ -229,8 +231,7 @@ func test_if_exit_possible() -> bool:
 
 	if exit_area_tester_instance.hit_no_exit_area:
 		print("Can not exit here")
-		if interact_response_label:
-			interact_response_label.change_text("Cannot exit picture here")
+		interact_response_label.change_text("Cannot exit picture here")
 		exit_area_tester_instance.queue_free()
 		return false
 

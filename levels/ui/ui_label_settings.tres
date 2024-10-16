@@ -1,0 +1,9 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://dmcpk47u3kalx"]
+
+[ext_resource type="FontFile" uid="uid://bi3g7vfa5cdww" path="res://assets/fonts/Helvetica-Font/Helvetica.ttf" id="1_15d8w"]
+
+[resource]
+font = ExtResource("1_15d8w")
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 2
+shadow_color = Color(0, 0, 0, 0.313726)
