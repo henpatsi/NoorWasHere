@@ -1,9 +1,12 @@
-[gd_scene load_steps=233 format=4 uid="uid://8ymkajun4ggs"]
+[gd_scene load_steps=236 format=4 uid="uid://8ymkajun4ggs"]
 
 [ext_resource type="Script" path="res://levels/level.gd" id="1_eatkt"]
 [ext_resource type="Environment" uid="uid://dobqonwml2e5x" path="res://assets/WorldEnvironments/Env_Present.tres" id="2_qtfwo"]
 [ext_resource type="PackedScene" uid="uid://cfy4e22geu17o" path="res://assets/post process/shader.tscn" id="8_hm01e"]
 [ext_resource type="CameraAttributesPractical" uid="uid://bx6pxibpr4a2p" path="res://assets/post process/CameraAttribute_BlurDefault.tres" id="8_runqa"]
+[ext_resource type="AudioStream" uid="uid://dasl7o6oj6t4c" path="res://assets/audio/sfx/Misc/Transition/Photo_transition1.wav" id="14_kmyxl"]
+[ext_resource type="AudioStream" uid="uid://1851svuip8kf" path="res://assets/audio/sfx/Misc/Transition/Photo_transition2.wav" id="15_gkgqh"]
+[ext_resource type="AudioStream" uid="uid://dxsho77m1vssf" path="res://assets/audio/sfx/Misc/Pick up photo/Photo_Pickup1.wav" id="16_vjb52"]
 [ext_resource type="PackedScene" uid="uid://buq8bdlwfqqwl" path="res://assets/Exterior/forest_present.tscn" id="23_7p1rt"]
 [ext_resource type="PackedScene" uid="uid://cro8l3a3d3ryp" path="res://levels/house.tscn" id="24_sg2mp"]
 [ext_resource type="PackedScene" uid="uid://cogjse1d7bpe1" path="res://assets/props/INTERACTEABLE/TV_a/tv.tscn" id="26_al3hq"]
@@ -339,21 +342,6 @@ size = Vector3(0.603802, 2.18872, 2.54352)
 [sub_resource type="BoxShape3D" id="BoxShape3D_6t4wj"]
 size = Vector3(0.603802, 2.18872, 2.54352)
 
-[sub_resource type="Animation" id="Animation_u0w2x"]
-resource_name = "open"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(0, 2.0113, 0), Vector3(0, 3.14159, 0)]
-}
-
 [sub_resource type="Animation" id="Animation_m66kf"]
 length = 0.001
 tracks/0/type = "value"
@@ -367,6 +355,21 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector3(0, 2.0113, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_u0w2x"]
+resource_name = "open"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 2.0113, 0), Vector3(0, 3.14159, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_vhss5"]
@@ -1158,8 +1161,11 @@ picture = NodePath("../../ShedPicture")
 unique_name_in_owner = true
 script = ExtResource("49_hnp2a")
 teleport_shader_rect = NodePath("../UI/TeleportShaderRect")
+transition_in_audio_clip = ExtResource("14_kmyxl")
+transition_out_audio_clip = ExtResource("15_gkgqh")
+swap_picture_audio = ExtResource("16_vjb52")
 
-[node name="TransitionPlayer" type="AudioStreamPlayer3D" parent="PictureHandler"]
+[node name="AudioPlayer" type="AudioStreamPlayer3D" parent="PictureHandler"]
 attenuation_model = 3
 panning_strength = 0.0
 

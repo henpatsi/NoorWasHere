@@ -14,6 +14,12 @@ extends Node
 ## Rect containing shader to use when teleporting into picture
 @export var teleport_shader_rect: ColorRect
 
+@export_category("Audio")
+@onready var audio_player: AudioStreamPlayer3D = $"AudioPlayer"
+@export var transition_in_audio_clip: AudioStream
+@export var transition_out_audio_clip: AudioStream
+@export var swap_picture_audio: AudioStream
+
 var picture_upper_position: Vector2
 
 var picture_index: int = 0
@@ -40,10 +46,6 @@ var input_blockers: float = 0
 
 @onready var player: CharacterBody3D = $"../Player"
 @onready var head_node: Node3D = $"../Player/HeadNode"
-
-@onready var transition_audio_player: AudioStreamPlayer3D = $"TransitionPlayer"
-var transition_in_audio_clip: AudioStream = load("res://assets/audio/sfx/Misc/Transition/Photo_transition1.wav")
-var transition_out_audio_clip: AudioStream = load("res://assets/audio/sfx/Misc/Transition/Photo_transition2.wav")
 
 
 # Called when the node enters the scene tree for the first time.
@@ -119,18 +121,12 @@ func _input(event: InputEvent) -> void:
 
 	if event.is_action_pressed("next_picture"):
 		print("Swapping to next picture")
-		if inventory.get_pictures(picture_depth).size() <= 1:
-			print("Nothing to swap to")
-		else:
-			set_active_picture(picture_index + 1)
-	
+		swap_picture(picture_index + 1)
+
 	if event.is_action_pressed("previous_picture"):
 		print("Swapping to previous picture")
-		if inventory.get_pictures(picture_depth).size() <= 1:
-			print("Nothing to swap to")
-		else:
-			set_active_picture(picture_index - 1)
-	
+		swap_picture(picture_index - 1)
+
 	if event.is_action_pressed("enter_picture"):
 		if not inspecting:
 			input_blockers -= 1
@@ -166,9 +162,9 @@ func toggle_inspect() -> void:
 func enter_picture() -> void:
 	print("Entering picture")
 
-	if transition_audio_player and transition_in_audio_clip:
-		transition_audio_player.stream = transition_in_audio_clip
-		transition_audio_player.play()
+	if audio_player and transition_in_audio_clip:
+		audio_player.stream = transition_in_audio_clip
+		audio_player.play()
 
 	entered_picture_index_array[picture_depth] = picture_index
 	picture_index = 0
@@ -196,9 +192,9 @@ func exit_picture() -> void:
 
 	picture_depth -= 1
 
-	if transition_audio_player and transition_out_audio_clip:
-		transition_audio_player.stream = transition_out_audio_clip
-		transition_audio_player.play()
+	if audio_player and transition_out_audio_clip:
+		audio_player.stream = transition_out_audio_clip
+		audio_player.play()
 
 	initialize_picture_array(inventory.get_pictures(picture_depth))
 
@@ -219,6 +215,18 @@ func on_picture_picked_up(picture: TextureRect) -> void:
 	set_active_picture(current_picture_array.size() - 1)
 	if input_blockers == 0:
 		toggle_inspect()
+
+
+func swap_picture(target_index: int) -> void:
+	if inventory.get_pictures(picture_depth).size() <= 1:
+		print("Nothing to swap to")
+		return
+
+	set_active_picture(target_index)
+	
+	if audio_player and swap_picture_audio:
+		audio_player.stream = swap_picture_audio
+		audio_player.play()
 
 
 func set_active_picture(index: int) -> void:
