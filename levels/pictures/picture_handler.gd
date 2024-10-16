@@ -47,6 +47,8 @@ var input_blockers: float = 0
 @onready var player: CharacterBody3D = $"../Player"
 @onready var head_node: Node3D = $"../Player/HeadNode"
 
+var exit_area_tester: PackedScene = preload("res://levels/areas/exit_zone_tester.tscn")
+var entered_picture
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -171,6 +173,8 @@ func enter_picture() -> void:
 	picture_depth += 1
 	current_picture.enter_picture(player, head_node, self)
 
+	entered_picture = current_picture
+
 	initialize_picture_array(inventory.get_pictures(picture_depth))
 
 	up_position = false
@@ -184,6 +188,10 @@ func exit_picture() -> void:
 	print("Exiting picture")
 
 	if picture_depth == 0:
+		print("Not inside picture")
+		return
+
+	if not await test_if_exit_possible():
 		return
 
 	if current_picture:
@@ -206,6 +214,24 @@ func exit_picture() -> void:
 
 	if teleport_shader_rect:
 		teleport_shader_rect.on_exit_picture()
+
+
+func test_if_exit_possible() -> bool:
+	var exit_area_tester_instance = exit_area_tester.instantiate()
+	add_child(exit_area_tester_instance)
+	exit_area_tester_instance.global_position = player.global_position
+	exit_area_tester_instance.global_position -= entered_picture.world_root.position
+	print(exit_area_tester_instance.global_position)
+
+	await get_tree().create_timer(0.1).timeout
+
+	if exit_area_tester_instance.hit_no_exit_area:
+		print("Cannot exit here")
+		exit_area_tester_instance.queue_free()
+		return false
+
+	exit_area_tester_instance.queue_free()
+	return true
 
 
 func on_picture_picked_up(picture: TextureRect) -> void:
