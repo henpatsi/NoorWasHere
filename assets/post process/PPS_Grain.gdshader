@@ -29,14 +29,14 @@ void fragment() {
     // Compute the distance from the center
     vec2 to_center = uv - center;
     float dist = length(to_center);
-    
+
     // Apply lens distortion based on the distance from the center
     float radius = 1.0 - smoothstep(0.0, 0.5, dist); // Controls the transition for distortion
     vec2 distorted_uv = uv + to_center * (distortion_strength * dist * radius);
 
     // Determine the effect of chromatic aberration based on distance from center
     float effect_amount = smoothstep(aberration_radius, 1.0, dist);
-    
+
     // Calculate noise displacement for chromatic aberration
     float noise_displacement = noise(uv * 0.5, TIME) * 0.001; // Scale the noise for the displacement
 

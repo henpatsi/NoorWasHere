@@ -28,6 +28,8 @@ func _ready() -> void:
 	if not verb:
 		verb = "Carry"
 
+	if not mesh:
+		mesh = get_node_or_null("MeshInstance3D")
 	if mesh:
 		material = mesh.get_active_material(0)
 

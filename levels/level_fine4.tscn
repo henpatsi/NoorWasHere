@@ -1,4 +1,4 @@
-[gd_scene load_steps=224 format=4 uid="uid://8ymkajun4ggs"]
+[gd_scene load_steps=229 format=4 uid="uid://8ymkajun4ggs"]
 
 [ext_resource type="Script" path="res://levels/level.gd" id="1_eatkt"]
 [ext_resource type="Environment" uid="uid://dobqonwml2e5x" path="res://assets/WorldEnvironments/Env_Present.tres" id="2_qtfwo"]
@@ -6,7 +6,12 @@
 [ext_resource type="CameraAttributesPractical" uid="uid://bx6pxibpr4a2p" path="res://assets/post process/CameraAttribute_BlurDefault.tres" id="8_runqa"]
 [ext_resource type="PackedScene" uid="uid://buq8bdlwfqqwl" path="res://assets/Exterior/forest_present.tscn" id="23_7p1rt"]
 [ext_resource type="PackedScene" uid="uid://cro8l3a3d3ryp" path="res://levels/house.tscn" id="24_sg2mp"]
+[ext_resource type="PackedScene" uid="uid://cogjse1d7bpe1" path="res://assets/props/INTERACTEABLE/TV_a/tv.tscn" id="26_al3hq"]
 [ext_resource type="PackedScene" uid="uid://ckfv5dryb5gsx" path="res://levels/shed.tscn" id="26_ssg50"]
+[ext_resource type="Script" path="res://levels/interactables/interactable_carry.gd" id="27_qcu5r"]
+[ext_resource type="AudioStream" uid="uid://cb5ijg4lr1lyu" path="res://assets/audio/sfx/Misc/TV/TV_Lift.wav" id="28_1q4cc"]
+[ext_resource type="PackedScene" uid="uid://c2i8ngtjel6as" path="res://levels/areas/drop_off_zone.tscn" id="29_4kxf3"]
+[ext_resource type="AudioStream" uid="uid://bq8sidpqr5mek" path="res://assets/audio/sfx/Misc/TV/TV_Putdown.wav" id="29_emrmx"]
 [ext_resource type="PackedScene" uid="uid://b25ooshew3q2v" path="res://player/player.tscn" id="41_vuow4"]
 [ext_resource type="Script" path="res://player/inventory.gd" id="42_5umw0"]
 [ext_resource type="Script" path="res://levels/pictures/picture.gd" id="43_f2no6"]
@@ -887,6 +892,7 @@ stretch_mode = 3
 script = ExtResource("43_f2no6")
 camera = NodePath("../SubViewport/PortalCamera")
 world_root = NodePath("../../../Past")
+requirements = Array[String](["tv_on_table"])
 nodes_to_show = [NodePath("../../../Past/PictureSpecificObjects/TV")]
 nodes_to_hide = [NodePath("../../../Past/ChangingScene/NoorDoorClosed")]
 ambientAS = ExtResource("44_deav4")
@@ -1264,6 +1270,27 @@ transform = Transform3D(-0.981406, 0, -0.19194, 0, 1, 0, 0.19194, 0, -0.981406, 
 [node name="Shed" parent="Present" instance=ExtResource("26_ssg50")]
 
 [node name="Forest" parent="Present" instance=ExtResource("23_7p1rt")]
+
+[node name="Interactables" type="Node3D" parent="Present"]
+
+[node name="TV" parent="Present/Interactables" node_paths=PackedStringArray("carry_audio_stream_player") instance=ExtResource("26_al3hq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.73403, -5.39982)
+script = ExtResource("27_qcu5r")
+carry_position_offset = Vector3(0, -0.5, 0)
+set_requirement = "tv_on_table"
+carry_audio_stream_player = NodePath("AudioStreamPlayer3D")
+pick_up_audio = ExtResource("28_1q4cc")
+put_down_audio = ExtResource("29_emrmx")
+item_name = "TV"
+one_shot = false
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Present/Interactables/TV"]
+
+[node name="DropOffZone" parent="Present/Interactables" instance=ExtResource("29_4kxf3")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.194977, 4.4115, 3.67839)
+
+[node name="CollisionShape3D" parent="Present/Interactables/DropOffZone" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.47035e-08, 0.323792, 0.0692749)
 
 [node name="ChangingScene" type="Node3D" parent="Present"]
 
@@ -9738,6 +9765,7 @@ shape = SubResource("BoxShape3D_14nep")
 [connection signal="body_entered" from="Present/TriggerVolumes/EndSequenceTrigger" to="Present/TriggerVolumes/EndSequenceTrigger" method="_on_body_entered"]
 
 [editable path="Player"]
+[editable path="Present/Interactables/DropOffZone"]
 [editable path="Present/TriggerVolumes/V01E_EnterHouse"]
 [editable path="Present/TriggerVolumes/V02E_Office"]
 [editable path="Present/TriggerVolumes/V03E_LivingRoom"]
