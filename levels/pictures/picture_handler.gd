@@ -228,7 +228,9 @@ func test_if_exit_possible() -> bool:
 	await get_tree().create_timer(0.1).timeout
 
 	if exit_area_tester_instance.hit_no_exit_area:
-		print("Cannot exit here")
+		print("Can not exit here")
+		if interact_response_label:
+			interact_response_label.change_text("Cannot exit picture here")
 		exit_area_tester_instance.queue_free()
 		return false
 

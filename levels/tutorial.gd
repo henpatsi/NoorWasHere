@@ -70,3 +70,16 @@ func switch_text(new_text: String, new_index: int, delay: float = default_text_s
 	tutorial_label.show()
 
 	busy = false
+
+
+func set_text(new_text: String) -> void:
+	tutorial_label.text = new_text
+	tutorial_label.show()
+
+
+func _on_crouch_tutorial_area_body_entered(body: Node3D) -> void:
+	set_text("Hold left control to crouch")
+
+
+func _on_crouch_tutorial_area_body_exited(body: Node3D) -> void:
+	set_text("")

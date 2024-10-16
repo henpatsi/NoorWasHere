@@ -1,4 +1,4 @@
-[gd_scene load_steps=186 format=4 uid="uid://cro8l3a3d3ryp"]
+[gd_scene load_steps=187 format=4 uid="uid://cro8l3a3d3ryp"]
 
 [ext_resource type="PackedScene" uid="uid://bisr1khpxni54" path="res://assets/AtmosphericHouse/Prefabs/Building/Foundation_3x.prefab.scn" id="1_opih8"]
 [ext_resource type="PackedScene" uid="uid://bok6u53wltnq6" path="res://assets/AtmosphericHouse/Prefabs/Props/Lamps/CeilingFan.prefab.scn" id="2_w52ss"]
@@ -310,6 +310,9 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_p4xrs")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jaebb"]
+size = Vector3(1, 2.33515, 2.58653)
 
 [node name="House" type="Node3D"]
 transform = Transform3D(-1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, -0.3491, 4.76837e-07, 1.08027)
@@ -1767,6 +1770,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
 
 [node name="Shelf_wooden_standing" parent="." instance=ExtResource("85_vjomw")]
 transform = Transform3D(-0.492111, -0.0245627, 0.870186, 0.718181, -0.576376, 0.38988, 0.491978, 0.816815, 0.301282, -4.32755, 3, 1.51661)
+
+[node name="Blocker" type="StaticBody3D" parent="Shelf_wooden_standing"]
+transform = Transform3D(-0.492112, 0.718181, 0.491978, -0.0245626, -0.576376, 0.816816, 0.870185, 0.389879, 0.301282, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Shelf_wooden_standing/Blocker"]
+transform = Transform3D(1, 0, 0, -8.81973e-20, 1, 0, -1.18376e-11, 0, 1, 0, -0.556973, 1.05232)
+shape = SubResource("BoxShape3D_jaebb")
 
 [editable path="Level1/Props/LivingRoom/CeilingFan"]
 [editable path="Level1/Props/LivingRoom/Lamp_chandelier2"]
