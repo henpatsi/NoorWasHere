@@ -1592,7 +1592,7 @@ grow_vertical = 2
 script = ExtResource("55_3cw5q")
 player = NodePath("../../Player")
 texture_rect = NodePath("TextureRect")
-picture_screenshot_paths = Array[String](["res://assets/textures/screenshots/screenshot_01_start.png", "res://assets/textures/screenshots/screenshot_02_backyard.png", "res://assets/textures/screenshots/screenshot_03_office.png", "res://assets/textures/screenshots/screenshot_04_livingroom.png", "res://assets/textures/screenshots/screenshot_05_hallwayupstairs.png", "res://assets/textures/screenshots/screenshot_06_TVroom.png", "res://assets/textures/screenshots/screenshot_07_NoorRoom.png", "res://assets/textures/screenshots/screenshot_08_FrontDoor.png", "res://assets/textures/screenshots/screenshot_09_Forest.png", "res://assets/textures/screenshots/screenshot_10_Shed.png"])
+picture_screenshot_paths = Array[String](["res://assets/textures/screenshots/screenshot_02_backyard.png", "res://assets/textures/screenshots/screenshot_10_Shed.png", "res://assets/textures/screenshots/screenshot_08_FrontDoor.png", "res://assets/textures/screenshots/screenshot_07_NoorRoom.png", "res://assets/textures/screenshots/screenshot_06_TVroom.png", "res://assets/textures/screenshots/screenshot_05_hallwayupstairs.png", "res://assets/textures/screenshots/screenshot_04_livingroom.png", "res://assets/textures/screenshots/screenshot_03_office.png", "res://assets/textures/screenshots/screenshot_09_Forest.png", "res://assets/textures/screenshots/screenshot_01_start.png"])
 show_times = Array[float]([4.2, 3.0, 3.5, 4.0, 4.0, 4.0, 4.0, 4.0, 4.0, 6.0])
 level = NodePath("../..")
 
