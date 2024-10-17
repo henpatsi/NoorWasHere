@@ -1,0 +1,13 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://c8ht0t2mlud10"]
+
+[ext_resource type="Texture2D" uid="uid://c0vf5dgm6bo5b" path="res://assets/props/INTERACTEABLE/TV_a/TV_on_Mulholland_drive.jpg" id="1_h05p8"]
+
+[resource]
+resource_name = "TV_on"
+cull_mode = 2
+albedo_texture = ExtResource("1_h05p8")
+metallic = 0.109524
+roughness = 0.0523809
+emission_enabled = true
+emission_energy_multiplier = 2.9
+emission_texture = ExtResource("1_h05p8")
