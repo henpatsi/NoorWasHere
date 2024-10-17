@@ -64,7 +64,7 @@ func _ready() -> void:
 
 	if current_picture:
 		current_picture.set_target_position(picture_lower_position, inspect_speed)
-		picture_upper_position = Vector2(get_viewport().size / 2) - (current_picture.size / 2)
+		picture_upper_position = Vector2(get_viewport().get_visible_rect().size / 2) - (current_picture.size / 2)
 	else: # Should not be empty at start, but just in case
 		picture_upper_position = Vector2(320, 180)
 
