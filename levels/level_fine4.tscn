@@ -1592,7 +1592,7 @@ grow_vertical = 2
 script = ExtResource("55_3cw5q")
 player = NodePath("../../Player")
 texture_rect = NodePath("TextureRect")
-picture_screenshot_paths = Array[String](["res://assets/textures/screenshots/screenshot_01_start.png", "res://assets/textures/screenshots/screenshot_02_backyard.png", "res://assets/textures/screenshots/screenshot_03_office.png", "res://assets/textures/screenshots/screenshot_04_livingroom.png", "res://assets/textures/screenshots/screenshot_05_hallwayupstairs.png", "res://assets/textures/screenshots/screenshot_06_TVroom.png", "res://assets/textures/screenshots/screenshot_07_NoorRoom.png", "res://assets/textures/screenshots/screenshot_08_FrontDoor.png", "res://assets/textures/screenshots/screenshot_09_Forest.png", "res://assets/textures/screenshots/screenshot_10_Shed.png"])
+picture_screenshot_paths = Array[String](["res://assets/textures/screenshots/screenshot_02_backyard.png", "res://assets/textures/screenshots/screenshot_10_Shed.png", "res://assets/textures/screenshots/screenshot_08_FrontDoor.png", "res://assets/textures/screenshots/screenshot_07_NoorRoom.png", "res://assets/textures/screenshots/screenshot_06_TVroom.png", "res://assets/textures/screenshots/screenshot_05_hallwayupstairs.png", "res://assets/textures/screenshots/screenshot_04_livingroom.png", "res://assets/textures/screenshots/screenshot_03_office.png", "res://assets/textures/screenshots/screenshot_09_Forest.png", "res://assets/textures/screenshots/screenshot_01_start.png"])
 show_times = Array[float]([4.2, 3.0, 3.5, 4.0, 4.0, 4.0, 4.0, 4.0, 4.0, 6.0])
 level = NodePath("../..")
 
@@ -10270,11 +10270,13 @@ shape = SubResource("BoxShape3D_0f53p")
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Past/Interactables/ShedCloset"]
 
-[node name="door" type="StaticBody3D" parent="Past/Interactables/ShedCloset" node_paths=PackedStringArray("nodes_to_show", "start_monitoring_list")]
+[node name="door" type="StaticBody3D" parent="Past/Interactables/ShedCloset" node_paths=PackedStringArray("interact_stream_player", "nodes_to_show", "start_monitoring_list")]
 script = ExtResource("65_mhbtl")
 interaction_animations = Array[String](["open_doors"])
 item_name = "closet door"
 verb = "Open"
+interact_stream_player = NodePath("../AudioStreamPlayer3D")
+interact_audio_stream = ExtResource("66_53s0v")
 dialogue_clips = Array[Resource]([ExtResource("106_qi4pq"), ExtResource("107_e7r60")])
 nodes_to_show = [NodePath("../../../PictureSpecificObjects/Shed/CapsuleSpotlight")]
 start_monitoring_list = [NodePath("../../../../Present/TriggerVolumes/V10E_Shed")]
