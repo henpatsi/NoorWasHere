@@ -1546,8 +1546,9 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_q4qin")
 
-[node name="Level" type="Node3D"]
+[node name="Level" type="Node3D" node_paths=PackedStringArray("black_screen")]
 script = ExtResource("1_eatkt")
+black_screen = NodePath("UI/BlackScreen")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = ExtResource("2_qtfwo")
@@ -2261,6 +2262,16 @@ monitoring = false
 [node name="CollisionShape3D" type="CollisionShape3D" parent="UI/Tutorial/CrouchTutorialArea"]
 shape = SubResource("BoxShape3D_jhyvy")
 
+[node name="BlackScreen" type="ColorRect" parent="UI"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
 [node name="Present" type="Node3D" parent="."]
 
 [node name="house_present" parent="Present" instance=ExtResource("77_3tvlf")]
@@ -2326,7 +2337,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.47035e-08, 0.323792, 0.069
 [node name="Pictures" type="Node3D" parent="Present/Interactables"]
 
 [node name="forest_picture" type="StaticBody3D" parent="Present/Interactables/Pictures" node_paths=PackedStringArray("picture", "interact_stream_player")]
-transform = Transform3D(0.948335, 0, 0.317272, 0, 1, 0, -0.317272, 0, 0.948335, 0.121399, 1.29925, -0.110416)
+transform = Transform3D(0.948335, 0, 0.317272, 0, 1, 0, -0.317272, 0, 0.948335, 0.0597418, 1.29925, -0.186555)
 script = ExtResource("34_i7xol")
 picture = NodePath("../../../../Pictures/9_Forest/ForestPicture")
 item_name = "picture"
@@ -2362,7 +2373,7 @@ disabled = true
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Present/Interactables/Pictures/living_room_picture"]
 
 [node name="front_door_picture" type="StaticBody3D" parent="Present/Interactables/Pictures" node_paths=PackedStringArray("picture", "interact_stream_player")]
-transform = Transform3D(0.750757, 0, 0.660579, 0, 1, 0, -0.660579, 0, 0.750757, -6.83196, 4.31406, -1.33838)
+transform = Transform3D(0.750757, 0, 0.660579, 0, 1, 0, -0.660579, 0, 0.750757, -2.51358, 4.28754, 1.29963)
 visible = false
 script = ExtResource("34_i7xol")
 picture = NodePath("../../../../Pictures/8_FrontDoor/FrontDoorPicture")
@@ -2604,7 +2615,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.17746, 0.710165, -15.4245)
 [node name="AmbientAudioPlayer" type="AudioStreamPlayer3D" parent="Present"]
 stream = ExtResource("113_5vh8o")
 attenuation_model = 3
-volume_db = -10.0
 autoplay = true
 max_distance = 50.0
 panning_strength = 0.0

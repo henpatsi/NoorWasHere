@@ -1,4 +1,4 @@
-[gd_scene load_steps=145 format=4 uid="uid://dbvtnixqbhlsj"]
+[gd_scene load_steps=144 format=4 uid="uid://dbvtnixqbhlsj"]
 
 [ext_resource type="PackedScene" uid="uid://bisr1khpxni54" path="res://assets/AtmosphericHouse/Prefabs/Building/Foundation_3x.prefab.scn" id="1_454tc"]
 [ext_resource type="PackedScene" uid="uid://bok6u53wltnq6" path="res://assets/AtmosphericHouse/Prefabs/Props/Lamps/CeilingFan.prefab.scn" id="2_ab3li"]
@@ -102,7 +102,6 @@
 [ext_resource type="PackedScene" uid="uid://deuhrvt8i4r4j" path="res://assets/AtmosphericHouse/Prefabs/Props/Furniture/Bed_twin.prefab.scn" id="135_yuyij"]
 [ext_resource type="PackedScene" uid="uid://b2wfb6re5onfy" path="res://assets/AtmosphericHouse/Prefabs/Props/Furniture/Bookcase_B.prefab.scn" id="140_4sk0o"]
 [ext_resource type="PackedScene" uid="uid://b8g8c3r2mmjes" path="res://assets/AtmosphericHouse/Prefabs/Props/Furniture/Workdesk_shelf_A.prefab.scn" id="145_anwyp"]
-[ext_resource type="PackedScene" uid="uid://77yxvhl4qv87" path="res://assets/AtmosphericHouse/Prefabs/Props/Lamps/Lamp_table_work.prefab.scn" id="156_nggrw"]
 [ext_resource type="PackedScene" uid="uid://bjambolkguixc" path="res://assets/AtmosphericHouse/Prefabs/Props/Furniture/Dresser_A.prefab.scn" id="157_6fygy"]
 [ext_resource type="PackedScene" uid="uid://big0bdlitqb86" path="res://assets/AtmosphericHouse/Prefabs/Props/Electronics/Washing_machine.prefab.scn" id="168_h7k43"]
 [ext_resource type="PackedScene" uid="uid://cocth6jkvedt3" path="res://assets/AtmosphericHouse/Prefabs/Props/Electronics/Dryer.prefab.scn" id="169_c1u8w"]
@@ -1144,9 +1143,6 @@ transform = Transform3D(0, 0, -1, 0, 1, 0, 1, 0, 0, 0.755082, 0, -0.670273)
 
 [node name="Chair_wooden (2)" parent="Level2/Props/Noor\'s room/desk" instance=ExtResource("38_geihu")]
 transform = Transform3D(-0.858382, -0.0256344, 0.512371, -0.00495425, 0.999119, 0.0416869, -0.512988, 0.0332449, -0.857752, -0.216266, 0, -0.0958104)
-
-[node name="Lamp_table_work (2)" parent="Level2/Props/Noor\'s room/desk" instance=ExtResource("156_nggrw")]
-transform = Transform3D(-0.776463, 3.39185e-09, 0.630163, 3.00959e-08, 1, 3.17005e-08, -0.630163, 4.35796e-08, -0.776463, -6.24292, 3.778, 2.07773)
 
 [node name="Dresser_A" parent="Level2/Props/Noor\'s room" instance=ExtResource("157_6fygy")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 11.5418, 0.5, 9.20863)

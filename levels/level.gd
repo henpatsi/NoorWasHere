@@ -15,6 +15,10 @@ var paused: bool = false
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
+	if black_screen:
+		black_screen.show()
+		await get_tree().create_timer(1).timeout
+		black_screen.hide()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
