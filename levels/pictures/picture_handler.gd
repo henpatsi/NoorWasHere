@@ -15,7 +15,8 @@ extends Node
 @export var teleport_shader_rect: ColorRect
 
 @export_category("Audio")
-@onready var audio_player: AudioStreamPlayer3D = $"AudioPlayer"
+@onready var transition_audio_player: AudioStreamPlayer3D = $"TransitionAudioPlayer"
+@onready var swap_picture_audio_player: AudioStreamPlayer3D = $"SwapPictureAudioPlayer"
 @export var transition_in_audio_clip: AudioStream
 @export var transition_out_audio_clip: AudioStream
 @export var swap_picture_audio: AudioStream
@@ -168,9 +169,9 @@ func toggle_inspect() -> void:
 func enter_picture() -> void:
 	print("Entering picture")
 
-	if audio_player and transition_in_audio_clip:
-		audio_player.stream = transition_in_audio_clip
-		audio_player.play()
+	if transition_audio_player and transition_in_audio_clip:
+		transition_audio_player.stream = transition_in_audio_clip
+		transition_audio_player.play()
 
 	entered_picture_index_array[picture_depth] = picture_index
 	picture_index = 0
@@ -204,9 +205,9 @@ func exit_picture() -> void:
 
 	picture_depth -= 1
 
-	if audio_player and transition_out_audio_clip:
-		audio_player.stream = transition_out_audio_clip
-		audio_player.play()
+	if transition_audio_player and transition_out_audio_clip:
+		transition_audio_player.stream = transition_out_audio_clip
+		transition_audio_player.play()
 
 	initialize_picture_array(inventory.get_pictures(picture_depth))
 
@@ -255,9 +256,9 @@ func swap_picture(target_index: int) -> void:
 
 	set_active_picture(target_index)
 	
-	if audio_player and swap_picture_audio:
-		audio_player.stream = swap_picture_audio
-		audio_player.play()
+	if swap_picture_audio_player and swap_picture_audio:
+		swap_picture_audio_player.stream = swap_picture_audio
+		swap_picture_audio_player.play()
 
 
 func set_active_picture(index: int) -> void:

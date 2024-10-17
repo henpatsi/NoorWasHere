@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://cjcnbtrywlx0s"]
+[gd_scene load_steps=9 format=3 uid="uid://cjcnbtrywlx0s"]
 
 [ext_resource type="Script" path="res://menus/pause_menu.gd" id="1_bgqgg"]
 [ext_resource type="FontFile" uid="uid://bi3g7vfa5cdww" path="res://assets/fonts/Helvetica-Font/Helvetica.ttf" id="2_irqoq"]
@@ -14,6 +14,14 @@ gradient = SubResource("Gradient_jj1we")
 font = ExtResource("2_irqoq")
 font_size = 36
 
+[sub_resource type="LabelSettings" id="LabelSettings_qjywy"]
+font = ExtResource("2_irqoq")
+font_size = 24
+
+[sub_resource type="LabelSettings" id="LabelSettings_3evub"]
+font = ExtResource("2_irqoq")
+font_size = 18
+
 [node name="Menu" type="Control" node_paths=PackedStringArray("mouse_sensitivity_value_label", "mouse_sensitivity_slider", "volume_value_label", "volume_slider", "text_size_value_label", "text_size_slider", "crosshair_opacity_value_label", "crosshair_opacity_slider", "crosshair_size_value_label", "crosshair_size_slider")]
 layout_mode = 3
 anchors_preset = 15
@@ -22,16 +30,16 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_bgqgg")
-mouse_sensitivity_value_label = NodePath("VBoxContainer/MouseSensitivityContainer/HBoxContainer/MouseSensitivityLabel")
-mouse_sensitivity_slider = NodePath("VBoxContainer/MouseSensitivityContainer/MouseSensitivitySlider")
-volume_value_label = NodePath("VBoxContainer/VolumeContainer/HBoxContainer/VolumeLabel")
-volume_slider = NodePath("VBoxContainer/VolumeContainer/VolumeSlider")
-text_size_value_label = NodePath("VBoxContainer/TextSizeContainer/HBoxContainer/TextSizeLabel")
-text_size_slider = NodePath("VBoxContainer/TextSizeContainer/TextSizeSlider")
-crosshair_opacity_value_label = NodePath("VBoxContainer/CrosshairOpacityContainer/HBoxContainer/CrosshairOpacityLabel")
-crosshair_opacity_slider = NodePath("VBoxContainer/CrosshairOpacityContainer/CrosshairOpacitySlider")
-crosshair_size_value_label = NodePath("VBoxContainer/CrosshairSizeContainer/HBoxContainer/CrosshairSizeLabel")
-crosshair_size_slider = NodePath("VBoxContainer/CrosshairSizeContainer/CrosshairSizeSlider")
+mouse_sensitivity_value_label = NodePath("MainContainer/HBoxContainer/SettingsContainer/MouseSensitivityContainer/HBoxContainer/MouseSensitivityLabel")
+mouse_sensitivity_slider = NodePath("MainContainer/HBoxContainer/SettingsContainer/MouseSensitivityContainer/MouseSensitivitySlider")
+volume_value_label = NodePath("MainContainer/HBoxContainer/SettingsContainer/VolumeContainer/HBoxContainer/VolumeLabel")
+volume_slider = NodePath("MainContainer/HBoxContainer/SettingsContainer/VolumeContainer/VolumeSlider")
+text_size_value_label = NodePath("MainContainer/HBoxContainer/SettingsContainer/TextSizeContainer/HBoxContainer/TextSizeLabel")
+text_size_slider = NodePath("MainContainer/HBoxContainer/SettingsContainer/TextSizeContainer/TextSizeSlider")
+crosshair_opacity_value_label = NodePath("MainContainer/HBoxContainer/SettingsContainer/CrosshairOpacityContainer/HBoxContainer/CrosshairOpacityLabel")
+crosshair_opacity_slider = NodePath("MainContainer/HBoxContainer/SettingsContainer/CrosshairOpacityContainer/CrosshairOpacitySlider")
+crosshair_size_value_label = NodePath("MainContainer/HBoxContainer/SettingsContainer/CrosshairSizeContainer/HBoxContainer/CrosshairSizeLabel")
+crosshair_size_slider = NodePath("MainContainer/HBoxContainer/SettingsContainer/CrosshairSizeContainer/CrosshairSizeSlider")
 
 [node name="Background" type="TextureRect" parent="."]
 layout_mode = 1
@@ -42,155 +50,205 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = SubResource("GradientTexture1D_ysq67")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="MainContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -69.5
-offset_top = -66.0
-offset_right = 69.5
-offset_bottom = 66.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 14
+theme_override_constants/separation = 50
 alignment = 1
 
-[node name="Label" type="Label" parent="VBoxContainer"]
+[node name="Label" type="Label" parent="MainContainer"]
 layout_mode = 2
 text = "PAUSED"
 label_settings = SubResource("LabelSettings_k6f3y")
 horizontal_alignment = 1
 
-[node name="MouseSensitivityContainer" type="VBoxContainer" parent="VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MainContainer"]
+layout_mode = 2
+theme_override_constants/separation = 200
+alignment = 1
+
+[node name="SettingsContainer" type="VBoxContainer" parent="MainContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 14
+alignment = 1
+
+[node name="MouseSensitivityContainer" type="VBoxContainer" parent="MainContainer/HBoxContainer/SettingsContainer"]
 layout_mode = 2
 theme = ExtResource("3_b11jq")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/MouseSensitivityContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MainContainer/HBoxContainer/SettingsContainer/MouseSensitivityContainer"]
 layout_mode = 2
 alignment = 1
 
-[node name="Label" type="Label" parent="VBoxContainer/MouseSensitivityContainer/HBoxContainer"]
+[node name="Label" type="Label" parent="MainContainer/HBoxContainer/SettingsContainer/MouseSensitivityContainer/HBoxContainer"]
 layout_mode = 2
 text = "Mouse Sensitivity:"
 
-[node name="MouseSensitivityLabel" type="Label" parent="VBoxContainer/MouseSensitivityContainer/HBoxContainer"]
+[node name="MouseSensitivityLabel" type="Label" parent="MainContainer/HBoxContainer/SettingsContainer/MouseSensitivityContainer/HBoxContainer"]
 layout_mode = 2
 theme = ExtResource("3_b11jq")
 text = "1.0"
 
-[node name="MouseSensitivitySlider" type="HSlider" parent="VBoxContainer/MouseSensitivityContainer"]
+[node name="MouseSensitivitySlider" type="HSlider" parent="MainContainer/HBoxContainer/SettingsContainer/MouseSensitivityContainer"]
 layout_mode = 2
 min_value = 0.1
 max_value = 10.0
 step = 0.1
 value = 1.0
 
-[node name="VolumeContainer" type="VBoxContainer" parent="VBoxContainer"]
+[node name="VolumeContainer" type="VBoxContainer" parent="MainContainer/HBoxContainer/SettingsContainer"]
 layout_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/VolumeContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MainContainer/HBoxContainer/SettingsContainer/VolumeContainer"]
 layout_mode = 2
 alignment = 1
 
-[node name="Label" type="Label" parent="VBoxContainer/VolumeContainer/HBoxContainer"]
+[node name="Label" type="Label" parent="MainContainer/HBoxContainer/SettingsContainer/VolumeContainer/HBoxContainer"]
 layout_mode = 2
 theme = ExtResource("3_b11jq")
 text = "Volume:"
 
-[node name="VolumeLabel" type="Label" parent="VBoxContainer/VolumeContainer/HBoxContainer"]
+[node name="VolumeLabel" type="Label" parent="MainContainer/HBoxContainer/SettingsContainer/VolumeContainer/HBoxContainer"]
 layout_mode = 2
 theme = ExtResource("3_b11jq")
 text = "80"
 
-[node name="VolumeSlider" type="HSlider" parent="VBoxContainer/VolumeContainer"]
+[node name="VolumeSlider" type="HSlider" parent="MainContainer/HBoxContainer/SettingsContainer/VolumeContainer"]
 layout_mode = 2
 min_value = -60.0
 max_value = 0.0
 
-[node name="TextSizeContainer" type="VBoxContainer" parent="VBoxContainer"]
+[node name="TextSizeContainer" type="VBoxContainer" parent="MainContainer/HBoxContainer/SettingsContainer"]
 layout_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/TextSizeContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MainContainer/HBoxContainer/SettingsContainer/TextSizeContainer"]
 layout_mode = 2
 alignment = 1
 
-[node name="Label" type="Label" parent="VBoxContainer/TextSizeContainer/HBoxContainer"]
+[node name="Label" type="Label" parent="MainContainer/HBoxContainer/SettingsContainer/TextSizeContainer/HBoxContainer"]
 layout_mode = 2
 theme = ExtResource("3_b11jq")
 text = "Text Size:"
 
-[node name="TextSizeLabel" type="Label" parent="VBoxContainer/TextSizeContainer/HBoxContainer"]
+[node name="TextSizeLabel" type="Label" parent="MainContainer/HBoxContainer/SettingsContainer/TextSizeContainer/HBoxContainer"]
 layout_mode = 2
 theme = ExtResource("3_b11jq")
 text = "80"
 
-[node name="TextSizeSlider" type="HSlider" parent="VBoxContainer/TextSizeContainer"]
+[node name="TextSizeSlider" type="HSlider" parent="MainContainer/HBoxContainer/SettingsContainer/TextSizeContainer"]
 layout_mode = 2
 min_value = 16.0
 max_value = 128.0
 step = 2.0
 value = 16.0
 
-[node name="CrosshairOpacityContainer" type="VBoxContainer" parent="VBoxContainer"]
+[node name="CrosshairOpacityContainer" type="VBoxContainer" parent="MainContainer/HBoxContainer/SettingsContainer"]
 layout_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/CrosshairOpacityContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MainContainer/HBoxContainer/SettingsContainer/CrosshairOpacityContainer"]
 layout_mode = 2
 alignment = 1
 
-[node name="Label" type="Label" parent="VBoxContainer/CrosshairOpacityContainer/HBoxContainer"]
+[node name="Label" type="Label" parent="MainContainer/HBoxContainer/SettingsContainer/CrosshairOpacityContainer/HBoxContainer"]
 layout_mode = 2
 theme = ExtResource("3_b11jq")
 text = "Crosshair Opacity:"
 
-[node name="CrosshairOpacityLabel" type="Label" parent="VBoxContainer/CrosshairOpacityContainer/HBoxContainer"]
+[node name="CrosshairOpacityLabel" type="Label" parent="MainContainer/HBoxContainer/SettingsContainer/CrosshairOpacityContainer/HBoxContainer"]
 layout_mode = 2
 theme = ExtResource("3_b11jq")
 text = "80"
 
-[node name="CrosshairOpacitySlider" type="HSlider" parent="VBoxContainer/CrosshairOpacityContainer"]
+[node name="CrosshairOpacitySlider" type="HSlider" parent="MainContainer/HBoxContainer/SettingsContainer/CrosshairOpacityContainer"]
 layout_mode = 2
 max_value = 1.0
 step = 0.1
 
-[node name="CrosshairSizeContainer" type="VBoxContainer" parent="VBoxContainer"]
+[node name="CrosshairSizeContainer" type="VBoxContainer" parent="MainContainer/HBoxContainer/SettingsContainer"]
 layout_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/CrosshairSizeContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MainContainer/HBoxContainer/SettingsContainer/CrosshairSizeContainer"]
 layout_mode = 2
 alignment = 1
 
-[node name="Label" type="Label" parent="VBoxContainer/CrosshairSizeContainer/HBoxContainer"]
+[node name="Label" type="Label" parent="MainContainer/HBoxContainer/SettingsContainer/CrosshairSizeContainer/HBoxContainer"]
 layout_mode = 2
 theme = ExtResource("3_b11jq")
 text = "Crosshair Size:"
 
-[node name="CrosshairSizeLabel" type="Label" parent="VBoxContainer/CrosshairSizeContainer/HBoxContainer"]
+[node name="CrosshairSizeLabel" type="Label" parent="MainContainer/HBoxContainer/SettingsContainer/CrosshairSizeContainer/HBoxContainer"]
 layout_mode = 2
 theme = ExtResource("3_b11jq")
 text = "80"
 
-[node name="CrosshairSizeSlider" type="HSlider" parent="VBoxContainer/CrosshairSizeContainer"]
+[node name="CrosshairSizeSlider" type="HSlider" parent="MainContainer/HBoxContainer/SettingsContainer/CrosshairSizeContainer"]
 layout_mode = 2
 max_value = 20.0
 
-[node name="MainMenuButton" type="Button" parent="VBoxContainer"]
+[node name="ControlsContainer" type="VBoxContainer" parent="MainContainer/HBoxContainer"]
 layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="ControlsTitleLabel" type="Label" parent="MainContainer/HBoxContainer/ControlsContainer"]
+layout_mode = 2
+text = "Controls"
+label_settings = SubResource("LabelSettings_qjywy")
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MainContainer/HBoxContainer/ControlsContainer"]
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="ControlsKeys" type="Label" parent="MainContainer/HBoxContainer/ControlsContainer/HBoxContainer"]
+layout_mode = 2
+text = "Move
+Crouch
+Jump
+Look
+Interact
+Raise / lower picture
+Enter picture
+Exit picture
+Swap picture"
+label_settings = SubResource("LabelSettings_3evub")
+
+[node name="ControlsActions" type="Label" parent="MainContainer/HBoxContainer/ControlsContainer/HBoxContainer"]
+layout_mode = 2
+text = "WASD
+C
+Space
+Mouse
+Left mouse
+F
+Left mouse
+R
+Q and E"
+label_settings = SubResource("LabelSettings_3evub")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MainContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="MainMenuButton" type="Button" parent="MainContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
 theme = ExtResource("3_b11jq")
 text = "Main Menu"
 
-[node name="ContinueButton" type="Button" parent="VBoxContainer"]
+[node name="ContinueButton" type="Button" parent="MainContainer/VBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 4
 theme = ExtResource("3_b11jq")
 text = "Continue"
 
-[connection signal="value_changed" from="VBoxContainer/MouseSensitivityContainer/MouseSensitivitySlider" to="." method="_on_mouse_sensitivity_slider_value_changed"]
-[connection signal="value_changed" from="VBoxContainer/VolumeContainer/VolumeSlider" to="." method="_on_volume_slider_value_changed"]
-[connection signal="value_changed" from="VBoxContainer/TextSizeContainer/TextSizeSlider" to="." method="_on_text_size_slider_value_changed"]
-[connection signal="value_changed" from="VBoxContainer/CrosshairOpacityContainer/CrosshairOpacitySlider" to="." method="_on_crosshair_opacity_slider_value_changed"]
-[connection signal="value_changed" from="VBoxContainer/CrosshairSizeContainer/CrosshairSizeSlider" to="." method="_on_crosshair_size_slider_value_changed"]
-[connection signal="pressed" from="VBoxContainer/MainMenuButton" to="." method="_on_main_menu_button_pressed"]
-[connection signal="pressed" from="VBoxContainer/ContinueButton" to="." method="_on_continue_button_pressed"]
+[connection signal="value_changed" from="MainContainer/HBoxContainer/SettingsContainer/MouseSensitivityContainer/MouseSensitivitySlider" to="." method="_on_mouse_sensitivity_slider_value_changed"]
+[connection signal="value_changed" from="MainContainer/HBoxContainer/SettingsContainer/VolumeContainer/VolumeSlider" to="." method="_on_volume_slider_value_changed"]
+[connection signal="value_changed" from="MainContainer/HBoxContainer/SettingsContainer/TextSizeContainer/TextSizeSlider" to="." method="_on_text_size_slider_value_changed"]
+[connection signal="value_changed" from="MainContainer/HBoxContainer/SettingsContainer/CrosshairOpacityContainer/CrosshairOpacitySlider" to="." method="_on_crosshair_opacity_slider_value_changed"]
+[connection signal="value_changed" from="MainContainer/HBoxContainer/SettingsContainer/CrosshairSizeContainer/CrosshairSizeSlider" to="." method="_on_crosshair_size_slider_value_changed"]
+[connection signal="pressed" from="MainContainer/VBoxContainer/MainMenuButton" to="." method="_on_main_menu_button_pressed"]
+[connection signal="pressed" from="MainContainer/VBoxContainer/ContinueButton" to="." method="_on_continue_button_pressed"]

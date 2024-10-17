@@ -1,4 +1,4 @@
-[gd_scene load_steps=279 format=4 uid="uid://8ymkajun4ggs"]
+[gd_scene load_steps=280 format=4 uid="uid://8ymkajun4ggs"]
 
 [ext_resource type="Script" path="res://levels/level.gd" id="1_eatkt"]
 [ext_resource type="Environment" uid="uid://dobqonwml2e5x" path="res://assets/WorldEnvironments/Env_Present.tres" id="2_qtfwo"]
@@ -126,6 +126,7 @@
 [ext_resource type="PackedScene" uid="uid://daalgg5r5ln0i" path="res://assets/AtmosphericHouse/Prefabs/Doors/Door_parent_C_L.prefab.scn" id="110_m8m7y"]
 [ext_resource type="Resource" path="res://levels/dialogue_streams/03_02.tres" id="111_tbb5q"]
 [ext_resource type="Resource" path="res://levels/dialogue_streams/03_03.tres" id="112_ru1ro"]
+[ext_resource type="AudioStream" uid="uid://bsstebl4bk5v3" path="res://assets/audio/sfx/roomtone/Yard present/Yard_ambience_dark.ogg" id="113_5vh8o"]
 [ext_resource type="Resource" path="res://levels/dialogue_streams/03_04.tres" id="113_yr2ye"]
 [ext_resource type="Resource" path="res://levels/dialogue_streams/04_01.tres" id="114_hn2qc"]
 [ext_resource type="Resource" path="res://levels/dialogue_streams/04_02.tres" id="115_qb102"]
@@ -1523,9 +1524,11 @@ transition_in_audio_clip = ExtResource("14_kmyxl")
 transition_out_audio_clip = ExtResource("15_gkgqh")
 swap_picture_audio = ExtResource("16_vjb52")
 
-[node name="AudioPlayer" type="AudioStreamPlayer3D" parent="PictureHandler"]
+[node name="TransitionAudioPlayer" type="AudioStreamPlayer3D" parent="PictureHandler"]
 attenuation_model = 3
 panning_strength = 0.0
+
+[node name="SwapPictureAudioPlayer" type="AudioStreamPlayer3D" parent="PictureHandler"]
 
 [node name="UI" type="Control" parent="."]
 layout_mode = 3
@@ -2010,6 +2013,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.597109, 0.683431, -1.72835)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.1867, 3.8002, -0.636719)
 
 [node name="NoExitArea" parent="Present" instance=ExtResource("73_y11wy")]
+
+[node name="AmbientAudioPlayer" type="AudioStreamPlayer3D" parent="Present"]
+stream = ExtResource("113_5vh8o")
+attenuation_model = 3
+volume_db = -10.0
+autoplay = true
+max_distance = 50.0
+panning_strength = 0.0
 
 [node name="Past" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1000, 0, 0)
@@ -10294,6 +10305,14 @@ skeleton = NodePath("")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Past/ChangingScene/NoorWindowClosed/StaticBody3D"]
 transform = Transform3D(1, 0, 0, -2.48471e-21, 1, 0, 0, 0, 1, 0.0111084, -0.477356, 0.0159607)
 shape = SubResource("BoxShape3D_feev4")
+
+[node name="AmbientAudioPlayer" type="AudioStreamPlayer3D" parent="Past"]
+stream = ExtResource("44_deav4")
+attenuation_model = 3
+volume_db = 80.0
+autoplay = true
+max_distance = 50.0
+panning_strength = 0.0
 
 [connection signal="body_entered" from="UI/Tutorial/CrouchTutorialArea" to="UI/Tutorial" method="_on_crouch_tutorial_area_body_entered"]
 [connection signal="body_exited" from="UI/Tutorial/CrouchTutorialArea" to="UI/Tutorial" method="_on_crouch_tutorial_area_body_exited"]

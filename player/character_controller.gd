@@ -4,8 +4,8 @@ extends CharacterBody3D
 var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 @export_category("Movement")
-@export var max_move_speed: float = 5.0
-@export var jump_velocity: float = 4.5
+@export var max_move_speed: float = 3.5
+@export var jump_velocity: float = 4.0
 @export var crouch_ratio: float = 0.5
 @export var crouch_move_speed_modifier: float = 0.5
 @export var crouch_speed: float = 10
