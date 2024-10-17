@@ -219,7 +219,7 @@ label_settings = SubResource("LabelSettings_3evub")
 [node name="ControlsActions" type="Label" parent="MainContainer/HBoxContainer/ControlsContainer/HBoxContainer"]
 layout_mode = 2
 text = "WASD
-C
+Left ctrl
 Space
 Mouse
 Left mouse
