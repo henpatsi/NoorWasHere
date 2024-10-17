@@ -1,4 +1,4 @@
-[gd_scene load_steps=345 format=4 uid="uid://8ymkajun4ggs"]
+[gd_scene load_steps=346 format=4 uid="uid://8ymkajun4ggs"]
 
 [ext_resource type="Script" path="res://levels/level.gd" id="1_eatkt"]
 [ext_resource type="Environment" uid="uid://dobqonwml2e5x" path="res://assets/WorldEnvironments/Env_Present.tres" id="2_qtfwo"]
@@ -145,7 +145,7 @@
 [ext_resource type="Resource" path="res://levels/dialogue_streams/05_05.tres" id="121_y7nxl"]
 [ext_resource type="Resource" path="res://levels/dialogue_streams/06_01.tres" id="122_e5j5p"]
 [ext_resource type="Resource" path="res://levels/dialogue_streams/06_02.tres" id="123_o6ubq"]
-[ext_resource type="Resource" path="res://levels/dialogue_streams/06_03.tres" id="124_a80ag"]
+[ext_resource type="Resource" uid="uid://0ydr1ooqqyjx" path="res://levels/dialogue_streams/06_03.tres" id="124_a80ag"]
 [ext_resource type="Resource" path="res://levels/dialogue_streams/07_01.tres" id="125_by3s6"]
 [ext_resource type="Resource" path="res://levels/dialogue_streams/07_02.tres" id="126_riop3"]
 [ext_resource type="Resource" path="res://levels/dialogue_streams/07_03.tres" id="127_4n75o"]
@@ -183,6 +183,7 @@
 [ext_resource type="Texture2D" uid="uid://ccmg2xpgcsvr" path="res://assets/props/computer/computer_bioshock_bioshock.jpg" id="179_xvr4d"]
 [ext_resource type="Texture2D" uid="uid://8kqy3c3x8xbg" path="res://assets/props/INTERACTEABLE/TV_a/TV_on_TV_a_c.png" id="180_475lt"]
 [ext_resource type="Material" uid="uid://c8ht0t2mlud10" path="res://assets/props/INTERACTEABLE/TV_a/TV_on.tres" id="181_q84ms"]
+[ext_resource type="AudioStream" uid="uid://t2oy5gjbdacg" path="res://assets/audio/sfx/roomtone/Ambient noise/Ambient_noise1_louder.ogg" id="184_apsvv"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_vg48x"]
 viewport_path = NodePath("Pictures/0_Frontyard/SubViewport")
@@ -1563,6 +1564,7 @@ shadow_enabled = true
 [node name="Player" parent="." node_paths=PackedStringArray("subtitle_label", "interact_label", "interact_response_label") instance=ExtResource("41_vuow4")]
 unique_name_in_owner = true
 transform = Transform3D(0.998472, 0, -0.0552638, 0, 1, 0, 0.0552638, 0, 0.998472, 1.21662, 0, 20.34)
+max_move_speed = 3.0
 subtitle_label = NodePath("../UI/SubtitleLabel")
 interact_label = NodePath("../UI/InteractLabel")
 interact_response_label = NodePath("../UI/InteractResponseLabel")
@@ -1768,7 +1770,7 @@ exit_dialogue_clips = Array[Resource]([ExtResource("66_eccg1"), ExtResource("67_
 size = Vector2i(1280, 720)
 
 [node name="PortalCamera" type="Camera3D" parent="Pictures/3_LivingRoom/SubViewport"]
-transform = Transform3D(-0.360567, 0, -0.932733, 0, 1, 0, 0.932733, 0, -0.360567, 996.357, 2, -2.45571)
+transform = Transform3D(-0.360567, 0, -0.932733, 0, 1, 0, 0.932733, 0, -0.360567, 996.357, 2, -2.3227)
 cull_mask = 1048063
 environment = ExtResource("45_dt783")
 attributes = ExtResource("8_runqa")
@@ -2327,6 +2329,7 @@ item_name = "TV"
 one_shot = false
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Present/Interactables/TV"]
+volume_db = 5.0
 
 [node name="DropOffZone" parent="Present/Interactables" instance=ExtResource("29_4kxf3")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.194977, 4.4115, 3.67839)
@@ -3952,7 +3955,6 @@ transform = Transform3D(0.638685, -0.191118, 0, 0, 0, 0.666667, -0.191118, -0.63
 transform = Transform3D(0.664847, -0.00264561, 0.0491488, 0, 0.665703, 0.0358338, -0.04922, -0.035736, 0.663886, -0.311584, 0.311367, 0.0118129)
 
 [node name="LivingRoom" type="Node3D" parent="Past/PictureSpecificObjects"]
-visible = false
 
 [node name="OmniLight3D3" type="OmniLight3D" parent="Past/PictureSpecificObjects/LivingRoom"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.389954, 2.34595, -0.215636)
@@ -11076,9 +11078,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000427395, 0.302346, -0.035
 shape = SubResource("BoxShape3D_y0h1t")
 
 [node name="AmbientAudioPlayer" type="AudioStreamPlayer3D" parent="Past"]
-stream = ExtResource("44_deav4")
+stream = ExtResource("184_apsvv")
 attenuation_model = 3
-volume_db = 80.0
+volume_db = -7.0
 autoplay = true
 max_distance = 50.0
 panning_strength = 0.0

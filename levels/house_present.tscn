@@ -1141,9 +1141,6 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.9760
 [node name="Workdesk (1)" parent="Level2/Props/Noor\'s room/desk" instance=ExtResource("71_p8irs")]
 transform = Transform3D(0, 0, -1, 0, 1, 0, 1, 0, 0, 0.755082, 0, -0.670273)
 
-[node name="Chair_wooden (2)" parent="Level2/Props/Noor\'s room/desk" instance=ExtResource("38_geihu")]
-transform = Transform3D(-0.858382, -0.0256344, 0.512371, -0.00495425, 0.999119, 0.0416869, -0.512988, 0.0332449, -0.857752, -0.216266, 0, -0.0958104)
-
 [node name="Dresser_A" parent="Level2/Props/Noor\'s room" instance=ExtResource("157_6fygy")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 11.5418, 0.5, 9.20863)
 
