@@ -1,0 +1,12 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://bq3imejllgxg4"]
+
+[ext_resource type="Texture2D" uid="uid://dlxqhvwitpp1m" path="res://assets/props/spongebob/spongebob_Image_1.png" id="1_4e373"]
+
+[resource]
+resource_name = "spongebob.001"
+cull_mode = 2
+albedo_color = Color(0.906332, 0.906332, 0.906332, 1)
+metallic_texture = ExtResource("1_4e373")
+metallic_texture_channel = 2
+roughness_texture = ExtResource("1_4e373")
+roughness_texture_channel = 1
