@@ -998,7 +998,7 @@ fov = 65.0
 [node name="Inventory" type="Node" parent="." node_paths=PackedStringArray("starting_pictures", "pictures_after_tutorial")]
 unique_name_in_owner = true
 script = ExtResource("42_5umw0")
-starting_pictures = [NodePath("../Pictures/0_Frontyard/FrontyardPicture"), NodePath("../Pictures/8_FrontDoor/FrontDoorPicture")]
+starting_pictures = [NodePath("../Pictures/0_Frontyard/FrontyardPicture"), NodePath("../Pictures/8_FrontDoor/FrontDoorPicture"), NodePath("../Pictures/10_Shed/ShedPicture")]
 pictures_after_tutorial = [NodePath("../Pictures/1_Backyard/BackyardPicture"), NodePath("../Pictures/2_Office/OfficePicture"), NodePath("../Pictures/4_HallwayUpstairs/HallwayUpstairPicture"), NodePath("../Pictures/5_TV/TVPicture"), NodePath("../Pictures/6_7_NoorRoomNight/NoorRoomNightPicture")]
 
 [node name="Pictures" type="Node" parent="."]
@@ -1582,7 +1582,7 @@ offset_bottom = 123.0
 label_settings = SubResource("LabelSettings_liuhm")
 script = ExtResource("54_vtlmu")
 
-[node name="EndSequence" type="Control" parent="UI" node_paths=PackedStringArray("player", "player_dialogues_ASP", "level")]
+[node name="EndSequence" type="Control" parent="UI" node_paths=PackedStringArray("player", "texture_rect", "level")]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -1591,8 +1591,9 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("55_3cw5q")
 player = NodePath("../../Player")
+texture_rect = NodePath("TextureRect")
+picture_screenshot_paths = Array[String](["res://assets/textures/screenshots/screenshot_01_start.png", "res://assets/textures/screenshots/screenshot_02_backyard.png", "res://assets/textures/screenshots/screenshot_03_office.png", "res://assets/textures/screenshots/screenshot_04_livingroom.png", "res://assets/textures/screenshots/screenshot_05_hallwayupstairs.png", "res://assets/textures/screenshots/screenshot_06_TVroom.png", "res://assets/textures/screenshots/screenshot_07_NoorRoom.png", "res://assets/textures/screenshots/screenshot_08_FrontDoor.png", "res://assets/textures/screenshots/screenshot_09_Forest.png", "res://assets/textures/screenshots/screenshot_10_Shed.png"])
 show_times = Array[float]([4.2, 3.0, 3.5, 4.0, 4.0, 4.0, 4.0, 4.0, 4.0, 6.0])
-player_dialogues_ASP = NodePath("../../Player/PlayerDialogueASP")
 level = NodePath("../..")
 
 [node name="ColorRect" type="ColorRect" parent="UI/EndSequence"]
@@ -1624,6 +1625,13 @@ text = "created by Sana, Anton, Henri, Jamie, Dennis & Marcus"
 label_settings = SubResource("LabelSettings_4y4jg")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="UI/EndSequence"]
+visible = false
+layout_mode = 0
+offset_right = 1280.0
+offset_bottom = 720.0
+expand_mode = 2
 
 [node name="SubtitleLabel" type="Label" parent="UI"]
 layout_mode = 1
@@ -2001,7 +2009,7 @@ shape = SubResource("BoxShape3D_xmkwy")
 [node name="DebugTeleportPositions" type="Node3D" parent="Present" node_paths=PackedStringArray("player", "positions")]
 script = ExtResource("65_3us2a")
 player = NodePath("../../Player")
-positions = [NodePath("Upstairs"), NodePath("Downstairs"), NodePath("NoorRoom")]
+positions = [NodePath("Upstairs"), NodePath("Downstairs"), NodePath("NoorRoom"), NodePath("Outside")]
 
 [node name="Upstairs" type="Node3D" parent="Present/DebugTeleportPositions"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.597109, 3.73397, -1.72835)
@@ -2011,6 +2019,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.597109, 0.683431, -1.72835)
 
 [node name="NoorRoom" type="Node3D" parent="Present/DebugTeleportPositions"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.1867, 3.8002, -0.636719)
+
+[node name="Outside" type="Node3D" parent="Present/DebugTeleportPositions"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.17746, 0.710165, -15.4245)
 
 [node name="NoExitArea" parent="Present" instance=ExtResource("73_y11wy")]
 
