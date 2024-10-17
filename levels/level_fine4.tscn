@@ -10270,11 +10270,13 @@ shape = SubResource("BoxShape3D_0f53p")
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Past/Interactables/ShedCloset"]
 
-[node name="door" type="StaticBody3D" parent="Past/Interactables/ShedCloset" node_paths=PackedStringArray("nodes_to_show", "start_monitoring_list")]
+[node name="door" type="StaticBody3D" parent="Past/Interactables/ShedCloset" node_paths=PackedStringArray("interact_stream_player", "nodes_to_show", "start_monitoring_list")]
 script = ExtResource("65_mhbtl")
 interaction_animations = Array[String](["open_doors"])
 item_name = "closet door"
 verb = "Open"
+interact_stream_player = NodePath("../AudioStreamPlayer3D")
+interact_audio_stream = ExtResource("66_53s0v")
 dialogue_clips = Array[Resource]([ExtResource("106_qi4pq"), ExtResource("107_e7r60")])
 nodes_to_show = [NodePath("../../../PictureSpecificObjects/Shed/CapsuleSpotlight")]
 start_monitoring_list = [NodePath("../../../../Present/TriggerVolumes/V10E_Shed")]
