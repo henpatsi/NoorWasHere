@@ -1,8 +1,8 @@
-[gd_scene load_steps=17 format=4 uid="uid://brtrvnfelp3ux"]
+[gd_scene load_steps=19 format=4 uid="uid://brtrvnfelp3ux"]
 
 [ext_resource type="Texture2D" uid="uid://bex6d42r36rb7" path="res://assets/props/car/dirty_car_0.png" id="1_a7f1o"]
 [ext_resource type="Texture2D" uid="uid://ebmmm5r3kjuw" path="res://assets/props/car/dirty_car_1.png" id="2_siieq"]
-[ext_resource type="Texture2D" uid="uid://efemxh0vtd5w" path="res://assets/props/car/dirty_car_2.png" id="3_025gw"]
+[ext_resource type="Texture2D" uid="uid://bprj0x6r100ht" path="res://assets/props/car/dirty_car_2.png" id="3_025gw"]
 [ext_resource type="Texture2D" uid="uid://dv40a10gt3gjx" path="res://assets/props/car/dirty_car_3.png" id="4_j025f"]
 [ext_resource type="Texture2D" uid="uid://bqi2pc63olkoc" path="res://assets/props/car/dirty_car_4.png" id="5_h040c"]
 [ext_resource type="Texture2D" uid="uid://djysva73i483p" path="res://assets/props/car/dirty_car_5.png" id="6_42i0j"]
@@ -142,6 +142,12 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_btv3x")
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_a6633"]
+size = Vector3(2.05637, 1.13953, 5.82442)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ad2jo"]
+size = Vector3(2.05637, 0.624329, 2.82402)
+
 [node name="car" type="Node3D"]
 
 [node name="Sketchfab_model" type="Node3D" parent="."]
@@ -169,3 +175,13 @@ skeleton = NodePath("")
 transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 0, 0, 0)
 mesh = SubResource("ArrayMesh_12os1")
 skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0341644, 0.576061, -0.0391922)
+shape = SubResource("BoxShape3D_a6633")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0341644, 1.446, -0.465364)
+shape = SubResource("BoxShape3D_ad2jo")

@@ -133,6 +133,8 @@ func set_target_position(pos: Vector2, speed: float) -> void:
 
 func set_active(state: bool) -> void:
 	active_picture = state
+	if active_picture:
+		show()
 	apply_scene_changes(state, nodes_to_show, nodes_to_hide)
 
 func get_local_camera_pos() -> Vector3:
