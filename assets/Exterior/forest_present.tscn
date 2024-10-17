@@ -139,6 +139,7 @@ amount = 185
 seed = 23
 
 [node name="ForestTall1" type="MultiMeshInstance3D" parent="MultiScatter"]
+lod_bias = 0.25
 multimesh = SubResource("MultiMesh_3j3ay")
 script = ExtResource("3_jp03c")
 randomize_rotation = true
@@ -147,6 +148,7 @@ randomize_scale = true
 max_scale = Vector3(0.5, 0.5, 0.5)
 
 [node name="ForestTall2" type="MultiMeshInstance3D" parent="MultiScatter"]
+lod_bias = 0.25
 multimesh = SubResource("MultiMesh_q3v5s")
 script = ExtResource("3_jp03c")
 randomize_rotation = true
@@ -155,6 +157,7 @@ randomize_scale = true
 max_scale = Vector3(0.5, 0.5, 0.5)
 
 [node name="ForestMedium" type="MultiMeshInstance3D" parent="MultiScatter"]
+lod_bias = 0.25
 multimesh = SubResource("MultiMesh_ka8og")
 script = ExtResource("3_jp03c")
 proportion = 25
@@ -164,6 +167,7 @@ randomize_scale = true
 max_scale = Vector3(1.2, 1.2, 1.2)
 
 [node name="ForestSmall" type="MultiMeshInstance3D" parent="MultiScatter"]
+lod_bias = 0.25
 multimesh = SubResource("MultiMesh_383hi")
 script = ExtResource("3_jp03c")
 proportion = 10
@@ -177,17 +181,18 @@ curve = SubResource("Curve3D_q7g3g")
 script = ExtResource("7_7uyga")
 
 [node name="MultiScatter2" type="Path3D" parent="."]
-visible = false
 curve = SubResource("Curve3D_37rpx")
 script = ExtResource("1_51sib")
 amount = 375
 seed = 3
 
 [node name="ForestTallLP" type="MultiMeshInstance3D" parent="MultiScatter2"]
+lod_bias = 0.05
 multimesh = SubResource("MultiMesh_of5gv")
 script = ExtResource("3_jp03c")
 
 [node name="ForestMediumLP" type="MultiMeshInstance3D" parent="MultiScatter2"]
+lod_bias = 0.05
 multimesh = SubResource("MultiMesh_g2eqw")
 script = ExtResource("3_jp03c")
 proportion = 20
