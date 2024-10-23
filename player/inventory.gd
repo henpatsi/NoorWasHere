@@ -20,7 +20,6 @@ func add_item(item: String) -> void:
 
 func add_picture(array: Array[TextureRect], picture: TextureRect) -> void:
 	array.append(picture)
-	picture.show()
 
 func add_tutorial_pictures() -> void:
 	for picture in pictures_after_tutorial:

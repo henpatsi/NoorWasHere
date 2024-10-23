@@ -101,13 +101,13 @@ var audioTween: Tween
 var move_speed: float = 100
 var at_target_position: bool = false
 
-@onready var picture_shader: ColorRect = $"../SubViewport/PortalCamera/Shader"
+@onready var picture_shader: ColorRect = $"../PortalCamera/Shader"
 
 @onready var player: CharacterBody3D = %Player
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	set_active(false)
+	hide()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -135,6 +135,8 @@ func set_active(state: bool) -> void:
 	active_picture = state
 	if active_picture:
 		show()
+	else:
+		hide()
 	apply_scene_changes(state, nodes_to_show, nodes_to_hide)
 
 func get_local_camera_pos() -> Vector3:
