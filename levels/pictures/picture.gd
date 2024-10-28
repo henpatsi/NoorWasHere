@@ -1,4 +1,4 @@
-extends TextureRect
+extends Node
 
 @export_group("References")
 ## The camera that is rendered on the sub viewport.
@@ -97,27 +97,13 @@ var audioTween: Tween
 @onready var camera_picture_position: Vector3 = camera.global_position
 @onready var camera_picture_rotation: Vector3 = camera.global_rotation
 
-@onready var target_position: Vector2 = Vector2(1000, 1000)
-var move_speed: float = 100
-var at_target_position: bool = false
-
-@onready var picture_shader: ColorRect = $"../PortalCamera/Shader"
-
 @onready var player: CharacterBody3D = %Player
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	hide()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 
 	dialogue_process()
-
-	if not at_target_position:
-		position = lerp(position, target_position, move_speed * delta)
-		if position.distance_to(target_position) < 1:
-			at_target_position = true
 
 	if not inside_picture:
 		return
@@ -125,18 +111,8 @@ func _process(delta: float) -> void:
 	camera.global_position = camera_follow_node.global_position
 	camera.global_rotation = camera_follow_node.global_rotation
 
-func set_target_position(pos: Vector2, speed: float) -> void:
-	print(name, " pos = ", pos)
-	at_target_position = false
-	target_position = pos
-	move_speed = speed
-
 func set_active(state: bool) -> void:
 	active_picture = state
-	if active_picture:
-		show()
-	else:
-		hide()
 	apply_scene_changes(state, nodes_to_show, nodes_to_hide)
 
 func get_local_camera_pos() -> Vector3:
@@ -209,18 +185,12 @@ func exit_picture(picture_handler: Node) -> void:
 
 	inside_picture = false
 
-	picture_shader.on_exit_picture()
-
 	for node in nodes_to_hide_on_exit:
 		if is_instance_valid(node):
 			node.hide()
 			set_child_collider_states(node, true)
 
 	player.global_position -= world_root.position
-
-	var zoomTween = create_tween().set_parallel()
-	zoomTween.tween_property(self, "position:y", target_position.y, picture_resize_time)
-	zoomTween.tween_property(self, "position:x", target_position.x, picture_resize_time)
 
 	if ambientASP and ambientAS:
 		if audioTween:

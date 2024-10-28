@@ -1,14 +1,6 @@
 extends Node
 
 @export_category("Settings")
-## The speed at which a picture moves to/from the inspect position.
-@export var inspect_speed: float = 10
-## The speed at which a picture moves when it is swapped
-@export var swap_speed: float = 5
-## The position of the picture when not being inspected
-@export var picture_lower_position: Vector2 = Vector2(320, 570)
-## The position of the picture when not active
-@export var picture_inventory_position: Vector2 = Vector2(1280, 2280)
 ## Strength of the lerp to align photo when almost aligned
 @export var align_lerp_strength: float = 2
 ## Rect containing shader to use when teleporting into picture
@@ -20,8 +12,6 @@ extends Node
 @export var transition_in_audio_clip: AudioStream
 @export var transition_out_audio_clip: AudioStream
 @export var swap_picture_audio: AudioStream
-
-var picture_upper_position: Vector2
 
 var picture_index: int = 0
 var entered_picture_index_array: Array[int] = [0, 0, 0]
@@ -51,20 +41,11 @@ var input_blockers: float = 0
 var exit_area_tester: PackedScene = preload("res://levels/areas/exit_zone_tester.tscn")
 var entered_picture
 
+@onready var picture_rect = $PictureRect
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	for picture in inventory.get_pictures(picture_depth):
-		if not picture:
-			continue
-		picture.set_target_position(picture_inventory_position, 100)
-
 	initialize_picture_array(inventory.get_pictures(picture_depth))
-
-	if current_picture:
-		current_picture.set_target_position(picture_lower_position, inspect_speed)
-		picture_upper_position = Vector2(get_viewport().get_visible_rect().size / 2) - (current_picture.size / 2)
-	else: # Should not be empty at start, but just in case
-		picture_upper_position = Vector2(320, 180)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -72,7 +53,7 @@ func _process(delta: float) -> void:
 	if not current_picture:
 		return
 
-	if up_position and current_picture.at_target_position:
+	if up_position and picture_rect.at_target_position:
 		inspecting = true
 
 	if inspecting and current_picture.player_in_correct_position(head_node):
@@ -153,15 +134,15 @@ func _input(event: InputEvent) -> void:
 func toggle_inspect() -> void:
 	up_position = not up_position
 
+	picture_rect.set_up(up_position)
+
 	if not up_position:
 		inspecting = false
 		crosshair.show()
 		player.interact_enabled = true
-		current_picture.set_target_position(picture_lower_position, inspect_speed)
 	else:
 		crosshair.hide()
 		player.interact_enabled = false
-		current_picture.set_target_position(picture_upper_position, inspect_speed)
 
 
 func enter_picture() -> void:
@@ -197,8 +178,6 @@ func exit_picture() -> void:
 
 	print("Exiting picture")
 
-	if current_picture:
-		current_picture.set_target_position(picture_inventory_position, 100)
 	inventory.clear_pictures(picture_depth)
 
 	picture_depth -= 1
@@ -240,8 +219,6 @@ func test_if_exit_possible() -> bool:
 
 func on_picture_picked_up(picture: TextureRect) -> void:
 	current_picture_array.append(picture)
-	picture.position = picture_inventory_position
-	picture.show()
 	set_active_picture(current_picture_array.size() - 1)
 	if input_blockers == 0:
 		toggle_inspect()
@@ -264,15 +241,9 @@ func set_active_picture(index: int) -> void:
 	inspecting = false
 
 	if current_picture:
-		current_picture.set_target_position(picture_inventory_position, swap_speed)
 		current_picture.set_active(false)
 
 	current_picture = inventory.get_picture(current_picture_array, index)
 	current_picture.set_active(true)
 
 	picture_index = index
-
-	if up_position:
-		current_picture.set_target_position(picture_upper_position, swap_speed * 2)
-	else:
-		current_picture.set_target_position(picture_lower_position, swap_speed * 2)
