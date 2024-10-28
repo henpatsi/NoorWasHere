@@ -2,7 +2,8 @@
 
 [ext_resource type="Script" path="res://levels/level.gd" id="1_eatkt"]
 [ext_resource type="Environment" uid="uid://dobqonwml2e5x" path="res://assets/WorldEnvironments/Env_Present.tres" id="2_qtfwo"]
-[ext_resource type="PackedScene" uid="uid://cfy4e22geu17o" path="res://assets/post process/shader.tscn" id="8_hm01e"]
+[ext_resource type="Script" path="res://levels/pictures/picture_rect.gd" id="4_yhorm"]
+[ext_resource type="PackedScene" uid="uid://cfy4e22geu17o" path="res://levels/pictures/past_shader.tscn" id="8_hm01e"]
 [ext_resource type="CameraAttributesPractical" uid="uid://bx6pxibpr4a2p" path="res://assets/post process/CameraAttribute_BlurDefault.tres" id="8_runqa"]
 [ext_resource type="AudioStream" uid="uid://dasl7o6oj6t4c" path="res://assets/audio/sfx/Misc/Transition/Photo_transition1.wav" id="14_kmyxl"]
 [ext_resource type="AudioStream" uid="uid://1851svuip8kf" path="res://assets/audio/sfx/Misc/Transition/Photo_transition2.wav" id="15_gkgqh"]
@@ -24,7 +25,6 @@
 [ext_resource type="Script" path="res://levels/pictures/picture.gd" id="43_f2no6"]
 [ext_resource type="AudioStream" uid="uid://dpwrykcp0viaf" path="res://assets/audio/sfx/roomtone/Ambient noise/Ambient_noise1.ogg" id="44_deav4"]
 [ext_resource type="Environment" uid="uid://b55jay45p5h4g" path="res://assets/WorldEnvironments/Env_Past.tres" id="45_dt783"]
-[ext_resource type="PackedScene" uid="uid://d22ogqllffeom" path="res://levels/camera_ref.tscn" id="46_oe0we"]
 [ext_resource type="AudioStream" uid="uid://p1vcrogcvlt8" path="res://assets/audio/sfx/roomtone/Ambient noise/Ambient_noise2.ogg" id="48_4trxr"]
 [ext_resource type="Script" path="res://levels/pictures/picture_handler.gd" id="49_hnp2a"]
 [ext_resource type="Script" path="res://levels/ui/ui.gd" id="50_lfksa"]
@@ -37,7 +37,6 @@
 [ext_resource type="Script" path="res://levels/tutorial.gd" id="57_65ug8"]
 [ext_resource type="ArrayMesh" uid="uid://crbcymi4k36p4" path="res://assets/AtmosphericHouse/Meshes/Meshes_props/extracted/Light_switch.Light_switch.mesh" id="58_66kcy"]
 [ext_resource type="Material" uid="uid://dbk2qa7fympq8" path="res://assets/AtmosphericHouse/Materials/Misc_prop_set_clean.material" id="59_5ykdg"]
-[ext_resource type="PackedScene" uid="uid://dssviibe3ck30" path="res://levels/pictures/picture_camera.tscn" id="59_15k3n"]
 [ext_resource type="Script" path="res://levels/interactables/interactable.gd" id="59_hynrv"]
 [ext_resource type="PackedScene" uid="uid://bkyarvlhmy1iu" path="res://assets/characters/noor_poses.tscn" id="59_sfpfk"]
 [ext_resource type="PackedScene" uid="uid://c5d7tcijs5p06" path="res://assets/characters/agathe/agathe_final_01.tscn" id="60_d3482"]
@@ -71,7 +70,7 @@
 [ext_resource type="Texture2D" uid="uid://d2np0uu0ucye2" path="res://assets/props/paper/paper_Image_0.png" id="74_fguty"]
 [ext_resource type="Resource" path="res://levels/dialogue_streams/09_E01.tres" id="74_tkio4"]
 [ext_resource type="Texture2D" uid="uid://bq25u2mxuuqqf" path="res://assets/props/shovel/shovel_Image_3.jpg" id="75_ix66p"]
-[ext_resource type="Texture2D" uid="uid://bfutm7jqobedb" path="res://assets/props/paper/paper_Image_1.png" id="75_jygac"]
+[ext_resource type="Texture2D" uid="uid://ce6xrvngwqdfu" path="res://assets/props/paper/paper_Image_1.png" id="75_jygac"]
 [ext_resource type="Resource" path="res://levels/dialogue_streams/09_E02.tres" id="75_k53da"]
 [ext_resource type="PackedScene" uid="uid://b0atye8v1ibwx" path="res://assets/AtmosphericHouse/Meshes/Meshes_doors/Door_mesh_A_L.fbx" id="76_2y8er"]
 [ext_resource type="Resource" path="res://levels/dialogue_streams/09_E03.tres" id="76_eexyy"]
@@ -186,34 +185,34 @@
 [ext_resource type="AudioStream" uid="uid://t2oy5gjbdacg" path="res://assets/audio/sfx/roomtone/Ambient noise/Ambient_noise1_louder.ogg" id="184_apsvv"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_vg48x"]
-viewport_path = NodePath("PictureCameras")
+viewport_path = NodePath("Pictures/PictureCameras")
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_wr7hk"]
-viewport_path = NodePath("PictureCameras")
+viewport_path = NodePath("Pictures/PictureCameras")
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_1h2ln"]
-viewport_path = NodePath("PictureCameras")
+viewport_path = NodePath("Pictures/PictureCameras")
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_1bw0p"]
-viewport_path = NodePath("PictureCameras")
+viewport_path = NodePath("Pictures/PictureCameras")
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_jfonn"]
-viewport_path = NodePath("PictureCameras")
+viewport_path = NodePath("Pictures/PictureCameras")
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_3t7j3"]
-viewport_path = NodePath("PictureCameras")
+viewport_path = NodePath("Pictures/PictureCameras")
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_kpkbw"]
-viewport_path = NodePath("PictureCameras")
+viewport_path = NodePath("Pictures/PictureCameras")
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_r0be7"]
-viewport_path = NodePath("PictureCameras")
+viewport_path = NodePath("Pictures/PictureCameras")
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_7p63q"]
-viewport_path = NodePath("PictureCameras")
+viewport_path = NodePath("Pictures/PictureCameras")
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_u45lw"]
-viewport_path = NodePath("PictureCameras")
+viewport_path = NodePath("Pictures/PictureCameras")
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_0y6qf"]
 dof_blur_far_enabled = true
@@ -239,6 +238,9 @@ dof_blur_far_transition = 10.0
 dof_blur_near_enabled = true
 dof_blur_near_distance = 3.0
 dof_blur_near_transition = 3.5
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_ti7k1"]
+viewport_path = NodePath("Pictures/PictureCameras")
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_pua2a"]
 
@@ -1574,7 +1576,7 @@ fov = 65.0
 
 [node name="Pictures" type="Node" parent="."]
 
-[node name="FrontyardPicture" type="TextureRect" parent="Pictures" node_paths=PackedStringArray("world_root", "nodes_to_show")]
+[node name="FrontyardPicture" type="TextureRect" parent="Pictures" node_paths=PackedStringArray("camera", "world_root", "nodes_to_show")]
 visible = false
 clip_contents = true
 anchors_preset = 15
@@ -1590,6 +1592,7 @@ texture = SubResource("ViewportTexture_vg48x")
 expand_mode = 1
 stretch_mode = 3
 script = ExtResource("43_f2no6")
+camera = NodePath("../PictureCameras/Frontyard")
 world_root = NodePath("../../Past")
 nodes_to_show = [NodePath("../../Past/PictureSpecificObjects/Frontyard")]
 ambientAS = ExtResource("44_deav4")
@@ -1614,7 +1617,7 @@ texture = SubResource("ViewportTexture_wr7hk")
 expand_mode = 1
 stretch_mode = 3
 script = ExtResource("43_f2no6")
-camera = NodePath("../../PictureCameras/Backyard")
+camera = NodePath("../PictureCameras/Backyard")
 world_root = NodePath("../../Past")
 nodes_to_show = [NodePath("../../Past/PictureSpecificObjects/Backyard")]
 nodes_to_hide = [NodePath("../../Past/ChangingScene/BackDoorClosed")]
@@ -1641,7 +1644,7 @@ texture = SubResource("ViewportTexture_1h2ln")
 expand_mode = 1
 stretch_mode = 3
 script = ExtResource("43_f2no6")
-camera = NodePath("../../PictureCameras/Office")
+camera = NodePath("../PictureCameras/Office")
 world_root = NodePath("../../Past")
 nodes_to_show = [NodePath("../../Past/PictureSpecificObjects/Office")]
 nodes_to_hide = [NodePath("../../Past/ChangingScene/computer_bioshock_off")]
@@ -1669,7 +1672,7 @@ texture = SubResource("ViewportTexture_1bw0p")
 expand_mode = 1
 stretch_mode = 3
 script = ExtResource("43_f2no6")
-camera = NodePath("../../PictureCameras/LivingRoom")
+camera = NodePath("../PictureCameras/LivingRoom")
 world_root = NodePath("../../Past")
 nodes_to_show = [NodePath("../../Past/PictureSpecificObjects/LivingRoom")]
 ambientAS = ExtResource("44_deav4")
@@ -1692,7 +1695,7 @@ texture = SubResource("ViewportTexture_jfonn")
 expand_mode = 1
 stretch_mode = 3
 script = ExtResource("43_f2no6")
-camera = NodePath("../../PictureCameras/HallwayUpstairs")
+camera = NodePath("../PictureCameras/HallwayUpstairs")
 world_root = NodePath("../../Past")
 nodes_to_show = [NodePath("../../Past/PictureSpecificObjects/HallwayUpstairs")]
 ambientAS = ExtResource("44_deav4")
@@ -1715,7 +1718,7 @@ texture = SubResource("ViewportTexture_3t7j3")
 expand_mode = 1
 stretch_mode = 3
 script = ExtResource("43_f2no6")
-camera = NodePath("../../PictureCameras/TV")
+camera = NodePath("../PictureCameras/TV")
 world_root = NodePath("../../Past")
 requirements = Array[String](["tv_on_table"])
 nodes_to_show = [NodePath("../../Past/PictureSpecificObjects/TV")]
@@ -1739,7 +1742,7 @@ texture = SubResource("ViewportTexture_kpkbw")
 expand_mode = 1
 stretch_mode = 3
 script = ExtResource("43_f2no6")
-camera = NodePath("../../PictureCameras/NoorRoomNight")
+camera = NodePath("../PictureCameras/NoorRoomNight")
 world_root = NodePath("../../Past")
 nodes_to_show = [NodePath("../../Past/PictureSpecificObjects/NoorRoomNight")]
 nodes_to_hide = [NodePath("../../Past/ChangingScene/NoorDoorClosed")]
@@ -1764,7 +1767,7 @@ texture = SubResource("ViewportTexture_r0be7")
 expand_mode = 1
 stretch_mode = 3
 script = ExtResource("43_f2no6")
-camera = NodePath("../../PictureCameras/FrontDoor")
+camera = NodePath("../PictureCameras/FrontDoor")
 world_root = NodePath("../../Past")
 nodes_to_show = [NodePath("../../Past/PictureSpecificObjects/FrontDoor")]
 nodes_to_hide = [NodePath("../../Past/ChangingScene/FrontDoorClosed"), NodePath("../../Past/ChangingScene/NoorWindowClosed")]
@@ -1788,7 +1791,7 @@ texture = SubResource("ViewportTexture_7p63q")
 expand_mode = 1
 stretch_mode = 3
 script = ExtResource("43_f2no6")
-camera = NodePath("../../PictureCameras/Forest")
+camera = NodePath("../PictureCameras/Forest")
 world_root = NodePath("../../Past")
 nodes_to_show = [NodePath("../../Past/PictureSpecificObjects/Forest")]
 ambientAS = ExtResource("48_4trxr")
@@ -1812,124 +1815,82 @@ texture = SubResource("ViewportTexture_u45lw")
 expand_mode = 1
 stretch_mode = 3
 script = ExtResource("43_f2no6")
-camera = NodePath("../../PictureCameras/Shed")
+camera = NodePath("../PictureCameras/Shed")
 world_root = NodePath("../../Past")
 nodes_to_show = [NodePath("../../Past/PictureSpecificObjects/Shed")]
 ambientAS = ExtResource("48_4trxr")
 
-[node name="PictureCameras" type="SubViewport" parent="."]
+[node name="PictureCameras" type="SubViewport" parent="Pictures"]
 size = Vector2i(1280, 720)
 
-[node name="Frontyard" parent="PictureCameras" instance=ExtResource("59_15k3n")]
+[node name="Frontyard" type="Camera3D" parent="Pictures/PictureCameras"]
 transform = Transform3D(0.999945, -0.000766935, -0.0104437, 0, 0.997314, -0.0732382, 0.0104718, 0.0732342, 0.99726, 1001.45, 1.5, 13.2886)
+environment = ExtResource("45_dt783")
+attributes = ExtResource("8_runqa")
+fov = 65.0
 
-[node name="Backyard" type="Camera3D" parent="PictureCameras"]
+[node name="Backyard" type="Camera3D" parent="Pictures/PictureCameras"]
 transform = Transform3D(-0.813385, -0.0352399, 0.580658, 3.28103e-09, 0.998164, 0.0605782, -0.581726, 0.0492734, -0.811891, 1003.32, 1.5, -13.263)
 cull_mask = 1048063
 environment = ExtResource("45_dt783")
 attributes = ExtResource("8_runqa")
 fov = 65.0
 
-[node name="ColorRect" parent="PictureCameras/Backyard" instance=ExtResource("46_oe0we")]
-visible = false
-
-[node name="Shader" parent="PictureCameras/Backyard" instance=ExtResource("8_hm01e")]
-
-[node name="Office" type="Camera3D" parent="PictureCameras"]
+[node name="Office" type="Camera3D" parent="Pictures/PictureCameras"]
 transform = Transform3D(0.659018, 0.0901496, -0.746705, 0, 0.992791, 0.11986, 0.752127, -0.0789896, 0.654267, 1001.83, 2, 5.09014)
 cull_mask = 1048063
 environment = ExtResource("45_dt783")
 attributes = ExtResource("8_runqa")
 fov = 65.0
 
-[node name="ColorRect" parent="PictureCameras/Office" instance=ExtResource("46_oe0we")]
-visible = false
-
-[node name="Shader" parent="PictureCameras/Office" instance=ExtResource("8_hm01e")]
-
-[node name="LivingRoom" type="Camera3D" parent="PictureCameras"]
+[node name="LivingRoom" type="Camera3D" parent="Pictures/PictureCameras"]
 transform = Transform3D(-0.360567, 0, -0.932733, 0, 1, 0, 0.932733, 0, -0.360567, 996.357, 2, -2.3227)
 cull_mask = 1048063
 environment = ExtResource("45_dt783")
 attributes = ExtResource("8_runqa")
 fov = 65.0
 
-[node name="ColorRect" parent="PictureCameras/LivingRoom" instance=ExtResource("46_oe0we")]
-visible = false
-
-[node name="Shader" parent="PictureCameras/LivingRoom" instance=ExtResource("8_hm01e")]
-
-[node name="HallwayUpstairs" type="Camera3D" parent="PictureCameras"]
+[node name="HallwayUpstairs" type="Camera3D" parent="Pictures/PictureCameras"]
 transform = Transform3D(0.99623, -0.00336809, 0.0866911, -0.00894083, 0.98994, 0.141206, -0.0862945, -0.141449, 0.986177, 1003.55, 5, 3.405)
 cull_mask = 1048063
 environment = ExtResource("45_dt783")
 attributes = ExtResource("8_runqa")
 fov = 65.0
 
-[node name="ColorRect" parent="PictureCameras/HallwayUpstairs" instance=ExtResource("46_oe0we")]
-visible = false
-
-[node name="Shader" parent="PictureCameras/HallwayUpstairs" instance=ExtResource("8_hm01e")]
-
-[node name="TV" type="Camera3D" parent="PictureCameras"]
+[node name="TV" type="Camera3D" parent="Pictures/PictureCameras"]
 transform = Transform3D(-0.795959, -0.0696213, 0.601334, -0.0060795, 0.994234, 0.107063, -0.605321, 0.0815621, -0.791792, 1002.44, 5, -2.082)
 cull_mask = 1048063
 environment = ExtResource("45_dt783")
 attributes = ExtResource("8_runqa")
 fov = 65.0
 
-[node name="ColorRect" parent="PictureCameras/TV" instance=ExtResource("46_oe0we")]
-visible = false
-
-[node name="Shader" parent="PictureCameras/TV" instance=ExtResource("8_hm01e")]
-
-[node name="NoorRoomNight" type="Camera3D" parent="PictureCameras"]
+[node name="NoorRoomNight" type="Camera3D" parent="Pictures/PictureCameras"]
 transform = Transform3D(-0.452435, -0.154859, 0.878249, 0, 0.984808, 0.173648, -0.891797, 0.0785645, -0.445561, 997.454, 5, -1.4382)
 cull_mask = 1048063
 environment = ExtResource("45_dt783")
 attributes = SubResource("CameraAttributesPractical_0y6qf")
 fov = 65.0
 
-[node name="ColorRect" parent="PictureCameras/NoorRoomNight" instance=ExtResource("46_oe0we")]
-visible = false
-
-[node name="Shader" parent="PictureCameras/NoorRoomNight" instance=ExtResource("8_hm01e")]
-
-[node name="FrontDoor" type="Camera3D" parent="PictureCameras"]
+[node name="FrontDoor" type="Camera3D" parent="Pictures/PictureCameras"]
 transform = Transform3D(-0.981269, 0.0293329, -0.190399, -0.0133177, 0.975646, 0.218945, 0.192184, 0.217379, -0.956981, 996.947, 5, 2.30982)
 cull_mask = 1048063
 environment = ExtResource("45_dt783")
 attributes = ExtResource("8_runqa")
 fov = 65.0
 
-[node name="ColorRect" parent="PictureCameras/FrontDoor" instance=ExtResource("46_oe0we")]
-visible = false
-
-[node name="Shader" parent="PictureCameras/FrontDoor" instance=ExtResource("8_hm01e")]
-
-[node name="Forest" type="Camera3D" parent="PictureCameras"]
+[node name="Forest" type="Camera3D" parent="Pictures/PictureCameras"]
 transform = Transform3D(0.882447, 0, -0.470411, 0, 1, 0, 0.470411, 0, 0.882447, 994.554, 1.5, -6.97674)
 cull_mask = 1048063
 environment = ExtResource("45_dt783")
 attributes = SubResource("CameraAttributesPractical_p3jx1")
 fov = 65.0
 
-[node name="ColorRect" parent="PictureCameras/Forest" instance=ExtResource("46_oe0we")]
-visible = false
-
-[node name="Shader" parent="PictureCameras/Forest" instance=ExtResource("8_hm01e")]
-
-[node name="Shed" type="Camera3D" parent="PictureCameras"]
+[node name="Shed" type="Camera3D" parent="Pictures/PictureCameras"]
 transform = Transform3D(-0.982926, 0, -0.184002, 0, 1, 0, 0.184002, 0, -0.982926, 1004.75, 1.5, -27.5625)
 cull_mask = 1048063
 environment = ExtResource("45_dt783")
 attributes = SubResource("CameraAttributesPractical_7tndt")
 fov = 65.0
-
-[node name="ColorRect" parent="PictureCameras/Shed" instance=ExtResource("46_oe0we")]
-visible = false
-
-[node name="Shader" parent="PictureCameras/Shed" instance=ExtResource("8_hm01e")]
 
 [node name="Inventory" type="Node" parent="." node_paths=PackedStringArray("starting_pictures", "pictures_after_tutorial")]
 unique_name_in_owner = true
@@ -1952,6 +1913,27 @@ panning_strength = 0.0
 [node name="SwapPictureAudioPlayer" type="AudioStreamPlayer3D" parent="PictureHandler"]
 attenuation_model = 3
 panning_strength = 0.0
+
+[node name="ActivePictureRect" type="TextureRect" parent="PictureHandler" node_paths=PackedStringArray("picture_shader")]
+clip_contents = true
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -320.0
+offset_top = -150.0
+offset_right = 320.0
+offset_bottom = 210.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = SubResource("ViewportTexture_ti7k1")
+expand_mode = 1
+stretch_mode = 3
+script = ExtResource("4_yhorm")
+picture_shader = NodePath("../Shader_past")
+
+[node name="Shader_past" parent="PictureHandler" instance=ExtResource("8_hm01e")]
 
 [node name="UI" type="Control" parent="."]
 layout_mode = 3

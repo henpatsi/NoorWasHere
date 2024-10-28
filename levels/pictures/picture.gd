@@ -174,16 +174,6 @@ func enter_picture(head_node: Node3D, picture_handler: Node) -> void:
 	moveTween.tween_property(head_node, "rotation:x", camera.global_rotation.x, move_tween_time)
 	
 	await get_tree().create_timer(move_tween_time).timeout
-
-	picture_shader.on_enter_picture()
-
-	var zoomTween = create_tween().set_parallel()
-	zoomTween.tween_property(self, "position:y", 0, picture_resize_time)
-	zoomTween.tween_property(self, "position:x", 0, picture_resize_time)
-	zoomTween.tween_property(self, "size:x", 1280, picture_resize_time)
-	zoomTween.tween_property(self, "size:y", 720, picture_resize_time)
-
-	await get_tree().create_timer(picture_resize_time).timeout
 	
 	if ambientASP and ambientAS:
 		ambientASP.volume_db = starting_volume
@@ -231,8 +221,6 @@ func exit_picture(picture_handler: Node) -> void:
 	var zoomTween = create_tween().set_parallel()
 	zoomTween.tween_property(self, "position:y", target_position.y, picture_resize_time)
 	zoomTween.tween_property(self, "position:x", target_position.x, picture_resize_time)
-	zoomTween.tween_property(self, "size:x", 640, picture_resize_time)
-	zoomTween.tween_property(self, "size:y", 360, picture_resize_time)
 
 	if ambientASP and ambientAS:
 		if audioTween:
