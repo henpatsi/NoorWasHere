@@ -4,7 +4,7 @@ extends TextureRect
 var upper_position: Vector2
 
 var is_up: bool = false
-var move_speed: float = 100
+var move_speed: float = 10
 var at_target_position: bool = false
 
 @export var picture_resize_time: float = 0.5
@@ -21,7 +21,7 @@ func _process(delta: float) -> void:
 		return
 
 	var target_position: Vector2 = upper_position if is_up else lower_position
-	position.lerp(target_position, move_speed * delta)
+	position = position.lerp(target_position, move_speed * delta)
 	if position.distance_to(target_position) < 0.1:
 		at_target_position = true
 

@@ -15,8 +15,8 @@ extends Node
 
 var picture_index: int = 0
 var entered_picture_index_array: Array[int] = [0, 0, 0]
-var current_picture: TextureRect
-var current_picture_array: Array[TextureRect]
+var current_picture: Node
+var current_picture_array: Array[Node]
 @onready var inventory: Node = %Inventory
 
 var picture_requirements_met: Array[String]
@@ -24,12 +24,12 @@ var picture_requirements_met: Array[String]
 var up_position: bool = false
 var inspecting: bool = false
 var aligned: bool = false
-var picture_depth: float = 0
+var picture_depth: int = 0
 
 var player_target_position: Vector3
 var player_target_rotation: Vector3
 
-var input_blockers: float = 0
+var input_blockers: int = 0
 
 @onready var crosshair: ColorRect = $"../UI/Crosshair"
 @onready var interact_label: Label = $"../UI/InteractLabel"
@@ -66,7 +66,7 @@ func _process(delta: float) -> void:
 		aligned = false
 
 
-func initialize_picture_array(array: Array[TextureRect]) -> void:
+func initialize_picture_array(array: Array[Node]) -> void:
 	current_picture_array = array
 
 	if current_picture_array.size() != 0:
@@ -132,6 +132,8 @@ func _input(event: InputEvent) -> void:
 
 
 func toggle_inspect() -> void:
+	print("Toggling inspect")
+
 	up_position = not up_position
 
 	picture_rect.set_up(up_position)
@@ -217,7 +219,7 @@ func test_if_exit_possible() -> bool:
 	return true
 
 
-func on_picture_picked_up(picture: TextureRect) -> void:
+func on_picture_picked_up(picture: Node) -> void:
 	current_picture_array.append(picture)
 	set_active_picture(current_picture_array.size() - 1)
 	if input_blockers == 0:
