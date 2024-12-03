@@ -7,7 +7,7 @@ var is_up: bool = false
 var move_speed: float = 10
 var at_target_position: bool = false
 
-@export var picture_resize_time: float = 0.5
+@export var picture_resize_time: float = 1
 @export var picture_shader: ColorRect
 
 # Called when the node enters the scene tree for the first time.
@@ -37,15 +37,15 @@ func set_up(state: bool) -> void:
 
 
 func enter_picture() -> void:
-	print("Enter picture")
+	print("Rect enter picture")
 
 	picture_shader.on_enter_picture()
 
-	resize(Vector2(0, 0), Vector2(1280, 720), picture_resize_time)
+	await resize(Vector2(0, 0), Vector2(1280, 720), picture_resize_time)
 
 
 func exit_picture() -> void:
-	print("Exit picture")
+	print("Rect exit picture")
 
 	picture_shader.on_exit_picture()
 

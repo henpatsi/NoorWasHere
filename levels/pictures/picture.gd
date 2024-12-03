@@ -5,6 +5,8 @@ extends Node
 @export var camera: Camera3D
 ## The root of the world where the camera is located.
 @export var world_root: Node3D
+## The player
+@onready var player: CharacterBody3D = %Player
 
 
 @export_group("Settings")
@@ -81,12 +83,6 @@ var nodes_to_show_transition
 var nodes_to_hide_transition
 var start_monitoring_list_transition
 
-@export_group("Transition")
-## Time it takes to perfectly position player
-@export var move_tween_time: float = 0.2
-## Time it takes to resize picture to full screen
-@export var picture_resize_time: float = 1.0
-
 var active_picture: bool = false
 var inside_picture: bool = false
 
@@ -96,8 +92,6 @@ var audioTween: Tween
 
 @onready var camera_picture_position: Vector3 = camera.global_position
 @onready var camera_picture_rotation: Vector3 = camera.global_rotation
-
-@onready var player: CharacterBody3D = %Player
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -137,19 +131,8 @@ func requirements_met(met_requirements: Array[String]) -> bool:
 	return true
 
 
-func enter_picture(head_node: Node3D, picture_handler: Node) -> void:
+func enter_picture(head_node: Node3D) -> void:
 	print("Enter")
-	picture_handler.set_input_state(false, false)
-	player.process_mode = Node.PROCESS_MODE_DISABLED
-
-	var camera_pos = get_local_camera_pos()
-	var moveTween = create_tween().set_parallel()
-	moveTween.tween_property(player, "global_position:x", camera_pos.x, move_tween_time)
-	moveTween.tween_property(player, "global_position:z", camera_pos.z, move_tween_time)
-	moveTween.tween_property(player, "rotation:y", camera.global_rotation.y, move_tween_time)
-	moveTween.tween_property(head_node, "rotation:x", camera.global_rotation.x, move_tween_time)
-	
-	await get_tree().create_timer(move_tween_time).timeout
 	
 	if ambientASP and ambientAS:
 		ambientASP.volume_db = starting_volume
@@ -159,13 +142,6 @@ func enter_picture(head_node: Node3D, picture_handler: Node) -> void:
 		audioTween.set_ease(Tween.EASE_OUT)
 		audioTween.tween_property(ambientASP, "volume_db", ending_volume, volume_fade_in_time)
 
-	player.global_position = camera.global_position
-	player.position.y -= head_node.position.y
-	player.rotation.y = camera.global_rotation.y
-	head_node.rotation.x = camera.global_rotation.x
-
-	player.process_mode = Node.PROCESS_MODE_PAUSABLE
-
 	camera_follow_node = head_node
 	inside_picture = true
 
@@ -174,14 +150,9 @@ func enter_picture(head_node: Node3D, picture_handler: Node) -> void:
 	elif not dialogue_playing:
 		apply_scene_changes(true, enter_nodes_to_show, enter_nodes_to_hide, enter_start_monitoring_list)
 
-	picture_handler.set_input_state(true)
 
-
-func exit_picture(picture_handler: Node) -> void:
+func exit_picture() -> void:
 	print("Exit")
-
-	picture_handler.set_input_state(false, false)
-	player.process_mode = Node.PROCESS_MODE_DISABLED
 
 	inside_picture = false
 
@@ -190,35 +161,27 @@ func exit_picture(picture_handler: Node) -> void:
 			node.hide()
 			set_child_collider_states(node, true)
 
-	player.global_position -= world_root.position
-
-	if ambientASP and ambientAS:
-		if audioTween:
-			audioTween.kill()
-		audioTween = create_tween()
-		audioTween.set_ease(Tween.EASE_IN)
-		audioTween.tween_property(ambientASP, "volume_db", -60, picture_resize_time)
-
-	await get_tree().create_timer(picture_resize_time).timeout
-
 	var camera_return_time: float = 0.2
 	var cameraTween = create_tween().set_parallel()
 	cameraTween.tween_property(camera, "global_position", camera_picture_position, camera_return_time)
 	cameraTween.tween_property(camera, "global_rotation", camera_picture_rotation, camera_return_time)
 
 	if ambientASP and ambientAS:
-		ambientASP.stop()
-
-	player.process_mode = Node.PROCESS_MODE_PAUSABLE
+		if audioTween:
+			audioTween.kill()
+		audioTween = create_tween()
+		audioTween.set_ease(Tween.EASE_IN)
+		audioTween.tween_property(ambientASP, "volume_db", -60, camera_return_time)
 
 	await get_tree().create_timer(camera_return_time).timeout
+
+	if ambientASP and ambientAS:
+		ambientASP.stop()
 
 	if not exit_dialogue_triggered and enter_dialogue_clips.size() > 0:
 		start_dialogue_clips()
 	elif not dialogue_playing:
 		apply_scene_changes(true, exit_nodes_to_show, exit_nodes_to_hide, exit_start_monitoring_list)
-
-	picture_handler.set_input_state(true)
 
 
 func start_dialogue_clips() -> void:

@@ -77,14 +77,12 @@ func initialize_picture_array(array: Array[Node]) -> void:
 		current_picture = null
 
 
-func set_input_state(state: bool, force_down: bool = true) -> void:
+func set_input_state(state: bool) -> void:
 	if state == false:
 		input_blockers += 1
 	else:
 		input_blockers -= 1
 	print("Picture input blockers: " + str(input_blockers))
-	if input_blockers > 0 and up_position and force_down:
-		toggle_inspect()
 
 
 func _input(event: InputEvent) -> void:
@@ -150,25 +148,47 @@ func toggle_inspect() -> void:
 func enter_picture() -> void:
 	print("Entering picture")
 
+	set_input_state(false)
+	player.process_mode = Node.PROCESS_MODE_DISABLED
+
 	if transition_audio_player and transition_in_audio_clip:
 		transition_audio_player.stream = transition_in_audio_clip
 		transition_audio_player.play()
 
+	if teleport_shader_rect:
+		teleport_shader_rect.on_enter_picture()
+
+	await picture_rect.enter_picture()
+
+	#var local_camera_pos = current_picture.get_local_camera_pos()
+	#var moveTween = create_tween().set_parallel()
+	#moveTween.tween_property(player, "global_position:x", local_camera_pos.x, 0.2)
+	#moveTween.tween_property(player, "global_position:z", local_camera_pos.z, 0.2)
+	#moveTween.tween_property(player, "rotation:y", current_picture.camera.global_rotation.y, 0.2)
+	#moveTween.tween_property(head_node, "rotation:x", current_picture.camera.global_rotation.x, 0.2)
+#
+	#await get_tree().create_timer(0.2).timeout
+
+	player.global_position = current_picture.camera.global_position
+	player.position.y -= head_node.position.y
+	player.rotation.y = current_picture.camera.global_rotation.y
+	head_node.rotation.x = current_picture.camera.global_rotation.x
+
+	current_picture.enter_picture(head_node)
+
+	entered_picture = current_picture
 	entered_picture_index_array[picture_depth] = picture_index
 	picture_index = 0
 	picture_depth += 1
-	current_picture.enter_picture(head_node, self)
-
-	entered_picture = current_picture
-
 	initialize_picture_array(inventory.get_pictures(picture_depth))
 
 	up_position = false
 	crosshair.show()
 	player.interact_enabled = true
-	
-	if teleport_shader_rect:
-		teleport_shader_rect.on_enter_picture()
+
+	player.process_mode = Node.PROCESS_MODE_PAUSABLE
+	set_input_state(true)	
+
 
 func exit_picture() -> void:
 	if picture_depth == 0:
@@ -180,24 +200,32 @@ func exit_picture() -> void:
 
 	print("Exiting picture")
 
-	inventory.clear_pictures(picture_depth)
-
-	picture_depth -= 1
+	set_input_state(false)
+	player.process_mode = Node.PROCESS_MODE_DISABLED
 
 	if transition_audio_player and transition_out_audio_clip:
 		transition_audio_player.stream = transition_out_audio_clip
 		transition_audio_player.play()
+	
+	if teleport_shader_rect:
+		teleport_shader_rect.on_exit_picture()
 
+	inventory.clear_pictures(picture_depth)
+	picture_depth -= 1
 	initialize_picture_array(inventory.get_pictures(picture_depth))
 
-	current_picture.exit_picture(self)
+	current_picture.exit_picture()
+
+	player.global_position -= current_picture.world_root.position
+
+	picture_rect.exit_picture()
 	
 	up_position = true
 	crosshair.hide()
 	player.interact_enabled = false
 
-	if teleport_shader_rect:
-		teleport_shader_rect.on_exit_picture()
+	player.process_mode = Node.PROCESS_MODE_PAUSABLE
+	set_input_state(true)
 
 
 func test_if_exit_possible() -> bool:
