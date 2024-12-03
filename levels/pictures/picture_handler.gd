@@ -5,6 +5,7 @@ extends Node
 @export var align_lerp_strength: float = 2
 ## Rect containing shader to use when teleporting into picture
 @export var teleport_shader_rect: ColorRect
+@export var picture_swap_time: float = 0.5
 
 @export_category("Audio")
 @onready var transition_audio_player: AudioStreamPlayer3D = $"TransitionAudioPlayer"
@@ -129,12 +130,8 @@ func _input(event: InputEvent) -> void:
 	input_blockers -= 1
 
 
-func toggle_inspect() -> void:
-	print("Toggling inspect")
-
-	up_position = not up_position
-
-	picture_rect.set_up(up_position)
+func set_inspect(state: bool) -> void:
+	up_position = state
 
 	if not up_position:
 		inspecting = false
@@ -143,6 +140,13 @@ func toggle_inspect() -> void:
 	else:
 		crosshair.hide()
 		player.interact_enabled = false
+
+
+func toggle_inspect() -> void:
+	print("Toggling inspect")
+	var state = not up_position
+	set_inspect(state)
+	picture_rect.set_up(state)
 
 
 func enter_picture() -> void:
@@ -182,9 +186,7 @@ func enter_picture() -> void:
 	picture_depth += 1
 	initialize_picture_array(inventory.get_pictures(picture_depth))
 
-	up_position = false
-	crosshair.show()
-	player.interact_enabled = true
+	set_inspect(false)
 
 	player.process_mode = Node.PROCESS_MODE_PAUSABLE
 	set_input_state(true)	
@@ -219,10 +221,8 @@ func exit_picture() -> void:
 	player.global_position -= current_picture.world_root.position
 
 	picture_rect.exit_picture()
-	
-	up_position = true
-	crosshair.hide()
-	player.interact_enabled = false
+
+	set_inspect(false)
 
 	player.process_mode = Node.PROCESS_MODE_PAUSABLE
 	set_input_state(true)
@@ -268,7 +268,12 @@ func swap_picture(target_index: int) -> void:
 
 func set_active_picture(index: int) -> void:
 	print("Setting active picture")
+
+	picture_rect.hide_picture()
+
 	inspecting = false
+
+	await get_tree().create_timer(picture_swap_time).timeout
 
 	if current_picture:
 		current_picture.set_active(false)
@@ -277,3 +282,5 @@ func set_active_picture(index: int) -> void:
 	current_picture.set_active(true)
 
 	picture_index = index
+
+	picture_rect.show_picture()

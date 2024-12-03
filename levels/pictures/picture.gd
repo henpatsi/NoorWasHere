@@ -83,7 +83,6 @@ var nodes_to_show_transition
 var nodes_to_hide_transition
 var start_monitoring_list_transition
 
-var active_picture: bool = false
 var inside_picture: bool = false
 
 var camera_follow_node: Node3D
@@ -106,7 +105,7 @@ func _process(delta: float) -> void:
 	camera.global_rotation = camera_follow_node.global_rotation
 
 func set_active(state: bool) -> void:
-	active_picture = state
+	camera.current = state
 	apply_scene_changes(state, nodes_to_show, nodes_to_hide)
 
 func get_local_camera_pos() -> Vector3:

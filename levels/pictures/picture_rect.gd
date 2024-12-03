@@ -1,7 +1,9 @@
 extends TextureRect
 
 @export var lower_position: Vector2 = Vector2(320, 570)
+@export var hide_position: Vector2 = Vector2(700, 1000)
 var upper_position: Vector2
+var target_position: Vector2
 
 var is_up: bool = false
 var move_speed: float = 10
@@ -13,14 +15,13 @@ var at_target_position: bool = false
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	upper_position = Vector2(get_viewport().get_visible_rect().size / 2) - (self.size / 2)
-
+	target_position = lower_position
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if at_target_position:
 		return
 
-	var target_position: Vector2 = upper_position if is_up else lower_position
 	position = position.lerp(target_position, move_speed * delta)
 	if position.distance_to(target_position) < 0.1:
 		at_target_position = true
@@ -29,11 +30,13 @@ func _process(delta: float) -> void:
 func toggle_up() -> void:
 	at_target_position = false
 	is_up = !is_up
+	target_position = upper_position if is_up else lower_position
 
 
 func set_up(state: bool) -> void:
 	at_target_position = false
 	is_up = state
+	target_position = upper_position if is_up else lower_position
 
 
 func enter_picture() -> void:
@@ -49,7 +52,9 @@ func exit_picture() -> void:
 
 	picture_shader.on_exit_picture()
 
-	resize(lower_position, Vector2(640, 360), picture_resize_time)
+	await resize(lower_position, Vector2(640, 360), picture_resize_time)
+	
+	set_up(false)
 
 
 func resize(target_position: Vector2, target_size: Vector2, speed: float) -> void:
@@ -60,3 +65,13 @@ func resize(target_position: Vector2, target_size: Vector2, speed: float) -> voi
 	zoomTween.tween_property(self, "size:y", target_size.y, picture_resize_time)
 
 	await get_tree().create_timer(picture_resize_time).timeout
+
+
+func hide_picture() -> void:
+	at_target_position = false
+	target_position = hide_position
+
+
+func show_picture() -> void:
+	at_target_position = false
+	target_position = upper_position if is_up else lower_position
