@@ -6,7 +6,7 @@ var upper_position: Vector2
 var target_position: Vector2
 
 var is_up: bool = false
-var move_speed: float = 10
+@export var move_speed: float = 20
 var at_target_position: bool = false
 
 @export var picture_resize_time: float = 1

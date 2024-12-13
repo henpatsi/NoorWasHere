@@ -5,7 +5,7 @@ extends Node
 @export var align_lerp_strength: float = 2
 ## Rect containing shader to use when teleporting into picture
 @export var teleport_shader_rect: ColorRect
-@export var picture_swap_time: float = 0.5
+@export var picture_swap_time: float = 0.3
 
 @export_category("Audio")
 @onready var transition_audio_player: AudioStreamPlayer3D = $"TransitionAudioPlayer"
@@ -268,6 +268,8 @@ func swap_picture(target_index: int) -> void:
 
 func set_active_picture(index: int) -> void:
 	print("Setting active picture")
+	
+	set_input_state(false)
 
 	picture_rect.hide_picture()
 
@@ -284,3 +286,5 @@ func set_active_picture(index: int) -> void:
 	picture_index = index
 
 	picture_rect.show_picture()
+
+	set_input_state(true)

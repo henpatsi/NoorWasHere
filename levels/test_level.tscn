@@ -1,4 +1,4 @@
-[gd_scene load_steps=70 format=4 uid="uid://bd5b2sgv2c8v8"]
+[gd_scene load_steps=69 format=4 uid="uid://bd5b2sgv2c8v8"]
 
 [ext_resource type="PackedScene" uid="uid://b25ooshew3q2v" path="res://player/player.tscn" id="1_7d6r5"]
 [ext_resource type="Script" path="res://levels/pictures/picture_handler.gd" id="1_827sh"]
@@ -158,12 +158,8 @@ shadow_mesh = SubResource("ArrayMesh_vkwhe")
 [sub_resource type="BoxShape3D" id="BoxShape3D_u51br"]
 size = Vector3(0.292725, 0.191528, 0.567993)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_6so4m"]
-viewport_path = NodePath("Pictures/1/SubViewport")
-
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gxkcw"]
 resource_local_to_scene = true
-albedo_texture = SubResource("ViewportTexture_6so4m")
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_31tjn"]
 resource_local_to_scene = true
@@ -240,9 +236,9 @@ shadow_enabled = true
 unique_name_in_owner = true
 transform = Transform3D(0.998472, 0, -0.0552638, 0, 1, 0, 0.0552638, 0, 0.998472, 1.21662, 0, 20.34)
 max_move_speed = 3.0
-subtitle_label = NodePath("")
-interact_label = NodePath("")
-interact_response_label = NodePath("")
+subtitle_label = NodePath("../UI/SubtitleLabel")
+interact_label = NodePath("../UI/InteractLabel")
+interact_response_label = NodePath("../UI/InteractResponseLabel")
 
 [node name="Camera3D" parent="Player/HeadNode" index="0"]
 fov = 65.0
@@ -288,7 +284,7 @@ fov = 65.0
 far = 300.0
 
 [node name="W2_3" type="Camera3D" parent="Pictures/PictureCameras"]
-transform = Transform3D(-0.951884, 0.0185647, -0.305896, 8.47822e-09, 0.998164, 0.0605782, 0.306459, 0.0576634, -0.950136, 496.4, 1.5, -4.70137)
+transform = Transform3D(-0.746766, -0.0402898, 0.663866, 8.47822e-09, 0.998164, 0.0605782, -0.665087, 0.0452377, -0.745394, 498.132, 1.5, -5.52196)
 cull_mask = 1048063
 environment = ExtResource("5_gbh07")
 attributes = ExtResource("59_fbhsk")
@@ -597,7 +593,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.08211, 1.13238, -6.87056)
 [node name="PickupPicture" type="StaticBody3D" parent="World1/Interactables" node_paths=PackedStringArray("picture")]
 transform = Transform3D(0.948335, 0, 0.317272, 0, 1, 0, -0.317272, 0, 0.948335, -4.30694, 0.090492, 1.39724)
 script = ExtResource("14_236fl")
-picture = NodePath("")
+picture = NodePath("../../../Pictures/W2_3")
 item_name = "other picture"
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="World1/Interactables/PickupPicture"]

@@ -1,8 +1,3 @@
 uncrouch only if space
 
 footsteps based on surface
-
-new picture system fixes:
-fast picture change
-pick up picture
-enter picture text stuck
