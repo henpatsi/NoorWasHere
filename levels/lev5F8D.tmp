@@ -214,7 +214,7 @@ viewport_path = NodePath("Pictures/PictureCameras")
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_pua2a"]
 
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_cs677"]
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_cechl"]
 seamless = true
 noise = SubResource("FastNoiseLite_pua2a")
 
@@ -222,7 +222,7 @@ noise = SubResource("FastNoiseLite_pua2a")
 shader = ExtResource("51_y5c0d")
 shader_parameter/speed = 0.1
 shader_parameter/intensity = 1.0
-shader_parameter/distort_noise = SubResource("NoiseTexture2D_cs677")
+shader_parameter/distort_noise = SubResource("NoiseTexture2D_cechl")
 
 [sub_resource type="LabelSettings" id="LabelSettings_fo2ri"]
 font = ExtResource("53_eeemk")
@@ -1543,7 +1543,6 @@ interact_response_label = NodePath("../UI/InteractResponseLabel")
 
 [node name="Camera3D" parent="Player/HeadNode" index="0"]
 fov = 65.0
-far = 500.0
 
 [node name="Pictures" type="Node" parent="."]
 
@@ -1659,7 +1658,6 @@ transform = Transform3D(0.999945, -0.000766935, -0.0104437, 0, 0.997314, -0.0732
 environment = ExtResource("45_dt783")
 attributes = ExtResource("8_runqa")
 fov = 65.0
-far = 300.0
 
 [node name="Backyard" type="Camera3D" parent="Pictures/PictureCameras"]
 transform = Transform3D(-0.813385, -0.0352399, 0.580658, 3.28103e-09, 0.998164, 0.0605782, -0.581726, 0.0492734, -0.811891, 1003.32, 1.5, -13.263)
@@ -1667,7 +1665,6 @@ cull_mask = 1048063
 environment = ExtResource("45_dt783")
 attributes = ExtResource("8_runqa")
 fov = 65.0
-far = 300.0
 
 [node name="Office" type="Camera3D" parent="Pictures/PictureCameras"]
 transform = Transform3D(0.659018, 0.0901496, -0.746705, 0, 0.992791, 0.11986, 0.752127, -0.0789896, 0.654267, 1001.83, 2, 5.09014)
@@ -1675,7 +1672,6 @@ cull_mask = 1048063
 environment = ExtResource("45_dt783")
 attributes = ExtResource("8_runqa")
 fov = 65.0
-far = 300.0
 
 [node name="LivingRoom" type="Camera3D" parent="Pictures/PictureCameras"]
 transform = Transform3D(-0.360567, 0, -0.932733, 0, 1, 0, 0.932733, 0, -0.360567, 996.357, 2, -2.3227)
@@ -1683,7 +1679,6 @@ cull_mask = 1048063
 environment = ExtResource("45_dt783")
 attributes = ExtResource("8_runqa")
 fov = 65.0
-far = 300.0
 
 [node name="HallwayUpstairs" type="Camera3D" parent="Pictures/PictureCameras"]
 transform = Transform3D(0.99623, -0.00336809, 0.0866911, -0.00894083, 0.98994, 0.141206, -0.0862945, -0.141449, 0.986177, 1003.55, 5, 3.405)
@@ -1691,7 +1686,6 @@ cull_mask = 1048063
 environment = ExtResource("45_dt783")
 attributes = ExtResource("8_runqa")
 fov = 65.0
-far = 300.0
 
 [node name="TV" type="Camera3D" parent="Pictures/PictureCameras"]
 transform = Transform3D(-0.795959, -0.0696213, 0.601334, -0.0060795, 0.994234, 0.107063, -0.605321, 0.0815621, -0.791792, 1002.44, 5, -2.082)
@@ -1699,7 +1693,6 @@ cull_mask = 1048063
 environment = ExtResource("45_dt783")
 attributes = ExtResource("8_runqa")
 fov = 65.0
-far = 300.0
 
 [node name="NoorRoomNight" type="Camera3D" parent="Pictures/PictureCameras"]
 transform = Transform3D(-0.452435, -0.154859, 0.878249, 0, 0.984808, 0.173648, -0.891797, 0.0785645, -0.445561, 997.454, 5, -1.4382)
@@ -1707,7 +1700,6 @@ cull_mask = 1048063
 environment = ExtResource("45_dt783")
 attributes = SubResource("CameraAttributesPractical_0y6qf")
 fov = 65.0
-far = 300.0
 
 [node name="FrontDoor" type="Camera3D" parent="Pictures/PictureCameras"]
 transform = Transform3D(-0.981269, 0.0293329, -0.190399, -0.0133177, 0.975646, 0.218945, 0.192184, 0.217379, -0.956981, 996.947, 5, 2.30982)
@@ -1715,7 +1707,6 @@ cull_mask = 1048063
 environment = ExtResource("45_dt783")
 attributes = ExtResource("8_runqa")
 fov = 65.0
-far = 300.0
 
 [node name="Forest" type="Camera3D" parent="Pictures/PictureCameras"]
 transform = Transform3D(0.882447, 0, -0.470411, 0, 1, 0, 0.470411, 0, 0.882447, 994.554, 1.5, -6.97674)
@@ -1723,7 +1714,6 @@ cull_mask = 1048063
 environment = ExtResource("45_dt783")
 attributes = SubResource("CameraAttributesPractical_p3jx1")
 fov = 65.0
-far = 300.0
 
 [node name="Shed" type="Camera3D" parent="Pictures/PictureCameras"]
 transform = Transform3D(-0.982926, 0, -0.184002, 0, 1, 0, 0.184002, 0, -0.982926, 1004.75, 1.5, -27.5625)
@@ -1731,15 +1721,13 @@ cull_mask = 1048063
 environment = ExtResource("45_dt783")
 attributes = SubResource("CameraAttributesPractical_7tndt")
 fov = 65.0
-far = 300.0
 
 [node name="Shader_past" parent="Pictures/PictureCameras" instance=ExtResource("8_hm01e")]
 
-[node name="Inventory" type="Node" parent="." node_paths=PackedStringArray("starting_pictures", "pictures_after_tutorial")]
+[node name="Inventory" type="Node" parent="." node_paths=PackedStringArray("starting_pictures")]
 unique_name_in_owner = true
 script = ExtResource("42_5umw0")
-starting_pictures = [NodePath("../Pictures/FrontyardPicture")]
-pictures_after_tutorial = [NodePath("../Pictures/BackyardPicture"), NodePath("../Pictures/OfficePicture"), NodePath("../Pictures/HallwayUpstairPicture"), NodePath("../Pictures/TVPicture"), NodePath("../Pictures/NoorRoomNightPicture")]
+starting_pictures = [NodePath("../Pictures/FrontyardPicture"), NodePath("../Pictures/BackyardPicture")]
 
 [node name="PictureHandler" type="Node" parent="." node_paths=PackedStringArray("teleport_shader_rect")]
 unique_name_in_owner = true
@@ -2401,7 +2389,6 @@ transform = Transform3D(-0.981406, 0, -0.19194, 0, 1, 0, 0.19194, 0, -0.981406, 
 [node name="PictureSpecificObjects" type="Node3D" parent="Past"]
 
 [node name="Frontyard" type="Node3D" parent="Past/PictureSpecificObjects"]
-visible = false
 
 [node name="SpotLight3D" type="SpotLight3D" parent="Past/PictureSpecificObjects/Frontyard"]
 transform = Transform3D(0.166594, 0.102562, 0.980677, -0.00745055, 0.994678, -0.102761, -0.985997, 0.00981274, 0.166472, 6.81915, 3.13207, 10.421)
@@ -3618,7 +3605,6 @@ transform = Transform3D(0.638685, -0.191118, 0, 0, 0, 0.666667, -0.191118, -0.63
 transform = Transform3D(0.664847, -0.00264561, 0.0491488, 0, 0.665703, 0.0358338, -0.04922, -0.035736, 0.663886, -0.311584, 0.311367, 0.0118129)
 
 [node name="LivingRoom" type="Node3D" parent="Past/PictureSpecificObjects"]
-visible = false
 
 [node name="OmniLight3D3" type="OmniLight3D" parent="Past/PictureSpecificObjects/LivingRoom"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.389954, 2.34595, -0.215636)

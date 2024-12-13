@@ -1,4 +1,4 @@
-[gd_scene load_steps=70 format=4 uid="uid://bd5b2sgv2c8v8"]
+[gd_scene load_steps=71 format=4 uid="uid://bd5b2sgv2c8v8"]
 
 [ext_resource type="PackedScene" uid="uid://b25ooshew3q2v" path="res://player/player.tscn" id="1_7d6r5"]
 [ext_resource type="Script" path="res://levels/pictures/picture_handler.gd" id="1_827sh"]
@@ -211,6 +211,9 @@ _data = {
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vpgwh"]
 albedo_color = Color(0.189372, 0.356995, 0.189985, 1)
 
+[sub_resource type="PlaneMesh" id="PlaneMesh_24xv6"]
+size = Vector2(200, 200)
+
 [sub_resource type="ViewportTexture" id="ViewportTexture_28mam"]
 viewport_path = NodePath("Pictures/2/SubViewport")
 
@@ -250,19 +253,19 @@ far = 500.0
 
 [node name="Pictures" type="Node" parent="."]
 
-[node name="W2_1" type="Node" parent="Pictures" node_paths=PackedStringArray("camera", "world_root")]
+[node name="W1" type="Node" parent="Pictures" node_paths=PackedStringArray("camera", "world_root")]
 script = ExtResource("2_sagta")
-camera = NodePath("../PictureCameras/W2_1")
-world_root = NodePath("../../World2")
+camera = NodePath("../PictureCameras/W1")
+world_root = NodePath("../../World1")
 
-[node name="W2_2" type="Node" parent="Pictures" node_paths=PackedStringArray("camera", "world_root")]
+[node name="W1_1" type="Node" parent="Pictures" node_paths=PackedStringArray("camera", "world_root")]
 script = ExtResource("2_sagta")
-camera = NodePath("../PictureCameras/W2_2")
-world_root = NodePath("../../World2")
+camera = NodePath("../PictureCameras/W1_1")
+world_root = NodePath("../../World1")
 
-[node name="W2_3" type="Node" parent="Pictures" node_paths=PackedStringArray("camera", "world_root")]
+[node name="W2" type="Node" parent="Pictures" node_paths=PackedStringArray("camera", "world_root")]
 script = ExtResource("2_sagta")
-camera = NodePath("../PictureCameras/W2_3")
+camera = NodePath("../PictureCameras/W2")
 world_root = NodePath("../../World2")
 
 [node name="W3" type="Node" parent="Pictures" node_paths=PackedStringArray("camera", "world_root")]
@@ -273,22 +276,22 @@ world_root = NodePath("../../World3")
 [node name="PictureCameras" type="SubViewport" parent="Pictures"]
 size = Vector2i(1280, 720)
 
-[node name="W2_1" type="Camera3D" parent="Pictures/PictureCameras"]
-transform = Transform3D(0.999945, -0.000766937, -0.0104437, 0, 0.997315, -0.0732383, 0.0104718, 0.0732342, 0.99726, 486.74, 1.5, 4.643)
+[node name="W1" type="Camera3D" parent="Pictures/PictureCameras"]
+transform = Transform3D(0.999945, -0.000766937, -0.0104437, 0, 0.997315, -0.0732383, 0.0104718, 0.0732342, 0.99726, 990.978, 1.5, 4.643)
 environment = ExtResource("5_gbh07")
 attributes = ExtResource("59_fbhsk")
 fov = 65.0
 far = 300.0
 
-[node name="W2_2" type="Camera3D" parent="Pictures/PictureCameras"]
-transform = Transform3D(0.616844, -0.0576448, -0.784972, 0, 0.997315, -0.0732383, 0.787086, 0.0451765, 0.615187, 486.74, 1.5, -0.311086)
+[node name="W1_1" type="Camera3D" parent="Pictures/PictureCameras"]
+transform = Transform3D(0.616844, -0.0576448, -0.784972, 0, 0.997315, -0.0732382, 0.787086, 0.0451765, 0.615187, 980.586, 1.5, -0.311086)
 environment = ExtResource("5_gbh07")
 attributes = ExtResource("59_fbhsk")
 fov = 65.0
 far = 300.0
 
-[node name="W2_3" type="Camera3D" parent="Pictures/PictureCameras"]
-transform = Transform3D(-0.951884, 0.0185647, -0.305896, 8.47822e-09, 0.998164, 0.0605782, 0.306459, 0.0576634, -0.950136, 496.4, 1.5, -4.70137)
+[node name="W2" type="Camera3D" parent="Pictures/PictureCameras"]
+transform = Transform3D(-0.813385, -0.0352399, 0.580658, 3.28103e-09, 0.998164, 0.0605782, -0.581726, 0.0492734, -0.811891, 1037.18, 1.5, 2.737)
 cull_mask = 1048063
 environment = ExtResource("5_gbh07")
 attributes = ExtResource("59_fbhsk")
@@ -308,12 +311,12 @@ far = 300.0
 [node name="Inventory" type="Node" parent="." node_paths=PackedStringArray("starting_pictures")]
 unique_name_in_owner = true
 script = ExtResource("3_14087")
-starting_pictures = [NodePath("../Pictures/W2_1"), NodePath("../Pictures/W2_2")]
+starting_pictures = [NodePath("../Pictures/W1"), NodePath("../Pictures/W1_1")]
 
 [node name="PictureHandler" type="Node" parent="." node_paths=PackedStringArray("teleport_shader_rect")]
 unique_name_in_owner = true
 script = ExtResource("1_827sh")
-teleport_shader_rect = NodePath("../UI/TeleportShaderRect")
+teleport_shader_rect = NodePath("")
 transition_in_audio_clip = ExtResource("63_2ogx4")
 transition_out_audio_clip = ExtResource("64_ifq7h")
 swap_picture_audio = ExtResource("65_33son")
@@ -343,7 +346,7 @@ texture = SubResource("ViewportTexture_d47n5")
 expand_mode = 1
 stretch_mode = 3
 script = ExtResource("66_1n16t")
-picture_shader = NodePath("../../Pictures/PictureCameras/Shader_past")
+picture_shader = NodePath("")
 
 [node name="UI" type="Control" parent="."]
 layout_mode = 3
@@ -645,6 +648,10 @@ use_collision = true
 size = Vector3(100, 2, 100)
 material = SubResource("StandardMaterial3D_vpgwh")
 
+[node name="Roof" type="MeshInstance3D" parent="World2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 50, 0)
+mesh = SubResource("PlaneMesh_24xv6")
+
 [node name="AlignBox2" type="CSGBox3D" parent="World2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 2.5, -10)
 layers = 1024
@@ -725,7 +732,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.08211, 1.13238, -6.87056)
 [node name="PickupPicture" type="StaticBody3D" parent="World2/Interactables" node_paths=PackedStringArray("picture")]
 transform = Transform3D(0.948335, 0, 0.317272, 0, 1, 0, -0.317272, 0, 0.948335, -4.30694, 0.090492, 1.39724)
 script = ExtResource("14_236fl")
-picture = NodePath("../../../Pictures/W2_3")
+picture = NodePath("")
+destroy_on_pickup = false
 item_name = "otherer picture"
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="World2/Interactables/PickupPicture"]
