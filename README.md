@@ -1,6 +1,6 @@
 # Noor Was Here
 
-Made using Godot in one week for the Brackeys Game Jam 2024.2
+Made using Godot, originally in one week for the Brackeys Game Jam 2024.2
 
 You can play the game on [itch.io](https://tupperwarefan.itch.io/noor)!
 
