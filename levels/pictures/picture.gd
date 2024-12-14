@@ -98,11 +98,13 @@ func _process(_delta: float) -> void:
 	if not inside_picture:
 		return
 
-	camera.global_position = camera_follow_node.global_position
-	camera.global_rotation = camera_follow_node.global_rotation
+	if camera_follow_node:
+		camera.global_position = camera_follow_node.global_position
+		camera.global_rotation = camera_follow_node.global_rotation
 
 
 func set_active(state: bool) -> void:
+	print("Set ", name, " active = ", state)
 	camera.current = state
 	OnEventFunctions.apply_scene_changes(state, nodes_to_show, nodes_to_hide)
 
@@ -130,7 +132,7 @@ func requirements_met(met_requirements: Array[String]) -> bool:
 
 
 func enter_picture(head_node: Node3D) -> void:
-	print("Enter")
+	print(name, " enter")
 	
 	camera_follow_node = head_node
 	inside_picture = true
@@ -144,9 +146,10 @@ func enter_picture(head_node: Node3D) -> void:
 
 
 func exit_picture() -> void:
-	print("Exit")
+	print(name, " exit")
 
 	inside_picture = false
+	camera_follow_node = null
 
 	fade_out_ambient_audio()
 

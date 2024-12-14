@@ -86,9 +86,8 @@ func hide_picture() -> void:
 func show_picture() -> void:
 	at_target_position = false
 
+	target_position = upper_position if is_up else lower_position
+
 	viewport.render_target_update_mode = SubViewport.UPDATE_ALWAYS
 	await get_tree().create_timer(0.1).timeout
 	viewport.render_target_update_mode = SubViewport.UPDATE_WHEN_VISIBLE
-	
-	target_position = upper_position if is_up else lower_position
-

@@ -34,11 +34,14 @@ func get_pictures(depth: int):
 func get_picture(array: Array[Node], index: int) -> Node:
 	if array.size() == 0:
 		return null
+	return array[get_index_in_range(array, index)]
+
+func get_index_in_range(array: Array[Node], index: int) -> int:
 	while index < 0:
 		index += array.size()
 	if index >= array.size():
 		index %= array.size()
-	return array[index]
+	return index
 
 
 func contains_item(query: String) -> bool:

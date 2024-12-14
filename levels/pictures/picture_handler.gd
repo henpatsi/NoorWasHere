@@ -15,6 +15,7 @@ extends Node
 @export var swap_picture_audio: AudioStream
 
 var picture_index: int = 0
+var entered_picture
 var entered_picture_index_array: Array[int] = [0, 0, 0]
 var current_picture: Node
 var current_picture_array: Array[Node]
@@ -40,7 +41,6 @@ var input_blockers: int = 0
 @onready var head_node: Node3D = $"../Player/HeadNode"
 
 var exit_area_tester: PackedScene = preload("res://levels/areas/exit_zone_tester.tscn")
-var entered_picture
 
 @onready var picture_rect = $PictureRect
 
@@ -164,15 +164,6 @@ func enter_picture() -> void:
 
 	await picture_rect.enter_picture()
 
-	#var local_camera_pos = current_picture.get_local_camera_pos()
-	#var moveTween = create_tween().set_parallel()
-	#moveTween.tween_property(player, "global_position:x", local_camera_pos.x, 0.2)
-	#moveTween.tween_property(player, "global_position:z", local_camera_pos.z, 0.2)
-	#moveTween.tween_property(player, "rotation:y", current_picture.camera.global_rotation.y, 0.2)
-	#moveTween.tween_property(head_node, "rotation:x", current_picture.camera.global_rotation.x, 0.2)
-#
-	#await get_tree().create_timer(0.2).timeout
-
 	player.global_position = current_picture.camera.global_position
 	player.position.y -= head_node.position.y
 	player.rotation.y = current_picture.camera.global_rotation.y
@@ -235,7 +226,6 @@ func test_if_exit_possible() -> bool:
 	add_child(exit_area_tester_instance)
 	exit_area_tester_instance.global_position = player.global_position
 	exit_area_tester_instance.global_position -= entered_picture.world_root.position
-	print(exit_area_tester_instance.global_position)
 
 	await get_tree().create_timer(0.1).timeout
 
@@ -285,7 +275,7 @@ func set_active_picture(index: int) -> void:
 	current_picture = inventory.get_picture(current_picture_array, index)
 	current_picture.set_active(true)
 
-	picture_index = index
+	picture_index = inventory.get_index_in_range(current_picture_array, index)
 
 	picture_rect.show_picture()
 
