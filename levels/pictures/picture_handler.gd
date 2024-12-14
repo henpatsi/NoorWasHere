@@ -5,7 +5,7 @@ extends Node
 @export var align_lerp_strength: float = 2
 ## Rect containing shader to use when teleporting into picture
 @export var teleport_shader_rect: ColorRect
-@export var picture_swap_time: float = 0.3
+@export var picture_swap_time: float = 0.5
 
 @export_category("Audio")
 @onready var transition_audio_player: AudioStreamPlayer3D = $"TransitionAudioPlayer"
@@ -220,7 +220,9 @@ func exit_picture() -> void:
 
 	player.global_position -= current_picture.world_root.position
 
-	picture_rect.exit_picture()
+	await picture_rect.exit_picture()
+
+	current_picture.reset_camera_position()
 
 	set_inspect(false)
 

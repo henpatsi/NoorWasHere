@@ -1,24 +1,36 @@
 extends TextureRect
 
 @export var lower_position: Vector2 = Vector2(320, 570)
+@export var exit_picture_position: Vector2 = Vector2(320, 800)
 @export var hide_position: Vector2 = Vector2(700, 1000)
 var upper_position: Vector2
 var target_position: Vector2
 
 var is_up: bool = false
-@export var move_speed: float = 20
+@export var move_speed: float = 10
 var at_target_position: bool = false
 
 @export var picture_resize_time: float = 1
 @export var picture_shader: ColorRect
 
+var viewport: SubViewport
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	upper_position = Vector2(get_viewport().get_visible_rect().size / 2) - (self.size / 2)
+
+	position = lower_position
 	target_position = lower_position
+	
+	#var local_node_path = get_tree().current_scene.get_path()
+	#var viewport_path = get_texture().get_viewport_path_in_scene()
+	#print(local_node_path)
+	#print(viewport_path)
+	#viewport = get_node()
+	#print(viewport)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _physics_process(delta: float) -> void:
 	if at_target_position:
 		return
 
@@ -52,7 +64,7 @@ func exit_picture() -> void:
 
 	picture_shader.on_exit_picture()
 
-	await resize(lower_position, Vector2(640, 360), picture_resize_time)
+	await resize(exit_picture_position, Vector2(640, 360), picture_resize_time)
 	
 	set_up(false)
 
@@ -73,5 +85,6 @@ func hide_picture() -> void:
 
 
 func show_picture() -> void:
+	
 	at_target_position = false
 	target_position = upper_position if is_up else lower_position

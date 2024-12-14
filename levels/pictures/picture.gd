@@ -26,9 +26,6 @@ extends Node
 @export var nodes_to_show: Array[Node]
 ## Nodes that will be hidden when picture is active and shown when inactive
 @export var nodes_to_hide: Array[Node]
-## Nodes that will only be hidden once exiting the photo.
-## Useful if something is shown through an interaction within the photo.
-@export var nodes_to_hide_on_exit: Array[Node]
 
 
 @export_group("Audio")
@@ -104,9 +101,11 @@ func _process(_delta: float) -> void:
 	camera.global_position = camera_follow_node.global_position
 	camera.global_rotation = camera_follow_node.global_rotation
 
+
 func set_active(state: bool) -> void:
 	camera.current = state
 	OnEventFunctions.apply_scene_changes(state, nodes_to_show, nodes_to_hide)
+
 
 func get_local_camera_pos() -> Vector3:
 	var camera_pos = camera.position - world_root.position
@@ -133,16 +132,10 @@ func requirements_met(met_requirements: Array[String]) -> bool:
 func enter_picture(head_node: Node3D) -> void:
 	print("Enter")
 	
-	if ambientASP and ambientAS:
-		ambientASP.volume_db = starting_volume
-		ambientASP.stream = ambientAS
-		ambientASP.play()
-		audioTween = create_tween()
-		audioTween.set_ease(Tween.EASE_OUT)
-		audioTween.tween_property(ambientASP, "volume_db", ending_volume, volume_fade_in_time)
-
 	camera_follow_node = head_node
 	inside_picture = true
+
+	fade_in_ambient_audio()
 
 	if not enter_dialogue_triggered and enter_dialogue_clips.size() > 0:
 		start_dialogue_clips()
@@ -155,27 +148,7 @@ func exit_picture() -> void:
 
 	inside_picture = false
 
-	for node in nodes_to_hide_on_exit:
-		if is_instance_valid(node):
-			node.hide()
-			OnEventFunctions.disable_child_colliders(node, true)
-
-	var camera_return_time: float = 0.2
-	var cameraTween = create_tween().set_parallel()
-	cameraTween.tween_property(camera, "global_position", camera_picture_position, camera_return_time)
-	cameraTween.tween_property(camera, "global_rotation", camera_picture_rotation, camera_return_time)
-
-	if ambientASP and ambientAS:
-		if audioTween:
-			audioTween.kill()
-		audioTween = create_tween()
-		audioTween.set_ease(Tween.EASE_IN)
-		audioTween.tween_property(ambientASP, "volume_db", -60, camera_return_time)
-
-	await get_tree().create_timer(camera_return_time).timeout
-
-	if ambientASP and ambientAS:
-		ambientASP.stop()
+	fade_out_ambient_audio()
 
 	if not exit_dialogue_triggered and enter_dialogue_clips.size() > 0:
 		start_dialogue_clips()
@@ -229,3 +202,34 @@ func dialogue_process() -> void:
 	player.set_subtitle(dialogue_clips[dialogue_index].subtitle)
 
 	dialogue_index += 1
+
+
+func fade_in_ambient_audio():
+	if ambientASP and ambientAS:
+		ambientASP.volume_db = starting_volume
+		ambientASP.stream = ambientAS
+		ambientASP.play()
+		audioTween = create_tween()
+		audioTween.set_ease(Tween.EASE_OUT)
+		audioTween.tween_property(ambientASP, "volume_db", ending_volume, volume_fade_in_time)
+
+
+func fade_out_ambient_audio():
+	var ambient_audio_fade_time = 0.2
+
+	if ambientASP and ambientAS:
+		if audioTween:
+			audioTween.kill()
+		audioTween = create_tween()
+		audioTween.set_ease(Tween.EASE_IN)
+		audioTween.tween_property(ambientASP, "volume_db", -60, ambient_audio_fade_time)
+
+	await get_tree().create_timer(ambient_audio_fade_time).timeout
+
+	if ambientASP and ambientAS:
+		ambientASP.stop()
+
+
+func reset_camera_position():
+	camera.global_position = camera_picture_position
+	camera.global_rotation = camera_picture_rotation

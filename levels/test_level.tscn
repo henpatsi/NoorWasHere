@@ -1,4 +1,4 @@
-[gd_scene load_steps=69 format=4 uid="uid://bd5b2sgv2c8v8"]
+[gd_scene load_steps=68 format=4 uid="uid://bd5b2sgv2c8v8"]
 
 [ext_resource type="PackedScene" uid="uid://b25ooshew3q2v" path="res://player/player.tscn" id="1_7d6r5"]
 [ext_resource type="Script" path="res://levels/pictures/picture_handler.gd" id="1_827sh"]
@@ -162,7 +162,6 @@ size = Vector3(0.292725, 0.191528, 0.567993)
 resource_local_to_scene = true
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_31tjn"]
-resource_local_to_scene = true
 material = SubResource("StandardMaterial3D_gxkcw")
 size = Vector2(0.48, 0.27)
 
@@ -207,15 +206,10 @@ _data = {
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vpgwh"]
 albedo_color = Color(0.189372, 0.356995, 0.189985, 1)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_28mam"]
-viewport_path = NodePath("Pictures/2/SubViewport")
-
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p4u6d"]
 resource_local_to_scene = true
-albedo_texture = SubResource("ViewportTexture_28mam")
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_oxyli"]
-resource_local_to_scene = true
 material = SubResource("StandardMaterial3D_p4u6d")
 size = Vector2(0.48, 0.27)
 
@@ -393,7 +387,7 @@ offset_bottom = 123.0
 label_settings = SubResource("LabelSettings_trry7")
 script = ExtResource("9_pp8iw")
 
-[node name="EndSequence" type="Control" parent="UI" node_paths=PackedStringArray("player", "texture_rect", "level")]
+[node name="EndSequence" type="Control" parent="UI" node_paths=PackedStringArray("texture_rect")]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -401,11 +395,9 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("72_keleu")
-player = NodePath("")
 texture_rect = NodePath("TextureRect")
 picture_screenshot_paths = Array[String](["res://assets/textures/screenshots/screenshot_02_backyard.png", "res://assets/textures/screenshots/screenshot_10_Shed.png", "res://assets/textures/screenshots/screenshot_08_FrontDoor.png", "res://assets/textures/screenshots/screenshot_07_NoorRoom.png", "res://assets/textures/screenshots/screenshot_06_TVroom.png", "res://assets/textures/screenshots/screenshot_05_hallwayupstairs.png", "res://assets/textures/screenshots/screenshot_04_livingroom.png", "res://assets/textures/screenshots/screenshot_03_office.png", "res://assets/textures/screenshots/screenshot_09_Forest.png", "res://assets/textures/screenshots/screenshot_01_start.png"])
 show_times = Array[float]([4.2, 3.0, 3.5, 4.0, 4.0, 4.0, 4.0, 4.0, 4.0, 6.0])
-level = NodePath("")
 
 [node name="ColorRect" type="ColorRect" parent="UI/EndSequence"]
 visible = false
@@ -598,7 +590,6 @@ item_name = "other picture"
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="World1/Interactables/PickupPicture"]
 mesh = SubResource("PlaneMesh_31tjn")
-skeleton = NodePath("../../../../../..")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="World1/Interactables/PickupPicture"]
 shape = SubResource("BoxShape3D_riyh3")
@@ -727,7 +718,6 @@ item_name = "otherer picture"
 [node name="MeshInstance3D" type="MeshInstance3D" parent="World2/Interactables/PickupPicture"]
 layers = 1024
 mesh = SubResource("PlaneMesh_oxyli")
-skeleton = NodePath("../../../../../..")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="World2/Interactables/PickupPicture"]
 shape = SubResource("BoxShape3D_riyh3")
