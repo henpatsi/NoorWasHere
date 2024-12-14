@@ -10485,19 +10485,14 @@ transform = Transform3D(1.94707e-07, 0, -1, 0, 1, 0, 1, 0, 1.94707e-07, -1.96481
 mesh = ExtResource("58_66kcy")
 surface_material_override/0 = ExtResource("59_5ykdg")
 
-[node name="LightSwitchCollider" type="StaticBody3D" parent="Past/Interactables/InteractableLightSwitch" node_paths=PackedStringArray("interact_stream_player", "nodes_to_show", "nodes_to_hide", "start_monitoring_list")]
+[node name="LightSwitchCollider" type="StaticBody3D" parent="Past/Interactables/InteractableLightSwitch" node_paths=PackedStringArray("interact_stream_player", "nodes_to_show", "nodes_to_hide")]
 script = ExtResource("59_hynrv")
 item_name = "light switch"
-verb = null
-one_shot = false
 interact_stream_player = NodePath("../AudioStreamPlayer3D")
 interact_audio_stream = ExtResource("60_fuak1")
 dialogue_clips = Array[Resource]([ExtResource("125_by3s6"), ExtResource("126_riop3"), ExtResource("127_4n75o"), ExtResource("128_0xb2g")])
-prevent_teleport = null
-dialogue_delay = null
-nodes_to_show = [NodePath("../../../PictureSpecificObjects/NoorRoomDay"), NodePath("../../../../Present/Interactables/Pictures/front_door_picture")]
+nodes_to_show = [NodePath("../../../PictureSpecificObjects/NoorRoomDay")]
 nodes_to_hide = [NodePath("../../../PictureSpecificObjects/NoorRoomNight")]
-start_monitoring_list = [NodePath("../../../../Present/TriggerVolumes/V07E_NoorRoom")]
 changes_wait_for_dialogue = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Past/Interactables/InteractableLightSwitch/LightSwitchCollider"]
