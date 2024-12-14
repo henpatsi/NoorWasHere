@@ -57,14 +57,14 @@ func exit_picture() -> void:
 	set_up(false)
 
 
-func resize(target_position: Vector2, target_size: Vector2, speed: float) -> void:
+func resize(resize_target_position: Vector2, resize_target_size: Vector2, speed: float) -> void:
 	var zoomTween = create_tween().set_parallel()
-	zoomTween.tween_property(self, "position:x", target_position.x, picture_resize_time)
-	zoomTween.tween_property(self, "position:y", target_position.y, picture_resize_time)
-	zoomTween.tween_property(self, "size:x", target_size.x, picture_resize_time)
-	zoomTween.tween_property(self, "size:y", target_size.y, picture_resize_time)
+	zoomTween.tween_property(self, "position:x", resize_target_position.x, speed)
+	zoomTween.tween_property(self, "position:y", resize_target_position.y, speed)
+	zoomTween.tween_property(self, "size:x", resize_target_size.x, speed)
+	zoomTween.tween_property(self, "size:y", resize_target_size.y, speed)
 
-	await get_tree().create_timer(picture_resize_time).timeout
+	await get_tree().create_timer(speed).timeout
 
 
 func hide_picture() -> void:

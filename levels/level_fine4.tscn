@@ -1551,17 +1551,28 @@ far = 500.0
 script = ExtResource("43_f2no6")
 camera = NodePath("../PictureCameras/Frontyard")
 world_root = NodePath("../../Past")
+match_position_distance = null
+match_rotation_distance = null
+requirements = null
 nodes_to_show = [NodePath("../../Past/PictureSpecificObjects/Frontyard")]
 ambientAS = ExtResource("44_deav4")
 starting_volume = 50.0
 ending_volume = 60.0
 volume_fade_in_time = 1.0
 enter_dialogue_clips = Array[Resource]([ExtResource("101_6uwb1"), ExtResource("102_km3cr"), ExtResource("103_ph14m")])
+exit_dialogue_clips = null
+enter_dialogue_delay = null
+exit_dialogue_delay = null
+prevent_teleport = null
+changes_wait_for_dialogue = null
 
 [node name="BackyardPicture" type="Node" parent="Pictures" node_paths=PackedStringArray("camera", "world_root", "nodes_to_show", "nodes_to_hide")]
 script = ExtResource("43_f2no6")
 camera = NodePath("../PictureCameras/Backyard")
 world_root = NodePath("../../Past")
+match_position_distance = null
+match_rotation_distance = null
+requirements = null
 nodes_to_show = [NodePath("../../Past/PictureSpecificObjects/Backyard")]
 nodes_to_hide = [NodePath("../../Past/ChangingScene/BackDoorClosed")]
 ambientAS = ExtResource("44_deav4")
@@ -1570,11 +1581,18 @@ ending_volume = 60.0
 volume_fade_in_time = 1.0
 enter_dialogue_clips = Array[Resource]([ExtResource("104_u36xg"), ExtResource("105_wycb2")])
 exit_dialogue_clips = Array[Resource]([ExtResource("62_musyg")])
+enter_dialogue_delay = null
+exit_dialogue_delay = null
+prevent_teleport = null
+changes_wait_for_dialogue = null
 
 [node name="OfficePicture" type="Node" parent="Pictures" node_paths=PackedStringArray("camera", "world_root", "nodes_to_show", "nodes_to_hide", "enter_nodes_to_show")]
 script = ExtResource("43_f2no6")
 camera = NodePath("../PictureCameras/Office")
 world_root = NodePath("../../Past")
+match_position_distance = null
+match_rotation_distance = null
+requirements = null
 nodes_to_show = [NodePath("../../Past/PictureSpecificObjects/Office")]
 nodes_to_hide = [NodePath("../../Past/ChangingScene/computer_bioshock_off")]
 ambientAS = ExtResource("44_deav4")
@@ -1583,73 +1601,150 @@ ending_volume = 60.0
 volume_fade_in_time = 1.0
 enter_dialogue_clips = Array[Resource]([ExtResource("106_iig3p"), ExtResource("107_h2hc5"), ExtResource("108_fax2n"), ExtResource("109_hsjgi")])
 exit_dialogue_clips = Array[Resource]([ExtResource("63_1purc"), ExtResource("64_1o75g"), ExtResource("65_ks7fy")])
+enter_dialogue_delay = null
+exit_dialogue_delay = null
+prevent_teleport = null
 enter_nodes_to_show = [NodePath("../../Present/Interactables/Pictures/living_room_picture")]
+changes_wait_for_dialogue = null
 
 [node name="LivingRoomPicture" type="Node" parent="Pictures" node_paths=PackedStringArray("camera", "world_root", "nodes_to_show")]
 script = ExtResource("43_f2no6")
 camera = NodePath("../PictureCameras/LivingRoom")
 world_root = NodePath("../../Past")
+match_position_distance = null
+match_rotation_distance = null
+requirements = null
 nodes_to_show = [NodePath("../../Past/PictureSpecificObjects/LivingRoom")]
 ambientAS = ExtResource("44_deav4")
+starting_volume = null
+ending_volume = null
+volume_fade_in_time = null
 enter_dialogue_clips = Array[Resource]([ExtResource("110_jq8ks"), ExtResource("111_tbb5q"), ExtResource("112_ru1ro"), ExtResource("113_yr2ye")])
 exit_dialogue_clips = Array[Resource]([ExtResource("66_eccg1"), ExtResource("67_5awl8")])
+enter_dialogue_delay = null
+exit_dialogue_delay = null
+prevent_teleport = null
+changes_wait_for_dialogue = null
 
 [node name="HallwayUpstairPicture" type="Node" parent="Pictures" node_paths=PackedStringArray("camera", "world_root", "nodes_to_show")]
 script = ExtResource("43_f2no6")
 camera = NodePath("../PictureCameras/HallwayUpstairs")
 world_root = NodePath("../../Past")
+match_position_distance = null
+match_rotation_distance = null
+requirements = null
 nodes_to_show = [NodePath("../../Past/PictureSpecificObjects/HallwayUpstairs")]
 ambientAS = ExtResource("44_deav4")
+starting_volume = null
+ending_volume = null
+volume_fade_in_time = null
 enter_dialogue_clips = Array[Resource]([ExtResource("114_hn2qc"), ExtResource("115_qb102"), ExtResource("116_wead5")])
 exit_dialogue_clips = Array[Resource]([ExtResource("68_ikkh7"), ExtResource("69_i3quu")])
+enter_dialogue_delay = null
+exit_dialogue_delay = null
+prevent_teleport = null
+changes_wait_for_dialogue = null
 
 [node name="TVPicture" type="Node" parent="Pictures" node_paths=PackedStringArray("camera", "world_root", "nodes_to_show", "nodes_to_hide")]
 script = ExtResource("43_f2no6")
 camera = NodePath("../PictureCameras/TV")
 world_root = NodePath("../../Past")
+match_position_distance = null
+match_rotation_distance = null
 requirements = Array[String](["tv_on_table"])
 nodes_to_show = [NodePath("../../Past/PictureSpecificObjects/TV")]
 nodes_to_hide = [NodePath("../../Past/ChangingScene/NoorDoorClosed"), null]
 ambientAS = ExtResource("44_deav4")
+starting_volume = null
+ending_volume = null
+volume_fade_in_time = null
 enter_dialogue_clips = Array[Resource]([ExtResource("117_ynhr2"), ExtResource("118_2vakk"), ExtResource("119_s05v1"), ExtResource("120_1veon"), ExtResource("121_y7nxl")])
+exit_dialogue_clips = null
+enter_dialogue_delay = null
+exit_dialogue_delay = null
+prevent_teleport = null
+changes_wait_for_dialogue = null
 
 [node name="NoorRoomNightPicture" type="Node" parent="Pictures" node_paths=PackedStringArray("camera", "world_root", "nodes_to_show", "nodes_to_hide", "nodes_to_hide_on_exit", "enter_nodes_to_show")]
 script = ExtResource("43_f2no6")
 camera = NodePath("../PictureCameras/NoorRoomNight")
 world_root = NodePath("../../Past")
+match_position_distance = null
+match_rotation_distance = null
+requirements = null
 nodes_to_show = [NodePath("../../Past/PictureSpecificObjects/NoorRoomNight")]
 nodes_to_hide = [NodePath("../../Past/ChangingScene/NoorDoorClosed")]
 nodes_to_hide_on_exit = [NodePath("../../Past/PictureSpecificObjects/NoorRoomDay")]
 ambientAS = ExtResource("48_4trxr")
+starting_volume = null
+ending_volume = null
+volume_fade_in_time = null
 enter_dialogue_clips = Array[Resource]([ExtResource("122_e5j5p"), ExtResource("123_o6ubq"), ExtResource("124_a80ag")])
+exit_dialogue_clips = null
+enter_dialogue_delay = null
+exit_dialogue_delay = null
+prevent_teleport = null
 enter_nodes_to_show = [NodePath("../../Past/PictureSpecificObjects/NoorRoomNight/TimeCapsuleSpotlight"), NodePath("../../Past/Interactables/MemoryCapsule")]
+changes_wait_for_dialogue = null
 
 [node name="FrontDoorPicture" type="Node" parent="Pictures" node_paths=PackedStringArray("camera", "world_root", "nodes_to_show", "nodes_to_hide")]
 script = ExtResource("43_f2no6")
 camera = NodePath("../PictureCameras/FrontDoor")
 world_root = NodePath("../../Past")
+match_position_distance = null
+match_rotation_distance = null
+requirements = null
 nodes_to_show = [NodePath("../../Past/PictureSpecificObjects/FrontDoor")]
 nodes_to_hide = [NodePath("../../Past/ChangingScene/FrontDoorClosed"), NodePath("../../Past/ChangingScene/NoorWindowClosed")]
 ambientAS = ExtResource("48_4trxr")
+starting_volume = null
+ending_volume = null
+volume_fade_in_time = null
 enter_dialogue_clips = Array[Resource]([ExtResource("129_d5jm5"), ExtResource("130_w1d1f"), ExtResource("131_i1v4b")])
 exit_dialogue_clips = Array[Resource]([ExtResource("72_0hirb"), ExtResource("73_i320y")])
+enter_dialogue_delay = null
+exit_dialogue_delay = null
+prevent_teleport = null
+changes_wait_for_dialogue = null
 
 [node name="ForestPicture" type="Node" parent="Pictures" node_paths=PackedStringArray("camera", "world_root", "nodes_to_show", "enter_nodes_to_show")]
 script = ExtResource("43_f2no6")
 camera = NodePath("../PictureCameras/Forest")
 world_root = NodePath("../../Past")
+match_position_distance = null
+match_rotation_distance = null
+requirements = null
 nodes_to_show = [NodePath("../../Past/PictureSpecificObjects/Forest")]
 ambientAS = ExtResource("48_4trxr")
+starting_volume = null
+ending_volume = null
+volume_fade_in_time = null
 enter_dialogue_clips = Array[Resource]([ExtResource("132_8a3ni"), ExtResource("133_kbvum"), ExtResource("134_3tcnw"), ExtResource("135_gaqj3"), ExtResource("136_7q7c6"), ExtResource("137_m4ln3"), ExtResource("138_1oliw"), ExtResource("139_x7lbl"), ExtResource("140_6prnf"), ExtResource("141_y36l6"), ExtResource("142_yrwe7"), ExtResource("143_f0bcn")])
 exit_dialogue_clips = Array[Resource]([ExtResource("74_tkio4"), ExtResource("75_k53da"), ExtResource("76_eexyy")])
+enter_dialogue_delay = null
+exit_dialogue_delay = null
+prevent_teleport = null
 enter_nodes_to_show = [NodePath("../../Present/Interactables/Pictures/shed_picture")]
+changes_wait_for_dialogue = null
 
 [node name="ShedPicture" type="Node" parent="Pictures" node_paths=PackedStringArray("camera", "world_root", "nodes_to_show")]
 script = ExtResource("43_f2no6")
 camera = NodePath("../PictureCameras/Shed")
 world_root = NodePath("../../Past")
+match_position_distance = null
+match_rotation_distance = null
+requirements = null
 nodes_to_show = [NodePath("../../Past/PictureSpecificObjects/Shed")]
 ambientAS = ExtResource("48_4trxr")
+starting_volume = null
+ending_volume = null
+volume_fade_in_time = null
+enter_dialogue_clips = null
+exit_dialogue_clips = null
+enter_dialogue_delay = null
+exit_dialogue_delay = null
+prevent_teleport = null
+changes_wait_for_dialogue = null
 
 [node name="PictureCameras" type="SubViewport" parent="Pictures"]
 size = Vector2i(1280, 720)
@@ -2005,9 +2100,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.47035e-08, 0.323792, 0.069
 
 [node name="Pictures" type="Node3D" parent="Present/Interactables"]
 
-[node name="forest_picture" type="StaticBody3D" parent="Present/Interactables/Pictures" node_paths=PackedStringArray("interact_stream_player")]
+[node name="forest_picture" type="StaticBody3D" parent="Present/Interactables/Pictures" node_paths=PackedStringArray("picture", "interact_stream_player")]
 transform = Transform3D(0.948335, 0, 0.317272, 0, 1, 0, -0.317272, 0, 0.948335, 0.0597418, 1.29925, -0.186555)
 script = ExtResource("34_i7xol")
+picture = NodePath("../../../../Pictures/ForestPicture")
 item_name = "picture"
 interact_stream_player = NodePath("AudioStreamPlayer3D")
 interact_audio_stream = ExtResource("16_vjb52")
@@ -2021,10 +2117,11 @@ shape = SubResource("BoxShape3D_gk3sw")
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Present/Interactables/Pictures/forest_picture"]
 
-[node name="living_room_picture" type="StaticBody3D" parent="Present/Interactables/Pictures" node_paths=PackedStringArray("interact_stream_player")]
+[node name="living_room_picture" type="StaticBody3D" parent="Present/Interactables/Pictures" node_paths=PackedStringArray("picture", "interact_stream_player")]
 transform = Transform3D(0.753197, 0, -0.657796, 0, 1, 0, 0.657796, 0, 0.753197, 5.75836, 1.28967, -0.242828)
 visible = false
 script = ExtResource("34_i7xol")
+picture = NodePath("../../../../Pictures/LivingRoomPicture")
 item_name = "picture"
 interact_stream_player = NodePath("AudioStreamPlayer3D")
 interact_audio_stream = ExtResource("16_vjb52")
@@ -2039,10 +2136,11 @@ disabled = true
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Present/Interactables/Pictures/living_room_picture"]
 
-[node name="front_door_picture" type="StaticBody3D" parent="Present/Interactables/Pictures" node_paths=PackedStringArray("interact_stream_player")]
+[node name="front_door_picture" type="StaticBody3D" parent="Present/Interactables/Pictures" node_paths=PackedStringArray("picture", "interact_stream_player")]
 transform = Transform3D(0.750757, 0, 0.660579, 0, 1, 0, -0.660579, 0, 0.750757, -2.51358, 4.28754, 1.29963)
 visible = false
 script = ExtResource("34_i7xol")
+picture = NodePath("../../../../Pictures/FrontDoorPicture")
 item_name = "picture"
 interact_stream_player = NodePath("AudioStreamPlayer3D")
 interact_audio_stream = ExtResource("16_vjb52")
@@ -2057,10 +2155,11 @@ disabled = true
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Present/Interactables/Pictures/front_door_picture"]
 
-[node name="shed_picture" type="StaticBody3D" parent="Present/Interactables/Pictures" node_paths=PackedStringArray("interact_stream_player")]
+[node name="shed_picture" type="StaticBody3D" parent="Present/Interactables/Pictures" node_paths=PackedStringArray("picture", "interact_stream_player")]
 transform = Transform3D(-0.957451, 0, 0.288597, 0, 1, 0, -0.288597, 0, -0.957451, 15.8444, 0.0124025, -31.7664)
 visible = false
 script = ExtResource("34_i7xol")
+picture = NodePath("../../../../Pictures/ShedPicture")
 item_name = "picture"
 interact_stream_player = NodePath("AudioStreamPlayer3D")
 interact_audio_stream = ExtResource("16_vjb52")
@@ -10484,10 +10583,13 @@ surface_material_override/0 = ExtResource("59_5ykdg")
 [node name="LightSwitchCollider" type="StaticBody3D" parent="Past/Interactables/InteractableLightSwitch" node_paths=PackedStringArray("interact_stream_player", "nodes_to_show", "nodes_to_hide", "start_monitoring_list")]
 script = ExtResource("59_hynrv")
 item_name = "light switch"
+verb = null
 one_shot = false
 interact_stream_player = NodePath("../AudioStreamPlayer3D")
 interact_audio_stream = ExtResource("60_fuak1")
 dialogue_clips = Array[Resource]([ExtResource("125_by3s6"), ExtResource("126_riop3"), ExtResource("127_4n75o"), ExtResource("128_0xb2g")])
+prevent_teleport = null
+dialogue_delay = null
 nodes_to_show = [NodePath("../../../PictureSpecificObjects/NoorRoomDay"), NodePath("../../../../Present/Interactables/Pictures/front_door_picture")]
 nodes_to_hide = [NodePath("../../../PictureSpecificObjects/NoorRoomNight")]
 start_monitoring_list = [NodePath("../../../../Present/TriggerVolumes/V07E_NoorRoom")]

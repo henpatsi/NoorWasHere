@@ -94,7 +94,7 @@ var audioTween: Tween
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 
 	dialogue_process()
 
@@ -106,7 +106,7 @@ func _process(delta: float) -> void:
 
 func set_active(state: bool) -> void:
 	camera.current = state
-	apply_scene_changes(state, nodes_to_show, nodes_to_hide)
+	OnEventFunctions.apply_scene_changes(state, nodes_to_show, nodes_to_hide)
 
 func get_local_camera_pos() -> Vector3:
 	var camera_pos = camera.position - world_root.position
@@ -147,7 +147,7 @@ func enter_picture(head_node: Node3D) -> void:
 	if not enter_dialogue_triggered and enter_dialogue_clips.size() > 0:
 		start_dialogue_clips()
 	elif not dialogue_playing:
-		apply_scene_changes(true, enter_nodes_to_show, enter_nodes_to_hide, enter_start_monitoring_list)
+		OnEventFunctions.apply_scene_changes(true, enter_nodes_to_show, enter_nodes_to_hide, enter_start_monitoring_list)
 
 
 func exit_picture() -> void:
@@ -158,7 +158,7 @@ func exit_picture() -> void:
 	for node in nodes_to_hide_on_exit:
 		if is_instance_valid(node):
 			node.hide()
-			set_child_collider_states(node, true)
+			OnEventFunctions.disable_child_colliders(node, true)
 
 	var camera_return_time: float = 0.2
 	var cameraTween = create_tween().set_parallel()
@@ -180,7 +180,7 @@ func exit_picture() -> void:
 	if not exit_dialogue_triggered and enter_dialogue_clips.size() > 0:
 		start_dialogue_clips()
 	elif not dialogue_playing:
-		apply_scene_changes(true, exit_nodes_to_show, exit_nodes_to_hide, exit_start_monitoring_list)
+		OnEventFunctions.apply_scene_changes(true, exit_nodes_to_show, exit_nodes_to_hide, exit_start_monitoring_list)
 
 
 func start_dialogue_clips() -> void:
@@ -199,10 +199,10 @@ func start_dialogue_clips() -> void:
 		nodes_to_show_transition = exit_nodes_to_show
 		nodes_to_hide_transition = exit_nodes_to_hide
 
-	handle_teleport_state(false)
+	OnEventFunctions.handle_teleport_state(false, prevent_teleport, player)
 	
 	if not changes_wait_for_dialogue:
-		apply_scene_changes(true, nodes_to_show_transition, nodes_to_hide_transition, start_monitoring_list_transition)
+		OnEventFunctions.apply_scene_changes(true, nodes_to_show_transition, nodes_to_hide_transition, start_monitoring_list_transition)
 	
 	if dialogue_delay > 0:
 		await get_tree().create_timer(dialogue_delay).timeout
@@ -219,8 +219,8 @@ func dialogue_process() -> void:
 		dialogue_playing = false
 		player.set_subtitle("")
 		if changes_wait_for_dialogue:
-			apply_scene_changes(true, nodes_to_show_transition, nodes_to_hide_transition, start_monitoring_list_transition)
-		handle_teleport_state(true)
+			OnEventFunctions.apply_scene_changes(true, nodes_to_show_transition, nodes_to_hide_transition, start_monitoring_list_transition)
+		OnEventFunctions.handle_teleport_state(true, prevent_teleport, player)
 		return
 
 	player.dialogue_audio_player.stream = dialogue_clips[dialogue_index].audio_stream
@@ -229,43 +229,3 @@ func dialogue_process() -> void:
 	player.set_subtitle(dialogue_clips[dialogue_index].subtitle)
 
 	dialogue_index += 1
-
-
-func handle_teleport_state(state: bool) -> void:
-	if prevent_teleport:
-		player.set_picture_handler_input(state)
-
-
-func apply_scene_changes(state: bool, show_nodes, hide_nodes, monitor_areas = null) -> void:
-	if state == true:
-		for node in show_nodes:
-			if is_instance_valid(node):
-				node.show()
-				set_child_collider_states(node, false)
-		for node in hide_nodes:
-			if is_instance_valid(node):
-				node.hide()
-				set_child_collider_states(node, true)
-		if monitor_areas:
-			for area in monitor_areas:
-				if area:
-					area.monitoring = true
-	else:
-		for node in show_nodes:
-			if is_instance_valid(node):
-				node.hide()
-				set_child_collider_states(node, true)
-		for node in hide_nodes:
-			if is_instance_valid(node):
-				node.show()
-				set_child_collider_states(node, false)
-
-
-func set_child_collider_states(node: Node, disabled_state: bool) -> void:
-	for child in node.get_children():
-		if is_instance_valid(child):
-			set_child_collider_states(child, disabled_state)
-	if node is CollisionShape3D:
-		node.disabled = disabled_state
-	if node is CSGBox3D:
-		node.use_collision = not disabled_state
