@@ -10488,10 +10488,11 @@ surface_material_override/0 = ExtResource("59_5ykdg")
 [node name="LightSwitchCollider" type="StaticBody3D" parent="Past/Interactables/InteractableLightSwitch" node_paths=PackedStringArray("interact_stream_player", "nodes_to_show", "nodes_to_hide")]
 script = ExtResource("59_hynrv")
 item_name = "light switch"
+one_shot = false
 interact_stream_player = NodePath("../AudioStreamPlayer3D")
 interact_audio_stream = ExtResource("60_fuak1")
 dialogue_clips = Array[Resource]([ExtResource("125_by3s6"), ExtResource("126_riop3"), ExtResource("127_4n75o"), ExtResource("128_0xb2g")])
-nodes_to_show = [NodePath("../../../PictureSpecificObjects/NoorRoomDay")]
+nodes_to_show = [NodePath("../../../PictureSpecificObjects/NoorRoomDay"), NodePath("../../../../Present/Interactables/Pictures/front_door_picture")]
 nodes_to_hide = [NodePath("../../../PictureSpecificObjects/NoorRoomNight")]
 changes_wait_for_dialogue = false
 
