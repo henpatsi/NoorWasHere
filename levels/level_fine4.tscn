@@ -1738,7 +1738,7 @@ far = 300.0
 [node name="Inventory" type="Node" parent="." node_paths=PackedStringArray("starting_pictures", "pictures_after_tutorial")]
 unique_name_in_owner = true
 script = ExtResource("42_5umw0")
-starting_pictures = [NodePath("../Pictures/FrontyardPicture"), NodePath("../Pictures/NoorRoomNightPicture")]
+starting_pictures = [NodePath("../Pictures/FrontyardPicture")]
 pictures_after_tutorial = [NodePath("../Pictures/BackyardPicture"), NodePath("../Pictures/OfficePicture"), NodePath("../Pictures/HallwayUpstairPicture"), NodePath("../Pictures/TVPicture"), NodePath("../Pictures/NoorRoomNightPicture")]
 
 [node name="PictureHandler" type="Node" parent="." node_paths=PackedStringArray("teleport_shader_rect")]
