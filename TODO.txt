@@ -1,16 +1,3 @@
-exit into obstacle unstuck
-	- works automatically but can sometimes go through walls you should not
-	- can get stuck under stair obstacle, maybe just make certain zones no exit zones
-
-all pictures about
-
-fov -> 65 or 60, also past cameras
-
-
-
-
-try make screenshot work
-
 uncrouch only if space
 
 footsteps based on surface

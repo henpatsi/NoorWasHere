@@ -1,18 +1,11 @@
 extends Node
 
 @export_category("Settings")
-## The speed at which a picture moves to/from the inspect position.
-@export var inspect_speed: float = 10
-## The speed at which a picture moves when it is swapped
-@export var swap_speed: float = 5
-## The position of the picture when not being inspected
-@export var picture_lower_position: Vector2 = Vector2(320, 570)
-## The position of the picture when not active
-@export var picture_inventory_position: Vector2 = Vector2(1280, 2280)
 ## Strength of the lerp to align photo when almost aligned
 @export var align_lerp_strength: float = 2
 ## Rect containing shader to use when teleporting into picture
 @export var teleport_shader_rect: ColorRect
+@export var picture_swap_time: float = 0.5
 
 @export_category("Audio")
 @onready var transition_audio_player: AudioStreamPlayer3D = $"TransitionAudioPlayer"
@@ -21,12 +14,11 @@ extends Node
 @export var transition_out_audio_clip: AudioStream
 @export var swap_picture_audio: AudioStream
 
-var picture_upper_position: Vector2
-
 var picture_index: int = 0
+var entered_picture
 var entered_picture_index_array: Array[int] = [0, 0, 0]
-var current_picture: TextureRect
-var current_picture_array: Array[TextureRect]
+var current_picture: Node
+var current_picture_array: Array[Node]
 @onready var inventory: Node = %Inventory
 
 var picture_requirements_met: Array[String]
@@ -34,12 +26,12 @@ var picture_requirements_met: Array[String]
 var up_position: bool = false
 var inspecting: bool = false
 var aligned: bool = false
-var picture_depth: float = 0
+var picture_depth: int = 0
 
 var player_target_position: Vector3
 var player_target_rotation: Vector3
 
-var input_blockers: float = 0
+var input_blockers: int = 0
 
 @onready var crosshair: ColorRect = $"../UI/Crosshair"
 @onready var interact_label: Label = $"../UI/InteractLabel"
@@ -49,24 +41,12 @@ var input_blockers: float = 0
 @onready var head_node: Node3D = $"../Player/HeadNode"
 
 var exit_area_tester: PackedScene = preload("res://levels/areas/exit_zone_tester.tscn")
-var entered_picture
+
+@onready var picture_rect = $PictureRect
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	for picture in inventory.get_pictures(picture_depth):
-		if not picture:
-			continue
-		picture.set_target_position(picture_inventory_position, 100)
-		picture.set_active(false)
-		picture.show()
-
 	initialize_picture_array(inventory.get_pictures(picture_depth))
-
-	if current_picture:
-		current_picture.set_target_position(picture_lower_position, inspect_speed)
-		picture_upper_position = Vector2(get_viewport().get_visible_rect().size / 2) - (current_picture.size / 2)
-	else: # Should not be empty at start, but just in case
-		picture_upper_position = Vector2(320, 180)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -74,7 +54,7 @@ func _process(delta: float) -> void:
 	if not current_picture:
 		return
 
-	if up_position and current_picture.at_target_position:
+	if up_position and picture_rect.at_target_position:
 		inspecting = true
 
 	if inspecting and current_picture.player_in_correct_position(head_node):
@@ -87,7 +67,7 @@ func _process(delta: float) -> void:
 		aligned = false
 
 
-func initialize_picture_array(array: Array[TextureRect]) -> void:
+func initialize_picture_array(array: Array[Node]) -> void:
 	current_picture_array = array
 
 	if current_picture_array.size() != 0:
@@ -98,14 +78,12 @@ func initialize_picture_array(array: Array[TextureRect]) -> void:
 		current_picture = null
 
 
-func set_input_state(state: bool, force_down: bool = true) -> void:
+func set_input_state(state: bool) -> void:
 	if state == false:
 		input_blockers += 1
 	else:
 		input_blockers -= 1
 	print("Picture input blockers: " + str(input_blockers))
-	if input_blockers > 0 and up_position and force_down:
-		toggle_inspect()
 
 
 func _input(event: InputEvent) -> void:
@@ -152,42 +130,58 @@ func _input(event: InputEvent) -> void:
 	input_blockers -= 1
 
 
-func toggle_inspect() -> void:
-	up_position = not up_position
+func set_inspect(state: bool) -> void:
+	up_position = state
 
 	if not up_position:
 		inspecting = false
 		crosshair.show()
 		player.interact_enabled = true
-		current_picture.set_target_position(picture_lower_position, inspect_speed)
 	else:
 		crosshair.hide()
 		player.interact_enabled = false
-		current_picture.set_target_position(picture_upper_position, inspect_speed)
+
+
+func toggle_inspect() -> void:
+	print("Toggling inspect")
+	var state = not up_position
+	set_inspect(state)
+	picture_rect.set_up(state)
 
 
 func enter_picture() -> void:
 	print("Entering picture")
 
+	set_input_state(false)
+	player.process_mode = Node.PROCESS_MODE_DISABLED
+
 	if transition_audio_player and transition_in_audio_clip:
 		transition_audio_player.stream = transition_in_audio_clip
 		transition_audio_player.play()
 
+	if teleport_shader_rect:
+		teleport_shader_rect.on_enter_picture()
+
+	await picture_rect.enter_picture()
+
+	player.global_position = current_picture.camera.global_position
+	player.position.y -= head_node.position.y
+	player.rotation.y = current_picture.camera.global_rotation.y
+	head_node.rotation.x = current_picture.camera.global_rotation.x
+
+	current_picture.enter_picture(head_node)
+
+	entered_picture = current_picture
 	entered_picture_index_array[picture_depth] = picture_index
 	picture_index = 0
 	picture_depth += 1
-	current_picture.enter_picture(head_node, self)
-
-	entered_picture = current_picture
-
 	initialize_picture_array(inventory.get_pictures(picture_depth))
 
-	up_position = false
-	crosshair.show()
-	player.interact_enabled = true
-	
-	if teleport_shader_rect:
-		teleport_shader_rect.on_enter_picture()
+	set_inspect(false)
+
+	player.process_mode = Node.PROCESS_MODE_PAUSABLE
+	set_input_state(true)	
+
 
 func exit_picture() -> void:
 	if picture_depth == 0:
@@ -199,26 +193,32 @@ func exit_picture() -> void:
 
 	print("Exiting picture")
 
-	if current_picture:
-		current_picture.set_target_position(picture_inventory_position, 100)
-	inventory.clear_pictures(picture_depth)
-
-	picture_depth -= 1
+	set_input_state(false)
+	player.process_mode = Node.PROCESS_MODE_DISABLED
 
 	if transition_audio_player and transition_out_audio_clip:
 		transition_audio_player.stream = transition_out_audio_clip
 		transition_audio_player.play()
-
-	initialize_picture_array(inventory.get_pictures(picture_depth))
-
-	current_picture.exit_picture(self)
 	
-	up_position = true
-	crosshair.hide()
-	player.interact_enabled = false
-
 	if teleport_shader_rect:
 		teleport_shader_rect.on_exit_picture()
+
+	inventory.clear_pictures(picture_depth)
+	picture_depth -= 1
+	initialize_picture_array(inventory.get_pictures(picture_depth))
+
+	current_picture.exit_picture()
+
+	player.global_position -= current_picture.world_root.position
+
+	await picture_rect.exit_picture()
+
+	current_picture.reset_camera_position()
+
+	set_inspect(false)
+
+	player.process_mode = Node.PROCESS_MODE_PAUSABLE
+	set_input_state(true)
 
 
 func test_if_exit_possible() -> bool:
@@ -226,7 +226,6 @@ func test_if_exit_possible() -> bool:
 	add_child(exit_area_tester_instance)
 	exit_area_tester_instance.global_position = player.global_position
 	exit_area_tester_instance.global_position -= entered_picture.world_root.position
-	print(exit_area_tester_instance.global_position)
 
 	await get_tree().create_timer(0.1).timeout
 
@@ -240,10 +239,8 @@ func test_if_exit_possible() -> bool:
 	return true
 
 
-func on_picture_picked_up(picture: TextureRect) -> void:
+func on_picture_picked_up(picture: Node) -> void:
 	current_picture_array.append(picture)
-	picture.position = picture_inventory_position
-	picture.show()
 	set_active_picture(current_picture_array.size() - 1)
 	if input_blockers == 0:
 		toggle_inspect()
@@ -263,18 +260,23 @@ func swap_picture(target_index: int) -> void:
 
 func set_active_picture(index: int) -> void:
 	print("Setting active picture")
+	
+	set_input_state(false)
+
+	picture_rect.hide_picture()
+
 	inspecting = false
 
+	await get_tree().create_timer(picture_swap_time).timeout
+
 	if current_picture:
-		current_picture.set_target_position(picture_inventory_position, swap_speed)
 		current_picture.set_active(false)
 
 	current_picture = inventory.get_picture(current_picture_array, index)
 	current_picture.set_active(true)
 
-	picture_index = index
+	picture_index = inventory.get_index_in_range(current_picture_array, index)
 
-	if up_position:
-		current_picture.set_target_position(picture_upper_position, swap_speed * 2)
-	else:
-		current_picture.set_target_position(picture_lower_position, swap_speed * 2)
+	picture_rect.show_picture()
+
+	set_input_state(true)

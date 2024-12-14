@@ -14,4 +14,4 @@ func _on_body_entered(body: Node3D) -> void:
 	if not dialogue_triggered and dialogue_clips.size() > 0:
 		start_dialogue_clips()
 	else:
-		apply_scene_changes()
+		OnEventFunctions.apply_scene_changes(true, nodes_to_show, nodes_to_hide, start_monitoring_list)

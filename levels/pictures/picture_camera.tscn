@@ -1,0 +1,16 @@
+[gd_scene load_steps=5 format=3 uid="uid://dssviibe3ck30"]
+
+[ext_resource type="Environment" uid="uid://b55jay45p5h4g" path="res://assets/WorldEnvironments/Env_Past.tres" id="1_8rlll"]
+[ext_resource type="CameraAttributesPractical" uid="uid://bx6pxibpr4a2p" path="res://assets/post process/CameraAttribute_BlurDefault.tres" id="2_08gm3"]
+[ext_resource type="PackedScene" uid="uid://cfy4e22geu17o" path="res://levels/pictures/past_shader.tscn" id="3_o647b"]
+[ext_resource type="PackedScene" uid="uid://d22ogqllffeom" path="res://levels/camera_ref.tscn" id="4_qu51j"]
+
+[node name="PictureCamera" type="Camera3D"]
+environment = ExtResource("1_8rlll")
+attributes = ExtResource("2_08gm3")
+fov = 65.0
+
+[node name="Shader" parent="." instance=ExtResource("3_o647b")]
+
+[node name="ColorRect" parent="." instance=ExtResource("4_qu51j")]
+visible = false

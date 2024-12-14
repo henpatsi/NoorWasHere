@@ -1,7 +1,7 @@
 extends Interactable
 
 @export_category("Settings")
-@export var picture: TextureRect
+@export var picture: Node
 @export var destroy_on_pickup: bool = true
 
 @onready var collider: CollisionShape3D = $CollisionShape3D
