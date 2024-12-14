@@ -22,12 +22,11 @@ func _ready() -> void:
 	position = lower_position
 	target_position = lower_position
 	
-	#var local_node_path = get_tree().current_scene.get_path()
-	#var viewport_path = get_texture().get_viewport_path_in_scene()
-	#print(local_node_path)
-	#print(viewport_path)
-	#viewport = get_node()
-	#print(viewport)
+	var viewport_path = get_texture().get_viewport_path_in_scene() as String
+	var viewport_local_path = get_tree().current_scene.get_path() as String
+	viewport_local_path = viewport_local_path.path_join(viewport_path)
+	viewport = get_node(viewport_local_path)
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
@@ -85,6 +84,11 @@ func hide_picture() -> void:
 
 
 func show_picture() -> void:
-	
 	at_target_position = false
+
+	viewport.render_target_update_mode = SubViewport.UPDATE_ALWAYS
+	await get_tree().create_timer(0.1).timeout
+	viewport.render_target_update_mode = SubViewport.UPDATE_WHEN_VISIBLE
+	
 	target_position = upper_position if is_up else lower_position
+
